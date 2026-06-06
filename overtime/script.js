@@ -3,6 +3,9 @@ const hoursInput = document.getElementById("hours");
 const thresholdInput = document.getElementById("threshold");
 const multiplierInput = document.getElementById("multiplier");
 
+const regularHoursEl = document.getElementById("regularHours");
+const overtimeHoursEl = document.getElementById("overtimeHours");
+
 const regularPayEl = document.getElementById("regularPay");
 const overtimePayEl = document.getElementById("overtimePay");
 const totalPayEl = document.getElementById("totalPay");
@@ -17,20 +20,17 @@ function money(amount) {
 }
 
 function calculateOvertime() {
+
   const rate = Number(rateInput.value);
   const hours = Number(hoursInput.value);
   const threshold = Number(thresholdInput.value);
   const multiplier = Number(multiplierInput.value);
 
-  if (rate <= 0 || hours <= 0 || threshold <= 0 || multiplier <= 0) {
-    regularPayEl.textContent = "$0.00";
-    overtimePayEl.textContent = "$0.00";
-    totalPayEl.textContent = "$0.00";
-    return;
-  }
-
   const regularHours = Math.min(hours, threshold);
   const overtimeHours = Math.max(hours - threshold, 0);
+
+  regularHoursEl.textContent = regularHours.toFixed(2);
+  overtimeHoursEl.textContent = overtimeHours.toFixed(2);
 
   const regularPay = regularHours * rate;
   const overtimePay = overtimeHours * rate * multiplier;
@@ -42,3 +42,8 @@ function calculateOvertime() {
 }
 
 button.addEventListener("click", calculateOvertime);
+
+rateInput.addEventListener("input", calculateOvertime);
+hoursInput.addEventListener("input", calculateOvertime);
+thresholdInput.addEventListener("input", calculateOvertime);
+multiplierInput.addEventListener("input", calculateOvertime);
