@@ -66,7 +66,7 @@ const adjustmentModalMessageEl = document.getElementById("adjustmentModalMessage
 const saveAdjustmentButton = document.getElementById("saveAdjustment");
 const cancelAdjustmentButton = document.getElementById("cancelAdjustment");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV0733";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV080";
 const LEGACY_STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
 
 let taxes = [];
@@ -153,6 +153,82 @@ function getThreshold() {
   return getDefaultThreshold();
 }
 
+
+function readSavedData() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+
+  if (!saved) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(saved);
+  } catch (error) {
+    localStorage.removeItem(STORAGE_KEY);
+    return null;
+  }
+}
+
+function getCollapseStates() {
+  const states = {
+    cards: [],
+    results: []
+  };
+
+  document.querySelectorAll("[data-collapse-card]").forEach((card, index) => {
+    states.cards[index] = card.classList.contains("is-collapsed");
+  });
+
+  document.querySelectorAll("[data-result-section]").forEach((section, index) => {
+    states.results[index] = section.classList.contains("is-result-collapsed");
+  });
+
+  return states;
+}
+
+function applyCollapseStates(collapseStates) {
+  if (!collapseStates) {
+    return;
+  }
+
+  if (Array.isArray(collapseStates.cards)) {
+    document.querySelectorAll("[data-collapse-card]").forEach((card, index) => {
+      if (collapseStates.cards[index]) {
+        card.classList.add("is-collapsed");
+      } else {
+        card.classList.remove("is-collapsed");
+      }
+
+      const button = card.querySelector(".collapse-toggle");
+
+      if (button) {
+        const isCollapsed = card.classList.contains("is-collapsed");
+        button.textContent = isCollapsed ? "Show" : "Hide";
+        button.setAttribute("aria-expanded", String(!isCollapsed));
+      }
+    });
+  }
+
+  if (Array.isArray(collapseStates.results)) {
+    document.querySelectorAll("[data-result-section]").forEach((section, index) => {
+      if (collapseStates.results[index]) {
+        section.classList.add("is-result-collapsed");
+      } else {
+        section.classList.remove("is-result-collapsed");
+      }
+
+      const button = section.querySelector(".result-collapse-toggle");
+
+      if (button) {
+        const isCollapsed = section.classList.contains("is-result-collapsed");
+        button.textContent = isCollapsed ? "Show" : "Hide";
+        button.setAttribute("aria-expanded", String(!isCollapsed));
+      }
+    });
+  }
+}
+
+
 function getSavedState() {
   return {
     rate: rateInput.value,
@@ -170,7 +246,8 @@ function getSavedState() {
     customThreshold: customThresholdInput.value,
     taxes,
     deductions,
-    otherAdjustments
+    otherAdjustments,
+    collapseStates: getCollapseStates()
   };
 }
 
@@ -184,7 +261,7 @@ function saveSettings(showMessage = false) {
 
     if (showMessage) {
       messageEl.classList.remove("error");
-      messageEl.textContent = "Settings saved. They will load automatically next time you visit.";
+      messageEl.textContent = "Settings and layout saved. They will load automatically next time you visit.";
     }
   } catch (error) {
     if (showMessage) {
@@ -240,6 +317,16 @@ function clearSavedSettings() {
   localStorage.removeItem(STORAGE_KEY);
   localStorage.removeItem(LEGACY_STORAGE_KEY);
 }
+
+
+function clearSavedProfile() {
+  clearSavedSettings();
+
+  messageEl.classList.remove("error");
+  messageEl.textContent =
+    "Saved profile cleared. Current values will stay until you leave or reset.";
+}
+
 
 function updateThresholdUI() {
   const threshold = getThreshold();
@@ -774,6 +861,7 @@ function setupMobileCollapsibleCards() {
     button.addEventListener("click", () => {
       card.classList.toggle("is-collapsed");
       updateButton();
+      saveSettings();
     });
   });
 }
@@ -805,6 +893,7 @@ function setupMobileResultSections() {
     button.addEventListener("click", () => {
       section.classList.toggle("is-result-collapsed");
       updateButton();
+      saveSettings();
     });
   });
 }
@@ -815,6 +904,7 @@ document.getElementById("saveSettings").addEventListener("click", () => saveSett
 document.getElementById("example").addEventListener("click", loadExample);
 document.getElementById("reset").addEventListener("click", clearCalculator);
 document.getElementById("clearAdjustments").addEventListener("click", clearAdjustments);
+document.getElementById("clearSavedProfile").addEventListener("click", clearSavedProfile);
 
 document.getElementById("addTax").addEventListener("click", () => openAdjustmentModal("tax"));
 document.getElementById("addTaxInline").addEventListener("click", () => openAdjustmentModal("tax"));
@@ -887,11 +977,19 @@ const loadedSavedSettings = loadSavedSettings();
 setupMobileCollapsibleCards();
 setupMobileResultSections();
 
+const savedDataForLayout = readSavedData();
+
+if (savedDataForLayout && savedDataForLayout.collapseStates) {
+  applyCollapseStates(savedDataForLayout.collapseStates);
+}
+
 updateThresholdUI();
 renderAdjustments();
 
 if (loadedSavedSettings) {
   calculateOvertime();
+  messageEl.classList.remove("error");
+  messageEl.textContent = "Welcome back. Previous values and layout restored.";
 } else {
   resetResults();
 }

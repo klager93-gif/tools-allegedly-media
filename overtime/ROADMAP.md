@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.7.3.3**
+**v0.8.0**
 
 ---
 
@@ -41,6 +41,7 @@
 | v0.7.3.1 | Mobile Layout Refactor |
 | v0.7.3.2 | Mobile Results Refactor |
 | v0.7.3.3 | Mobile Hero Polish |
+| v0.8.0 | Personalized Experience |
 | v0.6.4 | Custom Modals & Manual Save |
 
 ---
@@ -48,7 +49,8 @@
 # Upcoming Versions
 
 
-## v0.8
+
+## v0.8.1
 
 ### Theme
 

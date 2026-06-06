@@ -117,6 +117,9 @@ Currency changes display only. It does not convert exchange rates or change tax 
 - Mobile collapsible results sections.
 - Mobile hero polish.
 - Centered mobile branding.
+- Saved layout state.
+- Welcome-back restoration message.
+- Clear saved profile control.
 - Compact mobile summary card.
 
 ---
@@ -248,11 +251,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.7.3.3
+v0.8.0
 
 ### Theme
 
-Mobile Hero Polish
+Personalized Experience
 
 ### Status
 

@@ -4,6 +4,28 @@
 
 ---
 
+## Version 0.8.0
+
+**Date:** 2026-06-06  
+**Time:** 14:45 UTC
+
+### Theme
+
+Personalized Experience
+
+### Changes
+
+- Added saved layout state.
+- Mobile card open and closed states are now remembered.
+- Mobile results section open and closed states are now remembered.
+- Added welcome-back restoration message.
+- Added Clear Saved Profile control.
+- Updated manual save messaging to include layout.
+- Updated local storage profile version.
+- Updated documentation for v0.8.0.
+
+---
+
 ## Version 0.7.3.3
 
 **Date:** 2026-06-06  
