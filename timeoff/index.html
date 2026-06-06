@@ -53,7 +53,7 @@ Time Off Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.1.1">
+  href="style.css?v=0.1.2">
 
 </head>
 <body>
@@ -79,20 +79,20 @@ Time Off Calculator | Signal Labs
 <div class="section-title">
   <div class="step-badge green">1</div>
   <div>
-    <h2>PTO Balance</h2>
-    <p>Enter your current PTO balance and how quickly you earn new time.</p>
+    <h2>Time Off Balance</h2>
+    <p>Enter your current balance and how quickly you earn new time.</p>
   </div>
 </div>
 
 <div class="form-grid">
 
 <label>
-  <span>Current PTO Balance</span>
+  <span>Current Time Off Balance</span>
   <input id="currentBalance" type="number" placeholder="40" step="0.01">
 </label>
 
 <label>
-  <span>PTO Earned Per Pay Period</span>
+  <span>Time Earned Per Pay Period</span>
   <input id="accrualPerPeriod" type="number" placeholder="6.15" step="0.01">
 </label>
 
@@ -107,7 +107,7 @@ Time Off Calculator | Signal Labs
 </label>
 
 <label>
-  <span>PTO Cap <span>(Optional)</span></span>
+  <span>Balance Cap<br><small>(Optional)</small></span>
   <input id="ptoCap" type="number" placeholder="240" step="0.01">
 </label>
 
@@ -122,7 +122,7 @@ Time Off Calculator | Signal Labs
   <div class="step-badge blue">2</div>
   <div>
     <h2>Projection</h2>
-    <p>Choose a future date and planned PTO usage.</p>
+    <p>Choose a future date and planned time-off usage.</p>
   </div>
 </div>
 
@@ -139,12 +139,12 @@ Time Off Calculator | Signal Labs
 </label>
 
 <label>
-  <span>Average PTO Used Per Pay Period <span>(Optional)</span></span>
+  <span>Average Time Used<br><small>Per Pay Period (Optional)</small></span>
   <input id="averageUsage" type="number" placeholder="0" step="0.01">
 </label>
 
 <label>
-  <span>Hours Per Day <span>(Optional)</span></span>
+  <span>Hours Per Day<br><small>(Optional)</small></span>
   <input id="hoursPerDay" type="number" placeholder="8" step="0.01">
 </label>
 
@@ -156,7 +156,7 @@ Time Off Calculator | Signal Labs
   id="calculate"
   class="primary-action"
   type="button">
-  Calculate PTO
+  Calculate Time Off
 </button>
 
 <button
@@ -194,25 +194,25 @@ Time Off Calculator | Signal Labs
 
 <div class="results-section">
 
-<h3>PTO Projection</h3>
+<h3>Time Off Projection</h3>
 
 <div class="result-row total">
-  <span>Projected PTO Balance</span>
+  <span>Projected Time Off Balance</span>
   <strong id="projectedBalance">0.00 hrs</strong>
 </div>
 
 <div class="result-row">
-  <span>Projected PTO Days</span>
+  <span>Projected Days</span>
   <strong id="projectedDays">0.00 days</strong>
 </div>
 
 <div class="result-row">
-  <span>PTO Earned</span>
+  <span>Time Earned</span>
   <strong id="ptoEarned">0.00 hrs</strong>
 </div>
 
 <div class="result-row">
-  <span>PTO Used</span>
+  <span>Time Used</span>
   <strong id="ptoUsed">0.00 hrs</strong>
 </div>
 
@@ -244,7 +244,7 @@ Time Off Calculator | Signal Labs
 <h3>Cap Status</h3>
 
 <div class="result-row">
-  <span>PTO Cap</span>
+  <span>Balance Cap</span>
   <strong id="capResult">Not set</strong>
 </div>
 
@@ -268,12 +268,12 @@ Time Off Calculator | Signal Labs
 
   <p>
     Build:
-    v0.1.1
+    v0.1.2
   </p>
 
   <p>
     Theme:
-    Rebrand
+    Label & Layout Polish
   </p>
 
   <p>
@@ -303,7 +303,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Calculator · v0.1.1
+  Signal Labs · Time Off Calculator · v0.1.2
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -339,7 +339,7 @@ Loading...
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.1.1"></script>
+<script src="script.js?v=0.1.2"></script>
 
 </body>
 </html>

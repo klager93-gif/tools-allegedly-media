@@ -47,6 +47,8 @@ It is intended for planning vacations, checking projected balances, estimating t
 - Changelog popup.
 - Roadmap popup.
 - Mobile support.
+- Label polish.
+- Improved desktop spacing.
 
 ---
 
@@ -119,11 +121,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.1.1
+v0.1.2
 
 ### Theme
 
-Rebrand
+Label & Layout Polish
 
 ### Status
 

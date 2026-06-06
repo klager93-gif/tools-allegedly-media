@@ -316,3 +316,45 @@ select:focus {
   }
 
 }
+
+
+/*
+--------------------------------
+v0.1.2 Label & Layout Polish
+--------------------------------
+*/
+
+label small {
+  color: #888;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.form-grid {
+  align-items: start;
+}
+
+.button-row {
+  align-items: stretch;
+}
+
+.button-row button {
+  min-width: 0;
+  white-space: nowrap;
+}
+
+@media (min-width: 1051px) {
+
+  .dashboard-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(430px, .95fr);
+  }
+
+}
+
+@media (max-width: 700px) {
+
+  label small {
+    font-size: 12px;
+  }
+
+}

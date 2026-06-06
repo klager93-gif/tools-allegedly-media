@@ -4,6 +4,27 @@
 
 ---
 
+## Version 0.1.2
+
+**Date:** 2026-06-06  
+**Time:** 16:15 UTC
+
+### Theme
+
+Label & Layout Polish
+
+### Changes
+
+- Finished the Time Off Calculator rebrand across visible labels.
+- Replaced remaining PTO wording in the main interface.
+- Changed Calculate PTO to Calculate Time Off.
+- Updated result labels to use Time Off wording.
+- Improved long optional label wrapping.
+- Improved desktop layout spacing.
+- Updated documentation for v0.1.2.
+
+---
+
 ## Version 0.1.1
 
 **Date:** 2026-06-06  

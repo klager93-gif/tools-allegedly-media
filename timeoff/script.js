@@ -122,7 +122,7 @@ function calculatePto() {
 
   if (currentBalance < 0 || accrualPerPeriod < 0 || ptoCap < 0 || plannedUsage < 0 || averageUsage < 0 || hoursPerDay <= 0) {
     resetResults();
-    messageEl.textContent = "Enter valid positive values. PTO hours cannot be negative.";
+    messageEl.textContent = "Enter valid positive values. Time off hours cannot be negative.";
     messageEl.classList.add("error");
     return;
   }
@@ -160,7 +160,7 @@ function calculatePto() {
   const projectedDays = projectedBalance / hoursPerDay;
 
   let capDate = "--";
-  let capStatus = "No PTO cap set.";
+  let capStatus = "No balance cap set.";
   let hoursUntilCap = "--";
 
   if (ptoCap > 0) {
@@ -201,7 +201,7 @@ function calculatePto() {
   capStatusEl.textContent = capStatus;
 
   generatedTimeEl.textContent = getCurrentUtcTime();
-  messageEl.textContent = "PTO projection updated.";
+  messageEl.textContent = "Time off projection updated.";
 }
 
 function loadExample() {
