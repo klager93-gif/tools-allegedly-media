@@ -1,62 +1,48 @@
-=====================================================
-Signal Labs Overtime Calculator
-ROADMAP
-=======
+# Signal Labs Overtime Calculator
 
-Last Updated:
+# ROADMAP
+
+---
+
+## Last Updated
+
 2026-06-06
-09:00 UTC
+10:00 UTC
 
-Current Version:
-v0.6.2
+## Current Version
 
-=====================================================
-Completed Versions
-==================
+**v0.6.3**
 
-v0.1
-Initial Prototype
+---
 
-v0.2
-UI Refresh
+# Completed Versions
 
-v0.3
-Signal Labs Branding
+| Version | Theme                              |
+| ------- | ---------------------------------- |
+| v0.1    | Initial Prototype                  |
+| v0.2    | UI Refresh                         |
+| v0.3    | Signal Labs Branding               |
+| v0.4    | Quality of Life                    |
+| v0.5    | Enhanced Results                   |
+| v0.5.1  | Project Information & Transparency |
+| v0.5.2  | Shared Signal Labs Assets          |
+| v0.5.3  | Polish & Foundation                |
+| v0.6    | Take-Home Pay                      |
+| v0.6.1  | Dynamic Adjustment UI              |
+| v0.6.2  | Smart Hours                        |
+| v0.6.3  | Stability & Saved Settings         |
 
-v0.4
-Quality of Life
+---
 
-v0.5
-Enhanced Results
+# Upcoming Versions
 
-v0.5.1
-Project Information & Transparency
+## v0.7
 
-v0.5.2
-Shared Signal Labs Assets
+### Theme
 
-v0.5.3
-Polish & Foundation
-
-v0.6
-Take-Home Pay
-
-v0.6.1
-Dynamic Adjustment UI
-
-v0.6.2
-Smart Hours
-
-=====================================================
-Upcoming Versions
-=================
-
-v0.7
-
-Theme:
 Advanced Pay Features
 
-Planned Features:
+### Planned Features
 
 * Shift differential.
 * Night shift bonus.
@@ -70,12 +56,13 @@ Planned Features:
 
 ---
 
-v0.8
+## v0.8
 
-Theme:
+### Theme
+
 Goal Mode
 
-Planned Features:
+### Planned Features
 
 * Reverse calculations.
 * Income goals.
@@ -87,12 +74,13 @@ Planned Features:
 
 ---
 
-v0.9
+## v0.9
 
-Theme:
+### Theme
+
 Share & Export
 
-Planned Features:
+### Planned Features
 
 * Print support.
 * Copy results.
@@ -102,12 +90,13 @@ Planned Features:
 
 ---
 
-v1.0
+## v1.0
 
-Theme:
+### Theme
+
 Public Release
 
-Planned Features:
+### Planned Features
 
 * Final visual polish.
 * Accessibility review.
@@ -119,12 +108,13 @@ Planned Features:
 
 ---
 
-v1.1
+## v1.1
 
-Theme:
+### Theme
+
 Appearance & Accessibility
 
-Planned Features:
+### Planned Features
 
 * Follow system theme.
 * Dark mode.
@@ -135,13 +125,11 @@ Planned Features:
 * Reduced motion support.
 * Future color packs.
 
-=====================================================
-Future Releases Unknown
-=======================
+---
 
-Platform Expansion
+# Future Ideas
 
-Potential Features:
+## Platform Expansion
 
 * Progressive Web App support.
 * Installable home screen app.
@@ -153,9 +141,7 @@ Potential Features:
 
 ---
 
-Financial Tools
-
-Potential Features:
+## Financial Tools
 
 * Dispatcher schedules.
 * 24/48 schedules.
@@ -170,9 +156,7 @@ Potential Features:
 
 ---
 
-User Experience
-
-Potential Features:
+## User Experience
 
 * Charts and graphs.
 * Saved profiles.
@@ -181,9 +165,6 @@ Potential Features:
 * Additional themes.
 * Additional calculators.
 
-=====================================================
+---
 
-Additional updates, improvements, and entirely new
-features are always possible.
-
-=====================================================
+Additional updates, improvements, and entirely new features are always possible.

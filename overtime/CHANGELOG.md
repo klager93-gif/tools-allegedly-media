@@ -1,16 +1,49 @@
-=====================================================
-Signal Labs Overtime Calculator
-CHANGELOG
-=========
+# Signal Labs Overtime Calculator
 
-Version: 0.6.2
-Date: 2026-06-06
-Time: 09:00 UTC
+# CHANGELOG
 
-Theme:
+---
+
+## Version 0.6.3
+
+**Date:** 2026-06-06
+**Time:** 10:00 UTC
+
+### Theme
+
+Stability & Saved Settings
+
+### Changes
+
+* Added automatic saved settings.
+* Added local storage support.
+* Calculator now remembers values between visits.
+* Added support for remembering taxes.
+* Added support for remembering deductions.
+* Added support for remembering other adjustments.
+* Added support for remembering custom overtime settings.
+* Added automatic restoration of previous values.
+* Improved number formatting.
+* Added validation for overtime multiplier values below 1.
+* Improved validation messaging.
+* Improved mobile spacing and responsiveness.
+* Converted project documentation from TXT files to Markdown files.
+* Replaced `CHANGELOG.txt` with `CHANGELOG.md`.
+* Replaced `ROADMAP.txt` with `ROADMAP.md`.
+* Replaced `README.txt` with `README.md`.
+
+---
+
+## Version 0.6.2
+
+**Date:** 2026-06-06
+**Time:** 09:00 UTC
+
+### Theme
+
 Smart Hours
 
-Changes:
+### Changes
 
 * Replaced "Overtime After" input with Pay Period.
 * Added Weekly pay period support.
@@ -29,17 +62,17 @@ Changes:
 * Improved example values.
 * Prevented accidental 0-hour overtime thresholds.
 * Simplified overtime workflow.
-* Shifted user thinking from "regular hours vs overtime hours"
-  to "hours worked during a pay period."
+* Shifted user thinking from "regular hours vs overtime hours" to "hours worked during a pay period."
 
 ---
 
-Version: 0.6.1
+## Version 0.6.1
 
-Theme:
+### Theme
+
 Dynamic Adjustment UI
 
-Changes:
+### Changes
 
 * Rebuilt the Take-Home Estimate system.
 * Replaced fixed tax fields with dynamic tax entries.
@@ -58,65 +91,72 @@ Changes:
 
 ---
 
-Version: 0.6
+## Version 0.6
 
-Theme:
+### Theme
+
 Take-Home Pay
 
 ---
 
-Version: 0.5.3
+## Version 0.5.3
 
-Theme:
+### Theme
+
 Polish & Foundation
 
 ---
 
-Version: 0.5.2
+## Version 0.5.2
 
-Theme:
+### Theme
+
 Shared Signal Labs Assets
 
 ---
 
-Version: 0.5.1
+## Version 0.5.1
 
-Theme:
+### Theme
+
 Project Information & Transparency
 
 ---
 
-Version: 0.5
+## Version 0.5
 
-Theme:
+### Theme
+
 Enhanced Results
 
 ---
 
-Version: 0.4
+## Version 0.4
 
-Theme:
+### Theme
+
 Quality of Life
 
 ---
 
-Version: 0.3
+## Version 0.3
 
-Theme:
+### Theme
+
 Signal Labs Branding
 
 ---
 
-Version: 0.2
+## Version 0.2
 
-Theme:
+### Theme
+
 UI Refresh
 
 ---
 
-Version: 0.1
+## Version 0.1
 
-Theme:
+### Theme
+
 Initial Prototype
-
-=====================================================

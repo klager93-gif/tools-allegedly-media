@@ -41,9 +41,12 @@ const deductionResultRowsEl = document.getElementById("deductionResultRows");
 const taxResultsTotalEl = document.getElementById("taxResultsTotal");
 const deductionResultsTotalEl = document.getElementById("deductionResultsTotal");
 
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
+
 let taxes = [];
 let deductions = [];
 let otherAdjustments = [];
+let isLoadingSavedSettings = false;
 
 function getInputValue(input) {
   return Number(input.value) || 0;
@@ -51,6 +54,20 @@ function getInputValue(input) {
 
 function makeId() {
   return Date.now().toString() + Math.random().toString(16).slice(2);
+}
+
+function formatMoney(amount) {
+  return amount.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
+}
+
+function formatNumber(value) {
+  return Number(value).toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
 }
 
 function getDefaultThreshold() {
@@ -103,6 +120,70 @@ function getThreshold() {
   }
 
   return getDefaultThreshold();
+}
+
+function getSavedState() {
+  return {
+    rate: rateInput.value,
+    hours: hoursInput.value,
+    payPeriod: payPeriodInput.value,
+    multiplier: multiplierInput.value,
+    overrideThreshold: overrideThresholdInput.checked,
+    customThreshold: customThresholdInput.value,
+    taxes,
+    deductions,
+    otherAdjustments
+  };
+}
+
+function saveSettings() {
+  if (isLoadingSavedSettings) {
+    return;
+  }
+
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(getSavedState()));
+  } catch (error) {
+    console.warn("Unable to save calculator settings.");
+  }
+}
+
+function loadSavedSettings() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+
+  if (!saved) {
+    return false;
+  }
+
+  try {
+    isLoadingSavedSettings = true;
+
+    const data = JSON.parse(saved);
+
+    rateInput.value = data.rate || "";
+    hoursInput.value = data.hours || "";
+    payPeriodInput.value = data.payPeriod || "weekly";
+    multiplierInput.value = data.multiplier || "1.5";
+    overrideThresholdInput.checked = Boolean(data.overrideThreshold);
+    customThresholdInput.value = data.customThreshold || "";
+
+    taxes = Array.isArray(data.taxes) ? data.taxes : [];
+    deductions = Array.isArray(data.deductions) ? data.deductions : [];
+    otherAdjustments = Array.isArray(data.otherAdjustments)
+      ? data.otherAdjustments
+      : [];
+
+    return true;
+  } catch (error) {
+    localStorage.removeItem(STORAGE_KEY);
+    return false;
+  } finally {
+    isLoadingSavedSettings = false;
+  }
+}
+
+function clearSavedSettings() {
+  localStorage.removeItem(STORAGE_KEY);
 }
 
 function updateThresholdUI() {
@@ -179,6 +260,7 @@ function createAdjustmentItem(item, type) {
     }
 
     renderAdjustments();
+    saveSettings();
     calculateOvertime();
   });
 
@@ -237,6 +319,7 @@ function addTax() {
   });
 
   renderAdjustments();
+  saveSettings();
   calculateOvertime();
 }
 
@@ -260,6 +343,7 @@ function addDeduction() {
   });
 
   renderAdjustments();
+  saveSettings();
   calculateOvertime();
 }
 
@@ -283,6 +367,7 @@ function addOtherAdjustment() {
   });
 
   renderAdjustments();
+  saveSettings();
   calculateOvertime();
 }
 
@@ -323,6 +408,7 @@ function renderBreakdown(container, items, type, grossPay) {
 
 function calculateOvertime() {
   updateThresholdUI();
+  saveSettings();
 
   const rate = getInputValue(rateInput);
   const hours = getInputValue(hoursInput);
@@ -337,10 +423,18 @@ function calculateOvertime() {
     return;
   }
 
-  if (rate <= 0 || hours <= 0 || multiplier <= 0) {
+  if (rate <= 0 || hours <= 0) {
     resetResults();
     messageEl.textContent =
-      "Enter positive numbers for hourly rate, hours worked, and overtime multiplier.";
+      "Enter positive numbers for hourly rate and hours worked.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  if (multiplier < 1) {
+    resetResults();
+    messageEl.textContent =
+      "Overtime multiplier should be 1.0 or higher.";
     messageEl.classList.add("error");
     return;
   }
@@ -411,7 +505,7 @@ function calculateOvertime() {
 
   generatedTimeEl.textContent = getCurrentUtcTime();
 
-  messageEl.textContent = "Calculation updated.";
+  messageEl.textContent = "Calculation updated. Settings saved.";
 }
 
 function loadExample() {
@@ -458,6 +552,7 @@ function loadExample() {
 
   updateThresholdUI();
   renderAdjustments();
+  saveSettings();
   calculateOvertime();
 }
 
@@ -474,12 +569,14 @@ function clearCalculator() {
   deductions = [];
   otherAdjustments = [];
 
+  clearSavedSettings();
+
   updateThresholdUI();
   renderAdjustments();
   resetResults();
 
   messageEl.classList.remove("error");
-  messageEl.textContent = "Enter values or load an example to begin.";
+  messageEl.textContent = "Calculator reset. Saved settings cleared.";
 }
 
 function clearAdjustments() {
@@ -488,6 +585,7 @@ function clearAdjustments() {
   otherAdjustments = [];
 
   renderAdjustments();
+  saveSettings();
   calculateOvertime();
 }
 
@@ -520,17 +618,24 @@ document.getElementById("addOtherInline").addEventListener("click", addOtherAdju
 document.getElementById("openChangelog").addEventListener("click", () => {
   openTextModal({
     title: "CHANGELOG",
-    file: "CHANGELOG.txt"
+    file: "CHANGELOG.md"
   });
 });
 
 document.getElementById("openRoadmap").addEventListener("click", () => {
   openTextModal({
     title: "ROADMAP",
-    file: "ROADMAP.txt"
+    file: "ROADMAP.md"
   });
 });
 
+const loadedSavedSettings = loadSavedSettings();
+
 updateThresholdUI();
 renderAdjustments();
-resetResults();
+
+if (loadedSavedSettings) {
+  calculateOvertime();
+} else {
+  resetResults();
+}
