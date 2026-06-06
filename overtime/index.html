@@ -53,7 +53,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.7.1">
+  href="style.css?v=0.7.2">
 
 </head>
 <body>
@@ -108,6 +108,17 @@ Overtime Calculator | Signal Labs
 </label>
 
 <label>
+  <span>Currency</span>
+  <select id="currency">
+    <option value="USD">USD ($)</option>
+    <option value="EUR">EUR (€)</option>
+    <option value="GBP">GBP (£)</option>
+    <option value="CAD">CAD ($)</option>
+    <option value="AUD">AUD ($)</option>
+  </select>
+</label>
+
+<label>
   <span>Overtime Multiplier</span>
   <input id="multiplier" type="number" value="1.5" step="0.1">
 </label>
@@ -135,6 +146,10 @@ Overtime Calculator | Signal Labs
 
 <p id="thresholdNote" class="threshold-note">
   Weekly pay period selected. Overtime starts after 40 hours.
+</p>
+
+<p class="threshold-note currency-note">
+  Currency changes display only. It does not change tax rules, overtime rules, or labor laws.
 </p>
 
 </div>
@@ -471,12 +486,12 @@ Overtime Calculator | Signal Labs
 
   <p>
     Build:
-    v0.7.1
+    v0.7.2
   </p>
 
   <p>
     Theme:
-    Advanced Pay Features
+    Currency Display Options
   </p>
 
   <p>
@@ -506,7 +521,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Overtime Calculator · v0.7.1
+  Signal Labs · Overtime Calculator · v0.7.2
   <br>
   Estimates only. Actual pay may vary based on taxes, deductions,
   employer policies, and applicable labor laws.
@@ -615,7 +630,7 @@ Enter a name and value for this adjustment.
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.7.1"></script>
+<script src="script.js?v=0.7.2"></script>
 
 </body>
 </html>

@@ -34,6 +34,20 @@ The long-term goal is to expand the calculator into a more complete income plann
 
 ---
 
+## Currency Display
+
+- Currency selector.
+- USD display support.
+- EUR display support.
+- GBP display support.
+- CAD display support.
+- AUD display support.
+- Saved currency preference.
+
+Currency changes display only. It does not change tax rules, overtime rules, pay rules, or labor laws.
+
+---
+
 ## Pay Calculations
 
 - Regular hours calculation.
@@ -226,11 +240,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.7.1
+v0.7.2
 
 ### Theme
 
-Advanced Pay Features
+Currency Display Options
 
 ### Status
 

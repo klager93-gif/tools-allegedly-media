@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.7.1**
+**v0.7.2**
 
 ---
 
@@ -36,6 +36,7 @@
 | v0.6.4.2 | Button Layout Polish |
 | v0.7 | Advanced Pay Features |
 | v0.7.1 | Advanced Pay Cleanup |
+| v0.7.2 | Currency Display Options |
 | v0.6.4 | Custom Modals & Manual Save |
 
 ---

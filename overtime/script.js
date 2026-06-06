@@ -1,6 +1,7 @@
 const rateInput = document.getElementById("rate");
 const hoursInput = document.getElementById("hours");
 const payPeriodInput = document.getElementById("payPeriod");
+const currencyInput = document.getElementById("currency");
 const multiplierInput = document.getElementById("multiplier");
 
 const differentialRateInput = document.getElementById("differentialRate");
@@ -65,7 +66,7 @@ const adjustmentModalMessageEl = document.getElementById("adjustmentModalMessage
 const saveAdjustmentButton = document.getElementById("saveAdjustment");
 const cancelAdjustmentButton = document.getElementById("cancelAdjustment");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV071";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV072";
 const LEGACY_STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
 
 let taxes = [];
@@ -82,10 +83,14 @@ function makeId() {
   return Date.now().toString() + Math.random().toString(16).slice(2);
 }
 
+function getSelectedCurrency() {
+  return currencyInput ? currencyInput.value : "USD";
+}
+
 function formatMoney(amount) {
   return amount.toLocaleString("en-US", {
     style: "currency",
-    currency: "USD"
+    currency: getSelectedCurrency()
   });
 }
 
@@ -153,6 +158,7 @@ function getSavedState() {
     rate: rateInput.value,
     hours: hoursInput.value,
     payPeriod: payPeriodInput.value,
+    currency: getSelectedCurrency(),
     multiplier: multiplierInput.value,
     differentialRate: differentialRateInput.value,
     differentialHours: differentialHoursInput.value,
@@ -203,6 +209,7 @@ function loadSavedSettings() {
     rateInput.value = data.rate || "";
     hoursInput.value = data.hours || "";
     payPeriodInput.value = data.payPeriod || "weekly";
+    currencyInput.value = data.currency || "USD";
     multiplierInput.value = data.multiplier || "1.5";
     differentialRateInput.value = data.differentialRate || "";
     differentialHoursInput.value = data.differentialHours || "";
@@ -631,6 +638,7 @@ function loadExample() {
   rateInput.value = "25";
   hoursInput.value = "92";
   payPeriodInput.value = "biweekly";
+  currencyInput.value = "USD";
   multiplierInput.value = "1.5";
   differentialRateInput.value = "2";
   differentialHoursInput.value = "24";
@@ -686,6 +694,7 @@ function clearCalculator() {
   rateInput.value = "";
   hoursInput.value = "";
   payPeriodInput.value = "weekly";
+  currencyInput.value = "USD";
   multiplierInput.value = "1.5";
   differentialRateInput.value = "";
   differentialHoursInput.value = "";
@@ -759,6 +768,7 @@ adjustmentModalEl.addEventListener("click", (event) => {
   rateInput,
   hoursInput,
   payPeriodInput,
+  currencyInput,
   multiplierInput,
   differentialRateInput,
   differentialHoursInput,

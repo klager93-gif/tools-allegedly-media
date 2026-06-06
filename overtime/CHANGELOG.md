@@ -4,6 +4,30 @@
 
 ---
 
+## Version 0.7.2
+
+**Date:** 2026-06-06  
+**Time:** 12:15 UTC
+
+### Theme
+
+Currency Display Options
+
+### Changes
+
+- Added currency selector.
+- Added USD display support.
+- Added EUR display support.
+- Added GBP display support.
+- Added CAD display support.
+- Added AUD display support.
+- Saved selected currency preference.
+- Applied selected currency to all money fields.
+- Added helper note explaining that currency changes display only.
+- Updated documentation for v0.7.2.
+
+---
+
 ## Version 0.7.1
 
 **Date:** 2026-06-06  
