@@ -4,21 +4,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Overtime Calculator | Signal Labs</title>
-  <link rel="stylesheet" href="style.css?v=0.5">
+
+  <link rel="stylesheet" href="style.css?v=0.5.1">
 </head>
 <body>
 
 <main class="page">
 
   <header class="hero">
-    <p class="eyebrow">Signal Labs</p>
 
-    <h1>Overtime Calculator</h1>
+    <p class="eyebrow">
+      Signal Labs
+    </p>
+
+    <h1>
+      Overtime Calculator
+    </h1>
 
     <p class="subtitle">
       Estimate regular pay, overtime pay, and total gross pay.
     </p>
+
   </header>
 
   <section class="layout">
@@ -56,9 +64,19 @@
       </p>
 
       <div class="button-row">
-        <button id="calculate">Calculate Pay</button>
-        <button id="example" class="secondary">Example</button>
-        <button id="reset" class="secondary">Reset</button>
+
+        <button id="calculate">
+          Calculate Pay
+        </button>
+
+        <button id="example" class="secondary">
+          Example
+        </button>
+
+        <button id="reset" class="secondary">
+          Reset
+        </button>
+
       </div>
 
     </section>
@@ -113,6 +131,7 @@
       </div>
 
       <div class="summary-card">
+
         <h3>Weekly Summary</h3>
 
         <p>
@@ -122,8 +141,14 @@
 
         <p>
           Build:
-          v0.5
+          v0.5.1
         </p>
+
+        <p>
+          Status:
+          Active Development
+        </p>
+
       </div>
 
       <p class="disclaimer">
@@ -138,10 +163,53 @@
 </main>
 
 <footer class="version">
-  Signal Labs · Overtime Calculator · v0.5
+
+  <div>
+    Signal Labs · Overtime Calculator · v0.5.1
+  </div>
+
+  <div class="info-links">
+
+    <button id="openChangelog">
+      Changelog
+    </button>
+
+    <button id="openRoadmap">
+      Roadmap
+    </button>
+
+  </div>
+
 </footer>
 
-<script src="script.js?v=0.5"></script>
+
+<div id="modal" class="modal hidden">
+
+  <div class="modal-box">
+
+    <button
+      id="closeModal"
+      class="modal-close"
+      type="button">
+
+      ×
+
+    </button>
+
+    <h2 id="modalTitle">
+      Project Information
+    </h2>
+
+    <pre id="modalContent">
+Loading...
+    </pre>
+
+  </div>
+
+</div>
+
+
+<script src="script.js?v=0.5.1"></script>
 
 </body>
 </html>

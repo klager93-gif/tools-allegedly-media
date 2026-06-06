@@ -1,3 +1,4 @@
+```text
 =====================================================
 Signal Labs Overtime Calculator
 ROADMAP
@@ -5,27 +6,25 @@ ROADMAP
 
 Last Updated:
 2026-06-06
-03:30 UTC
+04:15 UTC
 
 Current Version:
-v0.5
+v0.5.1
 
-Purpose:
+Purpose
 
 The Signal Labs Overtime Calculator is intended to provide
 a clean, modern, and useful way to estimate overtime pay,
 gross pay, and eventually take-home pay, income goals,
 and advanced overtime scenarios.
 
-This roadmap represents current plans and priorities.
-
 Plans are subject to change.
 
-Features may be moved, removed, deferred, expanded, or
-reworked between versions as development progresses.
+Features may be moved, removed, deferred, expanded,
+or reworked between versions as development progresses.
 
-Additional updates, improvements, and entirely new features
-are always possible.
+Additional updates, improvements, and entirely new
+features are always possible.
 
 =====================================================
 Completed Versions
@@ -34,74 +33,31 @@ Completed Versions
 v0.1
 Initial Prototype
 
-Completed:
-- Basic overtime calculator.
-- Hourly rate input.
-- Hours worked input.
-- Overtime threshold input.
-- Overtime multiplier input.
-- Regular pay output.
-- Overtime pay output.
-- Total gross pay output.
-
------------------------------------------------------
-
 v0.2
 UI Refresh
-
-Completed:
-- Dark theme.
-- Card-based layout.
-- Responsive layout.
-- Better spacing.
-- Improved readability.
-
------------------------------------------------------
 
 v0.3
 Signal Labs Branding
 
-Completed:
-- Signal Labs branding.
-- Version footer.
-- Regular hours output.
-- Overtime hours output.
-- Auto-calculate while typing.
-
------------------------------------------------------
-
 v0.4
 Quality of Life
-
-Completed:
-- Reset button.
-- Example values button.
-- Overtime rate output.
-- Better validation.
-- Empty-state handling.
-- Disclaimer.
-
------------------------------------------------------
 
 v0.5
 Enhanced Results
 
-Completed:
-- Total hours output.
-- Hourly rate output.
-- Effective hourly rate output.
-- Weekly summary card.
-- Generated timestamp in UTC.
-- Improved results presentation.
+v0.5.1
+Project Information & Transparency
 
 =====================================================
 Upcoming Versions
 =====================================================
 
 v0.6
+Theme:
 Take-Home Pay
 
 Planned Features:
+
 - Federal tax percentage.
 - State tax percentage.
 - Local tax percentage.
@@ -116,15 +72,17 @@ Planned Features:
 -----------------------------------------------------
 
 v0.7
+Theme:
 Advanced Pay Features
 
 Planned Features:
+
 - Shift differential.
 - Night shift bonus.
 - Weekend bonus.
 - Holiday bonus.
-- Time-and-a-half preset.
-- Double-time preset.
+- Time and a half preset.
+- Double time preset.
 - Custom multiplier preset.
 - Break deduction.
 - Multiple overtime tiers.
@@ -132,35 +90,43 @@ Planned Features:
 -----------------------------------------------------
 
 v0.8
+Theme:
 Goal Mode
 
 Planned Features:
+
 - Income goal mode.
-- Reverse overtime calculation.
-- Hours needed for target gross income.
+- Reverse overtime calculations.
+- Hours needed for target income.
 - Overtime shifts needed.
-- Gross income target summary.
+- Gross income targets.
+
+Future Feature:
+
 - Take-home goal mode.
-  (Originally considered for after v0.8)
+  (Originally considered post-v1.0)
 
 -----------------------------------------------------
 
 v0.9
+Theme:
 Share & Export
 
 Planned Features:
+
 - Print summary.
 - Copy results.
-- Share link.
+- Share links.
 - Save as PDF.
-- Clean print layout.
 
 -----------------------------------------------------
 
 v1.0
+Theme:
 Public Release
 
 Planned Features:
+
 - Final visual polish.
 - Accessibility review.
 - Mobile review.
@@ -178,21 +144,21 @@ Future Ideas
 =====================================================
 
 Potential Features:
+
 - Vacation savings mode.
 - Emergency fund mode.
 - Debt payoff mode.
 - Retirement impact mode.
 - Dispatcher schedule presets.
-- 2-2-3 schedule support.
-- 24/48 schedule support.
-- 48/96 schedule support.
-- Shift presets.
-- Weekly overtime tracker.
-- Monthly overtime tracker.
+- 2-2-3 schedules.
+- 24/48 schedules.
+- 48/96 schedules.
+- Weekly overtime tracking.
+- Monthly overtime tracking.
 - Yearly overtime projections.
-- Burnout warning.
-- Job comparison tools.
-- Multiple job support.
+- Burnout warnings.
+- Compare jobs.
+- Multiple jobs.
 - CSV export.
 - Saved sessions.
 - State-specific overtime rules.
@@ -201,21 +167,20 @@ Potential Features:
 Notes
 =====================================================
 
-This roadmap is not final.
+Inline notes may be used to preserve roadmap history.
 
-Inline notes may be added to individual features when plans
-change. For example, a feature may include:
+Examples:
 
 (Originally planned for v0.5)
 
-or:
-
 (Expanded from v0.8)
 
-This keeps the roadmap useful as both a planning document
-and a lightweight history of how the project evolved.
+(Originally considered post-v1.0)
 
-Additional updates, improvements, and entirely new features
-are always possible.
+This roadmap is intended to evolve alongside the project.
+
+Additional updates, improvements, and entirely new
+features are always possible.
 
 =====================================================
+```

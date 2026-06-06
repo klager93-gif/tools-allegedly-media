@@ -1,22 +1,47 @@
+```text
 =====================================================
 Signal Labs Overtime Calculator
 CHANGELOG
 =====================================================
 
+Version: 0.5.1
+Date: 2026-06-06
+Time: 04:15 UTC
+
+Theme:
+Project Information & Transparency
+
+Changes:
+
+- Added Changelog button.
+- Added Roadmap button.
+- Added popup modal system.
+- Added loading of CHANGELOG.txt.
+- Added loading of ROADMAP.txt.
+- Added scrollable project information window.
+- Added close button.
+- Added click outside modal to close.
+- Added Escape key support.
+- Added Status:
+  Active Development.
+
+-----------------------------------------------------
+
 Version: 0.5
 Date: 2026-06-06
 Time: 03:30 UTC
 
+Theme:
+Enhanced Results
+
 Changes:
+
 - Added Total Hours output.
 - Added Hourly Rate output.
 - Added Effective Hourly Rate output.
 - Added Weekly Summary card.
-- Added Generated timestamp using UTC.
+- Added UTC generated timestamp.
 - Improved results presentation.
-- Updated cache-busting references to v0.5.
-- Updated footer to:
-  Signal Labs · Overtime Calculator · v0.5
 
 -----------------------------------------------------
 
@@ -24,17 +49,17 @@ Version: 0.4
 Date: 2026-06-06
 Time: 03:00 UTC
 
+Theme:
+Quality of Life
+
 Changes:
+
 - Added Reset button.
 - Added Example Values button.
 - Added Overtime Rate output.
 - Added validation and error messages.
-- Added empty state handling.
+- Added empty-state handling.
 - Added disclaimer.
-- Improved button layout.
-- Added cache busting for CSS and JS.
-- Updated footer to:
-  Signal Labs · Overtime Calculator · v0.4
 
 -----------------------------------------------------
 
@@ -42,14 +67,16 @@ Version: 0.3
 Date: 2026-06-06
 Time: 02:20 UTC
 
+Theme:
+Signal Labs Branding
+
 Changes:
-- Rebranded calculator to Signal Labs.
-- Removed Allegedly Media Tools branding from the calculator.
-- Added visible version footer.
+
+- Rebranded to Signal Labs.
+- Added version footer.
 - Added Regular Hours output.
 - Added Overtime Hours output.
-- Added automatic calculations while typing.
-- Improved result visibility.
+- Added automatic calculations.
 
 -----------------------------------------------------
 
@@ -57,13 +84,16 @@ Version: 0.2
 Date: 2026-06-06
 Time: 01:50 UTC
 
+Theme:
+UI Refresh
+
 Changes:
-- Refreshed calculator UI.
-- Added card-based layout.
-- Improved spacing and readability.
-- Improved responsive layout.
-- Added glass-style dark theme.
+
+- Improved spacing.
+- Added card layout.
+- Added responsive design.
 - Improved mobile display.
+- Introduced dark theme.
 
 -----------------------------------------------------
 
@@ -71,14 +101,18 @@ Version: 0.1
 Date: 2026-06-06
 Time: 01:15 UTC
 
+Theme:
+Initial Prototype
+
 Changes:
-- Initial prototype.
-- Added Hourly Rate input.
-- Added Hours Worked input.
-- Added Overtime Threshold input.
-- Added Overtime Multiplier input.
-- Added Regular Pay calculation.
-- Added Overtime Pay calculation.
-- Added Total Gross Pay calculation.
+
+- Hourly Rate input.
+- Hours Worked input.
+- Overtime Threshold input.
+- Overtime Multiplier input.
+- Regular Pay calculation.
+- Overtime Pay calculation.
+- Total Gross Pay calculation.
 
 =====================================================
+```

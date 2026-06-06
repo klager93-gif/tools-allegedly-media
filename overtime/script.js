@@ -22,6 +22,14 @@ const calculateButton = document.getElementById("calculate");
 const exampleButton = document.getElementById("example");
 const resetButton = document.getElementById("reset");
 
+const modal = document.getElementById("modal");
+const modalTitle = document.getElementById("modalTitle");
+const modalContent = document.getElementById("modalContent");
+
+const openChangelogButton = document.getElementById("openChangelog");
+const openRoadmapButton = document.getElementById("openRoadmap");
+const closeModalButton = document.getElementById("closeModal");
+
 function money(amount) {
   return amount.toLocaleString("en-US", {
     style: "currency",
@@ -54,6 +62,7 @@ function resetResults() {
 }
 
 function calculateOvertime() {
+
   const rate = Number(rateInput.value);
   const hours = Number(hoursInput.value);
   const threshold = Number(thresholdInput.value);
@@ -62,15 +71,29 @@ function calculateOvertime() {
   messageEl.classList.remove("error");
 
   if (!rateInput.value && !hoursInput.value) {
+
     resetResults();
-    messageEl.textContent = "Enter values or load an example to begin.";
+
+    messageEl.textContent =
+      "Enter values or load an example to begin.";
+
     return;
   }
 
-  if (rate <= 0 || hours <= 0 || threshold <= 0 || multiplier <= 0) {
+  if (
+    rate <= 0 ||
+    hours <= 0 ||
+    threshold <= 0 ||
+    multiplier <= 0
+  ) {
+
     resetResults();
-    messageEl.textContent = "Enter positive numbers for rate, hours, threshold, and multiplier.";
+
+    messageEl.textContent =
+      "Enter positive numbers for rate, hours, threshold, and multiplier.";
+
     messageEl.classList.add("error");
+
     return;
   }
 
@@ -79,28 +102,42 @@ function calculateOvertime() {
   const overtimeHours = Math.max(hours - threshold, 0);
 
   const overtimeRate = rate * multiplier;
+
   const regularPay = regularHours * rate;
   const overtimePay = overtimeHours * overtimeRate;
+
   const totalPay = regularPay + overtimePay;
-  const effectiveRate = totalHours > 0 ? totalPay / totalHours : 0;
+
+  const effectiveRate =
+    totalHours > 0
+      ? totalPay / totalHours
+      : 0;
 
   totalHoursEl.textContent = number(totalHours);
+
   regularHoursEl.textContent = number(regularHours);
+
   overtimeHoursEl.textContent = number(overtimeHours);
 
   hourlyRateEl.textContent = money(rate);
+
   overtimeRateEl.textContent = money(overtimeRate);
+
   effectiveRateEl.textContent = money(effectiveRate);
 
   regularPayEl.textContent = money(regularPay);
+
   overtimePayEl.textContent = money(overtimePay);
+
   totalPayEl.textContent = money(totalPay);
 
   generatedTimeEl.textContent = currentUtcTime();
+
   messageEl.textContent = "Calculation updated.";
 }
 
 function loadExample() {
+
   rateInput.value = "25";
   hoursInput.value = "48";
   thresholdInput.value = "40";
@@ -110,22 +147,126 @@ function loadExample() {
 }
 
 function clearCalculator() {
+
   rateInput.value = "";
   hoursInput.value = "";
+
   thresholdInput.value = "40";
   multiplierInput.value = "1.5";
 
   resetResults();
 
   messageEl.classList.remove("error");
-  messageEl.textContent = "Enter values or load an example to begin.";
+
+  messageEl.textContent =
+    "Enter values or load an example to begin.";
 }
 
-calculateButton.addEventListener("click", calculateOvertime);
-exampleButton.addEventListener("click", loadExample);
-resetButton.addEventListener("click", clearCalculator);
+async function openTextFile(title, fileName) {
 
-rateInput.addEventListener("input", calculateOvertime);
-hoursInput.addEventListener("input", calculateOvertime);
-thresholdInput.addEventListener("input", calculateOvertime);
-multiplierInput.addEventListener("input", calculateOvertime);
+  modal.classList.remove("hidden");
+
+  modalTitle.textContent = title;
+
+  modalContent.textContent = "Loading...";
+
+  try {
+
+    const response = await fetch(fileName);
+
+    const text = await response.text();
+
+    modalContent.textContent = text;
+
+  } catch {
+
+    modalContent.textContent =
+      "Unable to load file.";
+  }
+}
+
+function closeModal() {
+
+  modal.classList.add("hidden");
+}
+
+calculateButton.addEventListener(
+  "click",
+  calculateOvertime
+);
+
+exampleButton.addEventListener(
+  "click",
+  loadExample
+);
+
+resetButton.addEventListener(
+  "click",
+  clearCalculator
+);
+
+rateInput.addEventListener(
+  "input",
+  calculateOvertime
+);
+
+hoursInput.addEventListener(
+  "input",
+  calculateOvertime
+);
+
+thresholdInput.addEventListener(
+  "input",
+  calculateOvertime
+);
+
+multiplierInput.addEventListener(
+  "input",
+  calculateOvertime
+);
+
+openChangelogButton.addEventListener(
+  "click",
+  () => openTextFile(
+    "CHANGELOG",
+    "CHANGELOG.txt"
+  )
+);
+
+openRoadmapButton.addEventListener(
+  "click",
+  () => openTextFile(
+    "ROADMAP",
+    "ROADMAP.txt"
+  )
+);
+
+closeModalButton.addEventListener(
+  "click",
+  closeModal
+);
+
+modal.addEventListener(
+  "click",
+  (event) => {
+
+    if (event.target === modal) {
+
+      closeModal();
+    }
+  }
+);
+
+document.addEventListener(
+  "keydown",
+  (event) => {
+
+    if (
+      event.key === "Escape" &&
+      !modal.classList.contains("hidden")
+    ) {
+
+      closeModal();
+    }
+  }
+);
