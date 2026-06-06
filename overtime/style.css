@@ -71,7 +71,8 @@ label span {
   font-size: 14px;
 }
 
-input {
+input,
+select {
   width: 100%;
   padding: 16px;
   border-radius: 16px;
@@ -81,9 +82,44 @@ input {
   font-size: 18px;
 }
 
-input:focus {
+input:focus,
+select:focus {
   outline: none;
   border-color: rgba(255,255,255,.3);
+}
+
+.threshold-box {
+  padding: 20px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.override-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.override-row input {
+  width: auto;
+}
+
+.custom-threshold {
+  margin-top: 8px;
+}
+
+.hidden-threshold {
+  display: none;
+}
+
+.threshold-note {
+  color: #888;
+  line-height: 1.7;
+  font-size: 14px;
 }
 
 .button-row {
@@ -105,10 +141,6 @@ input:focus {
   display: grid;
   grid-template-columns: repeat(3,1fr);
   gap: 12px;
-}
-
-.add-button {
-  padding: 14px;
 }
 
 .adjustment-group {

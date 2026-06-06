@@ -3,9 +3,38 @@ Signal Labs Overtime Calculator
 CHANGELOG
 =========
 
-Version: 0.6.1
+Version: 0.6.2
 Date: 2026-06-06
-Time: 08:00 UTC
+Time: 09:00 UTC
+
+Theme:
+Smart Hours
+
+Changes:
+
+* Replaced "Overtime After" input with Pay Period.
+* Added Weekly pay period support.
+* Added Bi-Weekly pay period support.
+* Added Semi-Monthly pay period support.
+* Added Monthly pay period support.
+* Added Custom pay period support.
+* Added automatic overtime thresholds.
+* Weekly defaults to 40 hours.
+* Bi-Weekly defaults to 80 hours.
+* Semi-Monthly defaults to 86.67 hours.
+* Monthly defaults to 173.33 hours.
+* Added custom overtime threshold override.
+* Added threshold helper card.
+* Added threshold explanation text.
+* Improved example values.
+* Prevented accidental 0-hour overtime thresholds.
+* Simplified overtime workflow.
+* Shifted user thinking from "regular hours vs overtime hours"
+  to "hours worked during a pay period."
+
+---
+
+Version: 0.6.1
 
 Theme:
 Dynamic Adjustment UI
@@ -24,10 +53,8 @@ Changes:
 * Added Clear All Adjustments button.
 * Added dynamic rendering system.
 * Added support for custom adjustment names.
-* Updated example values.
-* Improved overall layout and organization.
+* Improved layout and organization.
 * Reduced visual clutter.
-* Continued transition from calculator to application.
 
 ---
 
@@ -35,17 +62,6 @@ Version: 0.6
 
 Theme:
 Take-Home Pay
-
-Changes:
-
-* Added percentage-based tax estimates.
-* Added fixed deduction support.
-* Added estimated taxes output.
-* Added fixed deductions output.
-* Added estimated take-home pay.
-* Added net effective hourly rate.
-* Added input validation for tax percentages.
-* Added input validation for negative values.
 
 ---
 

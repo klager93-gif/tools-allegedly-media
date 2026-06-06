@@ -1,7 +1,13 @@
 const rateInput = document.getElementById("rate");
 const hoursInput = document.getElementById("hours");
-const thresholdInput = document.getElementById("threshold");
+const payPeriodInput = document.getElementById("payPeriod");
 const multiplierInput = document.getElementById("multiplier");
+
+const overrideThresholdInput = document.getElementById("overrideThreshold");
+const customThresholdInput = document.getElementById("customThreshold");
+const customThresholdWrap = document.getElementById("customThresholdWrap");
+const thresholdDisplayEl = document.getElementById("thresholdDisplay");
+const thresholdNoteEl = document.getElementById("thresholdNote");
 
 const totalHoursEl = document.getElementById("totalHours");
 const regularHoursEl = document.getElementById("regularHours");
@@ -47,6 +53,85 @@ function makeId() {
   return Date.now().toString() + Math.random().toString(16).slice(2);
 }
 
+function getDefaultThreshold() {
+  switch (payPeriodInput.value) {
+    case "weekly":
+      return 40;
+
+    case "biweekly":
+      return 80;
+
+    case "semimonthly":
+      return 86.67;
+
+    case "monthly":
+      return 173.33;
+
+    case "custom":
+      return 0;
+
+    default:
+      return 40;
+  }
+}
+
+function getPayPeriodLabel() {
+  switch (payPeriodInput.value) {
+    case "weekly":
+      return "Weekly";
+
+    case "biweekly":
+      return "Bi-weekly";
+
+    case "semimonthly":
+      return "Semi-monthly";
+
+    case "monthly":
+      return "Monthly";
+
+    case "custom":
+      return "Custom";
+
+    default:
+      return "Weekly";
+  }
+}
+
+function getThreshold() {
+  if (overrideThresholdInput.checked || payPeriodInput.value === "custom") {
+    return getInputValue(customThresholdInput);
+  }
+
+  return getDefaultThreshold();
+}
+
+function updateThresholdUI() {
+  const threshold = getThreshold();
+  const usingCustom =
+    overrideThresholdInput.checked || payPeriodInput.value === "custom";
+
+  if (usingCustom) {
+    customThresholdWrap.classList.remove("hidden-threshold");
+  } else {
+    customThresholdWrap.classList.add("hidden-threshold");
+  }
+
+  if (threshold > 0) {
+    thresholdDisplayEl.textContent = `${formatNumber(threshold)} hours`;
+  } else {
+    thresholdDisplayEl.textContent = "custom threshold needed";
+  }
+
+  if (usingCustom) {
+    thresholdNoteEl.textContent =
+      "Using a custom overtime threshold. Enter the number of hours before overtime starts.";
+    return;
+  }
+
+  thresholdNoteEl.textContent =
+    `${getPayPeriodLabel()} pay period selected. Overtime starts after ${formatNumber(threshold)} hours.`;
+}
+
 function resetResults() {
   totalHoursEl.textContent = "0.00";
   regularHoursEl.textContent = "0.00";
@@ -69,9 +154,12 @@ function createAdjustmentItem(item, type) {
   row.className = "adjustment-item";
 
   const label = document.createElement("span");
-  label.textContent = type === "tax"
-    ? `${item.name} — ${item.value}%`
-    : `${item.name} — ${formatMoney(item.value)}`;
+
+  if (type === "tax") {
+    label.textContent = `${item.name} — ${formatNumber(item.value)}%`;
+  } else {
+    label.textContent = `${item.name} — ${formatMoney(item.value)}`;
+  }
 
   const remove = document.createElement("button");
   remove.type = "button";
@@ -124,17 +212,23 @@ function renderAdjustments() {
   const totalDeductions = deductions.reduce((sum, item) => sum + item.value, 0);
   const totalOther = otherAdjustments.reduce((sum, item) => sum + item.value, 0);
 
-  taxTotalLabelEl.textContent = `Total: ${totalTaxPercent.toFixed(2)}%`;
+  taxTotalLabelEl.textContent = `Total: ${formatNumber(totalTaxPercent)}%`;
   deductionTotalLabelEl.textContent = `Total: ${formatMoney(totalDeductions)}`;
   otherTotalLabelEl.textContent = `Total: ${formatMoney(totalOther)}`;
 }
 
 function addTax() {
   const name = prompt("Tax name:", "Federal Tax");
-  if (!name) return;
+
+  if (!name) {
+    return;
+  }
 
   const value = Number(prompt("Tax rate percentage:", "12"));
-  if (Number.isNaN(value) || value < 0) return;
+
+  if (Number.isNaN(value) || value < 0) {
+    return;
+  }
 
   taxes.push({
     id: makeId(),
@@ -148,10 +242,16 @@ function addTax() {
 
 function addDeduction() {
   const name = prompt("Deduction name:", "Insurance");
-  if (!name) return;
+
+  if (!name) {
+    return;
+  }
 
   const value = Number(prompt("Deduction amount:", "75"));
-  if (Number.isNaN(value) || value < 0) return;
+
+  if (Number.isNaN(value) || value < 0) {
+    return;
+  }
 
   deductions.push({
     id: makeId(),
@@ -165,10 +265,16 @@ function addDeduction() {
 
 function addOtherAdjustment() {
   const name = prompt("Adjustment name:", "Other");
-  if (!name) return;
+
+  if (!name) {
+    return;
+  }
 
   const value = Number(prompt("Adjustment amount:", "0"));
-  if (Number.isNaN(value) || value < 0) return;
+
+  if (Number.isNaN(value) || value < 0) {
+    return;
+  }
 
   otherAdjustments.push({
     id: makeId(),
@@ -185,7 +291,11 @@ function renderBreakdown(container, items, type, grossPay) {
 
   if (items.length === 0) {
     const empty = document.createElement("p");
-    empty.textContent = type === "tax" ? "No taxes added." : "No deductions added.";
+    empty.textContent =
+      type === "tax"
+        ? "No taxes added."
+        : "No deductions added.";
+
     container.appendChild(empty);
     return;
   }
@@ -212,9 +322,11 @@ function renderBreakdown(container, items, type, grossPay) {
 }
 
 function calculateOvertime() {
+  updateThresholdUI();
+
   const rate = getInputValue(rateInput);
   const hours = getInputValue(hoursInput);
-  const threshold = getInputValue(thresholdInput);
+  const threshold = getThreshold();
   const multiplier = getInputValue(multiplierInput);
 
   messageEl.classList.remove("error");
@@ -225,9 +337,18 @@ function calculateOvertime() {
     return;
   }
 
-  if (rate <= 0 || hours <= 0 || threshold <= 0 || multiplier <= 0) {
+  if (rate <= 0 || hours <= 0 || multiplier <= 0) {
     resetResults();
-    messageEl.textContent = "Enter positive numbers for rate, hours, threshold, and multiplier.";
+    messageEl.textContent =
+      "Enter positive numbers for hourly rate, hours worked, and overtime multiplier.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  if (threshold <= 0) {
+    resetResults();
+    messageEl.textContent =
+      "Enter a positive overtime threshold or choose a standard pay period.";
     messageEl.classList.add("error");
     return;
   }
@@ -246,19 +367,21 @@ function calculateOvertime() {
   const overtimeHours = Math.max(hours - threshold, 0);
 
   const overtimeRate = rate * multiplier;
+
   const regularPay = regularHours * rate;
   const overtimePay = overtimeHours * overtimeRate;
   const grossPay = regularPay + overtimePay;
 
-  const grossEffectiveRate = grossPay / totalHours;
+  const grossEffectiveRate = totalHours > 0 ? grossPay / totalHours : 0;
 
   const estimatedTaxes = grossPay * (totalTaxPercent / 100);
   const fixedDeductions = deductions.reduce((sum, item) => sum + item.value, 0);
   const otherTotal = otherAdjustments.reduce((sum, item) => sum + item.value, 0);
 
   const totalReductions = estimatedTaxes + fixedDeductions + otherTotal;
+
   const takeHomePay = Math.max(grossPay - totalReductions, 0);
-  const netEffectiveRate = takeHomePay / totalHours;
+  const netEffectiveRate = totalHours > 0 ? takeHomePay / totalHours : 0;
 
   totalHoursEl.textContent = formatNumber(totalHours);
   regularHoursEl.textContent = formatNumber(regularHours);
@@ -279,31 +402,61 @@ function calculateOvertime() {
   netEffectiveRateEl.textContent = formatMoney(netEffectiveRate);
 
   renderBreakdown(taxResultRowsEl, taxes, "tax", grossPay);
-  renderBreakdown(deductionResultRowsEl, [...deductions, ...otherAdjustments], "deduction", grossPay);
+  renderBreakdown(
+    deductionResultRowsEl,
+    [...deductions, ...otherAdjustments],
+    "deduction",
+    grossPay
+  );
 
   generatedTimeEl.textContent = getCurrentUtcTime();
+
   messageEl.textContent = "Calculation updated.";
 }
 
 function loadExample() {
   rateInput.value = "25";
-  hoursInput.value = "48";
-  thresholdInput.value = "40";
+  hoursInput.value = "92";
+  payPeriodInput.value = "biweekly";
   multiplierInput.value = "1.5";
 
+  overrideThresholdInput.checked = false;
+  customThresholdInput.value = "";
+
   taxes = [
-    { id: makeId(), name: "Federal Tax", value: 12 },
-    { id: makeId(), name: "State Tax", value: 5 },
-    { id: makeId(), name: "Other Tax", value: 3 }
+    {
+      id: makeId(),
+      name: "Federal Tax",
+      value: 12
+    },
+    {
+      id: makeId(),
+      name: "State Tax",
+      value: 5
+    },
+    {
+      id: makeId(),
+      name: "Other Tax",
+      value: 3
+    }
   ];
 
   deductions = [
-    { id: makeId(), name: "Insurance", value: 75 },
-    { id: makeId(), name: "Retirement", value: 50 }
+    {
+      id: makeId(),
+      name: "Insurance",
+      value: 75
+    },
+    {
+      id: makeId(),
+      name: "Retirement",
+      value: 50
+    }
   ];
 
   otherAdjustments = [];
 
+  updateThresholdUI();
   renderAdjustments();
   calculateOvertime();
 }
@@ -311,13 +464,17 @@ function loadExample() {
 function clearCalculator() {
   rateInput.value = "";
   hoursInput.value = "";
-  thresholdInput.value = "40";
+  payPeriodInput.value = "weekly";
   multiplierInput.value = "1.5";
+
+  overrideThresholdInput.checked = false;
+  customThresholdInput.value = "";
 
   taxes = [];
   deductions = [];
   otherAdjustments = [];
 
+  updateThresholdUI();
   renderAdjustments();
   resetResults();
 
@@ -351,10 +508,13 @@ document.getElementById("addOtherInline").addEventListener("click", addOtherAdju
 [
   rateInput,
   hoursInput,
-  thresholdInput,
-  multiplierInput
+  payPeriodInput,
+  multiplierInput,
+  overrideThresholdInput,
+  customThresholdInput
 ].forEach((input) => {
   input.addEventListener("input", calculateOvertime);
+  input.addEventListener("change", calculateOvertime);
 });
 
 document.getElementById("openChangelog").addEventListener("click", () => {
@@ -371,5 +531,6 @@ document.getElementById("openRoadmap").addEventListener("click", () => {
   });
 });
 
+updateThresholdUI();
 renderAdjustments();
 resetResults();

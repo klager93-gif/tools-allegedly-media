@@ -5,10 +5,10 @@ ROADMAP
 
 Last Updated:
 2026-06-06
-08:00 UTC
+09:00 UTC
 
 Current Version:
-v0.6.1
+v0.6.2
 
 =====================================================
 Completed Versions
@@ -44,6 +44,9 @@ Take-Home Pay
 v0.6.1
 Dynamic Adjustment UI
 
+v0.6.2
+Smart Hours
+
 =====================================================
 Upcoming Versions
 =================
@@ -61,9 +64,9 @@ Planned Features:
 * Holiday bonus.
 * Multiple overtime tiers.
 * Double-time support.
-* Presets for common pay structures.
 * Paid break options.
 * Unpaid break options.
+* Presets for common pay structures.
 
 ---
 
@@ -74,14 +77,13 @@ Goal Mode
 
 Planned Features:
 
-* Income goal mode.
-* Reverse overtime calculations.
+* Reverse calculations.
+* Income goals.
 * Hours needed for target income.
+* Hours needed for target take-home pay.
 * Overtime shifts needed.
 * Gross income targets.
 * Take-home income targets.
-
-(Expanded from earlier plans.)
 
 ---
 
@@ -92,11 +94,11 @@ Share & Export
 
 Planned Features:
 
-* Print summary.
+* Print support.
 * Copy results.
 * Save as PDF.
 * Share links.
-* Improved summary output.
+* Improved summaries.
 
 ---
 
@@ -114,6 +116,24 @@ Planned Features:
 * Analytics.
 * FAQ section.
 * Schema markup.
+
+---
+
+v1.1
+
+Theme:
+Appearance & Accessibility
+
+Planned Features:
+
+* Follow system theme.
+* Dark mode.
+* Light mode.
+* Theme persistence.
+* Accessibility improvements.
+* Larger text options.
+* Reduced motion support.
+* Future color packs.
 
 =====================================================
 Future Releases Unknown
@@ -140,7 +160,7 @@ Potential Features:
 * Dispatcher schedules.
 * 24/48 schedules.
 * 48/96 schedules.
-* Vacation savings goals.
+* Vacation goals.
 * Emergency fund goals.
 * Retirement projections.
 * Multiple jobs.
@@ -155,11 +175,11 @@ User Experience
 Potential Features:
 
 * Charts and graphs.
-* Saved presets.
 * Saved profiles.
 * Import and export.
-* Theme options.
-* Expanded dashboard views.
+* Expanded dashboards.
+* Additional themes.
+* Additional calculators.
 
 =====================================================
 
