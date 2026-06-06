@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +14,7 @@ Overtime Calculator | Signal Labs
 
 <meta
   name="description"
-  content="Estimate overtime pay, regular pay, and gross earnings with the Signal Labs Overtime Calculator.">
+  content="Estimate overtime pay, regular pay, gross earnings, and simple take-home pay with the Signal Labs Overtime Calculator.">
 
 <meta
   property="og:title"
@@ -23,7 +22,7 @@ Overtime Calculator | Signal Labs
 
 <meta
   property="og:description"
-  content="Estimate overtime pay and gross earnings.">
+  content="Estimate overtime pay, gross earnings, and simple take-home pay.">
 
 <link rel="icon" href="/favicon.ico">
 
@@ -54,7 +53,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.5.3">
+  href="style.css?v=0.6">
 
 </head>
 <body>
@@ -64,21 +63,15 @@ Overtime Calculator | Signal Labs
 <header class="hero">
 
 <p class="eyebrow">
-
 Signal Labs
-
 </p>
 
 <h1>
-
 Overtime Calculator
-
 </h1>
 
 <p class="subtitle">
-
-Estimate regular pay, overtime pay, and total gross pay.
-
+Estimate regular pay, overtime pay, gross pay, and simple take-home pay.
 </p>
 
 </header>
@@ -88,68 +81,90 @@ Estimate regular pay, overtime pay, and total gross pay.
 <section class="card input-card">
 
 <h2>
-
-Inputs
-
+Pay Inputs
 </h2>
 
 <div class="form-grid">
 
 <label>
-
-<span>
-Hourly Rate
-</span>
-
-<input
-  id="rate"
-  type="number"
-  placeholder="25.00"
-  step="0.01">
-
+<span>Hourly Rate</span>
+<input id="rate" type="number" placeholder="25.00" step="0.01">
 </label>
 
 <label>
-
-<span>
-Hours Worked
-</span>
-
-<input
-  id="hours"
-  type="number"
-  placeholder="48"
-  step="0.01">
-
+<span>Hours Worked</span>
+<input id="hours" type="number" placeholder="48" step="0.01">
 </label>
 
 <label>
-
-<span>
-Overtime After
-</span>
-
-<input
-  id="threshold"
-  type="number"
-  value="40"
-  step="0.01">
-
+<span>Overtime After</span>
+<input id="threshold" type="number" value="40" step="0.01">
 </label>
 
 <label>
-
-<span>
-Multiplier
-</span>
-
-<input
-  id="multiplier"
-  type="number"
-  value="1.5"
-  step="0.1">
-
+<span>Multiplier</span>
+<input id="multiplier" type="number" value="1.5" step="0.1">
 </label>
+
+</div>
+
+<div class="deduction-section">
+
+<h2>
+Take-Home Estimate
+</h2>
+
+<p class="section-note">
+Optional. Enter rough tax percentages and fixed paycheck deductions to estimate take-home pay.
+</p>
+
+<div class="form-grid">
+
+<label>
+<span>Federal Tax %</span>
+<input id="federalTax" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+<span>State Tax %</span>
+<input id="stateTax" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+<span>Local Tax %</span>
+<input id="localTax" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+<span>Other Tax %</span>
+<input id="otherTax" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+<span>Insurance $</span>
+<input id="insuranceDeduction" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+<span>Retirement $</span>
+<input id="retirementDeduction" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+<span>Extra Withholding $</span>
+<input id="extraWithholding" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+<span>Other Fixed $</span>
+<input id="otherFixedDeduction" type="number" placeholder="0" step="0.01">
+</label>
+
+</div>
+
+<p class="section-note small">
+This is a simple estimate using values you provide. It does not calculate official tax brackets.
+</p>
 
 </div>
 
@@ -164,9 +179,7 @@ Enter values or load an example to begin.
 <div class="button-row">
 
 <button id="calculate">
-
 Calculate Pay
-
 </button>
 
 <button
@@ -189,13 +202,10 @@ Reset
 
 </section>
 
-
 <section class="card results-card">
 
 <h2>
-
 Results
-
 </h2>
 
 <div class="result-row">
@@ -224,7 +234,7 @@ Results
 </div>
 
 <div class="result-row">
-<span>Effective Hourly Rate</span>
+<span>Gross Effective Rate</span>
 <strong id="effectiveRate">$0.00</strong>
 </div>
 
@@ -243,48 +253,50 @@ Results
 <strong id="totalPay">$0.00</strong>
 </div>
 
+<div class="result-row">
+<span>Estimated Taxes</span>
+<strong id="estimatedTaxes">$0.00</strong>
+</div>
+
+<div class="result-row">
+<span>Fixed Deductions</span>
+<strong id="fixedDeductions">$0.00</strong>
+</div>
+
+<div class="result-row net-total">
+<span>Estimated Take-Home Pay</span>
+<strong id="takeHomePay">$0.00</strong>
+</div>
+
+<div class="result-row">
+<span>Net Effective Rate</span>
+<strong id="netEffectiveRate">$0.00</strong>
+</div>
+
 <div class="summary-card">
 
 <h3>
-
 Weekly Summary
-
 </h3>
 
 <p>
-
 Generated:
-
-<span id="generatedTime">
-
---
-
-</span>
-
+<span id="generatedTime">--</span>
 </p>
 
 <p>
-
 Build:
-
-v0.5.3
-
+v0.6
 </p>
 
 <p>
-
 Theme:
-
-Polish & Foundation
-
+Take-Home Pay
 </p>
 
 <p>
-
 Status:
-
 Active Development
-
 </p>
 
 </div>
@@ -305,29 +317,22 @@ deductions, employer policies, and applicable labor laws.
 <footer class="version">
 
 <div>
-
-Signal Labs · Overtime Calculator · v0.5.3
-
+Signal Labs · Overtime Calculator · v0.6
 </div>
 
 <div class="info-links">
 
 <button id="openChangelog">
-
 Changelog
-
 </button>
 
 <button id="openRoadmap">
-
 Roadmap
-
 </button>
 
 </div>
 
 </footer>
-
 
 <div
   id="modal"
@@ -345,32 +350,19 @@ Roadmap
 </button>
 
 <h2 id="modalTitle">
-
 Project Information
-
 </h2>
 
 <pre id="modalContent">
-
 Loading...
-
 </pre>
 
 </div>
 
 </div>
 
-
-<script
-  src="../assets/global.js?v=0.5.3">
-
-</script>
-
-<script
-  src="script.js?v=0.5.3">
-
-</script>
+<script src="../assets/global.js?v=0.5.3"></script>
+<script src="script.js?v=0.6"></script>
 
 </body>
 </html>
-```

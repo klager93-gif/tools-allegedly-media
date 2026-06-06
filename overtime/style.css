@@ -34,6 +34,25 @@ input:focus {
   border-color: rgba(255,255,255,.35);
 }
 
+.deduction-section {
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.section-note {
+  color: #999;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.section-note.small {
+  margin-top: 24px;
+  margin-bottom: 0;
+  font-size: 13px;
+  color: #777;
+}
+
 .message {
   margin-top: 18px;
   color: #888;
@@ -82,6 +101,15 @@ input:focus {
 }
 
 .total strong {
+  font-size: 32px;
+}
+
+.net-total {
+  background: rgba(45,90,150,.25);
+  border-color: rgba(100,170,255,.35);
+}
+
+.net-total strong {
   font-size: 32px;
 }
 

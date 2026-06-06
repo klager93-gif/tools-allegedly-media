@@ -3,27 +3,39 @@ Signal Labs Overtime Calculator
 CHANGELOG
 =========
 
-Version: 0.5.3
+Version: 0.6
 Date: 2026-06-06
-Time: 06:00 UTC
+Time: 07:00 UTC
 
 Theme:
-Polish & Foundation
+Take-Home Pay
 
 Changes:
 
-* Added Signal Labs favicon support.
-* Added Apple touch icon.
-* Added Android icons.
-* Added site.webmanifest.
-* Added meta descriptions.
-* Added Open Graph tags.
-* Added README.txt.
-* Added theme to summary card.
-* Continued foundation improvements.
-* Prepared framework for Progressive Web Apps.
-* Prepared framework for future iOS support.
-* Prepared framework for future Android support.
+* Added Take-Home Estimate section.
+* Added Federal Tax % input.
+* Added State Tax % input.
+* Added Local Tax % input.
+* Added Other Tax % input.
+* Added Insurance deduction input.
+* Added Retirement deduction input.
+* Added Extra Withholding input.
+* Added Other Fixed Deduction input.
+* Added Estimated Taxes output.
+* Added Fixed Deductions output.
+* Added Estimated Take-Home Pay output.
+* Added Net Effective Hourly Rate output.
+* Added validation for negative values.
+* Added validation preventing total tax percentages above 100%.
+* Updated example values.
+* Updated summary card theme.
+
+---
+
+Version: 0.5.3
+
+Theme:
+Polish & Foundation
 
 ---
 
@@ -31,15 +43,6 @@ Version: 0.5.2
 
 Theme:
 Shared Signal Labs Assets
-
-Changes:
-
-* Added Signal Labs homepage.
-* Added assets folder.
-* Added global.css.
-* Added global.js.
-* Introduced reusable architecture.
-* Prepared framework for additional tools.
 
 ---
 

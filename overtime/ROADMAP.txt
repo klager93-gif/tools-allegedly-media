@@ -5,10 +5,10 @@ ROADMAP
 
 Last Updated:
 2026-06-06
-06:00 UTC
+07:00 UTC
 
 Current Version:
-v0.5.3
+v0.6
 
 =====================================================
 Completed Versions
@@ -38,39 +38,12 @@ Shared Signal Labs Assets
 v0.5.3
 Polish & Foundation
 
+v0.6
+Take-Home Pay
+
 =====================================================
 Upcoming Versions
 =================
-
-v0.6
-
-Theme:
-Take-Home Pay
-
-Planned Features:
-
-Percentage Deductions
-
-* Federal tax %
-* State tax %
-* Local tax %
-* Other tax %
-
-Fixed Deductions
-
-* Insurance $
-* Retirement $
-* Extra withholding $
-* Other fixed deductions $
-
-Results
-
-* Estimated taxes
-* Estimated fixed deductions
-* Estimated take-home pay
-* Net effective hourly rate
-
----
 
 v0.6.1
 
@@ -79,9 +52,10 @@ Tax Rate Helper
 
 Planned Features:
 
-* Helper information for estimating tax rates.
-* Example paycheck calculations.
+* Tax percentage guidance.
+* Example calculations.
 * Educational notes.
+* Low / Medium / High estimate presets.
 
 ---
 
@@ -92,12 +66,14 @@ Advanced Pay Features
 
 Planned Features:
 
-* Shift differential
-* Night shift bonus
-* Weekend bonus
-* Holiday bonus
-* Break deductions
-* Multiple overtime tiers
+* Shift differential.
+* Night shift bonus.
+* Weekend bonus.
+* Holiday bonus.
+* Break deductions.
+* Multiple overtime tiers.
+* Double-time support.
+* Presets for common pay structures.
 
 ---
 
@@ -108,17 +84,14 @@ Goal Mode
 
 Planned Features:
 
-* Income goal mode
-* Reverse overtime calculations
-* Hours needed for target income
-* Overtime shifts needed
-* Gross income targets
+* Income goal mode.
+* Reverse overtime calculations.
+* Hours needed for target income.
+* Overtime shifts needed.
+* Gross income targets.
+* Take-home income targets.
 
-Future Feature:
-
-* Take-home goal mode
-
-(Originally considered post-v1.0.)
+(Expanded from earlier plans.)
 
 ---
 
@@ -129,10 +102,11 @@ Share & Export
 
 Planned Features:
 
-* Print summary
-* Copy results
-* Share links
-* Save as PDF
+* Print summary.
+* Copy results.
+* Save as PDF.
+* Share links.
+* Improved summary output.
 
 ---
 
@@ -143,11 +117,13 @@ Public Release
 
 Planned Features:
 
-* Final visual polish
-* Accessibility review
-* Mobile review
-* SEO improvements
-* Analytics
+* Final visual polish.
+* Accessibility review.
+* Mobile review.
+* SEO improvements.
+* Analytics.
+* FAQ section.
+* Schema markup.
 
 =====================================================
 Future Releases Unknown
@@ -157,18 +133,35 @@ Platform Expansion
 
 Potential Features:
 
-* Progressive Web App support
-* Installable home screen app
-* Offline support
-* Native iOS application
-* Native Android application
-* App Store distribution
-* Google Play distribution
+* Progressive Web App support.
+* Installable home screen app.
+* Offline support.
+* Native iOS application.
+* Native Android application.
+* App Store distribution.
+* Google Play distribution.
 
 (Target release unknown.)
 
-Implementation depends on future project growth
-and user demand.
+Implementation depends on project growth and user demand.
+
+---
+
+Additional Ideas
+
+Potential Features:
+
+* Dispatcher schedule presets.
+* 24/48 schedules.
+* 48/96 schedules.
+* Vacation savings goals.
+* Emergency fund goals.
+* Retirement impact estimates.
+* Multiple jobs.
+* Monthly projections.
+* Yearly projections.
+* Burnout warnings.
+* State-specific overtime rules.
 
 =====================================================
 
