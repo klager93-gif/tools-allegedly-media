@@ -8,48 +8,60 @@
 </head>
 <body>
   <main class="page">
-    <section class="calculator-card">
+    <header class="hero">
       <p class="eyebrow">Allegedly Media Tools</p>
       <h1>Overtime Calculator</h1>
-      <p class="subtitle">Estimate regular pay, overtime pay, and total gross pay.</p>
+      <p class="subtitle">Estimate regular pay, overtime pay, and total gross pay from hourly wages.</p>
+    </header>
 
-      <div class="form-grid">
-        <label>
-          Hourly Rate
-          <input id="rate" type="number" placeholder="25" step="0.01" />
-        </label>
+    <section class="layout">
+      <section class="card input-card">
+        <h2>Inputs</h2>
 
-        <label>
-          Hours Worked
-          <input id="hours" type="number" placeholder="48" step="0.01" />
-        </label>
+        <div class="form-grid">
+          <label>
+            <span>Hourly Rate</span>
+            <input id="rate" type="number" placeholder="25.00" step="0.01" />
+          </label>
 
-        <label>
-          Overtime After
-          <input id="threshold" type="number" value="40" step="0.01" />
-        </label>
+          <label>
+            <span>Hours Worked</span>
+            <input id="hours" type="number" placeholder="48" step="0.01" />
+          </label>
 
-        <label>
-          Overtime Multiplier
-          <input id="multiplier" type="number" value="1.5" step="0.01" />
-        </label>
-      </div>
+          <label>
+            <span>Overtime After</span>
+            <input id="threshold" type="number" value="40" step="0.01" />
+          </label>
 
-      <button id="calculate">Calculate</button>
+          <label>
+            <span>Overtime Multiplier</span>
+            <input id="multiplier" type="number" value="1.5" step="0.01" />
+          </label>
+        </div>
 
-      <section class="results">
-        <div>
+        <button id="calculate">Calculate Pay</button>
+      </section>
+
+      <section class="card results-card">
+        <h2>Results</h2>
+
+        <div class="result-row">
           <span>Regular Pay</span>
           <strong id="regularPay">$0.00</strong>
         </div>
-        <div>
+
+        <div class="result-row">
           <span>Overtime Pay</span>
           <strong id="overtimePay">$0.00</strong>
         </div>
-        <div class="total">
-          <span>Total Pay</span>
+
+        <div class="result-row total">
+          <span>Total Gross Pay</span>
           <strong id="totalPay">$0.00</strong>
         </div>
+
+        <p class="note">Estimate only. Actual pay may vary based on taxes, deductions, employer policy, and applicable labor rules.</p>
       </section>
     </section>
   </main>

@@ -22,7 +22,7 @@ function calculateOvertime() {
   const threshold = Number(thresholdInput.value);
   const multiplier = Number(multiplierInput.value);
 
-  if (!rate || !hours || !threshold || !multiplier) {
+  if (rate <= 0 || hours <= 0 || threshold <= 0 || multiplier <= 0) {
     regularPayEl.textContent = "$0.00";
     overtimePayEl.textContent = "$0.00";
     totalPayEl.textContent = "$0.00";
