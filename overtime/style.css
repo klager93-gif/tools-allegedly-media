@@ -722,3 +722,80 @@ v0.7.3.1 Mobile Layout Refactor
   }
 
 }
+
+
+/*
+--------------------------------
+v0.7.3.2 Mobile Results Refactor
+--------------------------------
+*/
+
+.result-collapse-toggle {
+  display: none;
+  width: auto;
+  margin-left: auto;
+  padding: 7px 12px;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+
+  .mobile-result-section h3 {
+    align-items: center;
+  }
+
+  .result-collapse-toggle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+  }
+
+  .mobile-result-section.is-result-collapsed > .result-row,
+  .mobile-result-section.is-result-collapsed > .result-detail-list {
+    display: none;
+  }
+
+  .mobile-result-section.is-result-collapsed {
+    margin-bottom: 16px;
+  }
+
+  .pay-result-section {
+    margin-bottom: 26px;
+  }
+
+  .results-compact-mobile .pay-result-section .total {
+    margin-top: 10px;
+  }
+
+  .compact-summary {
+    padding: 14px 16px;
+  }
+
+  .compact-summary p:first-child {
+    display: none;
+  }
+
+  .compact-summary p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .footer-actions {
+    flex-direction: row;
+  }
+
+  .footer-actions button {
+    width: 100%;
+    padding: 15px 12px;
+  }
+
+}
+
+@media (max-width: 420px) {
+
+  .footer-actions {
+    flex-direction: column;
+  }
+
+}

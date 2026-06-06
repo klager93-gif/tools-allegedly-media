@@ -53,7 +53,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.7.3.1">
+  href="style.css?v=0.7.3.2">
 
 </head>
 <body>
@@ -407,9 +407,10 @@ Overtime Calculator | Signal Labs
   </button>
 </div>
 
-<div class="results-section">
+<div class="results-section mobile-result-section hours-result-section mobile-result-collapsed" data-result-section>
 
-<h3>Hours Breakdown</h3>
+<h3>Hours Breakdown
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button></h3>
 
 <div class="result-row">
   <span>Total Hours</span>
@@ -428,9 +429,10 @@ Overtime Calculator | Signal Labs
 
 </div>
 
-<div class="results-section">
+<div class="results-section mobile-result-section rates-result-section mobile-result-collapsed" data-result-section>
 
-<h3>Rates</h3>
+<h3>Rates
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button></h3>
 
 <div class="result-row">
   <span>Hourly Rate</span>
@@ -449,9 +451,10 @@ Overtime Calculator | Signal Labs
 
 </div>
 
-<div class="results-section">
+<div class="results-section mobile-result-section pay-result-section" data-result-section>
 
-<h3>Pay Breakdown</h3>
+<h3>Pay Breakdown
+  <button class="result-collapse-toggle" type="button" aria-expanded="true">Hide</button></h3>
 
 <div class="result-row">
   <span>Regular Pay</span>
@@ -471,10 +474,11 @@ Overtime Calculator | Signal Labs
 </div>
 
 
-<div class="results-section">
+<div class="results-section mobile-result-section advanced-result-section mobile-result-collapsed" data-result-section>
 
 <h3 class="blue-text">
   Advanced Pay
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
   <span id="advancedPayTotal">$0.00</span>
 </h3>
 
@@ -495,10 +499,11 @@ Overtime Calculator | Signal Labs
 
 </div>
 
-<div class="results-section">
+<div class="results-section mobile-result-section taxes-result-section mobile-result-collapsed" data-result-section>
 
 <h3 class="purple-text">
   Taxes
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
   <span id="taxResultsTotal">-$0.00</span>
 </h3>
 
@@ -508,10 +513,11 @@ Overtime Calculator | Signal Labs
 
 </div>
 
-<div class="results-section">
+<div class="results-section mobile-result-section deductions-result-section mobile-result-collapsed" data-result-section>
 
 <h3 class="blue-text">
   Deductions
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
   <span id="deductionResultsTotal">-$0.00</span>
 </h3>
 
@@ -531,7 +537,7 @@ Overtime Calculator | Signal Labs
   <strong id="netEffectiveRate">$0.00</strong>
 </div>
 
-<div class="summary-card">
+<div class="summary-card compact-summary">
   <p>
     Generated:
     <span id="generatedTime">--</span>
@@ -539,12 +545,12 @@ Overtime Calculator | Signal Labs
 
   <p>
     Build:
-    v0.7.3.1
+    v0.7.3.2
   </p>
 
   <p>
     Theme:
-    Mobile Layout Refactor
+    Mobile Results Refactor
   </p>
 
   <p>
@@ -574,7 +580,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Overtime Calculator · v0.7.3.1
+  Signal Labs · Overtime Calculator · v0.7.3.2
   <br>
   Estimates only. Actual pay may vary based on taxes, deductions,
   employer policies, and applicable labor laws.
@@ -683,7 +689,7 @@ Enter a name and value for this adjustment.
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.7.3.1"></script>
+<script src="script.js?v=0.7.3.2"></script>
 
 </body>
 </html>

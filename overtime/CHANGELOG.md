@@ -4,6 +4,27 @@
 
 ---
 
+## Version 0.7.3.2
+
+**Date:** 2026-06-06  
+**Time:** 13:45 UTC
+
+### Theme
+
+Mobile Results Refactor
+
+### Changes
+
+- Added mobile collapsible results sections.
+- Pay Breakdown remains open by default on mobile.
+- Hours Breakdown, Rates, Advanced Pay, Taxes, and Deductions start collapsed on mobile.
+- Reduced mobile Results page length.
+- Made summary card more compact on mobile.
+- Improved footer button layout on mobile.
+- Updated documentation for v0.7.3.2.
+
+---
+
 ## Version 0.7.3.1
 
 **Date:** 2026-06-06  

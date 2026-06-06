@@ -114,6 +114,8 @@ Currency changes display only. It does not convert exchange rates or change tax 
 - Mobile support.
 - Mobile collapsible cards.
 - Compact mobile results layout.
+- Mobile collapsible results sections.
+- Compact mobile summary card.
 
 ---
 
@@ -244,11 +246,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.7.3.1
+v0.7.3.2
 
 ### Theme
 
-Mobile Layout Refactor
+Mobile Results Refactor
 
 ### Status
 
