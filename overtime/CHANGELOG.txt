@@ -1,0 +1,84 @@
+=====================================================
+Signal Labs Overtime Calculator
+CHANGELOG
+=====================================================
+
+Version: 0.5
+Date: 2026-06-06
+Time: 03:30 UTC
+
+Changes:
+- Added Total Hours output.
+- Added Hourly Rate output.
+- Added Effective Hourly Rate output.
+- Added Weekly Summary card.
+- Added Generated timestamp using UTC.
+- Improved results presentation.
+- Updated cache-busting references to v0.5.
+- Updated footer to:
+  Signal Labs · Overtime Calculator · v0.5
+
+-----------------------------------------------------
+
+Version: 0.4
+Date: 2026-06-06
+Time: 03:00 UTC
+
+Changes:
+- Added Reset button.
+- Added Example Values button.
+- Added Overtime Rate output.
+- Added validation and error messages.
+- Added empty state handling.
+- Added disclaimer.
+- Improved button layout.
+- Added cache busting for CSS and JS.
+- Updated footer to:
+  Signal Labs · Overtime Calculator · v0.4
+
+-----------------------------------------------------
+
+Version: 0.3
+Date: 2026-06-06
+Time: 02:20 UTC
+
+Changes:
+- Rebranded calculator to Signal Labs.
+- Removed Allegedly Media Tools branding from the calculator.
+- Added visible version footer.
+- Added Regular Hours output.
+- Added Overtime Hours output.
+- Added automatic calculations while typing.
+- Improved result visibility.
+
+-----------------------------------------------------
+
+Version: 0.2
+Date: 2026-06-06
+Time: 01:50 UTC
+
+Changes:
+- Refreshed calculator UI.
+- Added card-based layout.
+- Improved spacing and readability.
+- Improved responsive layout.
+- Added glass-style dark theme.
+- Improved mobile display.
+
+-----------------------------------------------------
+
+Version: 0.1
+Date: 2026-06-06
+Time: 01:15 UTC
+
+Changes:
+- Initial prototype.
+- Added Hourly Rate input.
+- Added Hours Worked input.
+- Added Overtime Threshold input.
+- Added Overtime Multiplier input.
+- Added Regular Pay calculation.
+- Added Overtime Pay calculation.
+- Added Total Gross Pay calculation.
+
+=====================================================

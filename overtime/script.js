@@ -3,14 +3,19 @@ const hoursInput = document.getElementById("hours");
 const thresholdInput = document.getElementById("threshold");
 const multiplierInput = document.getElementById("multiplier");
 
+const totalHoursEl = document.getElementById("totalHours");
 const regularHoursEl = document.getElementById("regularHours");
 const overtimeHoursEl = document.getElementById("overtimeHours");
+
+const hourlyRateEl = document.getElementById("hourlyRate");
 const overtimeRateEl = document.getElementById("overtimeRate");
+const effectiveRateEl = document.getElementById("effectiveRate");
 
 const regularPayEl = document.getElementById("regularPay");
 const overtimePayEl = document.getElementById("overtimePay");
 const totalPayEl = document.getElementById("totalPay");
 
+const generatedTimeEl = document.getElementById("generatedTime");
 const messageEl = document.getElementById("message");
 
 const calculateButton = document.getElementById("calculate");
@@ -24,13 +29,28 @@ function money(amount) {
   });
 }
 
+function number(value) {
+  return value.toFixed(2);
+}
+
+function currentUtcTime() {
+  return new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
+}
+
 function resetResults() {
+  totalHoursEl.textContent = "0.00";
   regularHoursEl.textContent = "0.00";
   overtimeHoursEl.textContent = "0.00";
+
+  hourlyRateEl.textContent = "$0.00";
   overtimeRateEl.textContent = "$0.00";
+  effectiveRateEl.textContent = "$0.00";
+
   regularPayEl.textContent = "$0.00";
   overtimePayEl.textContent = "$0.00";
   totalPayEl.textContent = "$0.00";
+
+  generatedTimeEl.textContent = "--";
 }
 
 function calculateOvertime() {
@@ -54,6 +74,7 @@ function calculateOvertime() {
     return;
   }
 
+  const totalHours = hours;
   const regularHours = Math.min(hours, threshold);
   const overtimeHours = Math.max(hours - threshold, 0);
 
@@ -61,14 +82,21 @@ function calculateOvertime() {
   const regularPay = regularHours * rate;
   const overtimePay = overtimeHours * overtimeRate;
   const totalPay = regularPay + overtimePay;
+  const effectiveRate = totalHours > 0 ? totalPay / totalHours : 0;
 
-  regularHoursEl.textContent = regularHours.toFixed(2);
-  overtimeHoursEl.textContent = overtimeHours.toFixed(2);
+  totalHoursEl.textContent = number(totalHours);
+  regularHoursEl.textContent = number(regularHours);
+  overtimeHoursEl.textContent = number(overtimeHours);
+
+  hourlyRateEl.textContent = money(rate);
   overtimeRateEl.textContent = money(overtimeRate);
+  effectiveRateEl.textContent = money(effectiveRate);
+
   regularPayEl.textContent = money(regularPay);
   overtimePayEl.textContent = money(overtimePay);
   totalPayEl.textContent = money(totalPay);
 
+  generatedTimeEl.textContent = currentUtcTime();
   messageEl.textContent = "Calculation updated.";
 }
 
@@ -77,6 +105,7 @@ function loadExample() {
   hoursInput.value = "48";
   thresholdInput.value = "40";
   multiplierInput.value = "1.5";
+
   calculateOvertime();
 }
 
@@ -85,7 +114,9 @@ function clearCalculator() {
   hoursInput.value = "";
   thresholdInput.value = "40";
   multiplierInput.value = "1.5";
+
   resetResults();
+
   messageEl.classList.remove("error");
   messageEl.textContent = "Enter values or load an example to begin.";
 }
