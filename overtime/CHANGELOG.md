@@ -4,6 +4,24 @@
 
 ---
 
+## Version 0.6.4.2
+
+**Date:** 2026-06-06  
+**Time:** 10:45 UTC
+
+### Theme
+
+Button Layout Polish
+
+### Changes
+
+- Changed the Basic Pay button layout.
+- Made Calculate Pay a full-width primary action.
+- Moved Save Settings, Example, and Reset into a cleaner secondary row.
+- Improved button spacing on desktop and mobile.
+
+---
+
 ## Version 0.6.4.1
 
 **Date:** 2026-06-06  
