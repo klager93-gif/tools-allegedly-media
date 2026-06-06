@@ -4,6 +4,23 @@
 
 ---
 
+## Version 0.6.4.1
+
+**Date:** 2026-06-06  
+**Time:** 10:30 UTC
+
+### Theme
+
+Button Layout Bug Fix
+
+### Changes
+
+- Fixed Calculate Pay button wrapping after adding Save Settings.
+- Improved Basic Pay button row spacing.
+- Updated stylesheet cache-busting to load the bug fix.
+
+---
+
 ## Version 0.6.4
 
 **Date:** 2026-06-06  

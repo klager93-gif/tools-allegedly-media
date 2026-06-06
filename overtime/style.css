@@ -124,8 +124,15 @@ select:focus {
 
 .button-row {
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: 1.35fr 1fr 1fr 1fr;
   gap: 12px;
+  align-items: stretch;
+}
+
+.button-row button {
+  min-width: 0;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .primary-action {
