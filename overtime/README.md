@@ -120,6 +120,7 @@ Currency changes display only. It does not convert exchange rates or change tax 
 - Saved layout state.
 - Welcome-back restoration message.
 - Clear saved profile control.
+- Legacy saved profile migration.
 - Compact mobile summary card.
 
 ---
@@ -251,11 +252,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.8.0
+v0.8.0.1
 
 ### Theme
 
-Personalized Experience
+Saved Profile Migration Fix
 
 ### Status
 

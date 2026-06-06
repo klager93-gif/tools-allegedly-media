@@ -66,8 +66,20 @@ const adjustmentModalMessageEl = document.getElementById("adjustmentModalMessage
 const saveAdjustmentButton = document.getElementById("saveAdjustment");
 const cancelAdjustmentButton = document.getElementById("cancelAdjustment");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV080";
-const LEGACY_STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV0801";
+
+const LEGACY_STORAGE_KEYS = [
+  "signalLabsOvertimeCalculatorV080",
+  "signalLabsOvertimeCalculatorV0733",
+  "signalLabsOvertimeCalculatorV0732",
+  "signalLabsOvertimeCalculatorV0731",
+  "signalLabsOvertimeCalculatorV073",
+  "signalLabsOvertimeCalculatorV072",
+  "signalLabsOvertimeCalculatorV071",
+  "signalLabsOvertimeCalculatorV070",
+  "signalLabsOvertimeCalculatorV064",
+  "signalLabsOvertimeCalculatorV063"
+];
 
 let taxes = [];
 let deductions = [];
@@ -155,18 +167,27 @@ function getThreshold() {
 
 
 function readSavedData() {
-  const saved = localStorage.getItem(STORAGE_KEY);
+  const keysToCheck = [STORAGE_KEY, ...LEGACY_STORAGE_KEYS];
 
-  if (!saved) {
-    return null;
+  for (const key of keysToCheck) {
+    const saved = localStorage.getItem(key);
+
+    if (!saved) {
+      continue;
+    }
+
+    try {
+      const data = JSON.parse(saved);
+      return {
+        data,
+        sourceKey: key
+      };
+    } catch (error) {
+      localStorage.removeItem(key);
+    }
   }
 
-  try {
-    return JSON.parse(saved);
-  } catch (error) {
-    localStorage.removeItem(STORAGE_KEY);
-    return null;
-  }
+  return null;
 }
 
 function getCollapseStates() {
@@ -272,16 +293,16 @@ function saveSettings(showMessage = false) {
 }
 
 function loadSavedSettings() {
-  const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
+  const savedProfile = readSavedData();
 
-  if (!saved) {
+  if (!savedProfile || !savedProfile.data) {
     return false;
   }
 
   try {
     isLoadingSavedSettings = true;
 
-    const data = JSON.parse(saved);
+    const data = savedProfile.data;
 
     rateInput.value = data.rate || "";
     hoursInput.value = data.hours || "";
@@ -305,8 +326,7 @@ function loadSavedSettings() {
 
     return true;
   } catch (error) {
-    localStorage.removeItem(STORAGE_KEY);
-    localStorage.removeItem(LEGACY_STORAGE_KEY);
+    clearSavedSettings();
     return false;
   } finally {
     isLoadingSavedSettings = false;
@@ -315,7 +335,10 @@ function loadSavedSettings() {
 
 function clearSavedSettings() {
   localStorage.removeItem(STORAGE_KEY);
-  localStorage.removeItem(LEGACY_STORAGE_KEY);
+
+  LEGACY_STORAGE_KEYS.forEach((key) => {
+    localStorage.removeItem(key);
+  });
 }
 
 
@@ -324,7 +347,7 @@ function clearSavedProfile() {
 
   messageEl.classList.remove("error");
   messageEl.textContent =
-    "Saved profile cleared. Current values will stay until you leave or reset.";
+    "Saved profile cleared from this device. Current values will stay until you leave or reset.";
 }
 
 
@@ -977,7 +1000,8 @@ const loadedSavedSettings = loadSavedSettings();
 setupMobileCollapsibleCards();
 setupMobileResultSections();
 
-const savedDataForLayout = readSavedData();
+const savedProfileForLayout = readSavedData();
+const savedDataForLayout = savedProfileForLayout ? savedProfileForLayout.data : null;
 
 if (savedDataForLayout && savedDataForLayout.collapseStates) {
   applyCollapseStates(savedDataForLayout.collapseStates);
@@ -988,6 +1012,7 @@ renderAdjustments();
 
 if (loadedSavedSettings) {
   calculateOvertime();
+  saveSettings();
   messageEl.classList.remove("error");
   messageEl.textContent = "Welcome back. Previous values and layout restored.";
 } else {

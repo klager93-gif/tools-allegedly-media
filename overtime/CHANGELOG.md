@@ -4,6 +4,27 @@
 
 ---
 
+## Version 0.8.0.1
+
+**Date:** 2026-06-06  
+**Time:** 15:15 UTC
+
+### Theme
+
+Saved Profile Migration Fix
+
+### Changes
+
+- Fixed saved profile migration from recent v0.7.x releases.
+- Added legacy storage fallback support for recent saved settings.
+- Migrated restored saved profiles into the new v0.8 storage key.
+- Clear Saved Profile now removes current and legacy saved profile keys.
+- Updated saved profile messaging.
+- Updated cache-busting references for v0.8.0.1.
+- Updated documentation for the bug fix release.
+
+---
+
 ## Version 0.8.0
 
 **Date:** 2026-06-06  

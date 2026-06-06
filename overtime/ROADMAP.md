@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.8.0**
+**v0.8.0.1**
 
 ---
 
@@ -42,6 +42,7 @@
 | v0.7.3.2 | Mobile Results Refactor |
 | v0.7.3.3 | Mobile Hero Polish |
 | v0.8.0 | Personalized Experience |
+| v0.8.0.1 | Saved Profile Migration Fix |
 | v0.6.4 | Custom Modals & Manual Save |
 
 ---
