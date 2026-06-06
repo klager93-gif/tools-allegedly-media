@@ -53,7 +53,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.6.4.2.2">
+  href="style.css?v=0.7">
 
 </head>
 <body>
@@ -164,10 +164,65 @@ Overtime Calculator | Signal Labs
 </section>
 
 
+
+<section class="card step-card advanced-pay-card">
+
+<div class="section-title">
+  <div class="step-badge blue">2</div>
+  <div>
+    <h2>Advanced Pay <span>(Optional)</span></h2>
+    <p>Add shift differential hours, weekend bonuses, holiday bonuses, or double-time hours.</p>
+  </div>
+</div>
+
+<div class="form-grid">
+
+<label>
+  <span>Shift Differential Rate</span>
+  <input id="differentialRate" type="number" placeholder="2.00" step="0.01">
+</label>
+
+<label>
+  <span>Differential Hours</span>
+  <input id="differentialHours" type="number" placeholder="8" step="0.01">
+</label>
+
+<label>
+  <span>Double-Time Hours</span>
+  <input id="doubleTimeHours" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+  <span>Weekend Bonus</span>
+  <input id="weekendBonus" type="number" placeholder="0.00" step="0.01">
+</label>
+
+<label>
+  <span>Holiday Bonus</span>
+  <input id="holidayBonus" type="number" placeholder="0.00" step="0.01">
+</label>
+
+<label>
+  <span>Other Bonus</span>
+  <input id="otherBonus" type="number" placeholder="0.00" step="0.01">
+</label>
+
+</div>
+
+<div class="info-note advanced-note">
+  <strong>Advanced pay is optional.</strong>
+  <span>
+    Differential pay and bonuses are added to gross pay before taxes and deductions.
+  </span>
+</div>
+
+</section>
+
+
 <section class="card step-card adjustment-card">
 
 <div class="section-title">
-  <div class="step-badge purple">2</div>
+  <div class="step-badge purple">3</div>
   <div>
     <h2>Take-Home Estimate <span>(Optional)</span></h2>
     <p>Add taxes, deductions, and other adjustments to estimate your take-home pay.</p>
@@ -347,6 +402,31 @@ Overtime Calculator | Signal Labs
 
 </div>
 
+
+<div class="results-section">
+
+<h3 class="blue-text">
+  Advanced Pay
+  <span id="advancedPayTotal">$0.00</span>
+</h3>
+
+<div class="result-row">
+  <span>Shift Differential Pay</span>
+  <strong id="differentialPay">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Double-Time Pay</span>
+  <strong id="doubleTimePay">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Bonus Pay</span>
+  <strong id="bonusPay">$0.00</strong>
+</div>
+
+</div>
+
 <div class="results-section">
 
 <h3 class="purple-text">
@@ -391,12 +471,12 @@ Overtime Calculator | Signal Labs
 
   <p>
     Build:
-    v0.6.4.2.2
+    v0.7
   </p>
 
   <p>
     Theme:
-    Custom Modals & Manual Save
+    Advanced Pay Features
   </p>
 
   <p>
@@ -426,7 +506,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Overtime Calculator · v0.6.4.2.2
+  Signal Labs · Overtime Calculator · v0.7
   <br>
   Estimates only. Actual pay may vary based on taxes, deductions,
   employer policies, and applicable labor laws.
@@ -535,7 +615,7 @@ Enter a name and value for this adjustment.
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.6.4"></script>
+<script src="script.js?v=0.7"></script>
 
 </body>
 </html>

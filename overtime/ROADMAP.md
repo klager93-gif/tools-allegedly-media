@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.6.4**
+**v0.7**
 
 ---
 
@@ -32,30 +32,15 @@
 | v0.6.2 | Smart Hours |
 | v0.6.3 | Stability & Saved Settings |
 | v0.6.4 | Custom Modals & Manual Save |
+| v0.6.4.1 | Button Layout Bug Fix |
+| v0.6.4.2 | Button Layout Polish |
+| v0.7 | Advanced Pay Features |
+| v0.6.4 | Custom Modals & Manual Save |
 
 ---
 
 # Upcoming Versions
 
-## v0.7
-
-### Theme
-
-Advanced Pay Features
-
-### Planned Features
-
-- Shift differential.
-- Night shift bonus.
-- Weekend bonus.
-- Holiday bonus.
-- Multiple overtime tiers.
-- Double-time support.
-- Paid break options.
-- Unpaid break options.
-- Presets for common pay structures.
-
----
 
 ## v0.8
 

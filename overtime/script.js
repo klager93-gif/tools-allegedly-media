@@ -3,6 +3,13 @@ const hoursInput = document.getElementById("hours");
 const payPeriodInput = document.getElementById("payPeriod");
 const multiplierInput = document.getElementById("multiplier");
 
+const differentialRateInput = document.getElementById("differentialRate");
+const differentialHoursInput = document.getElementById("differentialHours");
+const doubleTimeHoursInput = document.getElementById("doubleTimeHours");
+const weekendBonusInput = document.getElementById("weekendBonus");
+const holidayBonusInput = document.getElementById("holidayBonus");
+const otherBonusInput = document.getElementById("otherBonus");
+
 const overrideThresholdInput = document.getElementById("overrideThreshold");
 const customThresholdInput = document.getElementById("customThreshold");
 const customThresholdWrap = document.getElementById("customThresholdWrap");
@@ -20,6 +27,11 @@ const effectiveRateEl = document.getElementById("effectiveRate");
 const regularPayEl = document.getElementById("regularPay");
 const overtimePayEl = document.getElementById("overtimePay");
 const totalPayEl = document.getElementById("totalPay");
+
+const differentialPayEl = document.getElementById("differentialPay");
+const doubleTimePayEl = document.getElementById("doubleTimePay");
+const bonusPayEl = document.getElementById("bonusPay");
+const advancedPayTotalEl = document.getElementById("advancedPayTotal");
 
 const takeHomePayEl = document.getElementById("takeHomePay");
 const netEffectiveRateEl = document.getElementById("netEffectiveRate");
@@ -53,7 +65,7 @@ const adjustmentModalMessageEl = document.getElementById("adjustmentModalMessage
 const saveAdjustmentButton = document.getElementById("saveAdjustment");
 const cancelAdjustmentButton = document.getElementById("cancelAdjustment");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV064";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV070";
 const LEGACY_STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
 
 let taxes = [];
@@ -142,6 +154,12 @@ function getSavedState() {
     hours: hoursInput.value,
     payPeriod: payPeriodInput.value,
     multiplier: multiplierInput.value,
+    differentialRate: differentialRateInput.value,
+    differentialHours: differentialHoursInput.value,
+    doubleTimeHours: doubleTimeHoursInput.value,
+    weekendBonus: weekendBonusInput.value,
+    holidayBonus: holidayBonusInput.value,
+    otherBonus: otherBonusInput.value,
     overrideThreshold: overrideThresholdInput.checked,
     customThreshold: customThresholdInput.value,
     taxes,
@@ -186,6 +204,12 @@ function loadSavedSettings() {
     hoursInput.value = data.hours || "";
     payPeriodInput.value = data.payPeriod || "weekly";
     multiplierInput.value = data.multiplier || "1.5";
+    differentialRateInput.value = data.differentialRate || "";
+    differentialHoursInput.value = data.differentialHours || "";
+    doubleTimeHoursInput.value = data.doubleTimeHours || "";
+    weekendBonusInput.value = data.weekendBonus || "";
+    holidayBonusInput.value = data.holidayBonus || "";
+    otherBonusInput.value = data.otherBonus || "";
     overrideThresholdInput.checked = Boolean(data.overrideThreshold);
     customThresholdInput.value = data.customThreshold || "";
 
@@ -247,6 +271,10 @@ function resetResults() {
   regularPayEl.textContent = "$0.00";
   overtimePayEl.textContent = "$0.00";
   totalPayEl.textContent = "$0.00";
+  differentialPayEl.textContent = "$0.00";
+  doubleTimePayEl.textContent = "$0.00";
+  bonusPayEl.textContent = "$0.00";
+  advancedPayTotalEl.textContent = "$0.00";
   takeHomePayEl.textContent = "$0.00";
   netEffectiveRateEl.textContent = "$0.00";
   taxResultsTotalEl.textContent = "-$0.00";
@@ -473,6 +501,12 @@ function calculateOvertime() {
   const hours = getInputValue(hoursInput);
   const threshold = getThreshold();
   const multiplier = getInputValue(multiplierInput);
+  const differentialRate = getInputValue(differentialRateInput);
+  const differentialHours = getInputValue(differentialHoursInput);
+  const doubleTimeHours = getInputValue(doubleTimeHoursInput);
+  const weekendBonus = getInputValue(weekendBonusInput);
+  const holidayBonus = getInputValue(holidayBonusInput);
+  const otherBonus = getInputValue(otherBonusInput);
 
   messageEl.classList.remove("error");
 
@@ -506,6 +540,21 @@ function calculateOvertime() {
     return;
   }
 
+  if (
+    differentialRate < 0 ||
+    differentialHours < 0 ||
+    doubleTimeHours < 0 ||
+    weekendBonus < 0 ||
+    holidayBonus < 0 ||
+    otherBonus < 0
+  ) {
+    resetResults();
+    messageEl.textContent =
+      "Advanced pay values cannot be negative.";
+    messageEl.classList.add("error");
+    return;
+  }
+
   const totalTaxPercent = taxes.reduce((sum, item) => sum + item.value, 0);
 
   if (totalTaxPercent > 100) {
@@ -523,7 +572,13 @@ function calculateOvertime() {
 
   const regularPay = regularHours * rate;
   const overtimePay = overtimeHours * overtimeRate;
-  const grossPay = regularPay + overtimePay;
+
+  const differentialPay = differentialRate * differentialHours;
+  const doubleTimePay = doubleTimeHours * rate * 2;
+  const bonusPay = weekendBonus + holidayBonus + otherBonus;
+  const advancedPay = differentialPay + doubleTimePay + bonusPay;
+
+  const grossPay = regularPay + overtimePay + advancedPay;
 
   const grossEffectiveRate = totalHours > 0 ? grossPay / totalHours : 0;
 
@@ -547,6 +602,11 @@ function calculateOvertime() {
   regularPayEl.textContent = formatMoney(regularPay);
   overtimePayEl.textContent = formatMoney(overtimePay);
   totalPayEl.textContent = formatMoney(grossPay);
+
+  differentialPayEl.textContent = formatMoney(differentialPay);
+  doubleTimePayEl.textContent = formatMoney(doubleTimePay);
+  bonusPayEl.textContent = formatMoney(bonusPay);
+  advancedPayTotalEl.textContent = formatMoney(advancedPay);
 
   taxResultsTotalEl.textContent = `-${formatMoney(estimatedTaxes)}`;
   deductionResultsTotalEl.textContent = `-${formatMoney(fixedDeductions + otherTotal)}`;
@@ -572,6 +632,12 @@ function loadExample() {
   hoursInput.value = "92";
   payPeriodInput.value = "biweekly";
   multiplierInput.value = "1.5";
+  differentialRateInput.value = "2";
+  differentialHoursInput.value = "24";
+  doubleTimeHoursInput.value = "4";
+  weekendBonusInput.value = "50";
+  holidayBonusInput.value = "0";
+  otherBonusInput.value = "25";
 
   overrideThresholdInput.checked = false;
   customThresholdInput.value = "";
@@ -620,6 +686,12 @@ function clearCalculator() {
   hoursInput.value = "";
   payPeriodInput.value = "weekly";
   multiplierInput.value = "1.5";
+  differentialRateInput.value = "2";
+  differentialHoursInput.value = "24";
+  doubleTimeHoursInput.value = "4";
+  weekendBonusInput.value = "50";
+  holidayBonusInput.value = "0";
+  otherBonusInput.value = "25";
 
   overrideThresholdInput.checked = false;
   customThresholdInput.value = "";
@@ -686,6 +758,12 @@ adjustmentModalEl.addEventListener("click", (event) => {
   hoursInput,
   payPeriodInput,
   multiplierInput,
+  differentialRateInput,
+  differentialHoursInput,
+  doubleTimeHoursInput,
+  weekendBonusInput,
+  holidayBonusInput,
+  otherBonusInput,
   overrideThresholdInput,
   customThresholdInput
 ].forEach((input) => {

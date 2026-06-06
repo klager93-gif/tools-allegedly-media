@@ -45,6 +45,18 @@ The long-term goal is to expand the calculator into a more complete income plann
 
 ---
 
+## Advanced Pay
+
+- Shift differential rate.
+- Differential hours.
+- Double-time hours.
+- Weekend bonus.
+- Holiday bonus.
+- Other bonus.
+- Advanced pay results breakdown.
+
+---
+
 ## Take-Home Estimates
 
 ### Taxes
@@ -214,11 +226,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.6.4
+v0.7
 
 ### Theme
 
-Custom Modals & Manual Save
+Advanced Pay Features
 
 ### Status
 

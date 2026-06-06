@@ -58,6 +58,11 @@
   color: #cb9cff;
 }
 
+.blue {
+  background: rgba(80,140,255,.2);
+  color: #56a6ff;
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -480,4 +485,10 @@ select:focus {
     font-size: 30px;
   }
 
+}
+
+
+.advanced-note {
+  background: rgba(80,140,255,.08);
+  border-color: rgba(80,140,255,.2);
 }

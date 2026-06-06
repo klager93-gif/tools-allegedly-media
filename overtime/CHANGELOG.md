@@ -4,6 +4,31 @@
 
 ---
 
+## Version 0.7
+
+**Date:** 2026-06-06  
+**Time:** 11:15 UTC
+
+### Theme
+
+Advanced Pay Features
+
+### Changes
+
+- Added Advanced Pay section.
+- Added shift differential rate.
+- Added differential hours.
+- Added double-time hours.
+- Added weekend bonus.
+- Added holiday bonus.
+- Added other bonus.
+- Added Advanced Pay results breakdown.
+- Added advanced pay values to saved settings.
+- Updated example calculation to include advanced pay.
+- Updated project documentation for v0.7.
+
+---
+
 ## Version 0.6.4.2
 
 **Date:** 2026-06-06  
