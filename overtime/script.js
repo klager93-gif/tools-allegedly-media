@@ -3,16 +3,6 @@ const hoursInput = document.getElementById("hours");
 const thresholdInput = document.getElementById("threshold");
 const multiplierInput = document.getElementById("multiplier");
 
-const federalTaxInput = document.getElementById("federalTax");
-const stateTaxInput = document.getElementById("stateTax");
-const localTaxInput = document.getElementById("localTax");
-const otherTaxInput = document.getElementById("otherTax");
-
-const insuranceDeductionInput = document.getElementById("insuranceDeduction");
-const retirementDeductionInput = document.getElementById("retirementDeduction");
-const extraWithholdingInput = document.getElementById("extraWithholding");
-const otherFixedDeductionInput = document.getElementById("otherFixedDeduction");
-
 const totalHoursEl = document.getElementById("totalHours");
 const regularHoursEl = document.getElementById("regularHours");
 const overtimeHoursEl = document.getElementById("overtimeHours");
@@ -25,61 +15,207 @@ const regularPayEl = document.getElementById("regularPay");
 const overtimePayEl = document.getElementById("overtimePay");
 const totalPayEl = document.getElementById("totalPay");
 
-const estimatedTaxesEl = document.getElementById("estimatedTaxes");
-const fixedDeductionsEl = document.getElementById("fixedDeductions");
 const takeHomePayEl = document.getElementById("takeHomePay");
 const netEffectiveRateEl = document.getElementById("netEffectiveRate");
 
 const generatedTimeEl = document.getElementById("generatedTime");
 const messageEl = document.getElementById("message");
 
-const calculateButton = document.getElementById("calculate");
-const exampleButton = document.getElementById("example");
-const resetButton = document.getElementById("reset");
+const taxListEl = document.getElementById("taxList");
+const deductionListEl = document.getElementById("deductionList");
+const otherListEl = document.getElementById("otherList");
 
-const openChangelogButton = document.getElementById("openChangelog");
-const openRoadmapButton = document.getElementById("openRoadmap");
+const taxTotalLabelEl = document.getElementById("taxTotalLabel");
+const deductionTotalLabelEl = document.getElementById("deductionTotalLabel");
+const otherTotalLabelEl = document.getElementById("otherTotalLabel");
 
-function inputValue(input) {
+const taxResultRowsEl = document.getElementById("taxResultRows");
+const deductionResultRowsEl = document.getElementById("deductionResultRows");
+
+const taxResultsTotalEl = document.getElementById("taxResultsTotal");
+const deductionResultsTotalEl = document.getElementById("deductionResultsTotal");
+
+let taxes = [];
+let deductions = [];
+let otherAdjustments = [];
+
+function getInputValue(input) {
   return Number(input.value) || 0;
+}
+
+function makeId() {
+  return Date.now().toString() + Math.random().toString(16).slice(2);
 }
 
 function resetResults() {
   totalHoursEl.textContent = "0.00";
   regularHoursEl.textContent = "0.00";
   overtimeHoursEl.textContent = "0.00";
-
   hourlyRateEl.textContent = "$0.00";
   overtimeRateEl.textContent = "$0.00";
   effectiveRateEl.textContent = "$0.00";
-
   regularPayEl.textContent = "$0.00";
   overtimePayEl.textContent = "$0.00";
   totalPayEl.textContent = "$0.00";
-
-  estimatedTaxesEl.textContent = "$0.00";
-  fixedDeductionsEl.textContent = "$0.00";
   takeHomePayEl.textContent = "$0.00";
   netEffectiveRateEl.textContent = "$0.00";
-
+  taxResultsTotalEl.textContent = "-$0.00";
+  deductionResultsTotalEl.textContent = "-$0.00";
   generatedTimeEl.textContent = "--";
 }
 
+function createAdjustmentItem(item, type) {
+  const row = document.createElement("div");
+  row.className = "adjustment-item";
+
+  const label = document.createElement("span");
+  label.textContent = type === "tax"
+    ? `${item.name} — ${item.value}%`
+    : `${item.name} — ${formatMoney(item.value)}`;
+
+  const remove = document.createElement("button");
+  remove.type = "button";
+  remove.textContent = "×";
+
+  remove.addEventListener("click", () => {
+    if (type === "tax") {
+      taxes = taxes.filter((entry) => entry.id !== item.id);
+    }
+
+    if (type === "deduction") {
+      deductions = deductions.filter((entry) => entry.id !== item.id);
+    }
+
+    if (type === "other") {
+      otherAdjustments = otherAdjustments.filter((entry) => entry.id !== item.id);
+    }
+
+    renderAdjustments();
+    calculateOvertime();
+  });
+
+  row.appendChild(label);
+  row.appendChild(remove);
+
+  return row;
+}
+
+function renderList(container, items, type, emptyText) {
+  container.innerHTML = "";
+
+  if (items.length === 0) {
+    const empty = document.createElement("p");
+    empty.textContent = emptyText;
+    container.appendChild(empty);
+    return;
+  }
+
+  items.forEach((item) => {
+    container.appendChild(createAdjustmentItem(item, type));
+  });
+}
+
+function renderAdjustments() {
+  renderList(taxListEl, taxes, "tax", "No taxes added.");
+  renderList(deductionListEl, deductions, "deduction", "No deductions added.");
+  renderList(otherListEl, otherAdjustments, "other", "No other adjustments added.");
+
+  const totalTaxPercent = taxes.reduce((sum, item) => sum + item.value, 0);
+  const totalDeductions = deductions.reduce((sum, item) => sum + item.value, 0);
+  const totalOther = otherAdjustments.reduce((sum, item) => sum + item.value, 0);
+
+  taxTotalLabelEl.textContent = `Total: ${totalTaxPercent.toFixed(2)}%`;
+  deductionTotalLabelEl.textContent = `Total: ${formatMoney(totalDeductions)}`;
+  otherTotalLabelEl.textContent = `Total: ${formatMoney(totalOther)}`;
+}
+
+function addTax() {
+  const name = prompt("Tax name:", "Federal Tax");
+  if (!name) return;
+
+  const value = Number(prompt("Tax rate percentage:", "12"));
+  if (Number.isNaN(value) || value < 0) return;
+
+  taxes.push({
+    id: makeId(),
+    name,
+    value
+  });
+
+  renderAdjustments();
+  calculateOvertime();
+}
+
+function addDeduction() {
+  const name = prompt("Deduction name:", "Insurance");
+  if (!name) return;
+
+  const value = Number(prompt("Deduction amount:", "75"));
+  if (Number.isNaN(value) || value < 0) return;
+
+  deductions.push({
+    id: makeId(),
+    name,
+    value
+  });
+
+  renderAdjustments();
+  calculateOvertime();
+}
+
+function addOtherAdjustment() {
+  const name = prompt("Adjustment name:", "Other");
+  if (!name) return;
+
+  const value = Number(prompt("Adjustment amount:", "0"));
+  if (Number.isNaN(value) || value < 0) return;
+
+  otherAdjustments.push({
+    id: makeId(),
+    name,
+    value
+  });
+
+  renderAdjustments();
+  calculateOvertime();
+}
+
+function renderBreakdown(container, items, type, grossPay) {
+  container.innerHTML = "";
+
+  if (items.length === 0) {
+    const empty = document.createElement("p");
+    empty.textContent = type === "tax" ? "No taxes added." : "No deductions added.";
+    container.appendChild(empty);
+    return;
+  }
+
+  items.forEach((item) => {
+    const row = document.createElement("div");
+    row.className = "result-row";
+
+    const name = document.createElement("span");
+    const value = document.createElement("strong");
+
+    name.textContent = item.name;
+
+    if (type === "tax") {
+      value.textContent = `-${formatMoney(grossPay * (item.value / 100))}`;
+    } else {
+      value.textContent = `-${formatMoney(item.value)}`;
+    }
+
+    row.appendChild(name);
+    row.appendChild(value);
+    container.appendChild(row);
+  });
+}
+
 function calculateOvertime() {
-  const rate = inputValue(rateInput);
-  const hours = inputValue(hoursInput);
-  const threshold = inputValue(thresholdInput);
-  const multiplier = inputValue(multiplierInput);
-
-  const federalTax = inputValue(federalTaxInput);
-  const stateTax = inputValue(stateTaxInput);
-  const localTax = inputValue(localTaxInput);
-  const otherTax = inputValue(otherTaxInput);
-
-  const insuranceDeduction = inputValue(insuranceDeductionInput);
-  const retirementDeduction = inputValue(retirementDeductionInput);
-  const extraWithholding = inputValue(extraWithholdingInput);
-  const otherFixedDeduction = inputValue(otherFixedDeductionInput);
+  const rate = getInputValue(rateInput);
+  const hours = getInputValue(hoursInput);
+  const threshold = getInputValue(thresholdInput);
+  const multiplier = getInputValue(multiplierInput);
 
   messageEl.classList.remove("error");
 
@@ -96,25 +232,9 @@ function calculateOvertime() {
     return;
   }
 
-  if (
-    federalTax < 0 ||
-    stateTax < 0 ||
-    localTax < 0 ||
-    otherTax < 0 ||
-    insuranceDeduction < 0 ||
-    retirementDeduction < 0 ||
-    extraWithholding < 0 ||
-    otherFixedDeduction < 0
-  ) {
-    resetResults();
-    messageEl.textContent = "Tax rates and deductions cannot be negative.";
-    messageEl.classList.add("error");
-    return;
-  }
+  const totalTaxPercent = taxes.reduce((sum, item) => sum + item.value, 0);
 
-  const totalTaxRate = federalTax + stateTax + localTax + otherTax;
-
-  if (totalTaxRate > 100) {
+  if (totalTaxPercent > 100) {
     resetResults();
     messageEl.textContent = "Total tax percentage cannot be greater than 100%.";
     messageEl.classList.add("error");
@@ -126,22 +246,19 @@ function calculateOvertime() {
   const overtimeHours = Math.max(hours - threshold, 0);
 
   const overtimeRate = rate * multiplier;
-
   const regularPay = regularHours * rate;
   const overtimePay = overtimeHours * overtimeRate;
-  const totalPay = regularPay + overtimePay;
+  const grossPay = regularPay + overtimePay;
 
-  const effectiveRate = totalHours > 0 ? totalPay / totalHours : 0;
+  const grossEffectiveRate = grossPay / totalHours;
 
-  const estimatedTaxes = totalPay * (totalTaxRate / 100);
-  const fixedDeductions =
-    insuranceDeduction +
-    retirementDeduction +
-    extraWithholding +
-    otherFixedDeduction;
+  const estimatedTaxes = grossPay * (totalTaxPercent / 100);
+  const fixedDeductions = deductions.reduce((sum, item) => sum + item.value, 0);
+  const otherTotal = otherAdjustments.reduce((sum, item) => sum + item.value, 0);
 
-  const takeHomePay = Math.max(totalPay - estimatedTaxes - fixedDeductions, 0);
-  const netEffectiveRate = totalHours > 0 ? takeHomePay / totalHours : 0;
+  const totalReductions = estimatedTaxes + fixedDeductions + otherTotal;
+  const takeHomePay = Math.max(grossPay - totalReductions, 0);
+  const netEffectiveRate = takeHomePay / totalHours;
 
   totalHoursEl.textContent = formatNumber(totalHours);
   regularHoursEl.textContent = formatNumber(regularHours);
@@ -149,16 +266,20 @@ function calculateOvertime() {
 
   hourlyRateEl.textContent = formatMoney(rate);
   overtimeRateEl.textContent = formatMoney(overtimeRate);
-  effectiveRateEl.textContent = formatMoney(effectiveRate);
+  effectiveRateEl.textContent = formatMoney(grossEffectiveRate);
 
   regularPayEl.textContent = formatMoney(regularPay);
   overtimePayEl.textContent = formatMoney(overtimePay);
-  totalPayEl.textContent = formatMoney(totalPay);
+  totalPayEl.textContent = formatMoney(grossPay);
 
-  estimatedTaxesEl.textContent = formatMoney(estimatedTaxes);
-  fixedDeductionsEl.textContent = formatMoney(fixedDeductions);
+  taxResultsTotalEl.textContent = `-${formatMoney(estimatedTaxes)}`;
+  deductionResultsTotalEl.textContent = `-${formatMoney(fixedDeductions + otherTotal)}`;
+
   takeHomePayEl.textContent = formatMoney(takeHomePay);
   netEffectiveRateEl.textContent = formatMoney(netEffectiveRate);
+
+  renderBreakdown(taxResultRowsEl, taxes, "tax", grossPay);
+  renderBreakdown(deductionResultRowsEl, [...deductions, ...otherAdjustments], "deduction", grossPay);
 
   generatedTimeEl.textContent = getCurrentUtcTime();
   messageEl.textContent = "Calculation updated.";
@@ -170,16 +291,20 @@ function loadExample() {
   thresholdInput.value = "40";
   multiplierInput.value = "1.5";
 
-  federalTaxInput.value = "12";
-  stateTaxInput.value = "5";
-  localTaxInput.value = "0";
-  otherTaxInput.value = "3";
+  taxes = [
+    { id: makeId(), name: "Federal Tax", value: 12 },
+    { id: makeId(), name: "State Tax", value: 5 },
+    { id: makeId(), name: "Other Tax", value: 3 }
+  ];
 
-  insuranceDeductionInput.value = "75";
-  retirementDeductionInput.value = "50";
-  extraWithholdingInput.value = "0";
-  otherFixedDeductionInput.value = "0";
+  deductions = [
+    { id: makeId(), name: "Insurance", value: 75 },
+    { id: makeId(), name: "Retirement", value: 50 }
+  ];
 
+  otherAdjustments = [];
+
+  renderAdjustments();
   calculateOvertime();
 }
 
@@ -189,53 +314,62 @@ function clearCalculator() {
   thresholdInput.value = "40";
   multiplierInput.value = "1.5";
 
-  federalTaxInput.value = "";
-  stateTaxInput.value = "";
-  localTaxInput.value = "";
-  otherTaxInput.value = "";
+  taxes = [];
+  deductions = [];
+  otherAdjustments = [];
 
-  insuranceDeductionInput.value = "";
-  retirementDeductionInput.value = "";
-  extraWithholdingInput.value = "";
-  otherFixedDeductionInput.value = "";
-
+  renderAdjustments();
   resetResults();
 
   messageEl.classList.remove("error");
   messageEl.textContent = "Enter values or load an example to begin.";
 }
 
-calculateButton.addEventListener("click", calculateOvertime);
-exampleButton.addEventListener("click", loadExample);
-resetButton.addEventListener("click", clearCalculator);
+function clearAdjustments() {
+  taxes = [];
+  deductions = [];
+  otherAdjustments = [];
+
+  renderAdjustments();
+  calculateOvertime();
+}
+
+document.getElementById("calculate").addEventListener("click", calculateOvertime);
+document.getElementById("example").addEventListener("click", loadExample);
+document.getElementById("reset").addEventListener("click", clearCalculator);
+document.getElementById("clearAdjustments").addEventListener("click", clearAdjustments);
+
+document.getElementById("addTax").addEventListener("click", addTax);
+document.getElementById("addTaxInline").addEventListener("click", addTax);
+
+document.getElementById("addDeduction").addEventListener("click", addDeduction);
+document.getElementById("addDeductionInline").addEventListener("click", addDeduction);
+
+document.getElementById("addOther").addEventListener("click", addOtherAdjustment);
+document.getElementById("addOtherInline").addEventListener("click", addOtherAdjustment);
 
 [
   rateInput,
   hoursInput,
   thresholdInput,
-  multiplierInput,
-  federalTaxInput,
-  stateTaxInput,
-  localTaxInput,
-  otherTaxInput,
-  insuranceDeductionInput,
-  retirementDeductionInput,
-  extraWithholdingInput,
-  otherFixedDeductionInput
+  multiplierInput
 ].forEach((input) => {
   input.addEventListener("input", calculateOvertime);
 });
 
-openChangelogButton.addEventListener("click", () => {
+document.getElementById("openChangelog").addEventListener("click", () => {
   openTextModal({
     title: "CHANGELOG",
     file: "CHANGELOG.txt"
   });
 });
 
-openRoadmapButton.addEventListener("click", () => {
+document.getElementById("openRoadmap").addEventListener("click", () => {
   openTextModal({
     title: "ROADMAP",
     file: "ROADMAP.txt"
   });
 });
+
+renderAdjustments();
+resetResults();

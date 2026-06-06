@@ -5,10 +5,10 @@ ROADMAP
 
 Last Updated:
 2026-06-06
-07:00 UTC
+08:00 UTC
 
 Current Version:
-v0.6
+v0.6.1
 
 =====================================================
 Completed Versions
@@ -41,23 +41,12 @@ Polish & Foundation
 v0.6
 Take-Home Pay
 
+v0.6.1
+Dynamic Adjustment UI
+
 =====================================================
 Upcoming Versions
 =================
-
-v0.6.1
-
-Theme:
-Tax Rate Helper
-
-Planned Features:
-
-* Tax percentage guidance.
-* Example calculations.
-* Educational notes.
-* Low / Medium / High estimate presets.
-
----
 
 v0.7
 
@@ -70,10 +59,11 @@ Planned Features:
 * Night shift bonus.
 * Weekend bonus.
 * Holiday bonus.
-* Break deductions.
 * Multiple overtime tiers.
 * Double-time support.
 * Presets for common pay structures.
+* Paid break options.
+* Unpaid break options.
 
 ---
 
@@ -141,27 +131,35 @@ Potential Features:
 * App Store distribution.
 * Google Play distribution.
 
-(Target release unknown.)
-
-Implementation depends on project growth and user demand.
-
 ---
 
-Additional Ideas
+Financial Tools
 
 Potential Features:
 
-* Dispatcher schedule presets.
+* Dispatcher schedules.
 * 24/48 schedules.
 * 48/96 schedules.
 * Vacation savings goals.
 * Emergency fund goals.
-* Retirement impact estimates.
+* Retirement projections.
 * Multiple jobs.
 * Monthly projections.
 * Yearly projections.
-* Burnout warnings.
 * State-specific overtime rules.
+
+---
+
+User Experience
+
+Potential Features:
+
+* Charts and graphs.
+* Saved presets.
+* Saved profiles.
+* Import and export.
+* Theme options.
+* Expanded dashboard views.
 
 =====================================================
 

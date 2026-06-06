@@ -3,32 +3,49 @@ Signal Labs Overtime Calculator
 CHANGELOG
 =========
 
-Version: 0.6
+Version: 0.6.1
 Date: 2026-06-06
-Time: 07:00 UTC
+Time: 08:00 UTC
+
+Theme:
+Dynamic Adjustment UI
+
+Changes:
+
+* Rebuilt the Take-Home Estimate system.
+* Replaced fixed tax fields with dynamic tax entries.
+* Replaced fixed deduction fields with dynamic deduction entries.
+* Added support for other adjustments.
+* Added add and remove controls.
+* Added tax percentage totals.
+* Added deduction totals.
+* Added detailed tax breakdown section.
+* Added detailed deduction breakdown section.
+* Added Clear All Adjustments button.
+* Added dynamic rendering system.
+* Added support for custom adjustment names.
+* Updated example values.
+* Improved overall layout and organization.
+* Reduced visual clutter.
+* Continued transition from calculator to application.
+
+---
+
+Version: 0.6
 
 Theme:
 Take-Home Pay
 
 Changes:
 
-* Added Take-Home Estimate section.
-* Added Federal Tax % input.
-* Added State Tax % input.
-* Added Local Tax % input.
-* Added Other Tax % input.
-* Added Insurance deduction input.
-* Added Retirement deduction input.
-* Added Extra Withholding input.
-* Added Other Fixed Deduction input.
-* Added Estimated Taxes output.
-* Added Fixed Deductions output.
-* Added Estimated Take-Home Pay output.
-* Added Net Effective Hourly Rate output.
-* Added validation for negative values.
-* Added validation preventing total tax percentages above 100%.
-* Updated example values.
-* Updated summary card theme.
+* Added percentage-based tax estimates.
+* Added fixed deduction support.
+* Added estimated taxes output.
+* Added fixed deductions output.
+* Added estimated take-home pay.
+* Added net effective hourly rate.
+* Added input validation for tax percentages.
+* Added input validation for negative values.
 
 ---
 

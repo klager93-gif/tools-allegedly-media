@@ -14,7 +14,7 @@ Overtime Calculator | Signal Labs
 
 <meta
   name="description"
-  content="Estimate overtime pay, regular pay, gross earnings, and simple take-home pay with the Signal Labs Overtime Calculator.">
+  content="Estimate overtime pay, gross pay, taxes, deductions, and take-home pay with the Signal Labs Overtime Calculator.">
 
 <meta
   property="og:title"
@@ -22,7 +22,7 @@ Overtime Calculator | Signal Labs
 
 <meta
   property="og:description"
-  content="Estimate overtime pay, gross earnings, and simple take-home pay.">
+  content="Estimate overtime pay, gross earnings, taxes, deductions, and take-home pay.">
 
 <link rel="icon" href="/favicon.ico">
 
@@ -53,7 +53,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.6">
+  href="style.css?v=0.6.1">
 
 </head>
 <body>
@@ -61,252 +61,314 @@ Overtime Calculator | Signal Labs
 <main class="page">
 
 <header class="hero">
+  <p class="eyebrow">Signal Labs</p>
 
-<p class="eyebrow">
-Signal Labs
-</p>
+  <h1>Overtime Calculator</h1>
 
-<h1>
-Overtime Calculator
-</h1>
-
-<p class="subtitle">
-Estimate regular pay, overtime pay, gross pay, and simple take-home pay.
-</p>
-
+  <p class="subtitle">
+    Estimate regular pay, overtime pay, gross pay, and simple take-home pay.
+  </p>
 </header>
 
-<section class="layout">
+<section class="dashboard-layout">
 
-<section class="card input-card">
+<section class="left-stack">
 
-<h2>
-Pay Inputs
-</h2>
+<section class="card step-card basic-card">
+
+<div class="section-title">
+  <div class="step-badge green">1</div>
+  <div>
+    <h2>Basic Pay</h2>
+    <p>Enter your hours and pay details.</p>
+  </div>
+</div>
 
 <div class="form-grid">
 
 <label>
-<span>Hourly Rate</span>
-<input id="rate" type="number" placeholder="25.00" step="0.01">
+  <span>Hourly Rate</span>
+  <input id="rate" type="number" placeholder="25.00" step="0.01">
 </label>
 
 <label>
-<span>Hours Worked</span>
-<input id="hours" type="number" placeholder="48" step="0.01">
+  <span>Hours Worked</span>
+  <input id="hours" type="number" placeholder="48" step="0.01">
 </label>
 
 <label>
-<span>Overtime After</span>
-<input id="threshold" type="number" value="40" step="0.01">
+  <span>Overtime After (Hours)</span>
+  <input id="threshold" type="number" value="40" step="0.01">
 </label>
 
 <label>
-<span>Multiplier</span>
-<input id="multiplier" type="number" value="1.5" step="0.1">
+  <span>Overtime Multiplier</span>
+  <input id="multiplier" type="number" value="1.5" step="0.1">
 </label>
 
 </div>
-
-<div class="deduction-section">
-
-<h2>
-Take-Home Estimate
-</h2>
-
-<p class="section-note">
-Optional. Enter rough tax percentages and fixed paycheck deductions to estimate take-home pay.
-</p>
-
-<div class="form-grid">
-
-<label>
-<span>Federal Tax %</span>
-<input id="federalTax" type="number" placeholder="0" step="0.01">
-</label>
-
-<label>
-<span>State Tax %</span>
-<input id="stateTax" type="number" placeholder="0" step="0.01">
-</label>
-
-<label>
-<span>Local Tax %</span>
-<input id="localTax" type="number" placeholder="0" step="0.01">
-</label>
-
-<label>
-<span>Other Tax %</span>
-<input id="otherTax" type="number" placeholder="0" step="0.01">
-</label>
-
-<label>
-<span>Insurance $</span>
-<input id="insuranceDeduction" type="number" placeholder="0" step="0.01">
-</label>
-
-<label>
-<span>Retirement $</span>
-<input id="retirementDeduction" type="number" placeholder="0" step="0.01">
-</label>
-
-<label>
-<span>Extra Withholding $</span>
-<input id="extraWithholding" type="number" placeholder="0" step="0.01">
-</label>
-
-<label>
-<span>Other Fixed $</span>
-<input id="otherFixedDeduction" type="number" placeholder="0" step="0.01">
-</label>
-
-</div>
-
-<p class="section-note small">
-This is a simple estimate using values you provide. It does not calculate official tax brackets.
-</p>
-
-</div>
-
-<p
-  id="message"
-  class="message">
-
-Enter values or load an example to begin.
-
-</p>
 
 <div class="button-row">
+  <button id="calculate" class="primary-action">
+    Calculate Pay
+  </button>
 
-<button id="calculate">
-Calculate Pay
+  <button id="example" class="secondary">
+    Example
+  </button>
+
+  <button id="reset" class="secondary">
+    Reset
+  </button>
+</div>
+
+<p id="message" class="message">
+  Enter values or load an example to begin.
+</p>
+
+</section>
+
+
+<section class="card step-card adjustment-card">
+
+<div class="section-title">
+  <div class="step-badge purple">2</div>
+  <div>
+    <h2>Take-Home Estimate <span>(Optional)</span></h2>
+    <p>Add taxes, deductions, and other adjustments to estimate your take-home pay.</p>
+  </div>
+</div>
+
+<div class="add-row">
+
+<button
+  id="addTax"
+  class="add-button purple-button"
+  type="button">
+  Add Tax
 </button>
 
 <button
-  id="example"
-  class="secondary">
-
-Example
-
+  id="addDeduction"
+  class="add-button blue-button"
+  type="button">
+  Add Deduction
 </button>
 
 <button
-  id="reset"
-  class="secondary">
-
-Reset
-
+  id="addOther"
+  class="add-button orange-button"
+  type="button">
+  Add Other
 </button>
 
+</div>
+
+<div class="adjustment-group">
+
+<div class="adjustment-header purple-text">
+  <strong>Taxes</strong>
+  <span id="taxTotalLabel">Total: 0%</span>
+</div>
+
+<div id="taxList" class="adjustment-list">
+</div>
+
+<button
+  id="addTaxInline"
+  class="inline-add purple-outline"
+  type="button">
+  + Add Tax
+</button>
+
+</div>
+
+<div class="adjustment-group">
+
+<div class="adjustment-header blue-text">
+  <strong>Deductions</strong>
+  <span id="deductionTotalLabel">Total: $0.00</span>
+</div>
+
+<div id="deductionList" class="adjustment-list">
+</div>
+
+<button
+  id="addDeductionInline"
+  class="inline-add blue-outline"
+  type="button">
+  + Add Deduction
+</button>
+
+</div>
+
+<div class="adjustment-group">
+
+<div class="adjustment-header orange-text">
+  <strong>Other Adjustments</strong>
+  <span id="otherTotalLabel">Total: $0.00</span>
+</div>
+
+<div id="otherList" class="adjustment-list empty-list">
+  <p>No other adjustments added.</p>
+</div>
+
+<button
+  id="addOtherInline"
+  class="inline-add orange-outline"
+  type="button">
+  + Add Other Adjustment
+</button>
+
+</div>
+
+<div class="info-note">
+  <strong>Simple estimate only.</strong>
+  <span>
+    This uses values you provide and does not calculate official tax brackets.
+  </span>
 </div>
 
 </section>
 
+</section>
+
+
 <section class="card results-card">
 
-<h2>
-Results
-</h2>
+<div class="results-heading">
+  <div>
+    <h2>Results</h2>
+  </div>
+
+  <button
+    id="clearAdjustments"
+    class="mini-button"
+    type="button">
+    Clear All
+  </button>
+</div>
+
+<div class="results-section">
+
+<h3>Hours Breakdown</h3>
 
 <div class="result-row">
-<span>Total Hours</span>
-<strong id="totalHours">0.00</strong>
+  <span>Total Hours</span>
+  <strong id="totalHours">0.00</strong>
 </div>
 
 <div class="result-row">
-<span>Regular Hours</span>
-<strong id="regularHours">0.00</strong>
+  <span>Regular Hours</span>
+  <strong id="regularHours">0.00</strong>
 </div>
 
 <div class="result-row">
-<span>Overtime Hours</span>
-<strong id="overtimeHours">0.00</strong>
+  <span>Overtime Hours</span>
+  <strong id="overtimeHours">0.00</strong>
+</div>
+
+</div>
+
+<div class="results-section">
+
+<h3>Rates</h3>
+
+<div class="result-row">
+  <span>Hourly Rate</span>
+  <strong id="hourlyRate">$0.00</strong>
 </div>
 
 <div class="result-row">
-<span>Hourly Rate</span>
-<strong id="hourlyRate">$0.00</strong>
+  <span>Overtime Rate</span>
+  <strong id="overtimeRate">$0.00</strong>
 </div>
 
 <div class="result-row">
-<span>Overtime Rate</span>
-<strong id="overtimeRate">$0.00</strong>
+  <span>Gross Effective Rate</span>
+  <strong id="effectiveRate">$0.00</strong>
+</div>
+
+</div>
+
+<div class="results-section">
+
+<h3>Pay Breakdown</h3>
+
+<div class="result-row">
+  <span>Regular Pay</span>
+  <strong id="regularPay">$0.00</strong>
 </div>
 
 <div class="result-row">
-<span>Gross Effective Rate</span>
-<strong id="effectiveRate">$0.00</strong>
-</div>
-
-<div class="result-row">
-<span>Regular Pay</span>
-<strong id="regularPay">$0.00</strong>
-</div>
-
-<div class="result-row">
-<span>Overtime Pay</span>
-<strong id="overtimePay">$0.00</strong>
+  <span>Overtime Pay</span>
+  <strong id="overtimePay">$0.00</strong>
 </div>
 
 <div class="result-row total">
-<span>Total Gross Pay</span>
-<strong id="totalPay">$0.00</strong>
+  <span>Total Gross Pay</span>
+  <strong id="totalPay">$0.00</strong>
 </div>
 
-<div class="result-row">
-<span>Estimated Taxes</span>
-<strong id="estimatedTaxes">$0.00</strong>
 </div>
 
-<div class="result-row">
-<span>Fixed Deductions</span>
-<strong id="fixedDeductions">$0.00</strong>
+<div class="results-section">
+
+<h3 class="purple-text">
+  Taxes
+  <span id="taxResultsTotal">-$0.00</span>
+</h3>
+
+<div id="taxResultRows" class="result-detail-list">
+  <p>No taxes added.</p>
+</div>
+
+</div>
+
+<div class="results-section">
+
+<h3 class="blue-text">
+  Deductions
+  <span id="deductionResultsTotal">-$0.00</span>
+</h3>
+
+<div id="deductionResultRows" class="result-detail-list">
+  <p>No deductions added.</p>
+</div>
+
 </div>
 
 <div class="result-row net-total">
-<span>Estimated Take-Home Pay</span>
-<strong id="takeHomePay">$0.00</strong>
+  <span>Estimated Take-Home Pay</span>
+  <strong id="takeHomePay">$0.00</strong>
 </div>
 
 <div class="result-row">
-<span>Net Effective Rate</span>
-<strong id="netEffectiveRate">$0.00</strong>
+  <span>Net Effective Rate</span>
+  <strong id="netEffectiveRate">$0.00</strong>
 </div>
 
 <div class="summary-card">
+  <p>
+    Generated:
+    <span id="generatedTime">--</span>
+  </p>
 
-<h3>
-Weekly Summary
-</h3>
+  <p>
+    Build:
+    v0.6.1
+  </p>
 
-<p>
-Generated:
-<span id="generatedTime">--</span>
-</p>
+  <p>
+    Theme:
+    Dynamic Adjustment UI
+  </p>
 
-<p>
-Build:
-v0.6
-</p>
-
-<p>
-Theme:
-Take-Home Pay
-</p>
-
-<p>
-Status:
-Active Development
-</p>
-
+  <p>
+    Status:
+    Active Development
+  </p>
 </div>
-
-<p class="disclaimer">
-
-Estimates only. Actual pay may vary based on taxes,
-deductions, employer policies, and applicable labor laws.
-
-</p>
 
 </section>
 
@@ -316,20 +378,23 @@ deductions, employer policies, and applicable labor laws.
 
 <footer class="version">
 
-<div>
-Signal Labs · Overtime Calculator · v0.6
+<div class="footer-actions">
+
+<button id="openChangelog" type="button">
+  Changelog
+</button>
+
+<button id="openRoadmap" type="button">
+  Roadmap
+</button>
+
 </div>
 
-<div class="info-links">
-
-<button id="openChangelog">
-Changelog
-</button>
-
-<button id="openRoadmap">
-Roadmap
-</button>
-
+<div class="footer-copy">
+  Signal Labs · Overtime Calculator · v0.6.1
+  <br>
+  Estimates only. Actual pay may vary based on taxes, deductions,
+  employer policies, and applicable labor laws.
 </div>
 
 </footer>
@@ -362,7 +427,7 @@ Loading...
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.6"></script>
+<script src="script.js?v=0.6.1"></script>
 
 </body>
 </html>
