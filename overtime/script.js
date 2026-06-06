@@ -66,7 +66,7 @@ const adjustmentModalMessageEl = document.getElementById("adjustmentModalMessage
 const saveAdjustmentButton = document.getElementById("saveAdjustment");
 const cancelAdjustmentButton = document.getElementById("cancelAdjustment");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV072";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV073";
 const LEGACY_STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
 
 let taxes = [];
@@ -184,7 +184,7 @@ function saveSettings(showMessage = false) {
 
     if (showMessage) {
       messageEl.classList.remove("error");
-      messageEl.textContent = "Settings saved. They will load next time you visit.";
+      messageEl.textContent = "Settings saved. They will load automatically next time you visit.";
     }
   } catch (error) {
     if (showMessage) {
@@ -558,6 +558,22 @@ function calculateOvertime() {
     resetResults();
     messageEl.textContent =
       "Advanced pay values cannot be negative.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  if (differentialHours > hours) {
+    resetResults();
+    messageEl.textContent =
+      "Differential hours should not be greater than total hours worked.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  if (doubleTimeHours > hours) {
+    resetResults();
+    messageEl.textContent =
+      "Additional double-time hours should not be greater than total hours worked.";
     messageEl.classList.add("error");
     return;
   }

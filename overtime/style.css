@@ -502,3 +502,12 @@ select:focus {
 .currency-note {
   color: #aaa;
 }
+
+
+.advanced-note span {
+  color: #c9d8ff;
+}
+
+.currency-note {
+  font-size: 13px;
+}

@@ -4,6 +4,28 @@
 
 ---
 
+## Version 0.7.3
+
+**Date:** 2026-06-06  
+**Time:** 12:45 UTC
+
+### Theme
+
+Advanced Pay Polish
+
+### Changes
+
+- Clarified Additional Double-Time Hours labeling.
+- Clarified Additional Double-Time Pay result labeling.
+- Improved Advanced Pay helper text.
+- Improved currency display-only helper wording.
+- Added validation for differential hours greater than total hours.
+- Added validation for additional double-time hours greater than total hours.
+- Improved saved settings confirmation message.
+- Updated documentation for v0.7.3.
+
+---
+
 ## Version 0.7.2
 
 **Date:** 2026-06-06  

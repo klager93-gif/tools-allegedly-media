@@ -44,7 +44,7 @@ The long-term goal is to expand the calculator into a more complete income plann
 - AUD display support.
 - Saved currency preference.
 
-Currency changes display only. It does not change tax rules, overtime rules, pay rules, or labor laws.
+Currency changes display only. It does not convert exchange rates or change tax rules, overtime rules, pay rules, or labor laws.
 
 ---
 
@@ -63,11 +63,13 @@ Currency changes display only. It does not change tax rules, overtime rules, pay
 
 - Shift differential rate.
 - Differential hours.
-- Double-time hours.
+- Additional double-time hours.
 - Weekend bonus.
 - Holiday bonus.
 - Flat bonus.
 - Advanced pay results breakdown.
+- Validation for differential hours.
+- Validation for additional double-time hours.
 
 ---
 
@@ -240,11 +242,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.7.2
+v0.7.3
 
 ### Theme
 
-Currency Display Options
+Advanced Pay Polish
 
 ### Status
 
