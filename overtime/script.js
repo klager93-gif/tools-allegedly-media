@@ -1,3 +1,4 @@
+```javascript
 const rateInput = document.getElementById("rate");
 const hoursInput = document.getElementById("hours");
 const thresholdInput = document.getElementById("threshold");
@@ -26,6 +27,7 @@ const openChangelogButton = document.getElementById("openChangelog");
 const openRoadmapButton = document.getElementById("openRoadmap");
 
 function resetResults() {
+
   totalHoursEl.textContent = "0.00";
   regularHoursEl.textContent = "0.00";
   overtimeHoursEl.textContent = "0.00";
@@ -42,6 +44,7 @@ function resetResults() {
 }
 
 function calculateOvertime() {
+
   const rate = Number(rateInput.value);
   const hours = Number(hoursInput.value);
   const threshold = Number(thresholdInput.value);
@@ -50,15 +53,29 @@ function calculateOvertime() {
   messageEl.classList.remove("error");
 
   if (!rateInput.value && !hoursInput.value) {
+
     resetResults();
-    messageEl.textContent = "Enter values or load an example to begin.";
+
+    messageEl.textContent =
+      "Enter values or load an example to begin.";
+
     return;
   }
 
-  if (rate <= 0 || hours <= 0 || threshold <= 0 || multiplier <= 0) {
+  if (
+    rate <= 0 ||
+    hours <= 0 ||
+    threshold <= 0 ||
+    multiplier <= 0
+  ) {
+
     resetResults();
-    messageEl.textContent = "Enter positive numbers for rate, hours, threshold, and multiplier.";
+
+    messageEl.textContent =
+      "Enter positive numbers for rate, hours, threshold, and multiplier.";
+
     messageEl.classList.add("error");
+
     return;
   }
 
@@ -67,28 +84,43 @@ function calculateOvertime() {
   const overtimeHours = Math.max(hours - threshold, 0);
 
   const overtimeRate = rate * multiplier;
+
   const regularPay = regularHours * rate;
   const overtimePay = overtimeHours * overtimeRate;
+
   const totalPay = regularPay + overtimePay;
-  const effectiveRate = totalHours > 0 ? totalPay / totalHours : 0;
+
+  const effectiveRate =
+    totalHours > 0
+      ? totalPay / totalHours
+      : 0;
 
   totalHoursEl.textContent = formatNumber(totalHours);
+
   regularHoursEl.textContent = formatNumber(regularHours);
+
   overtimeHoursEl.textContent = formatNumber(overtimeHours);
 
   hourlyRateEl.textContent = formatMoney(rate);
+
   overtimeRateEl.textContent = formatMoney(overtimeRate);
+
   effectiveRateEl.textContent = formatMoney(effectiveRate);
 
   regularPayEl.textContent = formatMoney(regularPay);
+
   overtimePayEl.textContent = formatMoney(overtimePay);
+
   totalPayEl.textContent = formatMoney(totalPay);
 
   generatedTimeEl.textContent = getCurrentUtcTime();
-  messageEl.textContent = "Calculation updated.";
+
+  messageEl.textContent =
+    "Calculation updated.";
 }
 
 function loadExample() {
+
   rateInput.value = "25";
   hoursInput.value = "48";
   thresholdInput.value = "40";
@@ -98,36 +130,83 @@ function loadExample() {
 }
 
 function clearCalculator() {
+
   rateInput.value = "";
   hoursInput.value = "";
+
   thresholdInput.value = "40";
   multiplierInput.value = "1.5";
 
   resetResults();
 
   messageEl.classList.remove("error");
-  messageEl.textContent = "Enter values or load an example to begin.";
+
+  messageEl.textContent =
+    "Enter values or load an example to begin.";
 }
 
-calculateButton.addEventListener("click", calculateOvertime);
-exampleButton.addEventListener("click", loadExample);
-resetButton.addEventListener("click", clearCalculator);
+calculateButton.addEventListener(
+  "click",
+  calculateOvertime
+);
 
-rateInput.addEventListener("input", calculateOvertime);
-hoursInput.addEventListener("input", calculateOvertime);
-thresholdInput.addEventListener("input", calculateOvertime);
-multiplierInput.addEventListener("input", calculateOvertime);
+exampleButton.addEventListener(
+  "click",
+  loadExample
+);
 
-openChangelogButton.addEventListener("click", () => {
-  openTextModal({
-    title: "CHANGELOG",
-    file: "CHANGELOG.txt"
-  });
-});
+resetButton.addEventListener(
+  "click",
+  clearCalculator
+);
 
-openRoadmapButton.addEventListener("click", () => {
-  openTextModal({
-    title: "ROADMAP",
-    file: "ROADMAP.txt"
-  });
-});
+rateInput.addEventListener(
+  "input",
+  calculateOvertime
+);
+
+hoursInput.addEventListener(
+  "input",
+  calculateOvertime
+);
+
+thresholdInput.addEventListener(
+  "input",
+  calculateOvertime
+);
+
+multiplierInput.addEventListener(
+  "input",
+  calculateOvertime
+);
+
+openChangelogButton.addEventListener(
+  "click",
+  () => {
+
+    openTextModal({
+
+      title: "CHANGELOG",
+
+      file: "CHANGELOG.txt"
+
+    });
+
+  }
+);
+
+openRoadmapButton.addEventListener(
+  "click",
+  () => {
+
+    openTextModal({
+
+      title: "ROADMAP",
+
+      file: "ROADMAP.txt"
+
+    });
+
+  }
+);
+```

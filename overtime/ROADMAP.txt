@@ -1,34 +1,18 @@
-```text
 =====================================================
 Signal Labs Overtime Calculator
 ROADMAP
-=====================================================
+=======
 
 Last Updated:
 2026-06-06
-05:00 UTC
+06:00 UTC
 
 Current Version:
-v0.5.2
-
-Purpose
-
-The Signal Labs Overtime Calculator is intended to provide
-a clean, modern, and useful way to estimate overtime pay,
-gross pay, and eventually take-home pay, income goals,
-and advanced overtime scenarios.
-
-Plans are subject to change.
-
-Features may be moved, removed, deferred, expanded,
-or reworked between versions as development progresses.
-
-Additional updates, improvements, and entirely new
-features are always possible.
+v0.5.3
 
 =====================================================
 Completed Versions
-=====================================================
+==================
 
 v0.1
 Initial Prototype
@@ -51,9 +35,12 @@ Project Information & Transparency
 v0.5.2
 Shared Signal Labs Assets
 
+v0.5.3
+Polish & Foundation
+
 =====================================================
 Upcoming Versions
-=====================================================
+=================
 
 v0.6
 
@@ -64,26 +51,26 @@ Planned Features:
 
 Percentage Deductions
 
-- Federal tax %
-- State tax %
-- Local tax %
-- Other tax %
+* Federal tax %
+* State tax %
+* Local tax %
+* Other tax %
 
 Fixed Deductions
 
-- Insurance $
-- Retirement $
-- Extra withholding $
-- Other fixed deductions $
+* Insurance $
+* Retirement $
+* Extra withholding $
+* Other fixed deductions $
 
 Results
 
-- Estimated taxes
-- Estimated fixed deductions
-- Estimated take-home pay
-- Net effective hourly rate
+* Estimated taxes
+* Estimated fixed deductions
+* Estimated take-home pay
+* Net effective hourly rate
 
------------------------------------------------------
+---
 
 v0.6.1
 
@@ -92,22 +79,11 @@ Tax Rate Helper
 
 Planned Features:
 
-- Helper information for estimating tax rates.
-- Example paycheck calculations.
-- Formula examples.
-- Educational notes.
+* Helper information for estimating tax rates.
+* Example paycheck calculations.
+* Educational notes.
 
-Future Idea:
-
-Simple Presets
-
-- Low estimate
-- Medium estimate
-- High estimate
-
-(Originally considered for a later release.)
-
------------------------------------------------------
+---
 
 v0.7
 
@@ -116,17 +92,14 @@ Advanced Pay Features
 
 Planned Features:
 
-- Shift differential.
-- Night shift bonus.
-- Weekend bonus.
-- Holiday bonus.
-- Time and a half preset.
-- Double time preset.
-- Custom multiplier preset.
-- Break deduction.
-- Multiple overtime tiers.
+* Shift differential
+* Night shift bonus
+* Weekend bonus
+* Holiday bonus
+* Break deductions
+* Multiple overtime tiers
 
------------------------------------------------------
+---
 
 v0.8
 
@@ -135,19 +108,19 @@ Goal Mode
 
 Planned Features:
 
-- Income goal mode.
-- Reverse overtime calculations.
-- Hours needed for target income.
-- Overtime shifts needed.
-- Gross income targets.
+* Income goal mode
+* Reverse overtime calculations
+* Hours needed for target income
+* Overtime shifts needed
+* Gross income targets
 
 Future Feature:
 
-- Take-home goal mode.
+* Take-home goal mode
 
 (Originally considered post-v1.0.)
 
------------------------------------------------------
+---
 
 v0.9
 
@@ -156,12 +129,12 @@ Share & Export
 
 Planned Features:
 
-- Print summary.
-- Copy results.
-- Share links.
-- Save as PDF.
+* Print summary
+* Copy results
+* Share links
+* Save as PDF
 
------------------------------------------------------
+---
 
 v1.0
 
@@ -170,60 +143,36 @@ Public Release
 
 Planned Features:
 
-- Final visual polish.
-- Accessibility review.
-- Mobile review.
-- Favicon.
-- Meta title.
-- Meta description.
-- Open Graph tags.
-- Schema markup.
-- FAQ section.
-- SEO content.
-- Analytics.
+* Final visual polish
+* Accessibility review
+* Mobile review
+* SEO improvements
+* Analytics
 
 =====================================================
-Future Ideas
-=====================================================
+Future Releases Unknown
+=======================
+
+Platform Expansion
 
 Potential Features:
 
-- Vacation savings mode.
-- Emergency fund mode.
-- Debt payoff mode.
-- Retirement impact mode.
-- Dispatcher schedule presets.
-- 2-2-3 schedules.
-- 24/48 schedules.
-- 48/96 schedules.
-- Weekly overtime tracking.
-- Monthly overtime tracking.
-- Yearly overtime projections.
-- Burnout warnings.
-- Compare jobs.
-- Multiple jobs.
-- CSV export.
-- Saved sessions.
-- State-specific overtime rules.
+* Progressive Web App support
+* Installable home screen app
+* Offline support
+* Native iOS application
+* Native Android application
+* App Store distribution
+* Google Play distribution
+
+(Target release unknown.)
+
+Implementation depends on future project growth
+and user demand.
 
 =====================================================
-Notes
-=====================================================
-
-Inline notes may be used to preserve roadmap history.
-
-Examples:
-
-(Originally planned for v0.5)
-
-(Expanded from v0.8)
-
-(Originally considered post-v1.0)
-
-This roadmap is intended to evolve alongside the project.
 
 Additional updates, improvements, and entirely new
 features are always possible.
 
 =====================================================
-```
