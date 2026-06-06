@@ -492,3 +492,8 @@ select:focus {
   background: rgba(80,140,255,.08);
   border-color: rgba(80,140,255,.2);
 }
+
+
+.advanced-pay-card {
+  scroll-margin-top: 24px;
+}

@@ -52,7 +52,7 @@ The long-term goal is to expand the calculator into a more complete income plann
 - Double-time hours.
 - Weekend bonus.
 - Holiday bonus.
-- Other bonus.
+- Flat bonus.
 - Advanced pay results breakdown.
 
 ---
@@ -226,7 +226,7 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.7
+v0.7.1
 
 ### Theme
 

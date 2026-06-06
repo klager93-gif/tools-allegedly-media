@@ -4,6 +4,26 @@
 
 ---
 
+## Version 0.7.1
+
+**Date:** 2026-06-06  
+**Time:** 11:45 UTC
+
+### Theme
+
+Advanced Pay Cleanup
+
+### Changes
+
+- Fixed Reset behavior for advanced pay fields.
+- Reset now clears shift differential, differential hours, double-time hours, weekend bonus, holiday bonus, and flat bonus.
+- Confirmed Example still loads advanced pay sample values.
+- Renamed Other Bonus to Flat Bonus for clearer wording.
+- Updated cache-busting references for v0.7.1.
+- Updated documentation references for the cleanup release.
+
+---
+
 ## Version 0.7
 
 **Date:** 2026-06-06  

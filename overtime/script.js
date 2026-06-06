@@ -65,7 +65,7 @@ const adjustmentModalMessageEl = document.getElementById("adjustmentModalMessage
 const saveAdjustmentButton = document.getElementById("saveAdjustment");
 const cancelAdjustmentButton = document.getElementById("cancelAdjustment");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV070";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV071";
 const LEGACY_STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
 
 let taxes = [];
@@ -639,6 +639,7 @@ function loadExample() {
   holidayBonusInput.value = "0";
   otherBonusInput.value = "25";
 
+
   overrideThresholdInput.checked = false;
   customThresholdInput.value = "";
 
@@ -686,12 +687,13 @@ function clearCalculator() {
   hoursInput.value = "";
   payPeriodInput.value = "weekly";
   multiplierInput.value = "1.5";
-  differentialRateInput.value = "2";
-  differentialHoursInput.value = "24";
-  doubleTimeHoursInput.value = "4";
-  weekendBonusInput.value = "50";
-  holidayBonusInput.value = "0";
-  otherBonusInput.value = "25";
+  differentialRateInput.value = "";
+  differentialHoursInput.value = "";
+  doubleTimeHoursInput.value = "";
+  weekendBonusInput.value = "";
+  holidayBonusInput.value = "";
+  otherBonusInput.value = "";
+
 
   overrideThresholdInput.checked = false;
   customThresholdInput.value = "";
