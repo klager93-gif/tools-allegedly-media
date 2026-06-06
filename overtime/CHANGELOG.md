@@ -4,6 +4,26 @@
 
 ---
 
+## Version 0.7.3.3
+
+**Date:** 2026-06-06  
+**Time:** 14:15 UTC
+
+### Theme
+
+Mobile Hero Polish
+
+### Changes
+
+- Centered the hero section on mobile.
+- Increased Signal Labs brand visibility on mobile.
+- Slightly reduced mobile title size.
+- Improved mobile hero spacing.
+- Centered and constrained the subtitle on mobile.
+- Updated documentation for v0.7.3.3.
+
+---
+
 ## Version 0.7.3.2
 
 **Date:** 2026-06-06  

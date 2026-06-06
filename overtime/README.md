@@ -115,6 +115,8 @@ Currency changes display only. It does not convert exchange rates or change tax 
 - Mobile collapsible cards.
 - Compact mobile results layout.
 - Mobile collapsible results sections.
+- Mobile hero polish.
+- Centered mobile branding.
 - Compact mobile summary card.
 
 ---
@@ -246,11 +248,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.7.3.2
+v0.7.3.3
 
 ### Theme
 
-Mobile Results Refactor
+Mobile Hero Polish
 
 ### Status
 

@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.7.3.2**
+**v0.7.3.3**
 
 ---
 
@@ -40,6 +40,7 @@
 | v0.7.3 | Advanced Pay Polish |
 | v0.7.3.1 | Mobile Layout Refactor |
 | v0.7.3.2 | Mobile Results Refactor |
+| v0.7.3.3 | Mobile Hero Polish |
 | v0.6.4 | Custom Modals & Manual Save |
 
 ---
