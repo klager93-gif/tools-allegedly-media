@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+<title>
+PTO Calculator | Signal Labs
+</title>
+
+<meta
+  name="description"
+  content="Estimate future PTO balance, PTO earned, PTO used, and remaining paid time off with the Signal Labs PTO Calculator.">
+
+<meta
+  property="og:title"
+  content="Signal Labs PTO Calculator">
+
+<meta
+  property="og:description"
+  content="Estimate PTO accrual, future balances, planned usage, and cap status.">
+
+<link rel="icon" href="/favicon.ico">
+
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/favicon-32x32.png">
+
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/favicon-16x16.png">
+
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/apple-touch-icon.png">
+
+<link
+  rel="manifest"
+  href="/site.webmanifest">
+
+<link
+  rel="stylesheet"
+  href="../assets/global.css?v=0.5.3">
+
+<link
+  rel="stylesheet"
+  href="style.css?v=0.1">
+
+</head>
+<body>
+
+<main class="page">
+
+<header class="hero">
+  <p class="eyebrow">Signal Labs</p>
+
+  <h1>PTO Calculator</h1>
+
+  <p class="subtitle">
+    Estimate future PTO balances, planned time off, and when you may reach your PTO cap.
+  </p>
+</header>
+
+<section class="dashboard-layout">
+
+<section class="left-stack">
+
+<section class="card step-card">
+
+<div class="section-title">
+  <div class="step-badge green">1</div>
+  <div>
+    <h2>PTO Balance</h2>
+    <p>Enter your current PTO balance and how quickly you earn new time.</p>
+  </div>
+</div>
+
+<div class="form-grid">
+
+<label>
+  <span>Current PTO Balance</span>
+  <input id="currentBalance" type="number" placeholder="40" step="0.01">
+</label>
+
+<label>
+  <span>PTO Earned Per Pay Period</span>
+  <input id="accrualPerPeriod" type="number" placeholder="6.15" step="0.01">
+</label>
+
+<label>
+  <span>Pay Period</span>
+  <select id="payPeriod">
+    <option value="weekly">Weekly</option>
+    <option value="biweekly">Bi-Weekly</option>
+    <option value="semimonthly">Semi-Monthly</option>
+    <option value="monthly">Monthly</option>
+  </select>
+</label>
+
+<label>
+  <span>PTO Cap <span>(Optional)</span></span>
+  <input id="ptoCap" type="number" placeholder="240" step="0.01">
+</label>
+
+</div>
+
+</section>
+
+
+<section class="card step-card">
+
+<div class="section-title">
+  <div class="step-badge blue">2</div>
+  <div>
+    <h2>Projection</h2>
+    <p>Choose a future date and planned PTO usage.</p>
+  </div>
+</div>
+
+<div class="form-grid">
+
+<label>
+  <span>Target Date</span>
+  <input id="targetDate" type="date">
+</label>
+
+<label>
+  <span>Planned PTO Usage</span>
+  <input id="plannedUsage" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+  <span>Average PTO Used Per Pay Period <span>(Optional)</span></span>
+  <input id="averageUsage" type="number" placeholder="0" step="0.01">
+</label>
+
+<label>
+  <span>Hours Per Day <span>(Optional)</span></span>
+  <input id="hoursPerDay" type="number" placeholder="8" step="0.01">
+</label>
+
+</div>
+
+<div class="button-row">
+
+<button
+  id="calculate"
+  class="primary-action"
+  type="button">
+  Calculate PTO
+</button>
+
+<button
+  id="example"
+  class="secondary"
+  type="button">
+  Example
+</button>
+
+<button
+  id="reset"
+  class="secondary"
+  type="button">
+  Reset
+</button>
+
+</div>
+
+<p id="message" class="message">
+  Enter values or load an example to begin.
+</p>
+
+</section>
+
+</section>
+
+
+<section class="card results-card">
+
+<div class="results-heading">
+  <div>
+    <h2>Results</h2>
+  </div>
+</div>
+
+<div class="results-section">
+
+<h3>PTO Projection</h3>
+
+<div class="result-row total">
+  <span>Projected PTO Balance</span>
+  <strong id="projectedBalance">0.00 hrs</strong>
+</div>
+
+<div class="result-row">
+  <span>Projected PTO Days</span>
+  <strong id="projectedDays">0.00 days</strong>
+</div>
+
+<div class="result-row">
+  <span>PTO Earned</span>
+  <strong id="ptoEarned">0.00 hrs</strong>
+</div>
+
+<div class="result-row">
+  <span>PTO Used</span>
+  <strong id="ptoUsed">0.00 hrs</strong>
+</div>
+
+</div>
+
+<div class="results-section">
+
+<h3>Timeline</h3>
+
+<div class="result-row">
+  <span>Pay Periods Until Target</span>
+  <strong id="periodsUntilTarget">0</strong>
+</div>
+
+<div class="result-row">
+  <span>Target Date</span>
+  <strong id="targetDateResult">--</strong>
+</div>
+
+<div class="result-row">
+  <span>Estimated Cap Date</span>
+  <strong id="capDateResult">--</strong>
+</div>
+
+</div>
+
+<div class="results-section">
+
+<h3>Cap Status</h3>
+
+<div class="result-row">
+  <span>PTO Cap</span>
+  <strong id="capResult">Not set</strong>
+</div>
+
+<div class="result-row">
+  <span>Hours Until Cap</span>
+  <strong id="hoursUntilCap">--</strong>
+</div>
+
+<div class="result-row">
+  <span>Status</span>
+  <strong id="capStatus">--</strong>
+</div>
+
+</div>
+
+<div class="summary-card">
+  <p>
+    Generated:
+    <span id="generatedTime">--</span>
+  </p>
+
+  <p>
+    Build:
+    v0.1
+  </p>
+
+  <p>
+    Theme:
+    Initial Prototype
+  </p>
+
+  <p>
+    Status:
+    Active Development
+  </p>
+</div>
+
+</section>
+
+</section>
+
+</main>
+
+<footer class="version">
+
+<div class="footer-actions">
+
+<button id="openChangelog" type="button">
+  Changelog
+</button>
+
+<button id="openRoadmap" type="button">
+  Roadmap
+</button>
+
+</div>
+
+<div class="footer-copy">
+  Signal Labs · PTO Calculator · v0.1
+  <br>
+  Estimates only. Actual PTO may vary based on employer policy,
+  accrual rules, caps, holidays, unpaid leave, and payroll timing.
+</div>
+
+</footer>
+
+<div
+  id="modal"
+  class="modal hidden">
+
+<div class="modal-box">
+
+<button
+  id="closeModal"
+  class="modal-close"
+  type="button">
+
+×
+
+</button>
+
+<h2 id="modalTitle">
+Project Information
+</h2>
+
+<pre id="modalContent">
+Loading...
+</pre>
+
+</div>
+
+</div>
+
+<script src="../assets/global.js?v=0.5.3"></script>
+<script src="script.js?v=0.1"></script>
+
+</body>
+</html>
