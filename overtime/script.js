@@ -22,28 +22,8 @@ const calculateButton = document.getElementById("calculate");
 const exampleButton = document.getElementById("example");
 const resetButton = document.getElementById("reset");
 
-const modal = document.getElementById("modal");
-const modalTitle = document.getElementById("modalTitle");
-const modalContent = document.getElementById("modalContent");
-
 const openChangelogButton = document.getElementById("openChangelog");
 const openRoadmapButton = document.getElementById("openRoadmap");
-const closeModalButton = document.getElementById("closeModal");
-
-function money(amount) {
-  return amount.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD"
-  });
-}
-
-function number(value) {
-  return value.toFixed(2);
-}
-
-function currentUtcTime() {
-  return new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
-}
 
 function resetResults() {
   totalHoursEl.textContent = "0.00";
@@ -62,7 +42,6 @@ function resetResults() {
 }
 
 function calculateOvertime() {
-
   const rate = Number(rateInput.value);
   const hours = Number(hoursInput.value);
   const threshold = Number(thresholdInput.value);
@@ -71,29 +50,15 @@ function calculateOvertime() {
   messageEl.classList.remove("error");
 
   if (!rateInput.value && !hoursInput.value) {
-
     resetResults();
-
-    messageEl.textContent =
-      "Enter values or load an example to begin.";
-
+    messageEl.textContent = "Enter values or load an example to begin.";
     return;
   }
 
-  if (
-    rate <= 0 ||
-    hours <= 0 ||
-    threshold <= 0 ||
-    multiplier <= 0
-  ) {
-
+  if (rate <= 0 || hours <= 0 || threshold <= 0 || multiplier <= 0) {
     resetResults();
-
-    messageEl.textContent =
-      "Enter positive numbers for rate, hours, threshold, and multiplier.";
-
+    messageEl.textContent = "Enter positive numbers for rate, hours, threshold, and multiplier.";
     messageEl.classList.add("error");
-
     return;
   }
 
@@ -102,42 +67,28 @@ function calculateOvertime() {
   const overtimeHours = Math.max(hours - threshold, 0);
 
   const overtimeRate = rate * multiplier;
-
   const regularPay = regularHours * rate;
   const overtimePay = overtimeHours * overtimeRate;
-
   const totalPay = regularPay + overtimePay;
+  const effectiveRate = totalHours > 0 ? totalPay / totalHours : 0;
 
-  const effectiveRate =
-    totalHours > 0
-      ? totalPay / totalHours
-      : 0;
+  totalHoursEl.textContent = formatNumber(totalHours);
+  regularHoursEl.textContent = formatNumber(regularHours);
+  overtimeHoursEl.textContent = formatNumber(overtimeHours);
 
-  totalHoursEl.textContent = number(totalHours);
+  hourlyRateEl.textContent = formatMoney(rate);
+  overtimeRateEl.textContent = formatMoney(overtimeRate);
+  effectiveRateEl.textContent = formatMoney(effectiveRate);
 
-  regularHoursEl.textContent = number(regularHours);
+  regularPayEl.textContent = formatMoney(regularPay);
+  overtimePayEl.textContent = formatMoney(overtimePay);
+  totalPayEl.textContent = formatMoney(totalPay);
 
-  overtimeHoursEl.textContent = number(overtimeHours);
-
-  hourlyRateEl.textContent = money(rate);
-
-  overtimeRateEl.textContent = money(overtimeRate);
-
-  effectiveRateEl.textContent = money(effectiveRate);
-
-  regularPayEl.textContent = money(regularPay);
-
-  overtimePayEl.textContent = money(overtimePay);
-
-  totalPayEl.textContent = money(totalPay);
-
-  generatedTimeEl.textContent = currentUtcTime();
-
+  generatedTimeEl.textContent = getCurrentUtcTime();
   messageEl.textContent = "Calculation updated.";
 }
 
 function loadExample() {
-
   rateInput.value = "25";
   hoursInput.value = "48";
   thresholdInput.value = "40";
@@ -147,126 +98,36 @@ function loadExample() {
 }
 
 function clearCalculator() {
-
   rateInput.value = "";
   hoursInput.value = "";
-
   thresholdInput.value = "40";
   multiplierInput.value = "1.5";
 
   resetResults();
 
   messageEl.classList.remove("error");
-
-  messageEl.textContent =
-    "Enter values or load an example to begin.";
+  messageEl.textContent = "Enter values or load an example to begin.";
 }
 
-async function openTextFile(title, fileName) {
+calculateButton.addEventListener("click", calculateOvertime);
+exampleButton.addEventListener("click", loadExample);
+resetButton.addEventListener("click", clearCalculator);
 
-  modal.classList.remove("hidden");
+rateInput.addEventListener("input", calculateOvertime);
+hoursInput.addEventListener("input", calculateOvertime);
+thresholdInput.addEventListener("input", calculateOvertime);
+multiplierInput.addEventListener("input", calculateOvertime);
 
-  modalTitle.textContent = title;
+openChangelogButton.addEventListener("click", () => {
+  openTextModal({
+    title: "CHANGELOG",
+    file: "CHANGELOG.txt"
+  });
+});
 
-  modalContent.textContent = "Loading...";
-
-  try {
-
-    const response = await fetch(fileName);
-
-    const text = await response.text();
-
-    modalContent.textContent = text;
-
-  } catch {
-
-    modalContent.textContent =
-      "Unable to load file.";
-  }
-}
-
-function closeModal() {
-
-  modal.classList.add("hidden");
-}
-
-calculateButton.addEventListener(
-  "click",
-  calculateOvertime
-);
-
-exampleButton.addEventListener(
-  "click",
-  loadExample
-);
-
-resetButton.addEventListener(
-  "click",
-  clearCalculator
-);
-
-rateInput.addEventListener(
-  "input",
-  calculateOvertime
-);
-
-hoursInput.addEventListener(
-  "input",
-  calculateOvertime
-);
-
-thresholdInput.addEventListener(
-  "input",
-  calculateOvertime
-);
-
-multiplierInput.addEventListener(
-  "input",
-  calculateOvertime
-);
-
-openChangelogButton.addEventListener(
-  "click",
-  () => openTextFile(
-    "CHANGELOG",
-    "CHANGELOG.txt"
-  )
-);
-
-openRoadmapButton.addEventListener(
-  "click",
-  () => openTextFile(
-    "ROADMAP",
-    "ROADMAP.txt"
-  )
-);
-
-closeModalButton.addEventListener(
-  "click",
-  closeModal
-);
-
-modal.addEventListener(
-  "click",
-  (event) => {
-
-    if (event.target === modal) {
-
-      closeModal();
-    }
-  }
-);
-
-document.addEventListener(
-  "keydown",
-  (event) => {
-
-    if (
-      event.key === "Escape" &&
-      !modal.classList.contains("hidden")
-    ) {
-
-      closeModal();
-    }
-  }
-);
+openRoadmapButton.addEventListener("click", () => {
+  openTextModal({
+    title: "ROADMAP",
+    file: "ROADMAP.txt"
+  });
+});

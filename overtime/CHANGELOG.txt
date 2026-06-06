@@ -4,6 +4,31 @@ Signal Labs Overtime Calculator
 CHANGELOG
 =====================================================
 
+Version: 0.5.2
+Date: 2026-06-06
+Time: 05:00 UTC
+
+Theme:
+Shared Signal Labs Assets
+
+Changes:
+
+- Added Signal Labs homepage.
+- Added assets folder.
+- Added global.css.
+- Added global.js.
+- Moved shared styling into global.css.
+- Moved modal system into global.js.
+- Reduced calculator-specific files.
+- Introduced reusable architecture for future tools.
+- Prepared framework for:
+  Paycheck Calculator
+  Salary Calculator
+  Mortgage Calculator
+  Retirement Calculator
+
+-----------------------------------------------------
+
 Version: 0.5.1
 Date: 2026-06-06
 Time: 04:15 UTC
@@ -46,73 +71,30 @@ Changes:
 -----------------------------------------------------
 
 Version: 0.4
-Date: 2026-06-06
-Time: 03:00 UTC
 
 Theme:
 Quality of Life
 
-Changes:
-
-- Added Reset button.
-- Added Example Values button.
-- Added Overtime Rate output.
-- Added validation and error messages.
-- Added empty-state handling.
-- Added disclaimer.
-
 -----------------------------------------------------
 
 Version: 0.3
-Date: 2026-06-06
-Time: 02:20 UTC
 
 Theme:
 Signal Labs Branding
 
-Changes:
-
-- Rebranded to Signal Labs.
-- Added version footer.
-- Added Regular Hours output.
-- Added Overtime Hours output.
-- Added automatic calculations.
-
 -----------------------------------------------------
 
 Version: 0.2
-Date: 2026-06-06
-Time: 01:50 UTC
 
 Theme:
 UI Refresh
 
-Changes:
-
-- Improved spacing.
-- Added card layout.
-- Added responsive design.
-- Improved mobile display.
-- Introduced dark theme.
-
 -----------------------------------------------------
 
 Version: 0.1
-Date: 2026-06-06
-Time: 01:15 UTC
 
 Theme:
 Initial Prototype
-
-Changes:
-
-- Hourly Rate input.
-- Hours Worked input.
-- Overtime Threshold input.
-- Overtime Multiplier input.
-- Regular Pay calculation.
-- Overtime Pay calculation.
-- Total Gross Pay calculation.
 
 =====================================================
 ```
