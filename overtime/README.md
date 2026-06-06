@@ -16,32 +16,32 @@ The long-term goal is to expand the calculator into a more complete income plann
 
 ## Basic Pay
 
-* Hourly rate input.
-* Hours worked input.
-* Pay period selection.
-* Overtime multiplier.
-* Automatic overtime thresholds.
-* Custom overtime thresholds.
-* Threshold override support.
+- Hourly rate input.
+- Hours worked input.
+- Pay period selection.
+- Overtime multiplier.
+- Automatic overtime thresholds.
+- Custom overtime thresholds.
+- Threshold override support.
 
 ### Supported Pay Periods
 
-* Weekly
-* Bi-Weekly
-* Semi-Monthly
-* Monthly
-* Custom
+- Weekly
+- Bi-Weekly
+- Semi-Monthly
+- Monthly
+- Custom
 
 ---
 
 ## Pay Calculations
 
-* Regular hours calculation.
-* Overtime hours calculation.
-* Regular pay calculation.
-* Overtime pay calculation.
-* Total gross pay calculation.
-* Gross effective hourly rate.
+- Regular hours calculation.
+- Overtime hours calculation.
+- Regular pay calculation.
+- Overtime pay calculation.
+- Total gross pay calculation.
+- Gross effective hourly rate.
 
 ---
 
@@ -49,37 +49,41 @@ The long-term goal is to expand the calculator into a more complete income plann
 
 ### Taxes
 
-* Multiple tax entries.
-* Custom tax names.
-* Tax percentage totals.
-* Detailed tax breakdown.
+- Multiple tax entries.
+- Custom tax names.
+- Tax percentage totals.
+- Detailed tax breakdown.
+- Custom in-page tax modal.
 
 ### Deductions
 
-* Multiple deduction entries.
-* Custom deduction names.
-* Fixed deduction totals.
-* Detailed deduction breakdown.
+- Multiple deduction entries.
+- Custom deduction names.
+- Fixed deduction totals.
+- Detailed deduction breakdown.
+- Custom in-page deduction modal.
 
 ### Other Adjustments
 
-* Multiple adjustment entries.
-* Custom adjustment names.
+- Multiple adjustment entries.
+- Custom adjustment names.
+- Custom in-page adjustment modal.
 
 ---
 
 ## Quality of Life Features
 
-* Example values.
-* Reset functionality.
-* Clear adjustment controls.
-* Changelog popup.
-* Roadmap popup.
-* Automatic saved settings.
-* Automatic restoration of values.
-* Local storage support.
-* Responsive layout.
-* Mobile support.
+- Example values.
+- Reset functionality.
+- Clear adjustment controls.
+- Changelog popup.
+- Roadmap popup.
+- Automatic saved settings.
+- Manual Save Settings button.
+- Automatic restoration of values.
+- Local storage support.
+- Responsive layout.
+- Mobile support.
 
 ---
 
@@ -115,13 +119,13 @@ General project documentation.
 
 Provides:
 
-* Theme.
-* Typography.
-* Buttons.
-* Cards.
-* Modal styling.
-* Footer styling.
-* Responsive foundations.
+- Theme.
+- Typography.
+- Buttons.
+- Cards.
+- Modal styling.
+- Footer styling.
+- Responsive foundations.
 
 ---
 
@@ -129,10 +133,10 @@ Provides:
 
 Provides:
 
-* Modal system.
-* Utility functions.
-* Currency formatting.
-* UTC timestamps.
+- Modal system.
+- Utility functions.
+- Currency formatting.
+- UTC timestamps.
 
 ---
 
@@ -142,13 +146,13 @@ Provides:
 
 Examples:
 
-* 0.1
-* 0.2
-* 0.3
-* 0.4
-* 0.5
-* 0.6
-* 1.0
+- 0.1
+- 0.2
+- 0.3
+- 0.4
+- 0.5
+- 0.6
+- 1.0
 
 Major versions introduce new features and capabilities.
 
@@ -158,12 +162,13 @@ Major versions introduce new features and capabilities.
 
 Examples:
 
-* 0.5.1
-* 0.5.2
-* 0.5.3
-* 0.6.1
-* 0.6.2
-* 0.6.3
+- 0.5.1
+- 0.5.2
+- 0.5.3
+- 0.6.1
+- 0.6.2
+- 0.6.3
+- 0.6.4
 
 Patch versions focus on quality, stability, polish, and refinements.
 
@@ -177,12 +182,12 @@ Every release is treated as a full replacement release rather than incremental p
 
 Signal Labs tools are intended to be:
 
-* Useful.
-* Fast.
-* Mobile-friendly.
-* Easy to understand.
-* Lightweight.
-* Free from unnecessary complexity.
+- Useful.
+- Fast.
+- Mobile-friendly.
+- Easy to understand.
+- Lightweight.
+- Free from unnecessary complexity.
 
 > Useful tools without the noise.
 
@@ -192,12 +197,12 @@ Signal Labs tools are intended to be:
 
 Planned areas of expansion include:
 
-* Advanced pay calculations.
-* Goal mode.
-* Export and sharing.
-* Progressive Web App support.
-* Native iOS applications.
-* Native Android applications.
+- Advanced pay calculations.
+- Goal mode.
+- Export and sharing.
+- Progressive Web App support.
+- Native iOS applications.
+- Native Android applications.
 
 Implementation depends on project growth and future requirements.
 
@@ -209,11 +214,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.6.3
+v0.6.4
 
 ### Theme
 
-Stability & Saved Settings
+Custom Modals & Manual Save
 
 ### Status
 

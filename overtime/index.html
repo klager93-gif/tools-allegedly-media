@@ -53,7 +53,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.6.3">
+  href="style.css?v=0.6.4">
 
 </head>
 <body>
@@ -142,6 +142,10 @@ Overtime Calculator | Signal Labs
 <div class="button-row">
   <button id="calculate" class="primary-action">
     Calculate Pay
+  </button>
+
+  <button id="saveSettings" class="secondary">
+    Save Settings
   </button>
 
   <button id="example" class="secondary">
@@ -387,12 +391,12 @@ Overtime Calculator | Signal Labs
 
   <p>
     Build:
-    v0.6.3
+    v0.6.4
   </p>
 
   <p>
     Theme:
-    Stability & Saved Settings
+    Custom Modals & Manual Save
   </p>
 
   <p>
@@ -422,7 +426,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Overtime Calculator · v0.6.3
+  Signal Labs · Overtime Calculator · v0.6.4
   <br>
   Estimates only. Actual pay may vary based on taxes, deductions,
   employer policies, and applicable labor laws.
@@ -457,8 +461,81 @@ Loading...
 
 </div>
 
+
+<div
+  id="adjustmentModal"
+  class="modal hidden">
+
+<div class="modal-box adjustment-modal-box">
+
+<button
+  id="closeAdjustmentModal"
+  class="modal-close"
+  type="button">
+
+×
+
+</button>
+
+<h2 id="adjustmentModalTitle">
+Add Adjustment
+</h2>
+
+<p
+  id="adjustmentModalHelp"
+  class="adjustment-modal-help">
+Enter a name and value for this adjustment.
+</p>
+
+<div class="adjustment-modal-form">
+
+<label>
+  <span id="adjustmentNameLabel">Name</span>
+  <input
+    id="adjustmentName"
+    type="text"
+    autocomplete="off">
+</label>
+
+<label>
+  <span id="adjustmentValueLabel">Value</span>
+  <input
+    id="adjustmentValue"
+    type="number"
+    step="0.01">
+</label>
+
+</div>
+
+<p
+  id="adjustmentModalMessage"
+  class="message adjustment-modal-message">
+</p>
+
+<div class="modal-action-row">
+
+<button
+  id="saveAdjustment"
+  class="primary-action"
+  type="button">
+  Add Adjustment
+</button>
+
+<button
+  id="cancelAdjustment"
+  class="secondary"
+  type="button">
+  Cancel
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.6.3"></script>
+<script src="script.js?v=0.6.4"></script>
 
 </body>
 </html>

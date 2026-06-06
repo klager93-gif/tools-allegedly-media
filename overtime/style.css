@@ -124,7 +124,7 @@ select:focus {
 
 .button-row {
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto auto auto;
   gap: 12px;
 }
 
@@ -346,6 +346,34 @@ select:focus {
   line-height: 1.8;
 }
 
+.adjustment-modal-help {
+  color: #999;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.adjustment-modal-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.adjustment-modal-message {
+  min-height: 22px;
+  margin-bottom: 16px;
+}
+
+.modal-action-row {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.modal-action-row button {
+  width: auto;
+}
+
 @media (max-width: 1050px) {
 
   .dashboard-layout {
@@ -377,6 +405,18 @@ select:focus {
   }
 
   .footer-actions button {
+    width: 100%;
+  }
+
+  .adjustment-modal-form {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-action-row {
+    flex-direction: column;
+  }
+
+  .modal-action-row button {
     width: 100%;
   }
 

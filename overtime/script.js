@@ -41,12 +41,26 @@ const deductionResultRowsEl = document.getElementById("deductionResultRows");
 const taxResultsTotalEl = document.getElementById("taxResultsTotal");
 const deductionResultsTotalEl = document.getElementById("deductionResultsTotal");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
+const adjustmentModalEl = document.getElementById("adjustmentModal");
+const closeAdjustmentModalButton = document.getElementById("closeAdjustmentModal");
+const adjustmentModalTitleEl = document.getElementById("adjustmentModalTitle");
+const adjustmentModalHelpEl = document.getElementById("adjustmentModalHelp");
+const adjustmentNameLabelEl = document.getElementById("adjustmentNameLabel");
+const adjustmentValueLabelEl = document.getElementById("adjustmentValueLabel");
+const adjustmentNameInput = document.getElementById("adjustmentName");
+const adjustmentValueInput = document.getElementById("adjustmentValue");
+const adjustmentModalMessageEl = document.getElementById("adjustmentModalMessage");
+const saveAdjustmentButton = document.getElementById("saveAdjustment");
+const cancelAdjustmentButton = document.getElementById("cancelAdjustment");
+
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV064";
+const LEGACY_STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
 
 let taxes = [];
 let deductions = [];
 let otherAdjustments = [];
 let isLoadingSavedSettings = false;
+let activeAdjustmentType = null;
 
 function getInputValue(input) {
   return Number(input.value) || 0;
@@ -136,20 +150,28 @@ function getSavedState() {
   };
 }
 
-function saveSettings() {
+function saveSettings(showMessage = false) {
   if (isLoadingSavedSettings) {
     return;
   }
 
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(getSavedState()));
+
+    if (showMessage) {
+      messageEl.classList.remove("error");
+      messageEl.textContent = "Settings saved. They will load next time you visit.";
+    }
   } catch (error) {
-    console.warn("Unable to save calculator settings.");
+    if (showMessage) {
+      messageEl.textContent = "Unable to save settings in this browser.";
+      messageEl.classList.add("error");
+    }
   }
 }
 
 function loadSavedSettings() {
-  const saved = localStorage.getItem(STORAGE_KEY);
+  const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
 
   if (!saved) {
     return false;
@@ -176,6 +198,7 @@ function loadSavedSettings() {
     return true;
   } catch (error) {
     localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(LEGACY_STORAGE_KEY);
     return false;
   } finally {
     isLoadingSavedSettings = false;
@@ -184,6 +207,7 @@ function loadSavedSettings() {
 
 function clearSavedSettings() {
   localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(LEGACY_STORAGE_KEY);
 }
 
 function updateThresholdUI() {
@@ -299,76 +323,111 @@ function renderAdjustments() {
   otherTotalLabelEl.textContent = `Total: ${formatMoney(totalOther)}`;
 }
 
-function addTax() {
-  const name = prompt("Tax name:", "Federal Tax");
-
-  if (!name) {
-    return;
+function getAdjustmentConfig(type) {
+  if (type === "tax") {
+    return {
+      title: "Add Tax",
+      help: "Add a tax percentage. Example: Federal Tax at 12%.",
+      nameLabel: "Tax Name",
+      valueLabel: "Tax Percentage",
+      defaultName: "Federal Tax",
+      defaultValue: "12",
+      buttonText: "Add Tax"
+    };
   }
 
-  const value = Number(prompt("Tax rate percentage:", "12"));
-
-  if (Number.isNaN(value) || value < 0) {
-    return;
+  if (type === "deduction") {
+    return {
+      title: "Add Deduction",
+      help: "Add a fixed deduction amount. Example: Insurance at $75.",
+      nameLabel: "Deduction Name",
+      valueLabel: "Deduction Amount",
+      defaultName: "Insurance",
+      defaultValue: "75",
+      buttonText: "Add Deduction"
+    };
   }
 
-  taxes.push({
-    id: makeId(),
-    name,
-    value
-  });
-
-  renderAdjustments();
-  saveSettings();
-  calculateOvertime();
+  return {
+    title: "Add Other Adjustment",
+    help: "Add any other fixed amount to subtract from estimated take-home pay.",
+    nameLabel: "Adjustment Name",
+    valueLabel: "Adjustment Amount",
+    defaultName: "Other",
+    defaultValue: "0",
+    buttonText: "Add Adjustment"
+  };
 }
 
-function addDeduction() {
-  const name = prompt("Deduction name:", "Insurance");
+function openAdjustmentModal(type) {
+  const config = getAdjustmentConfig(type);
 
-  if (!name) {
-    return;
-  }
+  activeAdjustmentType = type;
 
-  const value = Number(prompt("Deduction amount:", "75"));
+  adjustmentModalTitleEl.textContent = config.title;
+  adjustmentModalHelpEl.textContent = config.help;
+  adjustmentNameLabelEl.textContent = config.nameLabel;
+  adjustmentValueLabelEl.textContent = config.valueLabel;
+  adjustmentNameInput.value = config.defaultName;
+  adjustmentValueInput.value = config.defaultValue;
+  adjustmentModalMessageEl.textContent = "";
+  adjustmentModalMessageEl.classList.remove("error");
+  saveAdjustmentButton.textContent = config.buttonText;
 
-  if (Number.isNaN(value) || value < 0) {
-    return;
-  }
-
-  deductions.push({
-    id: makeId(),
-    name,
-    value
-  });
-
-  renderAdjustments();
-  saveSettings();
-  calculateOvertime();
+  adjustmentModalEl.classList.remove("hidden");
+  adjustmentNameInput.focus();
+  adjustmentNameInput.select();
 }
 
-function addOtherAdjustment() {
-  const name = prompt("Adjustment name:", "Other");
+function closeAdjustmentModal() {
+  adjustmentModalEl.classList.add("hidden");
+  activeAdjustmentType = null;
+}
+
+function saveAdjustmentFromModal() {
+  const name = adjustmentNameInput.value.trim();
+  const value = Number(adjustmentValueInput.value);
+
+  adjustmentModalMessageEl.classList.remove("error");
+
+  if (!activeAdjustmentType) {
+    return;
+  }
 
   if (!name) {
+    adjustmentModalMessageEl.textContent = "Enter a name for this item.";
+    adjustmentModalMessageEl.classList.add("error");
     return;
   }
-
-  const value = Number(prompt("Adjustment amount:", "0"));
 
   if (Number.isNaN(value) || value < 0) {
+    adjustmentModalMessageEl.textContent = "Enter a positive value or 0.";
+    adjustmentModalMessageEl.classList.add("error");
     return;
   }
 
-  otherAdjustments.push({
+  const item = {
     id: makeId(),
     name,
     value
-  });
+  };
+
+  if (activeAdjustmentType === "tax") {
+    taxes.push(item);
+  }
+
+  if (activeAdjustmentType === "deduction") {
+    deductions.push(item);
+  }
+
+  if (activeAdjustmentType === "other") {
+    otherAdjustments.push(item);
+  }
 
   renderAdjustments();
   saveSettings();
   calculateOvertime();
+  closeAdjustmentModal();
 }
 
 function renderBreakdown(container, items, type, grossPay) {
@@ -590,18 +649,37 @@ function clearAdjustments() {
 }
 
 document.getElementById("calculate").addEventListener("click", calculateOvertime);
+document.getElementById("saveSettings").addEventListener("click", () => saveSettings(true));
 document.getElementById("example").addEventListener("click", loadExample);
 document.getElementById("reset").addEventListener("click", clearCalculator);
 document.getElementById("clearAdjustments").addEventListener("click", clearAdjustments);
 
-document.getElementById("addTax").addEventListener("click", addTax);
-document.getElementById("addTaxInline").addEventListener("click", addTax);
+document.getElementById("addTax").addEventListener("click", () => openAdjustmentModal("tax"));
+document.getElementById("addTaxInline").addEventListener("click", () => openAdjustmentModal("tax"));
 
-document.getElementById("addDeduction").addEventListener("click", addDeduction);
-document.getElementById("addDeductionInline").addEventListener("click", addDeduction);
+document.getElementById("addDeduction").addEventListener("click", () => openAdjustmentModal("deduction"));
+document.getElementById("addDeductionInline").addEventListener("click", () => openAdjustmentModal("deduction"));
 
-document.getElementById("addOther").addEventListener("click", addOtherAdjustment);
-document.getElementById("addOtherInline").addEventListener("click", addOtherAdjustment);
+document.getElementById("addOther").addEventListener("click", () => openAdjustmentModal("other"));
+document.getElementById("addOtherInline").addEventListener("click", () => openAdjustmentModal("other"));
+
+closeAdjustmentModalButton.addEventListener("click", closeAdjustmentModal);
+cancelAdjustmentButton.addEventListener("click", closeAdjustmentModal);
+saveAdjustmentButton.addEventListener("click", saveAdjustmentFromModal);
+
+adjustmentModalEl.addEventListener("click", (event) => {
+  if (event.target === adjustmentModalEl) {
+    closeAdjustmentModal();
+  }
+});
+
+[adjustmentNameInput, adjustmentValueInput].forEach((input) => {
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      saveAdjustmentFromModal();
+    }
+  });
+});
 
 [
   rateInput,
@@ -613,6 +691,12 @@ document.getElementById("addOtherInline").addEventListener("click", addOtherAdju
 ].forEach((input) => {
   input.addEventListener("input", calculateOvertime);
   input.addEventListener("change", calculateOvertime);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !adjustmentModalEl.classList.contains("hidden")) {
+    closeAdjustmentModal();
+  }
 });
 
 document.getElementById("openChangelog").addEventListener("click", () => {
