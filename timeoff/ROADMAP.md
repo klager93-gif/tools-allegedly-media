@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.1.2**
+**v0.1.3**
 
 ---
 
@@ -22,6 +22,7 @@
 | v0.1 | Initial Prototype |
 | v0.1.1 | Rebrand |
 | v0.1.2 | Label & Layout Polish |
+| v0.1.3 | Label Cleanup |
 
 ---
 

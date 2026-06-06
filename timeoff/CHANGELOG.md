@@ -4,6 +4,27 @@
 
 ---
 
+## Version 0.1.3
+
+**Date:** 2026-06-06  
+**Time:** 16:30 UTC
+
+### Theme
+
+Label Cleanup
+
+### Changes
+
+- Shortened the first card labels.
+- Changed Current Time Off Balance to Current Balance.
+- Changed Time Earned Per Pay Period to Earned Per Period.
+- Changed Balance Cap to Cap.
+- Improved optional label spacing.
+- Improved form label wrapping.
+- Updated documentation for v0.1.3.
+
+---
+
 ## Version 0.1.2
 
 **Date:** 2026-06-06  

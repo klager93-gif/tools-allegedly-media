@@ -49,6 +49,7 @@ It is intended for planning vacations, checking projected balances, estimating t
 - Mobile support.
 - Label polish.
 - Improved desktop spacing.
+- Shorter form labels.
 
 ---
 
@@ -121,11 +122,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.1.2
+v0.1.3
 
 ### Theme
 
-Label & Layout Polish
+Label Cleanup
 
 ### Status
 
