@@ -112,6 +112,8 @@ Currency changes display only. It does not convert exchange rates or change tax 
 - Local storage support.
 - Responsive layout.
 - Mobile support.
+- Mobile collapsible cards.
+- Compact mobile results layout.
 
 ---
 
@@ -242,11 +244,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.7.3
+v0.7.3.1
 
 ### Theme
 
-Advanced Pay Polish
+Mobile Layout Refactor
 
 ### Status
 

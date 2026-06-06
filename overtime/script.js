@@ -66,7 +66,7 @@ const adjustmentModalMessageEl = document.getElementById("adjustmentModalMessage
 const saveAdjustmentButton = document.getElementById("saveAdjustment");
 const cancelAdjustmentButton = document.getElementById("cancelAdjustment");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV073";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV0731";
 const LEGACY_STORAGE_KEY = "signalLabsOvertimeCalculatorV063";
 
 let taxes = [];
@@ -747,6 +747,38 @@ function clearAdjustments() {
   calculateOvertime();
 }
 
+
+function setupMobileCollapsibleCards() {
+  const cards = document.querySelectorAll("[data-collapse-card]");
+
+  cards.forEach((card) => {
+    const button = card.querySelector(".collapse-toggle");
+    const content = card.querySelector(".card-collapse-content");
+
+    if (!button || !content) {
+      return;
+    }
+
+    const updateButton = () => {
+      const isCollapsed = card.classList.contains("is-collapsed");
+      button.textContent = isCollapsed ? "Show" : "Hide";
+      button.setAttribute("aria-expanded", String(!isCollapsed));
+    };
+
+    if (card.classList.contains("mobile-collapsed") && window.innerWidth <= 700) {
+      card.classList.add("is-collapsed");
+    }
+
+    updateButton();
+
+    button.addEventListener("click", () => {
+      card.classList.toggle("is-collapsed");
+      updateButton();
+    });
+  });
+}
+
+
 document.getElementById("calculate").addEventListener("click", calculateOvertime);
 document.getElementById("saveSettings").addEventListener("click", () => saveSettings(true));
 document.getElementById("example").addEventListener("click", loadExample);
@@ -820,6 +852,8 @@ document.getElementById("openRoadmap").addEventListener("click", () => {
 });
 
 const loadedSavedSettings = loadSavedSettings();
+
+setupMobileCollapsibleCards();
 
 updateThresholdUI();
 renderAdjustments();

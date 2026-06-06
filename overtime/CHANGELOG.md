@@ -4,6 +4,29 @@
 
 ---
 
+## Version 0.7.3.1
+
+**Date:** 2026-06-06  
+**Time:** 13:15 UTC
+
+### Theme
+
+Mobile Layout Refactor
+
+### Changes
+
+- Added mobile collapsible cards for Basic Pay, Advanced Pay, and Take-Home Estimate.
+- Advanced Pay and Take-Home Estimate now start collapsed on mobile.
+- Basic Pay remains open by default on mobile.
+- Added compact mobile results layout.
+- Reduced mobile result row height.
+- Improved mobile card spacing.
+- Added grouped Advanced Pay subsections.
+- Improved mobile adjustment button layout.
+- Updated documentation for v0.7.3.1.
+
+---
+
 ## Version 0.7.3
 
 **Date:** 2026-06-06  

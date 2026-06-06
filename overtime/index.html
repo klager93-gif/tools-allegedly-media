@@ -53,7 +53,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.7.3">
+  href="style.css?v=0.7.3.1">
 
 </head>
 <body>
@@ -74,7 +74,7 @@ Overtime Calculator | Signal Labs
 
 <section class="left-stack">
 
-<section class="card step-card basic-card">
+<section class="card step-card basic-card collapsible-card is-open" data-collapse-card>
 
 <div class="section-title">
   <div class="step-badge green">1</div>
@@ -82,7 +82,16 @@ Overtime Calculator | Signal Labs
     <h2>Basic Pay</h2>
     <p>Enter your pay period, hours, and overtime rules.</p>
   </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="true">
+    Hide
+  </button>
 </div>
+
+<div class="card-collapse-content">
 
 <div class="form-grid">
 
@@ -176,11 +185,13 @@ Overtime Calculator | Signal Labs
   Enter values or load an example to begin.
 </p>
 
+</div>
+
 </section>
 
 
 
-<section class="card step-card advanced-pay-card">
+<section class="card step-card advanced-pay-card collapsible-card mobile-collapsed" data-collapse-card>
 
 <div class="section-title">
   <div class="step-badge blue">2</div>
@@ -188,9 +199,22 @@ Overtime Calculator | Signal Labs
     <h2>Advanced Pay <span>(Optional)</span></h2>
     <p>Add shift differential hours, weekend bonuses, holiday bonuses, or double-time hours.</p>
   </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="false">
+    Show
+  </button>
 </div>
 
-<div class="form-grid">
+<div class="card-collapse-content">
+
+<div class="advanced-subsection">
+  <h3>Shift Differential</h3>
+</div>
+
+<div class="form-grid advanced-form-grid">
 
 <label>
   <span>Shift Differential Rate</span>
@@ -202,10 +226,26 @@ Overtime Calculator | Signal Labs
   <input id="differentialHours" type="number" placeholder="8" step="0.01">
 </label>
 
+</div>
+
+<div class="advanced-subsection">
+  <h3>Double Time</h3>
+</div>
+
+<div class="form-grid advanced-form-grid single-field-grid">
+
 <label>
   <span>Additional Double-Time Hours</span>
   <input id="doubleTimeHours" type="number" placeholder="0" step="0.01">
 </label>
+
+</div>
+
+<div class="advanced-subsection">
+  <h3>Bonuses</h3>
+</div>
+
+<div class="form-grid advanced-form-grid">
 
 <label>
   <span>Weekend Bonus</span>
@@ -231,10 +271,12 @@ Overtime Calculator | Signal Labs
   </span>
 </div>
 
+</div>
+
 </section>
 
 
-<section class="card step-card adjustment-card">
+<section class="card step-card adjustment-card collapsible-card mobile-collapsed" data-collapse-card>
 
 <div class="section-title">
   <div class="step-badge purple">3</div>
@@ -242,7 +284,16 @@ Overtime Calculator | Signal Labs
     <h2>Take-Home Estimate <span>(Optional)</span></h2>
     <p>Add taxes, deductions, and other adjustments to estimate your take-home pay.</p>
   </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="false">
+    Show
+  </button>
 </div>
+
+<div class="card-collapse-content">
 
 <div class="add-row">
 
@@ -334,12 +385,14 @@ Overtime Calculator | Signal Labs
   </span>
 </div>
 
-</section>
+</div>
 
 </section>
 
+</section>
 
-<section class="card results-card">
+
+<section class="card results-card results-compact-mobile">
 
 <div class="results-heading">
   <div>
@@ -486,12 +539,12 @@ Overtime Calculator | Signal Labs
 
   <p>
     Build:
-    v0.7.3
+    v0.7.3.1
   </p>
 
   <p>
     Theme:
-    Advanced Pay Polish
+    Mobile Layout Refactor
   </p>
 
   <p>
@@ -521,7 +574,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Overtime Calculator · v0.7.3
+  Signal Labs · Overtime Calculator · v0.7.3.1
   <br>
   Estimates only. Actual pay may vary based on taxes, deductions,
   employer policies, and applicable labor laws.
@@ -630,7 +683,7 @@ Enter a name and value for this adjustment.
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.7.3"></script>
+<script src="script.js?v=0.7.3.1"></script>
 
 </body>
 </html>
