@@ -1,4 +1,4 @@
-# Signal Labs PTO Calculator
+# Signal Labs Time Off Calculator
 
 # ROADMAP
 
@@ -7,11 +7,11 @@
 ## Last Updated
 
 2026-06-06  
-15:30 UTC
+15:45 UTC
 
 ## Current Version
 
-**v0.1**
+**v0.1.1**
 
 ---
 
@@ -20,6 +20,7 @@
 | Version | Theme |
 |-----------|--------|
 | v0.1 | Initial Prototype |
+| v0.1.1 | Rebrand |
 
 ---
 
@@ -29,15 +30,19 @@
 
 ### Theme
 
-Quality of Life
+Categories
 
 ### Planned Features
 
-- Saved settings.
-- Better mobile layout.
-- Clear Saved Profile control.
-- Improved result summaries.
-- More helper text.
+- Vacation category.
+- Sick category.
+- Personal category.
+- Comp time category.
+- Holiday category.
+- Floating holiday category.
+- Custom category support.
+- Checkbox-based category selection.
+- Show input sections only for selected categories.
 
 ---
 
@@ -45,14 +50,15 @@ Quality of Life
 
 ### Theme
 
-Accrual Rules
+Multiple Balance Results
 
 ### Planned Features
 
-- Annual PTO accrual option.
-- Per-hour-worked accrual option.
-- Years-of-service accrual tiers.
-- Separate vacation, sick, and personal time categories.
+- Separate results by category.
+- Combined total time off balance.
+- Combined projected hours.
+- Combined projected days.
+- Category-level cap warnings.
 
 ---
 
@@ -64,9 +70,10 @@ Planning Mode
 
 ### Planned Features
 
-- Multiple planned PTO events.
+- Multiple planned time-off events.
 - Vacation date planner.
-- Remaining PTO after each planned event.
+- Appointment planner.
+- Remaining balance after each planned event.
 - Warnings when planned usage exceeds projected balance.
 
 ---
@@ -75,14 +82,14 @@ Planning Mode
 
 ### Theme
 
-Sharing & Export
+Warnings & Policy Helpers
 
 ### Planned Features
 
-- Copy results.
-- Print support.
-- Shareable summaries.
-- Save as PDF.
+- Cap-loss warnings.
+- Use-it-or-lose-it reminders.
+- Employer policy notes.
+- Optional reset/accrual date settings.
 
 ---
 
@@ -107,7 +114,6 @@ Public Release
 - Holiday-aware projections.
 - Employer policy presets.
 - PTO cash-out estimator.
-- Cap-loss warnings.
 - Calendar view.
 - Multiple job profiles.
 - Separate accrual banks.

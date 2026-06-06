@@ -1,39 +1,39 @@
-# Signal Labs PTO Calculator
+# Signal Labs Time Off Calculator
 
-Estimate future PTO balances, PTO earned, planned PTO usage, and cap status.
+Estimate future balances for vacation, sick time, personal time, comp time, holidays, and other forms of paid leave.
 
 ---
 
 # Purpose
 
-The Signal Labs PTO Calculator is designed to provide a simple way to estimate how much paid time off you may have by a future date.
+The Signal Labs Time Off Calculator is designed to provide a simple way to estimate how much time off you may have by a future date.
 
-It is intended for planning vacations, checking projected PTO balances, estimating PTO earned, and understanding when a PTO cap may be reached.
+It is intended for planning vacations, checking projected balances, estimating time earned, tracking planned usage, and understanding when a cap may be reached.
 
 ---
 
 # Current Features
 
-## PTO Balance
+## Balance
 
-- Current PTO balance input.
-- PTO earned per pay period input.
+- Current balance input.
+- Time earned per pay period input.
 - Pay period selection.
-- Optional PTO cap input.
+- Optional cap input.
 
 ## Projection
 
 - Target date input.
-- Planned PTO usage.
-- Average PTO used per pay period.
+- Planned usage.
+- Average usage per pay period.
 - Hours-per-day conversion.
 
 ## Results
 
-- Projected PTO balance.
-- Projected PTO days.
-- PTO earned.
-- PTO used.
+- Projected balance.
+- Projected days.
+- Time earned.
+- Time used.
 - Pay periods until target.
 - Target date result.
 - Estimated cap date.
@@ -53,16 +53,16 @@ It is intended for planning vacations, checking projected PTO balances, estimati
 # Folder Structure
 
 ```text
-pto/
+timeoff/
 
 index.html
 Main page and layout.
 
 style.css
-PTO calculator-specific styling.
+Time Off Calculator-specific styling.
 
 script.js
-PTO calculator logic and event handling.
+Time Off Calculator logic and event handling.
 
 CHANGELOG.md
 Historical record of releases.
@@ -119,11 +119,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.1
+v0.1.1
 
 ### Theme
 
-Initial Prototype
+Rebrand
 
 ### Status
 

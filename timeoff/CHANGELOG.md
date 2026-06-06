@@ -1,6 +1,26 @@
-# Signal Labs PTO Calculator
+# Signal Labs Time Off Calculator
 
 # CHANGELOG
+
+---
+
+## Version 0.1.1
+
+**Date:** 2026-06-06  
+**Time:** 15:45 UTC
+
+### Theme
+
+Rebrand
+
+### Changes
+
+- Renamed PTO Calculator to Time Off Calculator.
+- Updated page title and branding.
+- Updated meta descriptions.
+- Updated footer wording.
+- Updated documentation.
+- Prepared the project for future vacation, sick, personal, comp time, holiday, and custom time-off categories.
 
 ---
 
