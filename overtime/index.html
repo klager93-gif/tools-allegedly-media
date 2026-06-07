@@ -53,7 +53,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.8.0.2">
+  href="style.css?v=0.8.1">
 
 </head>
 <body>
@@ -400,6 +400,58 @@ Overtime Calculator | Signal Labs
 
 </section>
 
+
+
+<section class="card step-card goal-card collapsible-card mobile-collapsed" data-collapse-card>
+
+<div class="section-title">
+  <div class="step-badge orange">4</div>
+  <div>
+    <h2>Goal Mode <span>(Optional)</span></h2>
+    <p>Estimate the hours or shifts needed to reach a gross or take-home pay target.</p>
+  </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="false">
+    Show
+  </button>
+</div>
+
+<div class="card-collapse-content">
+
+<div class="form-grid">
+
+<label>
+  <span>Goal Type</span>
+  <select id="goalType">
+    <option value="gross">Gross Pay Goal</option>
+    <option value="takehome">Take-Home Pay Goal</option>
+  </select>
+</label>
+
+<label>
+  <span>Target Amount</span>
+  <input id="goalAmount" type="number" placeholder="2500.00" step="0.01">
+</label>
+
+<label>
+  <span>Typical Shift Length</span>
+  <input id="goalShiftLength" type="number" placeholder="8" step="1" min="1">
+</label>
+
+</div>
+
+<div class="info-note goal-note">
+  <strong>Goal Mode uses your current settings.</strong>
+  <span>Rate, pay period, overtime threshold, taxes, deductions, and advanced pay values are used to estimate the hours needed.</span>
+</div>
+
+</div>
+
+</section>
+
 </section>
 
 
@@ -548,6 +600,48 @@ Overtime Calculator | Signal Labs
   <strong id="netEffectiveRate">$0.00</strong>
 </div>
 
+<div class="results-section mobile-result-section goal-result-section mobile-result-collapsed" data-result-section>
+
+<h3 class="orange-text">
+  Goal Mode
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+  <span id="goalTargetSummary">--</span>
+</h3>
+
+<div class="result-row">
+  <span>Target Amount</span>
+  <strong id="goalTargetAmount">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Hours Needed</span>
+  <strong id="goalHoursNeeded">--</strong>
+</div>
+
+<div class="result-row">
+  <span>Overtime Hours Needed</span>
+  <strong id="goalOvertimeNeeded">--</strong>
+</div>
+
+<div class="result-row">
+  <span>Estimated Shifts Needed</span>
+  <strong id="goalShiftsNeeded">--</strong>
+</div>
+
+<div class="result-row">
+  <span>Estimated Gross Pay</span>
+  <strong id="goalGrossRequired">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Estimated Take-Home Pay</span>
+  <strong id="goalTakeHomeEstimate">$0.00</strong>
+</div>
+
+<p id="goalResultNote" class="message">Enter a goal amount to estimate hours needed.</p>
+
+</div>
+
 <div class="summary-card compact-summary">
   <p>
     Generated:
@@ -556,12 +650,12 @@ Overtime Calculator | Signal Labs
 
   <p>
     Build:
-    v0.8.0.2
+    v0.8.1
   </p>
 
   <p>
     Theme:
-    Roadmap Cleanup
+    Goal Mode
   </p>
 
   <p>
@@ -591,7 +685,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Overtime Calculator · v0.8.0.2
+  Signal Labs · Overtime Calculator · v0.8.1
   <br>
   Estimates only. Actual pay may vary based on taxes, deductions,
   employer policies, and applicable labor laws.
@@ -700,7 +794,7 @@ Enter a name and value for this adjustment.
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.8.0.2"></script>
+<script src="script.js?v=0.8.1"></script>
 
 </body>
 </html>

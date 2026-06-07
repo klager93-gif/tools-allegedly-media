@@ -54,6 +54,19 @@ const deductionResultRowsEl = document.getElementById("deductionResultRows");
 const taxResultsTotalEl = document.getElementById("taxResultsTotal");
 const deductionResultsTotalEl = document.getElementById("deductionResultsTotal");
 
+const goalTypeInput = document.getElementById("goalType");
+const goalAmountInput = document.getElementById("goalAmount");
+const goalShiftLengthInput = document.getElementById("goalShiftLength");
+
+const goalTargetSummaryEl = document.getElementById("goalTargetSummary");
+const goalTargetAmountEl = document.getElementById("goalTargetAmount");
+const goalHoursNeededEl = document.getElementById("goalHoursNeeded");
+const goalOvertimeNeededEl = document.getElementById("goalOvertimeNeeded");
+const goalShiftsNeededEl = document.getElementById("goalShiftsNeeded");
+const goalGrossRequiredEl = document.getElementById("goalGrossRequired");
+const goalTakeHomeEstimateEl = document.getElementById("goalTakeHomeEstimate");
+const goalResultNoteEl = document.getElementById("goalResultNote");
+
 const adjustmentModalEl = document.getElementById("adjustmentModal");
 const closeAdjustmentModalButton = document.getElementById("closeAdjustmentModal");
 const adjustmentModalTitleEl = document.getElementById("adjustmentModalTitle");
@@ -66,9 +79,10 @@ const adjustmentModalMessageEl = document.getElementById("adjustmentModalMessage
 const saveAdjustmentButton = document.getElementById("saveAdjustment");
 const cancelAdjustmentButton = document.getElementById("cancelAdjustment");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV0801";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV081";
 
 const LEGACY_STORAGE_KEYS = [
+  "signalLabsOvertimeCalculatorV0801",
   "signalLabsOvertimeCalculatorV080",
   "signalLabsOvertimeCalculatorV0733",
   "signalLabsOvertimeCalculatorV0732",
@@ -263,6 +277,9 @@ function getSavedState() {
     weekendBonus: weekendBonusInput.value,
     holidayBonus: holidayBonusInput.value,
     otherBonus: otherBonusInput.value,
+    goalType: goalTypeInput.value,
+    goalAmount: goalAmountInput.value,
+    goalShiftLength: goalShiftLengthInput.value,
     overrideThreshold: overrideThresholdInput.checked,
     customThreshold: customThresholdInput.value,
     taxes,
@@ -315,6 +332,9 @@ function loadSavedSettings() {
     weekendBonusInput.value = data.weekendBonus || "";
     holidayBonusInput.value = data.holidayBonus || "";
     otherBonusInput.value = data.otherBonus || "";
+    goalTypeInput.value = data.goalType || "gross";
+    goalAmountInput.value = data.goalAmount || "";
+    goalShiftLengthInput.value = data.goalShiftLength || "8";
     overrideThresholdInput.checked = Boolean(data.overrideThreshold);
     customThresholdInput.value = data.customThreshold || "";
 
@@ -396,6 +416,7 @@ function resetResults() {
   netEffectiveRateEl.textContent = "$0.00";
   taxResultsTotalEl.textContent = "-$0.00";
   deductionResultsTotalEl.textContent = "-$0.00";
+  resetGoalResults();
   generatedTimeEl.textContent = "--";
 }
 
@@ -610,6 +631,129 @@ function renderBreakdown(container, items, type, grossPay) {
   });
 }
 
+function resetGoalResults() {
+  goalTargetSummaryEl.textContent = "--";
+  goalTargetAmountEl.textContent = "$0.00";
+  goalHoursNeededEl.textContent = "--";
+  goalOvertimeNeededEl.textContent = "--";
+  goalShiftsNeededEl.textContent = "--";
+  goalGrossRequiredEl.textContent = "$0.00";
+  goalTakeHomeEstimateEl.textContent = "$0.00";
+  goalResultNoteEl.classList.remove("error");
+  goalResultNoteEl.textContent = "Enter a goal amount to estimate hours needed.";
+}
+
+function getFixedAdvancedPay() {
+  const differentialPay = getInputValue(differentialRateInput) * getInputValue(differentialHoursInput);
+  const doubleTimePay = getInputValue(doubleTimeHoursInput) * getInputValue(rateInput) * 2;
+  const bonusPay =
+    getInputValue(weekendBonusInput) +
+    getInputValue(holidayBonusInput) +
+    getInputValue(otherBonusInput);
+
+  return differentialPay + doubleTimePay + bonusPay;
+}
+
+function estimateGrossForHours(hours) {
+  const rate = getInputValue(rateInput);
+  const threshold = getThreshold();
+  const multiplier = getInputValue(multiplierInput);
+  const regularHours = Math.min(hours, threshold);
+  const overtimeHours = Math.max(hours - threshold, 0);
+
+  return (regularHours * rate) + (overtimeHours * rate * multiplier) + getFixedAdvancedPay();
+}
+
+function estimateTakeHomeForGross(grossPay) {
+  const totalTaxPercent = taxes.reduce((sum, item) => sum + item.value, 0);
+  const fixedDeductions = deductions.reduce((sum, item) => sum + item.value, 0);
+  const otherTotal = otherAdjustments.reduce((sum, item) => sum + item.value, 0);
+  const estimatedTaxes = grossPay * (totalTaxPercent / 100);
+
+  return Math.max(grossPay - estimatedTaxes - fixedDeductions - otherTotal, 0);
+}
+
+function findHoursForTarget(targetAmount, targetType) {
+  let low = 0;
+  let high = 1;
+
+  const getValue = (hours) => {
+    const grossPay = estimateGrossForHours(hours);
+    return targetType === "takehome" ? estimateTakeHomeForGross(grossPay) : grossPay;
+  };
+
+  while (getValue(high) < targetAmount && high < 10000) {
+    high *= 2;
+  }
+
+  if (high >= 10000 && getValue(high) < targetAmount) {
+    return null;
+  }
+
+  for (let index = 0; index < 80; index += 1) {
+    const mid = (low + high) / 2;
+
+    if (getValue(mid) >= targetAmount) {
+      high = mid;
+    } else {
+      low = mid;
+    }
+  }
+
+  return high;
+}
+
+function calculateGoalMode() {
+  const rate = getInputValue(rateInput);
+  const threshold = getThreshold();
+  const multiplier = getInputValue(multiplierInput);
+  const goalAmount = getInputValue(goalAmountInput);
+  const goalType = goalTypeInput.value;
+  const shiftLength = getInputValue(goalShiftLengthInput) || 8;
+
+  resetGoalResults();
+
+  if (!goalAmountInput.value) {
+    return;
+  }
+
+  goalTargetSummaryEl.textContent = goalType === "takehome" ? "Take-home" : "Gross";
+  goalTargetAmountEl.textContent = formatMoney(goalAmount);
+
+  if (rate <= 0 || threshold <= 0 || multiplier < 1 || goalAmount <= 0 || shiftLength <= 0) {
+    goalResultNoteEl.classList.add("error");
+    goalResultNoteEl.textContent = "Enter a valid rate, threshold, multiplier, shift length, and goal amount.";
+    return;
+  }
+
+  const hoursNeeded = findHoursForTarget(goalAmount, goalType);
+
+  if (hoursNeeded === null) {
+    goalResultNoteEl.classList.add("error");
+    goalResultNoteEl.textContent = "Goal is too large to estimate with the current settings.";
+    return;
+  }
+
+  const grossRequired = estimateGrossForHours(hoursNeeded);
+  const takeHomeEstimate = estimateTakeHomeForGross(grossRequired);
+  const overtimeNeeded = Math.max(hoursNeeded - threshold, 0);
+  const shiftsNeeded = Math.ceil(hoursNeeded / shiftLength);
+
+  goalHoursNeededEl.textContent = `${formatNumber(hoursNeeded)} hrs`;
+  goalOvertimeNeededEl.textContent = `${formatNumber(overtimeNeeded)} hrs`;
+  goalShiftsNeededEl.textContent = `${formatWholeGoalNumber(shiftsNeeded)} shifts`;
+  goalGrossRequiredEl.textContent = formatMoney(grossRequired);
+  goalTakeHomeEstimateEl.textContent = formatMoney(takeHomeEstimate);
+  goalResultNoteEl.textContent =
+    goalType === "takehome"
+      ? "Take-home goal estimate uses your current tax, deduction, and adjustment settings."
+      : "Gross goal estimate uses your current pay period and overtime settings.";
+}
+
+function formatWholeGoalNumber(value) {
+  return Math.ceil(Number(value)).toLocaleString("en-US");
+}
+
 function calculateOvertime() {
   updateThresholdUI();
   saveSettings();
@@ -624,19 +768,22 @@ function calculateOvertime() {
   const weekendBonus = getInputValue(weekendBonusInput);
   const holidayBonus = getInputValue(holidayBonusInput);
   const otherBonus = getInputValue(otherBonusInput);
+  const hasGoalAmount = Boolean(goalAmountInput.value);
 
   messageEl.classList.remove("error");
 
-  if (!rateInput.value && !hoursInput.value) {
+  if (!rateInput.value && !hoursInput.value && !hasGoalAmount) {
     resetResults();
     messageEl.textContent = "Enter values or load an example to begin.";
     return;
   }
 
-  if (rate <= 0 || hours <= 0) {
+  if (rate <= 0 || (!hasGoalAmount && hours <= 0)) {
     resetResults();
     messageEl.textContent =
-      "Enter positive numbers for hourly rate and hours worked.";
+      hasGoalAmount
+        ? "Enter a positive hourly rate for Goal Mode."
+        : "Enter positive numbers for hourly rate and hours worked.";
     messageEl.classList.add("error");
     return;
   }
@@ -672,6 +819,23 @@ function calculateOvertime() {
     return;
   }
 
+  const totalTaxPercent = taxes.reduce((sum, item) => sum + item.value, 0);
+
+  if (totalTaxPercent > 100) {
+    resetResults();
+    messageEl.textContent = "Total tax percentage cannot be greater than 100%.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  if (hours <= 0 && hasGoalAmount) {
+    resetResults();
+    calculateGoalMode();
+    generatedTimeEl.textContent = getCurrentUtcTime();
+    messageEl.textContent = "Goal Mode updated. Enter hours worked to calculate regular pay results.";
+    return;
+  }
+
   if (differentialHours > hours) {
     resetResults();
     messageEl.textContent =
@@ -684,15 +848,6 @@ function calculateOvertime() {
     resetResults();
     messageEl.textContent =
       "Additional double-time hours should not be greater than total hours worked.";
-    messageEl.classList.add("error");
-    return;
-  }
-
-  const totalTaxPercent = taxes.reduce((sum, item) => sum + item.value, 0);
-
-  if (totalTaxPercent > 100) {
-    resetResults();
-    messageEl.textContent = "Total tax percentage cannot be greater than 100%.";
     messageEl.classList.add("error");
     return;
   }
@@ -755,6 +910,8 @@ function calculateOvertime() {
     grossPay
   );
 
+  calculateGoalMode();
+
   generatedTimeEl.textContent = getCurrentUtcTime();
 
   messageEl.textContent = "Calculation updated. Settings saved.";
@@ -772,7 +929,9 @@ function loadExample() {
   weekendBonusInput.value = "50";
   holidayBonusInput.value = "0";
   otherBonusInput.value = "25";
-
+  goalTypeInput.value = "gross";
+  goalAmountInput.value = "2500";
+  goalShiftLengthInput.value = "12";
 
   overrideThresholdInput.checked = false;
   customThresholdInput.value = "";
@@ -828,7 +987,9 @@ function clearCalculator() {
   weekendBonusInput.value = "";
   holidayBonusInput.value = "";
   otherBonusInput.value = "";
-
+  goalTypeInput.value = "gross";
+  goalAmountInput.value = "";
+  goalShiftLengthInput.value = "";
 
   overrideThresholdInput.checked = false;
   customThresholdInput.value = "";
@@ -968,6 +1129,9 @@ adjustmentModalEl.addEventListener("click", (event) => {
   weekendBonusInput,
   holidayBonusInput,
   otherBonusInput,
+  goalTypeInput,
+  goalAmountInput,
+  goalShiftLengthInput,
   overrideThresholdInput,
   customThresholdInput
 ].forEach((input) => {

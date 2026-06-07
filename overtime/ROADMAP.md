@@ -7,11 +7,11 @@
 ## Last Updated
 
 2026-06-07  
-12:34 UTC
+13:30 UTC
 
 ## Current Version
 
-**v0.8.0.2**
+**v0.8.1**
 
 ---
 
@@ -44,30 +44,13 @@
 | v0.8.0 | Personalized Experience |
 | v0.8.0.1 | Saved Profile Migration Fix |
 | v0.8.0.2 | Roadmap Cleanup |
+| v0.8.1 | Goal Mode |
 
 ---
 
 # Upcoming Versions
 
 
-
-## v0.8.1
-
-### Theme
-
-Goal Mode
-
-### Planned Features
-
-- Reverse calculations.
-- Income goals.
-- Hours needed for target income.
-- Hours needed for target take-home pay.
-- Overtime shifts needed.
-- Gross income targets.
-- Take-home income targets.
-
----
 
 ## v0.9
 

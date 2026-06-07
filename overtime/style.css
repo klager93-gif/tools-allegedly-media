@@ -891,3 +891,32 @@ v0.8.0 Personalized Experience
   }
 
 }
+
+
+/*
+--------------------------------
+v0.8.1 Goal Mode
+--------------------------------
+*/
+
+.orange {
+  background: rgba(255,177,77,.2);
+  color: #ffb14d;
+}
+
+.goal-card {
+  scroll-margin-top: 24px;
+}
+
+.goal-note {
+  background: rgba(255,177,77,.08);
+  border-color: rgba(255,177,77,.2);
+}
+
+.goal-note span {
+  color: #ffe0b8;
+}
+
+.goal-result-section #goalResultNote {
+  margin-top: 12px;
+}

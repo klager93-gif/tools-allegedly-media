@@ -99,6 +99,17 @@ Currency changes display only. It does not convert exchange rates or change tax 
 
 ---
 
+## Goal Mode
+
+- Gross pay target.
+- Take-home pay target.
+- Hours needed estimate.
+- Overtime hours needed estimate.
+- Estimated shifts needed based on typical shift length.
+- Estimated gross and take-home results for the goal.
+- Uses current rate, pay period, overtime threshold, taxes, deductions, and advanced pay settings.
+
+
 ## Quality of Life Features
 
 - Example values.
@@ -122,6 +133,10 @@ Currency changes display only. It does not convert exchange rates or change tax 
 - Clear saved profile control.
 - Legacy saved profile migration.
 - Compact mobile summary card.
+- Goal Mode.
+- Gross pay targets.
+- Take-home pay targets.
+- Reverse hour estimates.
 - Roadmap cleanup.
 
 ---
@@ -237,7 +252,6 @@ Signal Labs tools are intended to be:
 Planned areas of expansion include:
 
 - Advanced pay calculations.
-- Goal mode.
 - Export and sharing.
 - Progressive Web App support.
 - Native iOS applications.
@@ -253,11 +267,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.8.0.2
+v0.8.1
 
 ### Theme
 
-Roadmap Cleanup
+Goal Mode
 
 ### Status
 
