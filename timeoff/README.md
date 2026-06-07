@@ -8,7 +8,7 @@ Estimate future balances for vacation, sick time, personal time, comp time, holi
 
 The Signal Labs Time Off Calculator is designed to provide a simple way to estimate how much time off you may have by a future date.
 
-It is intended for planning vacations, checking projected balances, estimating time earned, tracking planned usage, and understanding when a cap may be reached.
+It is intended for planning vacations, checking projected balances, estimating time earned, tracking planned usage, and understanding when a cap, carryover limit, or use-it-or-lose-it policy may matter.
 
 ---
 
@@ -19,21 +19,21 @@ It is intended for planning vacations, checking projected balances, estimating t
 - Vacation category.
 - Sick category.
 - Personal category.
-- Comp time category.
+- Comp Time category.
 - Holiday category.
-- Floating holiday category.
+- Floating Holiday category.
 - Custom category.
 - Checkbox-based category selection.
 - Dynamic input cards for selected categories.
 
-## Balance Inputs
+## Category Inputs
 
 Each selected category supports:
 
 - Current balance.
-- Time earned per pay period.
+- Earned per period.
 - Quick planned usage.
-- Average usage per pay period.
+- Average used per period.
 - Optional cap.
 
 ## Projection
@@ -41,45 +41,48 @@ Each selected category supports:
 - Target date input.
 - Pay period selection.
 - Hours-per-day conversion.
-
-## Planning Mode
-
-- Multiple planned time-off events.
-- Category selection for each event.
-- Event name.
-- Event date.
-- Event hours.
-- Planned event list.
-- Remove individual planned events.
-- Clear all planned events.
-- Planned events are included in category and combined usage totals.
-- Planned Event Impact results show estimated running balance after events.
-- Warnings appear when planned event hours exceed estimated available balance.
-
-## Combined Results
-
-- Combined projected balance.
-- Combined projected days.
+- Combined balance projection.
+- Combined days projection.
 - Combined earned time.
 - Combined used time.
 - Pay periods until target.
-- Target date result.
-- Selected category count.
-- Combined cap status.
 
-## Category Results
+## Multiple Balance Results
 
-Each selected category can display:
+- Separate category result cards.
+- Category projected balance.
+- Category projected days.
+- Category current balance.
+- Category earned time.
+- Category used time.
+- Category planned-event usage.
+- Category cap status.
+- Category hours until cap.
 
-- Projected balance.
-- Projected days.
-- Current balance.
-- Earned time.
-- Used time.
-- Planned event usage.
-- Cap.
-- Hours until cap.
-- Cap status.
+## Planning Mode
+
+- Add multiple planned time-off events.
+- Assign each event to a selected category.
+- Add event name.
+- Add event date.
+- Add event hours used.
+- Remove individual events.
+- Clear all events.
+- Show running planned-event impact.
+- Warn when a planned event may exceed estimated available balance.
+
+## Warnings & Policy Helpers
+
+- Optional reset/carryover date.
+- Optional carryover limit.
+- Optional use-it-or-lose-it reminder.
+- Optional policy notes.
+- Cap-loss warnings.
+- Planned usage shortfall warnings.
+- Average usage higher than accrual warnings.
+- At-cap and above-cap warnings.
+- Reset-date reminders.
+- Carryover-limit reminders.
 
 ## Quality of Life
 
@@ -91,8 +94,9 @@ Each selected category can display:
 - Label polish.
 - Improved desktop spacing.
 - Shorter form labels.
-- Category-level result cards.
-- Planning Mode event list.
+- Category-level results.
+- Planning event impact.
+- Warning panel.
 
 ---
 
@@ -165,11 +169,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.4
+v0.5
 
 ### Theme
 
-Planning Mode
+Warnings & Policy Helpers
 
 ### Status
 

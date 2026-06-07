@@ -4,6 +4,36 @@
 
 ---
 
+## Version 0.5
+
+**Date:** 2026-06-07  
+**Time:** 13:15 UTC
+
+### Theme
+
+Warnings & Policy Helpers
+
+### Changes
+
+- Added Policy Helpers section.
+- Added optional reset/carryover date field.
+- Added optional carryover limit field.
+- Added use-it-or-lose-it policy reminder checkbox.
+- Added optional policy notes field.
+- Added Warnings & Policy Notes results panel.
+- Added category-level cap-loss warnings.
+- Added planned usage shortfall warnings.
+- Added high average usage warnings when usage exceeds accrual.
+- Added at-cap and above-cap warnings.
+- Added reset-date reminder logic.
+- Added carryover-limit reminder logic.
+- Added policy reminder messaging.
+- Updated example values to demonstrate policy helpers.
+- Updated version labels and cache-busting references for v0.5.
+- Updated documentation for v0.5.
+
+---
+
 ## Version 0.4
 
 **Date:** 2026-06-07  
@@ -16,22 +46,22 @@ Planning Mode
 ### Changes
 
 - Added Planning Mode section.
-- Added support for multiple planned time-off events.
-- Added planned event category selection.
-- Added planned event name, date, and hours fields.
-- Added planned event list with remove controls.
+- Added planned event category selector.
+- Added planned event name input.
+- Added planned event date input.
+- Added planned event hours input.
+- Added Add Planned Event control.
 - Added Clear Events control.
+- Added planned event list with remove controls.
 - Added planned event usage into category projections.
-- Added planned event usage into combined used totals.
-- Added Planned Event Impact result section.
-- Added estimated running balance after planned events.
-- Added warnings when a planned event exceeds estimated available category balance.
-- Updated example values to include planned events.
-- Updated cache-busting references for v0.4.
+- Added planned event usage into combined totals.
+- Added Planned Event Impact results section.
+- Added running balance impact after planned events.
+- Added warning language when planned events exceed estimated available balance.
+- Updated example values with planned events.
 - Updated documentation for v0.4.
 
 ---
-
 
 ## Version 0.3
 
@@ -44,15 +74,13 @@ Multiple Balance Results
 
 ### Changes
 
-- Added category-level result cards for each selected time-off bank.
-- Added separate projected balance for each category.
-- Added separate projected days for each category.
-- Added separate current balance, earned, and used totals for each category.
-- Added category-level cap display.
-- Added category-level hours-until-cap display.
-- Added category-level cap status messages.
-- Kept combined totals for overall projected balance, days, earned time, and used time.
-- Updated cache-busting references for v0.3.
+- Added category-level result cards.
+- Added separate projected balance per selected category.
+- Added separate projected days per selected category.
+- Added separate current balance, earned, used, cap, and hours-until-cap results per category.
+- Added category-specific cap status.
+- Preserved combined total balance, days, earned, and used results.
+- Improved category results styling.
 - Updated documentation for v0.3.
 
 ---
@@ -60,7 +88,7 @@ Multiple Balance Results
 ## Version 0.2
 
 **Date:** 2026-06-07  
-**Time:** 12:50 UTC
+**Time:** 12:42 UTC
 
 ### Theme
 
@@ -68,15 +96,17 @@ Categories
 
 ### Changes
 
-- Added category selection for Vacation, Sick, Personal, Comp Time, Holiday, Floating Holiday, and Custom.
-- Added dynamic input cards for selected categories.
-- Added per-category current balance, earned per period, planned usage, average used per period, and cap fields.
-- Updated calculations to combine selected categories into one projected balance.
-- Updated combined earned, used, projected days, cap, and cap status results.
-- Added selected category count to timeline results.
-- Updated example values to demonstrate multiple categories.
-- Updated reset behavior for the new category system.
-- Updated cache-busting references for v0.2.
+- Added category selection.
+- Added Vacation category.
+- Added Sick category.
+- Added Personal category.
+- Added Comp Time category.
+- Added Holiday category.
+- Added Floating Holiday category.
+- Added Custom category.
+- Added dynamic category input cards.
+- Added category-specific balance, accrual, usage, average usage, and cap inputs.
+- Updated combined results to use selected categories.
 - Updated documentation for v0.2.
 
 ---

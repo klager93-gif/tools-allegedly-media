@@ -7,11 +7,11 @@
 ## Last Updated
 
 2026-06-07  
-13:05 UTC
+13:15 UTC
 
 ## Current Version
 
-**v0.4**
+**v0.5**
 
 ---
 
@@ -26,27 +26,11 @@
 | v0.2 | Categories |
 | v0.3 | Multiple Balance Results |
 | v0.4 | Planning Mode |
+| v0.5 | Warnings & Policy Helpers |
 
 ---
 
 # Upcoming Versions
-
-## v0.5
-
-### Theme
-
-Warnings & Policy Helpers
-
-### Planned Features
-
-- Cap-loss warnings.
-- Use-it-or-lose-it reminders.
-- Employer policy notes.
-- Optional reset/accrual date settings.
-- Stronger planned-event warning language.
-- Better handling for policies that reset annually.
-
----
 
 ## v1.0
 
@@ -61,6 +45,8 @@ Public Release
 - SEO improvements.
 - FAQ section.
 - Schema markup.
+- Final copy review.
+- Mobile quality review.
 
 ---
 
@@ -72,5 +58,7 @@ Public Release
 - Calendar view.
 - Multiple job profiles.
 - Separate accrual banks.
+- Saved profiles.
+- Export and print support.
 - Internal links to other Signal Labs tools.
 - HOWTO.md user guide support.

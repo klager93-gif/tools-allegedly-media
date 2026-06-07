@@ -7,6 +7,12 @@ const eventDateInput = document.getElementById("eventDate");
 const eventHoursInput = document.getElementById("eventHours");
 const planningEventListEl = document.getElementById("planningEventList");
 const plannedEventResultsEl = document.getElementById("plannedEventResults");
+const warningResultsEl = document.getElementById("warningResults");
+
+const policyResetDateInput = document.getElementById("policyResetDate");
+const carryoverLimitInput = document.getElementById("carryoverLimit");
+const useItOrLoseItInput = document.getElementById("useItOrLoseIt");
+const policyNotesInput = document.getElementById("policyNotes");
 
 const payPeriodInput = document.getElementById("payPeriod");
 const targetDateInput = document.getElementById("targetDate");
@@ -395,6 +401,16 @@ function clearCategoryResults() {
   categoryResultsEl.appendChild(empty);
 }
 
+function clearWarningResults() {
+  warningResultsEl.innerHTML = "";
+
+  const empty = document.createElement("p");
+  empty.className = "empty-results";
+  empty.textContent = "Warnings and policy notes will appear after calculation.";
+
+  warningResultsEl.appendChild(empty);
+}
+
 function resetResults() {
   projectedBalanceEl.textContent = "0.00 hrs";
   projectedDaysEl.textContent = "0.00 days";
@@ -409,6 +425,7 @@ function resetResults() {
   generatedTimeEl.textContent = "--";
   clearCategoryResults();
   clearPlannedEventResults();
+  clearWarningResults();
 }
 
 function getCategoryValues(categoryId) {
@@ -470,6 +487,10 @@ function getCategoryProjection(categoryId, payPeriodsUntilTarget, targetDate) {
     }
   }
 
+  const capLoss = hasCap ? Math.max(uncappedProjection - values.ptoCap, 0) : 0;
+  const plannedShortfall = Math.max(used - values.currentBalance - earned, 0);
+  const netAccrualPerPeriod = values.accrualPerPeriod - values.averageUsage;
+
   return {
     id: categoryId,
     label: config ? config.label : categoryId,
@@ -478,8 +499,12 @@ function getCategoryProjection(categoryId, payPeriodsUntilTarget, targetDate) {
     recurringUsage,
     eventUsage,
     used,
+    uncappedProjection,
     projectedBalance,
     hasCap,
+    capLoss,
+    plannedShortfall,
+    netAccrualPerPeriod,
     hoursUntilCap,
     capStatus
   };
@@ -619,6 +644,142 @@ function renderPlannedEventResults(categoryProjections, targetDate, today) {
   });
 }
 
+function addWarning(warnings, level, title, detail) {
+  warnings.push({
+    level,
+    title,
+    detail
+  });
+}
+
+function buildWarnings(categoryProjections, targetDate) {
+  const warnings = [];
+  const resetDate = parseDateValue(policyResetDateInput.value);
+  const carryoverLimit = getInputValue(carryoverLimitInput);
+  const policyNotes = policyNotesInput.value.trim();
+
+  categoryProjections.forEach((projection) => {
+    if (projection.capLoss > 0) {
+      addWarning(
+        warnings,
+        "warning",
+        `${projection.label}: possible cap loss`,
+        `Projected earned time may exceed the ${formatNumber(projection.values.ptoCap)} hr cap by ${formatNumber(projection.capLoss)} hrs.`
+      );
+    }
+
+    if (projection.plannedShortfall > 0) {
+      addWarning(
+        warnings,
+        "danger",
+        `${projection.label}: planned usage may exceed balance`,
+        `Usage is projected to run ${formatNumber(projection.plannedShortfall)} hrs beyond current balance plus earned time.`
+      );
+    }
+
+    if (projection.netAccrualPerPeriod < 0) {
+      addWarning(
+        warnings,
+        "warning",
+        `${projection.label}: usage is higher than accrual`,
+        `Average usage is ${formatNumber(Math.abs(projection.netAccrualPerPeriod))} hrs more than earned each pay period.`
+      );
+    }
+
+    if (projection.hasCap && projection.values.currentBalance >= projection.values.ptoCap) {
+      addWarning(
+        warnings,
+        "danger",
+        `${projection.label}: already at or above cap`,
+        "Additional earned time may be lost unless your employer allows exceptions or carryover."
+      );
+    }
+  });
+
+  if (useItOrLoseItInput.checked) {
+    addWarning(
+      warnings,
+      "info",
+      "Use-it-or-lose-it reminder",
+      "Confirm your employer's deadline, carryover rules, payout rules, and whether each selected category resets separately."
+    );
+  }
+
+  if (carryoverLimit > 0) {
+    const combinedProjectedBalance = categoryProjections.reduce((sum, projection) => sum + projection.projectedBalance, 0);
+
+    if (combinedProjectedBalance > carryoverLimit) {
+      addWarning(
+        warnings,
+        "warning",
+        "Carryover limit reminder",
+        `Combined projected balance is ${formatNumber(combinedProjectedBalance)} hrs, which is above the entered carryover limit of ${formatNumber(carryoverLimit)} hrs.`
+      );
+    } else {
+      addWarning(
+        warnings,
+        "info",
+        "Carryover limit checked",
+        `Combined projected balance is below the entered carryover limit of ${formatNumber(carryoverLimit)} hrs.`
+      );
+    }
+  }
+
+  if (resetDate && !Number.isNaN(resetDate.getTime())) {
+    if (targetDate && resetDate <= targetDate) {
+      addWarning(
+        warnings,
+        "warning",
+        "Reset date occurs before target date",
+        `The entered reset/carryover date (${formatDate(resetDate)}) is before or on the target date. Confirm whether balances reset before relying on this projection.`
+      );
+    } else {
+      addWarning(
+        warnings,
+        "info",
+        "Reset date noted",
+        `Reset/carryover date saved for reference: ${formatDate(resetDate)}.`
+      );
+    }
+  }
+
+  if (policyNotes) {
+    addWarning(
+      warnings,
+      "info",
+      "Policy note",
+      policyNotes
+    );
+  }
+
+  if (warnings.length === 0) {
+    addWarning(
+      warnings,
+      "good",
+      "No major warnings found",
+      "Based on the values entered, no cap loss, shortfall, or policy reminder was triggered. Still confirm actual employer rules."
+    );
+  }
+
+  return warnings;
+}
+
+function renderWarningResults(warnings) {
+  warningResultsEl.innerHTML = "";
+
+  warnings.forEach((warning) => {
+    const row = document.createElement("div");
+    row.className = `warning-result ${warning.level}`;
+
+    row.innerHTML = `
+      <strong>${warning.title}</strong>
+      <span>${warning.detail}</span>
+    `;
+
+    warningResultsEl.appendChild(row);
+  });
+}
+
 function calculateTimeOff() {
   const selectedCategories = getSelectedCategories();
   const hoursPerDay = getInputValue(hoursPerDayInput) || 8;
@@ -743,6 +904,7 @@ function calculateTimeOff() {
 
   renderCategoryResults(categoryProjections, hoursPerDay);
   renderPlannedEventResults(categoryProjections, targetDate, today);
+  renderWarningResults(buildWarnings(categoryProjections, targetDate));
 
   generatedTimeEl.textContent = getCurrentUtcTime();
   messageEl.textContent = "Time off projection updated.";
@@ -770,6 +932,10 @@ function loadExample() {
   payPeriodInput.value = "biweekly";
   targetDateInput.value = getDefaultTargetDate();
   hoursPerDayInput.value = "8";
+  policyResetDateInput.value = addDays(new Date(), 180).toISOString().slice(0, 10);
+  carryoverLimitInput.value = "120";
+  useItOrLoseItInput.checked = true;
+  policyNotesInput.value = "Example only: confirm actual carryover, reset, and payout rules with your employer.";
 
   setCategoryValues("vacation", {
     currentBalance: "48",
@@ -822,6 +988,10 @@ function clearCalculator() {
   payPeriodInput.value = "biweekly";
   targetDateInput.value = "";
   hoursPerDayInput.value = "";
+  policyResetDateInput.value = "";
+  carryoverLimitInput.value = "";
+  useItOrLoseItInput.checked = false;
+  policyNotesInput.value = "";
 
   categoryInputCardsEl.querySelectorAll("input").forEach((input) => {
     input.value = "";
@@ -849,7 +1019,11 @@ categoryOptionsEl.querySelectorAll("input[type='checkbox']").forEach((checkbox) 
 [
   payPeriodInput,
   targetDateInput,
-  hoursPerDayInput
+  hoursPerDayInput,
+  policyResetDateInput,
+  carryoverLimitInput,
+  useItOrLoseItInput,
+  policyNotesInput
 ].forEach((input) => {
   input.addEventListener("input", calculateTimeOff);
   input.addEventListener("change", calculateTimeOff);

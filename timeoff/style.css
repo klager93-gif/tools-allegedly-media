@@ -637,3 +637,127 @@ v0.4 Planning Mode
   }
 
 }
+
+
+/*
+--------------------------------
+v0.5 Warnings & Policy Helpers
+--------------------------------
+*/
+
+.orange {
+  background: rgba(255,177,77,.2);
+  color: #ffb14d;
+}
+
+.policy-card textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(0,0,0,.3);
+  color: white;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.policy-card textarea:focus {
+  outline: none;
+  border-color: rgba(255,255,255,.3);
+}
+
+.policy-checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.policy-checkbox-row input {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.policy-checkbox-row span {
+  margin: 0;
+  color: #ddd;
+  line-height: 1.35;
+}
+
+.policy-note {
+  color: #aaa;
+}
+
+.warning-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.warning-result {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.warning-result strong,
+.warning-result span {
+  display: block;
+}
+
+.warning-result strong {
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.warning-result span {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.warning-result.good {
+  background: rgba(50,150,80,.12);
+  border-color: rgba(70,200,100,.22);
+}
+
+.warning-result.info {
+  background: rgba(80,140,255,.1);
+  border-color: rgba(80,140,255,.22);
+}
+
+.warning-result.warning {
+  background: rgba(255,177,77,.1);
+  border-color: rgba(255,177,77,.28);
+}
+
+.warning-result.danger {
+  background: rgba(255,120,80,.12);
+  border-color: rgba(255,120,80,.32);
+}
+
+.warning-result.warning span {
+  color: #ffd19a;
+}
+
+.warning-result.danger span {
+  color: #ffb399;
+}
+
+@media (max-width: 700px) {
+
+  .policy-checkbox-row {
+    align-items: flex-start;
+  }
+
+  .policy-card textarea {
+    font-size: 15px;
+  }
+
+}
