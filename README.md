@@ -1,4 +1,4 @@
-# Signal Labs
+# Signal Labs Root Site
 
 Useful tools without the noise.
 
@@ -6,93 +6,189 @@ Useful tools without the noise.
 
 # Purpose
 
-Signal Labs is a collection of lightweight web tools designed to solve common problems without unnecessary complexity.
+Signal Labs is the shared home for lightweight calculators and planning tools.
 
-The Signal Labs website itself is versioned separately from the individual calculators it hosts.
+This root site connects individual tools, keeps shared styling consistent, and provides a simple navigation system across the project.
 
 ---
 
-# Current Tools
+# Current Version
+
+## v0.2
+
+### Theme
+
+Navigation
+
+### Status
+
+Active Development
+
+---
+
+# Included Tools
 
 ## Overtime Calculator
 
-Estimate regular pay, overtime pay, deductions, and take-home pay.
+Path:
 
-Current version tracked separately inside `/overtime/`.
+```text
+/overtime/
+```
 
-## Time Off Calculator
+Current referenced build:
 
-Estimate balances for vacation, sick time, personal time, comp time, holidays, and more.
+```text
+v0.8.1 — Goal Mode
+```
 
-Current version tracked separately inside `/timeoff/`.
+Purpose:
+
+Estimate regular pay, overtime pay, advanced pay, gross pay, deductions, taxes, take-home pay, and income goals.
 
 ---
 
-# Root Website Files
+## Time Off Calculator
+
+Path:
+
+```text
+/timeoff/
+```
+
+Current referenced build:
+
+```text
+v0.5.1 — Input Polish
+```
+
+Purpose:
+
+Estimate vacation, sick time, personal time, comp time, holiday time, planned usage, cap status, and policy warnings.
+
+---
+
+# Shared Assets
+
+## assets/global.css
+
+Provides shared Signal Labs styling:
+
+- Page background.
+- Typography foundation.
+- Shared card styling.
+- Shared button styling.
+- Shared footer styling.
+- Shared modal styling.
+- Shared responsive behavior.
+- Global navigation styling.
+- Active page navigation state.
+
+## assets/global.js
+
+Provides shared Signal Labs behavior:
+
+- Global navigation injection.
+- Active page detection.
+- Shared text modal loader.
+- Changelog and roadmap modal support.
+- UTC timestamp helper.
+- Escape and overlay modal closing.
+
+---
+
+# Folder Structure
 
 ```text
 /
-
 index.html
-Main Signal Labs homepage and tool directory.
-
-CHANGELOG.md
-Historical record of root website releases.
-
-ROADMAP.md
-Current and future root website plans.
-
 README.md
-General root website documentation.
+CHANGELOG.md
+ROADMAP.md
 
-site.webmanifest
-Web app manifest.
+assets/
+global.css
+global.js
 
-assets/global.css
-Shared styling used by the homepage and tools.
+overtime/
+index.html
+style.css
+script.js
+README.md
+CHANGELOG.md
+ROADMAP.md
 
-assets/global.js
-Shared modal and utility scripts used by the homepage and tools.
+timeoff/
+index.html
+style.css
+script.js
+README.md
+CHANGELOG.md
+ROADMAP.md
 ```
 
 ---
 
-# Version Separation
+# Navigation Behavior
 
-The root website, Overtime Calculator, Time Off Calculator, and shared assets are treated as separate version tracks.
+The shared navigation is injected by `assets/global.js`.
 
-Root website updates should not automatically change calculator versions unless calculator files are also changed.
+It currently includes:
 
-Calculator updates should not automatically change the root website version unless root files are also changed.
+- Home
+- Overtime
+- Time Off
 
-Shared asset updates should be handled carefully because they can affect multiple tools.
+The active page is detected from `window.location.pathname` and receives the `is-active` class plus `aria-current="page"`.
+
+This keeps individual tool pages cleaner and prevents navigation markup from needing to be duplicated inside every calculator.
 
 ---
 
-# Development Philosophy
+# Important Compatibility Notes
 
-Signal Labs tools are intended to be:
+Tool pages currently load shared files with paths like:
 
-- Useful.
-- Fast.
-- Mobile-friendly.
-- Easy to understand.
-- Lightweight.
-- Free from unnecessary complexity.
+```html
+<link rel="stylesheet" href="../assets/global.css?v=0.5.3">
+<script src="../assets/global.js?v=0.5.3"></script>
+```
 
-> Useful tools without the noise.
+The query string is only cache-busting. The physical files should still be:
+
+```text
+/assets/global.css
+/assets/global.js
+```
+
+When deploying this root navigation release, upload these shared files into the `assets/` folder.
+
+---
+
+# Development Standards
+
+Signal Labs releases follow these rules:
+
+- Full-file replacement releases.
+- Sequential versioning.
+- Clear release theme names.
+- Changelog updates with every release.
+- Roadmap updates when direction changes.
+- GitHub-ready update title and description with every release.
+- Check cross-folder impacts before changing shared files.
+- Protect project integrity over convenience.
 
 ---
 
 # Current Status
 
-### Website Version
+### Build
 
-v0.1.1
+v0.2
 
 ### Theme
 
-Root Cleanup
+Navigation
 
 ### Status
 

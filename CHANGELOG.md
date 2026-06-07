@@ -1,48 +1,43 @@
-# Signal Labs
+# Signal Labs Root Site
 
 # CHANGELOG
 
 ---
 
-## Version 0.1.1
+## Version 0.2
 
 **Date:** 2026-06-07  
-**Time:** 17:30 UTC
-
-### Theme
-
-Root Cleanup
+**Theme:** Navigation
 
 ### Changes
 
-- Added root website changelog file.
-- Fixed homepage source formatting by removing accidental Markdown code fences from `index.html`.
-- Updated homepage footer version from `v0.1` to `v0.1.1`.
-- Updated homepage theme label from `Foundation` to `Root Cleanup`.
-- Kept shared asset references unchanged.
-- Confirmed root website versioning remains separate from individual calculator versions.
-- Updated root README for v0.1.1.
-- Updated root roadmap for v0.1.1.
+- Added shared Signal Labs navigation styling.
+- Added shared navigation injection in `global.js`.
+- Added Home, Overtime, and Time Off navigation links.
+- Added active page detection based on current path.
+- Added `aria-current="page"` support for active navigation links.
+- Added responsive mobile navigation layout.
+- Preserved shared modal support for tool changelog and roadmap popups.
+- Preserved `getCurrentUtcTime()` helper required by calculator scripts.
+- Added shared root README documentation.
+- Documented shared asset folder expectations.
+- Documented current connected tool versions.
+
+### Files Updated
+
+- `assets/global.css`
+- `assets/global.js`
+- `README.md`
+- `CHANGELOG.md`
 
 ---
 
 ## Version 0.1
 
-**Date:** 2026-06-06
-
-### Theme
-
-Foundation
+**Theme:** Foundation
 
 ### Changes
 
-- Added Signal Labs homepage.
-- Added Overtime Calculator card.
-- Added Time Off Calculator card.
-- Added coming-soon tool cards.
-- Added homepage footer version display.
-- Added homepage roadmap modal button.
-- Added homepage README modal button.
-- Added homepage changelog modal button.
-- Added root README documentation.
-- Added root ROADMAP documentation.
+- Created initial Signal Labs root site concept.
+- Established shared asset approach.
+- Prepared project for multiple calculators and tools.
