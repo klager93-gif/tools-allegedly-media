@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.6.1
+v0.9.6.2
 
 ## Theme
 
-UI Identity Polish
+Category Pill Visibility Fix
 
 ---
 

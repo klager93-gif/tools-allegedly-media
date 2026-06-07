@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: style.css
-Version: v0.9.6.1
+Version: v0.9.6.2
 Purpose: Tool-specific styles
 */
 .dashboard-layout {
@@ -2052,6 +2052,84 @@ v0.9.6.1 UI Identity Polish
 
 @media (max-width: 420px) {
   .category-pill {
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+
+/*
+--------------------------------
+v0.9.6.2 Category Pill Visibility Fix
+--------------------------------
+Purpose:
+- Hide the old category checkbox/card source.
+- Keep it in the DOM for calculation compatibility.
+- Show only the pill selector UI.
+*/
+
+#categoryOptions,
+#categoryOptions *,
+#categoryOptions.hidden-by-ui-identity,
+#categoryOptions.signal-labs-hidden-category-source,
+#categoryOptions.signal-labs-hidden-category-source *,
+.signal-labs-hidden-category-source,
+.signal-labs-hidden-category-source * {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+#categoryPillOptions,
+#categoryPillOptions * {
+  visibility: visible !important;
+}
+
+#categoryPillOptions.category-pill-grid {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 9px !important;
+  margin-top: 12px !important;
+}
+
+#categoryPillOptions .category-pill {
+  display: inline-flex !important;
+  visibility: visible !important;
+  width: auto !important;
+  min-width: 116px !important;
+  max-width: 220px !important;
+  min-height: 36px !important;
+  padding: 8px 13px !important;
+  border-radius: 999px !important;
+  justify-content: flex-start !important;
+}
+
+#categoryPillOptions .category-pill .pill-label {
+  display: block !important;
+  visibility: visible !important;
+  max-width: 164px !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+#categoryPillOptions .category-pill .pill-check {
+  display: inline-block !important;
+  visibility: visible !important;
+  width: 14px !important;
+  min-width: 14px !important;
+  text-align: center !important;
+}
+
+@media (max-width: 700px) {
+  #categoryPillOptions .category-pill {
+    min-width: calc(50% - 5px) !important;
+    max-width: calc(50% - 5px) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  #categoryPillOptions .category-pill {
     min-width: 100% !important;
     max-width: 100% !important;
   }

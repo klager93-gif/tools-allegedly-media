@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.9.6.1
+Version: v0.9.6.2
 Purpose: Tool-specific logic and event handling
 */
 const categoryOptionsEl = document.getElementById("categoryOptions");
@@ -45,7 +45,7 @@ const messageEl = document.getElementById("message");
 let plannedEvents = [];
 let isLoadingSavedSettings = false;
 
-const STORAGE_KEY = "signalLabsTimeOffCalculatorV0961";
+const STORAGE_KEY = "signalLabsTimeOffCalculatorV0962";
 const LEGACY_STORAGE_KEYS = [
   "signalLabsTimeOffCalculatorV092",
   "signalLabsTimeOffCalculatorV08",
@@ -1727,7 +1727,7 @@ function buildTimeOffProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.6.1</div>
+          <div><strong>Build:</strong> v0.9.6.2</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1817,7 +1817,7 @@ function buildTimeOffProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual time off may vary based on employer policy, accrual rules, caps, holidays, unpaid leave, and payroll timing.</div>
-        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.6.1</div>
+        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.6.2</div>
       </footer>
     </main>
   `;
@@ -2009,9 +2009,11 @@ function renderCategoryPills() {
     comp: "Comp Time",
     compTime: "Comp Time",
     "comp-time": "Comp Time",
+    "comp time": "Comp Time",
     holiday: "Holiday",
     floatingHoliday: "Floating Holiday",
     floating: "Floating Holiday",
+    "floating holiday": "Floating Holiday",
     custom: "Custom"
   };
 
@@ -2021,7 +2023,8 @@ function renderCategoryPills() {
   checkboxes.forEach((checkbox) => {
     const raw = checkbox.value || checkbox.dataset.category || checkbox.name || "Category";
     const key = String(raw).trim();
-    const labelText = prettyLabels[key] || prettyLabels[key.replace(/\s+/g, "")] || key.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/\b\w/g, (letter) => letter.toUpperCase());
+    const compactKey = key.replace(/\s+/g, "");
+    const labelText = prettyLabels[key] || prettyLabels[key.toLowerCase()] || prettyLabels[compactKey] || key.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/\b\w/g, (letter) => letter.toUpperCase());
 
     const pill = document.createElement("button");
     pill.type = "button";

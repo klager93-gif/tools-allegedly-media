@@ -1,3 +1,20 @@
+## Version 0.9.6.2
+
+**Date:** 2026-06-07  
+**Theme:** Category Pill Visibility Fix
+
+### Changes
+
+- Fixed Time Off Categories showing both the old checkbox cards and the new pill selector.
+- Hid the old checkbox/card category source while preserving it for calculation compatibility.
+- Left only the category pill UI visible.
+- Preserved proper category labels including Comp Time and Floating Holiday.
+- Preserved custom category pills, saved inputs, Print Report, and Copy Results.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.6.1
 
 **Date:** 2026-06-07  

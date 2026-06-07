@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.6.1
+v0.9.6.2
 
 ## Theme
 
-UI Identity Polish
+Category Pill Visibility Fix
 
 ---
 
@@ -121,3 +121,15 @@ UI Identity Polish
 - [ ] Comp Time label is correct.
 - [ ] Floating Holiday label is correct.
 - [ ] Custom category labels truncate without breaking layout.
+
+
+# Category Pill Visibility Fix Checks
+
+- [ ] Old category checkbox cards are hidden.
+- [ ] Category pills are visible.
+- [ ] Only one category selector UI appears.
+- [ ] Comp Time label displays correctly.
+- [ ] Floating Holiday label displays correctly.
+- [ ] Custom category pills still work.
+- [ ] Print Report still works.
+- [ ] Copy Results still works.

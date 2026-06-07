@@ -187,3 +187,10 @@ Info icons are smaller and better aligned. Pill controls are cleaner and more co
 
 
 Time Off categories now use a true pill-only selector. The old checkbox card grid is hidden and preserved only as a compatibility source for calculations.
+
+
+---
+
+# v0.9.6.2 Category Pill Visibility Fix
+
+The Categories section now shows only category pills. The old checkbox grid is hidden and used only as the calculation source.

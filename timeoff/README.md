@@ -193,11 +193,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.9.6.1
+v0.9.6.2
 
 ### Theme
 
-UI Identity Polish
+Category Pill Visibility Fix
 
 ### Status
 
@@ -323,3 +323,10 @@ Refines info icon styling and improves pill UI consistency while preserving exis
 
 
 Time Off v0.9.6.1 also replaces the duplicate category card/pill mix with a true pill-only category selector.
+
+
+---
+
+# v0.9.6.2 Category Pill Visibility Fix
+
+Fixes the Time Off Categories section so only the pill selector is visible. The old checkbox source remains hidden for compatibility with calculations.
