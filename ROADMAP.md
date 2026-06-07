@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.2.5**
+**v0.2.7**
 
 ---
 
@@ -28,6 +28,8 @@
 | v0.2.3 | Standards Manifest Adoption |
 | v0.2.4 | Modal UX Polish |
 | v0.2.5 | Versioning Guidance |
+| v0.2.6 | Backup & Recovery System |
+| v0.2.7 | Release Management System |
 
 ---
 

@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.2.5
+v0.2.7
 
 ## Theme
 
-Versioning Guidance
+Release Management System
 
 ## Build Type
 
@@ -46,9 +46,9 @@ This build adopts the standards and manifest system across Root, Overtime, and T
 
 ## Version Checks
 
-- [ ] Root index shows v0.2.5.
-- [ ] Root footer shows v0.2.5.
-- [ ] Root cache-busting uses v0.2.5.
+- [ ] Root index shows v0.2.7.
+- [ ] Root footer shows v0.2.7.
+- [ ] Root cache-busting uses v0.2.7.
 - [ ] No malformed version strings exist.
 
 ## Version String Sanity
@@ -83,3 +83,26 @@ If any required check fails, abort ZIP creation and report the failure.
 - [ ] Escape key closes the modal.
 - [ ] Clicking outside the modal box closes the modal.
 - [ ] Clicking inside the modal box does not close the modal.
+
+
+---
+
+# Backup & Restore Checks
+
+- [ ] RESTORE.md exists.
+- [ ] backups/README.md exists.
+- [ ] backups/BACKUP-LOG.md exists.
+- [ ] backups/RESTORE-GUIDE.md exists.
+- [ ] STANDARDS.md includes backup procedures.
+- [ ] Release response includes backup reminder.
+
+
+---
+
+# Release Management Checks
+
+- [ ] MASTER-CHANGELOG.md exists.
+- [ ] MASTER-ROADMAP.md exists.
+- [ ] RELEASE-HISTORY.md exists.
+- [ ] STANDARDS.md includes release management rules.
+- [ ] RELEASE-HISTORY.md includes current release.

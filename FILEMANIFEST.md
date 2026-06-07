@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.2.5
+v0.2.7
 
 ## Theme
 
-Versioning Guidance
+Release Management System
 
 ---
 
@@ -51,7 +51,7 @@ assets/global.js
 
 ```text
 Shared Asset
-Version: v0.2.5
+Version: v0.2.7
 ```
 
 ---
@@ -71,3 +71,26 @@ version 0.6.2.1.1
 # Notes
 
 This manifest exists to prevent missing files, wrong-folder uploads, and cross-contaminated release packages.
+
+
+---
+
+# Required Backup & Restore Files
+
+```text
+RESTORE.md
+backups/README.md
+backups/BACKUP-LOG.md
+backups/RESTORE-GUIDE.md
+```
+
+
+---
+
+# Required Release Management Files
+
+```text
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+RELEASE-HISTORY.md
+```

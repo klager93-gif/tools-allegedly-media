@@ -235,3 +235,39 @@ Clicking inside the modal box does not close the modal.
 Version numbers should reflect the amount of change, not artificial synchronization.
 
 Do not force tools to share the same version number unless the release scope justifies it.
+
+
+---
+
+# v0.2.6 Backup & Recovery System
+
+Before uploading any new release:
+
+1. Back up the current live files.
+2. Upload the release.
+3. Test the live site.
+4. Restore from backup if needed.
+
+See:
+
+```text
+RESTORE.md
+backups/README.md
+backups/BACKUP-LOG.md
+backups/RESTORE-GUIDE.md
+```
+
+
+---
+
+# v0.2.7 Release Management System
+
+Use the master release files to understand the full project history:
+
+```text
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+RELEASE-HISTORY.md
+```
+
+These files track changes across Root, Overtime, Time Off, and future tools.

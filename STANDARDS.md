@@ -253,3 +253,110 @@ Time Off 0.9
 ```
 
 The release train should remain understandable, but version numbers should not be forced into symmetry when that creates misleading version history.
+
+
+---
+
+# Backup & Recovery Rule
+
+Before uploading any release ZIP:
+
+1. Create a backup of the current live version.
+2. Store it in a dated backup folder.
+3. Upload the new release.
+4. Verify the live site.
+5. Restore from backup if problems are discovered.
+
+Recommended backup folder format:
+
+```text
+Signal-Labs-Backups/
+YYYY-MM-DD-before-release-name/
+  root/
+  overtime/
+  timeoff/
+  BACKUP-INFO.md
+```
+
+---
+
+# Release Backup Reminder Rule
+
+Whenever a new ZIP is presented, the release response should include a backup reminder.
+
+Required reminder:
+
+```text
+Back up the current live version before uploading this release.
+```
+
+---
+
+# Root Restore Documentation Rule
+
+Root releases should maintain:
+
+```text
+RESTORE.md
+backups/README.md
+backups/BACKUP-LOG.md
+backups/RESTORE-GUIDE.md
+```
+
+These files document backup and restore procedures so recovery instructions are not lost if chat history or AI memory is unavailable.
+
+
+---
+
+# Release Management Rule
+
+The root project should maintain ecosystem-wide release management files.
+
+Required files:
+
+```text
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+RELEASE-HISTORY.md
+```
+
+These files track project-wide history across Root, Overtime, Time Off, and future tools.
+
+---
+
+# Master Changelog Rule
+
+`MASTER-CHANGELOG.md` should summarize major releases across the full Signal Labs ecosystem.
+
+It should answer:
+
+- What changed?
+- Which project changed?
+- Which version introduced the change?
+- When did it happen?
+
+---
+
+# Master Roadmap Rule
+
+`MASTER-ROADMAP.md` should show the full project roadmap across all tools.
+
+It should include:
+
+- Root roadmap.
+- Overtime roadmap.
+- Time Off roadmap.
+- Future tools.
+- Production-release targets.
+
+---
+
+# Release History Rule
+
+`RELEASE-HISTORY.md` should track actual release order.
+
+It should answer:
+
+- What was released before this?
+- What release introduced a feature?
+- Which release should be backed up before installing the next one?

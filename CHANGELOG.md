@@ -4,6 +4,46 @@
 
 ---
 
+## Version 0.2.7
+
+**Date:** 2026-06-07  
+**Theme:** Release Management System
+
+### Changes
+
+- Added MASTER-CHANGELOG.md.
+- Added MASTER-ROADMAP.md.
+- Added RELEASE-HISTORY.md.
+- Added release management procedures to STANDARDS.md.
+- Updated root manifests with release management files.
+- Updated root cache-busting references to v0.2.7.
+- No calculator changes.
+- No shared asset logic changes.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
+## Version 0.2.6
+
+**Date:** 2026-06-07  
+**Theme:** Backup & Recovery System
+
+### Changes
+
+- Added RESTORE.md.
+- Added backups/README.md.
+- Added backups/BACKUP-LOG.md.
+- Added backups/RESTORE-GUIDE.md.
+- Added backup and recovery procedures to STANDARDS.md.
+- Added release backup reminder requirement.
+- Updated root manifests with backup and restore files.
+- Updated root cache-busting references to v0.2.6.
+- No calculator changes.
+- No shared asset logic changes.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.2.5
 
 **Date:** 2026-06-07  

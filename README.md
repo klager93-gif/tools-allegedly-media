@@ -6,7 +6,7 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.2.5**
+**v0.2.7**
 
 ## Theme
 
@@ -109,11 +109,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.2.5
+v0.2.7
 
 ### Theme
 
-Versioning Guidance
+Release Management System
 
 ### Status
 
