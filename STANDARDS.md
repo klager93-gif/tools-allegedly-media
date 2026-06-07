@@ -450,3 +450,25 @@ This makes restore operations possible without relying on chat history.
 The top-level Signal Labs site should be referred to as `Signal Labs Home` or `Home`, not `Root`, in user-facing release names and documentation.
 
 The word `root` may still be used only when referring to the technical website root directory.
+
+---
+
+# Rule 23 — Master Documentation
+
+Signal Labs Home must maintain these project-wide documentation files:
+
+```text
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+```
+
+Every release of any Signal Labs tool must update:
+
+- the tool's own CHANGELOG.md
+- the tool's own ROADMAP.md when needed
+- MASTER-CHANGELOG.md
+- MASTER-ROADMAP.md when current versions or plans change
+
+The master changelog records chronological history across the full Signal Labs ecosystem.
+
+The master roadmap records current versions and future plans across the full Signal Labs ecosystem.

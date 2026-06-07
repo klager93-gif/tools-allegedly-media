@@ -109,11 +109,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.4
+v0.4.1
 
 ### Theme
 
-Release Standards Update
+Master Documentation
 
 ### Status
 
@@ -213,3 +213,19 @@ Every future release response should include:
 5. GitHub description.
 
 The top-level site is now referred to as **Signal Labs Home** or **Home** instead of Root.
+
+
+---
+
+# Home v0.4.1 Master Documentation
+
+Home v0.4.1 formalizes the project-wide master documentation system.
+
+Required master documents:
+
+```text
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+```
+
+Every future release should update master documentation when versions, roadmap items, or project-wide history changes.

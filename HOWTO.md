@@ -297,3 +297,17 @@ Use ISO-style backup folder names, for example:
 ```text
 2026-06-07-before-home-v0.4-overtime-v0.9.3-timeoff-v0.9.3
 ```
+
+
+---
+
+# Home v0.4.1 Master Documentation
+
+When building any future Signal Labs release, update:
+
+```text
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+```
+
+alongside the tool's own CHANGELOG.md and ROADMAP.md.

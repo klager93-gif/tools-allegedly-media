@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.4**
+**v0.4.1**
 
 ---
 
@@ -18,6 +18,7 @@
 
 | Version | Theme |
 |---|---|
+| v0.4.1 | Master Documentation |
 | v0.1 | Initial Root Prototype |
 | v0.1.1 | Root Cleanup |
 | v0.2 | Navigation |

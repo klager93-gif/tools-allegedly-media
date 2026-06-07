@@ -53,3 +53,5 @@ YYYY-MM-DD-before-release-name/
 | 22 | 2026-06-07 | Time Off v0.9.3 | Inline Optional Toggles | Moved optional toggles into card headers. |
 
 | 23 | 2026-06-07 | Home v0.4 | Release Standards Update | Renamed Root to Signal Labs Home and added release metadata rules. |
+
+| 24 | 2026-06-07 | Home v0.4.1 | Master Documentation | Backfilled master changelog and roadmap; added Rule 23 and required master documentation checks. |

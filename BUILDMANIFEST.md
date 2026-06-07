@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.4
+v0.4.1
 
 ## Theme
 
-Release Standards Update
+Master Documentation
 
 ## Build Type
 
@@ -131,3 +131,19 @@ Before presenting a ZIP, confirm the response includes:
 - [ ] GitHub title.
 - [ ] GitHub description.
 - [ ] Release information is presented in the required order.
+
+
+---
+
+# Master Documentation Checks
+
+Before presenting any future ZIP, confirm:
+
+- [ ] Tool CHANGELOG.md updated.
+- [ ] Tool ROADMAP.md updated when needed.
+- [ ] MASTER-CHANGELOG.md updated.
+- [ ] MASTER-ROADMAP.md updated when versions or plans change.
+- [ ] Backup folder name provided.
+- [ ] Download ZIP provided.
+- [ ] GitHub title provided.
+- [ ] GitHub description provided.

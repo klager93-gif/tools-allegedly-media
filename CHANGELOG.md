@@ -1,3 +1,22 @@
+## Version 0.4.1
+
+**Date:** 2026-06-07  
+**Theme:** Master Documentation
+
+### Changes
+
+- Backfilled MASTER-CHANGELOG.md through Time Off v0.9.6.2.
+- Updated MASTER-ROADMAP.md current versions and near-term roadmap.
+- Added Rule 23 — Master Documentation.
+- Added MASTER-CHANGELOG.md and MASTER-ROADMAP.md as required files for every build.
+- Added release checklist requirements for master documentation updates.
+- Updated Home documentation and manifests.
+- No calculator changes.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
+
 ## Version 0.4
 
 **Date:** 2026-06-07  
