@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.4
+v0.9.4.1
 
 ## Theme
 
-Collapsible Optional Sections
+Optional Toggle Logic Fix
 
 ---
 

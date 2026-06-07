@@ -1,3 +1,21 @@
+## Version 0.9.4.1
+
+**Date:** 2026-06-07  
+**Theme:** Optional Toggle Logic Fix
+
+### Changes
+
+- Fixed optional toggle initialization for users with saved settings.
+- Fixed malformed optional section data attributes.
+- Fixed ON/OFF label synchronization.
+- Fixed collapse class application after page load and after toggle changes.
+- Added duplicate-listener protection for optional toggles.
+- Preserved saved input values and report exclusion behavior.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.4
 
 **Date:** 2026-06-07  

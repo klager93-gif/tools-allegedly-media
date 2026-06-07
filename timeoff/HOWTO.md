@@ -149,3 +149,10 @@ Use the small Optional switches in each card header to enable or disable optiona
 # v0.9.4 Collapsible Optional Sections
 
 Use the green/red optional toggles in card headers. Green means on and expanded. Red means off and collapsed. Turning a section off does not delete saved inputs.
+
+
+---
+
+# v0.9.4.1 Optional Toggle Logic Fix
+
+If a toggle is red/OFF, the optional card collapses to header-only. Green/ON means the section is expanded and included.

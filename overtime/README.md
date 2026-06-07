@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.9.4
+v0.9.4.1
 
 ### Theme
 
-Collapsible Optional Sections
+Optional Toggle Logic Fix
 
 ### Status
 
@@ -106,3 +106,10 @@ Optional toggles now live inside the header of each optional card instead of in 
 # v0.9.4 Collapsible Optional Sections
 
 Disabled optional sections now collapse to header-only. Toggle switches are green when on and red when off, with ON/OFF labels for clarity.
+
+
+---
+
+# v0.9.4.1 Optional Toggle Logic Fix
+
+Fixes optional toggle initialization, ON/OFF labels, and collapse behavior for saved and fresh users.

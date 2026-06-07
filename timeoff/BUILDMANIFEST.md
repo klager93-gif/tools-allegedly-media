@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.4
+v0.9.4.1
 
 ## Theme
 
-Collapsible Optional Sections
+Optional Toggle Logic Fix
 
 ---
 
@@ -62,3 +62,12 @@ Collapsible Optional Sections
 - [ ] Optional cards collapse to header-only when off.
 - [ ] Saved values are preserved when toggled off and back on.
 - [ ] Reports exclude disabled optional sections.
+
+
+# Optional Toggle Logic Fix Checks
+
+- [ ] Toggle setup runs with saved settings.
+- [ ] Toggle setup runs with no saved settings.
+- [ ] ON/OFF labels sync correctly.
+- [ ] OFF sections collapse to header-only.
+- [ ] ON sections expand again.
