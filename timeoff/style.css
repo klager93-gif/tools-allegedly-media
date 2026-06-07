@@ -409,3 +409,99 @@ select:focus {
   }
 
 }
+
+
+/*
+--------------------------------
+v0.3 Multiple Balance Results
+--------------------------------
+*/
+
+.category-results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.empty-results {
+  color: #888;
+  line-height: 1.6;
+}
+
+.category-result-card {
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.025);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.category-result-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.category-result-heading h4 {
+  color: #fff;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.category-result-heading span {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: right;
+  max-width: 190px;
+}
+
+.category-result-card .result-row {
+  padding: 13px 14px;
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+
+.category-result-card .result-row:last-child {
+  margin-bottom: 0;
+}
+
+.category-result-card .result-row strong {
+  font-size: 18px;
+}
+
+.category-result-total {
+  background: rgba(50,150,80,.12);
+  border-color: rgba(70,200,100,.18);
+}
+
+.category-result-total strong {
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+
+  .category-result-heading {
+    flex-direction: column;
+  }
+
+  .category-result-heading span {
+    text-align: left;
+    max-width: none;
+  }
+
+  .category-result-card {
+    padding: 15px;
+  }
+
+  .category-result-card .result-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .category-result-card .result-row strong {
+    text-align: right;
+  }
+
+}

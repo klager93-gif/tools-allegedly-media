@@ -24,26 +24,25 @@ It is intended for planning vacations, checking projected balances, estimating t
 - Floating holiday category.
 - Custom category.
 - Checkbox-based category selection.
-- Dynamic input cards for selected categories.
-
-## Balance
-
-Each selected category supports:
-
-- Current balance input.
-- Time earned per pay period input.
-- Planned usage input.
-- Average usage per pay period input.
-- Optional cap input.
+- Input cards only show for selected categories.
 
 ## Projection
 
 - Target date input.
 - Pay period selection.
-- Hours-per-day conversion.
-- Combined category projection.
+- Shared hours-per-day conversion.
 
-## Results
+## Category Inputs
+
+Each selected category supports:
+
+- Current balance.
+- Time earned per pay period.
+- Planned usage.
+- Average usage per pay period.
+- Optional balance cap.
+
+## Combined Results
 
 - Combined projected balance.
 - Combined projected days.
@@ -52,9 +51,21 @@ Each selected category supports:
 - Pay periods until target.
 - Target date result.
 - Selected category count.
-- Combined cap.
-- Hours until combined cap.
 - Combined cap status.
+- Combined hours until cap.
+
+## Category Results
+
+Each selected category now shows:
+
+- Projected balance.
+- Projected days.
+- Current balance.
+- Time earned.
+- Time used.
+- Cap.
+- Hours until cap.
+- Category-level cap status.
 
 ## Quality of Life
 
@@ -66,7 +77,8 @@ Each selected category supports:
 - Label polish.
 - Improved desktop spacing.
 - Shorter form labels.
-- Dynamic category cards.
+- Category-based layout.
+- Multiple balance results.
 
 ---
 
@@ -118,8 +130,6 @@ Provides:
 - Utility functions.
 - UTC timestamps.
 
-No shared asset changes were required for v0.2.
-
 ---
 
 # Development Philosophy
@@ -141,11 +151,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.2
+v0.3
 
 ### Theme
 
-Categories
+Multiple Balance Results
 
 ### Status
 

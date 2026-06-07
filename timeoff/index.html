@@ -53,7 +53,7 @@ Time Off Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.2">
+  href="style.css?v=0.3">
 
 </head>
 <body>
@@ -124,7 +124,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <p class="message category-note">
-  v0.2 combines selected categories into one total. Separate category results are planned for v0.3.
+  Selected categories now show separate results and cap status below the combined totals.
 </p>
 
 </section>
@@ -259,7 +259,7 @@ Time Off Calculator | Signal Labs
 
 <div class="results-section">
 
-<h3>Cap Status</h3>
+<h3>Combined Cap Status</h3>
 
 <div class="result-row">
   <span>Combined Cap</span>
@@ -278,6 +278,16 @@ Time Off Calculator | Signal Labs
 
 </div>
 
+<div class="results-section category-results-section">
+
+<h3>Category Results</h3>
+
+<div id="categoryResults" class="category-results-list">
+  <p class="empty-results">Select categories and enter values to see category-level results.</p>
+</div>
+
+</div>
+
 <div class="summary-card">
   <p>
     Generated:
@@ -286,12 +296,12 @@ Time Off Calculator | Signal Labs
 
   <p>
     Build:
-    v0.2
+    v0.3
   </p>
 
   <p>
     Theme:
-    Categories
+    Multiple Balance Results
   </p>
 
   <p>
@@ -321,7 +331,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Calculator · v0.2
+  Signal Labs · Time Off Calculator · v0.3
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -357,7 +367,7 @@ Loading...
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.2"></script>
+<script src="script.js?v=0.3"></script>
 
 </body>
 </html>

@@ -7,11 +7,11 @@
 ## Last Updated
 
 2026-06-07  
-12:50 UTC
+12:55 UTC
 
 ## Current Version
 
-**v0.2**
+**v0.3**
 
 ---
 
@@ -24,27 +24,11 @@
 | v0.1.2 | Label & Layout Polish |
 | v0.1.3 | Label Cleanup |
 | v0.2 | Categories |
+| v0.3 | Multiple Balance Results |
 
 ---
 
 # Upcoming Versions
-
-## v0.3
-
-### Theme
-
-Multiple Balance Results
-
-### Planned Features
-
-- Separate results by category.
-- Combined total time off balance.
-- Combined projected hours.
-- Combined projected days.
-- Category-level cap warnings.
-- Category-level earned and used summaries.
-
----
 
 ## v0.4
 
@@ -77,21 +61,6 @@ Warnings & Policy Helpers
 
 ---
 
-## v0.6
-
-### Theme
-
-Navigation Links
-
-### Planned Features
-
-- Add internal links to other Signal Labs tools.
-- Add link back to Signal Labs home.
-- Add More Signal Labs Tools section.
-- Coordinate with root site navigation release.
-
----
-
 ## v1.0
 
 ### Theme
@@ -116,3 +85,4 @@ Public Release
 - Calendar view.
 - Multiple job profiles.
 - Separate accrual banks.
+- Internal links to other Signal Labs tools.

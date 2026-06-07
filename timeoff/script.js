@@ -1,5 +1,6 @@
 const categoryOptionsEl = document.getElementById("categoryOptions");
 const categoryInputCardsEl = document.getElementById("categoryInputCards");
+const categoryResultsEl = document.getElementById("categoryResults");
 
 const payPeriodInput = document.getElementById("payPeriod");
 const targetDateInput = document.getElementById("targetDate");
@@ -224,6 +225,16 @@ function renderCategoryCards() {
   });
 }
 
+function clearCategoryResults() {
+  categoryResultsEl.innerHTML = "";
+
+  const empty = document.createElement("p");
+  empty.className = "empty-results";
+  empty.textContent = "Select categories and enter values to see category-level results.";
+
+  categoryResultsEl.appendChild(empty);
+}
+
 function resetResults() {
   projectedBalanceEl.textContent = "0.00 hrs";
   projectedDaysEl.textContent = "0.00 days";
@@ -236,6 +247,7 @@ function resetResults() {
   hoursUntilCapEl.textContent = "--";
   capStatusEl.textContent = "--";
   generatedTimeEl.textContent = "--";
+  clearCategoryResults();
 }
 
 function getCategoryValues(categoryId) {
@@ -260,6 +272,115 @@ function hasCategoryInput(categoryId) {
   return fields.some((fieldName) => {
     const input = getCategoryField(categoryId, fieldName);
     return input && input.value !== "";
+  });
+}
+
+function getCategoryProjection(categoryId, payPeriodsUntilTarget) {
+  const config = getCategoryConfig(categoryId);
+  const values = getCategoryValues(categoryId);
+  const earned = payPeriodsUntilTarget * values.accrualPerPeriod;
+  const recurringUsage = payPeriodsUntilTarget * values.averageUsage;
+  const used = values.plannedUsage + recurringUsage;
+  const uncappedProjection = values.currentBalance + earned - used;
+  const hasCap = values.ptoCap > 0;
+
+  let projectedBalance = uncappedProjection;
+
+  if (hasCap) {
+    projectedBalance = Math.min(projectedBalance, values.ptoCap);
+  }
+
+  projectedBalance = Math.max(projectedBalance, 0);
+
+  let capStatus = "No cap set.";
+  let hoursUntilCap = "--";
+
+  if (hasCap) {
+    const remainingUntilCap = Math.max(values.ptoCap - projectedBalance, 0);
+    hoursUntilCap = `${formatNumber(remainingUntilCap)} hrs`;
+
+    if (values.currentBalance >= values.ptoCap) {
+      capStatus = "At or above cap.";
+    } else if (projectedBalance >= values.ptoCap) {
+      capStatus = "Projected to reach cap by target date.";
+    } else {
+      capStatus = "Below cap by target date.";
+    }
+  }
+
+  return {
+    id: categoryId,
+    label: config ? config.label : categoryId,
+    values,
+    earned,
+    used,
+    projectedBalance,
+    hasCap,
+    hoursUntilCap,
+    capStatus
+  };
+}
+
+function renderCategoryResults(categoryProjections, hoursPerDay) {
+  categoryResultsEl.innerHTML = "";
+
+  if (categoryProjections.length === 0) {
+    clearCategoryResults();
+    return;
+  }
+
+  categoryProjections.forEach((projection) => {
+    const card = document.createElement("section");
+    card.className = "category-result-card";
+
+    const projectedDays = projection.projectedBalance / hoursPerDay;
+    const capText = projection.hasCap
+      ? `${formatNumber(projection.values.ptoCap)} hrs`
+      : "Not set";
+
+    card.innerHTML = `
+      <div class="category-result-heading">
+        <h4>${projection.label}</h4>
+        <span>${projection.capStatus}</span>
+      </div>
+
+      <div class="result-row category-result-total">
+        <span>Projected Balance</span>
+        <strong>${formatNumber(projection.projectedBalance)} hrs</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Projected Days</span>
+        <strong>${formatNumber(projectedDays)} days</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Current Balance</span>
+        <strong>${formatNumber(projection.values.currentBalance)} hrs</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Earned</span>
+        <strong>${formatNumber(projection.earned)} hrs</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Used</span>
+        <strong>${formatNumber(projection.used)} hrs</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Cap</span>
+        <strong>${capText}</strong>
+      </div>
+
+      <div class="result-row">
+        <span>Hours Until Cap</span>
+        <strong>${projection.hoursUntilCap}</strong>
+      </div>
+    `;
+
+    categoryResultsEl.appendChild(card);
   });
 }
 
@@ -321,37 +442,30 @@ function calculateTimeOff() {
   let hasAnyCap = false;
   let hasNegativeValue = false;
 
-  selectedCategories.forEach((categoryId) => {
-    const values = getCategoryValues(categoryId);
+  const categoryProjections = selectedCategories.map((categoryId) => {
+    const projection = getCategoryProjection(categoryId, payPeriodsUntilTarget);
 
     if (
-      values.currentBalance < 0 ||
-      values.accrualPerPeriod < 0 ||
-      values.plannedUsage < 0 ||
-      values.averageUsage < 0 ||
-      values.ptoCap < 0
+      projection.values.currentBalance < 0 ||
+      projection.values.accrualPerPeriod < 0 ||
+      projection.values.plannedUsage < 0 ||
+      projection.values.averageUsage < 0 ||
+      projection.values.ptoCap < 0
     ) {
       hasNegativeValue = true;
     }
 
-    const earned = payPeriodsUntilTarget * values.accrualPerPeriod;
-    const recurringUsage = payPeriodsUntilTarget * values.averageUsage;
-    const used = values.plannedUsage + recurringUsage;
+    combinedCurrentBalance += projection.values.currentBalance;
+    combinedEarned += projection.earned;
+    combinedUsed += projection.used;
+    combinedProjectedBalance += projection.projectedBalance;
 
-    let projectedBalance = values.currentBalance + earned - used;
-
-    if (values.ptoCap > 0) {
-      projectedBalance = Math.min(projectedBalance, values.ptoCap);
-      combinedCap += values.ptoCap;
+    if (projection.hasCap) {
+      combinedCap += projection.values.ptoCap;
       hasAnyCap = true;
     }
 
-    projectedBalance = Math.max(projectedBalance, 0);
-
-    combinedCurrentBalance += values.currentBalance;
-    combinedEarned += earned;
-    combinedUsed += used;
-    combinedProjectedBalance += projectedBalance;
+    return projection;
   });
 
   if (hasNegativeValue) {
@@ -391,6 +505,8 @@ function calculateTimeOff() {
   capResultEl.textContent = hasAnyCap ? `${formatNumber(combinedCap)} hrs` : "Not set";
   hoursUntilCapEl.textContent = hoursUntilCap;
   capStatusEl.textContent = capStatus;
+
+  renderCategoryResults(categoryProjections, hoursPerDay);
 
   generatedTimeEl.textContent = getCurrentUtcTime();
   messageEl.textContent = "Time off projection updated.";

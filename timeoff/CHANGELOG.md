@@ -4,6 +4,30 @@
 
 ---
 
+## Version 0.3
+
+**Date:** 2026-06-07  
+**Time:** 12:55 UTC
+
+### Theme
+
+Multiple Balance Results
+
+### Changes
+
+- Added category-level result cards for each selected time-off bank.
+- Added separate projected balance for each category.
+- Added separate projected days for each category.
+- Added separate current balance, earned, and used totals for each category.
+- Added category-level cap display.
+- Added category-level hours-until-cap display.
+- Added category-level cap status messages.
+- Kept combined totals for overall projected balance, days, earned time, and used time.
+- Updated cache-busting references for v0.3.
+- Updated documentation for v0.3.
+
+---
+
 ## Version 0.2
 
 **Date:** 2026-06-07  
