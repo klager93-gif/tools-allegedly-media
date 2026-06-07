@@ -1,3 +1,20 @@
+## Version 0.3
+
+**Date:** 2026-06-07  
+**Theme:** UI Density Refactor
+
+### Changes
+
+- Added shared compact spacing rules.
+- Reduced card padding, result row height, form spacing, and section title spacing.
+- Preserved mobile-first behavior while improving desktop information density.
+- Updated root cache-busting references to v0.3.
+- Updated root documentation and release management files.
+- No calculator logic changes.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 # Signal Labs Root Site
 
 # CHANGELOG

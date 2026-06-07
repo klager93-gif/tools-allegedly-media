@@ -2,7 +2,7 @@
 Signal Labs
 Shared Asset
 File: assets/global.css
-Version: v0.2.7
+Version: v0.3
 Purpose: Shared styles, navigation styling, modal styling, and ad slot framework
 */
 
@@ -502,4 +502,45 @@ v0.2.4 Modal UX Polish
 
 .modal-box {
   cursor: default;
+}
+
+
+/*
+--------------------------------
+v0.3 UI Density Refactor
+--------------------------------
+Shared compact spacing pass for desktop and mobile.
+*/
+
+.page { gap: 22px; }
+.hero { padding-top: 22px; padding-bottom: 8px; }
+.hero h1 { margin-bottom: 10px; }
+.card { padding: 22px; }
+.step-card { gap: 18px; }
+.section-title { gap: 14px; margin-bottom: 2px; }
+.section-title h2 { line-height: 1.14; }
+.section-title p { margin-top: 4px; line-height: 1.45; }
+.step-badge { min-width: 38px; height: 38px; font-size: 13px; }
+.form-grid { gap: 14px; }
+label { gap: 7px; }
+input, select, textarea { padding-top: 11px; padding-bottom: 11px; }
+.result-row { padding: 13px 16px; margin-bottom: 9px; min-height: auto; }
+.result-row span { line-height: 1.25; }
+.result-row strong { line-height: 1.2; }
+.results-section { margin-bottom: 22px; }
+.button-row { gap: 10px; }
+
+@media (min-width: 900px) {
+  .dashboard-layout { gap: 22px; }
+  .results-card { top: 18px; }
+  .card { padding: 20px; }
+  .step-card { gap: 16px; }
+  .result-row { padding: 11px 14px; }
+}
+
+@media (max-width: 700px) {
+  body { padding: 12px; }
+  .card { padding: 18px; }
+  .section-title h2 { font-size: 22px; }
+  .step-badge { min-width: 34px; height: 34px; font-size: 12px; }
 }

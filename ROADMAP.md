@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.2.7**
+**v0.3**
 
 ---
 
@@ -30,6 +30,7 @@
 | v0.2.5 | Versioning Guidance |
 | v0.2.6 | Backup & Recovery System |
 | v0.2.7 | Release Management System |
+| v0.3 | UI Density Refactor |
 
 ---
 

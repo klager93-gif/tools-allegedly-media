@@ -10,9 +10,9 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Root | v0.2.7 | Release Management System |
-| Overtime | v0.9.1 | Professional Reports Print Fix |
-| Time Off | v0.9.1 | Professional Reports Print Fix |
+| Root | v0.3 | UI Density Refactor |
+| Overtime | v0.9.3 | Inline Optional Toggles |
+| Time Off | v0.9.3 | Inline Optional Toggles |
 
 ---
 

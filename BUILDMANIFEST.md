@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.2.7
+v0.3
 
 ## Theme
 
-Release Management System
+UI Density Refactor
 
 ## Build Type
 
@@ -46,9 +46,9 @@ This build adopts the standards and manifest system across Root, Overtime, and T
 
 ## Version Checks
 
-- [ ] Root index shows v0.2.7.
-- [ ] Root footer shows v0.2.7.
-- [ ] Root cache-busting uses v0.2.7.
+- [ ] Root index shows v0.3.
+- [ ] Root footer shows v0.3.
+- [ ] Root cache-busting uses v0.3.
 - [ ] No malformed version strings exist.
 
 ## Version String Sanity
@@ -106,3 +106,14 @@ If any required check fails, abort ZIP creation and report the failure.
 - [ ] RELEASE-HISTORY.md exists.
 - [ ] STANDARDS.md includes release management rules.
 - [ ] RELEASE-HISTORY.md includes current release.
+
+
+---
+
+# UI Density Checks
+
+- [ ] Cards are more compact but readable.
+- [ ] Result rows are more compact but readable.
+- [ ] Mobile layout remains usable.
+- [ ] Overtime layout reviewed.
+- [ ] Time Off layout reviewed.

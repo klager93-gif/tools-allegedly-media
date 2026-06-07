@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.2.1
+v0.9.3.1
 
 ## Theme
 
-Optional Section Toggles Print Fix
+Inline Optional Toggles Print Fix
 
 ---
 
@@ -44,3 +44,12 @@ Optional Section Toggles Print Fix
 - [ ] Policy Helpers toggle exists.
 - [ ] Toggle state saves locally.
 - [ ] Reports respect disabled sections.
+
+
+# Inline Optional Toggle Checks
+
+- [ ] Standalone Optional Sections card is removed.
+- [ ] Each optional card has its own top-right toggle.
+- [ ] Optional label is small and readable.
+- [ ] Toggle state saves locally.
+- [ ] Reports still respect disabled optional sections.

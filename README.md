@@ -6,7 +6,7 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.2.7**
+**v0.3**
 
 ## Theme
 
@@ -109,11 +109,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.2.7
+v0.3
 
 ### Theme
 
-Release Management System
+UI Density Refactor
 
 ### Status
 
@@ -189,3 +189,10 @@ version 0.2.2.2.2
 ```
 
 This check is now part of the project standards and build manifests.
+
+
+---
+
+# v0.3 UI Density Refactor
+
+Root v0.3 tightens shared spacing, cards, result rows, and form density while preserving the existing visual style.

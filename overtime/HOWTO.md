@@ -81,3 +81,10 @@ If the print report opens a blank tab or does not print, make sure browser popup
 # v0.9.2 Optional Section Toggles
 
 Use Optional Sections to turn Advanced Pay, Take-Home Estimate, and Goal Mode on or off without deleting your saved input values.
+
+
+---
+
+# v0.9.3 Inline Optional Toggles
+
+Use the small Optional switches in each card header to enable or disable optional features without deleting saved inputs.

@@ -360,3 +360,12 @@ It should answer:
 - What was released before this?
 - What release introduced a feature?
 - Which release should be backed up before installing the next one?
+
+
+---
+
+# UI Density Guidance
+
+Signal Labs tools should balance clarity with compactness. Desktop layouts should avoid unnecessary vertical height. Mobile layouts should remain readable and tap-friendly.
+
+When changing shared density styles, review Root, Overtime, Time Off, and future tools.

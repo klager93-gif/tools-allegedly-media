@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.2.7
+v0.3
 
 ## Theme
 
-Release Management System
+UI Density Refactor
 
 ---
 
@@ -51,7 +51,7 @@ assets/global.js
 
 ```text
 Shared Asset
-Version: v0.2.7
+Version: v0.3
 ```
 
 ---

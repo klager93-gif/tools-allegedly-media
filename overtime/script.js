@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.2
+Version: v0.9.3
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -27,8 +27,9 @@ const thresholdNoteEl = document.getElementById("thresholdNote");
 const messageEl = document.getElementById("message");
 const generatedTimeEl = document.getElementById("generatedTime");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV09";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV093";
 const LEGACY_STORAGE_KEYS = [
+  "signalLabsOvertimeCalculatorV092",
   "signalLabsOvertimeCalculatorV085",
   "signalLabsOvertimeCalculatorV0821",
   "signalLabsOvertimeCalculatorV083",
@@ -1305,7 +1306,7 @@ function buildOvertimeProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.2</div>
+          <div><strong>Build:</strong> v0.9.3</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1392,7 +1393,7 @@ function buildOvertimeProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
-        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.2</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.3</div>
       </footer>
     </main>
   `;

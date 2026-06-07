@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: index.html
-Version: v0.9.2
+Version: v0.9.3
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -56,11 +56,11 @@ Time Off Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="../assets/global.css?v=0.2.5">
+  href="../assets/global.css?v=0.3">
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.9.2">
+  href="style.css?v=0.9.3">
 
 </head>
 <body>
@@ -241,44 +241,6 @@ Time Off Calculator | Signal Labs
 
 
 </section>
-
-
-
-<section class="card step-card option-toggle-card">
-  <div class="section-title">
-    <div class="step-badge blue">Options</div>
-    <div>
-      <h2>Optional Sections</h2>
-      <p>Turn optional sections on or off. Disabled sections are ignored in results and reports.</p>
-    </div>
-  </div>
-
-  <div class="option-toggle-stack">
-    <label class="option-toggle-row">
-      <span>
-        <strong>Planning Mode</strong>
-        <span>Include planned time-off events and impact reporting.</span>
-      </span>
-      <span class="toggle-switch">
-        <input id="planningModeEnabled" type="checkbox" checked>
-        <span class="toggle-slider" aria-hidden="true"></span>
-      </span>
-    </label>
-
-    <label class="option-toggle-row">
-      <span>
-        <strong>Policy Helpers</strong>
-        <span>Include policy notes, carryover reminders, and warning guidance.</span>
-      </span>
-      <span class="toggle-switch">
-        <input id="policyHelpersEnabled" type="checkbox" checked>
-        <span class="toggle-slider" aria-hidden="true"></span>
-      </span>
-    </label>
-  </div>
-</section>
-
-
 <section class="card step-card planning-card collapsible-card mobile-collapsed" data-optional-section="planningMode"" data-collapse-card>
 
 <div class="section-title">
@@ -287,6 +249,14 @@ Time Off Calculator | Signal Labs
     <h2>Planning Mode</h2>
     <p>Add planned vacations, appointments, holidays, or other time-off events.</p>
   </div>
+
+      <div class="inline-optional-control">
+        <span class="optional-pill">Optional</span>
+        <label class="inline-toggle-switch" title="Include planned events in calculations and reports.">
+          <input id="planningModeEnabled" type="checkbox" checked>
+          <span class="toggle-slider" aria-hidden="true"></span>
+        </label>
+      </div>
 
   <button
     class="collapse-toggle"
@@ -358,6 +328,14 @@ Time Off Calculator | Signal Labs
     <h2>Policy Helpers</h2>
     <p>Add optional employer policy details for stronger warnings.</p>
   </div>
+
+      <div class="inline-optional-control">
+        <span class="optional-pill">Optional</span>
+        <label class="inline-toggle-switch" title="Include policy helper warnings and report notes.">
+          <input id="policyHelpersEnabled" type="checkbox" checked>
+          <span class="toggle-slider" aria-hidden="true"></span>
+        </label>
+      </div>
 
   <button
     class="collapse-toggle"
@@ -554,12 +532,12 @@ Time Off Calculator | Signal Labs
 
   <p>
     Build:
-    v0.9.2
+    v0.9.3
   </p>
 
   <p>
     Theme:
-    Optional Section Toggles
+    Inline Optional Toggles
   </p>
 
   <p>
@@ -597,7 +575,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Calculator · v0.9.2
+  Signal Labs · Time Off Calculator · v0.9.3
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -632,8 +610,8 @@ Loading...
 
 </div>
 
-<script src="../assets/global.js?v=0.2.5"></script>
-<script src="script.js?v=0.9.2"></script>
+<script src="../assets/global.js?v=0.3"></script>
+<script src="script.js?v=0.9.3"></script>
 
 </body>
 </html>

@@ -271,3 +271,10 @@ RELEASE-HISTORY.md
 ```
 
 These files track changes across Root, Overtime, Time Off, and future tools.
+
+
+---
+
+# v0.3 UI Density Refactor
+
+Shared UI spacing is more compact. Validate forms, cards, result rows, and mobile layout after upload.

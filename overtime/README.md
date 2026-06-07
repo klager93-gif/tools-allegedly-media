@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.9.2
+v0.9.3
 
 ### Theme
 
-Optional Section Toggles
+Inline Optional Toggles
 
 ### Status
 
@@ -92,3 +92,10 @@ Print Report now generates a clean HTML document report with real selectable tex
 # v0.9.2 Optional Section Toggles
 
 Adds toggles for Advanced Pay, Take-Home Estimate, and Goal Mode. Disabled sections are hidden from reports and saved locally.
+
+
+---
+
+# v0.9.3 Inline Optional Toggles
+
+Optional toggles now live inside the header of each optional card instead of in a standalone options card.

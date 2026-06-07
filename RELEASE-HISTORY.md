@@ -31,6 +31,7 @@ Use this when you need to know what came before a release, what to back up befor
 | 17 | 2026-06-07 | Time Off v0.9.1 | Professional Reports Print Fix | Fixed Print Report button behavior. |
 | 18 | 2026-06-07 | Root v0.2.6 | Backup & Recovery System | Added backup and restore documentation. |
 | 19 | 2026-06-07 | Root v0.2.7 | Release Management System | Added master changelog, master roadmap, and release history. |
+| 20 | 2026-06-07 | Root v0.3 | UI Density Refactor | Tightened shared UI spacing and density. |
 
 ---
 
@@ -47,3 +48,6 @@ YYYY-MM-DD-before-release-name/
   overtime/
   timeoff/
 ```
+
+| 21 | 2026-06-07 | Overtime v0.9.3 | Inline Optional Toggles | Moved optional toggles into card headers. |
+| 22 | 2026-06-07 | Time Off v0.9.3 | Inline Optional Toggles | Moved optional toggles into card headers. |

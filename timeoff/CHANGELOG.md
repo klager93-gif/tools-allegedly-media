@@ -1,3 +1,20 @@
+## Version 0.9.3
+
+**Date:** 2026-06-07  
+**Theme:** Inline Optional Toggles
+
+### Changes
+
+- Moved optional toggles into each optional card header.
+- Removed the large standalone Optional Sections card.
+- Added smaller Optional labels beside each inline toggle.
+- Tightened UI spacing through shared Root v0.3 density styles.
+- Preserved saved toggle behavior.
+- Preserved report exclusion behavior for disabled optional sections.
+- No image-based report generation is used.
+
+---
+
 ## Version 0.9.2
 
 **Date:** 2026-06-07  

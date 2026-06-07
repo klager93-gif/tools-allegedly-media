@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.2.1
+v0.9.3.1
 
 ## Theme
 
-Optional Section Toggles Print Fix
+Inline Optional Toggles Print Fix
 
 ---
 

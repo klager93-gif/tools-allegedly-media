@@ -10,6 +10,28 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ## 2026-06-07
 
+### Overtime v0.9.3 — Inline Optional Toggles
+
+- Moved optional toggles into optional card headers.
+- Removed standalone Optional Sections card.
+- Preserved report exclusion behavior.
+
+---
+
+### Time Off v0.9.3 — Inline Optional Toggles
+
+- Moved optional toggles into optional card headers.
+- Removed standalone Optional Sections card.
+- Preserved report exclusion behavior.
+
+
+### Root v0.3 — UI Density Refactor
+
+- Added shared compact spacing rules.
+- Reduced vertical height of cards, forms, and result rows.
+- Prepared the tools for inline optional toggles.
+
+
 ### Root v0.2.7 — Release Management System
 
 - Added MASTER-CHANGELOG.md.
