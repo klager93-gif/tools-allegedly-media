@@ -8,6 +8,7 @@ const eventHoursInput = document.getElementById("eventHours");
 const planningEventListEl = document.getElementById("planningEventList");
 const plannedEventResultsEl = document.getElementById("plannedEventResults");
 const warningResultsEl = document.getElementById("warningResults");
+const clearSavedProfileButton = document.getElementById("clearSavedProfile");
 
 const policyResetDateInput = document.getElementById("policyResetDate");
 const carryoverLimitInput = document.getElementById("carryoverLimit");
@@ -35,6 +36,9 @@ const generatedTimeEl = document.getElementById("generatedTime");
 const messageEl = document.getElementById("message");
 
 let plannedEvents = [];
+let isLoadingSavedSettings = false;
+
+const STORAGE_KEY = "signalLabsTimeOffCalculatorV06";
 
 const CATEGORY_CONFIGS = [
   {
@@ -87,6 +91,140 @@ const CATEGORY_CONFIGS = [
     placeholderCap: "0"
   }
 ];
+
+
+function getSavedState() {
+  const selectedCategories = getSelectedCategories();
+  const categoryValues = {};
+
+  selectedCategories.forEach((categoryId) => {
+    if (getCategoryField(categoryId, "currentBalance")) {
+      categoryValues[categoryId] = {
+        currentBalance: getCategoryField(categoryId, "currentBalance").value,
+        accrualPerPeriod: getCategoryField(categoryId, "accrualPerPeriod").value,
+        plannedUsage: getCategoryField(categoryId, "plannedUsage").value,
+        averageUsage: getCategoryField(categoryId, "averageUsage").value,
+        ptoCap: getCategoryField(categoryId, "ptoCap").value
+      };
+    }
+  });
+
+  return {
+    selectedCategories,
+    categoryValues,
+    plannedEvents,
+    payPeriod: payPeriodInput.value,
+    targetDate: targetDateInput.value,
+    hoursPerDay: hoursPerDayInput.value,
+    eventCategory: eventCategoryInput.value,
+    eventName: eventNameInput.value,
+    eventDate: eventDateInput.value,
+    eventHours: eventHoursInput.value,
+    policyResetDate: policyResetDateInput.value,
+    carryoverLimit: carryoverLimitInput.value,
+    useItOrLoseIt: useItOrLoseItInput.checked,
+    policyNotes: policyNotesInput.value
+  };
+}
+
+function saveSettings(showMessage = false) {
+  if (isLoadingSavedSettings) {
+    return;
+  }
+
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(getSavedState()));
+
+    if (showMessage) {
+      messageEl.classList.remove("error");
+      messageEl.textContent = "Saved profile updated. Values will load automatically next time you visit.";
+    }
+  } catch (error) {
+    if (showMessage) {
+      messageEl.textContent = "Unable to save settings in this browser.";
+      messageEl.classList.add("error");
+    }
+  }
+}
+
+function clearSavedSettings() {
+  localStorage.removeItem(STORAGE_KEY);
+}
+
+function clearSavedProfile() {
+  clearSavedSettings();
+
+  messageEl.classList.remove("error");
+  messageEl.textContent =
+    "Saved profile cleared from this device. Current values will stay until you leave or reset.";
+}
+
+function loadSavedSettings() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+
+  if (!saved) {
+    return false;
+  }
+
+  try {
+    isLoadingSavedSettings = true;
+
+    const data = JSON.parse(saved);
+    const selectedCategories = Array.isArray(data.selectedCategories) && data.selectedCategories.length > 0
+      ? data.selectedCategories
+      : ["vacation"];
+
+    setCategorySelection(selectedCategories);
+
+    payPeriodInput.value = data.payPeriod || "biweekly";
+    targetDateInput.value = data.targetDate || "";
+    hoursPerDayInput.value = data.hoursPerDay || "";
+
+    policyResetDateInput.value = data.policyResetDate || "";
+    carryoverLimitInput.value = data.carryoverLimit || "";
+    useItOrLoseItInput.checked = Boolean(data.useItOrLoseIt);
+    policyNotesInput.value = data.policyNotes || "";
+
+    if (data.categoryValues && typeof data.categoryValues === "object") {
+      selectedCategories.forEach((categoryId) => {
+        const values = data.categoryValues[categoryId];
+
+        if (!values || !getCategoryField(categoryId, "currentBalance")) {
+          return;
+        }
+
+        getCategoryField(categoryId, "currentBalance").value = values.currentBalance || "";
+        getCategoryField(categoryId, "accrualPerPeriod").value = values.accrualPerPeriod || "";
+        getCategoryField(categoryId, "plannedUsage").value = values.plannedUsage || "";
+        getCategoryField(categoryId, "averageUsage").value = values.averageUsage || "";
+        getCategoryField(categoryId, "ptoCap").value = values.ptoCap || "";
+      });
+    }
+
+    plannedEvents = Array.isArray(data.plannedEvents)
+      ? data.plannedEvents.filter((event) => selectedCategories.includes(event.categoryId))
+      : [];
+
+    syncEventCategoryOptions();
+
+    if (data.eventCategory && selectedCategories.includes(data.eventCategory)) {
+      eventCategoryInput.value = data.eventCategory;
+    }
+
+    eventNameInput.value = data.eventName || "";
+    eventDateInput.value = data.eventDate || "";
+    eventHoursInput.value = data.eventHours || "";
+
+    renderPlanningEvents();
+
+    return true;
+  } catch (error) {
+    clearSavedSettings();
+    return false;
+  } finally {
+    isLoadingSavedSettings = false;
+  }
+}
 
 function getInputValue(input) {
   return Number(input.value) || 0;
@@ -377,6 +515,7 @@ function addPlanningEvent() {
 
 function clearPlanningEvents() {
   plannedEvents = [];
+  clearSavedSettings();
   renderPlanningEvents();
   calculateTimeOff();
 }
@@ -781,6 +920,8 @@ function renderWarningResults(warnings) {
 }
 
 function calculateTimeOff() {
+  saveSettings();
+
   const selectedCategories = getSelectedCategories();
   const hoursPerDay = getInputValue(hoursPerDayInput) || 8;
   const targetDateValue = targetDateInput.value;
@@ -1032,6 +1173,10 @@ categoryOptionsEl.querySelectorAll("input[type='checkbox']").forEach((checkbox) 
 document.getElementById("calculate").addEventListener("click", calculateTimeOff);
 document.getElementById("example").addEventListener("click", loadExample);
 document.getElementById("reset").addEventListener("click", clearCalculator);
+
+if (clearSavedProfileButton) {
+  clearSavedProfileButton.addEventListener("click", clearSavedProfile);
+}
 document.getElementById("addPlanningEvent").addEventListener("click", addPlanningEvent);
 document.getElementById("clearPlanningEvents").addEventListener("click", clearPlanningEvents);
 
@@ -1049,7 +1194,17 @@ document.getElementById("openRoadmap").addEventListener("click", () => {
   });
 });
 
-renderCategoryCards();
-syncEventCategoryOptions();
-renderPlanningEvents();
-resetResults();
+const loadedSavedSettings = loadSavedSettings();
+
+if (!loadedSavedSettings) {
+  renderCategoryCards();
+  syncEventCategoryOptions();
+  renderPlanningEvents();
+  resetResults();
+} else {
+  calculateTimeOff();
+  saveSettings();
+
+  messageEl.classList.remove("error");
+  messageEl.textContent = "Welcome back. Previous time off values restored.";
+}

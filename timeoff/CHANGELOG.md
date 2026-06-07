@@ -4,6 +4,32 @@
 
 ---
 
+## Version 0.6
+
+**Date:** 2026-06-07  
+**Time:** 14:05 UTC
+
+### Theme
+
+Saved Profiles
+
+### Changes
+
+- Added automatic saved profiles.
+- Added local storage support for Time Off Calculator values.
+- Saved selected time-off categories.
+- Saved category balances, accrual rates, planned usage, average usage, and caps.
+- Saved projection settings.
+- Saved Planning Mode events.
+- Saved Policy Helper values.
+- Saved in-progress planned event fields.
+- Added welcome-back restoration message.
+- Added Clear Saved Profile control.
+- Updated build labels and cache-busting references for v0.6.
+- Updated documentation for v0.6.
+
+---
+
 ## Version 0.5.1
 
 **Date:** 2026-06-07  

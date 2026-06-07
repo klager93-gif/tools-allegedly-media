@@ -84,6 +84,18 @@ Each selected category supports:
 - Reset-date reminders.
 - Carryover-limit reminders.
 
+## Saved Profiles
+
+- Automatic saved profile support.
+- Saved selected categories.
+- Saved category input values.
+- Saved projection settings.
+- Saved planned events.
+- Saved policy helper values.
+- Welcome-back restoration message.
+- Clear saved profile control.
+- Local storage support.
+
 ## Quality of Life
 
 - Improved numeric input spinner behavior.
@@ -100,6 +112,7 @@ Each selected category supports:
 - Category-level results.
 - Planning event impact.
 - Warning panel.
+- Saved profiles.
 
 ---
 
@@ -172,11 +185,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.5.1
+v0.6
 
 ### Theme
 
-Input Polish
+Saved Profiles
 
 ### Status
 

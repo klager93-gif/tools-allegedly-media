@@ -7,11 +7,11 @@
 ## Last Updated
 
 2026-06-07  
-13:15 UTC
+14:05 UTC
 
 ## Current Version
 
-**v0.5.1**
+**v0.6**
 
 ---
 
@@ -28,10 +28,43 @@
 | v0.4 | Planning Mode |
 | v0.5 | Warnings & Policy Helpers |
 | v0.5.1 | Input Polish |
+| v0.6 | Saved Profiles |
 
 ---
 
 # Upcoming Versions
+
+## v0.7
+
+### Theme
+
+Mobile Layout Refactor
+
+### Planned Features
+
+- Collapsible cards.
+- Compact mobile results.
+- Mobile result sections.
+- Better spacing.
+- Smaller summary card.
+- Saved mobile layout state.
+
+---
+
+## v0.8
+
+### Theme
+
+Share & Export
+
+### Planned Features
+
+- Copy results.
+- Print support.
+- Save PDF support.
+- Better summary output.
+
+---
 
 ## v1.0
 
