@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.6.2.1
+Version: v0.7
 Purpose: Tool-specific logic and event handling
 */
 const categoryOptionsEl = document.getElementById("categoryOptions");
@@ -45,8 +45,9 @@ const messageEl = document.getElementById("message");
 let plannedEvents = [];
 let isLoadingSavedSettings = false;
 
-const STORAGE_KEY = "signalLabsTimeOffCalculatorV0621";
+const STORAGE_KEY = "signalLabsTimeOffCalculatorV07";
 const LEGACY_STORAGE_KEYS = [
+  "signalLabsTimeOffCalculatorV0621",
   "signalLabsTimeOffCalculatorV062",
   "signalLabsTimeOffCalculatorV061",
   "signalLabsTimeOffCalculatorV06"
@@ -105,6 +106,141 @@ const CATEGORY_CONFIGS = [
 ];
 
 
+
+function getCollapseStates() {
+  const states = {
+    cards: [],
+    results: []
+  };
+
+  document.querySelectorAll("[data-collapse-card]").forEach((card, index) => {
+    states.cards[index] = card.classList.contains("is-collapsed");
+  });
+
+  document.querySelectorAll("[data-result-section]").forEach((section, index) => {
+    states.results[index] = section.classList.contains("is-result-collapsed");
+  });
+
+  return states;
+}
+
+function applyCollapseStates(collapseStates) {
+  if (!collapseStates) {
+    return;
+  }
+
+  if (Array.isArray(collapseStates.cards)) {
+    document.querySelectorAll("[data-collapse-card]").forEach((card, index) => {
+      const shouldCollapse = Boolean(collapseStates.cards[index]);
+      card.classList.toggle("is-collapsed", shouldCollapse);
+
+      const button = card.querySelector(".collapse-toggle");
+
+      if (button) {
+        button.textContent = shouldCollapse ? "Show" : "Hide";
+        button.setAttribute("aria-expanded", String(!shouldCollapse));
+      }
+    });
+  }
+
+  if (Array.isArray(collapseStates.results)) {
+    document.querySelectorAll("[data-result-section]").forEach((section, index) => {
+      const shouldCollapse = Boolean(collapseStates.results[index]);
+      section.classList.toggle("is-result-collapsed", shouldCollapse);
+
+      const button = section.querySelector(".result-collapse-toggle");
+
+      if (button) {
+        button.textContent = shouldCollapse ? "Show" : "Hide";
+        button.setAttribute("aria-expanded", String(!shouldCollapse));
+      }
+    });
+  }
+}
+
+
+function setupSingleCollapsibleCard(card) {
+  const button = card.querySelector(".collapse-toggle");
+
+  if (!button) {
+    return;
+  }
+
+  const updateButton = () => {
+    const isCollapsed = card.classList.contains("is-collapsed");
+    button.textContent = isCollapsed ? "Show" : "Hide";
+    button.setAttribute("aria-expanded", String(!isCollapsed));
+  };
+
+  if (card.classList.contains("mobile-collapsed") && window.innerWidth <= 700) {
+    card.classList.add("is-collapsed");
+  }
+
+  updateButton();
+
+  button.addEventListener("click", () => {
+    card.classList.toggle("is-collapsed");
+    updateButton();
+    saveSettings();
+  });
+}
+
+function setupMobileCollapsibleCards() {
+  document.querySelectorAll("[data-collapse-card]").forEach((card) => {
+    const button = card.querySelector(".collapse-toggle");
+
+    if (!button) {
+      return;
+    }
+
+    const updateButton = () => {
+      const isCollapsed = card.classList.contains("is-collapsed");
+      button.textContent = isCollapsed ? "Show" : "Hide";
+      button.setAttribute("aria-expanded", String(!isCollapsed));
+    };
+
+    if (card.classList.contains("mobile-collapsed") && window.innerWidth <= 700) {
+      card.classList.add("is-collapsed");
+    }
+
+    updateButton();
+
+    button.addEventListener("click", () => {
+      card.classList.toggle("is-collapsed");
+      updateButton();
+      saveSettings();
+    });
+  });
+}
+
+function setupMobileResultSections() {
+  document.querySelectorAll("[data-result-section]").forEach((section) => {
+    const button = section.querySelector(".result-collapse-toggle");
+
+    if (!button) {
+      return;
+    }
+
+    const updateButton = () => {
+      const isCollapsed = section.classList.contains("is-result-collapsed");
+      button.textContent = isCollapsed ? "Show" : "Hide";
+      button.setAttribute("aria-expanded", String(!isCollapsed));
+    };
+
+    if (section.classList.contains("mobile-result-collapsed") && window.innerWidth <= 700) {
+      section.classList.add("is-result-collapsed");
+    }
+
+    updateButton();
+
+    button.addEventListener("click", () => {
+      section.classList.toggle("is-result-collapsed");
+      updateButton();
+      saveSettings();
+    });
+  });
+}
+
 function getSavedState() {
   const selectedCategories = getSelectedCategories();
   const categoryValues = {};
@@ -135,7 +271,8 @@ function getSavedState() {
     policyResetDate: policyResetDateInput.value,
     carryoverLimit: carryoverLimitInput.value,
     useItOrLoseIt: useItOrLoseItInput.checked,
-    policyNotes: policyNotesInput.value
+    policyNotes: policyNotesInput.value,
+    collapseStates: getCollapseStates()
   };
 }
 
@@ -238,6 +375,10 @@ function loadSavedSettings() {
     eventHoursInput.value = data.eventHours || "";
 
     renderPlanningEvents();
+
+    if (data.collapseStates) {
+      setTimeout(() => applyCollapseStates(data.collapseStates), 0);
+    }
 
     return true;
   } catch (error) {
@@ -353,14 +494,26 @@ function getCategoryField(categoryId, fieldName) {
 
 function createCategoryCard(category) {
   const card = document.createElement("section");
-  card.className = "card step-card timeoff-category-card";
+  card.className = "card step-card timeoff-category-card collapsible-card mobile-collapsed";
   card.dataset.categoryCard = category.id;
+  card.setAttribute("data-collapse-card", "");
 
   card.innerHTML = `
-    <div class="category-card-heading">
-      <h3>${category.label}</h3>
-      <p>Enter balance, accrual, cap, and expected usage for this category.</p>
+    <div class="category-card-heading section-title">
+      <div>
+        <h3>${category.label}</h3>
+        <p>Enter balance, accrual, cap, and expected usage for this category.</p>
+      </div>
+
+      <button
+        class="collapse-toggle"
+        type="button"
+        aria-expanded="false">
+        Show
+      </button>
     </div>
+
+    <div class="card-collapse-content">
 
     <div class="form-grid">
       <label>
@@ -387,6 +540,8 @@ function createCategoryCard(category) {
         <span>Cap<br><small>(Optional)</small></span>
         <input id="${category.id}-ptoCap" type="number" placeholder="${category.placeholderCap}" min="0" step="0.01">
       </label>
+    </div>
+
     </div>
   `;
 
@@ -424,6 +579,7 @@ function renderCategoryCards() {
     const card = createCategoryCard(category);
     categoryInputCardsEl.appendChild(card);
     wireCategoryCardInputs(card);
+    setupSingleCollapsibleCard(card);
   });
 }
 
@@ -1222,11 +1378,15 @@ if (!loadedSavedSettings) {
   renderCategoryCards();
   syncEventCategoryOptions();
   renderPlanningEvents();
+  setupMobileCollapsibleCards();
+  setupMobileResultSections();
   resetResults();
 } else {
+  setupMobileCollapsibleCards();
+  setupMobileResultSections();
   calculateTimeOff();
   saveSettings();
 
   messageEl.classList.remove("error");
-  messageEl.textContent = "Welcome back. Previous time off values restored.";
+  messageEl.textContent = "Welcome back. Previous time off values and layout restored.";
 }

@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.6.2.1
+v0.7
 
 ## Theme
 
-Standards Manifest Adoption
+Mobile Layout Refactor
 
 ---
 

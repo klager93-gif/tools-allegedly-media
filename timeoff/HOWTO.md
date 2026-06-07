@@ -98,3 +98,12 @@ BUILDMANIFEST.md
 ```
 
 These files help prevent missing files, wrong-folder uploads, cross-contamination, and malformed version strings.
+
+
+---
+
+# v0.7 Mobile Layout Refactor
+
+On mobile, input cards and result sections can be collapsed to reduce page length.
+
+The calculator saves layout state locally with the saved profile.

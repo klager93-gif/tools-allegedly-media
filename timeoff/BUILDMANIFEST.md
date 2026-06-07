@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.6.2.1
+v0.7
 
 ## Theme
 
-Standards Manifest Adoption
+Mobile Layout Refactor
 
 ---
 
@@ -36,22 +36,13 @@ Standards Manifest Adoption
 
 ## Version Checks
 
-- [ ] index.html version labels match v0.6.2.1.
+- [ ] index.html version labels match v0.7.
 - [ ] cache-busting references are correct.
 - [ ] README current version matches.
 - [ ] ROADMAP current version matches.
 - [ ] CHANGELOG newest entry matches.
 - [ ] No malformed version strings exist.
-
-## Version String Sanity
-
-Reject:
-
-```text
-version 0.2.2.2.2
-version 0.8.3.1.1
-version 0.6.2.1.1
-```
+- [ ] No duplicate changelog version headings exist.
 
 ---
 

@@ -100,6 +100,9 @@ Each selected category supports:
 
 - Shared Signal Labs navigation.
 - Disabled ad slot placements.
+- Collapsible input cards.
+- Collapsible result sections.
+- Saved layout state.
 - Active navigation highlighting.
 
 
@@ -190,11 +193,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.6.2.1
+v0.7
 
 ### Theme
 
-Disabled Ad Slot Sync
+Mobile Layout Refactor
 
 ### Status
 

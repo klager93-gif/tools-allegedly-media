@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: index.html
-Version: v0.6.2.1
+Version: v0.7
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ Time Off Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.6.2.1">
+  href="style.css?v=0.7">
 
 </head>
 <body>
@@ -89,7 +89,7 @@ Time Off Calculator | Signal Labs
 
 <section class="left-stack">
 
-<section class="card step-card category-card">
+<section class="card step-card category-card collapsible-card is-open" data-collapse-card>
 
 <div class="section-title">
   <div class="step-badge green">1</div>
@@ -97,7 +97,16 @@ Time Off Calculator | Signal Labs
     <h2>Categories</h2>
     <p>Choose the time-off banks you want to calculate.</p>
   </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="true">
+    Hide
+  </button>
 </div>
+
+<div class="card-collapse-content">
 
 <div class="category-grid" id="categoryOptions">
 
@@ -142,10 +151,12 @@ Time Off Calculator | Signal Labs
   Selected categories show separate results, cap status, and planned-event impact below the combined totals.
 </p>
 
+</div>
+
 </section>
 
 
-<section class="card step-card">
+<section class="card step-card collapsible-card is-open" data-collapse-card>
 
 <div class="section-title">
   <div class="step-badge blue">2</div>
@@ -153,7 +164,16 @@ Time Off Calculator | Signal Labs
     <h2>Projection</h2>
     <p>Choose a future date and shared conversion settings.</p>
   </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="true">
+    Hide
+  </button>
 </div>
+
+<div class="card-collapse-content">
 
 <div class="form-grid">
 
@@ -223,7 +243,7 @@ Time Off Calculator | Signal Labs
 </section>
 
 
-<section class="card step-card planning-card">
+<section class="card step-card planning-card collapsible-card mobile-collapsed" data-collapse-card>
 
 <div class="section-title">
   <div class="step-badge purple">3</div>
@@ -231,7 +251,16 @@ Time Off Calculator | Signal Labs
     <h2>Planning Mode</h2>
     <p>Add planned vacations, appointments, holidays, or other time-off events.</p>
   </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="false">
+    Show
+  </button>
 </div>
+
+<div class="card-collapse-content">
 
 <div class="planning-form">
 
@@ -280,10 +309,12 @@ Time Off Calculator | Signal Labs
   <p>No planned events added.</p>
 </div>
 
+</div>
+
 </section>
 
 
-<section class="card step-card policy-card">
+<section class="card step-card policy-card collapsible-card mobile-collapsed" data-collapse-card>
 
 <div class="section-title">
   <div class="step-badge orange">4</div>
@@ -291,7 +322,16 @@ Time Off Calculator | Signal Labs
     <h2>Policy Helpers</h2>
     <p>Add optional employer policy details for stronger warnings.</p>
   </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="false">
+    Show
+  </button>
 </div>
+
+<div class="card-collapse-content">
 
 <div class="form-grid">
 
@@ -321,6 +361,8 @@ Time Off Calculator | Signal Labs
   Policy helpers are reminders only. They do not replace your employer handbook, payroll system, union contract, or HR guidance.
 </p>
 
+</div>
+
 </section>
 
 
@@ -330,7 +372,7 @@ Time Off Calculator | Signal Labs
 </section>
 
 
-<section class="card results-card">
+<section class="card results-card results-compact-mobile">
 
 <div class="results-heading">
   <div>
@@ -338,9 +380,11 @@ Time Off Calculator | Signal Labs
   </div>
 </div>
 
-<div class="results-section">
+<div class="results-section mobile-result-section" data-result-section>
 
-<h3>Combined Time Off Projection</h3>
+<h3>Combined Time Off Projection
+  <button class="result-collapse-toggle" type="button" aria-expanded="true">Hide</button>
+</h3>
 
 <div class="result-row total">
   <span>Projected Time Off Balance</span>
@@ -373,9 +417,11 @@ Time Off Calculator | Signal Labs
 </div>
 
 
-<div class="results-section">
+<div class="results-section mobile-result-section mobile-result-collapsed" data-result-section>
 
-<h3>Timeline</h3>
+<h3>Timeline
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+</h3>
 
 <div class="result-row">
   <span>Pay Periods Until Target</span>
@@ -394,9 +440,11 @@ Time Off Calculator | Signal Labs
 
 </div>
 
-<div class="results-section">
+<div class="results-section mobile-result-section mobile-result-collapsed" data-result-section>
 
-<h3>Combined Cap Status</h3>
+<h3>Combined Cap Status
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+</h3>
 
 <div class="result-row">
   <span>Combined Cap</span>
@@ -415,9 +463,11 @@ Time Off Calculator | Signal Labs
 
 </div>
 
-<div class="results-section warning-results-section">
+<div class="results-section warning-results-section mobile-result-section mobile-result-collapsed" data-result-section>
 
-<h3>Warnings & Policy Notes</h3>
+<h3>Warnings & Policy Notes
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+</h3>
 
 <div id="warningResults" class="warning-results-list">
   <p class="empty-results">Warnings and policy notes will appear after calculation.</p>
@@ -425,9 +475,11 @@ Time Off Calculator | Signal Labs
 
 </div>
 
-<div class="results-section category-results-section">
+<div class="results-section category-results-section mobile-result-section mobile-result-collapsed" data-result-section>
 
-<h3>Category Results</h3>
+<h3>Category Results
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+</h3>
 
 <div id="categoryResults" class="category-results-list">
   <p class="empty-results">Select categories and enter values to see category-level results.</p>
@@ -435,9 +487,11 @@ Time Off Calculator | Signal Labs
 
 </div>
 
-<div class="results-section planned-results-section">
+<div class="results-section planned-results-section mobile-result-section mobile-result-collapsed" data-result-section>
 
-<h3>Planned Event Impact</h3>
+<h3>Planned Event Impact
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+</h3>
 
 <div id="plannedEventResults" class="planned-event-results">
   <p class="empty-results">Add planned events to see running balance impact.</p>
@@ -454,12 +508,12 @@ Time Off Calculator | Signal Labs
 
   <p>
     Build:
-    v0.6.2.1
+    v0.7
   </p>
 
   <p>
     Theme:
-    Disabled Ad Slot Sync
+    Mobile Layout Refactor
   </p>
 
   <p>
@@ -497,7 +551,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Calculator · v0.6.2.1
+  Signal Labs · Time Off Calculator · v0.7
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -533,7 +587,7 @@ Loading...
 </div>
 
 <script src="../assets/global.js?v=0.2.3"></script>
-<script src="script.js?v=0.6.2.1"></script>
+<script src="script.js?v=0.7"></script>
 
 </body>
 </html>
