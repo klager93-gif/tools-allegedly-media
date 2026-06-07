@@ -4,15 +4,274 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ---
 
+# Purpose
+
+The Signal Labs Overtime Calculator is designed to provide a clean, modern, and easy-to-use way to estimate overtime pay and earnings.
+
+The long-term goal is to expand the calculator into a more complete income planning tool capable of handling advanced pay scenarios, income goals, and additional financial planning features.
+
+---
+
+# Current Features
+
+## Basic Pay
+
+- Hourly rate input.
+- Hours worked input.
+- Pay period selection.
+- Overtime multiplier.
+- Automatic overtime thresholds.
+- Custom overtime thresholds.
+- Threshold override support.
+
+### Supported Pay Periods
+
+- Weekly
+- Bi-Weekly
+- Semi-Monthly
+- Monthly
+- Custom
+
+---
+
+## Currency Display
+
+- Currency selector.
+- USD display support.
+- EUR display support.
+- GBP display support.
+- CAD display support.
+- AUD display support.
+- Saved currency preference.
+
+Currency changes display only. It does not convert exchange rates or change tax rules, overtime rules, pay rules, or labor laws.
+
+---
+
+## Pay Calculations
+
+- Regular hours calculation.
+- Overtime hours calculation.
+- Regular pay calculation.
+- Overtime pay calculation.
+- Total gross pay calculation.
+- Gross effective hourly rate.
+
+---
+
+## Advanced Pay
+
+- Shift differential rate.
+- Differential hours.
+- Additional double-time hours.
+- Weekend bonus.
+- Holiday bonus.
+- Flat bonus.
+- Advanced pay results breakdown.
+- Validation for differential hours.
+- Validation for additional double-time hours.
+
+---
+
+## Take-Home Estimates
+
+### Taxes
+
+- Multiple tax entries.
+- Custom tax names.
+- Tax percentage totals.
+- Detailed tax breakdown.
+- Custom in-page tax modal.
+
+### Deductions
+
+- Multiple deduction entries.
+- Custom deduction names.
+- Fixed deduction totals.
+- Detailed deduction breakdown.
+- Custom in-page deduction modal.
+
+### Other Adjustments
+
+- Multiple adjustment entries.
+- Custom adjustment names.
+- Custom in-page adjustment modal.
+
+---
+
+## Goal Mode
+
+- Gross pay target.
+- Take-home pay target.
+- Hours needed estimate.
+- Overtime hours needed estimate.
+- Estimated shifts needed based on typical shift length.
+- Estimated gross and take-home results for the goal.
+- Uses current rate, pay period, overtime threshold, taxes, deductions, and advanced pay settings.
+
+
+## Quality of Life Features
+
+- Example values.
+- Reset functionality.
+- Clear adjustment controls.
+- Changelog popup.
+- Roadmap popup.
+- Automatic saved settings.
+- Manual Save Settings button.
+- Automatic restoration of values.
+- Local storage support.
+- Responsive layout.
+- Mobile support.
+- Mobile collapsible cards.
+- Compact mobile results layout.
+- Mobile collapsible results sections.
+- Mobile hero polish.
+- Centered mobile branding.
+- Saved layout state.
+- Welcome-back restoration message.
+- Clear saved profile control.
+- Legacy saved profile migration.
+- Compact mobile summary card.
+- Goal Mode.
+- Gross pay targets.
+- Take-home pay targets.
+- Reverse hour estimates.
+- Roadmap cleanup.
+
+---
+
+# Folder Structure
+
+```text
+overtime/
+
+index.html
+Main page and layout.
+
+style.css
+Calculator-specific styling.
+
+script.js
+Calculator logic and event handling.
+
+CHANGELOG.md
+Historical record of releases.
+
+ROADMAP.md
+Current and future plans.
+
+README.md
+General project documentation.
+```
+
+---
+
+# Shared Assets
+
+## ../assets/global.css
+
+Provides:
+
+- Theme.
+- Typography.
+- Buttons.
+- Cards.
+- Modal styling.
+- Footer styling.
+- Responsive foundations.
+
+---
+
+## ../assets/global.js
+
+Provides:
+
+- Modal system.
+- Utility functions.
+- Currency formatting.
+- UTC timestamps.
+
+---
+
+# Version Philosophy
+
+## Major Versions
+
+Examples:
+
+- 0.1
+- 0.2
+- 0.3
+- 0.4
+- 0.5
+- 0.6
+- 1.0
+
+Major versions introduce new features and capabilities.
+
+---
+
+## Patch Versions
+
+Examples:
+
+- 0.5.1
+- 0.5.2
+- 0.5.3
+- 0.6.1
+- 0.6.2
+- 0.6.3
+- 0.6.4
+
+Patch versions focus on quality, stability, polish, and refinements.
+
+---
+
+Every release is treated as a full replacement release rather than incremental patches.
+
+---
+
+# Development Philosophy
+
+Signal Labs tools are intended to be:
+
+- Useful.
+- Fast.
+- Mobile-friendly.
+- Easy to understand.
+- Lightweight.
+- Free from unnecessary complexity.
+
+> Useful tools without the noise.
+
+---
+
+# Future Plans
+
+Planned areas of expansion include:
+
+- Advanced pay calculations.
+- Export and sharing.
+- Progressive Web App support.
+- Native iOS applications.
+- Native Android applications.
+
+Implementation depends on project growth and future requirements.
+
+Additional features and improvements are always possible.
+
+---
+
 # Current Status
 
 ### Build
 
-v0.8.2.1
+v0.8.1
 
 ### Theme
 
-Layout Repair Patch
+Goal Mode
 
 ### Status
 
@@ -20,38 +279,25 @@ Active Development
 
 ---
 
-# Current Features
+# Ad Slot Placement
 
-- Basic pay calculation.
-- Smart pay period overtime thresholds.
-- Custom overtime threshold override.
-- Currency display options.
-- Advanced pay.
-- Shift differential.
-- Additional double-time hours.
-- Bonuses.
-- Dynamic taxes.
-- Dynamic deductions.
-- Other adjustments.
-- Take-home estimate.
-- Saved settings.
-- Saved layout state.
-- Mobile collapsible cards.
-- Mobile collapsible results.
-- Goal Mode.
-- Shared Signal Labs navigation.
+Overtime v0.8.3 adds disabled ad slot placements using the Root v0.2.2 global ad slot framework.
 
----
+No live ads are served.
 
-# Notes
+## Added Slots
 
-This repair release replaces the broken Overtime v0.8.2.1 files from the previous combined ZIP.
+```text
+overtime-top
+overtime-inline-results
+overtime-footer
+```
 
+All slots are disabled with:
 
----
+```html
+data-ad-status="disabled"
+```
 
-# v0.8.2.1 Repair Notes
+They are reserved for future monetization support only.
 
-This repair patch fixes the broken live Overtime layout by forcing a fresh stylesheet/script cache-bust and preserving the calculator-specific layout files.
-
-No Time Off files are included.

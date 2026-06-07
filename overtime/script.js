@@ -1,1121 +1,1055 @@
-const rateInput = document.getElementById("rate");
-const hoursInput = document.getElementById("hours");
+const categoryOptionsEl = document.getElementById("categoryOptions");
+const categoryInputCardsEl = document.getElementById("categoryInputCards");
+const categoryResultsEl = document.getElementById("categoryResults");
+const eventCategoryInput = document.getElementById("eventCategory");
+const eventNameInput = document.getElementById("eventName");
+const eventDateInput = document.getElementById("eventDate");
+const eventHoursInput = document.getElementById("eventHours");
+const planningEventListEl = document.getElementById("planningEventList");
+const plannedEventResultsEl = document.getElementById("plannedEventResults");
+const warningResultsEl = document.getElementById("warningResults");
+
+const policyResetDateInput = document.getElementById("policyResetDate");
+const carryoverLimitInput = document.getElementById("carryoverLimit");
+const useItOrLoseItInput = document.getElementById("useItOrLoseIt");
+const policyNotesInput = document.getElementById("policyNotes");
+
 const payPeriodInput = document.getElementById("payPeriod");
-const currencyInput = document.getElementById("currency");
-const multiplierInput = document.getElementById("multiplier");
+const targetDateInput = document.getElementById("targetDate");
+const hoursPerDayInput = document.getElementById("hoursPerDay");
 
-const differentialRateInput = document.getElementById("differentialRate");
-const differentialHoursInput = document.getElementById("differentialHours");
-const doubleTimeHoursInput = document.getElementById("doubleTimeHours");
-const weekendBonusInput = document.getElementById("weekendBonus");
-const holidayBonusInput = document.getElementById("holidayBonus");
-const otherBonusInput = document.getElementById("otherBonus");
+const projectedBalanceEl = document.getElementById("projectedBalance");
+const projectedDaysEl = document.getElementById("projectedDays");
+const ptoEarnedEl = document.getElementById("ptoEarned");
+const ptoUsedEl = document.getElementById("ptoUsed");
 
-const overrideThresholdInput = document.getElementById("overrideThreshold");
-const customThresholdInput = document.getElementById("customThreshold");
-const customThresholdWrap = document.getElementById("customThresholdWrap");
-const thresholdDisplayEl = document.getElementById("thresholdDisplay");
-const thresholdNoteEl = document.getElementById("thresholdNote");
+const periodsUntilTargetEl = document.getElementById("periodsUntilTarget");
+const targetDateResultEl = document.getElementById("targetDateResult");
+const selectedCategoryCountEl = document.getElementById("selectedCategoryCount");
 
-const messageEl = document.getElementById("message");
+const capResultEl = document.getElementById("capResult");
+const hoursUntilCapEl = document.getElementById("hoursUntilCap");
+const capStatusEl = document.getElementById("capStatus");
+
 const generatedTimeEl = document.getElementById("generatedTime");
+const messageEl = document.getElementById("message");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV0821";
-const LEGACY_STORAGE_KEYS = [
-  "signalLabsOvertimeCalculatorV082",
-  "signalLabsOvertimeCalculatorV081",
-  "signalLabsOvertimeCalculatorV0801",
-  "signalLabsOvertimeCalculatorV080",
-  "signalLabsOvertimeCalculatorV0733",
-  "signalLabsOvertimeCalculatorV0732",
-  "signalLabsOvertimeCalculatorV0731",
-  "signalLabsOvertimeCalculatorV073",
-  "signalLabsOvertimeCalculatorV072",
-  "signalLabsOvertimeCalculatorV071",
-  "signalLabsOvertimeCalculatorV070",
-  "signalLabsOvertimeCalculatorV064",
-  "signalLabsOvertimeCalculatorV063"
+let plannedEvents = [];
+
+const CATEGORY_CONFIGS = [
+  {
+    id: "vacation",
+    label: "Vacation",
+    placeholderBalance: "48",
+    placeholderAccrual: "6.15",
+    placeholderCap: "240"
+  },
+  {
+    id: "sick",
+    label: "Sick",
+    placeholderBalance: "24",
+    placeholderAccrual: "4.00",
+    placeholderCap: "480"
+  },
+  {
+    id: "personal",
+    label: "Personal",
+    placeholderBalance: "16",
+    placeholderAccrual: "1.00",
+    placeholderCap: "40"
+  },
+  {
+    id: "comp",
+    label: "Comp Time",
+    placeholderBalance: "8",
+    placeholderAccrual: "0",
+    placeholderCap: "80"
+  },
+  {
+    id: "holiday",
+    label: "Holiday",
+    placeholderBalance: "8",
+    placeholderAccrual: "0",
+    placeholderCap: "40"
+  },
+  {
+    id: "floatingHoliday",
+    label: "Floating Holiday",
+    placeholderBalance: "8",
+    placeholderAccrual: "0",
+    placeholderCap: "24"
+  },
+  {
+    id: "custom",
+    label: "Custom",
+    placeholderBalance: "0",
+    placeholderAccrual: "0",
+    placeholderCap: "0"
+  }
 ];
-
-let taxes = [];
-let deductions = [];
-let otherAdjustments = [];
-let isLoadingSavedSettings = false;
-let activeAdjustmentType = null;
-
-const resultIds = [
-  "totalHours",
-  "regularHours",
-  "overtimeHours",
-  "hourlyRate",
-  "overtimeRate",
-  "effectiveRate",
-  "regularPay",
-  "overtimePay",
-  "totalPay",
-  "differentialPay",
-  "doubleTimePay",
-  "bonusPay",
-  "advancedPayTotal",
-  "takeHomePay",
-  "netEffectiveRate",
-  "taxResultsTotal",
-  "deductionResultsTotal",
-  "goalTargetSummary",
-  "goalTargetAmount",
-  "goalHoursNeeded",
-  "goalOvertimeNeeded",
-  "goalShiftsNeeded",
-  "goalGrossRequired",
-  "goalTakeHomeEstimate"
-];
-
-function el(id) {
-  return document.getElementById(id);
-}
 
 function getInputValue(input) {
   return Number(input.value) || 0;
+}
+
+function formatNumber(value) {
+  return Number(value).toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
+
+function formatWholeNumber(value) {
+  return Math.round(value).toLocaleString("en-US");
+}
+
+function formatDate(date) {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
+    return "--";
+  }
+
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+  });
+}
+
+function getCurrentUtcTime() {
+  return new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
+}
+
+function addDays(date, days) {
+  const result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
+function getDaysPerPayPeriod() {
+  switch (payPeriodInput.value) {
+    case "weekly":
+      return 7;
+
+    case "biweekly":
+      return 14;
+
+    case "semimonthly":
+      return 15.21875;
+
+    case "monthly":
+      return 30.4375;
+
+    default:
+      return 14;
+  }
+}
+
+function getDefaultTargetDate() {
+  const today = new Date();
+  const target = addDays(today, 90);
+  return target.toISOString().slice(0, 10);
+}
+
+function getSelectedCategories() {
+  return Array.from(categoryOptionsEl.querySelectorAll("input[type='checkbox']:checked"))
+    .map((input) => input.value);
+}
+
+function getCategoryConfig(categoryId) {
+  return CATEGORY_CONFIGS.find((category) => category.id === categoryId);
+}
+
+function getCategoryLabel(categoryId) {
+  const category = getCategoryConfig(categoryId);
+  return category ? category.label : categoryId;
 }
 
 function makeId() {
   return Date.now().toString() + Math.random().toString(16).slice(2);
 }
 
-function getSelectedCurrency() {
-  return currencyInput ? currencyInput.value : "USD";
+function parseDateValue(value) {
+  return value ? new Date(`${value}T00:00:00`) : null;
 }
 
-function formatMoney(amount) {
-  return Number(amount || 0).toLocaleString("en-US", {
-    style: "currency",
-    currency: getSelectedCurrency()
+function getPayPeriodsBetween(startDate, endDate) {
+  if (!(startDate instanceof Date) || !(endDate instanceof Date)) {
+    return 0;
+  }
+
+  if (Number.isNaN(startDate.getTime()) || Number.isNaN(endDate.getTime())) {
+    return 0;
+  }
+
+  const millisecondsPerDay = 1000 * 60 * 60 * 24;
+  const days = Math.max((endDate - startDate) / millisecondsPerDay, 0);
+
+  return Math.floor(days / getDaysPerPayPeriod());
+}
+
+function getCategoryField(categoryId, fieldName) {
+  return document.getElementById(`${categoryId}-${fieldName}`);
+}
+
+function createCategoryCard(category) {
+  const card = document.createElement("section");
+  card.className = "card step-card timeoff-category-card";
+  card.dataset.categoryCard = category.id;
+
+  card.innerHTML = `
+    <div class="category-card-heading">
+      <h3>${category.label}</h3>
+      <p>Enter balance, accrual, cap, and expected usage for this category.</p>
+    </div>
+
+    <div class="form-grid">
+      <label>
+        <span>Current Balance</span>
+        <input id="${category.id}-currentBalance" type="number" placeholder="${category.placeholderBalance}" min="0" step="0.01">
+      </label>
+
+      <label>
+        <span>Earned Per Period</span>
+        <input id="${category.id}-accrualPerPeriod" type="number" placeholder="${category.placeholderAccrual}" min="0" step="0.01">
+      </label>
+
+      <label>
+        <span>Quick Planned Usage</span>
+        <input id="${category.id}-plannedUsage" type="number" placeholder="0" min="0" step="1">
+      </label>
+
+      <label>
+        <span>Average Used<br><small>Per Period (Optional)</small></span>
+        <input id="${category.id}-averageUsage" type="number" placeholder="0" min="0" step="0.01">
+      </label>
+
+      <label>
+        <span>Cap<br><small>(Optional)</small></span>
+        <input id="${category.id}-ptoCap" type="number" placeholder="${category.placeholderCap}" min="0" step="0.01">
+      </label>
+    </div>
+  `;
+
+  return card;
+}
+
+function wireCategoryCardInputs(card) {
+  card.querySelectorAll("input").forEach((input) => {
+    input.addEventListener("input", calculateTimeOff);
+    input.addEventListener("change", calculateTimeOff);
   });
 }
 
-function formatNumber(value) {
-  return Number(value || 0).toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
+function renderCategoryCards() {
+  const selectedCategories = getSelectedCategories();
+  const existingCards = Array.from(categoryInputCardsEl.querySelectorAll("[data-category-card]"));
+
+  existingCards.forEach((card) => {
+    if (!selectedCategories.includes(card.dataset.categoryCard)) {
+      card.remove();
+    }
+  });
+
+  selectedCategories.forEach((categoryId) => {
+    if (categoryInputCardsEl.querySelector(`[data-category-card='${categoryId}']`)) {
+      return;
+    }
+
+    const category = getCategoryConfig(categoryId);
+
+    if (!category) {
+      return;
+    }
+
+    const card = createCategoryCard(category);
+    categoryInputCardsEl.appendChild(card);
+    wireCategoryCardInputs(card);
   });
 }
 
-function formatWholeGoalNumber(value) {
-  return Math.ceil(Number(value || 0)).toLocaleString("en-US");
-}
 
-function localUtcTime() {
-  if (typeof getCurrentUtcTime === "function") {
-    return getCurrentUtcTime();
-  }
+function syncEventCategoryOptions() {
+  const selectedCategories = getSelectedCategories();
+  const currentValue = eventCategoryInput.value;
 
-  return new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
-}
+  eventCategoryInput.innerHTML = "";
 
-function getDefaultThreshold() {
-  switch (payPeriodInput.value) {
-    case "weekly":
-      return 40;
-    case "biweekly":
-      return 80;
-    case "semimonthly":
-      return 86.67;
-    case "monthly":
-      return 173.33;
-    case "custom":
-      return 0;
-    default:
-      return 40;
-  }
-}
-
-function getPayPeriodLabel() {
-  switch (payPeriodInput.value) {
-    case "weekly":
-      return "Weekly";
-    case "biweekly":
-      return "Bi-weekly";
-    case "semimonthly":
-      return "Semi-monthly";
-    case "monthly":
-      return "Monthly";
-    case "custom":
-      return "Custom";
-    default:
-      return "Weekly";
-  }
-}
-
-function getThreshold() {
-  if (overrideThresholdInput.checked || payPeriodInput.value === "custom") {
-    return getInputValue(customThresholdInput);
-  }
-
-  return getDefaultThreshold();
-}
-
-function getCollapseStates() {
-  const states = {
-    cards: [],
-    results: []
-  };
-
-  document.querySelectorAll("[data-collapse-card]").forEach((card, index) => {
-    states.cards[index] = card.classList.contains("is-collapsed");
+  selectedCategories.forEach((categoryId) => {
+    const option = document.createElement("option");
+    option.value = categoryId;
+    option.textContent = getCategoryLabel(categoryId);
+    eventCategoryInput.appendChild(option);
   });
 
-  document.querySelectorAll("[data-result-section]").forEach((section, index) => {
-    states.results[index] = section.classList.contains("is-result-collapsed");
-  });
-
-  return states;
+  if (selectedCategories.includes(currentValue)) {
+    eventCategoryInput.value = currentValue;
+  }
 }
 
-function applyCollapseStates(collapseStates) {
-  if (!collapseStates) {
+function renderPlanningEvents() {
+  planningEventListEl.innerHTML = "";
+
+  if (plannedEvents.length === 0) {
+    const empty = document.createElement("p");
+    empty.textContent = "No planned events added.";
+    planningEventListEl.appendChild(empty);
     return;
   }
 
-  if (Array.isArray(collapseStates.cards)) {
-    document.querySelectorAll("[data-collapse-card]").forEach((card, index) => {
-      card.classList.toggle("is-collapsed", Boolean(collapseStates.cards[index]));
+  plannedEvents
+    .slice()
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .forEach((event) => {
+      const row = document.createElement("div");
+      row.className = "planning-event-item";
 
-      const button = card.querySelector(".collapse-toggle");
+      const details = document.createElement("span");
+      details.textContent = `${event.name} — ${getCategoryLabel(event.categoryId)} — ${formatDate(parseDateValue(event.date))} — ${formatNumber(event.hours)} hrs`;
 
-      if (button) {
-        const collapsed = card.classList.contains("is-collapsed");
-        button.textContent = collapsed ? "Show" : "Hide";
-        button.setAttribute("aria-expanded", String(!collapsed));
-      }
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.textContent = "×";
+      remove.setAttribute("aria-label", `Remove ${event.name}`);
+
+      remove.addEventListener("click", () => {
+        plannedEvents = plannedEvents.filter((item) => item.id !== event.id);
+        renderPlanningEvents();
+        calculateTimeOff();
+      });
+
+      row.appendChild(details);
+      row.appendChild(remove);
+      planningEventListEl.appendChild(row);
     });
-  }
-
-  if (Array.isArray(collapseStates.results)) {
-    document.querySelectorAll("[data-result-section]").forEach((section, index) => {
-      section.classList.toggle("is-result-collapsed", Boolean(collapseStates.results[index]));
-
-      const button = section.querySelector(".result-collapse-toggle");
-
-      if (button) {
-        const collapsed = section.classList.contains("is-result-collapsed");
-        button.textContent = collapsed ? "Show" : "Hide";
-        button.setAttribute("aria-expanded", String(!collapsed));
-      }
-    });
-  }
 }
 
-function getSavedState() {
-  return {
-    rate: rateInput.value,
-    hours: hoursInput.value,
-    payPeriod: payPeriodInput.value,
-    currency: currencyInput.value,
-    multiplier: multiplierInput.value,
-    differentialRate: differentialRateInput.value,
-    differentialHours: differentialHoursInput.value,
-    doubleTimeHours: doubleTimeHoursInput.value,
-    weekendBonus: weekendBonusInput.value,
-    holidayBonus: holidayBonusInput.value,
-    otherBonus: otherBonusInput.value,
-    goalType: el("goalType").value,
-    goalAmount: el("goalAmount").value,
-    goalShiftLength: el("goalShiftLength").value,
-    overrideThreshold: overrideThresholdInput.checked,
-    customThreshold: customThresholdInput.value,
-    taxes,
-    deductions,
-    otherAdjustments,
-    collapseStates: getCollapseStates()
-  };
+function getPlannedEventUsage(categoryId, targetDate) {
+  return plannedEvents
+    .filter((event) => event.categoryId === categoryId)
+    .filter((event) => {
+      const eventDate = parseDateValue(event.date);
+      return eventDate && targetDate && eventDate <= targetDate;
+    })
+    .reduce((sum, event) => sum + event.hours, 0);
 }
 
-function readSavedData() {
-  const keysToCheck = [STORAGE_KEY, ...LEGACY_STORAGE_KEYS];
-
-  for (const key of keysToCheck) {
-    const saved = localStorage.getItem(key);
-
-    if (!saved) {
-      continue;
-    }
-
-    try {
-      return {
-        data: JSON.parse(saved),
-        sourceKey: key
-      };
-    } catch (error) {
-      localStorage.removeItem(key);
-    }
-  }
-
-  return null;
-}
-
-function saveSettings(showMessage = false) {
-  if (isLoadingSavedSettings) {
-    return;
-  }
-
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(getSavedState()));
-
-    if (showMessage) {
-      messageEl.classList.remove("error");
-      messageEl.textContent = "Settings and layout saved. They will load automatically next time you visit.";
-    }
-  } catch (error) {
-    if (showMessage) {
-      messageEl.textContent = "Unable to save settings in this browser.";
-      messageEl.classList.add("error");
-    }
-  }
-}
-
-function clearSavedSettings() {
-  localStorage.removeItem(STORAGE_KEY);
-
-  LEGACY_STORAGE_KEYS.forEach((key) => {
-    localStorage.removeItem(key);
-  });
-}
-
-function loadSavedSettings() {
-  const savedProfile = readSavedData();
-
-  if (!savedProfile || !savedProfile.data) {
-    return false;
-  }
-
-  try {
-    isLoadingSavedSettings = true;
-    const data = savedProfile.data;
-
-    rateInput.value = data.rate || "";
-    hoursInput.value = data.hours || "";
-    payPeriodInput.value = data.payPeriod || "weekly";
-    currencyInput.value = data.currency || "USD";
-    multiplierInput.value = data.multiplier || "1.5";
-    differentialRateInput.value = data.differentialRate || "";
-    differentialHoursInput.value = data.differentialHours || "";
-    doubleTimeHoursInput.value = data.doubleTimeHours || "";
-    weekendBonusInput.value = data.weekendBonus || "";
-    holidayBonusInput.value = data.holidayBonus || "";
-    otherBonusInput.value = data.otherBonus || "";
-    el("goalType").value = data.goalType || "gross";
-    el("goalAmount").value = data.goalAmount || "";
-    el("goalShiftLength").value = data.goalShiftLength || "8";
-    overrideThresholdInput.checked = Boolean(data.overrideThreshold);
-    customThresholdInput.value = data.customThreshold || "";
-
-    taxes = Array.isArray(data.taxes) ? data.taxes : [];
-    deductions = Array.isArray(data.deductions) ? data.deductions : [];
-    otherAdjustments = Array.isArray(data.otherAdjustments) ? data.otherAdjustments : [];
-
-    if (data.collapseStates) {
-      setTimeout(() => applyCollapseStates(data.collapseStates), 0);
-    }
-
-    return true;
-  } catch (error) {
-    clearSavedSettings();
-    return false;
-  } finally {
-    isLoadingSavedSettings = false;
-  }
-}
-
-function clearSavedProfile() {
-  clearSavedSettings();
+function addPlanningEvent() {
+  const categoryId = eventCategoryInput.value;
+  const name = eventNameInput.value.trim() || "Planned Time Off";
+  const date = eventDateInput.value;
+  const hours = Number(eventHoursInput.value);
 
   messageEl.classList.remove("error");
-  messageEl.textContent =
-    "Saved profile cleared from this device. Current values will stay until you leave or reset.";
-}
 
-function updateThresholdUI() {
-  const threshold = getThreshold();
-  const usingCustom = overrideThresholdInput.checked || payPeriodInput.value === "custom";
-
-  customThresholdWrap.classList.toggle("hidden-threshold", !usingCustom);
-
-  thresholdDisplayEl.textContent =
-    threshold > 0 ? `${formatNumber(threshold)} hours` : "custom threshold needed";
-
-  if (usingCustom) {
-    thresholdNoteEl.textContent =
-      "Using a custom overtime threshold. Enter the number of hours before overtime starts.";
+  if (!categoryId) {
+    messageEl.textContent = "Choose a category for this planned event.";
+    messageEl.classList.add("error");
     return;
   }
 
-  thresholdNoteEl.textContent =
-    `${getPayPeriodLabel()} pay period selected. Overtime starts after ${formatNumber(threshold)} hours.`;
+  if (!date) {
+    messageEl.textContent = "Choose a date for this planned event.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  if (Number.isNaN(hours) || hours <= 0) {
+    messageEl.textContent = "Enter planned event hours greater than 0.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  plannedEvents.push({
+    id: makeId(),
+    categoryId,
+    name,
+    date,
+    hours
+  });
+
+  eventNameInput.value = "";
+  eventDateInput.value = "";
+  eventHoursInput.value = "";
+
+  renderPlanningEvents();
+  calculateTimeOff();
 }
 
-function setText(id, value) {
-  const node = el(id);
-
-  if (node) {
-    node.textContent = value;
-  }
+function clearPlanningEvents() {
+  plannedEvents = [];
+  renderPlanningEvents();
+  calculateTimeOff();
 }
 
-function resetGoalResults() {
-  setText("goalTargetSummary", "--");
-  setText("goalTargetAmount", "$0.00");
-  setText("goalHoursNeeded", "--");
-  setText("goalOvertimeNeeded", "--");
-  setText("goalShiftsNeeded", "--");
-  setText("goalGrossRequired", "$0.00");
-  setText("goalTakeHomeEstimate", "$0.00");
+function clearPlannedEventResults() {
+  plannedEventResultsEl.innerHTML = "";
 
-  const note = el("goalResultNote");
+  const empty = document.createElement("p");
+  empty.className = "empty-results";
+  empty.textContent = "Add planned events to see running balance impact.";
 
-  if (note) {
-    note.classList.remove("error");
-    note.textContent = "Enter a goal amount to estimate hours needed.";
-  }
+  plannedEventResultsEl.appendChild(empty);
+}
+
+function clearCategoryResults() {
+  categoryResultsEl.innerHTML = "";
+
+  const empty = document.createElement("p");
+  empty.className = "empty-results";
+  empty.textContent = "Select categories and enter values to see category-level results.";
+
+  categoryResultsEl.appendChild(empty);
+}
+
+function clearWarningResults() {
+  warningResultsEl.innerHTML = "";
+
+  const empty = document.createElement("p");
+  empty.className = "empty-results";
+  empty.textContent = "Warnings and policy notes will appear after calculation.";
+
+  warningResultsEl.appendChild(empty);
 }
 
 function resetResults() {
-  setText("totalHours", "0.00");
-  setText("regularHours", "0.00");
-  setText("overtimeHours", "0.00");
-  setText("hourlyRate", "$0.00");
-  setText("overtimeRate", "$0.00");
-  setText("effectiveRate", "$0.00");
-  setText("regularPay", "$0.00");
-  setText("overtimePay", "$0.00");
-  setText("totalPay", "$0.00");
-  setText("differentialPay", "$0.00");
-  setText("doubleTimePay", "$0.00");
-  setText("bonusPay", "$0.00");
-  setText("advancedPayTotal", "$0.00");
-  setText("takeHomePay", "$0.00");
-  setText("netEffectiveRate", "$0.00");
-  setText("taxResultsTotal", "-$0.00");
-  setText("deductionResultsTotal", "-$0.00");
-  resetGoalResults();
-
-  const taxResultRows = el("taxResultRows");
-  const deductionResultRows = el("deductionResultRows");
-
-  if (taxResultRows) {
-    taxResultRows.innerHTML = "<p>No taxes added.</p>";
-  }
-
-  if (deductionResultRows) {
-    deductionResultRows.innerHTML = "<p>No deductions added.</p>";
-  }
-
+  projectedBalanceEl.textContent = "0.00 hrs";
+  projectedDaysEl.textContent = "0.00 days";
+  ptoEarnedEl.textContent = "0.00 hrs";
+  ptoUsedEl.textContent = "0.00 hrs";
+  periodsUntilTargetEl.textContent = "0";
+  targetDateResultEl.textContent = "--";
+  selectedCategoryCountEl.textContent = "0";
+  capResultEl.textContent = "Not set";
+  hoursUntilCapEl.textContent = "--";
+  capStatusEl.textContent = "--";
   generatedTimeEl.textContent = "--";
+  clearCategoryResults();
+  clearPlannedEventResults();
+  clearWarningResults();
 }
 
-function createAdjustmentItem(item, type) {
-  const row = document.createElement("div");
-  row.className = "adjustment-item";
-
-  const label = document.createElement("span");
-
-  if (type === "tax") {
-    label.textContent = `${item.name} — ${formatNumber(item.value)}%`;
-  } else {
-    label.textContent = `${item.name} — ${formatMoney(item.value)}`;
-  }
-
-  const remove = document.createElement("button");
-  remove.type = "button";
-  remove.textContent = "×";
-  remove.setAttribute("aria-label", `Remove ${item.name}`);
-
-  remove.addEventListener("click", () => {
-    if (type === "tax") {
-      taxes = taxes.filter((entry) => entry.id !== item.id);
-    }
-
-    if (type === "deduction") {
-      deductions = deductions.filter((entry) => entry.id !== item.id);
-    }
-
-    if (type === "other") {
-      otherAdjustments = otherAdjustments.filter((entry) => entry.id !== item.id);
-    }
-
-    renderAdjustments();
-    saveSettings();
-    calculateOvertime();
-  });
-
-  row.appendChild(label);
-  row.appendChild(remove);
-
-  return row;
+function getCategoryValues(categoryId) {
+  return {
+    currentBalance: getInputValue(getCategoryField(categoryId, "currentBalance")),
+    accrualPerPeriod: getInputValue(getCategoryField(categoryId, "accrualPerPeriod")),
+    plannedUsage: getInputValue(getCategoryField(categoryId, "plannedUsage")),
+    averageUsage: getInputValue(getCategoryField(categoryId, "averageUsage")),
+    ptoCap: getInputValue(getCategoryField(categoryId, "ptoCap"))
+  };
 }
 
-function renderList(container, items, type, emptyText) {
-  container.innerHTML = "";
+function hasCategoryInput(categoryId) {
+  const fields = [
+    "currentBalance",
+    "accrualPerPeriod",
+    "plannedUsage",
+    "averageUsage",
+    "ptoCap"
+  ];
 
-  if (items.length === 0) {
-    const empty = document.createElement("p");
-    empty.textContent = emptyText;
-    container.appendChild(empty);
-    return;
-  }
-
-  items.forEach((item) => {
-    container.appendChild(createAdjustmentItem(item, type));
+  return fields.some((fieldName) => {
+    const input = getCategoryField(categoryId, fieldName);
+    return input && input.value !== "";
   });
 }
 
-function renderAdjustments() {
-  renderList(el("taxList"), taxes, "tax", "No taxes added.");
-  renderList(el("deductionList"), deductions, "deduction", "No deductions added.");
-  renderList(el("otherList"), otherAdjustments, "other", "No other adjustments added.");
+function getCategoryProjection(categoryId, payPeriodsUntilTarget, targetDate) {
+  const config = getCategoryConfig(categoryId);
+  const values = getCategoryValues(categoryId);
+  const earned = payPeriodsUntilTarget * values.accrualPerPeriod;
+  const recurringUsage = payPeriodsUntilTarget * values.averageUsage;
+  const eventUsage = getPlannedEventUsage(categoryId, targetDate);
+  const used = values.plannedUsage + recurringUsage + eventUsage;
+  const uncappedProjection = values.currentBalance + earned - used;
+  const hasCap = values.ptoCap > 0;
 
-  const totalTaxPercent = taxes.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const totalDeductions = deductions.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const totalOther = otherAdjustments.reduce((sum, item) => sum + Number(item.value || 0), 0);
+  let projectedBalance = uncappedProjection;
 
-  setText("taxTotalLabel", `Total: ${formatNumber(totalTaxPercent)}%`);
-  setText("deductionTotalLabel", `Total: ${formatMoney(totalDeductions)}`);
-  setText("otherTotalLabel", `Total: ${formatMoney(totalOther)}`);
-}
-
-function getAdjustmentConfig(type) {
-  if (type === "tax") {
-    return {
-      title: "Add Tax",
-      help: "Add a tax percentage. Example: Federal Tax at 12%.",
-      nameLabel: "Tax Name",
-      valueLabel: "Tax Percentage",
-      defaultName: "Federal Tax",
-      defaultValue: "12",
-      buttonText: "Add Tax"
-    };
+  if (hasCap) {
+    projectedBalance = Math.min(projectedBalance, values.ptoCap);
   }
 
-  if (type === "deduction") {
-    return {
-      title: "Add Deduction",
-      help: "Add a fixed deduction amount. Example: Insurance at $75.",
-      nameLabel: "Deduction Name",
-      valueLabel: "Deduction Amount",
-      defaultName: "Insurance",
-      defaultValue: "75",
-      buttonText: "Add Deduction"
-    };
+  projectedBalance = Math.max(projectedBalance, 0);
+
+  let capStatus = "No cap set.";
+  let hoursUntilCap = "--";
+
+  if (hasCap) {
+    const remainingUntilCap = Math.max(values.ptoCap - projectedBalance, 0);
+    hoursUntilCap = `${formatNumber(remainingUntilCap)} hrs`;
+
+    if (values.currentBalance >= values.ptoCap) {
+      capStatus = "At or above cap.";
+    } else if (projectedBalance >= values.ptoCap) {
+      capStatus = "Projected to reach cap by target date.";
+    } else {
+      capStatus = "Below cap by target date.";
+    }
   }
+
+  const capLoss = hasCap ? Math.max(uncappedProjection - values.ptoCap, 0) : 0;
+  const plannedShortfall = Math.max(used - values.currentBalance - earned, 0);
+  const netAccrualPerPeriod = values.accrualPerPeriod - values.averageUsage;
 
   return {
-    title: "Add Other Adjustment",
-    help: "Add any other fixed amount to subtract from estimated take-home pay.",
-    nameLabel: "Adjustment Name",
-    valueLabel: "Adjustment Amount",
-    defaultName: "Other",
-    defaultValue: "0",
-    buttonText: "Add Adjustment"
+    id: categoryId,
+    label: config ? config.label : categoryId,
+    values,
+    earned,
+    recurringUsage,
+    eventUsage,
+    used,
+    uncappedProjection,
+    projectedBalance,
+    hasCap,
+    capLoss,
+    plannedShortfall,
+    netAccrualPerPeriod,
+    hoursUntilCap,
+    capStatus
   };
 }
 
-function openAdjustmentModal(type) {
-  const config = getAdjustmentConfig(type);
+function renderCategoryResults(categoryProjections, hoursPerDay) {
+  categoryResultsEl.innerHTML = "";
 
-  activeAdjustmentType = type;
-
-  el("adjustmentModalTitle").textContent = config.title;
-  el("adjustmentModalHelp").textContent = config.help;
-  el("adjustmentNameLabel").textContent = config.nameLabel;
-  el("adjustmentValueLabel").textContent = config.valueLabel;
-  el("adjustmentName").value = config.defaultName;
-  el("adjustmentValue").value = config.defaultValue;
-  el("adjustmentModalMessage").textContent = "";
-  el("adjustmentModalMessage").classList.remove("error");
-  el("saveAdjustment").textContent = config.buttonText;
-
-  el("adjustmentModal").classList.remove("hidden");
-  el("adjustmentName").focus();
-  el("adjustmentName").select();
-}
-
-function closeAdjustmentModal() {
-  el("adjustmentModal").classList.add("hidden");
-  activeAdjustmentType = null;
-}
-
-function saveAdjustmentFromModal() {
-  const name = el("adjustmentName").value.trim();
-  const value = Number(el("adjustmentValue").value);
-  const modalMessage = el("adjustmentModalMessage");
-
-  modalMessage.classList.remove("error");
-
-  if (!activeAdjustmentType) {
+  if (categoryProjections.length === 0) {
+    clearCategoryResults();
     return;
   }
 
-  if (!name) {
-    modalMessage.textContent = "Enter a name for this item.";
-    modalMessage.classList.add("error");
-    return;
-  }
+  categoryProjections.forEach((projection) => {
+    const card = document.createElement("section");
+    card.className = "category-result-card";
 
-  if (Number.isNaN(value) || value < 0) {
-    modalMessage.textContent = "Enter a positive value or 0.";
-    modalMessage.classList.add("error");
-    return;
-  }
+    const projectedDays = projection.projectedBalance / hoursPerDay;
+    const capText = projection.hasCap
+      ? `${formatNumber(projection.values.ptoCap)} hrs`
+      : "Not set";
 
-  const item = {
-    id: makeId(),
-    name,
-    value
-  };
+    card.innerHTML = `
+      <div class="category-result-heading">
+        <h4>${projection.label}</h4>
+        <span>${projection.capStatus}</span>
+      </div>
 
-  if (activeAdjustmentType === "tax") {
-    taxes.push(item);
-  }
+      <div class="result-row category-result-total">
+        <span>Projected Balance</span>
+        <strong>${formatNumber(projection.projectedBalance)} hrs</strong>
+      </div>
 
-  if (activeAdjustmentType === "deduction") {
-    deductions.push(item);
-  }
+      <div class="result-row">
+        <span>Projected Days</span>
+        <strong>${formatNumber(projectedDays)} days</strong>
+      </div>
 
-  if (activeAdjustmentType === "other") {
-    otherAdjustments.push(item);
-  }
+      <div class="result-row">
+        <span>Current Balance</span>
+        <strong>${formatNumber(projection.values.currentBalance)} hrs</strong>
+      </div>
 
-  renderAdjustments();
-  saveSettings();
-  calculateOvertime();
-  closeAdjustmentModal();
-}
+      <div class="result-row">
+        <span>Earned</span>
+        <strong>${formatNumber(projection.earned)} hrs</strong>
+      </div>
 
-function renderBreakdown(container, items, type, grossPay) {
-  container.innerHTML = "";
+      <div class="result-row">
+        <span>Used</span>
+        <strong>${formatNumber(projection.used)} hrs</strong>
+      </div>
 
-  if (items.length === 0) {
-    const empty = document.createElement("p");
-    empty.textContent = type === "tax" ? "No taxes added." : "No deductions added.";
-    container.appendChild(empty);
-    return;
-  }
+      <div class="result-row">
+        <span>Planned Events</span>
+        <strong>${formatNumber(projection.eventUsage)} hrs</strong>
+      </div>
 
-  items.forEach((item) => {
-    const row = document.createElement("div");
-    row.className = "result-row";
+      <div class="result-row">
+        <span>Cap</span>
+        <strong>${capText}</strong>
+      </div>
 
-    const name = document.createElement("span");
-    const value = document.createElement("strong");
+      <div class="result-row">
+        <span>Hours Until Cap</span>
+        <strong>${projection.hoursUntilCap}</strong>
+      </div>
+    `;
 
-    name.textContent = item.name;
-
-    if (type === "tax") {
-      value.textContent = `-${formatMoney(grossPay * (Number(item.value || 0) / 100))}`;
-    } else {
-      value.textContent = `-${formatMoney(Number(item.value || 0))}`;
-    }
-
-    row.appendChild(name);
-    row.appendChild(value);
-    container.appendChild(row);
+    categoryResultsEl.appendChild(card);
   });
 }
 
-function getFixedAdvancedPay() {
-  const differentialPay = getInputValue(differentialRateInput) * getInputValue(differentialHoursInput);
-  const doubleTimePay = getInputValue(doubleTimeHoursInput) * getInputValue(rateInput) * 2;
-  const bonusPay =
-    getInputValue(weekendBonusInput) +
-    getInputValue(holidayBonusInput) +
-    getInputValue(otherBonusInput);
 
-  return differentialPay + doubleTimePay + bonusPay;
-}
+function renderPlannedEventResults(categoryProjections, targetDate, today) {
+  plannedEventResultsEl.innerHTML = "";
 
-function estimateGrossForHours(hours) {
-  const rate = getInputValue(rateInput);
-  const threshold = getThreshold();
-  const multiplier = getInputValue(multiplierInput);
-  const regularHours = Math.min(hours, threshold);
-  const overtimeHours = Math.max(hours - threshold, 0);
+  const eligibleEvents = plannedEvents
+    .filter((event) => {
+      const eventDate = parseDateValue(event.date);
+      return eventDate && targetDate && eventDate <= targetDate;
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
 
-  return (regularHours * rate) + (overtimeHours * rate * multiplier) + getFixedAdvancedPay();
-}
-
-function estimateTakeHomeForGross(grossPay) {
-  const totalTaxPercent = taxes.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const fixedDeductions = deductions.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const otherTotal = otherAdjustments.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const estimatedTaxes = grossPay * (totalTaxPercent / 100);
-
-  return Math.max(grossPay - estimatedTaxes - fixedDeductions - otherTotal, 0);
-}
-
-function findHoursForTarget(targetAmount, targetType) {
-  let low = 0;
-  let high = 1;
-
-  const getValue = (hours) => {
-    const grossPay = estimateGrossForHours(hours);
-    return targetType === "takehome" ? estimateTakeHomeForGross(grossPay) : grossPay;
-  };
-
-  while (getValue(high) < targetAmount && high < 10000) {
-    high *= 2;
+  if (eligibleEvents.length === 0) {
+    clearPlannedEventResults();
+    return;
   }
 
-  if (high >= 10000 && getValue(high) < targetAmount) {
-    return null;
+  const projectionMap = new Map(
+    categoryProjections.map((projection) => [projection.id, projection])
+  );
+
+  const runningBalances = {};
+
+  categoryProjections.forEach((projection) => {
+    runningBalances[projection.id] = projection.values.currentBalance;
+  });
+
+  eligibleEvents.forEach((event) => {
+    const projection = projectionMap.get(event.categoryId);
+
+    if (!projection) {
+      return;
+    }
+
+    const eventDate = parseDateValue(event.date);
+    const periodsUntilEvent = getPayPeriodsBetween(today, eventDate);
+    const earnedByEvent = periodsUntilEvent * projection.values.accrualPerPeriod;
+    const recurringUsedByEvent = periodsUntilEvent * projection.values.averageUsage;
+    const baseBalanceBeforeEvent = projection.values.currentBalance + earnedByEvent - recurringUsedByEvent;
+
+    const previousEvents = eligibleEvents
+      .filter((item) => item.categoryId === event.categoryId)
+      .filter((item) => item.date < event.date || (item.date === event.date && item.id < event.id))
+      .reduce((sum, item) => sum + item.hours, 0);
+
+    const balanceBeforeEvent = Math.max(baseBalanceBeforeEvent - previousEvents - projection.values.plannedUsage, 0);
+    const balanceAfterEvent = Math.max(balanceBeforeEvent - event.hours, 0);
+    const warning = event.hours > balanceBeforeEvent;
+
+    const row = document.createElement("div");
+    row.className = warning ? "planned-event-result warning" : "planned-event-result";
+
+    row.innerHTML = `
+      <div>
+        <strong>${event.name}</strong>
+        <span>${getCategoryLabel(event.categoryId)} · ${formatDate(eventDate)} · ${formatNumber(event.hours)} hrs</span>
+      </div>
+      <div>
+        <strong>${formatNumber(balanceAfterEvent)} hrs</strong>
+        <span>${warning ? "Warning: event exceeds projected available balance." : "Estimated balance after event."}</span>
+      </div>
+    `;
+
+    plannedEventResultsEl.appendChild(row);
+  });
+}
+
+function addWarning(warnings, level, title, detail) {
+  warnings.push({
+    level,
+    title,
+    detail
+  });
+}
+
+function buildWarnings(categoryProjections, targetDate) {
+  const warnings = [];
+  const resetDate = parseDateValue(policyResetDateInput.value);
+  const carryoverLimit = getInputValue(carryoverLimitInput);
+  const policyNotes = policyNotesInput.value.trim();
+
+  categoryProjections.forEach((projection) => {
+    if (projection.capLoss > 0) {
+      addWarning(
+        warnings,
+        "warning",
+        `${projection.label}: possible cap loss`,
+        `Projected earned time may exceed the ${formatNumber(projection.values.ptoCap)} hr cap by ${formatNumber(projection.capLoss)} hrs.`
+      );
+    }
+
+    if (projection.plannedShortfall > 0) {
+      addWarning(
+        warnings,
+        "danger",
+        `${projection.label}: planned usage may exceed balance`,
+        `Usage is projected to run ${formatNumber(projection.plannedShortfall)} hrs beyond current balance plus earned time.`
+      );
+    }
+
+    if (projection.netAccrualPerPeriod < 0) {
+      addWarning(
+        warnings,
+        "warning",
+        `${projection.label}: usage is higher than accrual`,
+        `Average usage is ${formatNumber(Math.abs(projection.netAccrualPerPeriod))} hrs more than earned each pay period.`
+      );
+    }
+
+    if (projection.hasCap && projection.values.currentBalance >= projection.values.ptoCap) {
+      addWarning(
+        warnings,
+        "danger",
+        `${projection.label}: already at or above cap`,
+        "Additional earned time may be lost unless your employer allows exceptions or carryover."
+      );
+    }
+  });
+
+  if (useItOrLoseItInput.checked) {
+    addWarning(
+      warnings,
+      "info",
+      "Use-it-or-lose-it reminder",
+      "Confirm your employer's deadline, carryover rules, payout rules, and whether each selected category resets separately."
+    );
   }
 
-  for (let index = 0; index < 80; index += 1) {
-    const mid = (low + high) / 2;
+  if (carryoverLimit > 0) {
+    const combinedProjectedBalance = categoryProjections.reduce((sum, projection) => sum + projection.projectedBalance, 0);
 
-    if (getValue(mid) >= targetAmount) {
-      high = mid;
+    if (combinedProjectedBalance > carryoverLimit) {
+      addWarning(
+        warnings,
+        "warning",
+        "Carryover limit reminder",
+        `Combined projected balance is ${formatNumber(combinedProjectedBalance)} hrs, which is above the entered carryover limit of ${formatNumber(carryoverLimit)} hrs.`
+      );
     } else {
-      low = mid;
+      addWarning(
+        warnings,
+        "info",
+        "Carryover limit checked",
+        `Combined projected balance is below the entered carryover limit of ${formatNumber(carryoverLimit)} hrs.`
+      );
     }
   }
 
-  return high;
+  if (resetDate && !Number.isNaN(resetDate.getTime())) {
+    if (targetDate && resetDate <= targetDate) {
+      addWarning(
+        warnings,
+        "warning",
+        "Reset date occurs before target date",
+        `The entered reset/carryover date (${formatDate(resetDate)}) is before or on the target date. Confirm whether balances reset before relying on this projection.`
+      );
+    } else {
+      addWarning(
+        warnings,
+        "info",
+        "Reset date noted",
+        `Reset/carryover date saved for reference: ${formatDate(resetDate)}.`
+      );
+    }
+  }
+
+  if (policyNotes) {
+    addWarning(
+      warnings,
+      "info",
+      "Policy note",
+      policyNotes
+    );
+  }
+
+  if (warnings.length === 0) {
+    addWarning(
+      warnings,
+      "good",
+      "No major warnings found",
+      "Based on the values entered, no cap loss, shortfall, or policy reminder was triggered. Still confirm actual employer rules."
+    );
+  }
+
+  return warnings;
 }
 
-function calculateGoalMode() {
-  const rate = getInputValue(rateInput);
-  const threshold = getThreshold();
-  const multiplier = getInputValue(multiplierInput);
-  const goalAmount = getInputValue(el("goalAmount"));
-  const goalType = el("goalType").value;
-  const shiftLength = getInputValue(el("goalShiftLength")) || 8;
-  const note = el("goalResultNote");
+function renderWarningResults(warnings) {
+  warningResultsEl.innerHTML = "";
 
-  resetGoalResults();
+  warnings.forEach((warning) => {
+    const row = document.createElement("div");
+    row.className = `warning-result ${warning.level}`;
 
-  if (!el("goalAmount").value) {
-    return;
-  }
+    row.innerHTML = `
+      <strong>${warning.title}</strong>
+      <span>${warning.detail}</span>
+    `;
 
-  setText("goalTargetSummary", goalType === "takehome" ? "Take-home" : "Gross");
-  setText("goalTargetAmount", formatMoney(goalAmount));
-
-  if (rate <= 0 || threshold <= 0 || multiplier < 1 || goalAmount <= 0 || shiftLength <= 0) {
-    note.classList.add("error");
-    note.textContent = "Enter a valid rate, threshold, multiplier, shift length, and goal amount.";
-    return;
-  }
-
-  const hoursNeeded = findHoursForTarget(goalAmount, goalType);
-
-  if (hoursNeeded === null) {
-    note.classList.add("error");
-    note.textContent = "Goal is too large to estimate with the current settings.";
-    return;
-  }
-
-  const grossRequired = estimateGrossForHours(hoursNeeded);
-  const takeHomeEstimate = estimateTakeHomeForGross(grossRequired);
-  const overtimeNeeded = Math.max(hoursNeeded - threshold, 0);
-  const shiftsNeeded = Math.ceil(hoursNeeded / shiftLength);
-
-  setText("goalHoursNeeded", `${formatNumber(hoursNeeded)} hrs`);
-  setText("goalOvertimeNeeded", `${formatNumber(overtimeNeeded)} hrs`);
-  setText("goalShiftsNeeded", `${formatWholeGoalNumber(shiftsNeeded)} shifts`);
-  setText("goalGrossRequired", formatMoney(grossRequired));
-  setText("goalTakeHomeEstimate", formatMoney(takeHomeEstimate));
-
-  note.textContent =
-    goalType === "takehome"
-      ? "Take-home goal estimate uses your current tax, deduction, and adjustment settings."
-      : "Gross goal estimate uses your current pay period and overtime settings.";
+    warningResultsEl.appendChild(row);
+  });
 }
 
-function calculateOvertime() {
-  updateThresholdUI();
-  saveSettings();
-
-  const rate = getInputValue(rateInput);
-  const hours = getInputValue(hoursInput);
-  const threshold = getThreshold();
-  const multiplier = getInputValue(multiplierInput);
-  const differentialRate = getInputValue(differentialRateInput);
-  const differentialHours = getInputValue(differentialHoursInput);
-  const doubleTimeHours = getInputValue(doubleTimeHoursInput);
-  const weekendBonus = getInputValue(weekendBonusInput);
-  const holidayBonus = getInputValue(holidayBonusInput);
-  const otherBonus = getInputValue(otherBonusInput);
-  const hasGoalAmount = Boolean(el("goalAmount").value);
+function calculateTimeOff() {
+  const selectedCategories = getSelectedCategories();
+  const hoursPerDay = getInputValue(hoursPerDayInput) || 8;
+  const targetDateValue = targetDateInput.value;
+  const targetDate = parseDateValue(targetDateValue);
+  const today = new Date();
 
   messageEl.classList.remove("error");
 
-  if (!rateInput.value && !hoursInput.value && !hasGoalAmount) {
+  if (selectedCategories.length === 0) {
     resetResults();
+    messageEl.textContent = "Choose at least one time-off category.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  const hasAnyInput = selectedCategories.some((categoryId) => hasCategoryInput(categoryId));
+
+  if (!hasAnyInput) {
+    resetResults();
+    selectedCategoryCountEl.textContent = formatWholeNumber(selectedCategories.length);
     messageEl.textContent = "Enter values or load an example to begin.";
     return;
   }
 
-  if (rate <= 0 || (!hasGoalAmount && hours <= 0)) {
+  if (hoursPerDay <= 0) {
     resetResults();
-    messageEl.textContent =
-      hasGoalAmount
-        ? "Enter a positive hourly rate for Goal Mode."
-        : "Enter positive numbers for hourly rate and hours worked.";
+    messageEl.textContent = "Hours per day must be greater than 0.";
     messageEl.classList.add("error");
     return;
   }
 
-  if (multiplier < 1) {
+  if (!targetDate || Number.isNaN(targetDate.getTime())) {
     resetResults();
-    messageEl.textContent = "Overtime multiplier should be 1.0 or higher.";
+    messageEl.textContent = "Choose a target date.";
     messageEl.classList.add("error");
     return;
   }
 
-  if (threshold <= 0) {
+  if (targetDate < today) {
     resetResults();
-    messageEl.textContent =
-      "Enter a positive overtime threshold or choose a standard pay period.";
+    messageEl.textContent = "Choose a target date in the future.";
     messageEl.classList.add("error");
     return;
   }
 
-  if (
-    differentialRate < 0 ||
-    differentialHours < 0 ||
-    doubleTimeHours < 0 ||
-    weekendBonus < 0 ||
-    holidayBonus < 0 ||
-    otherBonus < 0
-  ) {
+  const millisecondsPerDay = 1000 * 60 * 60 * 24;
+  const daysUntilTarget = Math.max((targetDate - today) / millisecondsPerDay, 0);
+  const payPeriodsUntilTarget = Math.floor(daysUntilTarget / getDaysPerPayPeriod());
+
+  let combinedCurrentBalance = 0;
+  let combinedEarned = 0;
+  let combinedUsed = 0;
+  let combinedProjectedBalance = 0;
+  let combinedCap = 0;
+  let hasAnyCap = false;
+  let hasNegativeValue = false;
+
+  const categoryProjections = selectedCategories.map((categoryId) => {
+    const projection = getCategoryProjection(categoryId, payPeriodsUntilTarget, targetDate);
+
+    if (
+      projection.values.currentBalance < 0 ||
+      projection.values.accrualPerPeriod < 0 ||
+      projection.values.plannedUsage < 0 ||
+      projection.values.averageUsage < 0 ||
+      projection.values.ptoCap < 0
+    ) {
+      hasNegativeValue = true;
+    }
+
+    combinedCurrentBalance += projection.values.currentBalance;
+    combinedEarned += projection.earned;
+    combinedUsed += projection.used;
+    combinedProjectedBalance += projection.projectedBalance;
+
+    if (projection.hasCap) {
+      combinedCap += projection.values.ptoCap;
+      hasAnyCap = true;
+    }
+
+    return projection;
+  });
+
+  if (hasNegativeValue) {
     resetResults();
-    messageEl.textContent = "Advanced pay values cannot be negative.";
+    messageEl.textContent = "Enter valid positive values. Time off hours cannot be negative.";
     messageEl.classList.add("error");
     return;
   }
 
-  const totalTaxPercent = taxes.reduce((sum, item) => sum + Number(item.value || 0), 0);
+  const projectedDays = combinedProjectedBalance / hoursPerDay;
 
-  if (totalTaxPercent > 100) {
-    resetResults();
-    messageEl.textContent = "Total tax percentage cannot be greater than 100%.";
-    messageEl.classList.add("error");
-    return;
+  let hoursUntilCap = "--";
+  let capStatus = "No balance cap set.";
+
+  if (hasAnyCap) {
+    const remainingUntilCap = Math.max(combinedCap - combinedProjectedBalance, 0);
+    hoursUntilCap = `${formatNumber(remainingUntilCap)} hrs`;
+
+    if (combinedCurrentBalance >= combinedCap) {
+      capStatus = "At or above combined cap.";
+    } else if (combinedProjectedBalance >= combinedCap) {
+      capStatus = "Projected to reach combined cap by target date.";
+    } else {
+      capStatus = "Below combined cap by target date.";
+    }
   }
 
-  if (hours <= 0 && hasGoalAmount) {
-    resetResults();
-    calculateGoalMode();
-    generatedTimeEl.textContent = localUtcTime();
-    messageEl.textContent = "Goal Mode updated. Enter hours worked to calculate regular pay results.";
-    return;
-  }
+  projectedBalanceEl.textContent = `${formatNumber(combinedProjectedBalance)} hrs`;
+  projectedDaysEl.textContent = `${formatNumber(projectedDays)} days`;
+  ptoEarnedEl.textContent = `${formatNumber(combinedEarned)} hrs`;
+  ptoUsedEl.textContent = `${formatNumber(combinedUsed)} hrs`;
 
-  if (differentialHours > hours) {
-    resetResults();
-    messageEl.textContent = "Differential hours should not be greater than total hours worked.";
-    messageEl.classList.add("error");
-    return;
-  }
+  periodsUntilTargetEl.textContent = formatWholeNumber(payPeriodsUntilTarget);
+  targetDateResultEl.textContent = formatDate(targetDate);
+  selectedCategoryCountEl.textContent = formatWholeNumber(selectedCategories.length);
 
-  if (doubleTimeHours > hours) {
-    resetResults();
-    messageEl.textContent = "Additional double-time hours should not be greater than total hours worked.";
-    messageEl.classList.add("error");
-    return;
-  }
+  capResultEl.textContent = hasAnyCap ? `${formatNumber(combinedCap)} hrs` : "Not set";
+  hoursUntilCapEl.textContent = hoursUntilCap;
+  capStatusEl.textContent = capStatus;
 
-  const totalHours = hours;
-  const regularHours = Math.min(hours, threshold);
-  const overtimeHours = Math.max(hours - threshold, 0);
-  const overtimeRate = rate * multiplier;
+  renderCategoryResults(categoryProjections, hoursPerDay);
+  renderPlannedEventResults(categoryProjections, targetDate, today);
+  renderWarningResults(buildWarnings(categoryProjections, targetDate));
 
-  const regularPay = regularHours * rate;
-  const overtimePay = overtimeHours * overtimeRate;
+  generatedTimeEl.textContent = getCurrentUtcTime();
+  messageEl.textContent = "Time off projection updated.";
+}
 
-  const differentialPay = differentialRate * differentialHours;
-  const doubleTimePay = doubleTimeHours * rate * 2;
-  const bonusPay = weekendBonus + holidayBonus + otherBonus;
-  const advancedPay = differentialPay + doubleTimePay + bonusPay;
+function setCategorySelection(categoryIds) {
+  categoryOptionsEl.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.checked = categoryIds.includes(checkbox.value);
+  });
 
-  const grossPay = regularPay + overtimePay + advancedPay;
-  const grossEffectiveRate = totalHours > 0 ? grossPay / totalHours : 0;
+  renderCategoryCards();
+}
 
-  const estimatedTaxes = grossPay * (totalTaxPercent / 100);
-  const fixedDeductions = deductions.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const otherTotal = otherAdjustments.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const totalReductions = estimatedTaxes + fixedDeductions + otherTotal;
-
-  const takeHomePay = Math.max(grossPay - totalReductions, 0);
-  const netEffectiveRate = totalHours > 0 ? takeHomePay / totalHours : 0;
-
-  setText("totalHours", formatNumber(totalHours));
-  setText("regularHours", formatNumber(regularHours));
-  setText("overtimeHours", formatNumber(overtimeHours));
-
-  setText("hourlyRate", formatMoney(rate));
-  setText("overtimeRate", formatMoney(overtimeRate));
-  setText("effectiveRate", formatMoney(grossEffectiveRate));
-
-  setText("regularPay", formatMoney(regularPay));
-  setText("overtimePay", formatMoney(overtimePay));
-  setText("totalPay", formatMoney(grossPay));
-
-  setText("differentialPay", formatMoney(differentialPay));
-  setText("doubleTimePay", formatMoney(doubleTimePay));
-  setText("bonusPay", formatMoney(bonusPay));
-  setText("advancedPayTotal", formatMoney(advancedPay));
-
-  setText("taxResultsTotal", `-${formatMoney(estimatedTaxes)}`);
-  setText("deductionResultsTotal", `-${formatMoney(fixedDeductions + otherTotal)}`);
-
-  setText("takeHomePay", formatMoney(takeHomePay));
-  setText("netEffectiveRate", formatMoney(netEffectiveRate));
-
-  renderBreakdown(el("taxResultRows"), taxes, "tax", grossPay);
-  renderBreakdown(el("deductionResultRows"), [...deductions, ...otherAdjustments], "deduction", grossPay);
-
-  calculateGoalMode();
-
-  generatedTimeEl.textContent = localUtcTime();
-  messageEl.textContent = "Calculation updated. Settings saved.";
+function setCategoryValues(categoryId, values) {
+  getCategoryField(categoryId, "currentBalance").value = values.currentBalance;
+  getCategoryField(categoryId, "accrualPerPeriod").value = values.accrualPerPeriod;
+  getCategoryField(categoryId, "plannedUsage").value = values.plannedUsage;
+  getCategoryField(categoryId, "averageUsage").value = values.averageUsage;
+  getCategoryField(categoryId, "ptoCap").value = values.ptoCap;
 }
 
 function loadExample() {
-  rateInput.value = "25";
-  hoursInput.value = "92";
+  setCategorySelection(["vacation", "sick", "personal"]);
+
   payPeriodInput.value = "biweekly";
-  currencyInput.value = "USD";
-  multiplierInput.value = "1.5";
-  differentialRateInput.value = "2";
-  differentialHoursInput.value = "24";
-  doubleTimeHoursInput.value = "4";
-  weekendBonusInput.value = "50";
-  holidayBonusInput.value = "0";
-  otherBonusInput.value = "25";
-  el("goalType").value = "gross";
-  el("goalAmount").value = "2500";
-  el("goalShiftLength").value = "12";
+  targetDateInput.value = getDefaultTargetDate();
+  hoursPerDayInput.value = "8";
+  policyResetDateInput.value = addDays(new Date(), 180).toISOString().slice(0, 10);
+  carryoverLimitInput.value = "120";
+  useItOrLoseItInput.checked = true;
+  policyNotesInput.value = "Example only: confirm actual carryover, reset, and payout rules with your employer.";
 
-  overrideThresholdInput.checked = false;
-  customThresholdInput.value = "";
+  setCategoryValues("vacation", {
+    currentBalance: "48",
+    accrualPerPeriod: "6.15",
+    plannedUsage: "24",
+    averageUsage: "0",
+    ptoCap: "240"
+  });
 
-  taxes = [
-    { id: makeId(), name: "Federal Tax", value: 12 },
-    { id: makeId(), name: "State Tax", value: 5 },
-    { id: makeId(), name: "Other Tax", value: 3 }
+  setCategoryValues("sick", {
+    currentBalance: "32",
+    accrualPerPeriod: "4",
+    plannedUsage: "0",
+    averageUsage: "0",
+    ptoCap: "480"
+  });
+
+  setCategoryValues("personal", {
+    currentBalance: "16",
+    accrualPerPeriod: "1",
+    plannedUsage: "8",
+    averageUsage: "0",
+    ptoCap: "40"
+  });
+
+  plannedEvents = [
+    {
+      id: makeId(),
+      categoryId: "vacation",
+      name: "Summer Vacation",
+      date: addDays(new Date(), 35).toISOString().slice(0, 10),
+      hours: 24
+    },
+    {
+      id: makeId(),
+      categoryId: "personal",
+      name: "Appointment Day",
+      date: addDays(new Date(), 50).toISOString().slice(0, 10),
+      hours: 8
+    }
   ];
 
-  deductions = [
-    { id: makeId(), name: "Insurance", value: 75 },
-    { id: makeId(), name: "Retirement", value: 50 }
-  ];
-
-  otherAdjustments = [];
-
-  updateThresholdUI();
-  renderAdjustments();
-  saveSettings();
-  calculateOvertime();
+  renderPlanningEvents();
+  calculateTimeOff();
 }
 
 function clearCalculator() {
-  rateInput.value = "";
-  hoursInput.value = "";
-  payPeriodInput.value = "weekly";
-  currencyInput.value = "USD";
-  multiplierInput.value = "1.5";
-  differentialRateInput.value = "";
-  differentialHoursInput.value = "";
-  doubleTimeHoursInput.value = "";
-  weekendBonusInput.value = "";
-  holidayBonusInput.value = "";
-  otherBonusInput.value = "";
-  el("goalType").value = "gross";
-  el("goalAmount").value = "";
-  el("goalShiftLength").value = "";
+  setCategorySelection(["vacation"]);
 
-  overrideThresholdInput.checked = false;
-  customThresholdInput.value = "";
+  payPeriodInput.value = "biweekly";
+  targetDateInput.value = "";
+  hoursPerDayInput.value = "";
+  policyResetDateInput.value = "";
+  carryoverLimitInput.value = "";
+  useItOrLoseItInput.checked = false;
+  policyNotesInput.value = "";
 
-  taxes = [];
-  deductions = [];
-  otherAdjustments = [];
+  categoryInputCardsEl.querySelectorAll("input").forEach((input) => {
+    input.value = "";
+  });
 
-  clearSavedSettings();
+  plannedEvents = [];
+  renderPlanningEvents();
 
-  updateThresholdUI();
-  renderAdjustments();
   resetResults();
 
   messageEl.classList.remove("error");
-  messageEl.textContent = "Calculator reset. Saved settings cleared.";
+  messageEl.textContent = "Enter values or load an example to begin.";
 }
 
-function clearAdjustments() {
-  taxes = [];
-  deductions = [];
-  otherAdjustments = [];
-
-  renderAdjustments();
-  saveSettings();
-  calculateOvertime();
-}
-
-function setupMobileCollapsibleCards() {
-  const cards = document.querySelectorAll("[data-collapse-card]");
-
-  cards.forEach((card) => {
-    const button = card.querySelector(".collapse-toggle");
-    const content = card.querySelector(".card-collapse-content");
-
-    if (!button || !content) {
-      return;
-    }
-
-    const updateButton = () => {
-      const isCollapsed = card.classList.contains("is-collapsed");
-      button.textContent = isCollapsed ? "Show" : "Hide";
-      button.setAttribute("aria-expanded", String(!isCollapsed));
-    };
-
-    if (card.classList.contains("mobile-collapsed") && window.innerWidth <= 700) {
-      card.classList.add("is-collapsed");
-    }
-
-    updateButton();
-
-    button.addEventListener("click", () => {
-      card.classList.toggle("is-collapsed");
-      updateButton();
-      saveSettings();
-    });
-  });
-}
-
-function setupMobileResultSections() {
-  const sections = document.querySelectorAll("[data-result-section]");
-
-  sections.forEach((section) => {
-    const button = section.querySelector(".result-collapse-toggle");
-
-    if (!button) {
-      return;
-    }
-
-    const updateButton = () => {
-      const isCollapsed = section.classList.contains("is-result-collapsed");
-      button.textContent = isCollapsed ? "Show" : "Hide";
-      button.setAttribute("aria-expanded", String(!isCollapsed));
-    };
-
-    if (section.classList.contains("mobile-result-collapsed") && window.innerWidth <= 700) {
-      section.classList.add("is-result-collapsed");
-    }
-
-    updateButton();
-
-    button.addEventListener("click", () => {
-      section.classList.toggle("is-result-collapsed");
-      updateButton();
-      saveSettings();
-    });
-  });
-}
-
-function bindEvent(id, eventName, handler) {
-  const node = el(id);
-
-  if (node) {
-    node.addEventListener(eventName, handler);
-  }
-}
-
-bindEvent("calculate", "click", calculateOvertime);
-bindEvent("saveSettings", "click", () => saveSettings(true));
-bindEvent("example", "click", loadExample);
-bindEvent("reset", "click", clearCalculator);
-bindEvent("clearAdjustments", "click", clearAdjustments);
-bindEvent("clearSavedProfile", "click", clearSavedProfile);
-
-bindEvent("addTax", "click", () => openAdjustmentModal("tax"));
-bindEvent("addTaxInline", "click", () => openAdjustmentModal("tax"));
-bindEvent("addDeduction", "click", () => openAdjustmentModal("deduction"));
-bindEvent("addDeductionInline", "click", () => openAdjustmentModal("deduction"));
-bindEvent("addOther", "click", () => openAdjustmentModal("other"));
-bindEvent("addOtherInline", "click", () => openAdjustmentModal("other"));
-
-bindEvent("closeAdjustmentModal", "click", closeAdjustmentModal);
-bindEvent("cancelAdjustment", "click", closeAdjustmentModal);
-bindEvent("saveAdjustment", "click", saveAdjustmentFromModal);
-
-el("adjustmentModal").addEventListener("click", (event) => {
-  if (event.target === el("adjustmentModal")) {
-    closeAdjustmentModal();
-  }
-});
-
-[el("adjustmentName"), el("adjustmentValue")].forEach((input) => {
-  input.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      saveAdjustmentFromModal();
-    }
+categoryOptionsEl.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    renderCategoryCards();
+    syncEventCategoryOptions();
+    plannedEvents = plannedEvents.filter((event) => getSelectedCategories().includes(event.categoryId));
+    renderPlanningEvents();
+    calculateTimeOff();
   });
 });
 
 [
-  rateInput,
-  hoursInput,
   payPeriodInput,
-  currencyInput,
-  multiplierInput,
-  differentialRateInput,
-  differentialHoursInput,
-  doubleTimeHoursInput,
-  weekendBonusInput,
-  holidayBonusInput,
-  otherBonusInput,
-  el("goalType"),
-  el("goalAmount"),
-  el("goalShiftLength"),
-  overrideThresholdInput,
-  customThresholdInput
+  targetDateInput,
+  hoursPerDayInput,
+  policyResetDateInput,
+  carryoverLimitInput,
+  useItOrLoseItInput,
+  policyNotesInput
 ].forEach((input) => {
-  input.addEventListener("input", calculateOvertime);
-  input.addEventListener("change", calculateOvertime);
+  input.addEventListener("input", calculateTimeOff);
+  input.addEventListener("change", calculateTimeOff);
 });
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !el("adjustmentModal").classList.contains("hidden")) {
-    closeAdjustmentModal();
-  }
-});
+document.getElementById("calculate").addEventListener("click", calculateTimeOff);
+document.getElementById("example").addEventListener("click", loadExample);
+document.getElementById("reset").addEventListener("click", clearCalculator);
+document.getElementById("addPlanningEvent").addEventListener("click", addPlanningEvent);
+document.getElementById("clearPlanningEvents").addEventListener("click", clearPlanningEvents);
 
-bindEvent("openChangelog", "click", () => {
+document.getElementById("openChangelog").addEventListener("click", () => {
   openTextModal({
     title: "CHANGELOG",
     file: "CHANGELOG.md"
   });
 });
 
-bindEvent("openRoadmap", "click", () => {
+document.getElementById("openRoadmap").addEventListener("click", () => {
   openTextModal({
     title: "ROADMAP",
     file: "ROADMAP.md"
   });
 });
 
-const loadedSavedSettings = loadSavedSettings();
-
-setupMobileCollapsibleCards();
-setupMobileResultSections();
-updateThresholdUI();
-renderAdjustments();
-
-if (loadedSavedSettings) {
-  calculateOvertime();
-  saveSettings();
-  messageEl.classList.remove("error");
-  messageEl.textContent = "Welcome back. Previous values and layout restored.";
-} else {
-  resetResults();
-}
+renderCategoryCards();
+syncEventCategoryOptions();
+renderPlanningEvents();
+resetResults();
