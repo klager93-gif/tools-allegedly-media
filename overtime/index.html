@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: index.html
-Version: v0.9.3
+Version: v0.9.4
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.9.3">
+  href="style.css?v=0.9.4">
 
 </head>
 <body>
@@ -214,7 +214,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 </section>
-<section class="card step-card advanced-pay-card collapsible-card mobile-collapsed" data-collapse-card>
+<section class="card step-card advanced-pay-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="advancedPay">
 
 <div class="section-title">
   <div class="step-badge blue">2</div>
@@ -225,6 +225,7 @@ Overtime Calculator | Signal Labs
 
       <div class="inline-optional-control">
         <span class="optional-pill">Optional</span>
+        <span class="optional-state-label is-on" data-state-for="advancedPayEnabled">ON</span>
         <label class="inline-toggle-switch" title="Include advanced pay in results and reports.">
           <input id="advancedPayEnabled" type="checkbox" checked>
           <span class="toggle-slider" aria-hidden="true"></span>
@@ -238,6 +239,8 @@ Overtime Calculator | Signal Labs
     Show
   </button>
 </div>
+
+<div class="optional-section-body">
 
 <div class="card-collapse-content">
 
@@ -304,10 +307,13 @@ Overtime Calculator | Signal Labs
 
 </div>
 
+
+</div>
+
 </section>
 
 
-<section class="card step-card adjustment-card collapsible-card mobile-collapsed" data-collapse-card>
+<section class="card step-card adjustment-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="takeHome">
 
 <div class="section-title">
   <div class="step-badge purple">3</div>
@@ -318,6 +324,7 @@ Overtime Calculator | Signal Labs
 
       <div class="inline-optional-control">
         <span class="optional-pill">Optional</span>
+        <span class="optional-state-label is-on" data-state-for="takeHomeEnabled">ON</span>
         <label class="inline-toggle-switch" title="Include take-home estimates in results and reports.">
           <input id="takeHomeEnabled" type="checkbox" checked>
           <span class="toggle-slider" aria-hidden="true"></span>
@@ -331,6 +338,8 @@ Overtime Calculator | Signal Labs
     Show
   </button>
 </div>
+
+<div class="optional-section-body">
 
 <div class="card-collapse-content">
 
@@ -426,11 +435,14 @@ Overtime Calculator | Signal Labs
 
 </div>
 
+
+</div>
+
 </section>
 
 
 
-<section class="card step-card goal-card collapsible-card mobile-collapsed" data-collapse-card>
+<section class="card step-card goal-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="goalMode">
 
 <div class="section-title">
   <div class="step-badge orange">4</div>
@@ -441,6 +453,7 @@ Overtime Calculator | Signal Labs
 
       <div class="inline-optional-control">
         <span class="optional-pill">Optional</span>
+        <span class="optional-state-label is-on" data-state-for="goalModeEnabled">ON</span>
         <label class="inline-toggle-switch" title="Include goal mode in results and reports.">
           <input id="goalModeEnabled" type="checkbox" checked>
           <span class="toggle-slider" aria-hidden="true"></span>
@@ -454,6 +467,8 @@ Overtime Calculator | Signal Labs
     Show
   </button>
 </div>
+
+<div class="optional-section-body">
 
 <div class="card-collapse-content">
 
@@ -483,6 +498,9 @@ Overtime Calculator | Signal Labs
   <strong>Goal Mode uses your current settings.</strong>
   <span>Rate, pay period, overtime threshold, taxes, deductions, and advanced pay values are used to estimate the hours needed.</span>
 </div>
+
+</div>
+
 
 </div>
 
@@ -704,12 +722,12 @@ Overtime Calculator | Signal Labs
 
   <p>
     Build:
-    v0.9.3
+    v0.9.4
   </p>
 
   <p>
     Theme:
-    Inline Optional Toggles
+    Collapsible Optional Sections
   </p>
 
   <p>
@@ -747,7 +765,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Overtime Calculator · v0.9.3
+  Signal Labs · Overtime Calculator · v0.9.4
   <br>
   Estimates only. Actual pay may vary based on taxes, deductions,
   employer policies, and applicable labor laws.
@@ -856,7 +874,7 @@ Enter a name and value for this adjustment.
 </div>
 
 <script src="../assets/global.js?v=0.3"></script>
-<script src="script.js?v=0.9.3"></script>
+<script src="script.js?v=0.9.4"></script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: index.html
-Version: v0.9.3
+Version: v0.9.4
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ Time Off Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.9.3">
+  href="style.css?v=0.9.4">
 
 </head>
 <body>
@@ -252,6 +252,7 @@ Time Off Calculator | Signal Labs
 
       <div class="inline-optional-control">
         <span class="optional-pill">Optional</span>
+        <span class="optional-state-label is-on" data-state-for="planningModeEnabled">ON</span>
         <label class="inline-toggle-switch" title="Include planned events in calculations and reports.">
           <input id="planningModeEnabled" type="checkbox" checked>
           <span class="toggle-slider" aria-hidden="true"></span>
@@ -265,6 +266,8 @@ Time Off Calculator | Signal Labs
     Show
   </button>
 </div>
+
+<div class="optional-section-body">
 
 <div class="card-collapse-content">
 
@@ -317,6 +320,9 @@ Time Off Calculator | Signal Labs
 
 </div>
 
+
+</div>
+
 </section>
 
 
@@ -331,6 +337,7 @@ Time Off Calculator | Signal Labs
 
       <div class="inline-optional-control">
         <span class="optional-pill">Optional</span>
+        <span class="optional-state-label is-on" data-state-for="policyHelpersEnabled">ON</span>
         <label class="inline-toggle-switch" title="Include policy helper warnings and report notes.">
           <input id="policyHelpersEnabled" type="checkbox" checked>
           <span class="toggle-slider" aria-hidden="true"></span>
@@ -344,6 +351,8 @@ Time Off Calculator | Signal Labs
     Show
   </button>
 </div>
+
+<div class="optional-section-body">
 
 <div class="card-collapse-content">
 
@@ -374,6 +383,9 @@ Time Off Calculator | Signal Labs
 <p class="message policy-note">
   Policy helpers are reminders only. They do not replace your employer handbook, payroll system, union contract, or HR guidance.
 </p>
+
+</div>
+
 
 </div>
 
@@ -532,12 +544,12 @@ Time Off Calculator | Signal Labs
 
   <p>
     Build:
-    v0.9.3
+    v0.9.4
   </p>
 
   <p>
     Theme:
-    Inline Optional Toggles
+    Collapsible Optional Sections
   </p>
 
   <p>
@@ -575,7 +587,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Calculator · v0.9.3
+  Signal Labs · Time Off Calculator · v0.9.4
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -611,7 +623,7 @@ Loading...
 </div>
 
 <script src="../assets/global.js?v=0.3"></script>
-<script src="script.js?v=0.9.3"></script>
+<script src="script.js?v=0.9.4"></script>
 
 </body>
 </html>

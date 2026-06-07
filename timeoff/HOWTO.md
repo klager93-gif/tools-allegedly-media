@@ -142,3 +142,10 @@ Use Optional Sections to turn Planning Mode and Policy Helpers on or off without
 # v0.9.3 Inline Optional Toggles
 
 Use the small Optional switches in each card header to enable or disable optional features without deleting saved inputs.
+
+
+---
+
+# v0.9.4 Collapsible Optional Sections
+
+Use the green/red optional toggles in card headers. Green means on and expanded. Red means off and collapsed. Turning a section off does not delete saved inputs.

@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.9.3
+v0.9.4
 
 ### Theme
 
-Inline Optional Toggles
+Collapsible Optional Sections
 
 ### Status
 
@@ -99,3 +99,10 @@ Adds toggles for Advanced Pay, Take-Home Estimate, and Goal Mode. Disabled secti
 # v0.9.3 Inline Optional Toggles
 
 Optional toggles now live inside the header of each optional card instead of in a standalone options card.
+
+
+---
+
+# v0.9.4 Collapsible Optional Sections
+
+Disabled optional sections now collapse to header-only. Toggle switches are green when on and red when off, with ON/OFF labels for clarity.

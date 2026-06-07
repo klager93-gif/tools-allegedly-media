@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.3.1
+v0.9.4
 
 ## Theme
 
-Inline Optional Toggles Print Fix
+Collapsible Optional Sections
 
 ---
 
@@ -53,3 +53,12 @@ Inline Optional Toggles Print Fix
 - [ ] Optional label is small and readable.
 - [ ] Toggle state saves locally.
 - [ ] Reports still respect disabled optional sections.
+
+
+# Collapsible Optional Section Checks
+
+- [ ] Optional toggles show green when on.
+- [ ] Optional toggles show red when off.
+- [ ] Optional cards collapse to header-only when off.
+- [ ] Saved values are preserved when toggled off and back on.
+- [ ] Reports exclude disabled optional sections.

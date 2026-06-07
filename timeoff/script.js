@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.9.3
+Version: v0.9.4
 Purpose: Tool-specific logic and event handling
 */
 const categoryOptionsEl = document.getElementById("categoryOptions");
@@ -45,7 +45,7 @@ const messageEl = document.getElementById("message");
 let plannedEvents = [];
 let isLoadingSavedSettings = false;
 
-const STORAGE_KEY = "signalLabsTimeOffCalculatorV093";
+const STORAGE_KEY = "signalLabsTimeOffCalculatorV094";
 const LEGACY_STORAGE_KEYS = [
   "signalLabsTimeOffCalculatorV092",
   "signalLabsTimeOffCalculatorV08",
@@ -121,12 +121,29 @@ function getOptionalSectionSettings() {
 function applyOptionalSectionVisibility() {
   const settings = getOptionalSectionSettings();
 
-  document.querySelectorAll('[data-optional-section="planningMode"]').forEach((section) => {
-    section.classList.toggle("optional-section-disabled", !settings.planningMode);
+  const sectionMap = {
+    planningMode: settings.planningMode,
+    policyHelpers: settings.policyHelpers
+  };
+
+  Object.entries(sectionMap).forEach(([key, isEnabled]) => {
+    document.querySelectorAll(`[data-optional-section="${key}"]`).forEach((section) => {
+      section.classList.toggle("optional-section-off", !isEnabled);
+      section.setAttribute("aria-disabled", String(!isEnabled));
+    });
   });
 
-  document.querySelectorAll('[data-optional-section="policyHelpers"]').forEach((section) => {
-    section.classList.toggle("optional-section-disabled", !settings.policyHelpers);
+  [
+    ["planningModeEnabled", settings.planningMode],
+    ["policyHelpersEnabled", settings.policyHelpers]
+  ].forEach(([id, isEnabled]) => {
+    const label = document.querySelector(`[data-state-for="${id}"]`);
+
+    if (label) {
+      label.textContent = isEnabled ? "ON" : "OFF";
+      label.classList.toggle("is-on", isEnabled);
+      label.classList.toggle("is-off", !isEnabled);
+    }
   });
 
   document.querySelectorAll(".planned-results-section").forEach((section) => {
@@ -1708,7 +1725,7 @@ function buildTimeOffProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.3</div>
+          <div><strong>Build:</strong> v0.9.4</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1798,7 +1815,7 @@ function buildTimeOffProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual time off may vary based on employer policy, accrual rules, caps, holidays, unpaid leave, and payroll timing.</div>
-        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.3</div>
+        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.4</div>
       </footer>
     </main>
   `;

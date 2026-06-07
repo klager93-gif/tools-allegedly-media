@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.9.3**
+**v0.9.4**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.9.4 | Collapsible Optional Sections |
 | v0.9.3 | Inline Optional Toggles |
 | v0.9.2 | Optional Section Toggles |
 | v0.9.1 | Professional Reports Print Fix |

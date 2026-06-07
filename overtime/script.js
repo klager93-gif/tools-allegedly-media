@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.3
+Version: v0.9.4
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -27,7 +27,7 @@ const thresholdNoteEl = document.getElementById("thresholdNote");
 const messageEl = document.getElementById("message");
 const generatedTimeEl = document.getElementById("generatedTime");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV093";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV094";
 const LEGACY_STORAGE_KEYS = [
   "signalLabsOvertimeCalculatorV092",
   "signalLabsOvertimeCalculatorV085",
@@ -228,45 +228,36 @@ function getOptionalSectionSettings() {
 function applyOptionalSectionVisibility() {
   const settings = getOptionalSectionSettings();
 
-  document.querySelectorAll('[data-optional-section="advancedPay"]').forEach((section) => {
-    section.classList.toggle("optional-section-disabled", !settings.advancedPay);
+  const sectionMap = {
+    advancedPay: settings.advancedPay,
+    takeHome: settings.takeHome,
+    goalMode: settings.goalMode
+  };
+
+  Object.entries(sectionMap).forEach(([key, isEnabled]) => {
+    document.querySelectorAll(`[data-optional-section="${key}"]`).forEach((section) => {
+      section.classList.toggle("optional-section-off", !isEnabled);
+      section.setAttribute("aria-disabled", String(!isEnabled));
+    });
   });
 
-  document.querySelectorAll('[data-optional-section="takeHome"]').forEach((section) => {
-    section.classList.toggle("optional-section-disabled", !settings.takeHome);
+  [
+    ["advancedPayEnabled", settings.advancedPay],
+    ["takeHomeEnabled", settings.takeHome],
+    ["goalModeEnabled", settings.goalMode]
+  ].forEach(([id, isEnabled]) => {
+    const label = document.querySelector(`[data-state-for="${id}"]`);
+
+    if (label) {
+      label.textContent = isEnabled ? "ON" : "OFF";
+      label.classList.toggle("is-on", isEnabled);
+      label.classList.toggle("is-off", !isEnabled);
+    }
   });
 
-  document.querySelectorAll('[data-optional-section="goalMode"]').forEach((section) => {
-    section.classList.toggle("optional-section-disabled", !settings.goalMode);
-  });
-
-  const advancedResultSections = [
-    "advancedPayTotal",
-    "differentialPay",
-    "doubleTimePay",
-    "bonusPay"
-  ];
-
-  const taxResultSections = [
-    "taxResultsTotal",
-    "taxResultsList",
-    "deductionResultsTotal",
-    "deductionResultsList",
-    "otherAdjustmentsTotal",
-    "otherAdjustmentsList",
-    "takeHomePay",
-    "netEffectiveRate"
-  ];
-
-  const goalResultSections = [
-    "goalTargetAmount",
-    "goalHoursNeeded",
-    "goalOvertimeNeeded",
-    "goalShiftsNeeded",
-    "goalEstimatedGross",
-    "goalEstimatedTakeHome",
-    "goalMessage"
-  ];
+  const advancedResultSections = ["advancedPayTotal", "differentialPay", "doubleTimePay", "bonusPay"];
+  const taxResultSections = ["taxResultsTotal", "taxResultsList", "deductionResultsTotal", "deductionResultsList", "otherAdjustmentsTotal", "otherAdjustmentsList", "takeHomePay", "netEffectiveRate"];
+  const goalResultSections = ["goalTargetAmount", "goalHoursNeeded", "goalOvertimeNeeded", "goalShiftsNeeded", "goalEstimatedGross", "goalEstimatedTakeHome", "goalMessage"];
 
   advancedResultSections.forEach((id) => {
     const node = el(id);
@@ -1306,7 +1297,7 @@ function buildOvertimeProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.3</div>
+          <div><strong>Build:</strong> v0.9.4</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1393,7 +1384,7 @@ function buildOvertimeProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
-        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.3</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.4</div>
       </footer>
     </main>
   `;

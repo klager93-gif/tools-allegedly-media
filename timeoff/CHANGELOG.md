@@ -1,3 +1,20 @@
+## Version 0.9.4
+
+**Date:** 2026-06-07  
+**Theme:** Collapsible Optional Sections
+
+### Changes
+
+- Added true collapse behavior for disabled optional sections.
+- Changed optional toggles to green when on and red when off.
+- Added ON/OFF state labels beside optional toggles.
+- Disabled optional cards now collapse to header-only while preserving saved inputs.
+- Reports and copy output continue to respect disabled optional sections.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.3
 
 **Date:** 2026-06-07  

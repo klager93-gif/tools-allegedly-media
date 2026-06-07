@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: style.css
-Version: v0.9.3
+Version: v0.9.4
 Purpose: Tool-specific styles
 */
 .dashboard-layout {
@@ -1236,3 +1236,140 @@ v0.9.3 Inline Optional Toggles
 .inline-toggle-switch input:checked + .toggle-slider, .toggle-switch input:checked + .toggle-slider { background: var(--accent); }
 .inline-toggle-switch input:checked + .toggle-slider::before, .toggle-switch input:checked + .toggle-slider::before { transform: translateX(20px); }
 @media (max-width: 560px) { .inline-optional-control { width: 100%; justify-content: space-between; margin-left: 0; } }
+
+
+/*
+--------------------------------
+v0.9.4 Collapsible Optional Sections
+--------------------------------
+*/
+
+.optional-section-body {
+  overflow: hidden;
+  max-height: 2200px;
+  opacity: 1;
+  transition:
+    max-height 0.22s ease,
+    opacity 0.18s ease,
+    margin 0.18s ease;
+}
+
+.optional-section-off {
+  opacity: 0.82;
+}
+
+.optional-section-off .optional-section-body {
+  max-height: 0;
+  opacity: 0;
+  margin: 0 !important;
+  pointer-events: none;
+}
+
+.optional-section-off .section-title {
+  margin-bottom: 0;
+}
+
+.inline-optional-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.optional-state-label {
+  min-width: 32px;
+  text-align: right;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.optional-state-label.is-on {
+  color: #22c55e;
+}
+
+.optional-state-label.is-off {
+  color: #f43f5e;
+}
+
+.optional-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.10);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.inline-toggle-switch,
+.toggle-switch {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 46px;
+  height: 26px;
+  margin: 0;
+  gap: 0;
+}
+
+.inline-toggle-switch input,
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.inline-toggle-switch .toggle-slider,
+.toggle-switch .toggle-slider {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+  border-radius: 999px;
+  background: #dc2626;
+  transition: background 0.2s ease;
+}
+
+.inline-toggle-switch .toggle-slider::before,
+.toggle-switch .toggle-slider::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 3px;
+  top: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.24);
+  transition: transform 0.2s ease;
+}
+
+.inline-toggle-switch input:checked + .toggle-slider,
+.toggle-switch input:checked + .toggle-slider {
+  background: #16a34a;
+}
+
+.inline-toggle-switch input:checked + .toggle-slider::before,
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(20px);
+}
+
+.optional-section-off .optional-pill {
+  background: rgba(244, 63, 94, 0.12);
+  color: #f43f5e;
+}
+
+@media (max-width: 560px) {
+
+  .inline-optional-control {
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 0;
+  }
+
+}
