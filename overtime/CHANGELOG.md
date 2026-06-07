@@ -4,6 +4,26 @@
 
 ---
 
+## Version 0.8.0.2
+
+**Date:** 2026-06-07  
+**Time:** 12:34 UTC
+
+### Theme
+
+Roadmap Cleanup
+
+### Changes
+
+- Cleaned up the completed versions list in the roadmap.
+- Removed the duplicate v0.6.4 roadmap entry.
+- Updated build labels from v0.8.0.1 to v0.8.0.2.
+- Updated cache-busting references for v0.8.0.2.
+- Updated README current status for the cleanup release.
+- No calculator logic changes.
+
+---
+
 ## Version 0.8.0.1
 
 **Date:** 2026-06-06  

@@ -6,12 +6,12 @@
 
 ## Last Updated
 
-2026-06-06  
-11:00 UTC
+2026-06-07  
+12:34 UTC
 
 ## Current Version
 
-**v0.8.0.1**
+**v0.8.0.2**
 
 ---
 
@@ -43,7 +43,7 @@
 | v0.7.3.3 | Mobile Hero Polish |
 | v0.8.0 | Personalized Experience |
 | v0.8.0.1 | Saved Profile Migration Fix |
-| v0.6.4 | Custom Modals & Manual Save |
+| v0.8.0.2 | Roadmap Cleanup |
 
 ---
 

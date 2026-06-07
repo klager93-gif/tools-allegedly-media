@@ -122,6 +122,7 @@ Currency changes display only. It does not convert exchange rates or change tax 
 - Clear saved profile control.
 - Legacy saved profile migration.
 - Compact mobile summary card.
+- Roadmap cleanup.
 
 ---
 
@@ -252,11 +253,11 @@ Additional features and improvements are always possible.
 
 ### Build
 
-v0.8.0.1
+v0.8.0.2
 
 ### Theme
 
-Saved Profile Migration Fix
+Roadmap Cleanup
 
 ### Status
 

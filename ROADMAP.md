@@ -6,19 +6,20 @@
 
 ## Last Updated
 
-2026-06-06
+2026-06-07
 
 ## Current Version
 
-**v0.1**
+**v0.1.1**
 
 ---
 
 # Completed Versions
 
-| Version | Theme      |
-| ------- | ---------- |
-| v0.1    | Foundation |
+| Version | Theme |
+|-----------|--------|
+| v0.1 | Foundation |
+| v0.1.1 | Root Cleanup |
 
 ---
 
@@ -32,10 +33,10 @@ Navigation
 
 ### Planned Features
 
-* Add site navigation bar.
-* Add links between calculators.
-* Add active page highlighting.
-* Improve footer layout.
+- Add site navigation bar.
+- Add links between calculators.
+- Add active page highlighting.
+- Improve footer layout.
 
 ---
 
@@ -47,10 +48,10 @@ Organization
 
 ### Planned Features
 
-* Separate tools into categories.
-* Work Tools section.
-* Money Tools section.
-* Life Tools section.
+- Separate tools into categories.
+- Work Tools section.
+- Money Tools section.
+- Life Tools section.
 
 ---
 
@@ -62,10 +63,10 @@ Polish
 
 ### Planned Features
 
-* Better cards.
-* Tool icons.
-* Hover effects.
-* Mobile improvements.
+- Better cards.
+- Tool icons.
+- Hover effects.
+- Mobile improvements.
 
 ---
 
@@ -77,11 +78,11 @@ Project Information
 
 ### Planned Features
 
-* Homepage changelog popup.
-* Homepage roadmap popup.
-* Homepage README popup.
-* Version display.
-* About Signal Labs section.
+- Homepage changelog popup.
+- Homepage roadmap popup.
+- Homepage README popup.
+- Version display.
+- About Signal Labs section.
 
 ---
 
@@ -93,7 +94,7 @@ Public Release
 
 ### Planned Features
 
-* Final polish.
-* Accessibility review.
-* SEO improvements.
-* Expanded tool catalog.
+- Final polish.
+- Accessibility review.
+- SEO improvements.
+- Expanded tool catalog.
