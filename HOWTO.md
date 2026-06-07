@@ -146,3 +146,26 @@ Use this only for layout testing. It displays a non-live placeholder.
 - Keep ad initialization in `assets/global.js`.
 - Add actual slot placement inside individual tools only after the global framework is installed.
 
+
+
+---
+
+# Disabled Ad Slot Behavior
+
+Disabled ad slots should not display visible text, borders, spacing, or reserved height.
+
+Use:
+
+```html
+data-ad-status="disabled"
+```
+
+for any slot that should exist in code but stay hidden from users.
+
+Use:
+
+```html
+data-ad-status="placeholder"
+```
+
+only when intentionally testing layout.

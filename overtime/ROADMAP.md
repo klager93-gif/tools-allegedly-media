@@ -1,4 +1,4 @@
-# Signal Labs Time Off Calculator
+# Signal Labs Overtime Calculator
 
 # ROADMAP
 
@@ -7,11 +7,11 @@
 ## Last Updated
 
 2026-06-07  
-13:15 UTC
+15:05 UTC
 
 ## Current Version
 
-**v0.5.1**
+**v0.8.3.1**
 
 ---
 
@@ -19,47 +19,25 @@
 
 | Version | Theme |
 |-----------|--------|
-| v0.1 | Initial Prototype |
-| v0.1.1 | Rebrand |
-| v0.1.2 | Label & Layout Polish |
-| v0.1.3 | Label Cleanup |
-| v0.2 | Categories |
-| v0.3 | Multiple Balance Results |
-| v0.4 | Planning Mode |
-| v0.5 | Warnings & Policy Helpers |
-| v0.5.1 | Input Polish |
+| v0.8.1 | Goal Mode |
+| v0.8.2 | Shared Navigation Repair |
+| v0.8.2.1 | Layout Repair Patch |
+| v0.8.3.1 | Live Folder Resync |
 
 ---
 
 # Upcoming Versions
 
-## v1.0
+## v0.9
 
 ### Theme
 
-Public Release
+Share & Export
 
 ### Planned Features
 
-- Final visual polish.
-- Accessibility review.
-- SEO improvements.
-- FAQ section.
-- Schema markup.
-- Final copy review.
-- Mobile quality review.
-
----
-
-# Future Ideas
-
-- Holiday-aware projections.
-- Employer policy presets.
-- PTO cash-out estimator.
-- Calendar view.
-- Multiple job profiles.
-- Separate accrual banks.
-- Saved profiles.
-- Export and print support.
-- Internal links to other Signal Labs tools.
-- HOWTO.md user guide support.
+- Print support.
+- Copy results.
+- Save as PDF.
+- Share links.
+- Improved summaries.

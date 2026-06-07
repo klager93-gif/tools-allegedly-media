@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.6.2**
+**v0.6.2.1**
 
 ---
 
@@ -31,6 +31,7 @@
 | v0.6 | Saved Profiles |
 | v0.6.1 | Shared Navigation |
 | v0.6.2 | Tool Ad Slot Placement |
+| v0.6.2.1 | Disabled Ad Slot Sync |
 
 ---
 

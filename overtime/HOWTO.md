@@ -23,52 +23,6 @@ The Overtime Calculator estimates regular pay, overtime pay, advanced pay, taxes
 
 ---
 
-# Saved Profiles
-
-The calculator saves values locally on the user's device.
-
-Saved values include:
-
-- Basic pay settings.
-- Advanced pay values.
-- Taxes.
-- Deductions.
-- Other adjustments.
-- Goal Mode values.
-- Mobile layout state.
-
-Use **Clear Saved Profile** to remove saved local data.
-
----
-
-# Ad Slots
-
-Overtime v0.8.3 includes disabled ad slot placements.
-
-No live ads are served.
-
-## Slots
-
-```text
-overtime-top
-overtime-inline-results
-overtime-footer
-```
-
-## Current Status
-
-All slots use:
-
-```html
-data-ad-status="disabled"
-```
-
-The Root v0.2.2 global ad framework controls the styling and initialization.
-
-Do not add live ad provider scripts until a future ad-provider release.
-
----
-
 # Maintenance Notes
 
 - Keep shared navigation controlled by `/assets/global.js`.
@@ -76,3 +30,12 @@ Do not add live ad provider scripts until a future ad-provider release.
 - Keep calculator-specific layout in `/overtime/style.css`.
 - Keep calculator logic in `/overtime/script.js`.
 - Update README, ROADMAP, CHANGELOG, and HOWTO with every meaningful release.
+
+
+---
+
+# v0.8.3.1 Live Folder Resync Note
+
+If `/overtime/` ever displays Time Off content, replace the full `/overtime/` folder with this release package.
+
+Do not patch only one file when the live folder contents appear mixed.

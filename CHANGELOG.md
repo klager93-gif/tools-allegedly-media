@@ -4,6 +4,21 @@
 
 ---
 
+## Version 0.2.2.1
+
+**Date:** 2026-06-07  
+**Theme:** Disabled Ad Slot Fix
+
+### Changes
+
+- Fixed disabled ad slots showing visible placeholder text.
+- Added stronger global CSS rules so disabled ad slots do not display text, spacing, borders, or reserved height.
+- Updated `initializeAdSlots()` so disabled ad slots are also hidden with the HTML `hidden` property.
+- Updated root cache-busting references to v0.2.2.1.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.2.2
 
 **Date:** 2026-06-07  

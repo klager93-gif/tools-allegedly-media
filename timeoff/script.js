@@ -38,8 +38,9 @@ const messageEl = document.getElementById("message");
 let plannedEvents = [];
 let isLoadingSavedSettings = false;
 
-const STORAGE_KEY = "signalLabsTimeOffCalculatorV062";
+const STORAGE_KEY = "signalLabsTimeOffCalculatorV0621";
 const LEGACY_STORAGE_KEYS = [
+  "signalLabsTimeOffCalculatorV062",
   "signalLabsTimeOffCalculatorV061",
   "signalLabsTimeOffCalculatorV06"
 ];

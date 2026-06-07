@@ -4,6 +4,27 @@
 
 ---
 
+## Version 0.6.2.1
+
+**Date:** 2026-06-07  
+**Time:** 15:55 UTC
+
+### Theme
+
+Disabled Ad Slot Sync
+
+### Changes
+
+- Updated shared global asset references to Root v0.2.2.1.
+- Updated Time Off cache-busting references to v0.6.2.1.
+- Added local disabled ad slot fallback styling in case stale global CSS is cached.
+- Fixed disabled ad slot placeholder text showing on the live page.
+- Preserved Tool Ad Slot Placement.
+- Preserved Saved Profiles, Planning Mode, Policy Helpers, and category results.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.6.2
 
 **Date:** 2026-06-07  

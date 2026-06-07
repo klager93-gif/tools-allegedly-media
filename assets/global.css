@@ -454,3 +454,28 @@ No live ad provider code is included.
   }
 
 }
+
+
+/*
+--------------------------------
+v0.2.2.1 Disabled Ad Slot Fix
+--------------------------------
+Disabled ad slots must not display visible text, spacing, borders, or placeholder content.
+*/
+
+.ad-slot.is-disabled,
+.ad-slot[data-ad-status="disabled"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+}
+
+.ad-slot.is-disabled .ad-placeholder,
+.ad-slot[data-ad-status="disabled"] .ad-placeholder {
+  display: none !important;
+}

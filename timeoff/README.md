@@ -84,7 +84,7 @@ Each selected category supports:
 - Reset-date reminders.
 - Carryover-limit reminders.
 
-## Tool Ad Slot Placement
+## Disabled Ad Slot Sync
 
 - Automatic saved profile support.
 - Saved selected categories.
@@ -190,11 +190,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.6.2.2
+v0.6.2.1.2
 
 ### Theme
 
-Tool Ad Slot Placement
+Disabled Ad Slot Sync
 
 ### Status
 
@@ -204,7 +204,7 @@ Active Development
 
 # Ad Slot Placement
 
-Time Off v0.6.2 adds disabled ad slot placements using the Root v0.2.2 global ad slot framework.
+Time Off v0.6.2.1 adds disabled ad slot placements using the Root v0.2.2 global ad slot framework.
 
 No live ads are served.
 
@@ -224,3 +224,12 @@ data-ad-status="disabled"
 
 They are reserved for future monetization support only.
 
+
+
+---
+
+# v0.6.2.1 Disabled Ad Slot Sync
+
+This release keeps Time Off ad slot placement but updates the page to Root v0.2.2.1 so disabled ad slots remain hidden.
+
+No live ads are served.

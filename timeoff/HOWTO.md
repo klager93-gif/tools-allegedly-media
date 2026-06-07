@@ -75,3 +75,12 @@ Do not add live ad provider scripts until a future ad-provider release.
 - Keep Time Off-specific layout in `/timeoff/style.css`.
 - Keep Time Off logic in `/timeoff/script.js`.
 - Update README, ROADMAP, CHANGELOG, and HOWTO with every meaningful release.
+
+
+---
+
+# v0.6.2.1 Disabled Ad Slot Sync Note
+
+Disabled ad slots should not show visible placeholder text.
+
+If placeholder text appears, confirm Root v0.2.2.1 global assets are installed and this Time Off patch is uploaded.

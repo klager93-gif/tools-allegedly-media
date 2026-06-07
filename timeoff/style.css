@@ -837,3 +837,24 @@ main.page .ad-slot {
   margin-top: 8px;
   margin-bottom: 30px;
 }
+
+
+/*
+--------------------------------
+v0.6.2.1 Local Disabled Ad Safeguard
+--------------------------------
+Global assets should hide disabled ad slots.
+This local fallback protects Time Off if stale global CSS is cached.
+*/
+
+.ad-slot.is-disabled,
+.ad-slot[data-ad-status="disabled"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+}

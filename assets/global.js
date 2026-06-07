@@ -102,6 +102,7 @@ function initializeAdSlots() {
     if (status === "disabled") {
       slot.classList.add("is-disabled");
       slot.setAttribute("aria-hidden", "true");
+      slot.hidden = true;
       return;
     }
 

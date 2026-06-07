@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.2.2**
+**v0.2.2.1**
 
 ---
 
@@ -21,7 +21,9 @@
 | v0.1 | Initial Root Prototype |
 | v0.1.1 | Root Cleanup |
 | v0.2 | Navigation |
-| v0.2.2 | Navigation Version Label Fix |
+| v0.2.1 | Navigation Version Label Fix |
+| v0.2.2 | Ad Slot Framework |
+| v0.2.2.1 | Disabled Ad Slot Fix |
 
 ---
 
