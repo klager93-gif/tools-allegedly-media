@@ -38,7 +38,11 @@ const messageEl = document.getElementById("message");
 let plannedEvents = [];
 let isLoadingSavedSettings = false;
 
-const STORAGE_KEY = "signalLabsTimeOffCalculatorV06";
+const STORAGE_KEY = "signalLabsTimeOffCalculatorV062";
+const LEGACY_STORAGE_KEYS = [
+  "signalLabsTimeOffCalculatorV061",
+  "signalLabsTimeOffCalculatorV06"
+];
 
 const CATEGORY_CONFIGS = [
   {
@@ -160,7 +164,17 @@ function clearSavedProfile() {
 }
 
 function loadSavedSettings() {
-  const saved = localStorage.getItem(STORAGE_KEY);
+  let saved = localStorage.getItem(STORAGE_KEY);
+
+  if (!saved && Array.isArray(LEGACY_STORAGE_KEYS)) {
+    for (const key of LEGACY_STORAGE_KEYS) {
+      saved = localStorage.getItem(key);
+
+      if (saved) {
+        break;
+      }
+    }
+  }
 
   if (!saved) {
     return false;

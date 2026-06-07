@@ -7,11 +7,11 @@
 ## Last Updated
 
 2026-06-07  
-14:25 UTC
+15:40 UTC
 
 ## Current Version
 
-**v0.6.1**
+**v0.6.2**
 
 ---
 
@@ -30,6 +30,7 @@
 | v0.5.1 | Input Polish |
 | v0.6 | Saved Profiles |
 | v0.6.1 | Shared Navigation |
+| v0.6.2 | Tool Ad Slot Placement |
 
 ---
 

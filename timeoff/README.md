@@ -84,7 +84,7 @@ Each selected category supports:
 - Reset-date reminders.
 - Carryover-limit reminders.
 
-## Saved Profiles
+## Tool Ad Slot Placement
 
 - Automatic saved profile support.
 - Saved selected categories.
@@ -99,6 +99,7 @@ Each selected category supports:
 ## Quality of Life
 
 - Shared Signal Labs navigation.
+- Disabled ad slot placements.
 - Active navigation highlighting.
 
 
@@ -189,12 +190,37 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.6.1
+v0.6.2.2
 
 ### Theme
 
-Shared Navigation
+Tool Ad Slot Placement
 
 ### Status
 
 Active Development
+
+---
+
+# Ad Slot Placement
+
+Time Off v0.6.2 adds disabled ad slot placements using the Root v0.2.2 global ad slot framework.
+
+No live ads are served.
+
+## Added Slots
+
+```text
+timeoff-top
+timeoff-inline-results
+timeoff-footer
+```
+
+All slots are disabled with:
+
+```html
+data-ad-status="disabled"
+```
+
+They are reserved for future monetization support only.
+

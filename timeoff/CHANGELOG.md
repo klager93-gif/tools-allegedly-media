@@ -4,6 +4,29 @@
 
 ---
 
+## Version 0.6.2
+
+**Date:** 2026-06-07  
+**Time:** 15:40 UTC
+
+### Theme
+
+Tool Ad Slot Placement
+
+### Changes
+
+- Added disabled top ad slot.
+- Added disabled inline results ad slot.
+- Added disabled footer ad slot.
+- Connected Time Off to the Root v0.2.2 global ad slot framework.
+- Updated shared global asset references to v0.2.2.
+- Updated build labels and cache-busting references for v0.6.2.
+- Updated saved profile storage key with legacy fallback.
+- Added Time Off ad slot documentation.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.6.1
 
 **Date:** 2026-06-07  

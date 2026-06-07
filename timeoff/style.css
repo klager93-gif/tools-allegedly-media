@@ -818,3 +818,22 @@ v0.6 Saved Profiles
   }
 
 }
+
+
+/*
+--------------------------------
+v0.6.2 Tool Ad Slot Placement
+--------------------------------
+Ad slot framework is controlled by Root v0.2.2 global assets.
+These local rules only keep spacing predictable inside the Time Off layout.
+*/
+
+main.page .ad-slot {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.results-card .ad-slot-inline {
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
