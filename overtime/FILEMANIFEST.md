@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.4.2
+v0.9.5
 
 ## Theme
 
-Toggle Polish & Compact Headers
+Compact UI Pass
 
 ---
 

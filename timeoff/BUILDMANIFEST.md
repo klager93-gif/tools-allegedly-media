@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.4.2
+v0.9.5
 
 ## Theme
 
-Toggle Polish & Compact Headers
+Compact UI Pass
 
 ---
 
@@ -80,3 +80,14 @@ Toggle Polish & Compact Headers
 - [ ] Toggle knob fits inside red/green track.
 - [ ] ON/OFF labels are compact.
 - [ ] Collapse behavior still works.
+
+
+# Compact UI Checks
+
+- [ ] Toggle knob fits inside track.
+- [ ] Toggle ON is green.
+- [ ] Toggle OFF is red.
+- [ ] Optional headers are tighter.
+- [ ] Forms remain readable on mobile.
+- [ ] Results remain readable.
+- [ ] Reports and Copy Results still work.

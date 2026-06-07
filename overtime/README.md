@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.9.4.2
+v0.9.5
 
 ### Theme
 
-Toggle Polish & Compact Headers
+Compact UI Pass
 
 ### Status
 
@@ -120,3 +120,10 @@ Fixes optional toggle initialization, ON/OFF labels, and collapse behavior for s
 # v0.9.4.2 Toggle Polish & Compact Headers
 
 Removes duplicate optional title text, tightens optional card headers, and fixes toggle knob/track sizing.
+
+
+---
+
+# v0.9.5 Compact UI Pass
+
+Rebuilds toggle sizing, tightens headers, and reduces card/form/result spacing while preserving existing behavior.

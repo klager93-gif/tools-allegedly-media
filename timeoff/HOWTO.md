@@ -163,3 +163,10 @@ If a toggle is red/OFF, the optional card collapses to header-only. Green/ON mea
 # v0.9.4.2 Toggle Polish & Compact Headers
 
 Optional cards use the small OPTIONAL badge only. The ON/OFF switch is compact and fits correctly inside the colored track.
+
+
+---
+
+# v0.9.5 Compact UI Pass
+
+The interface is more compact. Optional toggles remain green/on and red/off, and disabled sections collapse without deleting saved inputs.

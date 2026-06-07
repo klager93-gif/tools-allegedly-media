@@ -1,3 +1,21 @@
+## Version 0.9.5
+
+**Date:** 2026-06-07  
+**Theme:** Compact UI Pass
+
+### Changes
+
+- Rebuilt optional toggle sizing with hard CSS overrides.
+- Fixed toggle track and knob proportions so the knob stays inside the colored background.
+- Tightened optional card headers.
+- Removed duplicate optional title text where present.
+- Reduced card, form, button, and result row spacing.
+- Preserved collapse behavior, saved inputs, report output, and copy output.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.4.2
 
 **Date:** 2026-06-07  
