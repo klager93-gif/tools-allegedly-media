@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.6.2.1 | Standards Manifest Adoption |
 | v0.1 | Initial Prototype |
 | v0.1.1 | Rebrand |
 | v0.1.2 | Label & Layout Polish |

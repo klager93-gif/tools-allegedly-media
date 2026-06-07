@@ -1,3 +1,10 @@
+/*
+Signal Labs
+Tool: Time Off Calculator
+File: style.css
+Version: v0.6.2.1
+Purpose: Tool-specific styles
+*/
 .dashboard-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;

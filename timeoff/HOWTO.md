@@ -84,3 +84,17 @@ Do not add live ad provider scripts until a future ad-provider release.
 Disabled ad slots should not show visible placeholder text.
 
 If placeholder text appears, confirm Root v0.2.2.1 global assets are installed and this Time Off patch is uploaded.
+
+
+---
+
+# Developer Manifests
+
+Before packaging this tool, review:
+
+```text
+FILEMANIFEST.md
+BUILDMANIFEST.md
+```
+
+These files help prevent missing files, wrong-folder uploads, cross-contamination, and malformed version strings.

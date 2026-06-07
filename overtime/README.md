@@ -64,3 +64,17 @@ No Time Off files are included.
 This release is a full `/overtime/` folder replacement to correct the live folder mix-up where the Overtime URL displayed Time Off content.
 
 It includes disabled ad slot placement and updates shared assets to Root v0.2.2.1.
+
+
+---
+
+# Developer Files
+
+This tool should maintain:
+
+```text
+FILEMANIFEST.md
+BUILDMANIFEST.md
+```
+
+These files define expected files, identity checks, version checks, and ZIP validation requirements.

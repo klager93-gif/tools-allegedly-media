@@ -4,37 +4,27 @@
 
 ## Current Build
 
-v0.2.2.2
+v0.2.3
 
 ## Theme
 
-Standards Preservation
+Standards Manifest Adoption
 
 ## Build Type
 
-Root documentation and standards preservation patch.
+Root standards and tool manifest adoption release.
 
 ---
 
 # Build Purpose
 
-This build preserves Signal Labs Development Standards v1.1 inside the project itself.
-
-It adds:
-
-```text
-STANDARDS.md
-FILEMANIFEST.md
-BUILDMANIFEST.md
-```
-
-and updates documentation references.
+This build adopts the standards and manifest system across Root, Overtime, and Time Off.
 
 ---
 
 # Required Validation Before ZIP
 
-## Required Files
+## Required Root Files
 
 - [ ] index.html
 - [ ] README.md
@@ -47,27 +37,36 @@ and updates documentation references.
 - [ ] assets/global.css
 - [ ] assets/global.js
 
-## Identity Checks
+## Required Tool Files
 
-- [ ] Root index identifies Signal Labs.
-- [ ] Root index identifies Root Site.
-- [ ] assets/global.css has a shared asset identity header.
-- [ ] assets/global.js has a shared asset identity header.
-- [ ] STANDARDS.md contains Signal Labs Development Standards v1.1.
+- [ ] overtime/FILEMANIFEST.md
+- [ ] overtime/BUILDMANIFEST.md
+- [ ] timeoff/FILEMANIFEST.md
+- [ ] timeoff/BUILDMANIFEST.md
 
 ## Version Checks
 
-- [ ] index.html shows v0.2.2.2.
-- [ ] README.md shows v0.2.2.2.
-- [ ] ROADMAP.md shows v0.2.2.2.
-- [ ] CHANGELOG.md has v0.2.2.2 as newest entry.
-- [ ] Cache-busting references use v0.2.2.2.
+- [ ] Root index shows v0.2.3.
+- [ ] Root footer shows v0.2.3.
+- [ ] Root cache-busting uses v0.2.3.
+- [ ] No malformed version strings exist.
 
-## Shared Dependency Review
+## Version String Sanity
 
-- [ ] Root reviewed.
-- [ ] Overtime impact considered.
-- [ ] Time Off impact considered.
+Reject:
+
+```text
+version 0.2.2.2.2
+version 0.8.3.1.1
+version 0.6.2.1.1
+```
+
+## Identity Checks
+
+- [ ] Overtime files identify Overtime Calculator.
+- [ ] Time Off files identify Time Off Calculator.
+- [ ] Overtime files are not Time Off files.
+- [ ] Time Off files are not Overtime files.
 
 ---
 

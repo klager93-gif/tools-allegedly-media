@@ -189,3 +189,32 @@ Never silently continue.
 The previous expanded rule list remains supporting guidance behind these principles.
 
 These eleven rules are the authoritative core of Signal Labs Development Standards v1.1.
+
+
+---
+
+# Version String Sanity
+
+This check is part of Rule 8 and Rule 9.
+
+Before and after packaging, verify that version strings are valid and not malformed.
+
+Reject examples:
+
+```text
+version 0.2.2.2.2
+version 0.8.3.1.1
+version 0.6.2.1.1
+```
+
+Verify:
+
+- Header version.
+- Footer version.
+- README current version.
+- ROADMAP current version.
+- CHANGELOG newest entry.
+- CSS cache-busting reference.
+- JS cache-busting reference.
+
+If a malformed version string is found, abort packaging and fix it before creating the ZIP.

@@ -7,6 +7,22 @@
 ## Version 0.8.3.1
 
 **Date:** 2026-06-07  
+**Theme:** Standards Manifest Adoption
+
+### Changes
+
+- Added file identity headers to Overtime Calculator source files.
+- Added FILEMANIFEST.md.
+- Added BUILDMANIFEST.md.
+- Updated shared global asset references to Root v0.2.3.
+- Added version-string sanity checks to build documentation.
+- No calculator logic changes.
+
+---
+
+## Version 0.8.3.1
+
+**Date:** 2026-06-07  
 **Time:** 15:55 UTC
 
 ### Theme

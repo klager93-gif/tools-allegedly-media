@@ -1,3 +1,10 @@
+/*
+Signal Labs
+Tool: Time Off Calculator
+File: script.js
+Version: v0.6.2.1
+Purpose: Tool-specific logic and event handling
+*/
 const categoryOptionsEl = document.getElementById("categoryOptions");
 const categoryInputCardsEl = document.getElementById("categoryInputCards");
 const categoryResultsEl = document.getElementById("categoryResults");

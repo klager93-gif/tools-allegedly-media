@@ -196,3 +196,20 @@ BUILDMANIFEST.md
 ```
 
 Use these files to confirm expected files, folder structure, identity strings, and build checks before packaging.
+
+
+---
+
+# Version String Sanity
+
+Before packaging a release, check for malformed version strings.
+
+Reject examples:
+
+```text
+version 0.2.2.2.2
+version 0.8.3.1.1
+version 0.6.2.1.1
+```
+
+If found, stop and fix the file before creating a ZIP.

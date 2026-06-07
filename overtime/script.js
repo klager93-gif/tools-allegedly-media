@@ -1,3 +1,10 @@
+/*
+Signal Labs
+Tool: Overtime Calculator
+File: script.js
+Version: v0.8.3.1
+Purpose: Tool-specific logic and event handling
+*/
 const rateInput = document.getElementById("rate");
 const hoursInput = document.getElementById("hours");
 const payPeriodInput = document.getElementById("payPeriod");

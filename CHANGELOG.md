@@ -4,6 +4,25 @@
 
 ---
 
+## Version 0.2.3
+
+**Date:** 2026-06-07  
+**Theme:** Standards Manifest Adoption
+
+### Changes
+
+- Added version-string sanity checks to the project standards.
+- Fixed malformed root footer version behavior from the previous standards preservation release.
+- Added/updated root identity headers.
+- Added tool identity headers for Overtime and Time Off files.
+- Added FILEMANIFEST.md and BUILDMANIFEST.md to Overtime.
+- Added FILEMANIFEST.md and BUILDMANIFEST.md to Time Off.
+- Updated root cache-busting references to v0.2.3.
+- No calculator logic changes.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.2.2.2
 
 **Date:** 2026-06-07  

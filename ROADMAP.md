@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.2.2.2**
+**v0.2.3**
 
 ---
 
@@ -25,6 +25,7 @@
 | v0.2.2 | Ad Slot Framework |
 | v0.2.2.1 | Disabled Ad Slot Fix |
 | v0.2.2.2 | Standards Preservation |
+| v0.2.3 | Standards Manifest Adoption |
 
 ---
 

@@ -2,7 +2,7 @@
 Signal Labs
 Shared Asset
 File: assets/global.js
-Version: v0.2.2.2
+Version: v0.2.3
 Purpose: Shared navigation, modal utilities, UTC helper, and ad slot initialization
 */
 

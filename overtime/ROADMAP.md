@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.8.3.1 | Standards Manifest Adoption |
 | v0.8.1 | Goal Mode |
 | v0.8.2 | Shared Navigation Repair |
 | v0.8.2.1 | Layout Repair Patch |

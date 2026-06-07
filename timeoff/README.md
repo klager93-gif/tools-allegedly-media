@@ -190,7 +190,7 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.6.2.1.2
+v0.6.2.1
 
 ### Theme
 
@@ -233,3 +233,17 @@ They are reserved for future monetization support only.
 This release keeps Time Off ad slot placement but updates the page to Root v0.2.2.1 so disabled ad slots remain hidden.
 
 No live ads are served.
+
+
+---
+
+# Developer Files
+
+This tool should maintain:
+
+```text
+FILEMANIFEST.md
+BUILDMANIFEST.md
+```
+
+These files define expected files, identity checks, version checks, and ZIP validation requirements.

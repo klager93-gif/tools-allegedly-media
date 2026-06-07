@@ -6,7 +6,7 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.2.2.2**
+**v0.2.3**
 
 ## Theme
 
@@ -109,11 +109,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.2.2.2.2
+v0.2.3
 
 ### Theme
 
-Standards Preservation
+Standards Manifest Adoption
 
 ### Status
 
@@ -176,3 +176,16 @@ This project follows:
 `STANDARDS.md` is the authoritative copy of Signal Labs Development Standards v1.1.
 
 The standards are stored in the project so development rules are not lost if chat history or AI memory is unavailable.
+
+
+---
+
+# Version String Sanity
+
+Root v0.2.3 adds a release validation check to prevent malformed version strings such as:
+
+```text
+version 0.2.2.2.2
+```
+
+This check is now part of the project standards and build manifests.

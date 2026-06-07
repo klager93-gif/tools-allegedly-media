@@ -39,3 +39,17 @@ The Overtime Calculator estimates regular pay, overtime pay, advanced pay, taxes
 If `/overtime/` ever displays Time Off content, replace the full `/overtime/` folder with this release package.
 
 Do not patch only one file when the live folder contents appear mixed.
+
+
+---
+
+# Developer Manifests
+
+Before packaging this tool, review:
+
+```text
+FILEMANIFEST.md
+BUILDMANIFEST.md
+```
+
+These files help prevent missing files, wrong-folder uploads, cross-contamination, and malformed version strings.

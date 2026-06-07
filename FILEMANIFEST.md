@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.2.2.2
+v0.2.3
 
 ## Theme
 
-Standards Preservation
+Standards Manifest Adoption
 
 ---
 
@@ -36,48 +36,6 @@ assets/global.js
 
 ---
 
-# Expected Folder Structure
-
-```text
-/
-index.html
-README.md
-ROADMAP.md
-CHANGELOG.md
-HOWTO.md
-STANDARDS.md
-FILEMANIFEST.md
-BUILDMANIFEST.md
-
-/assets/
-  global.css
-  global.js
-
-/overtime/
-  index.html
-  style.css
-  script.js
-  README.md
-  ROADMAP.md
-  CHANGELOG.md
-  HOWTO.md
-  FILEMANIFEST.md
-  BUILDMANIFEST.md
-
-/timeoff/
-  index.html
-  style.css
-  script.js
-  README.md
-  ROADMAP.md
-  CHANGELOG.md
-  HOWTO.md
-  FILEMANIFEST.md
-  BUILDMANIFEST.md
-```
-
----
-
 # Identity Checks
 
 ## Root Must Contain
@@ -89,31 +47,23 @@ assets/global.css
 assets/global.js
 ```
 
-## Root Must Not Contain
+## Shared Assets Must Contain
 
 ```text
-Overtime-specific calculator logic
-Time Off-specific calculator logic
+Shared Asset
+Version: v0.2.3
 ```
 
 ---
 
-# Shared Dependencies
+# Version String Sanity
 
-Root owns:
-
-```text
-assets/global.css
-assets/global.js
-```
-
-Changes to shared assets require review of:
+Reject malformed versions such as:
 
 ```text
-/
-overtime/
-timeoff/
-future tools/
+version 0.2.2.2.2
+version 0.8.3.1.1
+version 0.6.2.1.1
 ```
 
 ---
