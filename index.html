@@ -14,7 +14,7 @@ Signal Labs
 
 <meta
   name="description"
-  content="Signal Labs builds useful tools without the noise.">
+  content="Signal Labs builds simple, useful calculators and planning tools.">
 
 <meta
   property="og:title"
@@ -22,7 +22,7 @@ Signal Labs
 
 <meta
   property="og:description"
-  content="Useful tools without the noise.">
+  content="Simple, useful calculators and planning tools.">
 
 <link rel="icon" href="/favicon.ico">
 
@@ -49,44 +49,7 @@ Signal Labs
 
 <link
   rel="stylesheet"
-  href="assets/global.css?v=0.5.3">
-
-<style>
-
-.home-tools {
-  margin-top: 40px;
-}
-
-.tool-list {
-  display: grid;
-  gap: 20px;
-}
-
-.tool-card {
-  padding: 30px;
-}
-
-.coming-soon {
-  opacity: .5;
-}
-
-.tool-card p {
-  line-height: 1.8;
-}
-
-.footer-actions {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  margin-bottom: 20px;
-}
-
-.footer-copy {
-  color: #777;
-  line-height: 1.8;
-}
-
-</style>
+  href="assets/global.css?v=0.2.1">
 
 </head>
 <body>
@@ -94,113 +57,59 @@ Signal Labs
 <main class="page">
 
 <header class="hero">
+  <p class="eyebrow">Signal Labs</p>
 
-<p class="eyebrow">
-Signal Labs
-</p>
+  <h1>Useful tools without the noise.</h1>
 
-<h1>
-Useful tools without the noise.
-</h1>
-
-<p class="subtitle">
-Simple calculators and utilities built for everyday use.
-</p>
-
+  <p class="subtitle">
+    Lightweight calculators and planning tools built for real-life decisions.
+  </p>
 </header>
 
-<section class="home-tools">
+<section class="card tool-section">
 
-<div class="tool-list">
+<div class="section-heading">
+  <h2>Tools</h2>
+  <p>Choose a calculator to get started.</p>
+</div>
 
-<div class="card tool-card">
+<div class="tool-grid">
 
-<h2>
-Overtime Calculator
-</h2>
+<a class="tool-card" href="overtime/">
+  <span class="tool-kicker">Work</span>
+  <strong>Overtime Calculator</strong>
+  <p>Estimate regular pay, overtime pay, gross pay, and simple take-home pay.</p>
+</a>
 
-<p>
-Estimate regular pay, overtime pay, gross pay, deductions, and take-home pay.
-</p>
-
-<br>
-
-<a href="/overtime/">
-<button type="button">
-Open Tool
-</button>
+<a class="tool-card" href="timeoff/">
+  <span class="tool-kicker">Work</span>
+  <strong>Time Off Calculator</strong>
+  <p>Project vacation, sick time, personal time, comp time, holidays, and more.</p>
 </a>
 
 </div>
 
-<div class="card tool-card">
+</section>
 
-<h2>
-Time Off Calculator
-</h2>
+<section class="card status-card">
 
-<p>
-Estimate balances for vacation, sick time, personal time, comp time, holidays, and more.
-</p>
+<h2>Project Status</h2>
 
-<br>
+<div class="summary-card">
+  <p>
+    Build:
+    v0.2.1
+  </p>
 
-<a href="/timeoff/">
-<button type="button">
-Open Tool
-</button>
-</a>
+  <p>
+    Theme:
+    Navigation Version Label Fix
+  </p>
 
-</div>
-
-<div class="card tool-card coming-soon">
-
-<h2>
-Paycheck Calculator
-</h2>
-
-<p>
-Coming Soon
-</p>
-
-</div>
-
-<div class="card tool-card coming-soon">
-
-<h2>
-Salary Calculator
-</h2>
-
-<p>
-Coming Soon
-</p>
-
-</div>
-
-<div class="card tool-card coming-soon">
-
-<h2>
-Mortgage Calculator
-</h2>
-
-<p>
-Coming Soon
-</p>
-
-</div>
-
-<div class="card tool-card coming-soon">
-
-<h2>
-Retirement Calculator
-</h2>
-
-<p>
-Coming Soon
-</p>
-
-</div>
-
+  <p>
+    Status:
+    Active Development
+  </p>
 </div>
 
 </section>
@@ -212,27 +121,19 @@ Coming Soon
 <div class="footer-actions">
 
 <button id="openChangelog" type="button">
-Changelog
+  Changelog
 </button>
 
 <button id="openRoadmap" type="button">
-Roadmap
-</button>
-
-<button id="openReadme" type="button">
-README
+  Roadmap
 </button>
 
 </div>
 
 <div class="footer-copy">
-Signal Labs
-<br><br>
-Website v0.1.1
-<br>
-Theme: Root Cleanup
-<br><br>
-Useful tools without the noise.
+  Signal Labs · Root Site · v0.2.1
+  <br>
+  Useful tools without the noise.
 </div>
 
 </footer>
@@ -247,7 +148,9 @@ Useful tools without the noise.
   id="closeModal"
   class="modal-close"
   type="button">
+
 ×
+
 </button>
 
 <h2 id="modalTitle">
@@ -262,32 +165,7 @@ Loading...
 
 </div>
 
-<script src="assets/global.js?v=0.5.3"></script>
-
-<script>
-
-document.getElementById("openChangelog").addEventListener("click", () => {
-  openTextModal({
-    title: "CHANGELOG",
-    file: "CHANGELOG.md"
-  });
-});
-
-document.getElementById("openRoadmap").addEventListener("click", () => {
-  openTextModal({
-    title: "ROADMAP",
-    file: "ROADMAP.md"
-  });
-});
-
-document.getElementById("openReadme").addEventListener("click", () => {
-  openTextModal({
-    title: "README",
-    file: "README.md"
-  });
-});
-
-</script>
+<script src="assets/global.js?v=0.2.1"></script>
 
 </body>
 </html>

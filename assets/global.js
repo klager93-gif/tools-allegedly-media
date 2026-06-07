@@ -1,100 +1,5 @@
-/*
---------------------------------
-Signal Labs Shared Scripts
-Version: 0.2
-Theme: Navigation
---------------------------------
-*/
-
-const SIGNAL_LABS_NAV_ITEMS = [
-  {
-    label: "Home",
-    href: "/"
-  },
-  {
-    label: "Overtime",
-    href: "/overtime/"
-  },
-  {
-    label: "Time Off",
-    href: "/timeoff/"
-  }
-];
-
-function normalizeSignalPath(pathname) {
-  if (!pathname || pathname === "/index.html") {
-    return "/";
-  }
-
-  let normalized = pathname;
-
-  if (normalized.endsWith("index.html")) {
-    normalized = normalized.slice(0, -10);
-  }
-
-  if (!normalized.endsWith("/")) {
-    normalized += "/";
-  }
-
-  return normalized;
-}
-
 function getCurrentUtcTime() {
   return new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
-}
-
-function injectSignalLabsNavigation() {
-  if (document.querySelector("[data-signal-nav]")) {
-    return;
-  }
-
-  const navWrap = document.createElement("div");
-  navWrap.className = "signal-nav-wrap";
-  navWrap.dataset.signalNav = "true";
-
-  const nav = document.createElement("nav");
-  nav.className = "signal-nav";
-  nav.setAttribute("aria-label", "Signal Labs navigation");
-
-  const brand = document.createElement("a");
-  brand.className = "signal-nav-brand";
-  brand.href = "/";
-  brand.setAttribute("aria-label", "Signal Labs home");
-
-  const mark = document.createElement("span");
-  mark.className = "signal-nav-mark";
-  mark.setAttribute("aria-hidden", "true");
-
-  const brandText = document.createElement("span");
-  brandText.textContent = "Signal Labs";
-
-  brand.appendChild(mark);
-  brand.appendChild(brandText);
-
-  const links = document.createElement("div");
-  links.className = "signal-nav-links";
-
-  const currentPath = normalizeSignalPath(window.location.pathname);
-
-  SIGNAL_LABS_NAV_ITEMS.forEach((item) => {
-    const link = document.createElement("a");
-    link.className = "signal-nav-link";
-    link.href = item.href;
-    link.textContent = item.label;
-
-    if (normalizeSignalPath(item.href) === currentPath) {
-      link.classList.add("is-active");
-      link.setAttribute("aria-current", "page");
-    }
-
-    links.appendChild(link);
-  });
-
-  nav.appendChild(brand);
-  nav.appendChild(links);
-  navWrap.appendChild(nav);
-
-  document.body.insertBefore(navWrap, document.body.firstChild);
 }
 
 function openTextModal(options) {
@@ -134,32 +39,101 @@ function closeTextModal() {
   }
 }
 
-function setupSignalLabsModal() {
-  const modal = document.getElementById("modal");
-  const closeModalButton = document.getElementById("closeModal");
+function getRelativeRootPath() {
+  const path = window.location.pathname;
 
-  if (!modal) {
+  if (path.includes("/overtime/") || path.includes("/timeoff/")) {
+    return "../";
+  }
+
+  return "";
+}
+
+function getActiveToolPath() {
+  const path = window.location.pathname;
+
+  if (path.includes("/overtime/")) {
+    return "overtime";
+  }
+
+  if (path.includes("/timeoff/")) {
+    return "timeoff";
+  }
+
+  return "home";
+}
+
+function buildSignalNavigation() {
+  if (document.querySelector(".signal-nav")) {
     return;
   }
 
-  if (closeModalButton) {
-    closeModalButton.addEventListener("click", closeTextModal);
-  }
+  const rootPath = getRelativeRootPath();
+  const activePath = getActiveToolPath();
 
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeTextModal();
-    }
-  });
+  const nav = document.createElement("nav");
+  nav.className = "signal-nav";
+  nav.setAttribute("aria-label", "Signal Labs navigation");
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeTextModal();
-    }
-  });
+  nav.innerHTML = `
+    <div class="signal-nav-inner">
+      <a class="signal-nav-brand" href="${rootPath}">Signal Labs</a>
+
+      <div class="signal-nav-links">
+        <a class="signal-nav-link ${activePath === "home" ? "is-active" : ""}" href="${rootPath}">Home</a>
+        <a class="signal-nav-link ${activePath === "overtime" ? "is-active" : ""}" href="${rootPath}overtime/">Overtime</a>
+        <a class="signal-nav-link ${activePath === "timeoff" ? "is-active" : ""}" href="${rootPath}timeoff/">Time Off</a>
+      </div>
+    </div>
+  `;
+
+  document.body.insertBefore(nav, document.body.firstChild);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  injectSignalLabsNavigation();
-  setupSignalLabsModal();
+  buildSignalNavigation();
+
+  const closeButton = document.getElementById("closeModal");
+  const modal = document.getElementById("modal");
+
+  if (closeButton) {
+    closeButton.addEventListener("click", closeTextModal);
+  }
+
+  if (modal) {
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeTextModal();
+      }
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeTextModal();
+    }
+  });
+
+  const openChangelog = document.getElementById("openChangelog");
+  const openRoadmap = document.getElementById("openRoadmap");
+
+  if (openChangelog && !openChangelog.dataset.globalModalBound) {
+    openChangelog.dataset.globalModalBound = "true";
+    openChangelog.addEventListener("click", () => {
+      openTextModal({
+        title: "CHANGELOG",
+        file: "CHANGELOG.md"
+      });
+    });
+  }
+
+  if (openRoadmap && !openRoadmap.dataset.globalModalBound) {
+    openRoadmap.dataset.globalModalBound = "true";
+    openRoadmap.addEventListener("click", () => {
+      openTextModal({
+        title: "ROADMAP",
+        file: "ROADMAP.md"
+      });
+    });
+  }
 });

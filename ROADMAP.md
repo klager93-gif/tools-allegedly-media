@@ -1,4 +1,4 @@
-# Signal Labs
+# Signal Labs Root Site
 
 # ROADMAP
 
@@ -10,48 +10,38 @@
 
 ## Current Version
 
-**v0.1.1**
+**v0.2.1**
 
 ---
 
 # Completed Versions
 
 | Version | Theme |
-|-----------|--------|
-| v0.1 | Foundation |
+|---|---|
+| v0.1 | Initial Root Prototype |
 | v0.1.1 | Root Cleanup |
+| v0.2 | Navigation |
+| v0.2.1 | Navigation Version Label Fix |
 
 ---
 
 # Upcoming Versions
 
-## v0.2
-
-### Theme
-
-Navigation
-
-### Planned Features
-
-- Add site navigation bar.
-- Add links between calculators.
-- Add active page highlighting.
-- Improve footer layout.
-
----
-
 ## v0.3
 
 ### Theme
 
-Organization
+Tool Organization
 
 ### Planned Features
 
-- Separate tools into categories.
-- Work Tools section.
-- Money Tools section.
-- Life Tools section.
+- Organize tools into categories.
+- Add Work section.
+- Add Money section.
+- Add Life section.
+- Add improved homepage tool cards.
+- Add clearer tool descriptions.
+- Prepare layout for more calculators.
 
 ---
 
@@ -59,14 +49,14 @@ Organization
 
 ### Theme
 
-Polish
+Search & Filtering
 
 ### Planned Features
 
-- Better cards.
-- Tool icons.
-- Hover effects.
-- Mobile improvements.
+- Add tool search.
+- Add category filtering.
+- Add quick links.
+- Improve navigation for larger tool collections.
 
 ---
 
@@ -74,15 +64,15 @@ Polish
 
 ### Theme
 
-Project Information
+Shared Components
 
 ### Planned Features
 
-- Homepage changelog popup.
-- Homepage roadmap popup.
-- Homepage README popup.
-- Version display.
-- About Signal Labs section.
+- Refine reusable card styles.
+- Refine reusable alert styles.
+- Refine shared footer patterns.
+- Consider shared version display utilities.
+- Improve consistency across tools.
 
 ---
 
@@ -94,7 +84,23 @@ Public Release
 
 ### Planned Features
 
-- Final polish.
 - Accessibility review.
-- SEO improvements.
-- Expanded tool catalog.
+- Mobile quality review.
+- SEO review.
+- FAQ section.
+- Schema markup.
+- Analytics review.
+- Final copy review.
+
+---
+
+# Future Ideas
+
+- Appearance settings.
+- System theme support.
+- Light mode.
+- Larger text mode.
+- Reduced motion support.
+- More calculators.
+- Shared HOWTO navigation.
+- Tool comparison pages.

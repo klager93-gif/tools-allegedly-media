@@ -4,6 +4,24 @@
 
 ---
 
+## Version 0.2.1
+
+**Date:** 2026-06-07  
+**Theme:** Navigation Version Label Fix
+
+### Changes
+
+- Updated root site version labels from v0.1.1 to v0.2.1.
+- Updated root build summary to v0.2.1.
+- Updated root theme label to Navigation Version Label Fix.
+- Updated root shared asset cache-busting references to v0.2.1.
+- Added root ROADMAP.md.
+- Added root HOWTO.md.
+- Rebuilt the root release package with the correct folder structure.
+- Confirmed no calculator logic changes are included in this release.
+
+---
+
 ## Version 0.2
 
 **Date:** 2026-06-07  
@@ -11,33 +29,34 @@
 
 ### Changes
 
-- Added shared Signal Labs navigation styling.
-- Added shared navigation injection in `global.js`.
+- Added shared Signal Labs navigation.
 - Added Home, Overtime, and Time Off navigation links.
-- Added active page detection based on current path.
-- Added `aria-current="page"` support for active navigation links.
-- Added responsive mobile navigation layout.
-- Preserved shared modal support for tool changelog and roadmap popups.
-- Preserved `getCurrentUtcTime()` helper required by calculator scripts.
-- Added shared root README documentation.
-- Documented shared asset folder expectations.
-- Documented current connected tool versions.
+- Added active page highlighting.
+- Added responsive mobile navigation styling.
+- Added shared navigation injection through global.js.
+- Preserved shared modal helpers.
+- Preserved UTC timestamp helper.
+- Added root README.md documentation.
+- Added root CHANGELOG.md documentation.
 
-### Files Updated
+---
 
-- `assets/global.css`
-- `assets/global.js`
-- `README.md`
-- `CHANGELOG.md`
+## Version 0.1.1
+
+**Theme:** Root Cleanup
+
+### Changes
+
+- Cleaned up root landing page.
+- Prepared root site for multiple tools.
+- Added basic tool links.
 
 ---
 
 ## Version 0.1
 
-**Theme:** Foundation
+**Theme:** Initial Root Prototype
 
 ### Changes
 
-- Created initial Signal Labs root site concept.
-- Established shared asset approach.
-- Prepared project for multiple calculators and tools.
+- Added initial Signal Labs root page.
