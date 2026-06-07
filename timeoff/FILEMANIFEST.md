@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.6.2
+v0.9.7
 
 ## Theme
 
-Category Pill Visibility Fix
+Planner Identity Overhaul
 
 ---
 

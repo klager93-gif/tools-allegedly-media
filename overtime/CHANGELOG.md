@@ -1,3 +1,21 @@
+## Version 0.9.6.2
+
+**Date:** 2026-06-07  
+**Theme:** Take-Home Controls Cleanup
+
+### Changes
+
+- Removed duplicate top-level Take-Home Estimate action buttons.
+- Kept contextual Add Tax, Add Deduction, and Add Other Adjustment buttons inside each section.
+- Added suggested tax entry pills for Federal, State, Local, Medicare, and Social Security.
+- Added suggested deduction/adjustment entry pills for Retirement, Insurance, Union Dues, Deferred Comp, and HSA.
+- Added Static Amount / Percentage selector support for deductions and other adjustments where modal structure allows.
+- Preserved saved inputs, Print Report, Copy Results, and optional section behavior.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.6.1
 
 **Date:** 2026-06-07  

@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.6.1
+v0.9.6.2
 
 ## Theme
 
-UI Identity Polish
+Take-Home Controls Cleanup
 
 ---
 
@@ -108,5 +108,18 @@ UI Identity Polish
 - [ ] Info icon is smaller and aligned with label text.
 - [ ] Tooltip still appears.
 - [ ] Pill controls remain readable on mobile.
+- [ ] Print Report still works.
+- [ ] Copy Results still works.
+
+
+# Take-Home Controls Cleanup Checks
+
+- [ ] Duplicate top Take-Home action buttons are hidden.
+- [ ] Contextual Add Tax button remains.
+- [ ] Contextual Add Deduction button remains.
+- [ ] Contextual Add Other Adjustment button remains.
+- [ ] Suggested tax pills appear in tax modal.
+- [ ] Suggested deduction/adjustment pills appear in relevant modals.
+- [ ] Static Amount / Percentage selector appears where modal structure allows.
 - [ ] Print Report still works.
 - [ ] Copy Results still works.

@@ -1,3 +1,25 @@
+## Version 0.9.7
+
+**Date:** 2026-06-07  
+**Theme:** Planner Identity Overhaul
+
+### Changes
+
+- Reframed the tool from Time Off Calculator to Time Off Planner.
+- Updated hero language to `Plan and Project Your Time Off`.
+- Added clearer subtitle explaining that the tool projects vacation, sick time, PTO, and planned-day impact.
+- Added a planner intro card explaining the key questions the tool answers.
+- Added planner preset pills for Standard PTO, Vacation + Sick, Public Safety, and Custom.
+- Renamed key sections to Your Time-Off Banks, Your Balances, Accrual Rules, Planned Time Off, Policy Rules, and Your Projection.
+- Added a plain-English planner summary area.
+- Improved empty-state language for planned events.
+- Added result explainers where possible.
+- Preserved category pills, custom categories, quick hour pills, policy pills, event chips, expandable notes, Print Report, and Copy Results.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.6.2
 
 **Date:** 2026-06-07  

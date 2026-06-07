@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.9.6.2
+Version: v0.9.7
 Purpose: Tool-specific logic and event handling
 */
 const categoryOptionsEl = document.getElementById("categoryOptions");
@@ -45,7 +45,7 @@ const messageEl = document.getElementById("message");
 let plannedEvents = [];
 let isLoadingSavedSettings = false;
 
-const STORAGE_KEY = "signalLabsTimeOffCalculatorV0962";
+const STORAGE_KEY = "signalLabsTimeOffPlannerV097";
 const LEGACY_STORAGE_KEYS = [
   "signalLabsTimeOffCalculatorV092",
   "signalLabsTimeOffCalculatorV08",
@@ -1727,7 +1727,7 @@ function buildTimeOffProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.6.2</div>
+          <div><strong>Build:</strong> v0.9.7</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1817,7 +1817,7 @@ function buildTimeOffProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual time off may vary based on employer policy, accrual rules, caps, holidays, unpaid leave, and payroll timing.</div>
-        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.6.2</div>
+        <div><strong>Signal Labs</strong> • Time Off Planner • v0.9.7</div>
       </footer>
     </main>
   `;
@@ -2160,4 +2160,92 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initializeTimeOffUiIdentity);
 } else {
   initializeTimeOffUiIdentity();
+}
+
+
+
+function initializePlannerIdentity() {
+  const summary = document.getElementById("plannerPlainSummary");
+  if (!summary) return;
+
+  const resultText = document.body.innerText || "";
+  const hasPlanned = !/No planned events added/i.test(resultText);
+  const hasProjection = /projected|remaining|available|balance/i.test(resultText);
+
+  if (hasProjection) {
+    summary.innerHTML = `
+      <strong>Planner Summary</strong>
+      <p>Your projection updates as you enter balances, accrual rules, and planned time off. Use the results below to see what you may have available and whether any hours may be at risk.</p>
+    `;
+  }
+
+  document.querySelectorAll(".result-row").forEach((row) => {
+    if (row.dataset.plannerExplainerAdded === "true") return;
+    const label = (row.textContent || "").toLowerCase();
+    let text = "";
+
+    if (label.includes("projected") || label.includes("remaining")) {
+      text = "Current hours + expected accrual - planned usage.";
+    } else if (label.includes("planned")) {
+      text = "Future time off that reduces your projected balance.";
+    } else if (label.includes("carryover") || label.includes("lose") || label.includes("risk")) {
+      text = "Hours that may be affected by reset or carryover rules.";
+    }
+
+    if (text) {
+      row.dataset.plannerExplainerAdded = "true";
+      const explainer = document.createElement("span");
+      explainer.className = "result-explainer";
+      explainer.textContent = text;
+      row.appendChild(explainer);
+    }
+  });
+}
+
+function setupPlannerPresets() {
+  const pills = document.querySelectorAll("#plannerPresetPills .planner-preset-pill");
+  if (!pills.length) return;
+
+  pills.forEach((pill) => {
+    if (pill.dataset.bound === "true") return;
+    pill.dataset.bound = "true";
+
+    pill.addEventListener("click", () => {
+      pills.forEach((item) => item.classList.remove("is-selected"));
+      pill.classList.add("is-selected");
+
+      const preset = pill.dataset.preset;
+      if (preset === "standard") {
+        document.querySelectorAll("#categoryOptions input[type='checkbox']").forEach((input) => {
+          input.checked = ["vacation", "sick", "personal"].includes(String(input.value || input.name).toLowerCase());
+        });
+      } else if (preset === "vacationSick") {
+        document.querySelectorAll("#categoryOptions input[type='checkbox']").forEach((input) => {
+          input.checked = ["vacation", "sick"].includes(String(input.value || input.name).toLowerCase());
+        });
+      } else if (preset === "publicSafety") {
+        document.querySelectorAll("#categoryOptions input[type='checkbox']").forEach((input) => {
+          const value = String(input.value || input.name).toLowerCase();
+          input.checked = ["vacation", "sick", "personal", "comp", "comptime", "holiday"].includes(value);
+        });
+      }
+
+      if (typeof renderCategoryPills === "function") renderCategoryPills();
+      if (typeof calculateTimeOff === "function") calculateTimeOff();
+      if (typeof saveSettings === "function") saveSettings();
+    });
+  });
+}
+
+function initializeTimeOffPlannerOverhaul() {
+  initializePlannerIdentity();
+  setupPlannerPresets();
+  document.addEventListener("click", () => setTimeout(initializePlannerIdentity, 60));
+  document.addEventListener("input", () => setTimeout(initializePlannerIdentity, 60));
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeTimeOffPlannerOverhaul);
+} else {
+  initializeTimeOffPlannerOverhaul();
 }

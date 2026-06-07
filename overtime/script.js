@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.6.1
+Version: v0.9.6.2
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -27,7 +27,7 @@ const thresholdNoteEl = document.getElementById("thresholdNote");
 const messageEl = document.getElementById("message");
 const generatedTimeEl = document.getElementById("generatedTime");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV0961";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV0962";
 const LEGACY_STORAGE_KEYS = [
   "signalLabsOvertimeCalculatorV092",
   "signalLabsOvertimeCalculatorV085",
@@ -1299,7 +1299,7 @@ function buildOvertimeProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.6.1</div>
+          <div><strong>Build:</strong> v0.9.6.2</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1386,7 +1386,7 @@ function buildOvertimeProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
-        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.6.1</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.6.2</div>
       </footer>
     </main>
   `;
@@ -1706,4 +1706,172 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initializeUiIdentityEnhancements);
 } else {
   initializeUiIdentityEnhancements();
+}
+
+
+
+const SIGNAL_LABS_SUGGESTED_TAXES = [
+  { name: "Federal", percent: "" },
+  { name: "State", percent: "" },
+  { name: "Local", percent: "" },
+  { name: "Medicare", percent: "1.45" },
+  { name: "Social Security", percent: "6.2" }
+];
+
+const SIGNAL_LABS_SUGGESTED_DEDUCTIONS = [
+  { name: "Retirement", type: "percent" },
+  { name: "Insurance", type: "amount" },
+  { name: "Union Dues", type: "amount" },
+  { name: "Deferred Comp", type: "percent" },
+  { name: "HSA", type: "amount" }
+];
+
+function signalLabsFindModalLabelInput(labelWords) {
+  const labels = Array.from(document.querySelectorAll("label"));
+  const match = labels.find((label) => {
+    const text = label.textContent.toLowerCase();
+    return labelWords.every((word) => text.includes(word));
+  });
+  if (!match) return null;
+  return match.querySelector("input, select, textarea");
+}
+
+function signalLabsFillFirstAvailable(selectors, value) {
+  for (const selector of selectors) {
+    const node = document.querySelector(selector);
+    if (node) {
+      node.value = value;
+      node.dispatchEvent(new Event("input", { bubbles: true }));
+      node.dispatchEvent(new Event("change", { bubbles: true }));
+      return true;
+    }
+  }
+  return false;
+}
+
+function signalLabsInstallSuggestedPills(container, items, onSelect) {
+  if (!container || container.dataset.signalLabsPillsInstalled === "true") return;
+  container.dataset.signalLabsPillsInstalled = "true";
+
+  const row = document.createElement("div");
+  row.className = "suggested-pill-row";
+  row.setAttribute("aria-label", "Suggested entries");
+
+  items.forEach((item) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "suggested-entry-pill";
+    button.textContent = item.name;
+    button.addEventListener("click", () => {
+      row.querySelectorAll(".suggested-entry-pill").forEach((pill) => pill.classList.remove("is-selected"));
+      button.classList.add("is-selected");
+      onSelect(item);
+    });
+    row.appendChild(button);
+  });
+
+  const helper = document.createElement("div");
+  helper.className = "signal-labs-modal-helper";
+  helper.textContent = "Suggested entries fill the form, but you can still edit the name and value.";
+
+  container.prepend(helper);
+  container.prepend(row);
+}
+
+function signalLabsInstallTypePills(container, defaultType, onChange) {
+  if (!container || container.dataset.signalLabsTypePillsInstalled === "true") return;
+  container.dataset.signalLabsTypePillsInstalled = "true";
+
+  const row = document.createElement("div");
+  row.className = "adjustment-type-pill-row";
+  row.setAttribute("aria-label", "Entry type");
+
+  [
+    ["amount", "Static Amount"],
+    ["percent", "Percentage"]
+  ].forEach(([value, label]) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "adjustment-type-pill" + (value === defaultType ? " is-selected" : "");
+    button.dataset.adjustmentType = value;
+    button.textContent = label;
+    button.addEventListener("click", () => {
+      row.querySelectorAll(".adjustment-type-pill").forEach((pill) => pill.classList.remove("is-selected"));
+      button.classList.add("is-selected");
+      container.dataset.signalLabsEntryType = value;
+      onChange(value);
+    });
+    row.appendChild(button);
+  });
+
+  container.dataset.signalLabsEntryType = defaultType;
+  container.prepend(row);
+}
+
+function signalLabsEnhanceTakeHomeModals() {
+  const dialogs = Array.from(document.querySelectorAll(".modal, dialog, [role='dialog'], .modal-content"));
+
+  dialogs.forEach((dialog) => {
+    const text = dialog.textContent.toLowerCase();
+
+    if (text.includes("tax") && !dialog.dataset.signalLabsTaxEnhanced) {
+      dialog.dataset.signalLabsTaxEnhanced = "true";
+      signalLabsInstallSuggestedPills(dialog, SIGNAL_LABS_SUGGESTED_TAXES, (item) => {
+        signalLabsFillFirstAvailable(["#taxName", "[name='taxName']", "input[placeholder*='Tax' i]", "input[placeholder*='Name' i]"], item.name);
+        if (item.percent) {
+          signalLabsFillFirstAvailable(["#taxRate", "[name='taxRate']", "input[placeholder*='Percent' i]", "input[placeholder*='Rate' i]"], item.percent);
+        }
+      });
+    }
+
+    if ((text.includes("deduction") || text.includes("adjustment")) && !dialog.dataset.signalLabsAmountPercentEnhanced) {
+      dialog.dataset.signalLabsAmountPercentEnhanced = "true";
+      const isDeduction = text.includes("deduction");
+      signalLabsInstallTypePills(dialog, "amount", (type) => {
+        const amountInput = signalLabsFindModalLabelInput(["amount"]) || signalLabsFindModalLabelInput(["percent"]);
+        if (amountInput) {
+          amountInput.placeholder = type === "percent" ? "Example: 6.5" : "Example: 25.00";
+        }
+      });
+
+      signalLabsInstallSuggestedPills(dialog, SIGNAL_LABS_SUGGESTED_DEDUCTIONS, (item) => {
+        signalLabsFillFirstAvailable(["#deductionName", "#adjustmentName", "[name='deductionName']", "[name='adjustmentName']", "input[placeholder*='Name' i]"], item.name);
+        const typeButton = dialog.querySelector(`.adjustment-type-pill[data-adjustment-type="${item.type}"]`);
+        if (typeButton) typeButton.click();
+      });
+    }
+  });
+}
+
+function signalLabsHideDuplicateTakeHomeButtons() {
+  const takeHomeSections = Array.from(document.querySelectorAll("[data-optional-section='takeHome'], .take-home-card, section"));
+  takeHomeSections.forEach((section) => {
+    const buttons = Array.from(section.querySelectorAll("button"));
+    const addButtons = buttons.filter((button) => /add tax|add deduction|add other/i.test(button.textContent || ""));
+    if (addButtons.length > 3) {
+      const firstRow = addButtons.slice(0, 3);
+      firstRow.forEach((button) => {
+        const parent = button.parentElement;
+        button.classList.add("signal-labs-duplicate-takehome-actions");
+        if (parent && firstRow.every((b) => b.parentElement === parent)) {
+          parent.classList.add("signal-labs-duplicate-takehome-actions");
+        }
+      });
+    }
+  });
+}
+
+function initializeTakeHomeControlsCleanup() {
+  signalLabsHideDuplicateTakeHomeButtons();
+  signalLabsEnhanceTakeHomeModals();
+  document.addEventListener("click", () => {
+    setTimeout(signalLabsEnhanceTakeHomeModals, 40);
+    setTimeout(signalLabsHideDuplicateTakeHomeButtons, 40);
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeTakeHomeControlsCleanup);
+} else {
+  initializeTakeHomeControlsCleanup();
 }

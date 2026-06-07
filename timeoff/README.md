@@ -193,11 +193,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.9.6.2
+v0.9.7
 
 ### Theme
 
-Category Pill Visibility Fix
+Planner Identity Overhaul
 
 ### Status
 
@@ -330,3 +330,10 @@ Time Off v0.9.6.1 also replaces the duplicate category card/pill mix with a true
 # v0.9.6.2 Category Pill Visibility Fix
 
 Fixes the Time Off Categories section so only the pill selector is visible. The old checkbox source remains hidden for compatibility with calculations.
+
+
+---
+
+# v0.9.7 Planner Identity Overhaul
+
+Reframes Time Off as a planner that answers how much PTO the user will have, how planned days affect balances, and whether hours may be lost at reset.

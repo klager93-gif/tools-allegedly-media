@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.9.6.1
+v0.9.6.2
 
 ### Theme
 
-UI Identity Polish
+Take-Home Controls Cleanup
 
 ### Status
 
@@ -141,3 +141,10 @@ Adds info icons, Automatic/Custom OT threshold pills, footer notes, and cleaner 
 # v0.9.6.1 UI Identity Polish
 
 Refines info icon styling and improves pill UI consistency while preserving existing functionality.
+
+
+---
+
+# v0.9.6.2 Take-Home Controls Cleanup
+
+Cleans duplicate Take-Home action buttons and adds suggested tax/deduction/adjustment pills plus Static Amount / Percentage selector support for deductions and other adjustments.

@@ -11,8 +11,8 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Area | Current Version | Theme |
 |---|---:|---|
 | Home | v0.4.1 | Master Documentation |
-| Overtime | v0.9.6.1 | UI Identity Polish |
-| Time Off | v0.9.6.2 | Category Pill Visibility Fix |
+| Overtime | v0.9.6.2 | Take-Home Controls Cleanup |
+| Time Off | v0.9.7 | Planner Identity Overhaul |
 
 ---
 
@@ -50,7 +50,7 @@ Theme System Foundation
 
 ---
 
-## Overtime v0.9.7
+## Overtime v1.0
 
 ### Theme
 
@@ -67,7 +67,7 @@ Final Pre-1.0 Polish
 
 ---
 
-## Time Off v0.9.7
+## Time Off v1.0
 
 ### Theme
 
@@ -119,6 +119,37 @@ Production Release
 - Planning Mode verification.
 - Documentation cleanup.
 - Production release notes.
+
+---
+
+## Overtime v0.9.8
+
+### Theme
+
+Final pre-1.0 cleanup after Take-Home Controls Cleanup
+
+### Planned Focus
+
+- Verify take-home suggested pills.
+- Verify static amount / percentage handling for deductions and adjustments.
+- Verify duplicate Take-Home buttons stay removed.
+- Verify Print Report and Copy Results.
+
+---
+
+## Time Off v0.9.8
+
+### Theme
+
+Planner Polish
+
+### Planned Focus
+
+- Verify planner language and section names.
+- Verify preset pills.
+- Verify planner summary.
+- Verify result explainers.
+- Verify Print Report and Copy Results.
 
 ---
 

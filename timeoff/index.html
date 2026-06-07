@@ -1,8 +1,8 @@
 <!--
 Signal Labs
-Tool: Time Off Calculator
+Tool: Time Off Planner
 File: index.html
-Version: v0.9.6.2
+Version: v0.9.7
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -16,16 +16,16 @@ Purpose: Main application page
   content="width=device-width, initial-scale=1.0">
 
 <title>
-Time Off Calculator | Signal Labs
+Time Off Planner | Signal Labs
 </title>
 
 <meta
   name="description"
-  content="Estimate balances for vacation, sick time, personal time, comp time, holidays, and more with the Signal Labs Time Off Calculator.">
+  content="Estimate balances for vacation, sick time, personal time, comp time, holidays, and more with the Signal Labs Time Off Planner.">
 
 <meta
   property="og:title"
-  content="Signal Labs Time Off Calculator">
+  content="Signal Labs Time Off Planner">
 
 <meta
   property="og:description"
@@ -60,7 +60,7 @@ Time Off Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.9.6.2">
+  href="style.css?v=0.9.7">
 
 </head>
 <body>
@@ -70,7 +70,7 @@ Time Off Calculator | Signal Labs
 <header class="hero">
   <p class="eyebrow">Signal Labs</p>
 
-  <h1>Time Off Calculator</h1>
+  <h1>Plan and Project Your Time Off</h1>
 
   <p class="subtitle">
     Estimate balances for vacation, sick time, personal time, comp time, holidays, and more.
@@ -85,6 +85,31 @@ Time Off Calculator | Signal Labs
   <span class="ad-placeholder">Ad slot reserved</span>
 </div>
 
+
+<section class="card planner-intro-card">
+  <div class="section-title">
+    <div>
+      <h2>What this planner helps answer</h2>
+      <p>Use this tool to estimate future PTO balances, plan time off, and spot hours that may expire before reset.</p>
+    </div>
+  </div>
+  
+<div id="plannerPresetPills" class="planner-preset-row" aria-label="Planner presets">
+  <button class="planner-preset-pill" type="button" data-preset="standard">Standard PTO</button>
+  <button class="planner-preset-pill" type="button" data-preset="vacationSick">Vacation + Sick</button>
+  <button class="planner-preset-pill" type="button" data-preset="publicSafety">Public Safety</button>
+  <button class="planner-preset-pill is-selected" type="button" data-preset="custom">Custom</button>
+</div>
+
+<div class="planner-question-grid">
+    <div class="planner-question">Will I have enough time off?</div>
+    <div class="planner-question">How much will I earn?</div>
+    <div class="planner-question">How much will I use?</div>
+    <div class="planner-question">What will I have left?</div>
+    <div class="planner-question">Will I lose any hours?</div>
+  </div>
+</section>
+
 <section class="dashboard-layout">
 
 <section class="left-stack">
@@ -94,8 +119,8 @@ Time Off Calculator | Signal Labs
 <div class="section-title">
   <div class="step-badge green">1</div>
   <div>
-    <h2>Categories</h2>
-    <p>Choose the time-off banks you want to calculate.</p>
+    <h2>Your Time-Off Banks</h2>
+    <p>Choose which balances you want to track, such as vacation, sick time, personal time, comp time, or custom PTO banks.</p>
   </div>
 
   <button
@@ -257,7 +282,7 @@ Time Off Calculator | Signal Labs
 <div class="section-title">
   <div class="step-badge purple">3</div>
   <div>
-    <h2>Planning Mode</h2>
+    <h2>Planned Time Off</h2>
     <p>Add planned vacations, appointments, holidays, or other time-off events.</p>
   </div>
 
@@ -333,7 +358,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div id="planningEventList" class="planning-event-list">
-  <p>No planned events added.</p>
+  <p>Add planned time off to see how vacations, sick days, or personal days affect your future balances.</p>
 </div>
 
 </div>
@@ -349,7 +374,7 @@ Time Off Calculator | Signal Labs
 <div class="section-title">
   <div class="step-badge orange">4</div>
   <div>
-    <h2>Policy Helpers</h2>
+    <h2>Policy Rules</h2>
     <p>Add optional employer policy details for stronger warnings.</p>
   </div>
 
@@ -424,11 +449,17 @@ Time Off Calculator | Signal Labs
 </section>
 
 
+
+<div id="plannerPlainSummary" class="planner-summary-card">
+  <strong>Planner Summary</strong>
+  <p>Add your current balances, accrual rules, and planned time off to see what you may have available later.</p>
+</div>
+
 <section class="card results-card results-compact-mobile">
 
 <div class="results-heading">
   <div>
-    <h2>Results</h2>
+    <h2>Your Projection</h2>
   </div>
 </div>
 
@@ -570,12 +601,12 @@ Time Off Calculator | Signal Labs
 
   <p>
     Build:
-    v0.9.6.2
+    v0.9.7
   </p>
 
   <p>
     Theme:
-    Category Pill Visibility Fix
+    Planner Identity Overhaul
   </p>
 
   <p>
@@ -623,7 +654,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Calculator · v0.9.6.2
+  Signal Labs · Time Off Planner · v0.9.7
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -659,7 +690,7 @@ Loading...
 </div>
 
 <script src="../assets/global.js?v=0.3"></script>
-<script src="script.js?v=0.9.6.2"></script>
+<script src="script.js?v=0.9.7"></script>
 
 </body>
 </html>

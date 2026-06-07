@@ -10,6 +10,30 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ## 2026-06-07
 
+### Overtime v0.9.6.2 — Take-Home Controls Cleanup
+
+- Removed duplicate top-level Take-Home Estimate action buttons.
+- Kept contextual Add Tax, Add Deduction, and Add Other Adjustment buttons inside each section.
+- Added suggested tax entry pills.
+- Added suggested deduction and adjustment entry pills.
+- Added Static Amount / Percentage selector support for deductions and other adjustments where modal structure allows.
+- Preserved saved inputs, Print Report, Copy Results, and optional section behavior.
+
+---
+
+### Time Off v0.9.7 — Planner Identity Overhaul
+
+- Reframed Time Off Calculator as Time Off Planner.
+- Updated top copy to `Plan and Project Your Time Off`.
+- Added clearer subtitle explaining future balances and planned days off.
+- Added planner intro card and key planning questions.
+- Added planner preset pills.
+- Renamed sections for clarity.
+- Added plain-English planner summary and result explainers where possible.
+- Preserved category pills, custom categories, quick hour pills, policy pills, event chips, expandable notes, Print Report, and Copy Results.
+
+---
+
 ### Home v0.4.1 — Master Documentation
 
 - Backfilled MASTER-CHANGELOG.md through Time Off v0.9.6.2.

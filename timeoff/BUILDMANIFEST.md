@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.6.2
+v0.9.7
 
 ## Theme
 
-Category Pill Visibility Fix
+Planner Identity Overhaul
 
 ---
 
@@ -131,5 +131,17 @@ Category Pill Visibility Fix
 - [ ] Comp Time label displays correctly.
 - [ ] Floating Holiday label displays correctly.
 - [ ] Custom category pills still work.
+- [ ] Print Report still works.
+- [ ] Copy Results still works.
+
+
+# Planner Identity Overhaul Checks
+
+- [ ] Hero says Plan and Project Your Time Off.
+- [ ] Subtitle explains planned-day impact.
+- [ ] Planner intro card appears.
+- [ ] Preset pills appear.
+- [ ] Section names are clearer.
+- [ ] Planner summary appears.
 - [ ] Print Report still works.
 - [ ] Copy Results still works.

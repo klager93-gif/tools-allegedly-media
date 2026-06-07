@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: style.css
-Version: v0.9.6.2
+Version: v0.9.7
 Purpose: Tool-specific styles
 */
 .dashboard-layout {
@@ -2132,5 +2132,107 @@ Purpose:
   #categoryPillOptions .category-pill {
     min-width: 100% !important;
     max-width: 100% !important;
+  }
+}
+
+
+/*
+--------------------------------
+v0.9.7 Planner Identity Overhaul
+--------------------------------
+*/
+
+.planner-intro-card {
+  border-color: rgba(96, 165, 250, 0.22) !important;
+  background:
+    radial-gradient(circle at top left, rgba(96, 165, 250, 0.10), transparent 34%),
+    rgba(255, 255, 255, 0.025) !important;
+}
+
+.planner-question-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.planner-question {
+  padding: 11px 12px;
+  border: 1px solid rgba(96, 165, 250, 0.22);
+  border-radius: 14px;
+  background: rgba(96, 165, 250, 0.06);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.planner-preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 12px;
+}
+
+.planner-preset-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 13px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.planner-preset-pill.is-selected {
+  border-color: rgba(34, 197, 94, 0.72);
+  background: rgba(34, 197, 94, 0.14);
+  color: #86efac;
+}
+
+.planner-summary-card {
+  margin: 16px 0;
+  padding: 15px 16px;
+  border: 1px solid rgba(34, 197, 94, 0.22);
+  border-radius: 16px;
+  background: rgba(34, 197, 94, 0.065);
+}
+
+.planner-summary-card strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #86efac;
+  font-size: 14px;
+}
+
+.planner-summary-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.78);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.result-explainer {
+  display: block;
+  margin-top: 3px;
+  color: rgba(255,255,255,0.55);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .planner-question-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .planner-question-grid {
+    grid-template-columns: 1fr;
   }
 }

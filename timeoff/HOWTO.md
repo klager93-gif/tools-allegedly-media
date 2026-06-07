@@ -194,3 +194,10 @@ Time Off categories now use a true pill-only selector. The old checkbox card gri
 # v0.9.6.2 Category Pill Visibility Fix
 
 The Categories section now shows only category pills. The old checkbox grid is hidden and used only as the calculation source.
+
+
+---
+
+# v0.9.7 Planner Identity Overhaul
+
+Use Time Off Planner to estimate future balances, planned usage, remaining hours, and possible use-it-or-lose-it risk.
