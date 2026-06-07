@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.2.2.1**
+**v0.2.2.2**
 
 ---
 
@@ -24,6 +24,7 @@
 | v0.2.1 | Navigation Version Label Fix |
 | v0.2.2 | Ad Slot Framework |
 | v0.2.2.1 | Disabled Ad Slot Fix |
+| v0.2.2.2 | Standards Preservation |
 
 ---
 
@@ -123,6 +124,23 @@ Public Release
 - Schema markup.
 - Analytics review.
 - Final copy review.
+
+---
+
+## Root v0.2.3
+
+### Theme
+
+Standards Manifest Adoption
+
+### Planned Features
+
+- Add file identity headers to Overtime files.
+- Add file identity headers to Time Off files.
+- Add FILEMANIFEST.md to Overtime.
+- Add FILEMANIFEST.md to Time Off.
+- Add BUILDMANIFEST.md to Overtime.
+- Add BUILDMANIFEST.md to Time Off.
 
 ---
 

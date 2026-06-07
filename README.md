@@ -6,7 +6,7 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.2.2.1**
+**v0.2.2.2**
 
 ## Theme
 
@@ -63,6 +63,9 @@ README.md
 CHANGELOG.md
 ROADMAP.md
 HOWTO.md
+STANDARDS.md
+FILEMANIFEST.md
+BUILDMANIFEST.md
 
 /assets/
   global.css
@@ -106,11 +109,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.2.2.1
+v0.2.2.2.2
 
 ### Theme
 
-Disabled Ad Slot Fix
+Standards Preservation
 
 ### Status
 
@@ -158,3 +161,18 @@ Placeholder slots remain available for future layout testing by using:
 ```html
 data-ad-status="placeholder"
 ```
+
+
+---
+
+# Development Standards
+
+This project follows:
+
+```text
+/STANDARDS.md
+```
+
+`STANDARDS.md` is the authoritative copy of Signal Labs Development Standards v1.1.
+
+The standards are stored in the project so development rules are not lost if chat history or AI memory is unavailable.

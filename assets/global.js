@@ -1,3 +1,11 @@
+/*
+Signal Labs
+Shared Asset
+File: assets/global.js
+Version: v0.2.2.2
+Purpose: Shared navigation, modal utilities, UTC helper, and ad slot initialization
+*/
+
 function getCurrentUtcTime() {
   return new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
 }

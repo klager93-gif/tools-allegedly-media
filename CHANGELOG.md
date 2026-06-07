@@ -4,6 +4,25 @@
 
 ---
 
+## Version 0.2.2.2
+
+**Date:** 2026-06-07  
+**Theme:** Standards Preservation
+
+### Changes
+
+- Added STANDARDS.md as the authoritative project copy of Signal Labs Development Standards v1.1.
+- Added FILEMANIFEST.md for required-file and identity tracking.
+- Added BUILDMANIFEST.md for pre-ZIP build validation.
+- Added identity headers to root index and shared asset files.
+- Updated root documentation to reference STANDARDS.md.
+- Updated root cache-busting references to v0.2.2.2.
+- No app logic changes.
+- No calculator changes.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.2.2.1
 
 **Date:** 2026-06-07  

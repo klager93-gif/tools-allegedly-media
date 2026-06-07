@@ -169,3 +169,30 @@ data-ad-status="placeholder"
 ```
 
 only when intentionally testing layout.
+
+
+---
+
+# Development Standards
+
+Before planning, coding, packaging, or releasing, review:
+
+```text
+/STANDARDS.md
+```
+
+The standards define required documentation, versioning, file identity, validation, and ZIP safety rules.
+
+
+---
+
+# Build Manifests
+
+The root project now includes:
+
+```text
+FILEMANIFEST.md
+BUILDMANIFEST.md
+```
+
+Use these files to confirm expected files, folder structure, identity strings, and build checks before packaging.

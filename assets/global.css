@@ -1,3 +1,11 @@
+/*
+Signal Labs
+Shared Asset
+File: assets/global.css
+Version: v0.2.2.2
+Purpose: Shared styles, navigation styling, modal styling, and ad slot framework
+*/
+
 * {
   box-sizing: border-box;
   margin: 0;
