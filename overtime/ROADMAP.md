@@ -7,11 +7,11 @@
 ## Last Updated
 
 2026-06-07  
-14:45 UTC
+15:05 UTC
 
 ## Current Version
 
-**v0.8.2**
+**v0.8.2.1**
 
 ---
 
@@ -21,6 +21,7 @@
 |-----------|--------|
 | v0.8.1 | Goal Mode |
 | v0.8.2 | Shared Navigation Repair |
+| v0.8.2.1 | Layout Repair Patch |
 
 ---
 

@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.8.2
+v0.8.2.1
 
 ### Theme
 
-Shared Navigation Repair
+Layout Repair Patch
 
 ### Status
 
@@ -45,4 +45,13 @@ Active Development
 
 # Notes
 
-This repair release replaces the broken Overtime v0.8.2 files from the previous combined ZIP.
+This repair release replaces the broken Overtime v0.8.2.1 files from the previous combined ZIP.
+
+
+---
+
+# v0.8.2.1 Repair Notes
+
+This repair patch fixes the broken live Overtime layout by forcing a fresh stylesheet/script cache-bust and preserving the calculator-specific layout files.
+
+No Time Off files are included.

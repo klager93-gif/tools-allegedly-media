@@ -1,4 +1,4 @@
-/* Overtime Calculator v0.8.2 — Shared Navigation */
+/* Overtime Calculator v0.8.2.1 — Layout Repair Patch */
 
 .dashboard-layout {
   display: grid;
@@ -781,4 +781,37 @@ select:focus {
     flex-direction: column;
   }
 
+}
+
+
+/*
+--------------------------------
+v0.8.2.1 Layout Repair Guard
+--------------------------------
+*/
+
+main.page .dashboard-layout {
+  display: grid;
+}
+
+main.page .form-grid {
+  display: grid;
+}
+
+main.page .button-row {
+  display: grid;
+}
+
+main.page input,
+main.page select {
+  display: block;
+  min-height: 52px;
+}
+
+main.page label {
+  display: block;
+}
+
+main.page .card-collapse-content {
+  display: flex;
 }

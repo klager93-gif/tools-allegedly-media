@@ -20,8 +20,9 @@ const thresholdNoteEl = document.getElementById("thresholdNote");
 const messageEl = document.getElementById("message");
 const generatedTimeEl = document.getElementById("generatedTime");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV082";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV0821";
 const LEGACY_STORAGE_KEYS = [
+  "signalLabsOvertimeCalculatorV082",
   "signalLabsOvertimeCalculatorV081",
   "signalLabsOvertimeCalculatorV0801",
   "signalLabsOvertimeCalculatorV080",

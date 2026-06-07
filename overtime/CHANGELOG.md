@@ -4,6 +4,27 @@
 
 ---
 
+## Version 0.8.2.1
+
+**Date:** 2026-06-07  
+**Time:** 15:05 UTC
+
+### Theme
+
+Layout Repair Patch
+
+### Changes
+
+- Repaired the broken live Overtime layout after the shared navigation update.
+- Bumped Overtime stylesheet cache-busting from v0.8.2 to v0.8.2.1.
+- Bumped Overtime script cache-busting from v0.8.2 to v0.8.2.1.
+- Added a small layout guard to ensure calculator-specific layout styles apply after shared global styles.
+- Preserved shared navigation references to Root v0.2.1.
+- Preserved Goal Mode, advanced pay, saved settings, and adjustment behavior.
+- Overtime-only patch. No Time Off files included.
+
+---
+
 ## Version 0.8.2
 
 **Date:** 2026-06-07  
