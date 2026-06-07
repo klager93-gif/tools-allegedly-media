@@ -58,6 +58,59 @@
   color: #56a6ff;
 }
 
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.category-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 16px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  cursor: pointer;
+}
+
+.category-option input {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.category-option span {
+  margin: 0;
+  color: #ddd;
+  line-height: 1.35;
+}
+
+.category-note {
+  color: #aaa;
+}
+
+.category-input-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.timeoff-category-card {
+  gap: 20px;
+}
+
+.category-card-heading h3 {
+  margin-bottom: 8px;
+  color: #fff;
+  font-size: 24px;
+}
+
+.category-card-heading p {
+  color: #999;
+  line-height: 1.7;
+}
+
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -69,6 +122,14 @@ label span {
   margin-bottom: 8px;
   color: #ccc;
   font-size: 14px;
+}
+
+label small {
+  display: block;
+  margin-top: 2px;
+  color: #888;
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 input,
@@ -92,6 +153,12 @@ select:focus {
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 12px;
+  align-items: stretch;
+}
+
+.button-row button {
+  min-width: 0;
+  white-space: nowrap;
 }
 
 .primary-action {
@@ -188,6 +255,22 @@ select:focus {
   line-height: 1.8;
 }
 
+@media (min-width: 1051px) {
+
+  .dashboard-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(430px, .95fr);
+  }
+
+  .form-grid {
+    gap: 20px;
+  }
+
+  .step-card {
+    gap: 26px;
+  }
+
+}
+
 @media (max-width: 1050px) {
 
   .dashboard-layout {
@@ -229,12 +312,22 @@ select:focus {
     line-height: 1.65;
   }
 
-  .form-grid {
+  .form-grid,
+  .category-grid {
     grid-template-columns: 1fr;
   }
 
   .button-row {
     grid-template-columns: 1fr;
+  }
+
+  label span {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  label small {
+    font-size: 12px;
   }
 
   .footer-actions {
@@ -313,84 +406,6 @@ select:focus {
 
   .footer-actions {
     flex-direction: column;
-  }
-
-}
-
-
-/*
---------------------------------
-v0.1.2 Label & Layout Polish
---------------------------------
-*/
-
-label small {
-  color: #888;
-  font-size: 12px;
-  line-height: 1.35;
-}
-
-.form-grid {
-  align-items: start;
-}
-
-.button-row {
-  align-items: stretch;
-}
-
-.button-row button {
-  min-width: 0;
-  white-space: nowrap;
-}
-
-@media (min-width: 1051px) {
-
-  .dashboard-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(430px, .95fr);
-  }
-
-}
-
-@media (max-width: 700px) {
-
-  label small {
-    font-size: 12px;
-  }
-
-}
-
-
-/*
---------------------------------
-v0.1.3 Label Cleanup
---------------------------------
-*/
-
-label span {
-  line-height: 1.35;
-}
-
-label small {
-  display: block;
-  margin-top: 2px;
-}
-
-@media (min-width: 1051px) {
-
-  .form-grid {
-    gap: 20px;
-  }
-
-  .step-card {
-    gap: 26px;
-  }
-
-}
-
-@media (max-width: 700px) {
-
-  label span {
-    font-size: 13px;
   }
 
 }

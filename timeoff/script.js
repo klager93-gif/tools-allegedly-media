@@ -1,11 +1,8 @@
-const currentBalanceInput = document.getElementById("currentBalance");
-const accrualPerPeriodInput = document.getElementById("accrualPerPeriod");
-const payPeriodInput = document.getElementById("payPeriod");
-const ptoCapInput = document.getElementById("ptoCap");
+const categoryOptionsEl = document.getElementById("categoryOptions");
+const categoryInputCardsEl = document.getElementById("categoryInputCards");
 
+const payPeriodInput = document.getElementById("payPeriod");
 const targetDateInput = document.getElementById("targetDate");
-const plannedUsageInput = document.getElementById("plannedUsage");
-const averageUsageInput = document.getElementById("averageUsage");
 const hoursPerDayInput = document.getElementById("hoursPerDay");
 
 const projectedBalanceEl = document.getElementById("projectedBalance");
@@ -15,7 +12,7 @@ const ptoUsedEl = document.getElementById("ptoUsed");
 
 const periodsUntilTargetEl = document.getElementById("periodsUntilTarget");
 const targetDateResultEl = document.getElementById("targetDateResult");
-const capDateResultEl = document.getElementById("capDateResult");
+const selectedCategoryCountEl = document.getElementById("selectedCategoryCount");
 
 const capResultEl = document.getElementById("capResult");
 const hoursUntilCapEl = document.getElementById("hoursUntilCap");
@@ -23,6 +20,58 @@ const capStatusEl = document.getElementById("capStatus");
 
 const generatedTimeEl = document.getElementById("generatedTime");
 const messageEl = document.getElementById("message");
+
+const CATEGORY_CONFIGS = [
+  {
+    id: "vacation",
+    label: "Vacation",
+    placeholderBalance: "48",
+    placeholderAccrual: "6.15",
+    placeholderCap: "240"
+  },
+  {
+    id: "sick",
+    label: "Sick",
+    placeholderBalance: "24",
+    placeholderAccrual: "4.00",
+    placeholderCap: "480"
+  },
+  {
+    id: "personal",
+    label: "Personal",
+    placeholderBalance: "16",
+    placeholderAccrual: "1.00",
+    placeholderCap: "40"
+  },
+  {
+    id: "comp",
+    label: "Comp Time",
+    placeholderBalance: "8",
+    placeholderAccrual: "0",
+    placeholderCap: "80"
+  },
+  {
+    id: "holiday",
+    label: "Holiday",
+    placeholderBalance: "8",
+    placeholderAccrual: "0",
+    placeholderCap: "40"
+  },
+  {
+    id: "floatingHoliday",
+    label: "Floating Holiday",
+    placeholderBalance: "8",
+    placeholderAccrual: "0",
+    placeholderCap: "24"
+  },
+  {
+    id: "custom",
+    label: "Custom",
+    placeholderBalance: "0",
+    placeholderAccrual: "0",
+    placeholderCap: "0"
+  }
+];
 
 function getInputValue(input) {
   return Number(input.value) || 0;
@@ -86,6 +135,95 @@ function getDefaultTargetDate() {
   return target.toISOString().slice(0, 10);
 }
 
+function getSelectedCategories() {
+  return Array.from(categoryOptionsEl.querySelectorAll("input[type='checkbox']:checked"))
+    .map((input) => input.value);
+}
+
+function getCategoryConfig(categoryId) {
+  return CATEGORY_CONFIGS.find((category) => category.id === categoryId);
+}
+
+function getCategoryField(categoryId, fieldName) {
+  return document.getElementById(`${categoryId}-${fieldName}`);
+}
+
+function createCategoryCard(category) {
+  const card = document.createElement("section");
+  card.className = "card step-card timeoff-category-card";
+  card.dataset.categoryCard = category.id;
+
+  card.innerHTML = `
+    <div class="category-card-heading">
+      <h3>${category.label}</h3>
+      <p>Enter balance, accrual, cap, and expected usage for this category.</p>
+    </div>
+
+    <div class="form-grid">
+      <label>
+        <span>Current Balance</span>
+        <input id="${category.id}-currentBalance" type="number" placeholder="${category.placeholderBalance}" step="0.01">
+      </label>
+
+      <label>
+        <span>Earned Per Period</span>
+        <input id="${category.id}-accrualPerPeriod" type="number" placeholder="${category.placeholderAccrual}" step="0.01">
+      </label>
+
+      <label>
+        <span>Planned Usage</span>
+        <input id="${category.id}-plannedUsage" type="number" placeholder="0" step="0.01">
+      </label>
+
+      <label>
+        <span>Average Used<br><small>Per Period (Optional)</small></span>
+        <input id="${category.id}-averageUsage" type="number" placeholder="0" step="0.01">
+      </label>
+
+      <label>
+        <span>Cap<br><small>(Optional)</small></span>
+        <input id="${category.id}-ptoCap" type="number" placeholder="${category.placeholderCap}" step="0.01">
+      </label>
+    </div>
+  `;
+
+  return card;
+}
+
+function wireCategoryCardInputs(card) {
+  card.querySelectorAll("input").forEach((input) => {
+    input.addEventListener("input", calculateTimeOff);
+    input.addEventListener("change", calculateTimeOff);
+  });
+}
+
+function renderCategoryCards() {
+  const selectedCategories = getSelectedCategories();
+  const existingCards = Array.from(categoryInputCardsEl.querySelectorAll("[data-category-card]"));
+
+  existingCards.forEach((card) => {
+    if (!selectedCategories.includes(card.dataset.categoryCard)) {
+      card.remove();
+    }
+  });
+
+  selectedCategories.forEach((categoryId) => {
+    if (categoryInputCardsEl.querySelector(`[data-category-card='${categoryId}']`)) {
+      return;
+    }
+
+    const category = getCategoryConfig(categoryId);
+
+    if (!category) {
+      return;
+    }
+
+    const card = createCategoryCard(category);
+    categoryInputCardsEl.appendChild(card);
+    wireCategoryCardInputs(card);
+  });
+}
+
 function resetResults() {
   projectedBalanceEl.textContent = "0.00 hrs";
   projectedDaysEl.textContent = "0.00 days";
@@ -93,36 +231,66 @@ function resetResults() {
   ptoUsedEl.textContent = "0.00 hrs";
   periodsUntilTargetEl.textContent = "0";
   targetDateResultEl.textContent = "--";
-  capDateResultEl.textContent = "--";
+  selectedCategoryCountEl.textContent = "0";
   capResultEl.textContent = "Not set";
   hoursUntilCapEl.textContent = "--";
   capStatusEl.textContent = "--";
   generatedTimeEl.textContent = "--";
 }
 
-function calculatePto() {
-  const currentBalance = getInputValue(currentBalanceInput);
-  const accrualPerPeriod = getInputValue(accrualPerPeriodInput);
-  const ptoCap = getInputValue(ptoCapInput);
-  const plannedUsage = getInputValue(plannedUsageInput);
-  const averageUsage = getInputValue(averageUsageInput);
-  const hoursPerDay = getInputValue(hoursPerDayInput) || 8;
+function getCategoryValues(categoryId) {
+  return {
+    currentBalance: getInputValue(getCategoryField(categoryId, "currentBalance")),
+    accrualPerPeriod: getInputValue(getCategoryField(categoryId, "accrualPerPeriod")),
+    plannedUsage: getInputValue(getCategoryField(categoryId, "plannedUsage")),
+    averageUsage: getInputValue(getCategoryField(categoryId, "averageUsage")),
+    ptoCap: getInputValue(getCategoryField(categoryId, "ptoCap"))
+  };
+}
 
+function hasCategoryInput(categoryId) {
+  const fields = [
+    "currentBalance",
+    "accrualPerPeriod",
+    "plannedUsage",
+    "averageUsage",
+    "ptoCap"
+  ];
+
+  return fields.some((fieldName) => {
+    const input = getCategoryField(categoryId, fieldName);
+    return input && input.value !== "";
+  });
+}
+
+function calculateTimeOff() {
+  const selectedCategories = getSelectedCategories();
+  const hoursPerDay = getInputValue(hoursPerDayInput) || 8;
   const targetDateValue = targetDateInput.value;
   const targetDate = targetDateValue ? new Date(`${targetDateValue}T00:00:00`) : null;
   const today = new Date();
 
   messageEl.classList.remove("error");
 
-  if (!currentBalanceInput.value && !accrualPerPeriodInput.value) {
+  if (selectedCategories.length === 0) {
     resetResults();
+    messageEl.textContent = "Choose at least one time-off category.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  const hasAnyInput = selectedCategories.some((categoryId) => hasCategoryInput(categoryId));
+
+  if (!hasAnyInput) {
+    resetResults();
+    selectedCategoryCountEl.textContent = formatWholeNumber(selectedCategories.length);
     messageEl.textContent = "Enter values or load an example to begin.";
     return;
   }
 
-  if (currentBalance < 0 || accrualPerPeriod < 0 || ptoCap < 0 || plannedUsage < 0 || averageUsage < 0 || hoursPerDay <= 0) {
+  if (hoursPerDay <= 0) {
     resetResults();
-    messageEl.textContent = "Enter valid positive values. Time off hours cannot be negative.";
+    messageEl.textContent = "Hours per day must be greater than 0.";
     messageEl.classList.add("error");
     return;
   }
@@ -145,58 +313,82 @@ function calculatePto() {
   const daysUntilTarget = Math.max((targetDate - today) / millisecondsPerDay, 0);
   const payPeriodsUntilTarget = Math.floor(daysUntilTarget / getDaysPerPayPeriod());
 
-  const ptoEarned = payPeriodsUntilTarget * accrualPerPeriod;
-  const recurringUsage = payPeriodsUntilTarget * averageUsage;
-  const totalUsage = plannedUsage + recurringUsage;
+  let combinedCurrentBalance = 0;
+  let combinedEarned = 0;
+  let combinedUsed = 0;
+  let combinedProjectedBalance = 0;
+  let combinedCap = 0;
+  let hasAnyCap = false;
+  let hasNegativeValue = false;
 
-  let projectedBalance = currentBalance + ptoEarned - totalUsage;
+  selectedCategories.forEach((categoryId) => {
+    const values = getCategoryValues(categoryId);
 
-  if (ptoCap > 0) {
-    projectedBalance = Math.min(projectedBalance, ptoCap);
+    if (
+      values.currentBalance < 0 ||
+      values.accrualPerPeriod < 0 ||
+      values.plannedUsage < 0 ||
+      values.averageUsage < 0 ||
+      values.ptoCap < 0
+    ) {
+      hasNegativeValue = true;
+    }
+
+    const earned = payPeriodsUntilTarget * values.accrualPerPeriod;
+    const recurringUsage = payPeriodsUntilTarget * values.averageUsage;
+    const used = values.plannedUsage + recurringUsage;
+
+    let projectedBalance = values.currentBalance + earned - used;
+
+    if (values.ptoCap > 0) {
+      projectedBalance = Math.min(projectedBalance, values.ptoCap);
+      combinedCap += values.ptoCap;
+      hasAnyCap = true;
+    }
+
+    projectedBalance = Math.max(projectedBalance, 0);
+
+    combinedCurrentBalance += values.currentBalance;
+    combinedEarned += earned;
+    combinedUsed += used;
+    combinedProjectedBalance += projectedBalance;
+  });
+
+  if (hasNegativeValue) {
+    resetResults();
+    messageEl.textContent = "Enter valid positive values. Time off hours cannot be negative.";
+    messageEl.classList.add("error");
+    return;
   }
 
-  projectedBalance = Math.max(projectedBalance, 0);
+  const projectedDays = combinedProjectedBalance / hoursPerDay;
 
-  const projectedDays = projectedBalance / hoursPerDay;
-
-  let capDate = "--";
-  let capStatus = "No balance cap set.";
   let hoursUntilCap = "--";
+  let capStatus = "No balance cap set.";
 
-  if (ptoCap > 0) {
-    const remainingUntilCap = Math.max(ptoCap - currentBalance, 0);
-    hoursUntilCap = `${formatNumber(Math.max(ptoCap - projectedBalance, 0))} hrs`;
+  if (hasAnyCap) {
+    const remainingUntilCap = Math.max(combinedCap - combinedProjectedBalance, 0);
+    hoursUntilCap = `${formatNumber(remainingUntilCap)} hrs`;
 
-    if (currentBalance >= ptoCap) {
-      capStatus = "At or above cap.";
-      capDate = "Already at cap";
-    } else if (accrualPerPeriod <= averageUsage) {
-      capStatus = "Not projected to reach cap.";
-      capDate = "Not projected";
+    if (combinedCurrentBalance >= combinedCap) {
+      capStatus = "At or above combined cap.";
+    } else if (combinedProjectedBalance >= combinedCap) {
+      capStatus = "Projected to reach combined cap by target date.";
     } else {
-      const netAccrualPerPeriod = accrualPerPeriod - averageUsage;
-      const periodsToCap = Math.ceil(remainingUntilCap / netAccrualPerPeriod);
-      const estimatedCapDate = addDays(today, periodsToCap * getDaysPerPayPeriod());
-
-      capStatus =
-        projectedBalance >= ptoCap
-          ? "Projected to reach cap by target date."
-          : "Below cap by target date.";
-
-      capDate = formatDate(estimatedCapDate);
+      capStatus = "Below combined cap by target date.";
     }
   }
 
-  projectedBalanceEl.textContent = `${formatNumber(projectedBalance)} hrs`;
+  projectedBalanceEl.textContent = `${formatNumber(combinedProjectedBalance)} hrs`;
   projectedDaysEl.textContent = `${formatNumber(projectedDays)} days`;
-  ptoEarnedEl.textContent = `${formatNumber(ptoEarned)} hrs`;
-  ptoUsedEl.textContent = `${formatNumber(totalUsage)} hrs`;
+  ptoEarnedEl.textContent = `${formatNumber(combinedEarned)} hrs`;
+  ptoUsedEl.textContent = `${formatNumber(combinedUsed)} hrs`;
 
   periodsUntilTargetEl.textContent = formatWholeNumber(payPeriodsUntilTarget);
   targetDateResultEl.textContent = formatDate(targetDate);
-  capDateResultEl.textContent = capDate;
+  selectedCategoryCountEl.textContent = formatWholeNumber(selectedCategories.length);
 
-  capResultEl.textContent = ptoCap > 0 ? `${formatNumber(ptoCap)} hrs` : "Not set";
+  capResultEl.textContent = hasAnyCap ? `${formatNumber(combinedCap)} hrs` : "Not set";
   hoursUntilCapEl.textContent = hoursUntilCap;
   capStatusEl.textContent = capStatus;
 
@@ -204,28 +396,66 @@ function calculatePto() {
   messageEl.textContent = "Time off projection updated.";
 }
 
+function setCategorySelection(categoryIds) {
+  categoryOptionsEl.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+    checkbox.checked = categoryIds.includes(checkbox.value);
+  });
+
+  renderCategoryCards();
+}
+
+function setCategoryValues(categoryId, values) {
+  getCategoryField(categoryId, "currentBalance").value = values.currentBalance;
+  getCategoryField(categoryId, "accrualPerPeriod").value = values.accrualPerPeriod;
+  getCategoryField(categoryId, "plannedUsage").value = values.plannedUsage;
+  getCategoryField(categoryId, "averageUsage").value = values.averageUsage;
+  getCategoryField(categoryId, "ptoCap").value = values.ptoCap;
+}
+
 function loadExample() {
-  currentBalanceInput.value = "48";
-  accrualPerPeriodInput.value = "6.15";
+  setCategorySelection(["vacation", "sick", "personal"]);
+
   payPeriodInput.value = "biweekly";
-  ptoCapInput.value = "240";
   targetDateInput.value = getDefaultTargetDate();
-  plannedUsageInput.value = "24";
-  averageUsageInput.value = "0";
   hoursPerDayInput.value = "8";
 
-  calculatePto();
+  setCategoryValues("vacation", {
+    currentBalance: "48",
+    accrualPerPeriod: "6.15",
+    plannedUsage: "24",
+    averageUsage: "0",
+    ptoCap: "240"
+  });
+
+  setCategoryValues("sick", {
+    currentBalance: "32",
+    accrualPerPeriod: "4",
+    plannedUsage: "0",
+    averageUsage: "0",
+    ptoCap: "480"
+  });
+
+  setCategoryValues("personal", {
+    currentBalance: "16",
+    accrualPerPeriod: "1",
+    plannedUsage: "8",
+    averageUsage: "0",
+    ptoCap: "40"
+  });
+
+  calculateTimeOff();
 }
 
 function clearCalculator() {
-  currentBalanceInput.value = "";
-  accrualPerPeriodInput.value = "";
+  setCategorySelection(["vacation"]);
+
   payPeriodInput.value = "biweekly";
-  ptoCapInput.value = "";
   targetDateInput.value = "";
-  plannedUsageInput.value = "";
-  averageUsageInput.value = "";
   hoursPerDayInput.value = "";
+
+  categoryInputCardsEl.querySelectorAll("input").forEach((input) => {
+    input.value = "";
+  });
 
   resetResults();
 
@@ -233,23 +463,25 @@ function clearCalculator() {
   messageEl.textContent = "Enter values or load an example to begin.";
 }
 
-document.getElementById("calculate").addEventListener("click", calculatePto);
-document.getElementById("example").addEventListener("click", loadExample);
-document.getElementById("reset").addEventListener("click", clearCalculator);
+categoryOptionsEl.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+  checkbox.addEventListener("change", () => {
+    renderCategoryCards();
+    calculateTimeOff();
+  });
+});
 
 [
-  currentBalanceInput,
-  accrualPerPeriodInput,
   payPeriodInput,
-  ptoCapInput,
   targetDateInput,
-  plannedUsageInput,
-  averageUsageInput,
   hoursPerDayInput
 ].forEach((input) => {
-  input.addEventListener("input", calculatePto);
-  input.addEventListener("change", calculatePto);
+  input.addEventListener("input", calculateTimeOff);
+  input.addEventListener("change", calculateTimeOff);
 });
+
+document.getElementById("calculate").addEventListener("click", calculateTimeOff);
+document.getElementById("example").addEventListener("click", loadExample);
+document.getElementById("reset").addEventListener("click", clearCalculator);
 
 document.getElementById("openChangelog").addEventListener("click", () => {
   openTextModal({
@@ -265,4 +497,5 @@ document.getElementById("openRoadmap").addEventListener("click", () => {
   });
 });
 
+renderCategoryCards();
 resetResults();

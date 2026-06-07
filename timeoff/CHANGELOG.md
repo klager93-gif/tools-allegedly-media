@@ -4,6 +4,30 @@
 
 ---
 
+## Version 0.2
+
+**Date:** 2026-06-07  
+**Time:** 12:50 UTC
+
+### Theme
+
+Categories
+
+### Changes
+
+- Added category selection for Vacation, Sick, Personal, Comp Time, Holiday, Floating Holiday, and Custom.
+- Added dynamic input cards for selected categories.
+- Added per-category current balance, earned per period, planned usage, average used per period, and cap fields.
+- Updated calculations to combine selected categories into one projected balance.
+- Updated combined earned, used, projected days, cap, and cap status results.
+- Added selected category count to timeline results.
+- Updated example values to demonstrate multiple categories.
+- Updated reset behavior for the new category system.
+- Updated cache-busting references for v0.2.
+- Updated documentation for v0.2.
+
+---
+
 ## Version 0.1.3
 
 **Date:** 2026-06-06  

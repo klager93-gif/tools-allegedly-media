@@ -6,12 +6,12 @@
 
 ## Last Updated
 
-2026-06-06  
-15:45 UTC
+2026-06-07  
+12:50 UTC
 
 ## Current Version
 
-**v0.1.3**
+**v0.2**
 
 ---
 
@@ -23,30 +23,11 @@
 | v0.1.1 | Rebrand |
 | v0.1.2 | Label & Layout Polish |
 | v0.1.3 | Label Cleanup |
+| v0.2 | Categories |
 
 ---
 
 # Upcoming Versions
-
-## v0.2
-
-### Theme
-
-Categories
-
-### Planned Features
-
-- Vacation category.
-- Sick category.
-- Personal category.
-- Comp time category.
-- Holiday category.
-- Floating holiday category.
-- Custom category support.
-- Checkbox-based category selection.
-- Show input sections only for selected categories.
-
----
 
 ## v0.3
 
@@ -61,6 +42,7 @@ Multiple Balance Results
 - Combined projected hours.
 - Combined projected days.
 - Category-level cap warnings.
+- Category-level earned and used summaries.
 
 ---
 
@@ -92,6 +74,21 @@ Warnings & Policy Helpers
 - Use-it-or-lose-it reminders.
 - Employer policy notes.
 - Optional reset/accrual date settings.
+
+---
+
+## v0.6
+
+### Theme
+
+Navigation Links
+
+### Planned Features
+
+- Add internal links to other Signal Labs tools.
+- Add link back to Signal Labs home.
+- Add More Signal Labs Tools section.
+- Coordinate with root site navigation release.
 
 ---
 
