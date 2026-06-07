@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.8.3.1
+v0.8.5
 
 ### Theme
 
-Live Folder Resync
+Share & Export Prep
 
 ### Status
 

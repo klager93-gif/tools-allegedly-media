@@ -107,3 +107,10 @@ These files help prevent missing files, wrong-folder uploads, cross-contaminatio
 On mobile, input cards and result sections can be collapsed to reduce page length.
 
 The calculator saves layout state locally with the saved profile.
+
+
+---
+
+# v0.8 Share & Export Prep
+
+Use **Copy Results** to copy a text summary. Use **Print** to open the browser print dialog.

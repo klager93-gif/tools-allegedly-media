@@ -1,3 +1,28 @@
+## Version 0.8
+
+**Date:** 2026-06-07  
+**Time:** 16:45 UTC
+
+### Theme
+
+Share & Export Prep
+
+### Changes
+
+- Added Copy Results support.
+- Added Print support.
+- Added export summary builder for future PDF/CSV support.
+- Added Results action buttons.
+- Added planning event and warning details to copied summaries.
+- Added print CSS to hide navigation, buttons, ad slots, and modals.
+- Removed duplicate changelog version entries.
+- Updated shared global asset references to Root v0.2.5.
+- Updated cache-busting references for v0.8.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
+
 # Signal Labs Time Off Calculator
 
 # CHANGELOG

@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.2.4**
+**v0.2.5**
 
 ---
 
@@ -27,6 +27,7 @@
 | v0.2.2.2 | Standards Preservation |
 | v0.2.3 | Standards Manifest Adoption |
 | v0.2.4 | Modal UX Polish |
+| v0.2.5 | Versioning Guidance |
 
 ---
 

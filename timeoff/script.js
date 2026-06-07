@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.7
+Version: v0.8
 Purpose: Tool-specific logic and event handling
 */
 const categoryOptionsEl = document.getElementById("categoryOptions");
@@ -45,8 +45,9 @@ const messageEl = document.getElementById("message");
 let plannedEvents = [];
 let isLoadingSavedSettings = false;
 
-const STORAGE_KEY = "signalLabsTimeOffCalculatorV07";
+const STORAGE_KEY = "signalLabsTimeOffCalculatorV08";
 const LEGACY_STORAGE_KEYS = [
+  "signalLabsTimeOffCalculatorV07",
   "signalLabsTimeOffCalculatorV0621",
   "signalLabsTimeOffCalculatorV062",
   "signalLabsTimeOffCalculatorV061",
@@ -1301,6 +1302,78 @@ function loadExample() {
   calculateTimeOff();
 }
 
+
+function getTextFromElement(id) {
+  const node = document.getElementById(id);
+  return node ? node.textContent.trim() : "--";
+}
+
+function collectListText(containerId) {
+  const container = document.getElementById(containerId);
+
+  if (!container) {
+    return ["None"];
+  }
+
+  const cards = Array.from(container.querySelectorAll(".category-result-card, .planned-event-result, .warning-result"));
+
+  if (cards.length === 0) {
+    const text = container.textContent.trim();
+    return text ? [text.replace(/\s+/g, " ")] : ["None"];
+  }
+
+  return cards.map((card) => card.textContent.trim().replace(/\s+/g, " "));
+}
+
+function buildTimeOffResultsSummary() {
+  const lines = [];
+
+  lines.push("Signal Labs Time Off Calculator");
+  lines.push("Share & Export Prep Summary");
+  lines.push("");
+  lines.push(`Generated: ${getCurrentUtcTime()}`);
+  lines.push("");
+  lines.push("Projection");
+  lines.push(`Target Date: ${targetDateInput.value || "Not set"}`);
+  lines.push(`Pay Period: ${payPeriodInput.value}`);
+  lines.push(`Hours Per Day: ${hoursPerDayInput.value || "Not set"}`);
+  lines.push("");
+  lines.push("Combined Totals");
+  lines.push(`Projected Hours: ${getTextFromElement("combinedProjectedHours")}`);
+  lines.push(`Projected Days: ${getTextFromElement("combinedProjectedDays")}`);
+  lines.push(`Projected Weeks: ${getTextFromElement("combinedProjectedWeeks")}`);
+  lines.push(`Projected Cap Status: ${getTextFromElement("combinedCapStatus")}`);
+  lines.push("");
+  lines.push("Category Results");
+  collectListText("categoryResults").forEach((line) => lines.push(`- ${line}`));
+  lines.push("");
+  lines.push("Planned Event Impact");
+  collectListText("plannedEventResults").forEach((line) => lines.push(`- ${line}`));
+  lines.push("");
+  lines.push("Warnings & Policy Notes");
+  collectListText("warningResults").forEach((line) => lines.push(`- ${line}`));
+
+  return lines.join("\n");
+}
+
+async function copyTimeOffResults() {
+  const summary = buildTimeOffResultsSummary();
+
+  try {
+    await navigator.clipboard.writeText(summary);
+    messageEl.classList.remove("error");
+    messageEl.textContent = "Results copied to clipboard.";
+  } catch (error) {
+    messageEl.classList.add("error");
+    messageEl.textContent = "Unable to copy results in this browser.";
+  }
+}
+
+function printTimeOffResults() {
+  calculateTimeOff();
+  window.print();
+}
+
 function clearCalculator() {
   setCategorySelection(["vacation"]);
 
@@ -1351,6 +1424,9 @@ categoryOptionsEl.querySelectorAll("input[type='checkbox']").forEach((checkbox) 
 document.getElementById("calculate").addEventListener("click", calculateTimeOff);
 document.getElementById("example").addEventListener("click", loadExample);
 document.getElementById("reset").addEventListener("click", clearCalculator);
+
+document.getElementById("copyResults").addEventListener("click", copyTimeOffResults);
+document.getElementById("printResults").addEventListener("click", printTimeOffResults);
 
 if (clearSavedProfileButton) {
   clearSavedProfileButton.addEventListener("click", clearSavedProfile);

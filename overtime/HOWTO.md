@@ -53,3 +53,10 @@ BUILDMANIFEST.md
 ```
 
 These files help prevent missing files, wrong-folder uploads, cross-contamination, and malformed version strings.
+
+
+---
+
+# v0.8.5 Share & Export Prep
+
+Use **Copy Results** to copy a text summary. Use **Print** to open the browser print dialog.

@@ -1,3 +1,27 @@
+## Version 0.8.5
+
+**Date:** 2026-06-07  
+**Time:** 16:45 UTC
+
+### Theme
+
+Share & Export Prep
+
+### Changes
+
+- Added Copy Results support.
+- Added Print support.
+- Added export summary builder for future PDF/CSV support.
+- Added Results action buttons.
+- Added print CSS to hide navigation, buttons, ad slots, and modals.
+- Removed duplicate changelog version entries.
+- Updated shared global asset references to Root v0.2.5.
+- Updated cache-busting references for v0.8.5.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
+
 # Signal Labs Overtime Calculator
 
 # CHANGELOG
@@ -17,28 +41,6 @@
 - Updated shared global asset references to Root v0.2.3.
 - Added version-string sanity checks to build documentation.
 - No calculator logic changes.
-
----
-
-## Version 0.8.3.1
-
-**Date:** 2026-06-07  
-**Time:** 15:55 UTC
-
-### Theme
-
-Live Folder Resync
-
-### Changes
-
-- Rebuilt `/overtime/` as a full replacement folder to correct live folder mix-ups.
-- Confirmed Overtime index, script, and styles are Overtime-specific files.
-- Added disabled top, inline-results, and footer ad slots.
-- Updated shared global asset references to Root v0.2.2.1.
-- Updated Overtime cache-busting references to v0.8.3.1.
-- Added local disabled ad slot fallback styling in case stale global CSS is cached.
-- Preserved Goal Mode, saved settings, advanced pay, taxes, deductions, and mobile layout behavior.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
 
 ---
 

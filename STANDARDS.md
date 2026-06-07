@@ -233,3 +233,23 @@ Examples:
 - Shared ad slot behavior.
 
 Shared changes must follow Rule 7 and be reviewed against Root, Overtime, Time Off, and future tools.
+
+
+---
+
+# Versioning Philosophy
+
+Version numbers should reflect the amount of change, not artificial synchronization.
+
+It is acceptable for tools to move at different speeds when the scope of work differs.
+
+Examples:
+
+```text
+Overtime 0.8.5
+Time Off 0.8
+Overtime 0.9
+Time Off 0.9
+```
+
+The release train should remain understandable, but version numbers should not be forced into symmetry when that creates misleading version history.

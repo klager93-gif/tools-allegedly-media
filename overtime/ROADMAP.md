@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.8.3.1**
+**v0.8.5**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.8.5 | Share & Export Prep |
 | v0.8.3.1 | Standards Manifest Adoption |
 | v0.8.1 | Goal Mode |
 | v0.8.2 | Shared Navigation Repair |

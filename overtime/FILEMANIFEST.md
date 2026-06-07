@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.8.3.1
+v0.8.5
 
 ## Theme
 
-Standards Manifest Adoption
+Share & Export Prep
 
 ---
 
@@ -31,8 +31,8 @@ BUILDMANIFEST.md
 # Shared Dependencies
 
 ```text
-../assets/global.css?v=0.2.3
-../assets/global.js?v=0.2.3
+../assets/global.css?v=0.2.5
+../assets/global.js?v=0.2.5
 ```
 
 ---
@@ -54,18 +54,10 @@ document.getElementById("categoryOptions")
 
 ---
 
-# Version String Sanity
-
-Reject malformed versions such as:
+# Feature Checks
 
 ```text
-version 0.2.2.2.2
-version 0.8.3.1.1
-version 0.6.2.1.1
+copyResults
+printResults
+buildOvertimeResultsSummary
 ```
-
----
-
-# Notes
-
-This manifest exists to prevent missing files, wrong-folder uploads, cross-contaminated release packages, and malformed version strings.

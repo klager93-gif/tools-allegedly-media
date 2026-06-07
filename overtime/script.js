@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.8.3.1
+Version: v0.8.5
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -889,6 +889,62 @@ function calculateOvertime() {
   messageEl.textContent = "Calculation updated. Settings saved.";
 }
 
+
+function buildOvertimeResultsSummary() {
+  const lines = [];
+
+  lines.push("Signal Labs Overtime Calculator");
+  lines.push("Share & Export Prep Summary");
+  lines.push("");
+  lines.push(`Generated: ${localUtcTime()}`);
+  lines.push("");
+
+  lines.push("Inputs");
+  lines.push(`Hourly Rate: ${formatMoney(getInputValue(rateInput))}`);
+  lines.push(`Total Hours Worked: ${formatNumber(getInputValue(hoursInput))}`);
+  lines.push(`Pay Period: ${getPayPeriodLabel()}`);
+  lines.push(`Overtime Threshold: ${formatNumber(getThreshold())} hours`);
+  lines.push(`Overtime Multiplier: ${formatNumber(getInputValue(multiplierInput))}`);
+  lines.push("");
+
+  lines.push("Results");
+  lines.push(`Total Hours: ${el("totalHours").textContent}`);
+  lines.push(`Regular Hours: ${el("regularHours").textContent}`);
+  lines.push(`Overtime Hours: ${el("overtimeHours").textContent}`);
+  lines.push(`Regular Pay: ${el("regularPay").textContent}`);
+  lines.push(`Overtime Pay: ${el("overtimePay").textContent}`);
+  lines.push(`Advanced Pay: ${el("advancedPayTotal").textContent}`);
+  lines.push(`Total Gross Pay: ${el("totalPay").textContent}`);
+  lines.push(`Estimated Take-Home Pay: ${el("takeHomePay").textContent}`);
+  lines.push(`Net Effective Rate: ${el("netEffectiveRate").textContent}`);
+  lines.push("");
+
+  lines.push("Goal Mode");
+  lines.push(`Target: ${el("goalTargetAmount").textContent}`);
+  lines.push(`Hours Needed: ${el("goalHoursNeeded").textContent}`);
+  lines.push(`Estimated Shifts Needed: ${el("goalShiftsNeeded").textContent}`);
+
+  return lines.join("\n");
+}
+
+async function copyOvertimeResults() {
+  const summary = buildOvertimeResultsSummary();
+
+  try {
+    await navigator.clipboard.writeText(summary);
+    messageEl.classList.remove("error");
+    messageEl.textContent = "Results copied to clipboard.";
+  } catch (error) {
+    messageEl.classList.add("error");
+    messageEl.textContent = "Unable to copy results in this browser.";
+  }
+}
+
+function printOvertimeResults() {
+  calculateOvertime();
+  window.print();
+}
+
 function loadExample() {
   rateInput.value = "25";
   hoursInput.value = "92";
@@ -1045,6 +1101,8 @@ bindEvent("example", "click", loadExample);
 bindEvent("reset", "click", clearCalculator);
 bindEvent("clearAdjustments", "click", clearAdjustments);
 bindEvent("clearSavedProfile", "click", clearSavedProfile);
+bindEvent("copyResults", "click", copyOvertimeResults);
+bindEvent("printResults", "click", printOvertimeResults);
 
 bindEvent("addTax", "click", () => openAdjustmentModal("tax"));
 bindEvent("addTaxInline", "click", () => openAdjustmentModal("tax"));

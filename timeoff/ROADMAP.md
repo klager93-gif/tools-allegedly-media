@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.7**
+**v0.8**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.8 | Share & Export Prep |
 | v0.7 | Mobile Layout Refactor |
 | v0.6.2.1 | Standards Manifest Adoption |
 | v0.1 | Initial Prototype |

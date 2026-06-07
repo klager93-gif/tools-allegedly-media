@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.2.4
+v0.2.5
 
 ## Theme
 
-Modal UX Polish
+Versioning Guidance
 
 ## Build Type
 
@@ -46,9 +46,9 @@ This build adopts the standards and manifest system across Root, Overtime, and T
 
 ## Version Checks
 
-- [ ] Root index shows v0.2.4.
-- [ ] Root footer shows v0.2.4.
-- [ ] Root cache-busting uses v0.2.4.
+- [ ] Root index shows v0.2.5.
+- [ ] Root footer shows v0.2.5.
+- [ ] Root cache-busting uses v0.2.5.
 - [ ] No malformed version strings exist.
 
 ## Version String Sanity

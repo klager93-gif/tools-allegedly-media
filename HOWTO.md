@@ -226,3 +226,12 @@ Shared text modals can be closed by:
 - Clicking outside the modal box.
 
 Clicking inside the modal box does not close the modal.
+
+
+---
+
+# Versioning Guidance
+
+Version numbers should reflect the amount of change, not artificial synchronization.
+
+Do not force tools to share the same version number unless the release scope justifies it.

@@ -4,6 +4,22 @@
 
 ---
 
+## Version 0.2.5
+
+**Date:** 2026-06-07  
+**Theme:** Versioning Guidance
+
+### Changes
+
+- Added versioning philosophy guidance to STANDARDS.md.
+- Clarified that version numbers should reflect scope of change, not artificial synchronization.
+- Updated root cache-busting references to v0.2.5.
+- Updated root documentation and manifests.
+- No calculator logic changes.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.2.4
 
 **Date:** 2026-06-07  

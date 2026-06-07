@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: style.css
-Version: v0.7
+Version: v0.8
 Purpose: Tool-specific styles
 */
 .dashboard-layout {
@@ -1014,6 +1014,95 @@ v0.7 Mobile Layout Refactor
 
   .collapse-toggle {
     padding: 8px 12px;
+  }
+
+}
+
+
+/*
+--------------------------------
+v0.8 Share & Export Prep
+--------------------------------
+*/
+
+.results-action-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.results-action-row button {
+  width: 100%;
+}
+
+@media (max-width: 560px) {
+
+  .results-action-row {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/*
+--------------------------------
+Share & Export Prep Print Support
+--------------------------------
+*/
+
+@media print {
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    padding: 0 !important;
+  }
+
+  .signal-nav,
+  .footer-actions,
+  .button-row,
+  .results-action-row,
+  .ad-slot,
+  .modal,
+  .collapse-toggle,
+  .result-collapse-toggle {
+    display: none !important;
+  }
+
+  .page,
+  .card,
+  .results-card {
+    max-width: none !important;
+    box-shadow: none !important;
+    border-color: #ddd !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .dashboard-layout {
+    display: block !important;
+  }
+
+  .results-card {
+    position: static !important;
+  }
+
+  .card-collapse-content,
+  .mobile-result-section.is-result-collapsed > .result-row,
+  .mobile-result-section.is-result-collapsed > .category-results-list,
+  .mobile-result-section.is-result-collapsed > .planned-event-results,
+  .mobile-result-section.is-result-collapsed > .warning-results-list,
+  .mobile-result-section.is-result-collapsed > .result-detail-list {
+    display: block !important;
+  }
+
+  .result-row,
+  .category-result-card,
+  .planned-event-result,
+  .warning-result {
+    break-inside: avoid;
+    color: #000 !important;
   }
 
 }

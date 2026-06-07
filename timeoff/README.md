@@ -193,11 +193,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.7
+v0.8
 
 ### Theme
 
-Mobile Layout Refactor
+Share & Export Prep
 
 ### Status
 
@@ -250,3 +250,10 @@ BUILDMANIFEST.md
 ```
 
 These files define expected files, identity checks, version checks, and ZIP validation requirements.
+
+
+---
+
+# v0.8 Share & Export Prep
+
+Adds Copy Results, Print support, planning report copy output, and export summary prep.

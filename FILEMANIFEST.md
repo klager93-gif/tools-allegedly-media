@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.2.4
+v0.2.5
 
 ## Theme
 
-Modal UX Polish
+Versioning Guidance
 
 ---
 
@@ -51,7 +51,7 @@ assets/global.js
 
 ```text
 Shared Asset
-Version: v0.2.4
+Version: v0.2.5
 ```
 
 ---
