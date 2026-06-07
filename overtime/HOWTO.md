@@ -123,3 +123,10 @@ The interface is more compact. Optional toggles remain green/on and red/off, and
 # v0.9.6 Signal Labs UI Identity
 
 Use Automatic/Custom pills for overtime threshold behavior. Hover or focus info icons for short explanations. Footer notes replace long helper paragraphs.
+
+
+---
+
+# v0.9.6.1 UI Identity Polish
+
+Info icons are smaller and better aligned. Pill controls are cleaner and more consistent.

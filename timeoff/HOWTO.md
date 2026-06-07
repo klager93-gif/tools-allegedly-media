@@ -177,3 +177,13 @@ The interface is more compact. Optional toggles remain green/on and red/off, and
 # v0.9.6 Signal Labs UI Identity
 
 Use category pills to choose banks. Add custom category pills with short names. Use quick hour pills for common planned event lengths and policy pills for use-it-or-lose-it rules.
+
+
+---
+
+# v0.9.6.1 UI Identity Polish
+
+Info icons are smaller and better aligned. Pill controls are cleaner and more consistent.
+
+
+Time Off categories now use a true pill-only selector. The old checkbox card grid is hidden and preserved only as a compatibility source for calculations.

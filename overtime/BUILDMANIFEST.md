@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.6
+v0.9.6.1
 
 ## Theme
 
-Signal Labs UI Identity
+UI Identity Polish
 
 ---
 
@@ -99,5 +99,14 @@ Signal Labs UI Identity
 - [ ] Info icons appear and do not break layout.
 - [ ] Automatic / Custom OT threshold pills work.
 - [ ] Footer notes appear.
+- [ ] Print Report still works.
+- [ ] Copy Results still works.
+
+
+# UI Identity Polish Checks
+
+- [ ] Info icon is smaller and aligned with label text.
+- [ ] Tooltip still appears.
+- [ ] Pill controls remain readable on mobile.
 - [ ] Print Report still works.
 - [ ] Copy Results still works.

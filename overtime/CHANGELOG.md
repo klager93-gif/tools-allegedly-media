@@ -1,3 +1,18 @@
+## Version 0.9.6.1
+
+**Date:** 2026-06-07  
+**Theme:** UI Identity Polish
+
+### Changes
+
+- Refined lowercase info icon size, color, spacing, and vertical alignment.
+- Improved consistency of Signal Labs pill/toggle styling.
+- Preserved saved inputs, Print Report, Copy Results, and optional section behavior.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.6
 
 **Date:** 2026-06-07  

@@ -193,11 +193,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.9.6
+v0.9.6.1
 
 ### Theme
 
-Signal Labs UI Identity
+UI Identity Polish
 
 ### Status
 
@@ -313,3 +313,13 @@ Rebuilds toggle sizing, tightens headers, and reduces card/form/result spacing w
 # v0.9.6 Signal Labs UI Identity
 
 Adds category pills, custom category pills, quick hour pills, policy type pills, event chips, expandable notes, info icons, and footer notes.
+
+
+---
+
+# v0.9.6.1 UI Identity Polish
+
+Refines info icon styling and improves pill UI consistency while preserving existing functionality.
+
+
+Time Off v0.9.6.1 also replaces the duplicate category card/pill mix with a true pill-only category selector.

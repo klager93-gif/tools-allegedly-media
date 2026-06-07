@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.6
+v0.9.6.1
 
 ## Theme
 
-Signal Labs UI Identity
+UI Identity Polish
 
 ---
 

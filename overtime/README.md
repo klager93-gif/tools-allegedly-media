@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.9.6
+v0.9.6.1
 
 ### Theme
 
-Signal Labs UI Identity
+UI Identity Polish
 
 ### Status
 
@@ -134,3 +134,10 @@ Rebuilds toggle sizing, tightens headers, and reduces card/form/result spacing w
 # v0.9.6 Signal Labs UI Identity
 
 Adds info icons, Automatic/Custom OT threshold pills, footer notes, and cleaner helper UI while preserving calculation/report behavior.
+
+
+---
+
+# v0.9.6.1 UI Identity Polish
+
+Refines info icon styling and improves pill UI consistency while preserving existing functionality.
