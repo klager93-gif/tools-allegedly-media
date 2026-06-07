@@ -4,6 +4,28 @@
 
 ---
 
+## Version 0.2.2
+
+**Date:** 2026-06-07  
+**Theme:** Ad Slot Framework
+
+### Changes
+
+- Added global ad slot framework support.
+- Added disabled ad slot styling.
+- Added placeholder ad slot styling.
+- Added top, inline, sidebar, footer, and card ad slot classes.
+- Added `initializeAdSlots()` helper in global.js.
+- Added support for `data-ad-slot` attributes.
+- Added support for `data-ad-status="disabled"`.
+- Added support for `data-ad-status="placeholder"`.
+- Added a disabled root top ad slot for future placement.
+- Updated root cache-busting references to v0.2.2.
+- Updated root build labels to v0.2.2.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.2.1
 
 **Date:** 2026-06-07  

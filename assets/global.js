@@ -90,8 +90,38 @@ function buildSignalNavigation() {
   document.body.insertBefore(nav, document.body.firstChild);
 }
 
+
+function initializeAdSlots() {
+  const adSlots = document.querySelectorAll("[data-ad-slot]");
+
+  adSlots.forEach((slot) => {
+    const status = slot.dataset.adStatus || "disabled";
+
+    slot.classList.add("ad-slot");
+
+    if (status === "disabled") {
+      slot.classList.add("is-disabled");
+      slot.setAttribute("aria-hidden", "true");
+      return;
+    }
+
+    if (status === "placeholder") {
+      slot.classList.add("is-placeholder");
+
+      if (!slot.querySelector(".ad-placeholder")) {
+        const placeholder = document.createElement("span");
+        placeholder.className = "ad-placeholder";
+        placeholder.textContent = "Ad slot reserved";
+        slot.appendChild(placeholder);
+      }
+    }
+  });
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
   buildSignalNavigation();
+  initializeAdSlots();
 
   const closeButton = document.getElementById("closeModal");
   const modal = document.getElementById("modal");

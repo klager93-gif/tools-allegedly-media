@@ -104,3 +104,45 @@ Each tool should eventually maintain the same set of files.
 - If global assets change, review every tool that loads them.
 - Keep folder structure predictable.
 - Prefer complete file replacements over snippets.
+
+---
+
+# How to Use Ad Slots
+
+Root v0.2.2 supports future ad placements without enabling live ads.
+
+## Disabled Slot
+
+Use this for reserved future placement. It will not display.
+
+```html
+<div
+  class="ad-slot ad-slot-top is-disabled"
+  data-ad-slot="tool-top"
+  data-ad-status="disabled"
+  aria-hidden="true">
+  <span class="ad-placeholder">Ad slot reserved</span>
+</div>
+```
+
+## Placeholder Slot
+
+Use this only for layout testing. It displays a non-live placeholder.
+
+```html
+<div
+  class="ad-slot ad-slot-inline is-placeholder"
+  data-ad-slot="tool-inline"
+  data-ad-status="placeholder">
+  <span class="ad-placeholder">Ad slot reserved</span>
+</div>
+```
+
+## Rules
+
+- Do not add live ad provider scripts yet.
+- Do not add AdSense code until the site is ready.
+- Keep ad styling in `assets/global.css`.
+- Keep ad initialization in `assets/global.js`.
+- Add actual slot placement inside individual tools only after the global framework is installed.
+

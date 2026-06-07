@@ -6,11 +6,11 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.2.1**
+**v0.2.2**
 
 ## Theme
 
-Navigation Version Label Fix
+Ad Slot Framework
 
 ---
 
@@ -106,12 +106,42 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.2.1
+v0.2.2
 
 ### Theme
 
-Navigation Version Label Fix
+Ad Slot Framework
 
 ### Status
 
 Active Development
+
+---
+
+# Ad Slot Framework
+
+Root v0.2.2 adds back-end support for future ads.
+
+This release does **not** add live ads, ad provider scripts, tracking scripts, or ad requests.
+
+## Supported Slot Classes
+
+- `ad-slot`
+- `ad-slot-top`
+- `ad-slot-inline`
+- `ad-slot-sidebar`
+- `ad-slot-footer`
+- `ad-slot-card`
+- `ad-placeholder`
+
+## Supported Slot Statuses
+
+```html
+data-ad-status="disabled"
+data-ad-status="placeholder"
+```
+
+Disabled slots are hidden by default.
+
+Placeholder slots can be used for testing layout without serving ads.
+

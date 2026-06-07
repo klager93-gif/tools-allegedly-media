@@ -366,3 +366,91 @@ button:hover {
     flex-direction: column;
   }
 }
+
+
+/*
+--------------------------------
+v0.2.2 Ad Slot Framework
+--------------------------------
+Back-end support only. Disabled by default.
+No live ad provider code is included.
+*/
+
+.ad-slot {
+  width: 100%;
+  margin: 24px auto;
+  border: 1px dashed rgba(255,255,255,.14);
+  border-radius: 20px;
+  background: rgba(255,255,255,.025);
+  color: #777;
+  text-align: center;
+  overflow: hidden;
+}
+
+.ad-slot.is-disabled,
+.ad-slot[data-ad-status="disabled"] {
+  display: none;
+}
+
+.ad-slot.is-placeholder,
+.ad-slot[data-ad-status="placeholder"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-placeholder {
+  display: block;
+  padding: 16px;
+  color: #777;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ad-slot-top {
+  max-width: 970px;
+  min-height: 90px;
+}
+
+.ad-slot-inline {
+  max-width: 728px;
+  min-height: 90px;
+}
+
+.ad-slot-sidebar {
+  max-width: 320px;
+  min-height: 250px;
+}
+
+.ad-slot-footer {
+  max-width: 970px;
+  min-height: 90px;
+  margin-top: 32px;
+}
+
+.ad-slot-card {
+  min-height: 250px;
+}
+
+@media (max-width: 700px) {
+
+  .ad-slot {
+    margin: 18px auto;
+    border-radius: 16px;
+  }
+
+  .ad-slot-top,
+  .ad-slot-inline,
+  .ad-slot-footer {
+    max-width: 100%;
+    min-height: 80px;
+  }
+
+  .ad-slot-sidebar,
+  .ad-slot-card {
+    max-width: 100%;
+    min-height: 180px;
+  }
+
+}
