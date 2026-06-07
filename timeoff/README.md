@@ -193,11 +193,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.8
+v0.9
 
 ### Theme
 
-Share & Export Prep
+Professional Reports
 
 ### Status
 
@@ -257,3 +257,10 @@ These files define expected files, identity checks, version checks, and ZIP vali
 # v0.8 Share & Export Prep
 
 Adds Copy Results, Print support, planning report copy output, and export summary prep.
+
+
+---
+
+# v0.9 Professional Reports
+
+Print Report now generates a clean HTML document report with real selectable text and tables instead of printing the full calculator UI.

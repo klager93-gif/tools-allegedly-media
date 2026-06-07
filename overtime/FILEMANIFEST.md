@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.8.5
+v0.9
 
 ## Theme
 
-Share & Export Prep
+Professional Reports
 
 ---
 
@@ -60,4 +60,13 @@ document.getElementById("categoryOptions")
 copyResults
 printResults
 buildOvertimeResultsSummary
+```
+
+
+# Report Checks
+
+```text
+buildOvertimeProfessionalReportHtml
+openProfessionalReportWindow
+Print Report
 ```

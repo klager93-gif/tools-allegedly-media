@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.8.5
+v0.9
 
 ### Theme
 
-Share & Export Prep
+Professional Reports
 
 ### Status
 
@@ -78,3 +78,10 @@ BUILDMANIFEST.md
 ```
 
 These files define expected files, identity checks, version checks, and ZIP validation requirements.
+
+
+---
+
+# v0.9 Professional Reports
+
+Print Report now generates a clean HTML document report with real selectable text and tables instead of printing the full calculator UI.

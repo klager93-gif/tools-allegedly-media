@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.8
+v0.9
 
 ## Theme
 
-Share & Export Prep
+Professional Reports
 
 ---
 
@@ -60,4 +60,13 @@ document.getElementById("rate")
 copyResults
 printResults
 buildTimeOffResultsSummary
+```
+
+
+# Report Checks
+
+```text
+buildTimeOffProfessionalReportHtml
+openProfessionalReportWindow
+Print Report
 ```

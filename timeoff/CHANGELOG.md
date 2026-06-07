@@ -1,3 +1,27 @@
+## Version 0.9
+
+**Date:** 2026-06-07  
+**Time:** 17:15 UTC
+
+### Theme
+
+Professional Reports
+
+### Changes
+
+- Replaced webpage printing with generated professional report printing.
+- Added one-page HTML report layout with real text and tables.
+- Added Time Off report sections for projection summary, combined totals, cap status, category results, planned events, and warnings.
+- Updated Print button label to Print Report.
+- Preserved Copy Results support.
+- Updated cache-busting references for v0.9.
+- Updated documentation and manifests.
+- No image-based report generation is used.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
+
 ## Version 0.8
 
 **Date:** 2026-06-07  

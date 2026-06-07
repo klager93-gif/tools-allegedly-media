@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.8.5
+Version: v0.9
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -27,8 +27,9 @@ const thresholdNoteEl = document.getElementById("thresholdNote");
 const messageEl = document.getElementById("message");
 const generatedTimeEl = document.getElementById("generatedTime");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV0831";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV09";
 const LEGACY_STORAGE_KEYS = [
+  "signalLabsOvertimeCalculatorV085",
   "signalLabsOvertimeCalculatorV0821",
   "signalLabsOvertimeCalculatorV083",
   "signalLabsOvertimeCalculatorV082",
@@ -890,6 +891,230 @@ function calculateOvertime() {
 }
 
 
+
+function getProfessionalReportCss() {
+  return `
+    @page {
+      size: letter;
+      margin: 0.45in;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111;
+      background: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .report-page {
+      width: 100%;
+      max-width: 7.6in;
+      margin: 0 auto;
+    }
+
+    .report-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #174a8b;
+      margin-bottom: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border: 2px solid #174a8b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #174a8b;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: #0c1b2d;
+    }
+
+    .report-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 2px;
+      color: #111;
+      letter-spacing: 0;
+    }
+
+    .report-meta {
+      font-size: 10px;
+      line-height: 1.45;
+      min-width: 190px;
+    }
+
+    h2 {
+      font-size: 12px;
+      color: #174a8b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 12px 0 6px;
+    }
+
+    h3 {
+      font-size: 11px;
+      color: #174a8b;
+      margin: 8px 0 4px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .summary-list {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5px 16px;
+      margin: 0;
+    }
+
+    .summary-list dt {
+      font-weight: 700;
+    }
+
+    .summary-list dd {
+      margin: 0;
+      text-align: right;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 9px;
+      break-inside: avoid;
+    }
+
+    th,
+    td {
+      border: 1px solid #b8c0c8;
+      padding: 5px 7px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f4f7;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    td.value,
+    th.value {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    tr.total td {
+      background: #eef4fb;
+      font-weight: 700;
+    }
+
+    tr.success td {
+      background: #eef8ef;
+      font-weight: 700;
+    }
+
+    .notes {
+      margin: 0 0 10px 18px;
+      padding: 0;
+    }
+
+    .notes li {
+      margin-bottom: 3px;
+    }
+
+    .footer {
+      border-top: 2px solid #174a8b;
+      margin-top: 12px;
+      padding-top: 8px;
+      text-align: center;
+      font-size: 10px;
+      color: #333;
+    }
+
+    .footer strong {
+      color: #0c2d55;
+    }
+
+    .muted {
+      color: #555;
+    }
+
+    @media print {
+      .report-page {
+        max-width: none;
+      }
+    }
+  `;
+}
+
+function escapeReportHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function openProfessionalReportWindow(reportHtml, title) {
+  const reportWindow = window.open("", "_blank", "noopener,noreferrer,width=900,height=1100");
+
+  if (!reportWindow) {
+    return false;
+  }
+
+  reportWindow.document.open();
+  reportWindow.document.write(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>${escapeReportHtml(title)}</title>
+      <style>${getProfessionalReportCss()}</style>
+    </head>
+    <body>
+      ${reportHtml}
+      <script>
+        window.addEventListener("load", () => {
+          window.focus();
+          setTimeout(() => window.print(), 150);
+        });
+      <\/script>
+    </body>
+    </html>
+  `);
+  reportWindow.document.close();
+
+  return true;
+}
+
 function buildOvertimeResultsSummary() {
   const lines = [];
 
@@ -940,10 +1165,139 @@ async function copyOvertimeResults() {
   }
 }
 
-function printOvertimeResults() {
+
+function buildOvertimeProfessionalReportHtml() {
   calculateOvertime();
-  window.print();
+
+  const generated = localUtcTime();
+  const rate = getInputValue(rateInput);
+  const hours = getInputValue(hoursInput);
+  const threshold = getThreshold();
+  const multiplier = getInputValue(multiplierInput);
+  const differentialRate = getInputValue(differentialRateInput);
+  const differentialHours = getInputValue(differentialHoursInput);
+  const doubleTimeHours = getInputValue(doubleTimeHoursInput);
+  const weekendBonus = getInputValue(weekendBonusInput);
+  const holidayBonus = getInputValue(holidayBonusInput);
+  const flatBonus = getInputValue(otherBonusInput);
+  const goalAmount = getInputValue(el("goalAmount"));
+  const goalShiftLength = getInputValue(el("goalShiftLength")) || 8;
+
+  return `
+    <main class="report-page">
+      <header class="report-header">
+        <div class="brand">
+          <div class="brand-mark">SL</div>
+          <div>
+            <div class="brand-title">SIGNAL LABS</div>
+            <div class="report-title">Overtime Calculator</div>
+          </div>
+        </div>
+
+        <div class="report-meta">
+          <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
+          <div><strong>Build:</strong> v0.9</div>
+          <div><strong>Theme:</strong> Professional Reports</div>
+          <div><strong>Status:</strong> Active Development</div>
+        </div>
+      </header>
+
+      <section>
+        <h2>Input Summary</h2>
+        <div class="grid-2">
+          <dl class="summary-list">
+            <dt>Hourly Rate</dt><dd>${escapeReportHtml(formatMoney(rate))}</dd>
+            <dt>Total Hours Worked</dt><dd>${escapeReportHtml(formatNumber(hours))}</dd>
+            <dt>Pay Period</dt><dd>${escapeReportHtml(getPayPeriodLabel())}</dd>
+            <dt>Overtime Multiplier</dt><dd>${escapeReportHtml(formatNumber(multiplier))}x</dd>
+            <dt>Overtime Starts After</dt><dd>${escapeReportHtml(formatNumber(threshold))} hours</dd>
+          </dl>
+
+          <dl class="summary-list">
+            <dt>Shift Differential Rate</dt><dd>${escapeReportHtml(formatMoney(differentialRate))}</dd>
+            <dt>Differential Hours</dt><dd>${escapeReportHtml(formatNumber(differentialHours))}</dd>
+            <dt>Double-Time Additional Hours</dt><dd>${escapeReportHtml(formatNumber(doubleTimeHours))}</dd>
+            <dt>Weekend Bonus</dt><dd>${escapeReportHtml(formatMoney(weekendBonus))}</dd>
+            <dt>Holiday Bonus</dt><dd>${escapeReportHtml(formatMoney(holidayBonus))}</dd>
+            <dt>Flat Bonus</dt><dd>${escapeReportHtml(formatMoney(flatBonus))}</dd>
+          </dl>
+        </div>
+      </section>
+
+      <section class="grid-2">
+        <div>
+          <h2>Hours Breakdown</h2>
+          <table>
+            <thead><tr><th>Description</th><th class="value">Hours</th></tr></thead>
+            <tbody>
+              <tr><td>Regular Hours</td><td class="value">${escapeReportHtml(el("regularHours").textContent)}</td></tr>
+              <tr><td>Overtime Hours</td><td class="value">${escapeReportHtml(el("overtimeHours").textContent)}</td></tr>
+              <tr class="total"><td>Total Hours</td><td class="value">${escapeReportHtml(el("totalHours").textContent)}</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <h2>Rates</h2>
+          <table>
+            <thead><tr><th>Description</th><th class="value">Rate</th></tr></thead>
+            <tbody>
+              <tr><td>Hourly Rate</td><td class="value">${escapeReportHtml(el("hourlyRate").textContent)}</td></tr>
+              <tr><td>Overtime Rate</td><td class="value">${escapeReportHtml(el("overtimeRate").textContent)}</td></tr>
+              <tr><td>Gross Effective Rate</td><td class="value">${escapeReportHtml(el("effectiveRate").textContent)}</td></tr>
+              <tr><td>Net Effective Rate</td><td class="value">${escapeReportHtml(el("netEffectiveRate").textContent)}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Pay Breakdown</h2>
+        <table>
+          <thead><tr><th>Description</th><th class="value">Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Regular Pay</td><td class="value">${escapeReportHtml(el("regularPay").textContent)}</td></tr>
+            <tr><td>Overtime Pay</td><td class="value">${escapeReportHtml(el("overtimePay").textContent)}</td></tr>
+            <tr><td>Shift Differential Pay</td><td class="value">${escapeReportHtml(el("differentialPay").textContent)}</td></tr>
+            <tr><td>Additional Double-Time Pay</td><td class="value">${escapeReportHtml(el("doubleTimePay").textContent)}</td></tr>
+            <tr><td>Bonus Pay</td><td class="value">${escapeReportHtml(el("bonusPay").textContent)}</td></tr>
+            <tr class="total"><td>Total Gross Pay</td><td class="value">${escapeReportHtml(el("totalPay").textContent)}</td></tr>
+            <tr><td>Taxes</td><td class="value">${escapeReportHtml(el("taxResultsTotal").textContent)}</td></tr>
+            <tr><td>Deductions</td><td class="value">${escapeReportHtml(el("deductionResultsTotal").textContent)}</td></tr>
+            <tr class="success"><td>Estimated Take-Home Pay</td><td class="value">${escapeReportHtml(el("takeHomePay").textContent)}</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Goal Mode Results</h2>
+        <table>
+          <tbody>
+            <tr><th>Goal Type</th><td>${escapeReportHtml(el("goalType").selectedOptions[0].textContent)}</td><th>Hours Needed</th><td class="value">${escapeReportHtml(el("goalHoursNeeded").textContent)}</td></tr>
+            <tr><th>Target Amount</th><td>${escapeReportHtml(goalAmount ? formatMoney(goalAmount) : "$0.00")}</td><th>Overtime Hours Needed</th><td class="value">${escapeReportHtml(el("goalOvertimeNeeded").textContent)}</td></tr>
+            <tr><th>Typical Shift Length</th><td>${escapeReportHtml(formatNumber(goalShiftLength))} hrs</td><th>Estimated Shifts Needed</th><td class="value">${escapeReportHtml(el("goalShiftsNeeded").textContent)}</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <footer class="footer">
+        <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9</div>
+      </footer>
+    </main>
+  `;
 }
+
+function printOvertimeResults() {
+  const reportHtml = buildOvertimeProfessionalReportHtml();
+  const opened = openProfessionalReportWindow(reportHtml, "Overtime Calculator Report");
+
+  if (!opened) {
+    messageEl.classList.add("error");
+    messageEl.textContent = "Unable to open the print report window. Check your popup blocker.";
+  }
+}
+
 
 function loadExample() {
   rateInput.value = "25";

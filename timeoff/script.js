@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.8
+Version: v0.9
 Purpose: Tool-specific logic and event handling
 */
 const categoryOptionsEl = document.getElementById("categoryOptions");
@@ -45,8 +45,9 @@ const messageEl = document.getElementById("message");
 let plannedEvents = [];
 let isLoadingSavedSettings = false;
 
-const STORAGE_KEY = "signalLabsTimeOffCalculatorV08";
+const STORAGE_KEY = "signalLabsTimeOffCalculatorV09";
 const LEGACY_STORAGE_KEYS = [
+  "signalLabsTimeOffCalculatorV08",
   "signalLabsTimeOffCalculatorV07",
   "signalLabsTimeOffCalculatorV0621",
   "signalLabsTimeOffCalculatorV062",
@@ -1303,6 +1304,230 @@ function loadExample() {
 }
 
 
+
+function getProfessionalReportCss() {
+  return `
+    @page {
+      size: letter;
+      margin: 0.45in;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111;
+      background: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .report-page {
+      width: 100%;
+      max-width: 7.6in;
+      margin: 0 auto;
+    }
+
+    .report-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #174a8b;
+      margin-bottom: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border: 2px solid #174a8b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #174a8b;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: #0c1b2d;
+    }
+
+    .report-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 2px;
+      color: #111;
+      letter-spacing: 0;
+    }
+
+    .report-meta {
+      font-size: 10px;
+      line-height: 1.45;
+      min-width: 190px;
+    }
+
+    h2 {
+      font-size: 12px;
+      color: #174a8b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 12px 0 6px;
+    }
+
+    h3 {
+      font-size: 11px;
+      color: #174a8b;
+      margin: 8px 0 4px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .summary-list {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5px 16px;
+      margin: 0;
+    }
+
+    .summary-list dt {
+      font-weight: 700;
+    }
+
+    .summary-list dd {
+      margin: 0;
+      text-align: right;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 9px;
+      break-inside: avoid;
+    }
+
+    th,
+    td {
+      border: 1px solid #b8c0c8;
+      padding: 5px 7px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f4f7;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    td.value,
+    th.value {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    tr.total td {
+      background: #eef4fb;
+      font-weight: 700;
+    }
+
+    tr.success td {
+      background: #eef8ef;
+      font-weight: 700;
+    }
+
+    .notes {
+      margin: 0 0 10px 18px;
+      padding: 0;
+    }
+
+    .notes li {
+      margin-bottom: 3px;
+    }
+
+    .footer {
+      border-top: 2px solid #174a8b;
+      margin-top: 12px;
+      padding-top: 8px;
+      text-align: center;
+      font-size: 10px;
+      color: #333;
+    }
+
+    .footer strong {
+      color: #0c2d55;
+    }
+
+    .muted {
+      color: #555;
+    }
+
+    @media print {
+      .report-page {
+        max-width: none;
+      }
+    }
+  `;
+}
+
+function escapeReportHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function openProfessionalReportWindow(reportHtml, title) {
+  const reportWindow = window.open("", "_blank", "noopener,noreferrer,width=900,height=1100");
+
+  if (!reportWindow) {
+    return false;
+  }
+
+  reportWindow.document.open();
+  reportWindow.document.write(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>${escapeReportHtml(title)}</title>
+      <style>${getProfessionalReportCss()}</style>
+    </head>
+    <body>
+      ${reportHtml}
+      <script>
+        window.addEventListener("load", () => {
+          window.focus();
+          setTimeout(() => window.print(), 150);
+        });
+      <\/script>
+    </body>
+    </html>
+  `);
+  reportWindow.document.close();
+
+  return true;
+}
+
 function getTextFromElement(id) {
   const node = document.getElementById(id);
   return node ? node.textContent.trim() : "--";
@@ -1369,10 +1594,205 @@ async function copyTimeOffResults() {
   }
 }
 
-function printTimeOffResults() {
+
+function buildTimeOffProfessionalReportHtml() {
   calculateTimeOff();
-  window.print();
+
+  const generated = getCurrentUtcTime();
+  const targetDate = targetDateInput.value || "--";
+  const hoursPerDay = getInputValue(hoursPerDayInput) || 8;
+  const selectedCategoryLabels = getSelectedCategoryIds().map((id) => categoryConfig[id].label);
+  const categoryRows = collectCategoryReportRows();
+  const plannedRows = collectPlannedEventReportRows();
+
+  const categoryTableRows = categoryRows.length
+    ? categoryRows.map((row) => `
+      <tr>
+        <td>${escapeReportHtml(row.category)}</td>
+        <td class="value">${escapeReportHtml(row.current)}</td>
+        <td class="value">${escapeReportHtml(row.earned)}</td>
+        <td class="value">${escapeReportHtml(row.used)}</td>
+        <td class="value">${escapeReportHtml(row.projected)}</td>
+        <td class="value">${escapeReportHtml(row.cap)}</td>
+        <td>${escapeReportHtml(row.status)}</td>
+      </tr>
+    `).join("")
+    : `<tr><td colspan="7">No category results available.</td></tr>`;
+
+  const plannedTableRows = plannedRows.length
+    ? plannedRows.map((row) => `
+      <tr>
+        <td>${escapeReportHtml(row.date)}</td>
+        <td>${escapeReportHtml(row.name)}</td>
+        <td>${escapeReportHtml(row.category)}</td>
+        <td class="value">${escapeReportHtml(row.hours)}</td>
+        <td>${escapeReportHtml(row.notes)}</td>
+      </tr>
+    `).join("")
+    : `<tr><td colspan="5">No planned events added.</td></tr>`;
+
+  const warnings = collectListText("warningResults")
+    .map((line) => `<li>${escapeReportHtml(line)}</li>`)
+    .join("");
+
+  return `
+    <main class="report-page">
+      <header class="report-header">
+        <div class="brand">
+          <div class="brand-mark">SL</div>
+          <div>
+            <div class="brand-title">SIGNAL LABS</div>
+            <div class="report-title">Time Off Calculator</div>
+          </div>
+        </div>
+
+        <div class="report-meta">
+          <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
+          <div><strong>Build:</strong> v0.9</div>
+          <div><strong>Theme:</strong> Professional Reports</div>
+          <div><strong>Status:</strong> Active Development</div>
+        </div>
+      </header>
+
+      <section class="grid-2">
+        <div>
+          <h2>Projection Summary</h2>
+          <dl class="summary-list">
+            <dt>Target Date</dt><dd>${escapeReportHtml(targetDate)}</dd>
+            <dt>Pay Period</dt><dd>${escapeReportHtml(payPeriodInput.value)}</dd>
+            <dt>Hours Per Day</dt><dd>${escapeReportHtml(formatNumber(hoursPerDay))}</dd>
+            <dt>Pay Periods Until Target</dt><dd>${escapeReportHtml(getTextFromElement("periodsUntilTarget"))}</dd>
+            <dt>Selected Categories</dt><dd>${escapeReportHtml(selectedCategoryLabels.length ? selectedCategoryLabels.join(", ") : "None")}</dd>
+          </dl>
+        </div>
+
+        <div>
+          <h2>Combined Totals</h2>
+          <table>
+            <tbody>
+              <tr><td>Projected Time Off Balance</td><td class="value">${escapeReportHtml(getTextFromElement("combinedProjectedHours"))}</td></tr>
+              <tr><td>Projected Days</td><td class="value">${escapeReportHtml(getTextFromElement("combinedProjectedDays"))}</td></tr>
+              <tr><td>Projected Weeks</td><td class="value">${escapeReportHtml(getTextFromElement("combinedProjectedWeeks"))}</td></tr>
+              <tr><td>Total Earned</td><td class="value">${escapeReportHtml(getTextFromElement("combinedEarned"))}</td></tr>
+              <tr><td>Total Used</td><td class="value">${escapeReportHtml(getTextFromElement("combinedUsed"))}</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Combined Cap Status</h2>
+          <table>
+            <tbody>
+              <tr><td>Combined Cap</td><td class="value">${escapeReportHtml(getTextFromElement("combinedCap"))}</td></tr>
+              <tr><td>Hours Until Combined Cap</td><td class="value">${escapeReportHtml(getTextFromElement("combinedUntilCap"))}</td></tr>
+              <tr class="success"><td>Status</td><td class="value">${escapeReportHtml(getTextFromElement("combinedCapStatus"))}</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Category Results</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th class="value">Current</th>
+              <th class="value">Earned</th>
+              <th class="value">Used</th>
+              <th class="value">Projected</th>
+              <th class="value">Cap</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${categoryTableRows}
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Planned Events</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event Name</th>
+              <th>Category</th>
+              <th class="value">Hours Used</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${plannedTableRows}
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Warnings & Policy Notes</h2>
+        <ul class="notes">
+          ${warnings || "<li>No warnings or policy notes.</li>"}
+        </ul>
+      </section>
+
+      <footer class="footer">
+        <div>Estimates only. Actual time off may vary based on employer policy, accrual rules, caps, holidays, unpaid leave, and payroll timing.</div>
+        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9</div>
+      </footer>
+    </main>
+  `;
 }
+
+function collectCategoryReportRows() {
+  const rows = [];
+  const selectedIds = getSelectedCategoryIds();
+  const data = calculateCategoryData();
+
+  selectedIds.forEach((categoryId) => {
+    const category = categoryConfig[categoryId];
+    const row = data[categoryId];
+
+    if (!category || !row) {
+      return;
+    }
+
+    rows.push({
+      category: category.label,
+      current: `${formatNumber(row.currentBalance)} hrs`,
+      earned: `${formatNumber(row.earned)} hrs`,
+      used: `${formatNumber(row.totalUsed)} hrs`,
+      projected: `${formatNumber(row.projectedBalance)} hrs`,
+      cap: row.cap > 0 ? `${formatNumber(row.cap)} hrs` : "None",
+      status: row.cap > 0 ? row.capStatus : "No Cap"
+    });
+  });
+
+  return rows;
+}
+
+function collectPlannedEventReportRows() {
+  return planningEvents.map((event) => {
+    const category = categoryConfig[event.categoryId];
+
+    return {
+      date: event.date || "--",
+      name: event.name || "Planned Event",
+      category: category ? category.label : event.categoryId,
+      hours: `${formatNumber(event.hours)} hrs`,
+      notes: event.hours > 0 ? `${formatNumber(event.hours / (getInputValue(hoursPerDayInput) || 8))} days` : ""
+    };
+  });
+}
+
+function printTimeOffResults() {
+  const reportHtml = buildTimeOffProfessionalReportHtml();
+  const opened = openProfessionalReportWindow(reportHtml, "Time Off Calculator Report");
+
+  if (!opened) {
+    messageEl.classList.add("error");
+    messageEl.textContent = "Unable to open the print report window. Check your popup blocker.";
+  }
+}
+
 
 function clearCalculator() {
   setCategorySelection(["vacation"]);

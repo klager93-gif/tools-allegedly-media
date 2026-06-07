@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: style.css
-Version: v0.8
+Version: v0.9
 Purpose: Tool-specific styles
 */
 .dashboard-layout {
@@ -1103,6 +1103,25 @@ Share & Export Prep Print Support
   .warning-result {
     break-inside: avoid;
     color: #000 !important;
+  }
+
+}
+
+
+/*
+--------------------------------
+v0.9 Professional Reports
+--------------------------------
+*/
+
+.results-action-row button {
+  white-space: nowrap;
+}
+
+@media print {
+
+  body {
+    background: #fff !important;
   }
 
 }

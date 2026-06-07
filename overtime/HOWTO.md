@@ -60,3 +60,10 @@ These files help prevent missing files, wrong-folder uploads, cross-contaminatio
 # v0.8.5 Share & Export Prep
 
 Use **Copy Results** to copy a text summary. Use **Print** to open the browser print dialog.
+
+
+---
+
+# v0.9 Professional Reports
+
+Use **Print Report** to generate a clean printable HTML report. The report prints as real text and tables, not as an image.

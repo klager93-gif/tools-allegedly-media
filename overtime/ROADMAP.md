@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.8.5**
+**v0.9**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.9 | Professional Reports |
 | v0.8.5 | Share & Export Prep |
 | v0.8.3.1 | Standards Manifest Adoption |
 | v0.8.1 | Goal Mode |
