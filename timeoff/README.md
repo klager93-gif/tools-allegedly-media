@@ -24,48 +24,62 @@ It is intended for planning vacations, checking projected balances, estimating t
 - Floating holiday category.
 - Custom category.
 - Checkbox-based category selection.
-- Input cards only show for selected categories.
+- Dynamic input cards for selected categories.
 
-## Projection
-
-- Target date input.
-- Pay period selection.
-- Shared hours-per-day conversion.
-
-## Category Inputs
+## Balance Inputs
 
 Each selected category supports:
 
 - Current balance.
 - Time earned per pay period.
-- Planned usage.
+- Quick planned usage.
 - Average usage per pay period.
-- Optional balance cap.
+- Optional cap.
+
+## Projection
+
+- Target date input.
+- Pay period selection.
+- Hours-per-day conversion.
+
+## Planning Mode
+
+- Multiple planned time-off events.
+- Category selection for each event.
+- Event name.
+- Event date.
+- Event hours.
+- Planned event list.
+- Remove individual planned events.
+- Clear all planned events.
+- Planned events are included in category and combined usage totals.
+- Planned Event Impact results show estimated running balance after events.
+- Warnings appear when planned event hours exceed estimated available balance.
 
 ## Combined Results
 
 - Combined projected balance.
 - Combined projected days.
-- Combined time earned.
-- Combined time used.
+- Combined earned time.
+- Combined used time.
 - Pay periods until target.
 - Target date result.
 - Selected category count.
 - Combined cap status.
-- Combined hours until cap.
 
 ## Category Results
 
-Each selected category now shows:
+Each selected category can display:
 
 - Projected balance.
 - Projected days.
 - Current balance.
-- Time earned.
-- Time used.
+- Earned time.
+- Used time.
+- Planned event usage.
 - Cap.
 - Hours until cap.
-- Category-level cap status.
+- Cap status.
 
 ## Quality of Life
 
@@ -77,8 +91,8 @@ Each selected category now shows:
 - Label polish.
 - Improved desktop spacing.
 - Shorter form labels.
-- Category-based layout.
-- Multiple balance results.
+- Category-level result cards.
+- Planning Mode event list.
 
 ---
 
@@ -151,11 +165,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.3
+v0.4
 
 ### Theme
 
-Multiple Balance Results
+Planning Mode
 
 ### Status
 

@@ -4,6 +4,35 @@
 
 ---
 
+## Version 0.4
+
+**Date:** 2026-06-07  
+**Time:** 13:05 UTC
+
+### Theme
+
+Planning Mode
+
+### Changes
+
+- Added Planning Mode section.
+- Added support for multiple planned time-off events.
+- Added planned event category selection.
+- Added planned event name, date, and hours fields.
+- Added planned event list with remove controls.
+- Added Clear Events control.
+- Added planned event usage into category projections.
+- Added planned event usage into combined used totals.
+- Added Planned Event Impact result section.
+- Added estimated running balance after planned events.
+- Added warnings when a planned event exceeds estimated available category balance.
+- Updated example values to include planned events.
+- Updated cache-busting references for v0.4.
+- Updated documentation for v0.4.
+
+---
+
+
 ## Version 0.3
 
 **Date:** 2026-06-07  

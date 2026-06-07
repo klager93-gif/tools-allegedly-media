@@ -7,11 +7,11 @@
 ## Last Updated
 
 2026-06-07  
-12:55 UTC
+13:05 UTC
 
 ## Current Version
 
-**v0.3**
+**v0.4**
 
 ---
 
@@ -25,26 +25,11 @@
 | v0.1.3 | Label Cleanup |
 | v0.2 | Categories |
 | v0.3 | Multiple Balance Results |
+| v0.4 | Planning Mode |
 
 ---
 
 # Upcoming Versions
-
-## v0.4
-
-### Theme
-
-Planning Mode
-
-### Planned Features
-
-- Multiple planned time-off events.
-- Vacation date planner.
-- Appointment planner.
-- Remaining balance after each planned event.
-- Warnings when planned usage exceeds projected balance.
-
----
 
 ## v0.5
 
@@ -58,6 +43,8 @@ Warnings & Policy Helpers
 - Use-it-or-lose-it reminders.
 - Employer policy notes.
 - Optional reset/accrual date settings.
+- Stronger planned-event warning language.
+- Better handling for policies that reset annually.
 
 ---
 
@@ -86,3 +73,4 @@ Public Release
 - Multiple job profiles.
 - Separate accrual banks.
 - Internal links to other Signal Labs tools.
+- HOWTO.md user guide support.

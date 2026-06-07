@@ -53,7 +53,7 @@ Time Off Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.3">
+  href="style.css?v=0.4">
 
 </head>
 <body>
@@ -124,7 +124,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <p class="message category-note">
-  Selected categories now show separate results and cap status below the combined totals.
+  Selected categories show separate results, cap status, and planned-event impact below the combined totals.
 </p>
 
 </section>
@@ -192,6 +192,66 @@ Time Off Calculator | Signal Labs
 <p id="message" class="message">
   Enter values or load an example to begin.
 </p>
+
+</section>
+
+
+<section class="card step-card planning-card">
+
+<div class="section-title">
+  <div class="step-badge purple">3</div>
+  <div>
+    <h2>Planning Mode</h2>
+    <p>Add planned vacations, appointments, holidays, or other time-off events.</p>
+  </div>
+</div>
+
+<div class="planning-form">
+
+<label>
+  <span>Category</span>
+  <select id="eventCategory">
+  </select>
+</label>
+
+<label>
+  <span>Event Name</span>
+  <input id="eventName" type="text" placeholder="Vacation">
+</label>
+
+<label>
+  <span>Event Date</span>
+  <input id="eventDate" type="date">
+</label>
+
+<label>
+  <span>Hours Used</span>
+  <input id="eventHours" type="number" placeholder="8" step="0.01">
+</label>
+
+</div>
+
+<div class="button-row planning-button-row">
+
+<button
+  id="addPlanningEvent"
+  class="primary-action"
+  type="button">
+  Add Planned Event
+</button>
+
+<button
+  id="clearPlanningEvents"
+  class="secondary"
+  type="button">
+  Clear Events
+</button>
+
+</div>
+
+<div id="planningEventList" class="planning-event-list">
+  <p>No planned events added.</p>
+</div>
 
 </section>
 
@@ -288,6 +348,17 @@ Time Off Calculator | Signal Labs
 
 </div>
 
+<div class="results-section planned-results-section">
+
+<h3>Planned Event Impact</h3>
+
+<div id="plannedEventResults" class="planned-event-results">
+  <p class="empty-results">Add planned events to see running balance impact.</p>
+</div>
+
+</div>
+
+
 <div class="summary-card">
   <p>
     Generated:
@@ -296,12 +367,12 @@ Time Off Calculator | Signal Labs
 
   <p>
     Build:
-    v0.3
+    v0.4
   </p>
 
   <p>
     Theme:
-    Multiple Balance Results
+    Planning Mode
   </p>
 
   <p>
@@ -331,7 +402,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Calculator · v0.3
+  Signal Labs · Time Off Calculator · v0.4
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -367,7 +438,7 @@ Loading...
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.3"></script>
+<script src="script.js?v=0.4"></script>
 
 </body>
 </html>

@@ -1,6 +1,12 @@
 const categoryOptionsEl = document.getElementById("categoryOptions");
 const categoryInputCardsEl = document.getElementById("categoryInputCards");
 const categoryResultsEl = document.getElementById("categoryResults");
+const eventCategoryInput = document.getElementById("eventCategory");
+const eventNameInput = document.getElementById("eventName");
+const eventDateInput = document.getElementById("eventDate");
+const eventHoursInput = document.getElementById("eventHours");
+const planningEventListEl = document.getElementById("planningEventList");
+const plannedEventResultsEl = document.getElementById("plannedEventResults");
 
 const payPeriodInput = document.getElementById("payPeriod");
 const targetDateInput = document.getElementById("targetDate");
@@ -21,6 +27,8 @@ const capStatusEl = document.getElementById("capStatus");
 
 const generatedTimeEl = document.getElementById("generatedTime");
 const messageEl = document.getElementById("message");
+
+let plannedEvents = [];
 
 const CATEGORY_CONFIGS = [
   {
@@ -145,6 +153,34 @@ function getCategoryConfig(categoryId) {
   return CATEGORY_CONFIGS.find((category) => category.id === categoryId);
 }
 
+function getCategoryLabel(categoryId) {
+  const category = getCategoryConfig(categoryId);
+  return category ? category.label : categoryId;
+}
+
+function makeId() {
+  return Date.now().toString() + Math.random().toString(16).slice(2);
+}
+
+function parseDateValue(value) {
+  return value ? new Date(`${value}T00:00:00`) : null;
+}
+
+function getPayPeriodsBetween(startDate, endDate) {
+  if (!(startDate instanceof Date) || !(endDate instanceof Date)) {
+    return 0;
+  }
+
+  if (Number.isNaN(startDate.getTime()) || Number.isNaN(endDate.getTime())) {
+    return 0;
+  }
+
+  const millisecondsPerDay = 1000 * 60 * 60 * 24;
+  const days = Math.max((endDate - startDate) / millisecondsPerDay, 0);
+
+  return Math.floor(days / getDaysPerPayPeriod());
+}
+
 function getCategoryField(categoryId, fieldName) {
   return document.getElementById(`${categoryId}-${fieldName}`);
 }
@@ -172,7 +208,7 @@ function createCategoryCard(category) {
       </label>
 
       <label>
-        <span>Planned Usage</span>
+        <span>Quick Planned Usage</span>
         <input id="${category.id}-plannedUsage" type="number" placeholder="0" step="0.01">
       </label>
 
@@ -225,6 +261,130 @@ function renderCategoryCards() {
   });
 }
 
+
+function syncEventCategoryOptions() {
+  const selectedCategories = getSelectedCategories();
+  const currentValue = eventCategoryInput.value;
+
+  eventCategoryInput.innerHTML = "";
+
+  selectedCategories.forEach((categoryId) => {
+    const option = document.createElement("option");
+    option.value = categoryId;
+    option.textContent = getCategoryLabel(categoryId);
+    eventCategoryInput.appendChild(option);
+  });
+
+  if (selectedCategories.includes(currentValue)) {
+    eventCategoryInput.value = currentValue;
+  }
+}
+
+function renderPlanningEvents() {
+  planningEventListEl.innerHTML = "";
+
+  if (plannedEvents.length === 0) {
+    const empty = document.createElement("p");
+    empty.textContent = "No planned events added.";
+    planningEventListEl.appendChild(empty);
+    return;
+  }
+
+  plannedEvents
+    .slice()
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .forEach((event) => {
+      const row = document.createElement("div");
+      row.className = "planning-event-item";
+
+      const details = document.createElement("span");
+      details.textContent = `${event.name} — ${getCategoryLabel(event.categoryId)} — ${formatDate(parseDateValue(event.date))} — ${formatNumber(event.hours)} hrs`;
+
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.textContent = "×";
+      remove.setAttribute("aria-label", `Remove ${event.name}`);
+
+      remove.addEventListener("click", () => {
+        plannedEvents = plannedEvents.filter((item) => item.id !== event.id);
+        renderPlanningEvents();
+        calculateTimeOff();
+      });
+
+      row.appendChild(details);
+      row.appendChild(remove);
+      planningEventListEl.appendChild(row);
+    });
+}
+
+function getPlannedEventUsage(categoryId, targetDate) {
+  return plannedEvents
+    .filter((event) => event.categoryId === categoryId)
+    .filter((event) => {
+      const eventDate = parseDateValue(event.date);
+      return eventDate && targetDate && eventDate <= targetDate;
+    })
+    .reduce((sum, event) => sum + event.hours, 0);
+}
+
+function addPlanningEvent() {
+  const categoryId = eventCategoryInput.value;
+  const name = eventNameInput.value.trim() || "Planned Time Off";
+  const date = eventDateInput.value;
+  const hours = Number(eventHoursInput.value);
+
+  messageEl.classList.remove("error");
+
+  if (!categoryId) {
+    messageEl.textContent = "Choose a category for this planned event.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  if (!date) {
+    messageEl.textContent = "Choose a date for this planned event.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  if (Number.isNaN(hours) || hours <= 0) {
+    messageEl.textContent = "Enter planned event hours greater than 0.";
+    messageEl.classList.add("error");
+    return;
+  }
+
+  plannedEvents.push({
+    id: makeId(),
+    categoryId,
+    name,
+    date,
+    hours
+  });
+
+  eventNameInput.value = "";
+  eventDateInput.value = "";
+  eventHoursInput.value = "";
+
+  renderPlanningEvents();
+  calculateTimeOff();
+}
+
+function clearPlanningEvents() {
+  plannedEvents = [];
+  renderPlanningEvents();
+  calculateTimeOff();
+}
+
+function clearPlannedEventResults() {
+  plannedEventResultsEl.innerHTML = "";
+
+  const empty = document.createElement("p");
+  empty.className = "empty-results";
+  empty.textContent = "Add planned events to see running balance impact.";
+
+  plannedEventResultsEl.appendChild(empty);
+}
+
 function clearCategoryResults() {
   categoryResultsEl.innerHTML = "";
 
@@ -248,6 +408,7 @@ function resetResults() {
   capStatusEl.textContent = "--";
   generatedTimeEl.textContent = "--";
   clearCategoryResults();
+  clearPlannedEventResults();
 }
 
 function getCategoryValues(categoryId) {
@@ -275,12 +436,13 @@ function hasCategoryInput(categoryId) {
   });
 }
 
-function getCategoryProjection(categoryId, payPeriodsUntilTarget) {
+function getCategoryProjection(categoryId, payPeriodsUntilTarget, targetDate) {
   const config = getCategoryConfig(categoryId);
   const values = getCategoryValues(categoryId);
   const earned = payPeriodsUntilTarget * values.accrualPerPeriod;
   const recurringUsage = payPeriodsUntilTarget * values.averageUsage;
-  const used = values.plannedUsage + recurringUsage;
+  const eventUsage = getPlannedEventUsage(categoryId, targetDate);
+  const used = values.plannedUsage + recurringUsage + eventUsage;
   const uncappedProjection = values.currentBalance + earned - used;
   const hasCap = values.ptoCap > 0;
 
@@ -313,6 +475,8 @@ function getCategoryProjection(categoryId, payPeriodsUntilTarget) {
     label: config ? config.label : categoryId,
     values,
     earned,
+    recurringUsage,
+    eventUsage,
     used,
     projectedBalance,
     hasCap,
@@ -370,6 +534,11 @@ function renderCategoryResults(categoryProjections, hoursPerDay) {
       </div>
 
       <div class="result-row">
+        <span>Planned Events</span>
+        <strong>${formatNumber(projection.eventUsage)} hrs</strong>
+      </div>
+
+      <div class="result-row">
         <span>Cap</span>
         <strong>${capText}</strong>
       </div>
@@ -384,11 +553,77 @@ function renderCategoryResults(categoryProjections, hoursPerDay) {
   });
 }
 
+
+function renderPlannedEventResults(categoryProjections, targetDate, today) {
+  plannedEventResultsEl.innerHTML = "";
+
+  const eligibleEvents = plannedEvents
+    .filter((event) => {
+      const eventDate = parseDateValue(event.date);
+      return eventDate && targetDate && eventDate <= targetDate;
+    })
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  if (eligibleEvents.length === 0) {
+    clearPlannedEventResults();
+    return;
+  }
+
+  const projectionMap = new Map(
+    categoryProjections.map((projection) => [projection.id, projection])
+  );
+
+  const runningBalances = {};
+
+  categoryProjections.forEach((projection) => {
+    runningBalances[projection.id] = projection.values.currentBalance;
+  });
+
+  eligibleEvents.forEach((event) => {
+    const projection = projectionMap.get(event.categoryId);
+
+    if (!projection) {
+      return;
+    }
+
+    const eventDate = parseDateValue(event.date);
+    const periodsUntilEvent = getPayPeriodsBetween(today, eventDate);
+    const earnedByEvent = periodsUntilEvent * projection.values.accrualPerPeriod;
+    const recurringUsedByEvent = periodsUntilEvent * projection.values.averageUsage;
+    const baseBalanceBeforeEvent = projection.values.currentBalance + earnedByEvent - recurringUsedByEvent;
+
+    const previousEvents = eligibleEvents
+      .filter((item) => item.categoryId === event.categoryId)
+      .filter((item) => item.date < event.date || (item.date === event.date && item.id < event.id))
+      .reduce((sum, item) => sum + item.hours, 0);
+
+    const balanceBeforeEvent = Math.max(baseBalanceBeforeEvent - previousEvents - projection.values.plannedUsage, 0);
+    const balanceAfterEvent = Math.max(balanceBeforeEvent - event.hours, 0);
+    const warning = event.hours > balanceBeforeEvent;
+
+    const row = document.createElement("div");
+    row.className = warning ? "planned-event-result warning" : "planned-event-result";
+
+    row.innerHTML = `
+      <div>
+        <strong>${event.name}</strong>
+        <span>${getCategoryLabel(event.categoryId)} · ${formatDate(eventDate)} · ${formatNumber(event.hours)} hrs</span>
+      </div>
+      <div>
+        <strong>${formatNumber(balanceAfterEvent)} hrs</strong>
+        <span>${warning ? "Warning: event exceeds projected available balance." : "Estimated balance after event."}</span>
+      </div>
+    `;
+
+    plannedEventResultsEl.appendChild(row);
+  });
+}
+
 function calculateTimeOff() {
   const selectedCategories = getSelectedCategories();
   const hoursPerDay = getInputValue(hoursPerDayInput) || 8;
   const targetDateValue = targetDateInput.value;
-  const targetDate = targetDateValue ? new Date(`${targetDateValue}T00:00:00`) : null;
+  const targetDate = parseDateValue(targetDateValue);
   const today = new Date();
 
   messageEl.classList.remove("error");
@@ -443,7 +678,7 @@ function calculateTimeOff() {
   let hasNegativeValue = false;
 
   const categoryProjections = selectedCategories.map((categoryId) => {
-    const projection = getCategoryProjection(categoryId, payPeriodsUntilTarget);
+    const projection = getCategoryProjection(categoryId, payPeriodsUntilTarget, targetDate);
 
     if (
       projection.values.currentBalance < 0 ||
@@ -507,6 +742,7 @@ function calculateTimeOff() {
   capStatusEl.textContent = capStatus;
 
   renderCategoryResults(categoryProjections, hoursPerDay);
+  renderPlannedEventResults(categoryProjections, targetDate, today);
 
   generatedTimeEl.textContent = getCurrentUtcTime();
   messageEl.textContent = "Time off projection updated.";
@@ -559,6 +795,24 @@ function loadExample() {
     ptoCap: "40"
   });
 
+  plannedEvents = [
+    {
+      id: makeId(),
+      categoryId: "vacation",
+      name: "Summer Vacation",
+      date: addDays(new Date(), 35).toISOString().slice(0, 10),
+      hours: 24
+    },
+    {
+      id: makeId(),
+      categoryId: "personal",
+      name: "Appointment Day",
+      date: addDays(new Date(), 50).toISOString().slice(0, 10),
+      hours: 8
+    }
+  ];
+
+  renderPlanningEvents();
   calculateTimeOff();
 }
 
@@ -573,6 +827,9 @@ function clearCalculator() {
     input.value = "";
   });
 
+  plannedEvents = [];
+  renderPlanningEvents();
+
   resetResults();
 
   messageEl.classList.remove("error");
@@ -582,6 +839,9 @@ function clearCalculator() {
 categoryOptionsEl.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
   checkbox.addEventListener("change", () => {
     renderCategoryCards();
+    syncEventCategoryOptions();
+    plannedEvents = plannedEvents.filter((event) => getSelectedCategories().includes(event.categoryId));
+    renderPlanningEvents();
     calculateTimeOff();
   });
 });
@@ -598,6 +858,8 @@ categoryOptionsEl.querySelectorAll("input[type='checkbox']").forEach((checkbox) 
 document.getElementById("calculate").addEventListener("click", calculateTimeOff);
 document.getElementById("example").addEventListener("click", loadExample);
 document.getElementById("reset").addEventListener("click", clearCalculator);
+document.getElementById("addPlanningEvent").addEventListener("click", addPlanningEvent);
+document.getElementById("clearPlanningEvents").addEventListener("click", clearPlanningEvents);
 
 document.getElementById("openChangelog").addEventListener("click", () => {
   openTextModal({
@@ -614,4 +876,6 @@ document.getElementById("openRoadmap").addEventListener("click", () => {
 });
 
 renderCategoryCards();
+syncEventCategoryOptions();
+renderPlanningEvents();
 resetResults();
