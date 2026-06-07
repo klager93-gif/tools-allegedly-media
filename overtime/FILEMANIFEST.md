@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.4.1
+v0.9.4.2
 
 ## Theme
 
-Optional Toggle Logic Fix
+Toggle Polish & Compact Headers
 
 ---
 

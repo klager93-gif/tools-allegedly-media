@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: style.css
-Version: v0.9.4.1
+Version: v0.9.4.2
 Purpose: Tool-specific styles
 */
 .dashboard-layout {
@@ -1370,6 +1370,101 @@ v0.9.4 Collapsible Optional Sections
     width: 100%;
     justify-content: space-between;
     margin-left: 0;
+  }
+
+}
+
+
+/*
+--------------------------------
+v0.9.4.2 Toggle Polish & Compact Headers
+--------------------------------
+*/
+
+.section-title h2 {
+  line-height: 1.08;
+}
+
+.section-title h2 .optional-title-text,
+.section-title h2 .optional-text,
+.section-title h2 small {
+  display: none !important;
+}
+
+.section-title p {
+  max-width: 620px;
+}
+
+.inline-optional-control {
+  align-items: center;
+  gap: 8px;
+}
+
+.optional-pill {
+  min-height: 19px;
+  padding: 2px 7px;
+  font-size: 9px;
+  line-height: 1;
+}
+
+.optional-state-label {
+  min-width: 24px;
+  font-size: 9px;
+  line-height: 1;
+}
+
+.inline-toggle-switch,
+.toggle-switch {
+  width: 42px;
+  height: 24px;
+  min-width: 42px;
+}
+
+.inline-toggle-switch .toggle-slider,
+.toggle-switch .toggle-slider {
+  border-radius: 999px;
+}
+
+.inline-toggle-switch .toggle-slider::before,
+.toggle-switch .toggle-slider::before {
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+}
+
+.inline-toggle-switch input:checked + .toggle-slider::before,
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(18px);
+}
+
+.optional-section-off .optional-section-body {
+  max-height: 0;
+}
+
+@media (min-width: 800px) {
+
+  .section-title {
+    align-items: flex-start;
+  }
+
+  .inline-optional-control {
+    padding-top: 2px;
+  }
+
+}
+
+@media (max-width: 560px) {
+
+  .inline-optional-control {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: auto;
+    margin-left: auto;
+  }
+
+  .optional-pill {
+    font-size: 8px;
   }
 
 }

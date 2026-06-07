@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.4.1
+v0.9.4.2
 
 ## Theme
 
-Optional Toggle Logic Fix
+Toggle Polish & Compact Headers
 
 ---
 
@@ -72,3 +72,12 @@ Optional Toggle Logic Fix
 - [ ] ON/OFF labels sync correctly.
 - [ ] OFF sections collapse to header-only.
 - [ ] ON sections expand again.
+
+
+# Toggle Polish Checks
+
+- [ ] Optional titles do not contain `(Optional)`.
+- [ ] OPTIONAL badge remains visible.
+- [ ] Toggle knob fits inside red/green track.
+- [ ] ON/OFF labels are compact.
+- [ ] Collapse behavior still works.

@@ -193,11 +193,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.9.4.1
+v0.9.4.2
 
 ### Theme
 
-Optional Toggle Logic Fix
+Toggle Polish & Compact Headers
 
 ### Status
 
@@ -292,3 +292,10 @@ Disabled optional sections now collapse to header-only. Toggle switches are gree
 # v0.9.4.1 Optional Toggle Logic Fix
 
 Fixes optional toggle initialization, malformed optional section attributes, ON/OFF labels, and collapse behavior for saved and fresh users.
+
+
+---
+
+# v0.9.4.2 Toggle Polish & Compact Headers
+
+Removes duplicate optional title text, tightens optional card headers, and fixes toggle knob/track sizing.

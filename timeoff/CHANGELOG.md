@@ -1,3 +1,21 @@
+## Version 0.9.4.2
+
+**Date:** 2026-06-07  
+**Theme:** Toggle Polish & Compact Headers
+
+### Changes
+
+- Removed duplicate `(Optional)` text from optional section titles.
+- Kept the smaller `OPTIONAL` badge as the only optional label.
+- Tightened optional card header spacing.
+- Reduced optional badge and ON/OFF label sizing.
+- Fixed toggle track and knob proportions so the knob fits inside the colored background.
+- Preserved collapse behavior, saved inputs, and report exclusion behavior.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.4.1
 
 **Date:** 2026-06-07  

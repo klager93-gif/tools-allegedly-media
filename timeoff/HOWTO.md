@@ -156,3 +156,10 @@ Use the green/red optional toggles in card headers. Green means on and expanded.
 # v0.9.4.1 Optional Toggle Logic Fix
 
 If a toggle is red/OFF, the optional card collapses to header-only. Green/ON means the section is expanded and included.
+
+
+---
+
+# v0.9.4.2 Toggle Polish & Compact Headers
+
+Optional cards use the small OPTIONAL badge only. The ON/OFF switch is compact and fits correctly inside the colored track.

@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.9.4.1**
+**v0.9.4.2**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.9.4.2 | Toggle Polish & Compact Headers |
 | v0.9.4.1 | Optional Toggle Logic Fix |
 | v0.9.4 | Collapsible Optional Sections |
 | v0.9.3 | Inline Optional Toggles |
