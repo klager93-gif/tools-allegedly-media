@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.9.1
+Version: v0.9.2
 Purpose: Tool-specific logic and event handling
 */
 const categoryOptionsEl = document.getElementById("categoryOptions");
@@ -108,6 +108,52 @@ const CATEGORY_CONFIGS = [
 ];
 
 
+
+
+function getOptionalSectionSettings() {
+  return {
+    planningMode: Boolean(document.getElementById("planningModeEnabled")?.checked),
+    policyHelpers: Boolean(document.getElementById("policyHelpersEnabled")?.checked)
+  };
+}
+
+function applyOptionalSectionVisibility() {
+  const settings = getOptionalSectionSettings();
+
+  document.querySelectorAll('[data-optional-section="planningMode"]').forEach((section) => {
+    section.classList.toggle("optional-section-disabled", !settings.planningMode);
+  });
+
+  document.querySelectorAll('[data-optional-section="policyHelpers"]').forEach((section) => {
+    section.classList.toggle("optional-section-disabled", !settings.policyHelpers);
+  });
+
+  document.querySelectorAll(".planned-results-section").forEach((section) => {
+    section.classList.toggle("optional-section-disabled", !settings.planningMode);
+  });
+
+  document.querySelectorAll(".warning-results-section").forEach((section) => {
+    section.classList.toggle("optional-section-disabled", !settings.policyHelpers);
+  });
+}
+
+function setupOptionalSectionToggles() {
+  ["planningModeEnabled", "policyHelpersEnabled"].forEach((id) => {
+    const toggle = document.getElementById(id);
+
+    if (!toggle) {
+      return;
+    }
+
+    toggle.addEventListener("change", () => {
+      applyOptionalSectionVisibility();
+      calculateTimeOff();
+      saveSettings();
+    });
+  });
+
+  applyOptionalSectionVisibility();
+}
 
 function getCollapseStates() {
   const states = {
@@ -274,7 +320,8 @@ function getSavedState() {
     carryoverLimit: carryoverLimitInput.value,
     useItOrLoseIt: useItOrLoseItInput.checked,
     policyNotes: policyNotesInput.value,
-    collapseStates: getCollapseStates()
+    collapseStates: getCollapseStates(),
+    optionalSections: getOptionalSectionSettings()
   };
 }
 
@@ -377,6 +424,16 @@ function loadSavedSettings() {
     eventHoursInput.value = data.eventHours || "";
 
     renderPlanningEvents();
+
+    if (data.optionalSections) {
+      if (document.getElementById("planningModeEnabled")) {
+        document.getElementById("planningModeEnabled").checked = data.optionalSections.planningMode !== false;
+      }
+
+      if (document.getElementById("policyHelpersEnabled")) {
+        document.getElementById("policyHelpersEnabled").checked = data.optionalSections.policyHelpers !== false;
+      }
+    }
 
     if (data.collapseStates) {
       setTimeout(() => applyCollapseStates(data.collapseStates), 0);
@@ -1100,6 +1157,7 @@ function renderWarningResults(warnings) {
 }
 
 function calculateTimeOff() {
+  const optionalSettings = getOptionalSectionSettings();
   saveSettings();
 
   const selectedCategories = getSelectedCategories();
@@ -1532,6 +1590,7 @@ function openProfessionalReportWindow(reportHtml, title) {
 }
 
 function buildTimeOffResultsSummary() {
+  const optionalSettings = getOptionalSectionSettings();
   const lines = [];
 
   lines.push("Signal Labs Time Off Calculator");
@@ -1553,11 +1612,16 @@ function buildTimeOffResultsSummary() {
   lines.push("Category Results");
   collectListText("categoryResults").forEach((line) => lines.push(`- ${line}`));
   lines.push("");
-  lines.push("Planned Event Impact");
-  collectListText("plannedEventResults").forEach((line) => lines.push(`- ${line}`));
-  lines.push("");
-  lines.push("Warnings & Policy Notes");
-  collectListText("warningResults").forEach((line) => lines.push(`- ${line}`));
+  if (optionalSettings.planningMode) {
+    lines.push("Planned Event Impact");
+    collectListText("plannedEventResults").forEach((line) => lines.push(`- ${line}`));
+    lines.push("");
+  }
+
+  if (optionalSettings.policyHelpers) {
+    lines.push("Warnings & Policy Notes");
+    collectListText("warningResults").forEach((line) => lines.push(`- ${line}`));
+  }
 
   return lines.join("\n");
 }
@@ -1591,6 +1655,7 @@ function getTextFromAnyElement(ids, fallback = "--") {
 
 function buildTimeOffProfessionalReportHtml() {
   calculateTimeOff();
+  const optionalSettings = getOptionalSectionSettings();
 
   const generated = getCurrentUtcTime();
   const targetDate = targetDateInput.value || "--";
@@ -1642,7 +1707,7 @@ function buildTimeOffProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.1</div>
+          <div><strong>Build:</strong> v0.9.2</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1703,6 +1768,7 @@ function buildTimeOffProfessionalReportHtml() {
         </table>
       </section>
 
+      ${optionalSettings.planningMode ? `
       <section>
         <h2>Planned Events</h2>
         <table>
@@ -1719,18 +1785,19 @@ function buildTimeOffProfessionalReportHtml() {
             ${plannedTableRows}
           </tbody>
         </table>
-      </section>
+      </section>` : ""}
 
+      ${optionalSettings.policyHelpers ? `
       <section>
         <h2>Warnings & Policy Notes</h2>
         <ul class="notes">
           ${warnings || "<li>No warnings or policy notes.</li>"}
         </ul>
-      </section>
+      </section>` : ""}
 
       <footer class="footer">
         <div>Estimates only. Actual time off may vary based on employer policy, accrual rules, caps, holidays, unpaid leave, and payroll timing.</div>
-        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.1</div>
+        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.2</div>
       </footer>
     </main>
   `;
@@ -1881,6 +1948,7 @@ if (!loadedSavedSettings) {
   renderCategoryCards();
   syncEventCategoryOptions();
   renderPlanningEvents();
+  setupOptionalSectionToggles();
   setupMobileCollapsibleCards();
   setupMobileResultSections();
   resetResults();

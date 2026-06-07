@@ -1,4 +1,11 @@
-# Root v0.2.7 — Release Management System
+# Signal Labs Optional Section Toggles Release
+
+## Versions
+
+```text
+Overtime: v0.9.2 — Optional Section Toggles
+Time Off: v0.9.2 — Optional Section Toggles
+```
 
 ## Backup Reminder
 
@@ -8,7 +15,7 @@ Recommended folder:
 
 ```text
 Signal-Labs-Backups/
-  2026-06-07-before-root-v0.2.7/
+  2026-06-07-before-overtime-v0.9.2-timeoff-v0.9.2/
     root/
     overtime/
     timeoff/
@@ -16,26 +23,18 @@ Signal-Labs-Backups/
 
 ## Upload Instructions
 
-Copy these files into the site root:
+Copy each folder into the matching live location:
 
 ```text
-index.html
-README.md
-ROADMAP.md
-CHANGELOG.md
-HOWTO.md
-STANDARDS.md
-FILEMANIFEST.md
-BUILDMANIFEST.md
-RESTORE.md
-MASTER-CHANGELOG.md
-MASTER-ROADMAP.md
-RELEASE-HISTORY.md
-assets/global.css
-assets/global.js
-backups/
+overtime/*  -> /overtime/
+timeoff/*   -> /timeoff/
 ```
 
-## No Calculator Changes
+Root does not need to be updated.
 
-This release does not change Overtime or Time Off calculator logic.
+## Expected Results
+
+- Overtime has toggles for Advanced Pay, Take-Home Estimate, and Goal Mode.
+- Time Off has toggles for Planning Mode and Policy Helpers.
+- Disabled sections do not appear in reports.
+- Disabled sections do not delete saved user inputs.

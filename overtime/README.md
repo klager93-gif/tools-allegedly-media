@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.9.1
+v0.9.2
 
 ### Theme
 
-Professional Reports Print Fix
+Optional Section Toggles
 
 ### Status
 
@@ -85,3 +85,10 @@ These files define expected files, identity checks, version checks, and ZIP vali
 # v0.9 Professional Reports
 
 Print Report now generates a clean HTML document report with real selectable text and tables instead of printing the full calculator UI.
+
+
+---
+
+# v0.9.2 Optional Section Toggles
+
+Adds toggles for Advanced Pay, Take-Home Estimate, and Goal Mode. Disabled sections are hidden from reports and saved locally.

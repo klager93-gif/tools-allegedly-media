@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.1.1
+v0.9.2.1
 
 ## Theme
 
-Professional Reports Print Fix Print Fix
+Optional Section Toggles Print Fix
 
 ---
 

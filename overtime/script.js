@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.1
+Version: v0.9.2
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -213,6 +213,103 @@ function applyCollapseStates(collapseStates) {
       }
     });
   }
+}
+
+
+function getOptionalSectionSettings() {
+  return {
+    advancedPay: Boolean(el("advancedPayEnabled")?.checked),
+    takeHome: Boolean(el("takeHomeEnabled")?.checked),
+    goalMode: Boolean(el("goalModeEnabled")?.checked)
+  };
+}
+
+function applyOptionalSectionVisibility() {
+  const settings = getOptionalSectionSettings();
+
+  document.querySelectorAll('[data-optional-section="advancedPay"]').forEach((section) => {
+    section.classList.toggle("optional-section-disabled", !settings.advancedPay);
+  });
+
+  document.querySelectorAll('[data-optional-section="takeHome"]').forEach((section) => {
+    section.classList.toggle("optional-section-disabled", !settings.takeHome);
+  });
+
+  document.querySelectorAll('[data-optional-section="goalMode"]').forEach((section) => {
+    section.classList.toggle("optional-section-disabled", !settings.goalMode);
+  });
+
+  const advancedResultSections = [
+    "advancedPayTotal",
+    "differentialPay",
+    "doubleTimePay",
+    "bonusPay"
+  ];
+
+  const taxResultSections = [
+    "taxResultsTotal",
+    "taxResultsList",
+    "deductionResultsTotal",
+    "deductionResultsList",
+    "otherAdjustmentsTotal",
+    "otherAdjustmentsList",
+    "takeHomePay",
+    "netEffectiveRate"
+  ];
+
+  const goalResultSections = [
+    "goalTargetAmount",
+    "goalHoursNeeded",
+    "goalOvertimeNeeded",
+    "goalShiftsNeeded",
+    "goalEstimatedGross",
+    "goalEstimatedTakeHome",
+    "goalMessage"
+  ];
+
+  advancedResultSections.forEach((id) => {
+    const node = el(id);
+    const row = node ? node.closest(".result-row") : null;
+    if (row) row.classList.toggle("optional-section-disabled", !settings.advancedPay);
+  });
+
+  taxResultSections.forEach((id) => {
+    const node = el(id);
+    const row = node ? node.closest(".result-row") : null;
+    if (row) row.classList.toggle("optional-section-disabled", !settings.takeHome);
+  });
+
+  goalResultSections.forEach((id) => {
+    const node = el(id);
+    const row = node ? node.closest(".result-row") : null;
+    if (row) row.classList.toggle("optional-section-disabled", !settings.goalMode);
+  });
+
+  document.querySelectorAll(".advanced-result-section").forEach((section) => {
+    section.classList.toggle("optional-section-disabled", !settings.advancedPay);
+  });
+
+  document.querySelectorAll(".goal-result-section").forEach((section) => {
+    section.classList.toggle("optional-section-disabled", !settings.goalMode);
+  });
+}
+
+function setupOptionalSectionToggles() {
+  ["advancedPayEnabled", "takeHomeEnabled", "goalModeEnabled"].forEach((id) => {
+    const toggle = el(id);
+
+    if (!toggle) {
+      return;
+    }
+
+    toggle.addEventListener("change", () => {
+      applyOptionalSectionVisibility();
+      calculateOvertime();
+      saveSettings();
+    });
+  });
+
+  applyOptionalSectionVisibility();
 }
 
 function getSavedState() {
@@ -741,6 +838,7 @@ function calculateGoalMode() {
 }
 
 function calculateOvertime() {
+  const optionalSettings = getOptionalSectionSettings();
   updateThresholdUI();
   saveSettings();
 
@@ -748,11 +846,11 @@ function calculateOvertime() {
   const hours = getInputValue(hoursInput);
   const threshold = getThreshold();
   const multiplier = getInputValue(multiplierInput);
-  const differentialRate = getInputValue(differentialRateInput);
-  const differentialHours = getInputValue(differentialHoursInput);
-  const doubleTimeHours = getInputValue(doubleTimeHoursInput);
-  const weekendBonus = getInputValue(weekendBonusInput);
-  const holidayBonus = getInputValue(holidayBonusInput);
+  const differentialRate = optionalSettings.advancedPay ? getInputValue(differentialRateInput) : 0;
+  const differentialHours = optionalSettings.advancedPay ? getInputValue(differentialHoursInput) : 0;
+  const doubleTimeHours = optionalSettings.advancedPay ? getInputValue(doubleTimeHoursInput) : 0;
+  const weekendBonus = optionalSettings.advancedPay ? getInputValue(weekendBonusInput) : 0;
+  const holidayBonus = optionalSettings.advancedPay ? getInputValue(holidayBonusInput) : 0;
   const otherBonus = getInputValue(otherBonusInput);
   const hasGoalAmount = Boolean(el("goalAmount").value);
 
@@ -1119,6 +1217,7 @@ function openProfessionalReportWindow(reportHtml, title) {
 }
 
 function buildOvertimeResultsSummary() {
+  const optionalSettings = getOptionalSectionSettings();
   const lines = [];
 
   lines.push("Signal Labs Overtime Calculator");
@@ -1141,16 +1240,22 @@ function buildOvertimeResultsSummary() {
   lines.push(`Overtime Hours: ${el("overtimeHours").textContent}`);
   lines.push(`Regular Pay: ${el("regularPay").textContent}`);
   lines.push(`Overtime Pay: ${el("overtimePay").textContent}`);
-  lines.push(`Advanced Pay: ${el("advancedPayTotal").textContent}`);
+  if (optionalSettings.advancedPay) {
+    lines.push(`Advanced Pay: ${el("advancedPayTotal").textContent}`);
+  }
   lines.push(`Total Gross Pay: ${el("totalPay").textContent}`);
-  lines.push(`Estimated Take-Home Pay: ${el("takeHomePay").textContent}`);
-  lines.push(`Net Effective Rate: ${el("netEffectiveRate").textContent}`);
+  if (optionalSettings.takeHome) {
+    lines.push(`Estimated Take-Home Pay: ${el("takeHomePay").textContent}`);
+    lines.push(`Net Effective Rate: ${el("netEffectiveRate").textContent}`);
+  }
   lines.push("");
 
-  lines.push("Goal Mode");
+  if (optionalSettings.goalMode) {
+    lines.push("Goal Mode");
   lines.push(`Target: ${el("goalTargetAmount").textContent}`);
   lines.push(`Hours Needed: ${el("goalHoursNeeded").textContent}`);
   lines.push(`Estimated Shifts Needed: ${el("goalShiftsNeeded").textContent}`);
+  }
 
   return lines.join("\n");
 }
@@ -1171,18 +1276,19 @@ async function copyOvertimeResults() {
 
 function buildOvertimeProfessionalReportHtml() {
   calculateOvertime();
+  const optionalSettings = getOptionalSectionSettings();
 
   const generated = localUtcTime();
   const rate = getInputValue(rateInput);
   const hours = getInputValue(hoursInput);
   const threshold = getThreshold();
   const multiplier = getInputValue(multiplierInput);
-  const differentialRate = getInputValue(differentialRateInput);
-  const differentialHours = getInputValue(differentialHoursInput);
-  const doubleTimeHours = getInputValue(doubleTimeHoursInput);
-  const weekendBonus = getInputValue(weekendBonusInput);
-  const holidayBonus = getInputValue(holidayBonusInput);
-  const flatBonus = getInputValue(otherBonusInput);
+  const differentialRate = optionalSettings.advancedPay ? getInputValue(differentialRateInput) : 0;
+  const differentialHours = optionalSettings.advancedPay ? getInputValue(differentialHoursInput) : 0;
+  const doubleTimeHours = optionalSettings.advancedPay ? getInputValue(doubleTimeHoursInput) : 0;
+  const weekendBonus = optionalSettings.advancedPay ? getInputValue(weekendBonusInput) : 0;
+  const holidayBonus = optionalSettings.advancedPay ? getInputValue(holidayBonusInput) : 0;
+  const flatBonus = optionalSettings.advancedPay ? getInputValue(otherBonusInput) : 0;
   const goalAmount = getInputValue(el("goalAmount"));
   const goalShiftLength = getInputValue(el("goalShiftLength")) || 8;
 
@@ -1199,7 +1305,7 @@ function buildOvertimeProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.1</div>
+          <div><strong>Build:</strong> v0.9.2</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1272,6 +1378,7 @@ function buildOvertimeProfessionalReportHtml() {
         </table>
       </section>
 
+      ${optionalSettings.goalMode ? `
       <section>
         <h2>Goal Mode Results</h2>
         <table>
@@ -1281,11 +1388,11 @@ function buildOvertimeProfessionalReportHtml() {
             <tr><th>Typical Shift Length</th><td>${escapeReportHtml(formatNumber(goalShiftLength))} hrs</td><th>Estimated Shifts Needed</th><td class="value">${escapeReportHtml(el("goalShiftsNeeded").textContent)}</td></tr>
           </tbody>
         </table>
-      </section>
+      </section>` : ""}
 
       <footer class="footer">
         <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
-        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.1</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.2</div>
       </footer>
     </main>
   `;
@@ -1543,3 +1650,5 @@ if (loadedSavedSettings) {
 } else {
   resetResults();
 }
+
+setupOptionalSectionToggles();

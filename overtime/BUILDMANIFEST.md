@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.1.1
+v0.9.2.1
 
 ## Theme
 
-Professional Reports Print Fix Print Fix
+Optional Section Toggles Print Fix
 
 ---
 
@@ -36,3 +36,12 @@ Professional Reports Print Fix Print Fix
 - [ ] Print Report opens a populated HTML report window.
 - [ ] Report window is not blank.
 - [ ] Failure message does not appear when report opens correctly.
+
+
+# Optional Section Toggle Checks
+
+- [ ] Advanced Pay toggle exists.
+- [ ] Take-Home Estimate toggle exists.
+- [ ] Goal Mode toggle exists.
+- [ ] Toggle state saves locally.
+- [ ] Reports respect disabled sections.

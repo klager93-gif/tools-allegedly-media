@@ -74,3 +74,10 @@ Use **Print Report** to generate a clean printable HTML report. The report print
 # v0.9.1 Professional Reports Print Fix
 
 If the print report opens a blank tab or does not print, make sure browser popups are allowed for this site and try again.
+
+
+---
+
+# v0.9.2 Optional Section Toggles
+
+Use Optional Sections to turn Advanced Pay, Take-Home Estimate, and Goal Mode on or off without deleting your saved input values.

@@ -1,3 +1,20 @@
+## Version 0.9.2
+
+**Date:** 2026-06-07  
+**Theme:** Optional Section Toggles
+
+### Changes
+
+- Added toggle switches for Advanced Pay, Take-Home Estimate, and Goal Mode.
+- Disabled optional sections are hidden from the UI.
+- Disabled optional sections are ignored or excluded from results where applicable.
+- Copy Results and Print Report now respect optional section visibility.
+- Toggle state is saved locally.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.1
 
 **Date:** 2026-06-07  

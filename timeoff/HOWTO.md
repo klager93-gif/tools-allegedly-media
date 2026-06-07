@@ -128,3 +128,10 @@ Use **Print Report** to generate a clean printable HTML report. The report print
 # v0.9.1 Professional Reports Print Fix
 
 If the print report does not open, make sure browser popups are allowed for this site and try again.
+
+
+---
+
+# v0.9.2 Optional Section Toggles
+
+Use Optional Sections to turn Planning Mode and Policy Helpers on or off without deleting your saved input values.
