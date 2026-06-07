@@ -1,4 +1,4 @@
-# Signal Labs Root Site
+# Signal Labs Signal Labs Home
 
 # HOWTO
 
@@ -10,7 +10,7 @@ This file explains how to use and maintain the Signal Labs root site.
 
 ---
 
-# How to Use the Root Site
+# How to Use the Signal Labs Home
 
 Open the root `index.html` page to access the main Signal Labs tool directory.
 
@@ -109,7 +109,7 @@ Each tool should eventually maintain the same set of files.
 
 # How to Use Ad Slots
 
-Root v0.2.2 supports future ad placements without enabling live ads.
+Home v0.2.2 supports future ad placements without enabling live ads.
 
 ## Disabled Slot
 
@@ -278,3 +278,22 @@ These files track changes across Root, Overtime, Time Off, and future tools.
 # v0.3 UI Density Refactor
 
 Shared UI spacing is more compact. Validate forms, cards, result rows, and mobile layout after upload.
+
+
+---
+
+# Home v0.4 Release Standards Update
+
+Future release packages should be presented in this order:
+
+1. Backup reminder.
+2. Backup folder name.
+3. Download ZIP link.
+4. GitHub title.
+5. GitHub description.
+
+Use ISO-style backup folder names, for example:
+
+```text
+2026-06-07-before-home-v0.4-overtime-v0.9.3-timeoff-v0.9.3
+```

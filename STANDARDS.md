@@ -369,3 +369,84 @@ It should answer:
 Signal Labs tools should balance clarity with compactness. Desktop layouts should avoid unnecessary vertical height. Mobile layouts should remain readable and tap-friendly.
 
 When changing shared density styles, review Root, Overtime, Time Off, and future tools.
+
+---
+
+# Release Metadata Rule
+
+Every release response must include the following information in this order:
+
+1. Backup reminder.
+2. Backup folder name.
+3. Download ZIP link.
+4. GitHub title.
+5. GitHub description.
+
+This keeps backups, release packages, and GitHub records synchronized.
+
+---
+
+# Backup Folder Naming Rule
+
+Backup folders should use ISO-style dates and include all affected versions.
+
+Example:
+
+```text
+2026-06-07-before-home-v0.4-overtime-v0.9.3-timeoff-v0.9.3
+```
+
+Benefits:
+
+- Chronological sorting.
+- Easier restore operations.
+- Matches RELEASE-HISTORY.md.
+- Matches MASTER-CHANGELOG.md.
+
+---
+
+# Backup Reminder Rule
+
+Every release response must begin with:
+
+```text
+⚠️ Backup reminder: create a backup of the current live version before uploading.
+```
+
+followed immediately by the backup folder name.
+
+---
+
+# Release Package Order Rule
+
+Release information must always be presented in this order:
+
+1. Backup reminder.
+2. Backup folder name.
+3. Download link.
+4. GitHub title.
+5. GitHub description.
+
+Do not vary this order.
+
+---
+
+# Restore Compatibility Rule
+
+Backup folder names should correspond to entries in:
+
+```text
+RELEASE-HISTORY.md
+MASTER-CHANGELOG.md
+```
+
+This makes restore operations possible without relying on chat history.
+
+
+---
+
+# Signal Labs Home Naming Rule
+
+The top-level Signal Labs site should be referred to as `Signal Labs Home` or `Home`, not `Root`, in user-facing release names and documentation.
+
+The word `root` may still be used only when referring to the technical website root directory.

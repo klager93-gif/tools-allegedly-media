@@ -1,14 +1,14 @@
-# Signal Labs Root Site
+# Signal Labs Signal Labs Home
 
 # FILEMANIFEST
 
 ## Current Version
 
-v0.3
+v0.4
 
 ## Theme
 
-UI Density Refactor
+Release Standards Update
 
 ---
 
@@ -42,7 +42,7 @@ assets/global.js
 
 ```text
 Signal Labs
-Root Site
+Signal Labs Home
 assets/global.css
 assets/global.js
 ```
@@ -51,7 +51,7 @@ assets/global.js
 
 ```text
 Shared Asset
-Version: v0.3
+Version: v0.4
 ```
 
 ---
@@ -94,3 +94,18 @@ MASTER-CHANGELOG.md
 MASTER-ROADMAP.md
 RELEASE-HISTORY.md
 ```
+
+
+---
+
+# Release Metadata Files/Checks
+
+Release metadata should be tracked in:
+
+```text
+MASTER-CHANGELOG.md
+RELEASE-HISTORY.md
+STANDARDS.md
+```
+
+Every release response should include backup folder name, download ZIP, GitHub title, and GitHub description.

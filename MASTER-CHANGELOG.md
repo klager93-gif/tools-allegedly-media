@@ -10,6 +10,16 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ## 2026-06-07
 
+### Home v0.4 — Release Standards Update
+
+- Officially renamed top-level release terminology from Root to Signal Labs Home.
+- Added release metadata rules.
+- Added backup folder naming rules.
+- Added release package order rules.
+- Added restore compatibility rules.
+
+---
+
 ### Overtime v0.9.3 — Inline Optional Toggles
 
 - Moved optional toggles into optional card headers.
@@ -25,14 +35,14 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 - Preserved report exclusion behavior.
 
 
-### Root v0.3 — UI Density Refactor
+### Home v0.3 — UI Density Refactor
 
 - Added shared compact spacing rules.
 - Reduced vertical height of cards, forms, and result rows.
 - Prepared the tools for inline optional toggles.
 
 
-### Root v0.2.7 — Release Management System
+### Home v0.2.7 — Release Management System
 
 - Added MASTER-CHANGELOG.md.
 - Added MASTER-ROADMAP.md.
@@ -42,7 +52,7 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ---
 
-### Root v0.2.6 — Backup & Recovery System
+### Home v0.2.6 — Backup & Recovery System
 
 - Added RESTORE.md.
 - Added backups/README.md.
@@ -84,7 +94,7 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ---
 
-### Root v0.2.5 — Versioning Guidance
+### Home v0.2.5 — Versioning Guidance
 
 - Added versioning philosophy to STANDARDS.md.
 - Clarified that version numbers should reflect scope of change, not artificial synchronization.
@@ -109,7 +119,7 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ---
 
-### Root v0.2.4 — Modal UX Polish
+### Home v0.2.4 — Modal UX Polish
 
 - Added click-outside-to-close behavior for shared modals.
 - Added Escape key close support.
@@ -126,7 +136,7 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ---
 
-### Root v0.2.3 — Standards Manifest Adoption
+### Home v0.2.3 — Standards Manifest Adoption
 
 - Added file identity headers.
 - Added FILEMANIFEST.md and BUILDMANIFEST.md.
@@ -134,7 +144,7 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ---
 
-### Root v0.2.2.2 — Standards Preservation
+### Home v0.2.2.2 — Standards Preservation
 
 - Added STANDARDS.md.
 - Added root FILEMANIFEST.md.
@@ -142,13 +152,13 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ---
 
-### Root v0.2.2.1 — Disabled Ad Slot Fix
+### Home v0.2.2.1 — Disabled Ad Slot Fix
 
 - Fixed disabled ad slots showing placeholder text.
 
 ---
 
-### Root v0.2.2 — Ad Slot Framework
+### Home v0.2.2 — Ad Slot Framework
 
 - Added global disabled ad slot framework.
 - Added placeholder ad slot support.

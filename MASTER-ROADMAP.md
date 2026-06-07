@@ -10,7 +10,7 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Root | v0.3 | UI Density Refactor |
+| Home | v0.4 | Release Standards Update |
 | Overtime | v0.9.3 | Inline Optional Toggles |
 | Time Off | v0.9.3 | Inline Optional Toggles |
 
@@ -18,7 +18,7 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 # Near-Term Roadmap
 
-## Root v0.3
+## Home v0.3
 
 ### Theme
 
@@ -121,7 +121,7 @@ Potential features:
 
 # Long-Term Roadmap
 
-## Root v1.0
+## Home v1.0
 
 Signal Labs suite foundation.
 

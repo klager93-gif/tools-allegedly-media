@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.3
+v0.4
 
 ## Theme
 
-UI Density Refactor
+Release Standards Update
 
 ## Build Type
 
@@ -46,9 +46,9 @@ This build adopts the standards and manifest system across Root, Overtime, and T
 
 ## Version Checks
 
-- [ ] Root index shows v0.3.
-- [ ] Root footer shows v0.3.
-- [ ] Root cache-busting uses v0.3.
+- [ ] Home index shows v0.4.
+- [ ] Home footer shows v0.4.
+- [ ] Home cache-busting uses v0.4.
 - [ ] No malformed version strings exist.
 
 ## Version String Sanity
@@ -117,3 +117,17 @@ If any required check fails, abort ZIP creation and report the failure.
 - [ ] Mobile layout remains usable.
 - [ ] Overtime layout reviewed.
 - [ ] Time Off layout reviewed.
+
+
+---
+
+# Release Response Metadata Checks
+
+Before presenting a ZIP, confirm the response includes:
+
+- [ ] Backup reminder.
+- [ ] Backup folder name.
+- [ ] Download ZIP link.
+- [ ] GitHub title.
+- [ ] GitHub description.
+- [ ] Release information is presented in the required order.

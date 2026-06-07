@@ -1,22 +1,18 @@
-# Root v0.2.7 — Release Management System
+# Signal Labs Home v0.4 — Release Standards Update
 
 ## Backup Reminder
 
 Before uploading this release, back up the current live version.
 
-Recommended folder:
+## Backup Folder Name
 
 ```text
-Signal-Labs-Backups/
-  2026-06-07-before-root-v0.2.7/
-    root/
-    overtime/
-    timeoff/
+2026-06-07-before-home-v0.4
 ```
 
 ## Upload Instructions
 
-Copy these files into the site root:
+Copy these files into the Signal Labs Home/site root:
 
 ```text
 index.html

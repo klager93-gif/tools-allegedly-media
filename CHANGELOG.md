@@ -1,3 +1,26 @@
+## Version 0.4
+
+**Date:** 2026-06-07  
+**Theme:** Release Standards Update
+
+### Changes
+
+- Officially renamed the top-level site from Root to Signal Labs Home in release terminology.
+- Updated footer/site label to `Signal Labs · Home · v0.4`.
+- Added release metadata rules to STANDARDS.md.
+- Added backup folder naming rules to STANDARDS.md.
+- Added release package order rules to STANDARDS.md.
+- Added restore compatibility rules to STANDARDS.md.
+- Updated build validation checks for release responses.
+- Updated master release documentation.
+- Updated cache-busting references to v0.4.
+- No calculator changes.
+- No shared asset logic changes.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
+
 ## Version 0.3
 
 **Date:** 2026-06-07  

@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.3**
+**v0.4**
 
 ---
 
@@ -31,6 +31,7 @@
 | v0.2.6 | Backup & Recovery System |
 | v0.2.7 | Release Management System |
 | v0.3 | UI Density Refactor |
+| v0.4 | Release Standards Update |
 
 ---
 
@@ -133,7 +134,7 @@ Public Release
 
 ---
 
-## Root v0.2.3
+## Home v0.2.3
 
 ### Theme
 

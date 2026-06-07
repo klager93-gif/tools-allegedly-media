@@ -1,4 +1,4 @@
-# Signal Labs Root Site
+# Signal Labs Signal Labs Home
 
 Signal Labs is the shared home for simple, useful calculators and planning tools.
 
@@ -6,7 +6,7 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.3**
+**v0.4**
 
 ## Theme
 
@@ -109,11 +109,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.3
+v0.4
 
 ### Theme
 
-UI Density Refactor
+Release Standards Update
 
 ### Status
 
@@ -123,7 +123,7 @@ Active Development
 
 # Ad Slot Framework
 
-Root v0.2.2 adds back-end support for future ads.
+Home v0.2.2 adds back-end support for future ads.
 
 This release does **not** add live ads, ad provider scripts, tracking scripts, or ad requests.
 
@@ -182,7 +182,7 @@ The standards are stored in the project so development rules are not lost if cha
 
 # Version String Sanity
 
-Root v0.2.3 adds a release validation check to prevent malformed version strings such as:
+Home v0.2.3 adds a release validation check to prevent malformed version strings such as:
 
 ```text
 version 0.2.2.2.2
@@ -195,4 +195,21 @@ This check is now part of the project standards and build manifests.
 
 # v0.3 UI Density Refactor
 
-Root v0.3 tightens shared spacing, cards, result rows, and form density while preserving the existing visual style.
+Home v0.3 tightens shared spacing, cards, result rows, and form density while preserving the existing visual style.
+
+
+---
+
+# Home v0.4 Release Standards Update
+
+Home v0.4 updates Signal Labs release standards.
+
+Every future release response should include:
+
+1. Backup reminder.
+2. Backup folder name.
+3. Download ZIP link.
+4. GitHub title.
+5. GitHub description.
+
+The top-level site is now referred to as **Signal Labs Home** or **Home** instead of Root.
