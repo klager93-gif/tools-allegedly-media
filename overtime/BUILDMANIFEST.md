@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.5
+v0.9.6
 
 ## Theme
 
-Compact UI Pass
+Signal Labs UI Identity
 
 ---
 
@@ -92,3 +92,12 @@ Compact UI Pass
 - [ ] Forms remain readable on mobile.
 - [ ] Results remain readable.
 - [ ] Reports and Copy Results still work.
+
+
+# Signal Labs UI Identity Checks
+
+- [ ] Info icons appear and do not break layout.
+- [ ] Automatic / Custom OT threshold pills work.
+- [ ] Footer notes appear.
+- [ ] Print Report still works.
+- [ ] Copy Results still works.

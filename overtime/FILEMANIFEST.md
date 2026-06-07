@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.5
+v0.9.6
 
 ## Theme
 
-Compact UI Pass
+Signal Labs UI Identity
 
 ---
 

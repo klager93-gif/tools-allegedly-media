@@ -1,3 +1,21 @@
+## Version 0.9.6
+
+**Date:** 2026-06-07  
+**Theme:** Signal Labs UI Identity
+
+### Changes
+
+- Added Signal Labs info icon system.
+- Added Automatic / Custom overtime threshold pill controls.
+- Moved long overtime threshold and currency explanations into compact footer notes.
+- Added info hints for pay period, currency, overtime multiplier, shift differential, and threshold behavior.
+- Improved consistency with pill/toggle design language.
+- Preserved saved inputs, Print Report, Copy Results, and optional section behavior.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.5
 
 **Date:** 2026-06-07  

@@ -170,3 +170,10 @@ Optional cards use the small OPTIONAL badge only. The ON/OFF switch is compact a
 # v0.9.5 Compact UI Pass
 
 The interface is more compact. Optional toggles remain green/on and red/off, and disabled sections collapse without deleting saved inputs.
+
+
+---
+
+# v0.9.6 Signal Labs UI Identity
+
+Use category pills to choose banks. Add custom category pills with short names. Use quick hour pills for common planned event lengths and policy pills for use-it-or-lose-it rules.

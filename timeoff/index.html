@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: index.html
-Version: v0.9.5
+Version: v0.9.6
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ Time Off Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.9.5">
+  href="style.css?v=0.9.6">
 
 </head>
 <body>
@@ -108,7 +108,7 @@ Time Off Calculator | Signal Labs
 
 <div class="card-collapse-content">
 
-<div class="category-grid" id="categoryOptions">
+<div class="category-grid" id="categoryOptions" class="hidden-by-ui-identity">
 
 <label class="category-option">
   <input type="checkbox" value="vacation" checked>
@@ -146,6 +146,16 @@ Time Off Calculator | Signal Labs
 </label>
 
 </div>
+
+<div id="categoryPillOptions" class="category-pill-grid" aria-label="Time off category selector"></div>
+<div class="custom-category-row">
+  <label>
+    Custom Category <span class="info-icon" tabindex="0" data-info="Custom category names are limited to 18 characters for layout. Long labels are shortened visually.">i</span>
+    <input id="customCategoryName" type="text" maxlength="18" placeholder="Example: Birthday PTO">
+  </label>
+  <button id="addCustomCategoryPill" type="button">Add Category</button>
+</div>
+
 
 <p class="message category-note">
   Selected categories show separate results, cap status, and planned-event impact below the combined totals.
@@ -290,8 +300,15 @@ Time Off Calculator | Signal Labs
 </label>
 
 <label>
-  <span>Hours Used</span>
+  <span>Hours Used <span class="info-icon" tabindex="0" data-info="Typical planned event values are 4, 8, or 12 hours.">i</span></span>
   <input id="eventHours" type="number" placeholder="8" min="0" step="1">
+<div id="quickHourPills" class="quick-pill-row" aria-label="Quick event hours">
+  <button class="quick-hour-pill" type="button" data-hours="4">4h</button>
+  <button class="quick-hour-pill is-selected" type="button" data-hours="8">8h</button>
+  <button class="quick-hour-pill" type="button" data-hours="12">12h</button>
+  <button class="quick-hour-pill" type="button" data-hours="custom">Custom</button>
+</div>
+
 </label>
 
 </div>
@@ -359,25 +376,33 @@ Time Off Calculator | Signal Labs
 <div class="form-grid">
 
 <label>
-  <span>Reset / Carryover Date<br><small>(Optional)</small></span>
+  <span>Reset / Carryover Date <span class="info-icon" tabindex="0" data-info="Date when balances reset or carryover rules are applied.">i</span><br><small>(Optional)</small></span>
   <input id="policyResetDate" type="date">
 </label>
 
 <label>
-  <span>Carryover Limit<br><small>(Optional)</small></span>
+  <span>Carryover Limit <span class="info-icon" tabindex="0" data-info="Maximum hours allowed to roll into the next year.">i</span><br><small>(Optional)</small></span>
   <input id="carryoverLimit" type="number" placeholder="40" min="0" step="1">
 </label>
 
 </div>
 
-<label class="policy-checkbox-row">
+
+<div id="policyTypePills" class="policy-pill-row" role="group" aria-label="Policy type">
+  <button class="policy-pill is-selected" type="button" data-policy-type="standard">Standard</button>
+  <button class="policy-pill" type="button" data-policy-type="useItOrLoseIt">Use-It-Or-Lose-It</button>
+  <span class="info-icon" tabindex="0" data-info="Hours above the carryover limit may expire. Always verify your employer policy.">i</span>
+</div>
+
+<div class="hidden-by-ui-identity"><label class="policy-checkbox-row">
   <input id="useItOrLoseIt" type="checkbox">
   <span>Use-it-or-lose-it policy may apply</span>
-</label>
+</label></div>
 
 <label>
   <span>Policy Notes<br><small>(Optional)</small></span>
-  <textarea id="policyNotes" placeholder="Example: Vacation resets every January. Sick time carries over. Check your employer policy before relying on estimates."></textarea>
+  <button id="togglePolicyNotes" type="button">+ Add Policy Notes</button>
+<div id="policyNotesWrap" class="hidden-by-ui-identity"><textarea id="policyNotes" placeholder="Example: Vacation resets every January. Sick time carries over. Check your employer policy before relying on estimates."></textarea></div>
 </label>
 
 <p class="message policy-note">
@@ -544,12 +569,12 @@ Time Off Calculator | Signal Labs
 
   <p>
     Build:
-    v0.9.5
+    v0.9.6
   </p>
 
   <p>
     Theme:
-    Compact UI Pass
+    Signal Labs UI Identity
   </p>
 
   <p>
@@ -561,6 +586,16 @@ Time Off Calculator | Signal Labs
 </section>
 
 </section>
+
+
+<div class="footer-notes timeoff-notes">
+  <strong>ⓘ Notes</strong>
+  <ul>
+    <li>Results are estimates only and depend on employer policy, payroll timing, contracts, and accrual rules.</li>
+    <li>Custom category labels are limited to preserve layout.</li>
+    <li>Planned events reduce projected balances but do not change saved starting balances.</li>
+  </ul>
+</div>
 
 </main>
 
@@ -587,7 +622,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Calculator · v0.9.5
+  Signal Labs · Time Off Calculator · v0.9.6
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -623,7 +658,8 @@ Loading...
 </div>
 
 <script src="../assets/global.js?v=0.3"></script>
-<script src="script.js?v=0.9.5"></script>
+<script src="script.js?v=0.9.6"></script>
 
 </body>
 </html>
+<div id="plannedEventChips" class="event-chip-list"></div>

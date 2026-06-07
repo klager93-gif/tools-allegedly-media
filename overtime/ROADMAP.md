@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.9.5**
+**v0.9.6**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.9.6 | Signal Labs UI Identity |
 | v0.9.5 | Compact UI Pass |
 | v0.9.4.2 | Toggle Polish & Compact Headers |
 | v0.9.4.1 | Optional Toggle Logic Fix |

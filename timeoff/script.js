@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.9.5
+Version: v0.9.6
 Purpose: Tool-specific logic and event handling
 */
 const categoryOptionsEl = document.getElementById("categoryOptions");
@@ -45,7 +45,7 @@ const messageEl = document.getElementById("message");
 let plannedEvents = [];
 let isLoadingSavedSettings = false;
 
-const STORAGE_KEY = "signalLabsTimeOffCalculatorV095";
+const STORAGE_KEY = "signalLabsTimeOffCalculatorV096";
 const LEGACY_STORAGE_KEYS = [
   "signalLabsTimeOffCalculatorV092",
   "signalLabsTimeOffCalculatorV08",
@@ -1727,7 +1727,7 @@ function buildTimeOffProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.5</div>
+          <div><strong>Build:</strong> v0.9.6</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1817,7 +1817,7 @@ function buildTimeOffProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual time off may vary based on employer policy, accrual rules, caps, holidays, unpaid leave, and payroll timing.</div>
-        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.5</div>
+        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.6</div>
       </footer>
     </main>
   `;
@@ -1993,4 +1993,152 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initializeOptionalToggleSystem);
 } else {
   initializeOptionalToggleSystem();
+}
+
+
+
+function renderCategoryPills() {
+  const container = document.getElementById("categoryPillOptions");
+  const hiddenOptions = document.getElementById("categoryOptions");
+  if (!container || !hiddenOptions) return;
+
+  const checkboxes = Array.from(hiddenOptions.querySelectorAll("input[type='checkbox']"));
+  container.innerHTML = "";
+
+  checkboxes.forEach((checkbox) => {
+    const labelText = checkbox.value || checkbox.dataset.category || checkbox.name || "Category";
+    const pill = document.createElement("button");
+    pill.type = "button";
+    pill.className = "category-pill" + (checkbox.checked ? " is-selected" : "");
+    pill.dataset.category = labelText;
+    pill.innerHTML = `<span class="pill-check">${checkbox.checked ? "✓" : ""}</span><span class="pill-label" title="${labelText}">${labelText}</span>`;
+
+    pill.addEventListener("click", () => {
+      checkbox.checked = !checkbox.checked;
+      checkbox.dispatchEvent(new Event("change", { bubbles: true }));
+      renderCategoryPills();
+      if (typeof calculateTimeOff === "function") calculateTimeOff();
+      if (typeof saveSettings === "function") saveSettings();
+    });
+
+    container.appendChild(pill);
+  });
+}
+
+function setupCustomCategoryPill() {
+  const input = document.getElementById("customCategoryName");
+  const button = document.getElementById("addCustomCategoryPill");
+  const hiddenOptions = document.getElementById("categoryOptions");
+  if (!input || !button || !hiddenOptions || button.dataset.bound === "true") return;
+
+  button.dataset.bound = "true";
+  button.addEventListener("click", () => {
+    const name = input.value.trim().slice(0, 18);
+    if (!name) return;
+
+    const exists = Array.from(hiddenOptions.querySelectorAll("input[type='checkbox']")).some((checkbox) => {
+      return (checkbox.value || "").toLowerCase() === name.toLowerCase();
+    });
+
+    if (!exists) {
+      const label = document.createElement("label");
+      label.className = "hidden-by-ui-identity";
+      label.innerHTML = `<input type="checkbox" value="${name}" checked> ${name}`;
+      hiddenOptions.appendChild(label);
+    }
+
+    input.value = "";
+    renderCategoryPills();
+    if (typeof calculateTimeOff === "function") calculateTimeOff();
+    if (typeof saveSettings === "function") saveSettings();
+  });
+}
+
+function setupQuickHourPills() {
+  const eventHours = document.getElementById("eventHours");
+  const pills = document.querySelectorAll("#quickHourPills .quick-hour-pill");
+  if (!eventHours || !pills.length) return;
+
+  pills.forEach((pill) => {
+    if (pill.dataset.bound === "true") return;
+    pill.dataset.bound = "true";
+    pill.addEventListener("click", () => {
+      const value = pill.dataset.hours;
+      pills.forEach((item) => item.classList.remove("is-selected"));
+      pill.classList.add("is-selected");
+      if (value !== "custom") {
+        eventHours.value = value;
+        eventHours.dispatchEvent(new Event("input", { bubbles: true }));
+      } else {
+        eventHours.focus();
+      }
+      if (typeof saveSettings === "function") saveSettings();
+    });
+  });
+}
+
+function setupPolicyTypePills() {
+  const useIt = document.getElementById("useItOrLoseIt");
+  const pills = document.querySelectorAll("#policyTypePills .policy-pill");
+  if (!useIt || !pills.length) return;
+
+  function sync(type) {
+    useIt.checked = type === "useItOrLoseIt";
+    pills.forEach((pill) => pill.classList.toggle("is-selected", pill.dataset.policyType === type));
+    if (typeof calculateTimeOff === "function") calculateTimeOff();
+    if (typeof saveSettings === "function") saveSettings();
+  }
+
+  pills.forEach((pill) => {
+    if (pill.dataset.bound === "true") return;
+    pill.dataset.bound = "true";
+    pill.addEventListener("click", () => sync(pill.dataset.policyType));
+  });
+
+  sync(useIt.checked ? "useItOrLoseIt" : "standard");
+}
+
+function setupPolicyNotesExpansion() {
+  const button = document.getElementById("togglePolicyNotes");
+  const wrap = document.getElementById("policyNotesWrap");
+  if (!button || !wrap || button.dataset.bound === "true") return;
+
+  button.dataset.bound = "true";
+  button.addEventListener("click", () => {
+    const isHidden = wrap.classList.toggle("hidden-by-ui-identity");
+    button.textContent = isHidden ? "+ Add Policy Notes" : "Hide Policy Notes";
+  });
+}
+
+function renderPlannedEventChips() {
+  const chipContainer = document.getElementById("plannedEventChips");
+  const list = document.getElementById("plannedEventsList");
+  if (!chipContainer || !list) return;
+
+  chipContainer.innerHTML = "";
+  const items = Array.from(list.querySelectorAll("li, .planned-event-item, [data-event-index]"));
+
+  items.forEach((item) => {
+    const text = item.textContent.replace(/\s+/g, " ").trim();
+    if (!text) return;
+    const chip = document.createElement("span");
+    chip.className = "event-chip";
+    chip.innerHTML = `<span class="chip-label" title="${text}">${text.slice(0, 54)}</span>`;
+    chipContainer.appendChild(chip);
+  });
+}
+
+function initializeTimeOffUiIdentity() {
+  renderCategoryPills();
+  setupCustomCategoryPill();
+  setupQuickHourPills();
+  setupPolicyTypePills();
+  setupPolicyNotesExpansion();
+  renderPlannedEventChips();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeTimeOffUiIdentity);
+} else {
+  initializeTimeOffUiIdentity();
 }

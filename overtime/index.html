@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: index.html
-Version: v0.9.5
+Version: v0.9.6
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.9.5">
+  href="style.css?v=0.9.6">
 
 </head>
 <body>
@@ -121,7 +121,7 @@ Overtime Calculator | Signal Labs
 </label>
 
 <label>
-  <span>Pay Period</span>
+  <span>Pay Period <span class="info-icon" tabindex="0" data-info="Weekly defaults to 40 hours. Biweekly defaults to 80 hours. Monthly and semimonthly vary by employer.">i</span></span>
   <select id="payPeriod">
     <option value="weekly">Weekly</option>
     <option value="biweekly">Bi-Weekly</option>
@@ -132,7 +132,7 @@ Overtime Calculator | Signal Labs
 </label>
 
 <label>
-  <span>Currency</span>
+  <span>Currency <span class="info-icon" tabindex="0" data-info="Currency changes the symbol displayed. Exchange rates are not converted.">i</span></span>
   <select id="currency">
     <option value="USD">USD ($)</option>
     <option value="EUR">EUR (€)</option>
@@ -143,7 +143,7 @@ Overtime Calculator | Signal Labs
 </label>
 
 <label>
-  <span>Overtime Multiplier</span>
+  <span>Overtime Multiplier <span class="info-icon" tabindex="0" data-info="1.5 means time-and-a-half. 2.0 means double time.">i</span></span>
   <input id="multiplier" type="number" value="1.5" step="0.1">
 </label>
 
@@ -156,10 +156,17 @@ Overtime Calculator | Signal Labs
   <span id="thresholdDisplay">40 hours</span>
 </div>
 
-<label class="override-row">
+
+<div class="ot-threshold-pill-row" role="group" aria-label="Overtime threshold mode">
+  <button class="ot-threshold-pill is-selected" type="button" id="otThresholdModeAuto" data-threshold-mode="auto">Automatic</button>
+  <button class="ot-threshold-pill" type="button" id="otThresholdModeCustom" data-threshold-mode="custom">Custom</button>
+  <span class="info-icon" tabindex="0" data-info="Automatic uses the default overtime threshold for the selected pay period. Custom lets you enter a different threshold.">i</span>
+</div>
+
+<div class="hidden-by-ui-identity"><label class="override-row">
   <input id="overrideThreshold" type="checkbox">
   <span>Override OT threshold</span>
-</label>
+</label></div>
 
 <div id="customThresholdWrap" class="custom-threshold hidden-threshold">
   <label>
@@ -173,7 +180,7 @@ Overtime Calculator | Signal Labs
 </p>
 
 <p class="threshold-note currency-note">
-  Currency changes display only. It does not convert exchange rates or change tax, overtime, or labor rules.
+  
 </p>
 
 </div>
@@ -251,7 +258,7 @@ Overtime Calculator | Signal Labs
 <div class="form-grid advanced-form-grid">
 
 <label>
-  <span>Shift Differential Rate</span>
+  <span>Shift Differential Rate <span class="info-icon" tabindex="0" data-info="Additional pay for nights, weekends, or specialty shifts.">i</span></span>
   <input id="differentialRate" type="number" placeholder="2.00" step="0.01">
 </label>
 
@@ -722,12 +729,12 @@ Overtime Calculator | Signal Labs
 
   <p>
     Build:
-    v0.9.5
+    v0.9.6
   </p>
 
   <p>
     Theme:
-    Compact UI Pass
+    Signal Labs UI Identity
   </p>
 
   <p>
@@ -739,6 +746,16 @@ Overtime Calculator | Signal Labs
 </section>
 
 </section>
+
+
+<div class="footer-notes overtime-notes">
+  <strong>ⓘ Notes</strong>
+  <ul>
+    <li>Weekly periods default to 40 overtime hours. Biweekly periods default to 80.</li>
+    <li>Currency changes display symbols only; exchange rates are not converted.</li>
+    <li>Estimates do not replace employer policy, payroll systems, contracts, or labor rules.</li>
+  </ul>
+</div>
 
 </main>
 
@@ -765,7 +782,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Overtime Calculator · v0.9.5
+  Signal Labs · Overtime Calculator · v0.9.6
   <br>
   Estimates only. Actual pay may vary based on taxes, deductions,
   employer policies, and applicable labor laws.
@@ -874,7 +891,7 @@ Enter a name and value for this adjustment.
 </div>
 
 <script src="../assets/global.js?v=0.3"></script>
-<script src="script.js?v=0.9.5"></script>
+<script src="script.js?v=0.9.6"></script>
 
 </body>
 </html>

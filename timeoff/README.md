@@ -193,11 +193,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.9.5
+v0.9.6
 
 ### Theme
 
-Compact UI Pass
+Signal Labs UI Identity
 
 ### Status
 
@@ -306,3 +306,10 @@ Removes duplicate optional title text, tightens optional card headers, and fixes
 # v0.9.5 Compact UI Pass
 
 Rebuilds toggle sizing, tightens headers, and reduces card/form/result spacing while preserving existing behavior.
+
+
+---
+
+# v0.9.6 Signal Labs UI Identity
+
+Adds category pills, custom category pills, quick hour pills, policy type pills, event chips, expandable notes, info icons, and footer notes.

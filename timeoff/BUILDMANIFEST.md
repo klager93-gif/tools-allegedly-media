@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.5
+v0.9.6
 
 ## Theme
 
-Compact UI Pass
+Signal Labs UI Identity
 
 ---
 
@@ -91,3 +91,15 @@ Compact UI Pass
 - [ ] Forms remain readable on mobile.
 - [ ] Results remain readable.
 - [ ] Reports and Copy Results still work.
+
+
+# Signal Labs UI Identity Checks
+
+- [ ] Category pills render.
+- [ ] Custom category pill input is limited to 18 characters.
+- [ ] Quick hour pills work.
+- [ ] Policy type pills work.
+- [ ] Event chips do not break layout.
+- [ ] Info icons appear and do not break layout.
+- [ ] Print Report still works.
+- [ ] Copy Results still works.

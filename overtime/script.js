@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.5
+Version: v0.9.6
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -27,7 +27,7 @@ const thresholdNoteEl = document.getElementById("thresholdNote");
 const messageEl = document.getElementById("message");
 const generatedTimeEl = document.getElementById("generatedTime");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV095";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV096";
 const LEGACY_STORAGE_KEYS = [
   "signalLabsOvertimeCalculatorV092",
   "signalLabsOvertimeCalculatorV085",
@@ -1299,7 +1299,7 @@ function buildOvertimeProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.5</div>
+          <div><strong>Build:</strong> v0.9.6</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1386,7 +1386,7 @@ function buildOvertimeProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
-        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.5</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.6</div>
       </footer>
     </main>
   `;
@@ -1658,4 +1658,52 @@ if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initializeOptionalToggleSystem);
 } else {
   initializeOptionalToggleSystem();
+}
+
+
+
+function setupOtThresholdPills() {
+  const autoButton = el("otThresholdModeAuto");
+  const customButton = el("otThresholdModeCustom");
+  const override = el("overrideThreshold");
+  const customThreshold = el("customThreshold");
+
+  if (!autoButton || !customButton || !override) {
+    return;
+  }
+
+  function syncMode(isCustom) {
+    override.checked = Boolean(isCustom);
+    autoButton.classList.toggle("is-selected", !isCustom);
+    customButton.classList.toggle("is-selected", isCustom);
+
+    if (customThreshold) {
+      customThreshold.disabled = !isCustom;
+    }
+
+    calculateOvertime();
+    saveSettings();
+  }
+
+  if (autoButton.dataset.bound !== "true") {
+    autoButton.dataset.bound = "true";
+    autoButton.addEventListener("click", () => syncMode(false));
+  }
+
+  if (customButton.dataset.bound !== "true") {
+    customButton.dataset.bound = "true";
+    customButton.addEventListener("click", () => syncMode(true));
+  }
+
+  syncMode(override.checked);
+}
+
+function initializeUiIdentityEnhancements() {
+  setupOtThresholdPills();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeUiIdentityEnhancements);
+} else {
+  initializeUiIdentityEnhancements();
 }

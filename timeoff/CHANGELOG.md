@@ -1,3 +1,24 @@
+## Version 0.9.6
+
+**Date:** 2026-06-07  
+**Theme:** Signal Labs UI Identity
+
+### Changes
+
+- Added Signal Labs info icon system.
+- Replaced large category selector layout with category pills.
+- Added custom category pill support with an 18-character input limit.
+- Added quick hour pills for 4h, 8h, 12h, and Custom.
+- Added policy type pills for Standard and Use-It-Or-Lose-It behavior.
+- Added expandable policy notes.
+- Added planned event chip display support.
+- Added compact footer notes.
+- Preserved saved inputs, Print Report, Copy Results, and optional section behavior.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9.5
 
 **Date:** 2026-06-07  
