@@ -4,6 +4,11 @@
 
 ---
 
+## Last Updated
+
+2026-06-07  
+14:45 UTC
+
 ## Current Version
 
 **v0.8.2**
@@ -13,9 +18,9 @@
 # Completed Versions
 
 | Version | Theme |
-|---|---|
+|-----------|--------|
 | v0.8.1 | Goal Mode |
-| v0.8.2 | Shared Navigation |
+| v0.8.2 | Shared Navigation Repair |
 
 ---
 
@@ -26,3 +31,11 @@
 ### Theme
 
 Share & Export
+
+### Planned Features
+
+- Print support.
+- Copy results.
+- Save as PDF.
+- Share links.
+- Improved summaries.

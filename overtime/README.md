@@ -1,5 +1,9 @@
 # Signal Labs Overtime Calculator
 
+Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home pay.
+
+---
+
 # Current Status
 
 ### Build
@@ -8,7 +12,7 @@ v0.8.2
 
 ### Theme
 
-Shared Navigation
+Shared Navigation Repair
 
 ### Status
 
@@ -16,8 +20,29 @@ Active Development
 
 ---
 
-# v0.8.2 Notes
+# Current Features
 
-This patch updates the Overtime Calculator to use the shared Signal Labs navigation introduced in Root v0.2.1.
+- Basic pay calculation.
+- Smart pay period overtime thresholds.
+- Custom overtime threshold override.
+- Currency display options.
+- Advanced pay.
+- Shift differential.
+- Additional double-time hours.
+- Bonuses.
+- Dynamic taxes.
+- Dynamic deductions.
+- Other adjustments.
+- Take-home estimate.
+- Saved settings.
+- Saved layout state.
+- Mobile collapsible cards.
+- Mobile collapsible results.
+- Goal Mode.
+- Shared Signal Labs navigation.
 
-No calculator logic changes are included.
+---
+
+# Notes
+
+This repair release replaces the broken Overtime v0.8.2 files from the previous combined ZIP.
