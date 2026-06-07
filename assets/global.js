@@ -2,7 +2,7 @@
 Signal Labs
 Shared Asset
 File: assets/global.js
-Version: v0.2.3
+Version: v0.2.4
 Purpose: Shared navigation, modal utilities, UTC helper, and ad slot initialization
 */
 
@@ -128,9 +128,55 @@ function initializeAdSlots() {
 }
 
 
+
+/*
+--------------------------------
+v0.2.4 Modal UX Polish
+--------------------------------
+*/
+
+function closeActiveTextModal() {
+  const modal = document.getElementById("modal");
+
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.add("hidden");
+}
+
+function initializeModalUxPolish() {
+  const modal = document.getElementById("modal");
+  const modalBox = modal ? modal.querySelector(".modal-box") : null;
+
+  if (!modal) {
+    return;
+  }
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeActiveTextModal();
+    }
+  });
+
+  if (modalBox) {
+    modalBox.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+  }
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeActiveTextModal();
+    }
+  });
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
   buildSignalNavigation();
   initializeAdSlots();
+  initializeModalUxPolish();
 
   const closeButton = document.getElementById("closeModal");
   const modal = document.getElementById("modal");

@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.2.3**
+**v0.2.4**
 
 ---
 
@@ -26,6 +26,7 @@
 | v0.2.2.1 | Disabled Ad Slot Fix |
 | v0.2.2.2 | Standards Preservation |
 | v0.2.3 | Standards Manifest Adoption |
+| v0.2.4 | Modal UX Polish |
 
 ---
 
@@ -142,6 +143,21 @@ Standards Manifest Adoption
 - Add FILEMANIFEST.md to Time Off.
 - Add BUILDMANIFEST.md to Overtime.
 - Add BUILDMANIFEST.md to Time Off.
+
+---
+
+## v0.2.5
+
+### Theme
+
+Shared UX Cleanup
+
+### Planned Features
+
+- Review shared modal behavior across all tools.
+- Review shared navigation behavior.
+- Review shared ad slot behavior.
+- Prepare for export/share features.
 
 ---
 

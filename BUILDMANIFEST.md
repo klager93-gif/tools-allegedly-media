@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.2.3
+v0.2.4
 
 ## Theme
 
-Standards Manifest Adoption
+Modal UX Polish
 
 ## Build Type
 
@@ -46,9 +46,9 @@ This build adopts the standards and manifest system across Root, Overtime, and T
 
 ## Version Checks
 
-- [ ] Root index shows v0.2.3.
-- [ ] Root footer shows v0.2.3.
-- [ ] Root cache-busting uses v0.2.3.
+- [ ] Root index shows v0.2.4.
+- [ ] Root footer shows v0.2.4.
+- [ ] Root cache-busting uses v0.2.4.
 - [ ] No malformed version strings exist.
 
 ## Version String Sanity
@@ -73,3 +73,13 @@ version 0.6.2.1.1
 # ZIP Rule
 
 If any required check fails, abort ZIP creation and report the failure.
+
+
+---
+
+# Modal UX Checks
+
+- [ ] X button closes the modal.
+- [ ] Escape key closes the modal.
+- [ ] Clicking outside the modal box closes the modal.
+- [ ] Clicking inside the modal box does not close the modal.

@@ -2,7 +2,7 @@
 Signal Labs
 Shared Asset
 File: assets/global.css
-Version: v0.2.3
+Version: v0.2.4
 Purpose: Shared styles, navigation styling, modal styling, and ad slot framework
 */
 
@@ -486,4 +486,20 @@ Disabled ad slots must not display visible text, spacing, borders, or placeholde
 .ad-slot.is-disabled .ad-placeholder,
 .ad-slot[data-ad-status="disabled"] .ad-placeholder {
   display: none !important;
+}
+
+
+
+/*
+--------------------------------
+v0.2.4 Modal UX Polish
+--------------------------------
+*/
+
+.modal {
+  cursor: pointer;
+}
+
+.modal-box {
+  cursor: default;
 }

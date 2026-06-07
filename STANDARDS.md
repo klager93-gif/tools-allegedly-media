@@ -218,3 +218,18 @@ Verify:
 - JS cache-busting reference.
 
 If a malformed version string is found, abort packaging and fix it before creating the ZIP.
+
+
+---
+
+# Shared UX Guidance
+
+Shared user-experience behavior belongs in shared assets when it applies to multiple tools.
+
+Examples:
+
+- Modal behavior.
+- Navigation behavior.
+- Shared ad slot behavior.
+
+Shared changes must follow Rule 7 and be reviewed against Root, Overtime, Time Off, and future tools.

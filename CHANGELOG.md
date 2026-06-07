@@ -4,6 +4,24 @@
 
 ---
 
+## Version 0.2.4
+
+**Date:** 2026-06-07  
+**Theme:** Modal UX Polish
+
+### Changes
+
+- Added click-outside-to-close behavior for shared text modals.
+- Added Escape key close behavior for shared text modals.
+- Preserved close button behavior.
+- Prevented clicks inside the modal box from closing the modal.
+- Updated shared global asset cache-busting references to v0.2.4.
+- Updated root documentation and manifests.
+- No calculator logic changes.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.2.3
 
 **Date:** 2026-06-07  

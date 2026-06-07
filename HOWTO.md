@@ -213,3 +213,16 @@ version 0.6.2.1.1
 ```
 
 If found, stop and fix the file before creating a ZIP.
+
+
+---
+
+# v0.2.4 Modal UX Polish
+
+Shared text modals can be closed by:
+
+- Clicking the X button.
+- Pressing Escape.
+- Clicking outside the modal box.
+
+Clicking inside the modal box does not close the modal.
