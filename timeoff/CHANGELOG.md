@@ -4,6 +4,26 @@
 
 ---
 
+## Version 0.6.1
+
+**Date:** 2026-06-07  
+**Time:** 14:25 UTC
+
+### Theme
+
+Shared Navigation
+
+### Changes
+
+- Updated shared global asset references to Root v0.2.1.
+- Added shared Signal Labs navigation support through global.js.
+- Added Home, Overtime, and Time Off navigation links through the shared navigation system.
+- Added active page highlighting through the shared navigation system.
+- Updated build labels and cache-busting references for v0.6.1.
+- No Time Off calculation logic changes.
+
+---
+
 ## Version 0.6
 
 **Date:** 2026-06-07  

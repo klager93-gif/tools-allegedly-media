@@ -98,6 +98,10 @@ Each selected category supports:
 
 ## Quality of Life
 
+- Shared Signal Labs navigation.
+- Active navigation highlighting.
+
+
 - Improved numeric input spinner behavior.
 - Added minimum values for invalid negative inputs.
 
@@ -185,11 +189,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.6
+v0.6.1
 
 ### Theme
 
-Saved Profiles
+Shared Navigation
 
 ### Status
 
