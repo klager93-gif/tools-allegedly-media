@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9
+v0.9.1.1
 
 ## Theme
 
-Professional Reports
+Professional Reports Print Fix Print Fix
 
 ---
 
@@ -29,3 +29,10 @@ Professional Reports
 - [ ] Report is HTML text/tables, not an image.
 - [ ] Report is results-focused and does not print the calculator UI.
 - [ ] Report targets one printed page, two pages only for large category/event lists.
+
+
+# Print Fix Checks
+
+- [ ] Print Report button responds.
+- [ ] Print Report opens a populated HTML report window.
+- [ ] Report window is not blank.

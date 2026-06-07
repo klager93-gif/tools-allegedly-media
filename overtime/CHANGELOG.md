@@ -1,3 +1,25 @@
+## Version 0.9.1
+
+**Date:** 2026-06-07  
+**Time:** 17:35 UTC
+
+### Theme
+
+Professional Reports Print Fix
+
+### Changes
+
+- Fixed Print Report opening a blank window in some browsers.
+- Removed `noopener,noreferrer` from the report print window call because it can return a null window reference while still opening a blank tab.
+- Improved print report window timing.
+- Confirmed Print Report event binding.
+- Updated report build labels to v0.9.1.
+- No calculator logic changes.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9
 
 **Date:** 2026-06-07  

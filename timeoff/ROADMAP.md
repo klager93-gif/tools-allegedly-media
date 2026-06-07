@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.9**
+**v0.9.1**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.9.1 | Professional Reports Print Fix |
 | v0.9 | Professional Reports |
 | v0.8 | Share & Export Prep |
 | v0.7 | Mobile Layout Refactor |

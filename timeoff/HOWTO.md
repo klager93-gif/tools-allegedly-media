@@ -121,3 +121,10 @@ Use **Copy Results** to copy a text summary. Use **Print** to open the browser p
 # v0.9 Professional Reports
 
 Use **Print Report** to generate a clean printable HTML report. The report prints as real text and tables, not as an image.
+
+
+---
+
+# v0.9.1 Professional Reports Print Fix
+
+If the print report does not open, make sure browser popups are allowed for this site and try again.

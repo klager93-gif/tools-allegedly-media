@@ -1,3 +1,25 @@
+## Version 0.9.1
+
+**Date:** 2026-06-07  
+**Time:** 17:35 UTC
+
+### Theme
+
+Professional Reports Print Fix
+
+### Changes
+
+- Fixed Print Report doing nothing on Time Off.
+- Added explicit report button initialization.
+- Fixed report print window behavior.
+- Added safer report field fallbacks for Time Off result values.
+- Updated report build labels to v0.9.1.
+- No calculator logic changes.
+- No image-based report generation is used.
+
+---
+
+
 ## Version 0.9
 
 **Date:** 2026-06-07  

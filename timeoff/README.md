@@ -193,11 +193,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.9
+v0.9.1
 
 ### Theme
 
-Professional Reports
+Professional Reports Print Fix
 
 ### Status
 

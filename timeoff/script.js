@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.9
+Version: v0.9.1
 Purpose: Tool-specific logic and event handling
 */
 const categoryOptionsEl = document.getElementById("categoryOptions");
@@ -1305,6 +1305,7 @@ function loadExample() {
 
 
 
+
 function getProfessionalReportCss() {
   return `
     @page {
@@ -1497,9 +1498,9 @@ function escapeReportHtml(value) {
 }
 
 function openProfessionalReportWindow(reportHtml, title) {
-  const reportWindow = window.open("", "_blank", "noopener,noreferrer,width=900,height=1100");
+  const reportWindow = window.open("", "_blank", "width=900,height=1100");
 
-  if (!reportWindow) {
+  if (!reportWindow || reportWindow.closed) {
     return false;
   }
 
@@ -1515,10 +1516,12 @@ function openProfessionalReportWindow(reportHtml, title) {
     <body>
       ${reportHtml}
       <script>
-        window.addEventListener("load", () => {
+        window.onload = function () {
           window.focus();
-          setTimeout(() => window.print(), 150);
-        });
+          setTimeout(function () {
+            window.print();
+          }, 250);
+        };
       <\/script>
     </body>
     </html>
@@ -1526,28 +1529,6 @@ function openProfessionalReportWindow(reportHtml, title) {
   reportWindow.document.close();
 
   return true;
-}
-
-function getTextFromElement(id) {
-  const node = document.getElementById(id);
-  return node ? node.textContent.trim() : "--";
-}
-
-function collectListText(containerId) {
-  const container = document.getElementById(containerId);
-
-  if (!container) {
-    return ["None"];
-  }
-
-  const cards = Array.from(container.querySelectorAll(".category-result-card, .planned-event-result, .warning-result"));
-
-  if (cards.length === 0) {
-    const text = container.textContent.trim();
-    return text ? [text.replace(/\s+/g, " ")] : ["None"];
-  }
-
-  return cards.map((card) => card.textContent.trim().replace(/\s+/g, " "));
 }
 
 function buildTimeOffResultsSummary() {
@@ -1564,10 +1545,10 @@ function buildTimeOffResultsSummary() {
   lines.push(`Hours Per Day: ${hoursPerDayInput.value || "Not set"}`);
   lines.push("");
   lines.push("Combined Totals");
-  lines.push(`Projected Hours: ${getTextFromElement("combinedProjectedHours")}`);
-  lines.push(`Projected Days: ${getTextFromElement("combinedProjectedDays")}`);
-  lines.push(`Projected Weeks: ${getTextFromElement("combinedProjectedWeeks")}`);
-  lines.push(`Projected Cap Status: ${getTextFromElement("combinedCapStatus")}`);
+  lines.push(`Projected Hours: ${getTextFromAnyElement(["combinedProjectedHours", "projectedBalance"], "--")}`);
+  lines.push(`Projected Days: ${getTextFromAnyElement(["combinedProjectedDays", "projectedDays"], "--")}`);
+  lines.push(`Projected Weeks: ${getTextFromAnyElement(["combinedProjectedWeeks", "projectedWeeks"], "--")}`);
+  lines.push(`Projected Cap Status: ${getTextFromAnyElement(["combinedCapStatus"], "--")}`);
   lines.push("");
   lines.push("Category Results");
   collectListText("categoryResults").forEach((line) => lines.push(`- ${line}`));
@@ -1594,6 +1575,19 @@ async function copyTimeOffResults() {
   }
 }
 
+
+
+function getTextFromAnyElement(ids, fallback = "--") {
+  for (const id of ids) {
+    const node = document.getElementById(id);
+
+    if (node && node.textContent.trim()) {
+      return node.textContent.trim();
+    }
+  }
+
+  return fallback;
+}
 
 function buildTimeOffProfessionalReportHtml() {
   calculateTimeOff();
@@ -1648,7 +1642,7 @@ function buildTimeOffProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9</div>
+          <div><strong>Build:</strong> v0.9.1</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1661,7 +1655,7 @@ function buildTimeOffProfessionalReportHtml() {
             <dt>Target Date</dt><dd>${escapeReportHtml(targetDate)}</dd>
             <dt>Pay Period</dt><dd>${escapeReportHtml(payPeriodInput.value)}</dd>
             <dt>Hours Per Day</dt><dd>${escapeReportHtml(formatNumber(hoursPerDay))}</dd>
-            <dt>Pay Periods Until Target</dt><dd>${escapeReportHtml(getTextFromElement("periodsUntilTarget"))}</dd>
+            <dt>Pay Periods Until Target</dt><dd>${escapeReportHtml(getTextFromAnyElement(["periodsUntilTarget"], "--"))}</dd>
             <dt>Selected Categories</dt><dd>${escapeReportHtml(selectedCategoryLabels.length ? selectedCategoryLabels.join(", ") : "None")}</dd>
           </dl>
         </div>
@@ -1670,20 +1664,20 @@ function buildTimeOffProfessionalReportHtml() {
           <h2>Combined Totals</h2>
           <table>
             <tbody>
-              <tr><td>Projected Time Off Balance</td><td class="value">${escapeReportHtml(getTextFromElement("combinedProjectedHours"))}</td></tr>
-              <tr><td>Projected Days</td><td class="value">${escapeReportHtml(getTextFromElement("combinedProjectedDays"))}</td></tr>
-              <tr><td>Projected Weeks</td><td class="value">${escapeReportHtml(getTextFromElement("combinedProjectedWeeks"))}</td></tr>
-              <tr><td>Total Earned</td><td class="value">${escapeReportHtml(getTextFromElement("combinedEarned"))}</td></tr>
-              <tr><td>Total Used</td><td class="value">${escapeReportHtml(getTextFromElement("combinedUsed"))}</td></tr>
+              <tr><td>Projected Time Off Balance</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedProjectedHours", "projectedBalance"], "--"))}</td></tr>
+              <tr><td>Projected Days</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedProjectedDays", "projectedDays"], "--"))}</td></tr>
+              <tr><td>Projected Weeks</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedProjectedWeeks", "projectedWeeks"], "--"))}</td></tr>
+              <tr><td>Total Earned</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedEarned", "earnedHours"], "--"))}</td></tr>
+              <tr><td>Total Used</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedUsed", "usedHours"], "--"))}</td></tr>
             </tbody>
           </table>
 
           <h2>Combined Cap Status</h2>
           <table>
             <tbody>
-              <tr><td>Combined Cap</td><td class="value">${escapeReportHtml(getTextFromElement("combinedCap"))}</td></tr>
-              <tr><td>Hours Until Combined Cap</td><td class="value">${escapeReportHtml(getTextFromElement("combinedUntilCap"))}</td></tr>
-              <tr class="success"><td>Status</td><td class="value">${escapeReportHtml(getTextFromElement("combinedCapStatus"))}</td></tr>
+              <tr><td>Combined Cap</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedCap"], "--"))}</td></tr>
+              <tr><td>Hours Until Combined Cap</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedUntilCap"], "--"))}</td></tr>
+              <tr class="success"><td>Status</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedCapStatus"], "--"))}</td></tr>
             </tbody>
           </table>
         </div>
@@ -1736,7 +1730,7 @@ function buildTimeOffProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual time off may vary based on employer policy, accrual rules, caps, holidays, unpaid leave, and payroll timing.</div>
-        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9</div>
+        <div><strong>Signal Labs</strong> • Time Off Calculator • v0.9.1</div>
       </footer>
     </main>
   `;
@@ -1789,7 +1783,7 @@ function printTimeOffResults() {
 
   if (!opened) {
     messageEl.classList.add("error");
-    messageEl.textContent = "Unable to open the print report window. Check your popup blocker.";
+    messageEl.textContent = "Unable to open the print report window. Try allowing popups for this site, then press Print Report again.";
   }
 }
 
@@ -1845,9 +1839,6 @@ document.getElementById("calculate").addEventListener("click", calculateTimeOff)
 document.getElementById("example").addEventListener("click", loadExample);
 document.getElementById("reset").addEventListener("click", clearCalculator);
 
-document.getElementById("copyResults").addEventListener("click", copyTimeOffResults);
-document.getElementById("printResults").addEventListener("click", printTimeOffResults);
-
 if (clearSavedProfileButton) {
   clearSavedProfileButton.addEventListener("click", clearSavedProfile);
 }
@@ -1867,6 +1858,22 @@ document.getElementById("openRoadmap").addEventListener("click", () => {
     file: "ROADMAP.md"
   });
 });
+
+
+function initializeTimeOffReportButtons() {
+  const copyButton = document.getElementById("copyResults");
+  const printButton = document.getElementById("printResults");
+
+  if (copyButton) {
+    copyButton.addEventListener("click", copyTimeOffResults);
+  }
+
+  if (printButton) {
+    printButton.addEventListener("click", printTimeOffResults);
+  }
+}
+
+initializeTimeOffReportButtons();
 
 const loadedSavedSettings = loadSavedSettings();
 

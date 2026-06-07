@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9
+Version: v0.9.1
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -892,6 +892,7 @@ function calculateOvertime() {
 
 
 
+
 function getProfessionalReportCss() {
   return `
     @page {
@@ -1084,9 +1085,9 @@ function escapeReportHtml(value) {
 }
 
 function openProfessionalReportWindow(reportHtml, title) {
-  const reportWindow = window.open("", "_blank", "noopener,noreferrer,width=900,height=1100");
+  const reportWindow = window.open("", "_blank", "width=900,height=1100");
 
-  if (!reportWindow) {
+  if (!reportWindow || reportWindow.closed) {
     return false;
   }
 
@@ -1102,10 +1103,12 @@ function openProfessionalReportWindow(reportHtml, title) {
     <body>
       ${reportHtml}
       <script>
-        window.addEventListener("load", () => {
+        window.onload = function () {
           window.focus();
-          setTimeout(() => window.print(), 150);
-        });
+          setTimeout(function () {
+            window.print();
+          }, 250);
+        };
       <\/script>
     </body>
     </html>
@@ -1196,7 +1199,7 @@ function buildOvertimeProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9</div>
+          <div><strong>Build:</strong> v0.9.1</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1282,7 +1285,7 @@ function buildOvertimeProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
-        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.1</div>
       </footer>
     </main>
   `;
@@ -1294,7 +1297,7 @@ function printOvertimeResults() {
 
   if (!opened) {
     messageEl.classList.add("error");
-    messageEl.textContent = "Unable to open the print report window. Check your popup blocker.";
+    messageEl.textContent = "Unable to open the print report window. Try allowing popups for this site, then press Print Report again.";
   }
 }
 
