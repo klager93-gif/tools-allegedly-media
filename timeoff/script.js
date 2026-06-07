@@ -205,27 +205,27 @@ function createCategoryCard(category) {
     <div class="form-grid">
       <label>
         <span>Current Balance</span>
-        <input id="${category.id}-currentBalance" type="number" placeholder="${category.placeholderBalance}" step="0.01">
+        <input id="${category.id}-currentBalance" type="number" placeholder="${category.placeholderBalance}" min="0" step="0.01">
       </label>
 
       <label>
         <span>Earned Per Period</span>
-        <input id="${category.id}-accrualPerPeriod" type="number" placeholder="${category.placeholderAccrual}" step="0.01">
+        <input id="${category.id}-accrualPerPeriod" type="number" placeholder="${category.placeholderAccrual}" min="0" step="0.01">
       </label>
 
       <label>
         <span>Quick Planned Usage</span>
-        <input id="${category.id}-plannedUsage" type="number" placeholder="0" step="0.01">
+        <input id="${category.id}-plannedUsage" type="number" placeholder="0" min="0" step="1">
       </label>
 
       <label>
         <span>Average Used<br><small>Per Period (Optional)</small></span>
-        <input id="${category.id}-averageUsage" type="number" placeholder="0" step="0.01">
+        <input id="${category.id}-averageUsage" type="number" placeholder="0" min="0" step="0.01">
       </label>
 
       <label>
         <span>Cap<br><small>(Optional)</small></span>
-        <input id="${category.id}-ptoCap" type="number" placeholder="${category.placeholderCap}" step="0.01">
+        <input id="${category.id}-ptoCap" type="number" placeholder="${category.placeholderCap}" min="0" step="0.01">
       </label>
     </div>
   `;

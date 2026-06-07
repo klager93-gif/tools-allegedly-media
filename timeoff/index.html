@@ -53,7 +53,7 @@ Time Off Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.5">
+  href="style.css?v=0.5.1">
 
 </head>
 <body>
@@ -159,7 +159,7 @@ Time Off Calculator | Signal Labs
 
 <label>
   <span>Hours Per Day<br><small>(Optional)</small></span>
-  <input id="hoursPerDay" type="number" placeholder="8" step="0.01">
+  <input id="hoursPerDay" type="number" placeholder="8" min="1" step="1">
 </label>
 
 </div>
@@ -226,7 +226,7 @@ Time Off Calculator | Signal Labs
 
 <label>
   <span>Hours Used</span>
-  <input id="eventHours" type="number" placeholder="8" step="0.01">
+  <input id="eventHours" type="number" placeholder="8" min="0" step="1">
 </label>
 
 </div>
@@ -275,7 +275,7 @@ Time Off Calculator | Signal Labs
 
 <label>
   <span>Carryover Limit<br><small>(Optional)</small></span>
-  <input id="carryoverLimit" type="number" placeholder="80" step="0.01">
+  <input id="carryoverLimit" type="number" placeholder="40" min="0" step="1">
 </label>
 
 </div>
@@ -418,12 +418,12 @@ Time Off Calculator | Signal Labs
 
   <p>
     Build:
-    v0.5
+    v0.5.1
   </p>
 
   <p>
     Theme:
-    Warnings & Policy Helpers
+    Input Polish
   </p>
 
   <p>
@@ -453,7 +453,7 @@ Time Off Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Calculator · v0.5
+  Signal Labs · Time Off Calculator · v0.5.1
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -489,7 +489,7 @@ Loading...
 </div>
 
 <script src="../assets/global.js?v=0.5.3"></script>
-<script src="script.js?v=0.5"></script>
+<script src="script.js?v=0.5.1"></script>
 
 </body>
 </html>

@@ -4,6 +4,28 @@
 
 ---
 
+## Version 0.5.1
+
+**Date:** 2026-06-07  
+**Time:** 13:30 UTC
+
+### Theme
+
+Input Polish
+
+### Changes
+
+- Changed Hours Per Day spinner increments from 0.01 hours to 1 hour.
+- Changed Planning Mode Hours Used spinner increments from 0.01 hours to 1 hour.
+- Changed Carryover Limit spinner increments from 0.01 hours to 1 hour.
+- Changed Quick Planned Usage spinner increments to 1 hour.
+- Added minimum values to numeric inputs where negative values do not make sense.
+- Updated Carryover Limit placeholder from 80 to 40 for a simpler default example.
+- Updated version labels and cache-busting references for v0.5.1.
+- Updated documentation for v0.5.1.
+
+---
+
 ## Version 0.5
 
 **Date:** 2026-06-07  

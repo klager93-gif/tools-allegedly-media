@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.5**
+**v0.5.1**
 
 ---
 
@@ -27,6 +27,7 @@
 | v0.3 | Multiple Balance Results |
 | v0.4 | Planning Mode |
 | v0.5 | Warnings & Policy Helpers |
+| v0.5.1 | Input Polish |
 
 ---
 

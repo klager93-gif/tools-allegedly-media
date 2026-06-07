@@ -71,7 +71,7 @@ Each selected category supports:
 - Show running planned-event impact.
 - Warn when a planned event may exceed estimated available balance.
 
-## Warnings & Policy Helpers
+## Input Polish
 
 - Optional reset/carryover date.
 - Optional carryover limit.
@@ -85,6 +85,9 @@ Each selected category supports:
 - Carryover-limit reminders.
 
 ## Quality of Life
+
+- Improved numeric input spinner behavior.
+- Added minimum values for invalid negative inputs.
 
 - Example values.
 - Reset functionality.
@@ -169,11 +172,11 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.5
+v0.5.1
 
 ### Theme
 
-Warnings & Policy Helpers
+Input Polish
 
 ### Status
 
