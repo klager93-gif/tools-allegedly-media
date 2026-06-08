@@ -4,13 +4,13 @@
 
 ---
 
-## Last Updated
-
-2026-06-08
-
 ## Current Version
 
-**v0.3**
+v0.3.1
+
+## Theme
+
+Premium Hours & Benefit Hours
 
 ---
 
@@ -18,101 +18,54 @@
 
 | Version | Theme |
 |---|---|
-| v0.3 | Hours & Earnings |
-| v0.2 | Deductions & Adjustments |
-| v0.1.1 | Foundation + Hidden Ad Framework |
 | v0.1 | Foundation |
+| v0.1.1 | Foundation + Hidden Ad Framework |
+| v0.2 | Deductions & Adjustments |
+| v0.3 | Hours & Earnings |
+| v0.3.1 | Premium Hours & Benefit Hours |
 
 ---
 
 # Upcoming Versions
 
-## v0.4
+## Paycheck v0.4
 
 ### Theme
 
-Advanced Pay Details
+Rates, Multipliers & Rules
 
-### Planned Features
+### Planned Focus
 
-- Shift differential support.
-- Holiday premium rules.
-- Bonus pay support.
-- Additional earnings support.
-- Optional pay-detail cards.
-- Cleaner pay breakdown language.
+- Shift differential.
+- More pay-rule controls.
+- Holiday premium refinement.
+- Optional bonus pay foundation.
 
 ---
 
-## v0.5
-
-### Theme
-
-Overtime Mode
-
-### Planned Features
-
-- Automatic / custom overtime threshold logic.
-- Pay period threshold guidance.
-- Daily overtime support research.
-- Overtime estimate refinement.
-
----
-
-## v0.6
+## Paycheck v0.5
 
 ### Theme
 
 Target Pay
 
-### Planned Features
+### Planned Focus
 
-- Target gross pay.
-- Target take-home pay.
-- Estimated hours needed.
-- Estimated overtime needed.
-- Estimated shifts needed.
+- Gross target.
+- Take-home target.
+- Estimated additional hours needed.
 
 ---
 
-## v0.7
+## Paycheck v0.9
 
 ### Theme
 
-Reports & Polish
+Pre-1.0 Stabilization
 
-### Planned Features
+### Planned Focus
 
-- Professional report polish.
-- Copy Results polish.
-- Mobile layout pass.
-- Version constants review.
-- Saved settings review.
-
----
-
-## v1.0
-
-### Theme
-
-Stable Release
-
-### Planned Features
-
-- Final validation.
-- Mobile verification.
-- Print Report verification.
-- Copy Results verification.
-- Documentation cleanup.
-- Production release notes.
-
----
-
-# Future Ideas
-
-- Salary mode.
-- Multiple job profiles.
-- Job offer comparison integration.
-- State tax presets.
-- Retirement contribution presets.
-- Export options.
+- Mobile polish.
+- Report polish.
+- Shared component review.
+- Overtime relationship review.

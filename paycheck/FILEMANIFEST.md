@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.3
+v0.3.1
 
 ## Theme
 
-Hours & Earnings
+Premium Hours & Benefit Hours
 
 ---
 
@@ -44,40 +44,13 @@ BUILDMANIFEST.md
 ```text
 Paycheck Calculator
 regularHoursInput
+premiumHourPills
 benefitHourPills
 ```
 
 ## Must Not Contain
 
 ```text
-categoryOptions
-document.getElementById("rate")
-```
-
----
-
-# Feature Checks
-
-```text
-copyResults
-printResults
-adjustmentModal
-suggestedAdjustmentPills
-amountTypePercent
-amountTypeStatic
-benefitHourPills
-benefitHourList
-overtimeMultiplierInput
-doubleTimeMultiplierInput
-```
-
----
-
-# Hidden Ad Slot Checks
-
-```text
-paycheck-top
-paycheck-results
-paycheck-footer
-data-ad-status="disabled"
+Time Off Calculator
+Overtime Calculator
 ```

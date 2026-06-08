@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.3
+Version: v0.3.1
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -11,23 +11,23 @@ Purpose: Main application page
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paycheck Calculator | Signal Labs</title>
-<meta name="description" content="Estimate gross pay, paid leave hours, taxes, deductions, adjustments, and take-home pay with the Signal Labs Paycheck Calculator.">
+<meta name="description" content="Estimate gross pay, premium hours, benefit hours, deductions, and take-home pay with the Signal Labs Paycheck Calculator.">
 <meta property="og:title" content="Signal Labs Paycheck Calculator">
-<meta property="og:description" content="Estimate hours, gross pay, deductions, and take-home pay.">
+<meta property="og:description" content="Estimate regular hours, premium hours, paid leave, deductions, and take-home pay.">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.5.1">
-<link rel="stylesheet" href="style.css?v=0.3">
+<link rel="stylesheet" href="style.css?v=0.3.1">
 </head>
 <body>
 <main class="page">
 <header class="hero">
   <p class="eyebrow">Signal Labs</p>
   <h1>Paycheck Calculator</h1>
-  <p class="subtitle">Enter the hours you worked, add paid leave when needed, and estimate your take-home pay before payday.</p>
+  <p class="subtitle">Enter regular hours, add premium or paid leave hours only when needed, and estimate take-home pay before payday.</p>
 </header>
 
 <div class="ad-slot ad-slot-top is-disabled" data-ad-slot="paycheck-top" data-ad-status="disabled" aria-hidden="true">
@@ -41,33 +41,33 @@ Purpose: Main application page
         <div class="step-badge green">1</div>
         <div>
           <h2>Hours &amp; Earnings</h2>
-          <p>Enter work hours first. Add paid leave hours only when they apply to this paycheck.</p>
+          <p>Start with regular hours. Add premium hours and paid leave only when they apply to this paycheck.</p>
         </div>
       </div>
 
-      <div class="form-grid">
+      <div class="form-grid one-column-mobile">
         <label>
           <span>Regular Hours</span>
           <input id="regularHoursInput" type="number" placeholder="80" min="0" step="0.01">
         </label>
-        <label>
-          <span>Overtime Hours</span>
-          <input id="overtimeHoursInput" type="number" placeholder="0" min="0" step="0.01">
-        </label>
-        <label>
-          <span>Double Time Hours</span>
-          <input id="doubleTimeHoursInput" type="number" placeholder="0" min="0" step="0.01">
-        </label>
       </div>
 
-      <div class="benefit-hours-panel">
+      <div class="hours-panel premium-hours-panel">
+        <div class="adjustment-heading">
+          <h3>Premium Hours</h3>
+          <span>Hours worked at special or higher pay rates.</span>
+        </div>
+        <div id="premiumHourPills" class="hour-pill-row" aria-label="Premium hour selector"></div>
+        <div id="premiumHourList" class="hour-entry-list"></div>
+      </div>
+
+      <div class="hours-panel benefit-hours-panel">
         <div class="adjustment-heading">
           <h3>Benefit / Paid Leave Hours</h3>
-          <span>Add only the paid leave types used on this check.</span>
+          <span>Paid hours away from work, such as vacation, sick, holiday, or comp time.</span>
         </div>
-
-        <div id="benefitHourPills" class="benefit-pill-row" aria-label="Benefit hour selector"></div>
-        <div id="benefitHourList" class="benefit-hour-list"></div>
+        <div id="benefitHourPills" class="hour-pill-row" aria-label="Benefit hour selector"></div>
+        <div id="benefitHourList" class="hour-entry-list"></div>
       </div>
     </section>
 
@@ -76,7 +76,7 @@ Purpose: Main application page
         <div class="step-badge blue">2</div>
         <div>
           <h2>Pay Details</h2>
-          <p>Tell us how those hours are paid. Overtime and double time use your hourly rate and multiplier.</p>
+          <p>Tell us your hourly rate, pay period, and currency. Premium rows can use their own multipliers.</p>
         </div>
       </div>
 
@@ -93,32 +93,6 @@ Purpose: Main application page
             <option value="semimonthly">Semi-Monthly</option>
             <option value="monthly">Monthly</option>
           </select>
-        </label>
-        <label>
-          <span>Overtime Multiplier</span>
-          <select id="overtimeMultiplierInput">
-            <option value="1.5" selected>1.5×</option>
-            <option value="2">2×</option>
-            <option value="1">Regular Rate</option>
-            <option value="custom">Custom</option>
-          </select>
-        </label>
-        <label id="customOvertimeMultiplierWrap" class="hidden-by-default">
-          <span>Custom Overtime Multiplier</span>
-          <input id="customOvertimeMultiplierInput" type="number" placeholder="1.5" min="0" step="0.01">
-        </label>
-        <label>
-          <span>Double Time Multiplier</span>
-          <select id="doubleTimeMultiplierInput">
-            <option value="2" selected>2×</option>
-            <option value="1.5">1.5×</option>
-            <option value="1">Regular Rate</option>
-            <option value="custom">Custom</option>
-          </select>
-        </label>
-        <label id="customDoubleTimeMultiplierWrap" class="hidden-by-default">
-          <span>Custom Double Time Multiplier</span>
-          <input id="customDoubleTimeMultiplierInput" type="number" placeholder="2" min="0" step="0.01">
         </label>
         <label>
           <span>Currency</span>
@@ -210,12 +184,8 @@ Purpose: Main application page
       <strong id="regularPayResult">$0.00</strong>
     </div>
     <div class="result-row">
-      <span>Overtime Pay</span>
-      <strong id="overtimePayResult">$0.00</strong>
-    </div>
-    <div class="result-row">
-      <span>Double Time Pay</span>
-      <strong id="doubleTimePayResult">$0.00</strong>
+      <span>Premium Pay</span>
+      <strong id="premiumPayResult">$0.00</strong>
     </div>
     <div class="result-row">
       <span>Benefit / Leave Pay</span>
@@ -248,8 +218,8 @@ Purpose: Main application page
 
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.3</p>
-      <p>Theme: Hours &amp; Earnings</p>
+      <p>Build: v0.3.1</p>
+      <p>Theme: Premium Hours &amp; Benefit Hours</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -259,50 +229,50 @@ Purpose: Main application page
   <strong>ⓘ Notes</strong>
   <ul>
     <li>Results are estimates only and may differ from actual payroll withholding.</li>
-    <li>Benefit and paid leave hours are estimated at the regular hourly rate for now.</li>
+    <li>Premium hours use their selected multipliers. Benefit and paid leave hours are estimated at the regular hourly rate for now.</li>
     <li>Percentage deductions and taxes are calculated from before-tax gross pay.</li>
   </ul>
 </div>
+
 </main>
 
 <footer class="version">
   <div class="ad-slot ad-slot-footer is-disabled" data-ad-slot="paycheck-footer" data-ad-status="disabled" aria-hidden="true">
     <span class="ad-placeholder">Ad slot reserved</span>
   </div>
+
   <div class="footer-actions">
     <button id="openChangelog" type="button">Changelog</button>
     <button id="openRoadmap" type="button">Roadmap</button>
   </div>
+
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.3<br>
+    Signal Labs · Paycheck Calculator · v0.3.1
+    <br>
     Useful tools without the noise.
   </div>
 </footer>
 
 <div id="adjustmentModal" class="modal hidden">
-  <div class="modal-box adjustment-modal-box">
+  <div class="modal-box">
     <button id="closeAdjustmentModal" class="modal-close" type="button">×</button>
     <h2 id="adjustmentModalTitle">Add Adjustment</h2>
     <p id="adjustmentModalDescription" class="modal-description">Add a paycheck adjustment.</p>
-
-    <div id="suggestedAdjustmentPills" class="suggested-pill-row"></div>
-
+    <div id="adjustmentSuggestionPills" class="suggestion-pill-row"></div>
     <div class="amount-type-row" role="group" aria-label="Adjustment amount type">
-      <button id="amountTypePercent" class="amount-type-pill is-selected" type="button" data-amount-type="percent">Percentage</button>
-      <button id="amountTypeStatic" class="amount-type-pill" type="button" data-amount-type="static">Static Amount</button>
+      <button id="amountTypePercent" type="button" class="amount-type-pill is-selected">Percentage</button>
+      <button id="amountTypeStatic" type="button" class="amount-type-pill">Static Amount</button>
     </div>
-
     <div class="form-grid modal-form-grid">
       <label>
         <span>Label</span>
         <input id="adjustmentLabelInput" type="text" placeholder="Federal Tax">
       </label>
       <label>
-        <span id="adjustmentValueLabel">Percentage</span>
-        <input id="adjustmentValueInput" type="number" placeholder="12" min="0" step="0.01">
+        <span id="adjustmentAmountLabel">Percentage</span>
+        <input id="adjustmentAmountInput" type="number" placeholder="12" min="0" step="0.01">
       </label>
     </div>
-
     <div class="button-row modal-button-row">
       <button id="saveAdjustment" class="primary-action" type="button">Add Adjustment</button>
       <button id="cancelAdjustment" class="secondary" type="button">Cancel</button>
@@ -319,6 +289,6 @@ Purpose: Main application page
 </div>
 
 <script src="../assets/global.js?v=0.5.1"></script>
-<script src="script.js?v=0.3"></script>
+<script src="script.js?v=0.3.1"></script>
 </body>
 </html>

@@ -11,9 +11,9 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Area | Current Version | Theme |
 |---|---:|---|
 | Home | v0.5.1 | Navigation Refresh & Paycheck Integration |
-| Overtime | v0.9.9 | Pre-1.0 Sync & Metadata Cleanup |
+| Overtime | v0.9.9.1 | Deductions & Adjustments Pattern Sync |
 | Time Off | v0.9.9 | Pre-1.0 Cleanup & Report Fix |
-| Paycheck | v0.3 | Hours & Earnings |
+| Paycheck | v0.3.1 | Premium Hours & Benefit Hours |
 
 ---
 
@@ -23,16 +23,14 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 ### Theme
 
-Advanced Pay Details
+Rates, Multipliers & Rules
 
 ### Planned Focus
 
-- Shift differential support.
-- Holiday premium rules.
-- Bonus pay support.
-- Additional earnings support.
-- Optional pay-detail cards.
-- Review reusable pay-detail patterns before extracting shared components.
+- Shift differential.
+- More premium pay controls.
+- Holiday premium refinement.
+- Bonus pay foundation.
 
 ---
 
@@ -40,126 +38,31 @@ Advanced Pay Details
 
 ### Theme
 
-Overtime Mode
+Target Pay
 
 ### Planned Focus
 
-- Automatic / custom overtime threshold logic.
-- Pay period threshold guidance.
-- Daily overtime support research.
-- Overtime estimate refinement.
+- Gross target.
+- Take-home target.
+- Estimate additional hours needed.
 
 ---
 
-## Overtime v1.0
+## Paycheck v0.9
 
 ### Theme
 
-Stable Release
+Pre-1.0 Stabilization
 
 ### Planned Focus
 
-- Final validation.
-- Confirm shared adjustment pattern consistency with Paycheck.
-- Professional report verification.
-- Mobile verification.
-- Documentation cleanup.
+- Shared component review.
+- Mobile polish.
+- Report polish.
+- Decide how Overtime branches from Paycheck.
 
 ---
 
-## Time Off v1.0
+## Overtime
 
-### Theme
-
-Stable Release
-
-### Planned Focus
-
-- Planner verification.
-- Print Report verification.
-- Copy Results verification.
-- Mobile verification.
-- Documentation cleanup.
-
----
-
-## Home v0.6
-
-### Theme
-
-Theme System Foundation
-
-### Planned Focus
-
-- Light / dark / auto theme support.
-- Shared setting storage.
-- Cross-tool theme consistency.
-
----
-
-# Future Tools
-
-## Signal Schedule v0.1
-
-Potential flagship scheduling tool.
-
-Initial concepts:
-
-- Schedule pattern finder.
-- Do I work this day lookup.
-- 8, 10, 12, 24, and 48-hour shift support.
-- 24/48 and 48/96 templates.
-- Kelly day support.
-- Printable calendars.
-
----
-
-## PTO Cash-Out Calculator v0.1
-
-- Hour balance.
-- Hourly rate.
-- Estimated gross cash-out.
-- Optional taxes and deductions.
-
----
-
-## Shift Differential Calculator v0.1
-
-- Base rate.
-- Differential rate.
-- Differential hours.
-- Overtime interaction.
-
----
-
-# Long-Term Vision
-
-## Work
-
-- Paycheck Calculator.
-- Overtime Calculator.
-- Time Off Planner.
-- PTO Cash-Out Calculator.
-- Shift Differential Calculator.
-- Holiday Pay Calculator.
-
-## Career
-
-- Raise Calculator.
-- Job Offer Comparison Calculator.
-- Salary ↔ Hourly Calculator.
-
-## Money
-
-- Emergency Fund Calculator.
-- Debt Payoff Calculator.
-- Retirement Contribution Calculator.
-- Compound Interest Calculator.
-
-## Public Safety
-
-- Signal Schedule.
-- Comp Time Calculator.
-- Kelly Day Calculator.
-- Shift Schedule Tools.
-- Pension Tools.
+Feature work is frozen until Paycheck approaches v0.9. Only critical bugs and necessary pattern syncs should be made.
