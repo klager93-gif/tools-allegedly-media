@@ -10,10 +10,10 @@ Use this guide when a release breaks the live site or a tool folder gets mixed, 
 
 1. Stop uploading new files.
 2. Locate the most recent known-good backup.
-3. Restore the affected folder or folders.
-4. Confirm cache-busting versions in the restored files.
+3. Restore the full affected folder or folders.
+4. Confirm cache-busting versions in restored files.
 5. Test the live site.
-6. If browser cache is involved, hard refresh or clear cache.
+6. Hard refresh or clear cache if needed.
 7. Record what happened in the backup log.
 
 ---
@@ -28,11 +28,27 @@ timeoff/*   -> /timeoff/
 
 ---
 
-# What To Verify After Restore
+# Version Verification After Restore
 
-## Root
+Verify:
 
-- Root page loads.
+- Footer version.
+- Build/status card version.
+- Report version when applicable.
+- README version.
+- ROADMAP version.
+- FILEMANIFEST version.
+- BUILDMANIFEST version.
+- CSS cache-busting reference.
+- JS cache-busting reference.
+
+---
+
+# Tool Checks
+
+## Home
+
+- Home page loads.
 - Navigation works.
 - Changelog modal works.
 - Roadmap modal works.
@@ -44,21 +60,21 @@ timeoff/*   -> /timeoff/
 - Calculator inputs work.
 - Copy Results works.
 - Print Report works.
-- Footer version is correct.
+- Footer/report versions are correct.
 
 ## Time Off
 
-- Page says Time Off Calculator.
-- Category selection works.
-- Planning Mode works.
+- Page says Time Off Planner.
+- Category pills work.
+- Planned Time Off works.
 - Copy Results works.
 - Print Report works.
-- Footer version is correct.
+- Footer/report versions are correct.
 
 ---
 
 # Important
 
-If a live folder appears cross-contaminated, do not patch one file.
+Storage is cheap. Lost work is expensive.
 
-Replace the full affected folder from backup.
+If a live folder appears cross-contaminated, do not patch one file. Replace the full affected folder from backup.

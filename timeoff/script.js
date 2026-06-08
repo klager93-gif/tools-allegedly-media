@@ -2,9 +2,12 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.9.8
+Version: v0.9.9
 Purpose: Tool-specific logic and event handling
 */
+const TOOL_VERSION = "v0.9.9";
+const TOOL_THEME = "Pre-1.0 Cleanup & Report Fix";
+
 const categoryOptionsEl = document.getElementById("categoryOptions");
 const categoryInputCardsEl = document.getElementById("categoryInputCards");
 const categoryResultsEl = document.getElementById("categoryResults");
@@ -1627,7 +1630,7 @@ function buildTimeOffResultsSummary() {
   lines.push(`Projected Hours: ${getTextFromAnyElement(["combinedProjectedHours", "projectedBalance"], "--")}`);
   lines.push(`Projected Days: ${getTextFromAnyElement(["combinedProjectedDays", "projectedDays"], "--")}`);
   lines.push(`Projected Weeks: ${getTextFromAnyElement(["combinedProjectedWeeks", "projectedWeeks"], "--")}`);
-  lines.push(`Projected Cap Status: ${getTextFromAnyElement(["combinedCapStatus"], "--")}`);
+  lines.push(`Projected Cap Status: ${getTextFromAnyElement(["capStatus"], "--")}`);
   lines.push("");
   lines.push("Category Results");
   collectListText("categoryResults").forEach((line) => lines.push(`- ${line}`));
@@ -1680,7 +1683,7 @@ function buildTimeOffProfessionalReportHtml() {
   const generated = getCurrentUtcTime();
   const targetDate = targetDateInput.value || "--";
   const hoursPerDay = getInputValue(hoursPerDayInput) || 8;
-  const selectedCategoryLabels = getSelectedCategoryIds().map((id) => categoryConfig[id].label);
+  const selectedCategoryLabels = getSelectedCategories().map((id) => getCategoryLabel(id));
   const categoryRows = collectCategoryReportRows();
   const plannedRows = collectPlannedEventReportRows();
 
@@ -1727,8 +1730,8 @@ function buildTimeOffProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.8</div>
-          <div><strong>Theme:</strong> Professional Reports</div>
+          <div><strong>Build:</strong> ${TOOL_VERSION}</div>
+          <div><strong>Theme:</strong> ${TOOL_THEME}</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
       </header>
@@ -1752,17 +1755,17 @@ function buildTimeOffProfessionalReportHtml() {
               <tr><td>Projected Time Off Balance</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedProjectedHours", "projectedBalance"], "--"))}</td></tr>
               <tr><td>Projected Days</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedProjectedDays", "projectedDays"], "--"))}</td></tr>
               <tr><td>Projected Weeks</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedProjectedWeeks", "projectedWeeks"], "--"))}</td></tr>
-              <tr><td>Total Earned</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedEarned", "earnedHours"], "--"))}</td></tr>
-              <tr><td>Total Used</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedUsed", "usedHours"], "--"))}</td></tr>
+              <tr><td>Total Earned</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["ptoEarned"], "--"))}</td></tr>
+              <tr><td>Total Used</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["ptoUsed"], "--"))}</td></tr>
             </tbody>
           </table>
 
           <h2>Combined Cap Status</h2>
           <table>
             <tbody>
-              <tr><td>Combined Cap</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedCap"], "--"))}</td></tr>
-              <tr><td>Hours Until Combined Cap</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedUntilCap"], "--"))}</td></tr>
-              <tr class="success"><td>Status</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["combinedCapStatus"], "--"))}</td></tr>
+              <tr><td>Combined Cap</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["capResult"], "--"))}</td></tr>
+              <tr><td>Hours Until Combined Cap</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["hoursUntilCap"], "--"))}</td></tr>
+              <tr class="success"><td>Status</td><td class="value">${escapeReportHtml(getTextFromAnyElement(["capStatus"], "--"))}</td></tr>
             </tbody>
           </table>
         </div>
@@ -1817,7 +1820,7 @@ function buildTimeOffProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual time off may vary based on employer policy, accrual rules, caps, holidays, unpaid leave, and payroll timing.</div>
-        <div><strong>Signal Labs</strong> • Time Off Planner • v0.9.8</div>
+        <div><strong>Signal Labs</strong> • Time Off Planner • ${TOOL_VERSION}</div>
       </footer>
     </main>
   `;
@@ -1825,25 +1828,26 @@ function buildTimeOffProfessionalReportHtml() {
 
 function collectCategoryReportRows() {
   const rows = [];
-  const selectedIds = getSelectedCategoryIds();
-  const data = calculateCategoryData();
+  const selectedIds = getSelectedCategories();
+  const targetDate = parseDateValue(targetDateInput.value);
+  const today = new Date();
+  const payPeriodsUntilTarget = getPayPeriodsBetween(today, targetDate);
 
   selectedIds.forEach((categoryId) => {
-    const category = categoryConfig[categoryId];
-    const row = data[categoryId];
-
-    if (!category || !row) {
+    if (!getCategoryField(categoryId, "currentBalance")) {
       return;
     }
 
+    const row = getCategoryProjection(categoryId, payPeriodsUntilTarget, targetDate);
+
     rows.push({
-      category: category.label,
-      current: `${formatNumber(row.currentBalance)} hrs`,
+      category: getCategoryLabel(categoryId),
+      current: `${formatNumber(row.values.currentBalance)} hrs`,
       earned: `${formatNumber(row.earned)} hrs`,
-      used: `${formatNumber(row.totalUsed)} hrs`,
+      used: `${formatNumber(row.used)} hrs`,
       projected: `${formatNumber(row.projectedBalance)} hrs`,
-      cap: row.cap > 0 ? `${formatNumber(row.cap)} hrs` : "None",
-      status: row.cap > 0 ? row.capStatus : "No Cap"
+      cap: row.hasCap ? `${formatNumber(row.values.ptoCap)} hrs` : "None",
+      status: row.capStatus || "No cap set"
     });
   });
 
@@ -1851,17 +1855,13 @@ function collectCategoryReportRows() {
 }
 
 function collectPlannedEventReportRows() {
-  return planningEvents.map((event) => {
-    const category = categoryConfig[event.categoryId];
-
-    return {
-      date: event.date || "--",
-      name: event.name || "Planned Event",
-      category: category ? category.label : event.categoryId,
-      hours: `${formatNumber(event.hours)} hrs`,
-      notes: event.hours > 0 ? `${formatNumber(event.hours / (getInputValue(hoursPerDayInput) || 8))} days` : ""
-    };
-  });
+  return plannedEvents.map((event) => ({
+    date: event.date || "--",
+    name: event.name || "Planned Event",
+    category: getCategoryLabel(event.categoryId),
+    hours: `${formatNumber(event.hours)} hrs`,
+    notes: event.hours > 0 ? `${formatNumber(event.hours / (getInputValue(hoursPerDayInput) || 8))} days` : ""
+  }));
 }
 
 function printTimeOffResults() {

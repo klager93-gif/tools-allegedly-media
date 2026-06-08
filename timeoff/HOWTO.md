@@ -1,4 +1,4 @@
-# Signal Labs Time Off Calculator
+# Signal Labs Time Off Planner
 
 # HOWTO
 
@@ -6,7 +6,7 @@
 
 ## Purpose
 
-The Time Off Calculator estimates vacation, sick time, personal time, comp time, holiday, floating holiday, and custom time-off balances.
+The Time Off Planner estimates vacation, sick time, personal time, comp time, holiday, floating holiday, and custom time-off balances.
 
 It supports category-level projections, planning events, policy helpers, warnings, and saved profiles.
 
@@ -201,3 +201,10 @@ The Categories section now shows only category pills. The old checkbox grid is h
 # v0.9.8 Quick Start + Stacked Layout
 
 Use Time Off Planner to estimate future balances, planned usage, remaining hours, and possible use-it-or-lose-it risk.
+
+
+---
+
+# v0.9.9 Pre-1.0 Cleanup & Report Fix
+
+This release fixes Print Report helper mismatches, cleans invalid HTML, and synchronizes documentation before Time Off v1.0.

@@ -4,8 +4,6 @@
 
 This file tracks actual release order across the Signal Labs ecosystem.
 
-Use this when you need to know what came before a release, what to back up before updating, or which release introduced a feature.
-
 ---
 
 # Release Order
@@ -28,10 +26,27 @@ Use this when you need to know what came before a release, what to back up befor
 | 14 | 2026-06-07 | Overtime v0.9 | Professional Reports | Added results-only HTML report generation. |
 | 15 | 2026-06-07 | Time Off v0.9 | Professional Reports | Added results-only HTML report generation. |
 | 16 | 2026-06-07 | Overtime v0.9.1 | Professional Reports Print Fix | Fixed report print window behavior. |
-| 17 | 2026-06-07 | Time Off v0.9.1 | Professional Reports Print Fix | Fixed Print Report button behavior. |
+| 17 | 2026-06-07 | Time Off v0.9.1 | Professional Reports Print Fix | Fixed Print Report behavior. |
 | 18 | 2026-06-07 | Home v0.2.6 | Backup & Recovery System | Added backup and restore documentation. |
 | 19 | 2026-06-07 | Home v0.2.7 | Release Management System | Added master changelog, master roadmap, and release history. |
 | 20 | 2026-06-07 | Home v0.3 | UI Density Refactor | Tightened shared UI spacing and density. |
+| 21 | 2026-06-07 | Overtime v0.9.3 | Inline Optional Toggles | Moved optional toggles into card headers. |
+| 22 | 2026-06-07 | Time Off v0.9.3 | Inline Optional Toggles | Moved optional toggles into card headers. |
+| 23 | 2026-06-07 | Home v0.4 | Release Standards Update | Renamed Root to Signal Labs Home and added release metadata rules. |
+| 24 | 2026-06-07 | Home v0.4.1 | Master Documentation | Added required master documentation checks. |
+| 25 | 2026-06-07 | Overtime v0.9.4 | Collapsible Optional Sections | Added collapsible optional card behavior. |
+| 26 | 2026-06-07 | Time Off v0.9.4 | Collapsible Optional Sections | Added collapsible optional card behavior. |
+| 27 | 2026-06-07 | Overtime v0.9.5 | Compact UI Pass | Tightened UI density. |
+| 28 | 2026-06-07 | Time Off v0.9.5 | Compact UI Pass | Tightened UI density. |
+| 29 | 2026-06-07 | Overtime v0.9.6 | Signal Labs UI Identity | Added info icons and pill controls. |
+| 30 | 2026-06-07 | Time Off v0.9.6 | Signal Labs UI Identity | Added category pills and planner controls. |
+| 31 | 2026-06-07 | Overtime v0.9.6.2 | Take-Home Controls Cleanup | Cleaned duplicate adjustment controls. |
+| 32 | 2026-06-07 | Time Off v0.9.8 | Quick Start + Stacked Layout | Reframed Time Off Planner and stacked layout. |
+| 33 | 2026-06-08 | Overtime v0.9.7.1 | Modal Suggested Pills Placement Fix | Kept modal pills inside popup. |
+| 34 | 2026-06-08 | Overtime v0.9.8 | UX Flow & Plain-English Polish | Renamed sections and improved workflow. |
+| 35 | 2026-06-08 | Home v0.5 | Standards Expansion & Sync Cleanup | Updated standards/docs and removed unused root style.css. |
+| 36 | 2026-06-08 | Overtime v0.9.9 | Pre-1.0 Sync & Metadata Cleanup | Synchronized versions and report metadata. |
+| 37 | 2026-06-08 | Time Off v0.9.9 | Pre-1.0 Cleanup & Report Fix | Fixed report helpers and HTML cleanup. |
 
 ---
 
@@ -39,19 +54,8 @@ Use this when you need to know what came before a release, what to back up befor
 
 Before uploading a new release, back up the current live version.
 
-Recommended format:
+Required format:
 
 ```text
-Signal-Labs-Backups/
-YYYY-MM-DD-before-release-name/
-  root/
-  overtime/
-  timeoff/
+YYYY-MM-DD-before-tool-version-theme
 ```
-
-| 21 | 2026-06-07 | Overtime v0.9.3 | Inline Optional Toggles | Moved optional toggles into card headers. |
-| 22 | 2026-06-07 | Time Off v0.9.3 | Inline Optional Toggles | Moved optional toggles into card headers. |
-
-| 23 | 2026-06-07 | Home v0.4 | Release Standards Update | Renamed Root to Signal Labs Home and added release metadata rules. |
-
-| 24 | 2026-06-07 | Home v0.4.1 | Master Documentation | Backfilled master changelog and roadmap; added Rule 23 and required master documentation checks. |

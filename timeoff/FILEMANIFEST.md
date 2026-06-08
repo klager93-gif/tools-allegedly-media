@@ -1,14 +1,14 @@
-# Signal Labs Time Off Calculator
+# Signal Labs Time Off Planner
 
 # FILEMANIFEST
 
 ## Current Version
 
-v0.9.8
+v0.9.9
 
 ## Theme
 
-Planner Identity Overhaul
+Pre-1.0 Cleanup & Report Fix
 
 ---
 
@@ -31,8 +31,8 @@ BUILDMANIFEST.md
 # Shared Dependencies
 
 ```text
-../assets/global.css?v=0.2.5
-../assets/global.js?v=0.2.5
+../assets/global.css?v=0.5
+../assets/global.js?v=0.5
 ```
 
 ---
@@ -42,7 +42,7 @@ BUILDMANIFEST.md
 ## Must Contain
 
 ```text
-Time Off Calculator
+Time Off Planner
 document.getElementById("categoryOptions")
 ```
 
@@ -60,13 +60,7 @@ document.getElementById("rate")
 copyResults
 printResults
 buildTimeOffResultsSummary
-```
-
-
-# Report Checks
-
-```text
 buildTimeOffProfessionalReportHtml
-openProfessionalReportWindow
-Print Report
+TOOL_VERSION
+TOOL_THEME
 ```

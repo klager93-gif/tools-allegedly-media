@@ -8,29 +8,32 @@ Actual backup copies may be stored outside the public site, such as on your comp
 
 ---
 
-# Recommended Backup Structure
+# Required Backup Format
 
 ```text
-Signal-Labs-Backups/
-  2026-06-07-before-overtime-v0.9.1-timeoff-v0.9.1/
-    root/
-    overtime/
-    timeoff/
-    BACKUP-INFO.md
+YYYY-MM-DD-before-tool-version-theme
+```
+
+Example:
+
+```text
+2026-06-08-before-signal-labs-combined-home-v0.5-overtime-v0.9.9-timeoff-v0.9.9-standards-sync-cleanup
 ```
 
 ---
 
-# Backup Before Uploading
+# Recommended Backup Structure
 
-Before uploading any new release ZIP:
-
-1. Copy the current live root files.
-2. Copy the current live `/overtime/` folder.
-3. Copy the current live `/timeoff/` folder.
-4. Save them in a dated backup folder.
-5. Upload the new release.
-6. Test the live site.
+```text
+Signal-Labs-Backups/
+  2026-06-08-before-signal-labs-combined-home-v0.5-overtime-v0.9.9-timeoff-v0.9.9-standards-sync-cleanup/
+    root/
+    assets/
+    backups/
+    overtime/
+    timeoff/
+    BACKUP-INFO.md
+```
 
 ---
 
@@ -41,5 +44,3 @@ Do not keep backup copies inside public tool folders like:
 ```text
 /overtime/backup-old/
 ```
-
-That can become messy and may expose old files publicly.

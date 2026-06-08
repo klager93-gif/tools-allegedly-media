@@ -1,4 +1,4 @@
-# Signal Labs Development Standards v1.1
+# Signal Labs Development Standards v2.0
 
 ## Purpose
 
@@ -10,50 +10,33 @@ This file is the authoritative project copy of the standards. Chat history or AI
 
 # Rule 0 — Rules First
 
-Before:
+Before planning, coding, refactoring, documentation, packaging, ZIP creation, or releases, the current Signal Labs Development Standards must be reviewed mentally.
 
-- Planning
-- Coding
-- Refactoring
-- Documentation
-- Packaging
-- ZIP creation
-- Releases
-
-The current Signal Labs Development Standards must be reviewed mentally.
-
-If a proposed action would violate a rule, it must either:
-
-1. Be prevented, or
-2. Be explicitly brought to the user's attention.
-
-Never knowingly proceed with a rule violation without discussing it first.
+If a proposed action would violate a rule, it must either be prevented or explicitly brought to the user's attention.
 
 ---
 
 # Rule 1 — Version Every Release
 
-Every release should include:
+Every release must include:
 
 - Version number.
 - Theme name.
 - GitHub title.
-- GitHub description.
-- Matching cache-busting references.
+- GitHub summary.
+- Matching cache-busting references when affected files change.
 
 ---
 
 # Rule 2 — Ship Complete Files
 
-Prefer complete files over snippets.
-
-When files appear mixed or corrupted, prefer full folder replacement over patching individual files.
+Prefer complete files over snippets. When files appear mixed or corrupted, prefer full folder replacement over patching individual files.
 
 ---
 
 # Rule 3 — Maintain Required Documentation
 
-Every tool should maintain:
+Every tool must maintain:
 
 - README.md
 - ROADMAP.md
@@ -62,96 +45,37 @@ Every tool should maintain:
 - FILEMANIFEST.md
 - BUILDMANIFEST.md
 
-Documentation should evolve alongside the code.
-
-The root project should also maintain:
-
-- STANDARDS.md
+Documentation must evolve alongside code.
 
 ---
 
 # Rule 4 — Protect Project Integrity
 
-Project integrity takes precedence over convenience.
-
-No ZIP is better than a bad ZIP.
-
-Avoid silent breaking changes.
-
-Preserve working functionality whenever possible.
+Project integrity takes precedence over convenience. No ZIP is better than a bad ZIP.
 
 ---
 
 # Rule 5 — Verify File Identity
 
-Source files should contain identity headers.
-
-Each file should clearly identify:
-
-- Area or tool name.
-- File name.
-- Version.
-- Purpose.
-
-Identity should be easy to verify before packaging.
+Source files should contain identity headers identifying area/tool, file name, version, and purpose.
 
 ---
 
 # Rule 6 — Prevent Cross-Contamination
 
-Before packaging, verify that each tool contains its expected identity strings and does not contain another tool's identity.
-
-## Overtime Must Contain
-
-- Overtime Calculator
-- document.getElementById("rate")
-
-## Overtime Must Not Contain
-
-- Time Off Calculator
-- categoryOptions
-
-## Time Off Must Contain
-
-- Time Off Calculator
-- categoryOptions
-
-## Time Off Must Not Contain
-
-- Overtime Calculator
-- document.getElementById("rate")
+Before packaging, verify each tool contains expected identity strings and does not contain another tool's identity.
 
 ---
 
 # Rule 7 — Review Shared Dependencies
 
-Changes to shared assets require reviewing dependent tools.
-
-Examples:
-
-- assets/global.css
-- assets/global.js
-
-Consider effects on:
-
-- Root
-- Overtime
-- Time Off
-- Future tools
-
-Bring dependency concerns to the user's attention.
+Changes to shared assets require reviewing Home, Overtime, Time Off, and future tools.
 
 ---
 
 # Rule 8 — Validate Before ZIP
 
-Before packaging:
-
-- Required files exist.
-- Versions match.
-- Identity checks pass.
-- Documentation exists.
-- Shared dependencies have been reviewed.
+Before packaging, required files must exist, versions must match, identity checks must pass, documentation must exist, and shared dependencies must be reviewed.
 
 Abort packaging if validation fails.
 
@@ -159,308 +83,25 @@ Abort packaging if validation fails.
 
 # Rule 9 — Validate After ZIP
 
-After packaging, verify:
-
-- ZIP contents.
-- Folder structure.
-- Expected files.
-- No unexpected files.
-- Documentation completeness.
-
-Only then should the ZIP be released.
+After packaging, verify ZIP contents, folder structure, expected files, no unexpected files, and documentation completeness.
 
 ---
 
 # Rule 10 — Fail Loudly
 
-If validation fails, report:
-
-- What failed.
-- Which file failed.
-- Why it matters.
-- What needs to be corrected.
-
-Never silently continue.
+If validation fails, report what failed, which file failed, why it matters, and what needs to be corrected.
 
 ---
 
-# Implementation Notes
+# Rule 20 — Change Impact Review
 
-The previous expanded rule list remains supporting guidance behind these principles.
+Think about everything a change touches before building.
 
-These eleven rules are the authoritative core of Signal Labs Development Standards v1.1.
-
-
----
-
-# Version String Sanity
-
-This check is part of Rule 8 and Rule 9.
-
-Before and after packaging, verify that version strings are valid and not malformed.
-
-Reject examples:
-
-```text
-version 0.2.2.2.2
-version 0.8.3.1.1
-version 0.6.2.1.1
-```
-
-Verify:
-
-- Header version.
-- Footer version.
-- README current version.
-- ROADMAP current version.
-- CHANGELOG newest entry.
-- CSS cache-busting reference.
-- JS cache-busting reference.
-
-If a malformed version string is found, abort packaging and fix it before creating the ZIP.
-
-
----
-
-# Shared UX Guidance
-
-Shared user-experience behavior belongs in shared assets when it applies to multiple tools.
-
-Examples:
-
-- Modal behavior.
-- Navigation behavior.
-- Shared ad slot behavior.
-
-Shared changes must follow Rule 7 and be reviewed against Root, Overtime, Time Off, and future tools.
-
-
----
-
-# Versioning Philosophy
-
-Version numbers should reflect the amount of change, not artificial synchronization.
-
-It is acceptable for tools to move at different speeds when the scope of work differs.
-
-Examples:
-
-```text
-Overtime 0.8.5
-Time Off 0.8
-Overtime 0.9
-Time Off 0.9
-```
-
-The release train should remain understandable, but version numbers should not be forced into symmetry when that creates misleading version history.
-
-
----
-
-# Backup & Recovery Rule
-
-Before uploading any release ZIP:
-
-1. Create a backup of the current live version.
-2. Store it in a dated backup folder.
-3. Upload the new release.
-4. Verify the live site.
-5. Restore from backup if problems are discovered.
-
-Recommended backup folder format:
-
-```text
-Signal-Labs-Backups/
-YYYY-MM-DD-before-release-name/
-  root/
-  overtime/
-  timeoff/
-  BACKUP-INFO.md
-```
-
----
-
-# Release Backup Reminder Rule
-
-Whenever a new ZIP is presented, the release response should include a backup reminder.
-
-Required reminder:
-
-```text
-Back up the current live version before uploading this release.
-```
-
----
-
-# Root Restore Documentation Rule
-
-Root releases should maintain:
-
-```text
-RESTORE.md
-backups/README.md
-backups/BACKUP-LOG.md
-backups/RESTORE-GUIDE.md
-```
-
-These files document backup and restore procedures so recovery instructions are not lost if chat history or AI memory is unavailable.
-
-
----
-
-# Release Management Rule
-
-The root project should maintain ecosystem-wide release management files.
-
-Required files:
-
-```text
-MASTER-CHANGELOG.md
-MASTER-ROADMAP.md
-RELEASE-HISTORY.md
-```
-
-These files track project-wide history across Root, Overtime, Time Off, and future tools.
-
----
-
-# Master Changelog Rule
-
-`MASTER-CHANGELOG.md` should summarize major releases across the full Signal Labs ecosystem.
-
-It should answer:
-
-- What changed?
-- Which project changed?
-- Which version introduced the change?
-- When did it happen?
-
----
-
-# Master Roadmap Rule
-
-`MASTER-ROADMAP.md` should show the full project roadmap across all tools.
-
-It should include:
-
-- Root roadmap.
-- Overtime roadmap.
-- Time Off roadmap.
-- Future tools.
-- Production-release targets.
-
----
-
-# Release History Rule
-
-`RELEASE-HISTORY.md` should track actual release order.
-
-It should answer:
-
-- What was released before this?
-- What release introduced a feature?
-- Which release should be backed up before installing the next one?
-
-
----
-
-# UI Density Guidance
-
-Signal Labs tools should balance clarity with compactness. Desktop layouts should avoid unnecessary vertical height. Mobile layouts should remain readable and tap-friendly.
-
-When changing shared density styles, review Root, Overtime, Time Off, and future tools.
-
----
-
-# Release Metadata Rule
-
-Every release response must include the following information in this order:
-
-1. Backup reminder.
-2. Backup folder name.
-3. Download ZIP link.
-4. GitHub title.
-5. GitHub description.
-
-This keeps backups, release packages, and GitHub records synchronized.
-
----
-
-# Backup Folder Naming Rule
-
-Backup folders should use ISO-style dates and include all affected versions.
-
-Example:
-
-```text
-2026-06-07-before-home-v0.4-overtime-v0.9.3-timeoff-v0.9.3
-```
-
-Benefits:
-
-- Chronological sorting.
-- Easier restore operations.
-- Matches RELEASE-HISTORY.md.
-- Matches MASTER-CHANGELOG.md.
-
----
-
-# Backup Reminder Rule
-
-Every release response must begin with:
-
-```text
-⚠️ Backup reminder: create a backup of the current live version before uploading.
-```
-
-followed immediately by the backup folder name.
-
----
-
-# Release Package Order Rule
-
-Release information must always be presented in this order:
-
-1. Backup reminder.
-2. Backup folder name.
-3. Download link.
-4. GitHub title.
-5. GitHub description.
-
-Do not vary this order.
-
----
-
-# Restore Compatibility Rule
-
-Backup folder names should correspond to entries in:
-
-```text
-RELEASE-HISTORY.md
-MASTER-CHANGELOG.md
-```
-
-This makes restore operations possible without relying on chat history.
-
-
----
-
-# Signal Labs Home Naming Rule
-
-The top-level Signal Labs site should be referred to as `Signal Labs Home` or `Home`, not `Root`, in user-facing release names and documentation.
-
-The word `root` may still be used only when referring to the technical website root directory.
+If a change affects shared assets, naming, reports, saved settings, layout, documentation, cache busting, or release metadata, those related files must be reviewed together.
 
 ---
 
 # Rule 23 — Master Documentation
-
-Signal Labs Home must maintain these project-wide documentation files:
-
-```text
-MASTER-CHANGELOG.md
-MASTER-ROADMAP.md
-```
 
 Every release of any Signal Labs tool must update:
 
@@ -469,6 +110,76 @@ Every release of any Signal Labs tool must update:
 - MASTER-CHANGELOG.md
 - MASTER-ROADMAP.md when current versions or plans change
 
-The master changelog records chronological history across the full Signal Labs ecosystem.
+---
 
-The master roadmap records current versions and future plans across the full Signal Labs ecosystem.
+# Rule 35 — Backup Philosophy
+
+Storage is cheap. Lost work is expensive.
+
+When uncertain, preserve backups and restore entire affected folders rather than attempting risky partial repairs.
+
+---
+
+# Rule 36 — Backup Title Format
+
+Backup titles are required for every release and must use:
+
+```text
+YYYY-MM-DD-before-tool-version-theme
+```
+
+The `before-` prefix is mandatory and indicates the state immediately prior to applying the new version.
+
+Example:
+
+```text
+2026-06-08-before-overtime-v0.9.9-pre-1.0-sync-metadata-cleanup
+```
+
+---
+
+# Version Synchronization Rule
+
+Before and after packaging, verify:
+
+- Header version.
+- Footer version.
+- Build/status card version.
+- Report metadata version.
+- README current version.
+- ROADMAP current version.
+- CHANGELOG newest entry.
+- FILEMANIFEST version.
+- BUILDMANIFEST version.
+- CSS cache-busting reference.
+- JS cache-busting reference.
+
+Reject malformed versions such as:
+
+```text
+version 0.2.2.2.2
+version 0.8.3.1.1
+version 0.6.2.1.1
+```
+
+---
+
+# Release Metadata Rule
+
+Every release response must include, in order:
+
+1. Backup reminder.
+2. Backup folder name.
+3. Download ZIP link.
+4. GitHub title.
+5. GitHub summary.
+6. Theme.
+7. Version.
+
+---
+
+# Signal Labs Home Naming Rule
+
+The top-level Signal Labs site should be referred to as Signal Labs Home or Home, not Root, in user-facing release names and documentation.
+
+The word `root` may still be used only when referring to the technical website root directory.

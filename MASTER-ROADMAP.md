@@ -10,50 +10,59 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Home | v0.4.1 | Master Documentation |
-| Overtime | v0.9.8 | UX Flow & Plain-English Polish |
-| Time Off | v0.9.8 | Quick Start + Stacked Layout |
+| Home | v0.5 | Standards Expansion & Sync Cleanup |
+| Overtime | v0.9.9 | Pre-1.0 Sync & Metadata Cleanup |
+| Time Off | v0.9.9 | Pre-1.0 Cleanup & Report Fix |
 
 ---
 
 # Near-Term Roadmap
 
-## Overtime v0.9.8
+## Home v0.5.1
 
 ### Theme
 
-UX Flow & Plain-English Polish
+Navigation Refresh
 
-### Status
+### Planned Focus
 
-Completed UX release.
-
-### Validation Focus
-
-- Confirm Overtime Details, Deductions & Adjustments, Pay Details, Target Pay, and Estimated Pay labels appear.
-- Confirm Deductions & Adjustments appears before Pay Details.
-- Confirm Before Taxes (Gross) and Take-Home Pay (Net) labels appear.
-- Confirm suggested pills remain inside Add Tax, Add Deduction, and Add Other Adjustment modals.
-- Confirm Static Amount / Percentage controls stay inside modal.
-- Confirm Print Report and Copy Results still work.
+- Desktop pill navigation.
+- Mobile hamburger/collapsible navigation.
+- Verify shared navigation across Home, Overtime, and Time Off.
 
 ---
 
-
-## Home v0.5
+## Overtime v1.0
 
 ### Theme
 
-Standards Expansion + Global Foundations
+Stable Release
 
-### Planned Features
+### Planned Focus
 
-- Add image generation rules 35–39 to STANDARDS.md.
-- Add Rule 20 clarification for actions that change response format.
-- Enforce MASTER-CHANGELOG.md and MASTER-ROADMAP.md updates during every build.
-- Improve global release checklist.
-- Continue Signal Labs Home naming cleanup.
-- Prepare shared settings foundation.
+- Final verification pass.
+- Mobile layout review.
+- Print Report verification.
+- Copy Results verification.
+- Modal suggested pills verification.
+- Documentation cleanup.
+
+---
+
+## Time Off v1.0
+
+### Theme
+
+Stable Release
+
+### Planned Focus
+
+- Final planner verification.
+- Print Report verification.
+- Copy Results verification.
+- Category pill verification.
+- Planned Time Off verification.
+- Documentation cleanup.
 
 ---
 
@@ -63,7 +72,7 @@ Standards Expansion + Global Foundations
 
 Theme System Foundation
 
-### Planned Features
+### Planned Focus
 
 - Light / dark / auto theme support.
 - Future accent color support.
@@ -72,166 +81,13 @@ Theme System Foundation
 
 ---
 
-## Overtime v1.0
-
-### Theme
-
-Final Pre-1.0 Polish
-
-### Planned Focus
-
-- Verify v0.9.8 labels, section flow, and suggested modal pills remain inside Add Tax, Add Deduction, and Add Other Adjustment modals.
-- Verify Automatic / Custom OT threshold pills.
-- Verify info icons and footer notes.
-- Verify optional collapsible sections.
-- Verify compact mobile behavior.
-- Verify Print Report and Copy Results.
-- Clean documentation and manifests.
-
----
-
-## Time Off v1.0
-
-### Theme
-
-Final Pre-1.0 Polish
-
-### Planned Focus
-
-- Verify stacked full-width planner layout.
-- Verify Quick Start presets.
-- Verify category pill-only selector.
-- Verify custom category pills.
-- Verify quick hour pills.
-- Verify policy type pills.
-- Verify event chips and expandable notes.
-- Verify Print Report and Copy Results.
-- Clean documentation and manifests.
-
----
-
-## Overtime v1.0
-
-### Theme
-
-Production Release
-
-### Planned Focus
-
-- Final polish.
-- Professional report verification.
-- Mobile verification.
-- Copy Results verification.
-- Print Report verification.
-- Documentation cleanup.
-- Production release notes.
-
----
-
-## Time Off v1.0
-
-### Theme
-
-Production Release
-
-### Planned Focus
-
-- Final polish.
-- Professional report verification.
-- Mobile verification.
-- Copy Results verification.
-- Print Report verification.
-- Planning Mode verification.
-- Documentation cleanup.
-- Production release notes.
-
----
-
-
-## Time Off v0.9.8
-
-### Theme
-
-Planner Polish
-
-### Planned Focus
-
-- Verify planner language and section names.
-- Verify preset pills.
-- Verify planner summary.
-- Verify result explainers.
-- Verify Print Report and Copy Results.
-
----
-
 # Future Tools
 
-## Paycheck Calculator v0.1
-
-Likely next major calculator.
-
-Potential features:
-
-- Gross pay.
-- Taxes and deductions.
-- Net pay estimate.
-- Pay period support.
-- Export/report system from existing tools.
-
----
-
-## Shift Differential Calculator v0.1
-
-Potential audience:
-
-- Dispatchers.
-- Police.
-- Fire.
-- EMS.
-- Healthcare.
-- Industrial workers.
-
-Potential features:
-
-- Base rate.
-- Differential rate.
-- Differential hours.
-- Overtime interaction.
-- Multiple shift types.
-
----
-
-## Holiday Pay Calculator v0.1
-
-Potential features:
-
-- Holiday hours.
-- Premium rates.
-- Regular hours.
-- Overtime interaction.
-- Report/export support.
-
----
-
-## PTO Cash-Out Calculator v0.1
-
-Potential features:
-
-- Hour balance.
-- Hourly rate.
-- Estimated gross cash-out.
-- Optional taxes/deductions.
-
----
-
-## Comp Time Calculator v0.1
-
-Potential features:
-
-- Earned comp time.
-- Used comp time.
-- Balance projections.
-- Conversion rates.
+- Paycheck Calculator.
+- Shift Differential Calculator.
+- Holiday Pay Calculator.
+- PTO Cash-Out Calculator.
+- Comp Time Calculator.
 
 ---
 
@@ -240,42 +96,6 @@ Potential features:
 ## Home v1.0
 
 Signal Labs suite foundation.
-
-Focus:
-
-- Stable shared standards.
-- Stable master documentation system.
-- Shared settings and theme support.
-- Cohesive landing page.
-- Tool metadata and update history.
-
----
-
-## Overtime v1.x
-
-Advanced export and report options.
-
-Potential additions:
-
-- Download JSON.
-- Export CSV.
-- Multiple pay profiles.
-- More example presets.
-
----
-
-## Time Off v1.x
-
-Policy templates and improved planning reports.
-
-Potential additions:
-
-- Employer policy templates.
-- More event planning views.
-- Calendar-style export.
-- Advanced carryover rules.
-
----
 
 ## Signal Labs Ecosystem v2.0
 

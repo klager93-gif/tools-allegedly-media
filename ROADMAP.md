@@ -1,4 +1,4 @@
-# Signal Labs Root Site
+# Signal Labs Home
 
 # ROADMAP
 
@@ -6,11 +6,11 @@
 
 ## Last Updated
 
-2026-06-07
+2026-06-08
 
 ## Current Version
 
-**v0.4.1**
+**v0.5**
 
 ---
 
@@ -18,152 +18,112 @@
 
 | Version | Theme |
 |---|---|
+| v0.5 | Standards Expansion & Sync Cleanup |
 | v0.4.1 | Master Documentation |
-| v0.1 | Initial Root Prototype |
-| v0.1.1 | Root Cleanup |
-| v0.2 | Navigation |
-| v0.2.1 | Navigation Version Label Fix |
-| v0.2.2 | Ad Slot Framework |
-| v0.2.2.1 | Disabled Ad Slot Fix |
-| v0.2.2.2 | Standards Preservation |
-| v0.2.3 | Standards Manifest Adoption |
-| v0.2.4 | Modal UX Polish |
-| v0.2.5 | Versioning Guidance |
-| v0.2.6 | Backup & Recovery System |
-| v0.2.7 | Release Management System |
-| v0.3 | UI Density Refactor |
 | v0.4 | Release Standards Update |
+| v0.3 | UI Density Refactor |
+| v0.2.7 | Release Management System |
+| v0.2.6 | Backup & Recovery System |
+| v0.2.5 | Versioning Guidance |
+| v0.2.4 | Modal UX Polish |
+| v0.2.3 | Standards Manifest Adoption |
+| v0.2.2.2 | Standards Preservation |
+| v0.2.2.1 | Disabled Ad Slot Fix |
+| v0.2.2 | Ad Slot Framework |
+| v0.2.1 | Navigation Version Label Fix |
+| v0.2 | Navigation |
+| v0.1.1 | Root Cleanup |
+| v0.1 | Initial Root Prototype |
 
 ---
 
 # Upcoming Versions
 
-## Overtime v0.8.3
+## Home v0.5.1
 
 ### Theme
 
-Tool Ad Slot Placement
+Navigation Refresh
 
 ### Planned Features
 
-- Add disabled top ad slot.
-- Add disabled inline results ad slot.
-- Add disabled footer ad slot.
-- No live ads.
+- Convert desktop navigation into Signal Labs pill-style controls.
+- Add mobile hamburger/collapsible navigation.
+- Verify Home, Overtime, and Time Off navigation after shared asset updates.
 
 ---
 
-## Time Off v0.6.2
+## Home v0.6
 
 ### Theme
 
-Tool Ad Slot Placement
+Theme System Foundation
 
 ### Planned Features
 
-- Add disabled top ad slot.
-- Add disabled inline results ad slot.
-- Add disabled footer ad slot.
-- No live ads.
+- Light / dark / auto theme support.
+- Future accent color support.
+- Shared setting storage.
+- Cross-tool theme consistency.
 
 ---
 
-## v0.3
+## Overtime v0.9.9
 
 ### Theme
 
-Tool Organization
+Pre-1.0 Sync & Metadata Cleanup
 
 ### Planned Features
 
-- Organize tools into categories.
-- Add Work section.
-- Add Money section.
-- Add Life section.
-- Add improved homepage tool cards.
-- Add clearer tool descriptions.
-- Prepare layout for more calculators.
+- Synchronize version strings, report metadata, manifests, docs, and cache busting.
+- Add version/theme constants where helpful.
+- Preserve v0.9.8 UX flow and modal behavior.
 
 ---
 
-## v0.4
+## Overtime v1.0
 
 ### Theme
 
-Search & Filtering
+Stable Release
 
 ### Planned Features
 
-- Add tool search.
-- Add category filtering.
-- Add quick links.
-- Improve navigation for larger tool collections.
+- Final verification pass.
+- Mobile review.
+- Report and copy output verification.
+- Documentation cleanup.
 
 ---
 
-## v0.5
+## Time Off v0.9.9
 
 ### Theme
 
-Shared Components
+Pre-1.0 Cleanup & Report Fix
 
 ### Planned Features
 
-- Refine reusable card styles.
-- Refine reusable alert styles.
-- Refine shared footer patterns.
-- Consider shared version display utilities.
-- Improve consistency across tools.
+- Fix Print Report helper mismatches.
+- Clean invalid HTML.
+- Synchronize documentation and manifests.
+- Preserve v0.9.8 planner layout.
 
 ---
 
-## v1.0
+## Time Off v1.0
 
 ### Theme
 
-Public Release
+Stable Release
 
 ### Planned Features
 
-- Accessibility review.
-- Mobile quality review.
-- SEO review.
-- FAQ section.
-- Schema markup.
-- Analytics review.
-- Final copy review.
-
----
-
-## Home v0.2.3
-
-### Theme
-
-Standards Manifest Adoption
-
-### Planned Features
-
-- Add file identity headers to Overtime files.
-- Add file identity headers to Time Off files.
-- Add FILEMANIFEST.md to Overtime.
-- Add FILEMANIFEST.md to Time Off.
-- Add BUILDMANIFEST.md to Overtime.
-- Add BUILDMANIFEST.md to Time Off.
-
----
-
-## v0.2.5
-
-### Theme
-
-Shared UX Cleanup
-
-### Planned Features
-
-- Review shared modal behavior across all tools.
-- Review shared navigation behavior.
-- Review shared ad slot behavior.
-- Prepare for export/share features.
+- Final planner verification.
+- Print Report and Copy Results verification.
+- Mobile review.
+- Documentation cleanup.
 
 ---
 
@@ -174,6 +134,8 @@ Shared UX Cleanup
 - Light mode.
 - Larger text mode.
 - Reduced motion support.
-- More calculators.
-- Shared HOWTO navigation.
-- Tool comparison pages.
+- Paycheck Calculator.
+- Shift Differential Calculator.
+- Holiday Pay Calculator.
+- PTO Cash-Out Calculator.
+- Comp Time Calculator.

@@ -1,14 +1,14 @@
-# Signal Labs Signal Labs Home
+# Signal Labs Home
 
 # FILEMANIFEST
 
 ## Current Version
 
-v0.4.1
+v0.5
 
 ## Theme
 
-Master Documentation
+Standards Expansion & Sync Cleanup
 
 ---
 
@@ -23,6 +23,12 @@ HOWTO.md
 STANDARDS.md
 FILEMANIFEST.md
 BUILDMANIFEST.md
+INSTALL.md
+RESTORE.md
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+RELEASE-HISTORY.md
+site.webmanifest
 ```
 
 ---
@@ -36,9 +42,29 @@ assets/global.js
 
 ---
 
+# Required Backup & Restore Files
+
+```text
+backups/README.md
+backups/BACKUP-LOG.md
+backups/RESTORE-GUIDE.md
+```
+
+---
+
+# Removed Legacy Files
+
+```text
+style.css
+```
+
+The old root `style.css` was removed in Home v0.5 after confirming no active files referenced it.
+
+---
+
 # Identity Checks
 
-## Root Must Contain
+## Home Must Contain
 
 ```text
 Signal Labs
@@ -51,61 +77,5 @@ assets/global.js
 
 ```text
 Shared Asset
-Version: v0.4
+Version: v0.5
 ```
-
----
-
-# Version String Sanity
-
-Reject malformed versions such as:
-
-```text
-version 0.2.2.2.2
-version 0.8.3.1.1
-version 0.6.2.1.1
-```
-
----
-
-# Notes
-
-This manifest exists to prevent missing files, wrong-folder uploads, and cross-contaminated release packages.
-
-
----
-
-# Required Backup & Restore Files
-
-```text
-RESTORE.md
-backups/README.md
-backups/BACKUP-LOG.md
-backups/RESTORE-GUIDE.md
-```
-
-
----
-
-# Required Release Management Files
-
-```text
-MASTER-CHANGELOG.md
-MASTER-ROADMAP.md
-RELEASE-HISTORY.md
-```
-
-
----
-
-# Release Metadata Files/Checks
-
-Release metadata should be tracked in:
-
-```text
-MASTER-CHANGELOG.md
-RELEASE-HISTORY.md
-STANDARDS.md
-```
-
-Every release response should include backup folder name, download ZIP, GitHub title, and GitHub description.

@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Planner
 File: index.html
-Version: v0.9.8
+Version: v0.9.9
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -56,11 +56,11 @@ Time Off Planner | Signal Labs
 
 <link
   rel="stylesheet"
-  href="../assets/global.css?v=0.3">
+  href="../assets/global.css?v=0.5">
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.9.8">
+  href="style.css?v=0.9.9">
 
 </head>
 <body>
@@ -124,7 +124,7 @@ Time Off Planner | Signal Labs
 
 <div class="card-collapse-content">
 
-<div class="category-grid" id="categoryOptions" class="hidden-by-ui-identity signal-labs-hidden-category-source">
+<div id="categoryOptions" class="category-grid hidden-by-ui-identity signal-labs-hidden-category-source">
 
 <label class="category-option">
   <input type="checkbox" value="vacation" checked>
@@ -592,12 +592,12 @@ Time Off Planner | Signal Labs
 
   <p>
     Build:
-    v0.9.8
+    v0.9.9
   </p>
 
   <p>
     Theme:
-    Quick Start + Stacked Layout
+    Pre-1.0 Cleanup & Report Fix
   </p>
 
   <p>
@@ -610,6 +610,7 @@ Time Off Planner | Signal Labs
 
 </section>
 
+<div id="plannedEventChips" class="event-chip-list"></div>
 
 <div class="footer-notes timeoff-notes">
   <strong>ⓘ Notes</strong>
@@ -645,7 +646,7 @@ Time Off Planner | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Time Off Planner · v0.9.8
+  Signal Labs · Time Off Planner · v0.9.9
   <br>
   Estimates only. Actual time off may vary based on employer policy,
   accrual rules, caps, holidays, unpaid leave, and payroll timing.
@@ -680,9 +681,8 @@ Loading...
 
 </div>
 
-<script src="../assets/global.js?v=0.3"></script>
-<script src="script.js?v=0.9.8"></script>
+<script src="../assets/global.js?v=0.5"></script>
+<script src="script.js?v=0.9.9"></script>
 
 </body>
 </html>
-<div id="plannedEventChips" class="event-chip-list"></div>

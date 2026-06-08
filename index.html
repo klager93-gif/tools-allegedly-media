@@ -2,186 +2,77 @@
 Signal Labs
 Area: Signal Labs Home
 File: index.html
-Version: v0.4.1
+Version: v0.5
 Purpose: Root tool directory page
 -->
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0">
-
-<title>
-Signal Labs
-</title>
-
-<meta
-  name="description"
-  content="Signal Labs builds simple, useful calculators and planning tools.">
-
-<meta
-  property="og:title"
-  content="Signal Labs">
-
-<meta
-  property="og:description"
-  content="Simple, useful calculators and planning tools.">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Labs</title>
+<meta name="description" content="Signal Labs builds simple, useful calculators and planning tools.">
+<meta property="og:title" content="Signal Labs">
+<meta property="og:description" content="Simple, useful calculators and planning tools.">
 <link rel="icon" href="/favicon.ico">
-
-<link
-  rel="icon"
-  type="image/png"
-  sizes="32x32"
-  href="/favicon-32x32.png">
-
-<link
-  rel="icon"
-  type="image/png"
-  sizes="16x16"
-  href="/favicon-16x16.png">
-
-<link
-  rel="apple-touch-icon"
-  sizes="180x180"
-  href="/apple-touch-icon.png">
-
-<link
-  rel="manifest"
-  href="/site.webmanifest">
-
-<link
-  rel="stylesheet"
-  href="assets/global.css?v=0.4.1">
-
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="assets/global.css?v=0.5">
 </head>
 <body>
-
 <main class="page">
-
 <header class="hero">
   <p class="eyebrow">Signal Labs</p>
-
   <h1>Useful tools without the noise.</h1>
-
-  <p class="subtitle">
-    Lightweight calculators and planning tools built for real-life decisions.
-  </p>
+  <p class="subtitle">Lightweight calculators and planning tools built for real-life decisions.</p>
 </header>
-
-<div
-  class="ad-slot ad-slot-top is-disabled"
-  data-ad-slot="root-top"
-  data-ad-status="disabled"
-  aria-hidden="true">
+<div class="ad-slot ad-slot-top is-disabled" data-ad-slot="root-top" data-ad-status="disabled" aria-hidden="true">
   <span class="ad-placeholder">Ad slot reserved</span>
 </div>
-
 <section class="card tool-section">
-
-<div class="section-heading">
-  <h2>Tools</h2>
-  <p>Choose a calculator to get started.</p>
-</div>
-
-<div class="tool-grid">
-
-<a class="tool-card" href="overtime/">
-  <span class="tool-kicker">Work</span>
-  <strong>Overtime Calculator</strong>
-  <p>Estimate regular pay, overtime pay, gross pay, and simple take-home pay.</p>
-</a>
-
-<a class="tool-card" href="timeoff/">
-  <span class="tool-kicker">Work</span>
-  <strong>Time Off Calculator</strong>
-  <p>Project vacation, sick time, personal time, comp time, holidays, and more.</p>
-</a>
-
-</div>
-
+  <div class="section-heading">
+    <h2>Tools</h2>
+    <p>Choose a calculator to get started.</p>
+  </div>
+  <div class="tool-grid">
+    <a class="tool-card" href="overtime/">
+      <span class="tool-kicker">Work</span>
+      <strong>Overtime Calculator</strong>
+      <p>Estimate regular pay, overtime pay, before-tax pay, deductions, take-home pay, Pay Details, and Target Pay.</p>
+    </a>
+    <a class="tool-card" href="timeoff/">
+      <span class="tool-kicker">Work</span>
+      <strong>Time Off Planner</strong>
+      <p>Project vacation, sick time, personal time, comp time, holidays, planned time off, caps, and policy reminders.</p>
+    </a>
+  </div>
 </section>
-
 <section class="card status-card">
-
-<h2>Project Status</h2>
-
-<div class="summary-card">
-  <p>
-    Build:
-    v0.4.1
-  </p>
-
-  <p>
-    Theme:
-    Master Documentation
-  </p>
-
-  <p>
-    Status:
-    Active Development
-  </p>
-</div>
-
+  <h2>Project Status</h2>
+  <div class="summary-card">
+    <p>Build: v0.5</p>
+    <p>Theme: Standards Expansion &amp; Sync Cleanup</p>
+    <p>Status: Active Development</p>
+  </div>
 </section>
-
 </main>
-
 <footer class="version">
-
-<div class="footer-actions">
-
-<button id="openChangelog" type="button">
-  Changelog
-</button>
-
-<button id="openRoadmap" type="button">
-  Roadmap
-</button>
-
-</div>
-
-<div class="footer-copy">
-  Signal Labs · Home · v0.4.1
-  <br>
-  Useful tools without the noise.
-</div>
-
+  <div class="footer-actions">
+    <button id="openChangelog" type="button">Changelog</button>
+    <button id="openRoadmap" type="button">Roadmap</button>
+  </div>
+  <div class="footer-copy">Signal Labs · Home · v0.5<br>Useful tools without the noise.</div>
 </footer>
-
-<div
-  id="modal"
-  class="modal hidden">
-
-<div class="modal-box">
-
-<button
-  id="closeModal"
-  class="modal-close"
-  type="button">
-
-×
-
-</button>
-
-<h2 id="modalTitle">
-Project Information
-</h2>
-
-<pre id="modalContent">
-Loading...
-</pre>
-
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button id="closeModal" class="modal-close" type="button">×</button>
+    <h2 id="modalTitle">Project Information</h2>
+    <pre id="modalContent">Loading...</pre>
+  </div>
 </div>
-
-</div>
-
-<script src="assets/global.js?v=0.4.1"></script>
-
+<script src="assets/global.js?v=0.5"></script>
 </body>
 </html>

@@ -1,3 +1,20 @@
+## Version 0.9.9
+
+**Date:** 2026-06-08  
+**Theme:** Pre-1.0 Cleanup & Report Fix
+
+### Changes
+
+- Fixed Time Off Print Report helper mismatches that referenced outdated function and variable names.
+- Cleaned invalid HTML by moving planned event chips inside the document body.
+- Fixed duplicate class attributes in the hidden category source markup.
+- Synchronized documentation and manifests for the pre-1.0 release path.
+- Preserved v0.9.8 Quick Start + Stacked Layout behavior.
+- Preserved category pills, custom categories, quick hour pills, policy pills, event chips, expandable notes, Print Report, and Copy Results.
+- No image-based report generation is used.
+
+---
+
 ## Version 0.9.8
 
 **Date:** 2026-06-07  

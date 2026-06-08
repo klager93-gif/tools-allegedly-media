@@ -1,3 +1,32 @@
+# Signal Labs Home
+
+# CHANGELOG
+
+---
+
+## Version 0.5
+
+**Date:** 2026-06-08  
+**Theme:** Standards Expansion & Sync Cleanup
+
+### Changes
+
+- Updated and synchronized Home documentation files.
+- Expanded Signal Labs standards to v2.0.
+- Added Rule 20 philosophy: think about everything a change touches.
+- Added Rule 35: storage is cheap, lost work is expensive.
+- Added Rule 36: mandatory backup title format using `YYYY-MM-DD-before-tool-version-theme`.
+- Added explicit version synchronization checks across headers, footers, reports, manifests, documentation, and cache-busting references.
+- Updated release metadata order to include backup reminder, backup folder, ZIP link, GitHub title, GitHub summary, theme, and version.
+- Updated Home README, ROADMAP, HOWTO, STANDARDS, RESTORE, FILEMANIFEST, BUILDMANIFEST, MASTER-CHANGELOG, MASTER-ROADMAP, and RELEASE-HISTORY.
+- Updated Home tool card naming from Time Off Calculator to Time Off Planner.
+- Updated Home roadmap to include Home v0.5.1 navigation refresh, Overtime v0.9.9, Overtime v1.0, Time Off v0.9.9, and Time Off v1.0.
+- Modernized backup documentation and restore verification guidance.
+- Removed unused legacy root `style.css` after confirming no active files reference it.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.4.1
 
 **Date:** 2026-06-07  
@@ -12,10 +41,8 @@
 - Added release checklist requirements for master documentation updates.
 - Updated Home documentation and manifests.
 - No calculator changes.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
 
 ---
-
 
 ## Version 0.4
 
@@ -33,12 +60,8 @@
 - Updated build validation checks for release responses.
 - Updated master release documentation.
 - Updated cache-busting references to v0.4.
-- No calculator changes.
-- No shared asset logic changes.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
 
 ---
-
 
 ## Version 0.3
 
@@ -51,220 +74,9 @@
 - Reduced card padding, result row height, form spacing, and section title spacing.
 - Preserved mobile-first behavior while improving desktop information density.
 - Updated root cache-busting references to v0.3.
-- Updated root documentation and release management files.
-- No calculator logic changes.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
 
 ---
 
-# Signal Labs Root Site
+## Earlier Versions
 
-# CHANGELOG
-
----
-
-## Version 0.2.7
-
-**Date:** 2026-06-07  
-**Theme:** Release Management System
-
-### Changes
-
-- Added MASTER-CHANGELOG.md.
-- Added MASTER-ROADMAP.md.
-- Added RELEASE-HISTORY.md.
-- Added release management procedures to STANDARDS.md.
-- Updated root manifests with release management files.
-- Updated root cache-busting references to v0.2.7.
-- No calculator changes.
-- No shared asset logic changes.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
-
----
-
-## Version 0.2.6
-
-**Date:** 2026-06-07  
-**Theme:** Backup & Recovery System
-
-### Changes
-
-- Added RESTORE.md.
-- Added backups/README.md.
-- Added backups/BACKUP-LOG.md.
-- Added backups/RESTORE-GUIDE.md.
-- Added backup and recovery procedures to STANDARDS.md.
-- Added release backup reminder requirement.
-- Updated root manifests with backup and restore files.
-- Updated root cache-busting references to v0.2.6.
-- No calculator changes.
-- No shared asset logic changes.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
-
----
-
-## Version 0.2.5
-
-**Date:** 2026-06-07  
-**Theme:** Versioning Guidance
-
-### Changes
-
-- Added versioning philosophy guidance to STANDARDS.md.
-- Clarified that version numbers should reflect scope of change, not artificial synchronization.
-- Updated root cache-busting references to v0.2.5.
-- Updated root documentation and manifests.
-- No calculator logic changes.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
-
----
-
-## Version 0.2.4
-
-**Date:** 2026-06-07  
-**Theme:** Modal UX Polish
-
-### Changes
-
-- Added click-outside-to-close behavior for shared text modals.
-- Added Escape key close behavior for shared text modals.
-- Preserved close button behavior.
-- Prevented clicks inside the modal box from closing the modal.
-- Updated shared global asset cache-busting references to v0.2.4.
-- Updated root documentation and manifests.
-- No calculator logic changes.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
-
----
-
-## Version 0.2.3
-
-**Date:** 2026-06-07  
-**Theme:** Standards Manifest Adoption
-
-### Changes
-
-- Added version-string sanity checks to the project standards.
-- Fixed malformed root footer version behavior from the previous standards preservation release.
-- Added/updated root identity headers.
-- Added tool identity headers for Overtime and Time Off files.
-- Added FILEMANIFEST.md and BUILDMANIFEST.md to Overtime.
-- Added FILEMANIFEST.md and BUILDMANIFEST.md to Time Off.
-- Updated root cache-busting references to v0.2.3.
-- No calculator logic changes.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
-
----
-
-## Version 0.2.2.2
-
-**Date:** 2026-06-07  
-**Theme:** Standards Preservation
-
-### Changes
-
-- Added STANDARDS.md as the authoritative project copy of Signal Labs Development Standards v1.1.
-- Added FILEMANIFEST.md for required-file and identity tracking.
-- Added BUILDMANIFEST.md for pre-ZIP build validation.
-- Added identity headers to root index and shared asset files.
-- Updated root documentation to reference STANDARDS.md.
-- Updated root cache-busting references to v0.2.2.2.
-- No app logic changes.
-- No calculator changes.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
-
----
-
-## Version 0.2.2.1
-
-**Date:** 2026-06-07  
-**Theme:** Disabled Ad Slot Fix
-
-### Changes
-
-- Fixed disabled ad slots showing visible placeholder text.
-- Added stronger global CSS rules so disabled ad slots do not display text, spacing, borders, or reserved height.
-- Updated `initializeAdSlots()` so disabled ad slots are also hidden with the HTML `hidden` property.
-- Updated root cache-busting references to v0.2.2.1.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
-
----
-
-## Version 0.2.2
-
-**Date:** 2026-06-07  
-**Theme:** Ad Slot Framework
-
-### Changes
-
-- Added global ad slot framework support.
-- Added disabled ad slot styling.
-- Added placeholder ad slot styling.
-- Added top, inline, sidebar, footer, and card ad slot classes.
-- Added `initializeAdSlots()` helper in global.js.
-- Added support for `data-ad-slot` attributes.
-- Added support for `data-ad-status="disabled"`.
-- Added support for `data-ad-status="placeholder"`.
-- Added a disabled root top ad slot for future placement.
-- Updated root cache-busting references to v0.2.2.
-- Updated root build labels to v0.2.2.
-- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
-
----
-
-## Version 0.2.1
-
-**Date:** 2026-06-07  
-**Theme:** Navigation Version Label Fix
-
-### Changes
-
-- Updated root site version labels from v0.1.1 to v0.2.1.
-- Updated root build summary to v0.2.1.
-- Updated root theme label to Navigation Version Label Fix.
-- Updated root shared asset cache-busting references to v0.2.1.
-- Added root ROADMAP.md.
-- Added root HOWTO.md.
-- Rebuilt the root release package with the correct folder structure.
-- Confirmed no calculator logic changes are included in this release.
-
----
-
-## Version 0.2
-
-**Date:** 2026-06-07  
-**Theme:** Navigation
-
-### Changes
-
-- Added shared Signal Labs navigation.
-- Added Home, Overtime, and Time Off navigation links.
-- Added active page highlighting.
-- Added responsive mobile navigation styling.
-- Added shared navigation injection through global.js.
-- Preserved shared modal helpers.
-- Preserved UTC timestamp helper.
-- Added root README.md documentation.
-- Added root CHANGELOG.md documentation.
-
----
-
-## Version 0.1.1
-
-**Theme:** Root Cleanup
-
-### Changes
-
-- Cleaned up root landing page.
-- Prepared root site for multiple tools.
-- Added basic tool links.
-
----
-
-## Version 0.1
-
-**Theme:** Initial Root Prototype
-
-### Changes
-
-- Added initial Signal Labs root page.
+See MASTER-CHANGELOG.md and RELEASE-HISTORY.md for the full project chronology.
