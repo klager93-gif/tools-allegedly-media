@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.9.9**
+**v0.9.9.1**
 
 ---
 
@@ -18,7 +18,7 @@
 
 | Version | Theme |
 |---|---|
-| v0.9.9 | Shared Action Bar |
+| v0.9.9.1 | Shared Report Format |
 | v0.9.7 | Planner Identity Overhaul |
 | v0.9.6.2 | Category Pill Visibility Fix |
 | v0.9.6.1 | UI Identity Polish |

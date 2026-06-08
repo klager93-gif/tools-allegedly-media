@@ -198,13 +198,13 @@ The Categories section now shows only category pills. The old checkbox grid is h
 
 ---
 
-# v0.9.9 Quick Start + Stacked Layout
+# v0.9.9.1 Quick Start + Stacked Layout
 
 Use Time Off Planner to estimate future balances, planned usage, remaining hours, and possible use-it-or-lose-it risk.
 
 
 ---
 
-# v0.9.9 Shared Action Bar
+# v0.9.9.1 Shared Report Format
 
 This release fixes Print Report helper mismatches, cleans invalid HTML, and synchronizes documentation before Time Off v1.0.

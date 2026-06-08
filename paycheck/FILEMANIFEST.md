@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.3.3
+v0.3.4
 
 ## Theme
 
-Shared Action Bar
+Shared Report Format
 
 ---
 
@@ -31,8 +31,8 @@ BUILDMANIFEST.md
 # Shared Dependencies
 
 ```text
-../assets/global.css?v=0.6
-../assets/global.js?v=0.6
+../assets/global.css?v=0.6.1
+../assets/global.js?v=0.6.1
 ```
 
 ---

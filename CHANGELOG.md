@@ -4,6 +4,24 @@
 
 ---
 
+## Version 0.6.1
+
+**Date:** 2026-06-08
+**Theme:** Shared Report System
+
+### Changes
+
+- Added shared report system standards across Signal Labs tools.
+- Unified printed report structure between Paycheck, Overtime, and Time Off.
+- Standardized report headers, metadata, section layout, summary lists, and report footer treatment.
+- Updated shared global asset references to v0.6.1.
+- Updated STANDARDS.md with Source of Truth Disclosure requirements.
+- Updated master documentation and release history.
+- Preserved calculator logic, saved settings, Copy Results, hidden ad slots, and no-live-ad behavior.
+
+---
+
+
 ## Version 0.6
 
 **Date:** 2026-06-08  

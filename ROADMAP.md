@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.6**
+**v0.6.1**
 
 ---
 
@@ -18,7 +18,7 @@
 
 | Version | Theme |
 |---|---|
-| v0.6 | Shared UX Foundation |
+| v0.6 | Shared Report System |
 | v0.5 | Standards Expansion & Sync Cleanup |
 | v0.4.1 | Master Documentation |
 | v0.4 | Release Standards Update |

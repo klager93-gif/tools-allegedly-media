@@ -1,7 +1,7 @@
 ## Version 0.3.3
 
 **Date:** 2026-06-08  
-**Theme:** Shared Action Bar
+**Theme:** Shared Report Format
 
 ### Changes
 
@@ -10,6 +10,20 @@
 - Preserved existing calculations, saved settings, Copy Results, Print Report, and hidden ad slots.
 
 ---
+
+## Version 0.3.4
+
+**Date:** 2026-06-08
+**Theme:** Shared Report Format
+
+### Changes
+
+- Updated Paycheck printed report to match the shared Signal Labs report format used by Overtime and Time Off.
+- Standardized report header, brand mark, metadata, section tables, notes, and footer.
+- Preserved Hours & Earnings, Premium Hours, Benefit Hours, Deductions & Adjustments, saved settings, Copy Results, and hidden ad slots.
+
+---
+
 
 # Signal Labs Paycheck Calculator
 

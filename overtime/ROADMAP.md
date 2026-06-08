@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.9.9.2**
+**v0.9.9.3**
 
 ---
 
@@ -18,7 +18,7 @@
 
 | Version | Theme |
 |---|---|
-| v0.9.9.2 | Shared Action Bar |
+| v0.9.9.3 | Shared Report Format |
 | v0.9.9 | Pre-1.0 Sync & Metadata Cleanup |
 | v0.9.8 | UX Flow & Plain-English Polish |
 | v0.9.7.1 | Modal Suggested Pills Placement Fix |

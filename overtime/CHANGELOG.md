@@ -1,7 +1,7 @@
 ## Version 0.9.9.2
 
 **Date:** 2026-06-08  
-**Theme:** Shared Action Bar
+**Theme:** Shared Report Format
 
 ### Changes
 
@@ -10,6 +10,20 @@
 - Preserved existing calculations, saved settings, Copy Results, Print Report, and hidden ad slots.
 
 ---
+
+## Version 0.9.9.3
+
+**Date:** 2026-06-08
+**Theme:** Shared Report Format
+
+### Changes
+
+- Confirmed Overtime printed report uses the shared Signal Labs report format.
+- Updated version, theme, documentation, and manifests for shared report system alignment.
+- Preserved Overtime calculations, saved settings, Copy Results, Print Report, and frozen feature status.
+
+---
+
 
 ## Version 0.9.9.1
 

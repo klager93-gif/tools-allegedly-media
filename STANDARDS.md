@@ -108,7 +108,31 @@ Failure to update master documentation is a rule violation. No release is comple
 
 ---
 
-# Rule 7 — Version Every Release
+# Rule 7 — Source of Truth Disclosure
+
+When planning, building, validating, or packaging a release, the source used for the work must be disclosed.
+
+Every release response should include:
+
+- Source type.
+- Source location.
+- Whether the release was built from GitHub, uploaded files, a previous ZIP, or mixed sources.
+
+Preferred source priority:
+
+1. User-provided current files.
+2. GitHub repository.
+3. Most recent release ZIP.
+4. Conversation snippets.
+5. AI memory.
+
+AI memory may assist planning but should never be considered the authoritative project state.
+
+Never silently switch sources. If the source changes during development, disclose the change and explain why.
+
+---
+
+# Rule 8 — Version Every Release
 
 Every release should include a version number, theme name, GitHub title, GitHub description, and matching cache-busting references.
 
@@ -116,7 +140,7 @@ Version numbers should reflect the amount of change, not artificial synchronizat
 
 ---
 
-# Rule 8 — Validate Before and After Packaging
+# Rule 9 — Validate Before and After Packaging
 
 Before packaging, verify required files, matching versions, current documentation, identity checks, and reviewed dependencies.
 
@@ -126,7 +150,7 @@ Abort packaging if validation fails.
 
 ---
 
-# Rule 9 — Preserve Identity
+# Rule 10 — Preserve Identity
 
 Files should clearly identify area or tool name, file name, version, and purpose.
 
@@ -134,7 +158,7 @@ Prevent cross-contamination between tools.
 
 ---
 
-# Rule 10 — Backup and Restore
+# Rule 11 — Backup and Restore
 
 Before uploading any release, create a backup, upload the release, verify the live site, and restore from backup if problems are discovered.
 
@@ -150,7 +174,7 @@ Recovery should never depend on chat history or memory.
 
 ---
 
-# Rule 11 — Release Metadata Order
+# Rule 12 — Release Metadata Order
 
 Release responses should always present information in this order:
 
@@ -159,12 +183,14 @@ Release responses should always present information in this order:
 3. Download link.
 4. GitHub title.
 5. GitHub description.
+6. Source.
+7. Validation results.
 
 This order should not vary.
 
 ---
 
-# Rule 12 — Preserve Shared Systems
+# Rule 13 — Preserve Shared Systems
 
 Systems intended to span multiple tools should remain consistent.
 
@@ -197,7 +223,7 @@ Avoid creating unnecessary fragmentation between tools.
 
 ---
 
-# Rule 13 — Remove Carefully
+# Rule 14 — Remove Carefully
 
 Before deleting files, features, or systems, verify nothing depends on them and no references remain.
 
@@ -205,7 +231,7 @@ Removing dead code is good. Removing live code accidentally is not.
 
 ---
 
-# Rule 14 — Build Foundations
+# Rule 15 — Build Foundations
 
 Favor scalable solutions over throwaway solutions.
 
@@ -213,7 +239,7 @@ Consider future tools, shared code, mobile apps, themes, branding, and long-term
 
 ---
 
-# Rule 15 — Use Common Sense
+# Rule 16 — Use Common Sense
 
 The standards exist to protect the project, not replace judgment.
 

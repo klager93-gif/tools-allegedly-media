@@ -2,11 +2,11 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.9.2
+Version: v0.9.9.3
 Purpose: Tool-specific logic and event handling
 */
-const TOOL_VERSION = "v0.9.9.2";
-const TOOL_THEME = "Shared Action Bar";
+const TOOL_VERSION = "v0.9.9.3";
+const TOOL_THEME = "Shared Report Format";
 
 const rateInput = document.getElementById("rate");
 const hoursInput = document.getElementById("hours");

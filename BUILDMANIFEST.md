@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.6
+v0.6.1
 
 ## Theme
 
-Shared UX Foundation
+Shared Report System
 
 ## Build Type
 
@@ -66,6 +66,6 @@ Before presenting a ZIP, confirm the response includes, in order:
 
 - [ ] Home page includes Paycheck Calculator card.
 - [ ] Shared navigation includes Paycheck.
-- [ ] Paycheck loads global.css and global.js with v0.6 cache-busting.
+- [ ] Paycheck loads global.css and global.js with v0.6.1 cache-busting.
 - [ ] Paycheck Copy Results works.
 - [ ] Paycheck Print Report works.

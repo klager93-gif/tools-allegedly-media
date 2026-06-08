@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.6
+v0.6.1
 
 ## Theme
 
-Shared UX Foundation
+Shared Report System
 
 ---
 
@@ -77,7 +77,7 @@ assets/global.js
 
 ```text
 Shared Asset
-Version: v0.6
+Version: v0.6.1
 ```
 
 

@@ -2,11 +2,11 @@
 Signal Labs
 Tool: Time Off Calculator
 File: script.js
-Version: v0.9.9
+Version: v0.9.9.1
 Purpose: Tool-specific logic and event handling
 */
-const TOOL_VERSION = "v0.9.9";
-const TOOL_THEME = "Shared Action Bar";
+const TOOL_VERSION = "v0.9.9.1";
+const TOOL_THEME = "Shared Report Format";
 
 const categoryOptionsEl = document.getElementById("categoryOptions");
 const categoryInputCardsEl = document.getElementById("categoryInputCards");

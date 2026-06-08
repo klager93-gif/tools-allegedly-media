@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.9.2
+v0.9.9.3
 
 ## Theme
 
-Shared Action Bar
+Shared Report Format
 
 ---
 
@@ -19,7 +19,7 @@ Shared Action Bar
 - [ ] No duplicate changelog version headings exist.
 - [ ] No malformed version strings exist.
 - [ ] Header, footer, report, README, ROADMAP, FILEMANIFEST, and BUILDMANIFEST versions are synchronized.
-- [ ] Cache-busting references use v0.9.9.2.
+- [ ] Cache-busting references use v0.9.9.3.
 - [ ] TOOL_VERSION and TOOL_THEME are present.
 - [ ] Copy Results button exists.
 - [ ] Print Report button exists.
@@ -29,3 +29,11 @@ Shared Action Bar
 - [ ] Shared Deductions & Adjustments pattern is reviewed against Paycheck v0.2.
 - [ ] Print Report opens populated HTML text/table report.
 - [ ] Copy Results works.
+
+
+# Shared Report Format Checks
+
+- [ ] Report header uses shared Signal Labs format.
+- [ ] Report metadata includes Generated, Build, and Theme.
+- [ ] Report footer uses shared Signal Labs footer treatment.
+- [ ] Print Report remains real HTML/text, not an image.

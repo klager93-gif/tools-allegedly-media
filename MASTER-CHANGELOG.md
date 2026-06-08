@@ -10,6 +10,18 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-08
 
+### Home v0.6.1 — Shared Report System
+
+- Standardized printed report structure across the Signal Labs ecosystem.
+- Updated Paycheck to v0.3.4, Overtime to v0.9.9.3, and Time Off to v0.9.9.1 for shared report format alignment.
+- Added Source of Truth Disclosure requirements to the development standards.
+- Preserved calculator logic, saved settings, Copy Results, hidden ad slots, and no-live-ad behavior.
+
+---
+
+
+## 2026-06-08
+
 ### Home v0.6 — Shared UX Foundation
 
 - Added a shared sticky action bar system across Paycheck, Overtime, and Time Off.

@@ -8,11 +8,11 @@ Estimate future balances for vacation, sick time, personal time, comp time, holi
 
 ### Build
 
-v0.9.9
+v0.9.9.1
 
 ### Theme
 
-Shared Action Bar
+Shared Report Format
 
 ### Status
 
@@ -39,6 +39,6 @@ Active Development
 
 ---
 
-# v0.9.9 Shared Action Bar
+# v0.9.9.1 Shared Report Format
 
 This release moves Time Off Planner actions into the shared Signal Labs action bar while preserving existing planner behavior.

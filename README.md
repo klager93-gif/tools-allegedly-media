@@ -6,11 +6,11 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.6**
+**v0.6.1**
 
 ## Theme
 
-Shared UX Foundation
+Shared Report System
 
 ---
 
@@ -144,11 +144,11 @@ Example:
 
 ### Build
 
-v0.6
+v0.6.1
 
 ### Theme
 
-Shared UX Foundation
+Shared Report System
 
 ### Status
 

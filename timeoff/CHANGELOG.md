@@ -1,7 +1,7 @@
 ## Version 0.9.9
 
 **Date:** 2026-06-08  
-**Theme:** Shared Action Bar
+**Theme:** Shared Report Format
 
 ### Changes
 
@@ -12,6 +12,20 @@
 - No image-based report generation is used.
 
 ---
+
+## Version 0.9.9.1
+
+**Date:** 2026-06-08
+**Theme:** Shared Report Format
+
+### Changes
+
+- Confirmed Time Off printed report uses the shared Signal Labs report format.
+- Updated version, theme, documentation, and manifests for shared report system alignment.
+- Preserved Time Off calculations, saved settings, Copy Results, Print Report, and planner behavior.
+
+---
+
 
 ## Version 0.9.8
 

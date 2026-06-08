@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.3.3
+v0.3.4
 
 ## Theme
 
-Shared Action Bar
+Shared Report Format
 
 ---
 
@@ -24,7 +24,7 @@ Shared Action Bar
 | v0.3 | Hours & Earnings |
 | v0.3.1 | Premium Hours & Benefit Hours |
 | v0.3.2 | Professional Report Polish |
-| v0.3.3 | Shared Action Bar |
+| v0.3.4 | Shared Report Format |
 
 ---
 

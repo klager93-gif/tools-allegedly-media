@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.9
+v0.9.9.1
 
 ## Theme
 
-Shared Action Bar
+Shared Report Format
 
 ---
 
@@ -19,7 +19,7 @@ Shared Action Bar
 - [ ] No duplicate changelog version headings exist.
 - [ ] No malformed version strings exist.
 - [ ] Header, footer, report, README, ROADMAP, FILEMANIFEST, and BUILDMANIFEST versions are synchronized.
-- [ ] Cache-busting references use v0.9.9.
+- [ ] Cache-busting references use v0.9.9.1.
 - [ ] TOOL_VERSION and TOOL_THEME are present.
 - [ ] Category pills render.
 - [ ] Custom category pills work.
@@ -27,3 +27,11 @@ Shared Action Bar
 - [ ] Policy pills work.
 - [ ] Print Report opens populated HTML text/table report.
 - [ ] Copy Results works.
+
+
+# Shared Report Format Checks
+
+- [ ] Report header uses shared Signal Labs format.
+- [ ] Report metadata includes Generated, Build, and Theme.
+- [ ] Report footer uses shared Signal Labs footer treatment.
+- [ ] Print Report remains real HTML/text, not an image.

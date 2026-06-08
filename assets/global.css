@@ -2,7 +2,7 @@
 Signal Labs
 Shared Asset
 File: assets/global.css
-Version: v0.6
+Version: v0.6.1
 Purpose: Shared styles, navigation styling, modal styling, and ad slot framework
 */
 
@@ -768,3 +768,9 @@ body {
     flex: 1 1 44%;
   }
 }
+
+
+/*
+| Shared Report System - Home v0.6.1
+| Establishes the shared report formatting standard for Paycheck, Overtime, Time Off, and future tools.
+*/

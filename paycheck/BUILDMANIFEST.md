@@ -4,20 +4,20 @@
 
 ## Current Build
 
-v0.3.3
+v0.3.4
 
 ## Theme
 
-Shared Action Bar
+Shared Report Format
 
 ---
 
 # Required Validation Before ZIP
 
 - [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.3.3.
-- [ ] Footer version shows v0.3.3.
-- [ ] Cache-busting references use v0.3.3 for local files.
+- [ ] Header versions show v0.3.4.
+- [ ] Footer version shows v0.3.4.
+- [ ] Cache-busting references use v0.3.4 for local files.
 - [ ] Premium Hours pills render.
 - [ ] Benefit / Paid Leave Hours pills render.
 - [ ] Empty states render when no rows are selected.
@@ -28,3 +28,11 @@ Shared Action Bar
 - [ ] Saved settings work.
 - [ ] Hidden ad slots remain disabled.
 - [ ] No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+
+# Shared Report Format Checks
+
+- [ ] Report header uses shared Signal Labs format.
+- [ ] Report metadata includes Generated, Build, and Theme.
+- [ ] Report footer uses shared Signal Labs footer treatment.
+- [ ] Print Report remains real HTML/text, not an image.

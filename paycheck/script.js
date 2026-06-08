@@ -2,12 +2,12 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.3.3
+Version: v0.3.4
 Purpose: Tool-specific logic and event handling
 */
 
-const TOOL_VERSION = "v0.3.3";
-const TOOL_THEME = "Shared Action Bar";
+const TOOL_VERSION = "v0.3.4";
+const TOOL_THEME = "Shared Report Format";
 const STORAGE_KEY = "signalLabsPaycheckCalculatorV032";
 const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV031"];
 
@@ -721,246 +721,340 @@ function buildPaycheckProfessionalReportHtml() {
   const deductionRows = buildAdjustmentReportRows("deduction");
   const otherRows = buildAdjustmentReportRows("other");
 
-  return `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Paycheck Report</title>
-<style>
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    padding: 32px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #111827;
-    background: #f8fafc;
-    line-height: 1.45;
-  }
-  .report-page {
-    max-width: 920px;
-    margin: 0 auto;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 20px;
-    padding: 34px;
-    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
-  }
-  .report-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 24px;
-    align-items: flex-start;
-    border-bottom: 2px solid #111827;
-    padding-bottom: 18px;
-    margin-bottom: 24px;
-  }
-  .eyebrow {
-    margin: 0 0 7px;
-    color: #64748b;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-  }
-  h1 {
-    margin: 0;
-    font-size: 34px;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-  }
-  .meta {
-    color: #64748b;
-    font-size: 12px;
-    text-align: right;
-    line-height: 1.6;
-    white-space: nowrap;
-  }
-  .summary-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-  .summary-card {
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
-    padding: 14px;
-    background: #f8fafc;
-  }
-  .summary-card span {
-    display: block;
-    margin-bottom: 6px;
-    color: #64748b;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .summary-card strong {
-    display: block;
-    font-size: 20px;
-    line-height: 1.15;
-  }
-  .summary-card.net {
-    border-color: #86efac;
-    background: #f0fdf4;
-  }
-  .section {
-    margin-top: 24px;
-  }
-  .section h2 {
-    margin: 0 0 10px;
-    font-size: 18px;
-    line-height: 1.2;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #e5e7eb;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  th, td {
-    padding: 10px 12px;
-    border-bottom: 1px solid #e5e7eb;
-    text-align: left;
-    vertical-align: top;
-    font-size: 13px;
-  }
-  th {
-    background: #f1f5f9;
-    color: #334155;
-    font-size: 11px;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-  }
-  tr:last-child td { border-bottom: 0; }
-  .amount { text-align: right; font-weight: 800; white-space: nowrap; }
-  .muted { color: #64748b; }
-  .totals-table td:first-child { font-weight: 700; }
-  .totals-table .final td {
-    background: #f0fdf4;
-    border-top: 2px solid #86efac;
-    font-size: 15px;
-    font-weight: 900;
-  }
-  .note {
-    margin-top: 24px;
-    padding: 14px 16px;
-    border-radius: 14px;
-    border: 1px solid #e5e7eb;
-    color: #475569;
-    background: #f8fafc;
-    font-size: 12px;
-  }
-  footer {
-    margin-top: 24px;
-    color: #64748b;
-    font-size: 11px;
-    text-align: center;
-  }
-  @media print {
-    body { padding: 0; background: #fff; }
-    .report-page { border: 0; border-radius: 0; box-shadow: none; padding: 18px; }
-    .summary-grid { grid-template-columns: repeat(4, 1fr); }
-    .section { break-inside: avoid; }
-    .note { break-inside: avoid; }
-  }
-  @media (max-width: 760px) {
-    .report-header { flex-direction: column; }
-    .meta { text-align: left; white-space: normal; }
-    .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-</style>
-</head>
-<body>
-<div class="report-page">
-  <header class="report-header">
-    <div>
-      <p class="eyebrow">Signal Labs</p>
-      <h1>Paycheck Report</h1>
-    </div>
-    <div class="meta">
-      <div><strong>Generated:</strong> ${escapeHtml(generated)}</div>
-      <div><strong>Build:</strong> ${escapeHtml(TOOL_VERSION)}</div>
-      <div><strong>Theme:</strong> ${escapeHtml(TOOL_THEME)}</div>
-      <div><strong>Pay Period:</strong> ${escapeHtml(getPayPeriodLabel())}</div>
-    </div>
-  </header>
+  return `
+    <main class="report-page">
+      <header class="report-header">
+        <div class="brand">
+          <div class="brand-mark">SL</div>
+          <div>
+            <div class="brand-title">SIGNAL LABS</div>
+            <div class="report-title">Paycheck Calculator</div>
+          </div>
+        </div>
 
-  <section class="summary-grid" aria-label="Paycheck summary">
-    <div class="summary-card"><span>Before Taxes (Gross)</span><strong>${reportMoney(totals.grossPay)}</strong></div>
-    <div class="summary-card"><span>Total Paid Hours</span><strong>${reportNumber(totals.totalPaidHours)} hrs</strong></div>
-    <div class="summary-card"><span>Total Reductions</span><strong>-${reportMoney(totals.taxes + totals.deductions + totals.other)}</strong></div>
-    <div class="summary-card net"><span>Take-Home Pay (Net)</span><strong>${reportMoney(totals.takeHomePay)}</strong></div>
-  </section>
+        <div class="report-meta">
+          <div><strong>Generated:</strong> ${escapeHtml(generated)}</div>
+          <div><strong>Build:</strong> ${escapeHtml(TOOL_VERSION)}</div>
+          <div><strong>Theme:</strong> ${escapeHtml(TOOL_THEME)}</div>
+          <div><strong>Pay Period:</strong> ${escapeHtml(getPayPeriodLabel())}</div>
+        </div>
+      </header>
 
-  <section class="section">
-    <h2>Hours & Earnings</h2>
-    <table>
-      <thead><tr><th>Type</th><th>Details</th><th class="amount">Estimated Pay</th></tr></thead>
-      <tbody>
-        ${buildReportRows(regularRows)}
-        ${buildReportRows(premiumRows)}
-        ${buildReportRows(benefitRows)}
-      </tbody>
-    </table>
-  </section>
+      <section class="grid-2">
+        <div>
+          <h2>Summary</h2>
+          <dl class="summary-list">
+            <dt>Before Taxes (Gross)</dt><dd>${reportMoney(totals.grossPay)}</dd>
+            <dt>Total Paid Hours</dt><dd>${reportNumber(totals.totalPaidHours)} hrs</dd>
+            <dt>Total Reductions</dt><dd>-${reportMoney(totals.taxes + totals.deductions + totals.other)}</dd>
+            <dt>Take-Home Pay (Net)</dt><dd>${reportMoney(totals.takeHomePay)}</dd>
+          </dl>
+        </div>
 
-  <section class="section">
-    <h2>Deductions & Adjustments</h2>
-    <table>
-      <thead><tr><th>Type</th><th>Details</th><th class="amount">Estimated Amount</th></tr></thead>
-      <tbody>
-        <tr><th colspan="3">Taxes</th></tr>
-        ${buildReportRows(taxRows)}
-        <tr><th colspan="3">Deductions</th></tr>
-        ${buildReportRows(deductionRows)}
-        <tr><th colspan="3">Other Adjustments</th></tr>
-        ${buildReportRows(otherRows)}
-      </tbody>
-    </table>
-  </section>
+        <div>
+          <h2>Pay Details</h2>
+          <dl class="summary-list">
+            <dt>Hourly Rate</dt><dd>${reportMoney(totals.rate)}</dd>
+            <dt>Regular Hours</dt><dd>${reportNumber(totals.regularHours)} hrs</dd>
+            <dt>Premium Entries</dt><dd>${premiumRows.length}</dd>
+            <dt>Benefit Entries</dt><dd>${benefitRows.length}</dd>
+          </dl>
+        </div>
+      </section>
 
-  <section class="section">
-    <h2>Estimated Pay</h2>
-    <table class="totals-table">
-      <tbody>
-        <tr><td>Regular Pay</td><td class="amount">${reportMoney(totals.regularPay)}</td></tr>
-        <tr><td>Premium Pay</td><td class="amount">${reportMoney(totals.premiumPay)}</td></tr>
-        <tr><td>Benefit / Leave Pay</td><td class="amount">${reportMoney(totals.benefitPay)}</td></tr>
-        <tr><td>Before Taxes (Gross)</td><td class="amount">${reportMoney(totals.grossPay)}</td></tr>
-        <tr><td>Estimated Taxes</td><td class="amount">-${reportMoney(totals.taxes)}</td></tr>
-        <tr><td>Deductions</td><td class="amount">-${reportMoney(totals.deductions)}</td></tr>
-        <tr><td>Other Adjustments</td><td class="amount">-${reportMoney(totals.other)}</td></tr>
-        <tr><td>Effective Hourly Take-Home</td><td class="amount">${reportMoney(totals.effectiveRate)}</td></tr>
-        <tr class="final"><td>Take-Home Pay (Net)</td><td class="amount">${reportMoney(totals.takeHomePay)}</td></tr>
-      </tbody>
-    </table>
-  </section>
+      <section>
+        <h2>Hours & Earnings</h2>
+        <table>
+          <thead><tr><th>Type</th><th>Details</th><th class="value">Estimated Pay</th></tr></thead>
+          <tbody>
+            ${buildReportRows(regularRows)}
+            ${buildReportRows(premiumRows)}
+            ${buildReportRows(benefitRows)}
+            <tr class="total"><td colspan="2">Before Taxes (Gross)</td><td class="value">${reportMoney(totals.grossPay)}</td></tr>
+          </tbody>
+        </table>
+      </section>
 
-  <div class="note">
-    Results are estimates only and may differ from actual payroll withholding, employer policy, taxes, benefits, deductions, overtime rules, and payroll timing.
-  </div>
+      <section class="grid-2">
+        <div>
+          <h2>Taxes</h2>
+          <table>
+            <thead><tr><th>Description</th><th>Details</th><th class="value">Amount</th></tr></thead>
+            <tbody>${buildReportRows(taxRows)}</tbody>
+          </table>
+        </div>
 
-  <footer>Signal Labs • Paycheck Calculator • ${escapeHtml(TOOL_VERSION)}</footer>
-</div>
-<script>window.onload=function(){window.focus();window.print();};<\/script>
-</body>
-</html>`;
+        <div>
+          <h2>Deductions</h2>
+          <table>
+            <thead><tr><th>Description</th><th>Details</th><th class="value">Amount</th></tr></thead>
+            <tbody>${buildReportRows(deductionRows)}</tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>Other Adjustments</h2>
+        <table>
+          <thead><tr><th>Description</th><th>Details</th><th class="value">Amount</th></tr></thead>
+          <tbody>${buildReportRows(otherRows)}</tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Estimated Pay</h2>
+        <table>
+          <tbody>
+            <tr><td>Regular Pay</td><td class="value">${reportMoney(totals.regularPay)}</td></tr>
+            <tr><td>Premium Pay</td><td class="value">${reportMoney(totals.premiumPay)}</td></tr>
+            <tr><td>Benefit / Leave Pay</td><td class="value">${reportMoney(totals.benefitPay)}</td></tr>
+            <tr class="total"><td>Before Taxes (Gross)</td><td class="value">${reportMoney(totals.grossPay)}</td></tr>
+            <tr><td>Estimated Taxes</td><td class="value">-${reportMoney(totals.taxes)}</td></tr>
+            <tr><td>Deductions</td><td class="value">-${reportMoney(totals.deductions)}</td></tr>
+            <tr><td>Other Adjustments</td><td class="value">-${reportMoney(totals.other)}</td></tr>
+            <tr><td>Effective Hourly Take-Home</td><td class="value">${reportMoney(totals.effectiveRate)}</td></tr>
+            <tr class="success"><td>Take-Home Pay (Net)</td><td class="value">${reportMoney(totals.takeHomePay)}</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <ul class="notes">
+        <li>Results are estimates only and may differ from actual payroll withholding, employer policy, taxes, benefits, deductions, overtime rules, and payroll timing.</li>
+        <li>This report uses the shared Signal Labs report format.</li>
+      </ul>
+
+      <footer class="footer">
+        <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
+        <div><strong>Signal Labs</strong> • Paycheck Calculator • ${escapeHtml(TOOL_VERSION)}</div>
+      </footer>
+    </main>
+  `;
 }
 
-function printResults() {
-  const reportWindow = window.open("", "_blank", "width=980,height=1100");
+function getProfessionalReportCss() {
+  return `
+    @page {
+      size: letter;
+      margin: 0.45in;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: #111;
+      background: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .report-page {
+      width: 100%;
+      max-width: 7.6in;
+      margin: 0 auto;
+    }
+
+    .report-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: start;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #174a8b;
+      margin-bottom: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border: 2px solid #174a8b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #174a8b;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .brand-title {
+      font-size: 24px;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: #0c1b2d;
+    }
+
+    .report-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 2px;
+      color: #111;
+      letter-spacing: 0;
+    }
+
+    .report-meta {
+      font-size: 10px;
+      line-height: 1.45;
+      min-width: 190px;
+    }
+
+    h2 {
+      font-size: 12px;
+      color: #174a8b;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 12px 0 6px;
+    }
+
+    h3 {
+      font-size: 11px;
+      color: #174a8b;
+      margin: 8px 0 4px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .summary-list {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 5px 16px;
+      margin: 0;
+    }
+
+    .summary-list dt {
+      font-weight: 700;
+    }
+
+    .summary-list dd {
+      margin: 0;
+      text-align: right;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 9px;
+      break-inside: avoid;
+    }
+
+    th,
+    td {
+      border: 1px solid #b8c0c8;
+      padding: 5px 7px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f1f4f7;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    td.value,
+    th.value {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    tr.total td {
+      background: #eef4fb;
+      font-weight: 700;
+    }
+
+    tr.success td {
+      background: #eef8ef;
+      font-weight: 700;
+    }
+
+    .notes {
+      margin: 0 0 10px 18px;
+      padding: 0;
+    }
+
+    .notes li {
+      margin-bottom: 3px;
+    }
+
+    .footer {
+      border-top: 2px solid #174a8b;
+      margin-top: 12px;
+      padding-top: 8px;
+      text-align: center;
+      font-size: 10px;
+      color: #333;
+    }
+
+    .footer strong {
+      color: #0c2d55;
+    }
+
+    .muted {
+      color: #555;
+    }
+
+    @media print {
+      .report-page {
+        max-width: none;
+      }
+    }
+  `;
+}
+
+function openProfessionalReportWindow(reportHtml, title) {
+  const reportWindow = window.open("", "_blank", "width=900,height=1100");
+
   if (!reportWindow || reportWindow.closed) {
-    showMessage("Unable to open the print report window. Try allowing popups.", true);
-    return;
+    return false;
   }
 
   reportWindow.document.open();
-  reportWindow.document.write(buildPaycheckProfessionalReportHtml());
+  reportWindow.document.write(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>${escapeHtml(title)}</title>
+      <style>${getProfessionalReportCss()}</style>
+    </head>
+    <body>
+      ${reportHtml}
+      <script>
+        window.onload = function () {
+          window.focus();
+          setTimeout(function () {
+            window.print();
+          }, 250);
+        };
+      <\/script>
+    </body>
+    </html>
+  `);
   reportWindow.document.close();
+
+  return true;
+}
+
+function printResults() {
+  const opened = openProfessionalReportWindow(buildPaycheckProfessionalReportHtml(), "Paycheck Calculator Report");
+
+  if (!opened) {
+    showMessage("Unable to open the print report window. Try allowing popups for this site, then press Print Report again.", true);
+    return;
+  }
+
   showMessage("Print report opened.");
 }
 

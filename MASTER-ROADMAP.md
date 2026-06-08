@@ -10,14 +10,32 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Home | v0.6 | Shared UX Foundation |
-| Overtime | v0.9.9.2 | Shared Action Bar |
-| Time Off | v0.9.9 | Shared Action Bar |
-| Paycheck | v0.3.3 | Shared Action Bar |
+| Home | v0.6.1 | Shared Report System |
+| Overtime | v0.9.9.3 | Shared Report Format |
+| Time Off | v0.9.9.1 | Shared Report Format |
+| Paycheck | v0.3.4 | Shared Report Format |
 
 ---
 
 # Near-Term Roadmap
+
+## Home v0.6.1
+
+### Theme
+
+Shared Report System
+
+### Status
+
+Completed shared report alignment release.
+
+### Focus
+
+- Standardize printed reports across Paycheck, Overtime, and Time Off.
+- Add Source of Truth Disclosure to release standards.
+
+---
+
 
 ## Paycheck v0.4
 

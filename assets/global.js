@@ -2,7 +2,7 @@
 Signal Labs
 Shared Asset
 File: assets/global.js
-Version: v0.6
+Version: v0.6.1
 Purpose: Shared navigation, modal utilities, UTC helper, and ad slot initialization
 */
 
@@ -267,3 +267,9 @@ function initializeSharedActionBars() {
 }
 
 document.addEventListener('DOMContentLoaded', initializeSharedActionBars);
+
+
+/*
+| Shared Report System - Home v0.6.1
+| Shared report formatting is standardized at the tool report-builder level.
+*/

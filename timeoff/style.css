@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Time Off Calculator
 File: style.css
-Version: v0.9.9
+Version: v0.9.9.1
 Purpose: Tool-specific styles
 */
 .dashboard-layout {
@@ -2242,7 +2242,7 @@ v0.9.7 Planner Identity Overhaul
 
 /*
 --------------------------------
-v0.9.9 Stacked Planner Layout
+v0.9.9.1 Stacked Planner Layout
 --------------------------------
 */
 .dashboard-layout {
@@ -2271,8 +2271,8 @@ v0.9.9 Stacked Planner Layout
 
 /*
 --------------------------------
-v0.9.9 Shared Action Bar
+v0.9.9.1 Shared Report Format
 --------------------------------
 Purpose:
-- Preserves v0.9.9 stacked layout while report/HTML cleanup occurs in script and markup.
+- Preserves v0.9.9.1 stacked layout while report/HTML cleanup occurs in script and markup.
 */
