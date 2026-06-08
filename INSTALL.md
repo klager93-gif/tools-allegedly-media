@@ -3,8 +3,8 @@
 ## Versions
 
 ```text
-Overtime: v0.9.6.2 — Take-Home Controls Cleanup
-Time Off: v0.9.7 — Planner Identity Overhaul
+Overtime: v0.9.7 — Modal Suggested Pills Fix
+Time Off: v0.9.8 — Quick Start + Stacked Layout
 ```
 
 ## Backup Reminder
@@ -14,7 +14,7 @@ Before uploading this release, back up the current live Overtime and Time Off fo
 ## Backup Folder Name
 
 ```text
-2026-06-07-before-overtime-v0.9.6.2-timeoff-v0.9.7
+2026-06-07-before-overtime-v0.9.7-timeoff-v0.9.8
 ```
 
 ## Upload Instructions
@@ -37,17 +37,18 @@ MASTER-ROADMAP.md
 
 ### Overtime
 
-- Duplicate top Take-Home buttons are hidden.
-- Contextual Add Tax, Add Deduction, and Add Other Adjustment buttons remain.
-- Suggested tax/deduction/adjustment pills appear in modals where modal structure allows.
-- Deductions and Other Adjustments support Static Amount / Percentage selector where modal structure allows.
-- Print Report and Copy Results still work.
+- Suggested tax, deduction, and other adjustment pills appear inside their modal windows.
+- Suggested pills no longer render behind or outside the modal overlay.
+- Static Amount / Percentage selector remains available for deductions and other adjustments.
+- Saved settings, Print Report, and Copy Results still work.
 
 ### Time Off
 
-- Tool is reframed as Time Off Planner.
-- Top copy says Plan and Project Your Time Off.
-- Subtitle explains future balances and planned-day impact.
-- Planner intro, presets, summary, and clearer section labels appear.
-- Existing pill systems remain.
-- Print Report and Copy Results still work.
+- Hero title says Time Off Planner.
+- Hero subtitle is shorter and clearer.
+- Intro card says Quick Start.
+- Presets are simplified to Standard Vacation & Sick and Custom.
+- Public Safety and the question-pill row are removed.
+- Planner sections stack full-width instead of squeezing into narrow columns.
+- Planner Summary no longer compresses the form cards.
+- Saved settings, Print Report, and Copy Results still work.

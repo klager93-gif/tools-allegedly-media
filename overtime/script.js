@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.6.2
+Version: v0.9.7
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -569,18 +569,41 @@ function renderList(container, items, type, emptyText) {
   });
 }
 
+function getTakeHomeAdjustmentAmount(item, grossPay) {
+  const value = Number(item.value || 0);
+  return item.entryType === "percent" ? grossPay * (value / 100) : value;
+}
+
+function summarizeAdjustmentItems(items) {
+  const staticTotal = items
+    .filter((item) => item.entryType !== "percent")
+    .reduce((sum, item) => sum + Number(item.value || 0), 0);
+
+  const percentTotal = items
+    .filter((item) => item.entryType === "percent")
+    .reduce((sum, item) => sum + Number(item.value || 0), 0);
+
+  if (percentTotal > 0 && staticTotal > 0) {
+    return `${formatMoney(staticTotal)} + ${formatNumber(percentTotal)}%`;
+  }
+
+  if (percentTotal > 0) {
+    return `${formatNumber(percentTotal)}%`;
+  }
+
+  return formatMoney(staticTotal);
+}
+
 function renderAdjustments() {
   renderList(el("taxList"), taxes, "tax", "No taxes added.");
   renderList(el("deductionList"), deductions, "deduction", "No deductions added.");
   renderList(el("otherList"), otherAdjustments, "other", "No other adjustments added.");
 
   const totalTaxPercent = taxes.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const totalDeductions = deductions.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const totalOther = otherAdjustments.reduce((sum, item) => sum + Number(item.value || 0), 0);
 
   setText("taxTotalLabel", `Total: ${formatNumber(totalTaxPercent)}%`);
-  setText("deductionTotalLabel", `Total: ${formatMoney(totalDeductions)}`);
-  setText("otherTotalLabel", `Total: ${formatMoney(totalOther)}`);
+  setText("deductionTotalLabel", `Total: ${summarizeAdjustmentItems(deductions)}`);
+  setText("otherTotalLabel", `Total: ${summarizeAdjustmentItems(otherAdjustments)}`);
 }
 
 function getAdjustmentConfig(type) {
@@ -633,6 +656,7 @@ function openAdjustmentModal(type) {
   el("adjustmentModalMessage").textContent = "";
   el("adjustmentModalMessage").classList.remove("error");
   el("saveAdjustment").textContent = config.buttonText;
+  signalLabsConfigureAdjustmentModal(type);
 
   el("adjustmentModal").classList.remove("hidden");
   el("adjustmentName").focus();
@@ -667,10 +691,14 @@ function saveAdjustmentFromModal() {
     return;
   }
 
+  const modalBox = document.querySelector("#adjustmentModal .adjustment-modal-box");
+  const selectedEntryType = modalBox?.dataset.signalLabsEntryType || "amount";
+
   const item = {
     id: makeId(),
     name,
-    value
+    value,
+    entryType: activeAdjustmentType === "tax" ? "percent" : selectedEntryType
   };
 
   if (activeAdjustmentType === "tax") {
@@ -713,7 +741,10 @@ function renderBreakdown(container, items, type, grossPay) {
     if (type === "tax") {
       value.textContent = `-${formatMoney(grossPay * (Number(item.value || 0) / 100))}`;
     } else {
-      value.textContent = `-${formatMoney(Number(item.value || 0))}`;
+      const amount = getTakeHomeAdjustmentAmount(item, grossPay);
+      value.textContent = item.entryType === "percent"
+        ? `-${formatMoney(amount)} (${formatNumber(Number(item.value || 0))}%)`
+        : `-${formatMoney(amount)}`;
     }
 
     row.appendChild(name);
@@ -745,8 +776,8 @@ function estimateGrossForHours(hours) {
 
 function estimateTakeHomeForGross(grossPay) {
   const totalTaxPercent = taxes.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const fixedDeductions = deductions.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const otherTotal = otherAdjustments.reduce((sum, item) => sum + Number(item.value || 0), 0);
+  const fixedDeductions = deductions.reduce((sum, item) => sum + getTakeHomeAdjustmentAmount(item, grossPay), 0);
+  const otherTotal = otherAdjustments.reduce((sum, item) => sum + getTakeHomeAdjustmentAmount(item, grossPay), 0);
   const estimatedTaxes = grossPay * (totalTaxPercent / 100);
 
   return Math.max(grossPay - estimatedTaxes - fixedDeductions - otherTotal, 0);
@@ -943,8 +974,8 @@ function calculateOvertime() {
   const grossEffectiveRate = totalHours > 0 ? grossPay / totalHours : 0;
 
   const estimatedTaxes = grossPay * (totalTaxPercent / 100);
-  const fixedDeductions = deductions.reduce((sum, item) => sum + Number(item.value || 0), 0);
-  const otherTotal = otherAdjustments.reduce((sum, item) => sum + Number(item.value || 0), 0);
+  const fixedDeductions = deductions.reduce((sum, item) => sum + getTakeHomeAdjustmentAmount(item, grossPay), 0);
+  const otherTotal = otherAdjustments.reduce((sum, item) => sum + getTakeHomeAdjustmentAmount(item, grossPay), 0);
   const totalReductions = estimatedTaxes + fixedDeductions + otherTotal;
 
   const takeHomePay = Math.max(grossPay - totalReductions, 0);
@@ -1299,7 +1330,7 @@ function buildOvertimeProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.6.2</div>
+          <div><strong>Build:</strong> v0.9.7</div>
           <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
@@ -1386,7 +1417,7 @@ function buildOvertimeProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
-        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.6.2</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.7</div>
       </footer>
     </main>
   `;
@@ -1808,39 +1839,47 @@ function signalLabsInstallTypePills(container, defaultType, onChange) {
   container.prepend(row);
 }
 
-function signalLabsEnhanceTakeHomeModals() {
-  const dialogs = Array.from(document.querySelectorAll(".modal, dialog, [role='dialog'], .modal-content"));
+function signalLabsConfigureAdjustmentModal(type) {
+  const modalBox = document.querySelector("#adjustmentModal .adjustment-modal-box");
+  const help = el("adjustmentModalHelp");
+  if (!modalBox || !help) return;
 
-  dialogs.forEach((dialog) => {
-    const text = dialog.textContent.toLowerCase();
+  modalBox.querySelectorAll(".signal-labs-dynamic-modal-control").forEach((node) => node.remove());
+  modalBox.dataset.signalLabsTypePillsInstalled = "false";
+  modalBox.dataset.signalLabsPillsInstalled = "false";
 
-    if (text.includes("tax") && !dialog.dataset.signalLabsTaxEnhanced) {
-      dialog.dataset.signalLabsTaxEnhanced = "true";
-      signalLabsInstallSuggestedPills(dialog, SIGNAL_LABS_SUGGESTED_TAXES, (item) => {
-        signalLabsFillFirstAvailable(["#taxName", "[name='taxName']", "input[placeholder*='Tax' i]", "input[placeholder*='Name' i]"], item.name);
-        if (item.percent) {
-          signalLabsFillFirstAvailable(["#taxRate", "[name='taxRate']", "input[placeholder*='Percent' i]", "input[placeholder*='Rate' i]"], item.percent);
-        }
-      });
-    }
+  const controlWrap = document.createElement("div");
+  controlWrap.className = "signal-labs-dynamic-modal-control";
 
-    if ((text.includes("deduction") || text.includes("adjustment")) && !dialog.dataset.signalLabsAmountPercentEnhanced) {
-      dialog.dataset.signalLabsAmountPercentEnhanced = "true";
-      const isDeduction = text.includes("deduction");
-      signalLabsInstallTypePills(dialog, "amount", (type) => {
-        const amountInput = signalLabsFindModalLabelInput(["amount"]) || signalLabsFindModalLabelInput(["percent"]);
-        if (amountInput) {
-          amountInput.placeholder = type === "percent" ? "Example: 6.5" : "Example: 25.00";
-        }
-      });
+  help.insertAdjacentElement("afterend", controlWrap);
 
-      signalLabsInstallSuggestedPills(dialog, SIGNAL_LABS_SUGGESTED_DEDUCTIONS, (item) => {
-        signalLabsFillFirstAvailable(["#deductionName", "#adjustmentName", "[name='deductionName']", "[name='adjustmentName']", "input[placeholder*='Name' i]"], item.name);
-        const typeButton = dialog.querySelector(`.adjustment-type-pill[data-adjustment-type="${item.type}"]`);
-        if (typeButton) typeButton.click();
-      });
-    }
+  if (type === "tax") {
+    signalLabsInstallSuggestedPills(controlWrap, SIGNAL_LABS_SUGGESTED_TAXES, (item) => {
+      el("adjustmentName").value = item.name;
+      if (item.percent) el("adjustmentValue").value = item.percent;
+    });
+    return;
+  }
+
+  signalLabsInstallSuggestedPills(controlWrap, SIGNAL_LABS_SUGGESTED_DEDUCTIONS, (item) => {
+    el("adjustmentName").value = item.name;
+    const typeButton = controlWrap.querySelector(`.adjustment-type-pill[data-adjustment-type="${item.type}"]`);
+    if (typeButton) typeButton.click();
   });
+
+  signalLabsInstallTypePills(controlWrap, "amount", (entryType) => {
+    modalBox.dataset.signalLabsEntryType = entryType;
+    const valueInput = el("adjustmentValue");
+    const valueLabel = el("adjustmentValueLabel");
+    if (valueInput) valueInput.placeholder = entryType === "percent" ? "Example: 6.5" : "Example: 25.00";
+    if (valueLabel) valueLabel.textContent = entryType === "percent" ? "Percentage" : (type === "deduction" ? "Deduction Amount" : "Adjustment Amount");
+  });
+
+  modalBox.dataset.signalLabsEntryType = "amount";
+}
+
+function signalLabsEnhanceTakeHomeModals() {
+  // Modal controls are installed directly inside the adjustment modal by openAdjustmentModal().
 }
 
 function signalLabsHideDuplicateTakeHomeButtons() {

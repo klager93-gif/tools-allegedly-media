@@ -1,3 +1,19 @@
+## Version 0.9.7
+
+**Date:** 2026-06-07  
+**Theme:** Modal Suggested Pills Fix
+
+### Changes
+
+- Fixed suggested tax, deduction, and other adjustment pills rendering outside the adjustment modal.
+- Moved suggested controls into the modal body below the modal explanation text.
+- Added cleaner dynamic modal controls so each modal type shows only the relevant suggestions.
+- Preserved Static Amount / Percentage selector support for deductions and other adjustments.
+- Preserved saved inputs, Print Report, Copy Results, and optional section behavior.
+- No image-based report generation is used.
+
+---
+
 ## Version 0.9.6.2
 
 **Date:** 2026-06-07  

@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.7
+v0.9.8
 
 ## Theme
 
-Planner Identity Overhaul
+Quick Start + Stacked Layout
 
 ---
 
@@ -137,11 +137,25 @@ Planner Identity Overhaul
 
 # Planner Identity Overhaul Checks
 
-- [ ] Hero says Plan and Project Your Time Off.
+- [ ] Hero says Time Off Planner.
 - [ ] Subtitle explains planned-day impact.
 - [ ] Planner intro card appears.
 - [ ] Preset pills appear.
 - [ ] Section names are clearer.
 - [ ] Planner summary appears.
+- [ ] Print Report still works.
+- [ ] Copy Results still works.
+
+
+# Quick Start + Stacked Layout Checks
+
+- [ ] Hero says Time Off Planner.
+- [ ] Hero subtitle is concise and benefit-focused.
+- [ ] Intro card says Quick Start.
+- [ ] Public Safety preset is removed.
+- [ ] Standard Vacation & Sick and Custom presets remain.
+- [ ] Question pills are removed.
+- [ ] Main planner sections stack full-width.
+- [ ] Planner Summary no longer squeezes the form cards.
 - [ ] Print Report still works.
 - [ ] Copy Results still works.

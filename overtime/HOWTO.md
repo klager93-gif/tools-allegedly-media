@@ -134,6 +134,6 @@ Info icons are smaller and better aligned. Pill controls are cleaner and more co
 
 ---
 
-# v0.9.6.2 Take-Home Controls Cleanup
+# v0.9.7 Modal Suggested Pills Fix
 
 Use the contextual buttons in Taxes, Deductions, and Other Adjustments. Suggested pills can fill common names, and deductions/adjustments can use static amount or percentage where supported.

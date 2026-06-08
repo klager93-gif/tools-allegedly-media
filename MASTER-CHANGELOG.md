@@ -10,6 +10,26 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ## 2026-06-07
 
+### Overtime v0.9.7 — Modal Suggested Pills Fix
+
+- Fixed suggested tax, deduction, and other adjustment pills rendering outside modal windows.
+- Moved suggested controls into the modal content area.
+- Preserved Static Amount / Percentage support, saved inputs, Print Report, and Copy Results.
+
+---
+
+### Time Off v0.9.8 — Quick Start + Stacked Layout
+
+- Shortened the hero title to Time Off Planner.
+- Replaced the intro card with clearer Quick Start copy.
+- Removed Public Safety and question-pill clutter.
+- Simplified presets to Standard Vacation & Sick and Custom.
+- Converted the planner to stacked full-width sections.
+- Prevented Planner Summary from squeezing form cards.
+- Preserved Print Report, Copy Results, saved settings, and planner controls.
+
+---
+
 ### Overtime v0.9.6.2 — Take-Home Controls Cleanup
 
 - Removed duplicate top-level Take-Home Estimate action buttons.

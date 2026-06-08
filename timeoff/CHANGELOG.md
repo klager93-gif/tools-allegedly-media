@@ -1,3 +1,24 @@
+## Version 0.9.8
+
+**Date:** 2026-06-07  
+**Theme:** Quick Start + Stacked Layout
+
+### Changes
+
+- Shortened the hero title to `Time Off Planner`.
+- Replaced the hero subtitle with clearer benefit-focused copy.
+- Replaced the intro card heading with `Quick Start`.
+- Rewrote the intro card description to explain future balances and presets more clearly.
+- Removed the Public Safety preset.
+- Simplified presets to Standard Vacation & Sick and Custom.
+- Removed the question-pill row from the intro card.
+- Converted the planner layout to stacked full-width sections.
+- Prevented Planner Summary from squeezing the main form cards into a narrow column.
+- Preserved category pills, custom categories, quick hour pills, policy pills, event chips, expandable notes, Print Report, and Copy Results.
+- No image-based report generation is used.
+
+---
+
 ## Version 0.9.7
 
 **Date:** 2026-06-07  

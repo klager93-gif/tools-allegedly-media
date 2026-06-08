@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.9.7**
+**v0.9.8**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.9.8 | Quick Start + Stacked Layout |
 | v0.9.7 | Planner Identity Overhaul |
 | v0.9.6.2 | Category Pill Visibility Fix |
 | v0.9.6.1 | UI Identity Polish |

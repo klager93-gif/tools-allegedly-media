@@ -4,7 +4,7 @@
 
 ## Current Version
 
-v0.9.7
+v0.9.8
 
 ## Theme
 

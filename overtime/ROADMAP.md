@@ -11,7 +11,7 @@
 
 ## Current Version
 
-**v0.9.6.2**
+**v0.9.7**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.9.7 | Modal Suggested Pills Fix |
 | v0.9.6.2 | Take-Home Controls Cleanup |
 | v0.9.6.1 | UI Identity Polish |
 | v0.9.6 | Signal Labs UI Identity |

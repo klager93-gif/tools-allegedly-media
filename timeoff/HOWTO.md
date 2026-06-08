@@ -198,6 +198,6 @@ The Categories section now shows only category pills. The old checkbox grid is h
 
 ---
 
-# v0.9.7 Planner Identity Overhaul
+# v0.9.8 Quick Start + Stacked Layout
 
 Use Time Off Planner to estimate future balances, planned usage, remaining hours, and possible use-it-or-lose-it risk.

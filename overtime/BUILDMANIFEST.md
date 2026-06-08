@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.6.2
+v0.9.7
 
 ## Theme
 
-Take-Home Controls Cleanup
+Modal Suggested Pills Fix
 
 ---
 
@@ -121,5 +121,16 @@ Take-Home Controls Cleanup
 - [ ] Suggested tax pills appear in tax modal.
 - [ ] Suggested deduction/adjustment pills appear in relevant modals.
 - [ ] Static Amount / Percentage selector appears where modal structure allows.
+- [ ] Print Report still works.
+- [ ] Copy Results still works.
+
+
+# Modal Suggested Pills Fix Checks
+
+- [ ] Suggested tax pills appear inside the Add Tax modal.
+- [ ] Suggested deduction pills appear inside the Add Deduction modal.
+- [ ] Suggested other adjustment pills appear inside the Add Other Adjustment modal.
+- [ ] Suggested pills do not render behind the modal overlay.
+- [ ] Static Amount / Percentage selector remains inside the modal.
 - [ ] Print Report still works.
 - [ ] Copy Results still works.

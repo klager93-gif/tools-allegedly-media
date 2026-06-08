@@ -11,8 +11,8 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Area | Current Version | Theme |
 |---|---:|---|
 | Home | v0.4.1 | Master Documentation |
-| Overtime | v0.9.6.2 | Take-Home Controls Cleanup |
-| Time Off | v0.9.7 | Planner Identity Overhaul |
+| Overtime | v0.9.7 | Modal Suggested Pills Fix |
+| Time Off | v0.9.8 | Quick Start + Stacked Layout |
 
 ---
 
@@ -58,6 +58,7 @@ Final Pre-1.0 Polish
 
 ### Planned Focus
 
+- Verify suggested modal pills remain inside Add Tax, Add Deduction, and Add Other Adjustment modals.
 - Verify Automatic / Custom OT threshold pills.
 - Verify info icons and footer notes.
 - Verify optional collapsible sections.
@@ -75,6 +76,8 @@ Final Pre-1.0 Polish
 
 ### Planned Focus
 
+- Verify stacked full-width planner layout.
+- Verify Quick Start presets.
 - Verify category pill-only selector.
 - Verify custom category pills.
 - Verify quick hour pills.

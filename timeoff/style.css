@@ -2,14 +2,14 @@
 Signal Labs
 Tool: Time Off Calculator
 File: style.css
-Version: v0.9.7
+Version: v0.9.8
 Purpose: Tool-specific styles
 */
 .dashboard-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .left-stack {
@@ -265,7 +265,8 @@ select:focus {
 @media (min-width: 1051px) {
 
   .dashboard-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(430px, .95fr);
+    display: flex;
+    flex-direction: column;
   }
 
   .form-grid {
@@ -281,7 +282,8 @@ select:focus {
 @media (max-width: 1050px) {
 
   .dashboard-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 
   .results-card {
@@ -2235,4 +2237,33 @@ v0.9.7 Planner Identity Overhaul
   .planner-question-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+/*
+--------------------------------
+v0.9.8 Stacked Planner Layout
+--------------------------------
+*/
+.dashboard-layout {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+}
+
+.left-stack {
+  width: 100% !important;
+}
+
+.dashboard-layout > *,
+.left-stack > *,
+.planner-summary-card,
+.results-card {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.planner-intro-card .section-title {
+  margin-bottom: 12px;
 }

@@ -193,7 +193,7 @@ Signal Labs tools are intended to be:
 
 ### Build
 
-v0.9.7
+v0.9.8
 
 ### Theme
 
@@ -334,6 +334,6 @@ Fixes the Time Off Categories section so only the pill selector is visible. The 
 
 ---
 
-# v0.9.7 Planner Identity Overhaul
+# v0.9.8 Quick Start + Stacked Layout
 
 Reframes Time Off as a planner that answers how much PTO the user will have, how planned days affect balances, and whether hours may be lost at reset.
