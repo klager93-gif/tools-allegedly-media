@@ -10,6 +10,12 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ## 2026-06-08
 
+### Overtime v0.9.9.1 — Deductions & Adjustments Pattern Sync
+
+- Synced Overtime adjustment modal styling and shared behavior with the Paycheck v0.2 Deductions & Adjustments pattern.
+- Standardized suggested pills and Static Amount / Percentage controls where shared patterns overlap.
+- Preserved Overtime-specific calculations, reports, saved settings, and Target Pay behavior.
+
 ### Paycheck v0.2 — Deductions & Adjustments
 
 - Added itemized taxes, deductions, and other paycheck adjustments.

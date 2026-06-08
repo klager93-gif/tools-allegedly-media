@@ -159,3 +159,10 @@ Before Taxes (Gross) means pay before taxes and deductions. Take-Home Pay (Net) 
 # v0.9.9 Pre-1.0 Sync & Metadata Cleanup
 
 This release synchronizes version strings, report metadata, documentation, and manifests before Overtime v1.0.
+
+
+---
+
+# v0.9.9.1 Deductions & Adjustments Pattern Sync
+
+Overtime uses the same shared adjustment pattern direction as Paycheck where practical. Suggested pills, Static Amount / Percentage controls, and Add Tax / Add Deduction / Add Other Adjustment modal behavior should remain visually and behaviorally consistent across both tools unless there is a clear reason to diverge.

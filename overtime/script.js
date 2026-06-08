@@ -2,11 +2,11 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.9
+Version: v0.9.9.1
 Purpose: Tool-specific logic and event handling
 */
-const TOOL_VERSION = "v0.9.9";
-const TOOL_THEME = "Pre-1.0 Sync & Metadata Cleanup";
+const TOOL_VERSION = "v0.9.9.1";
+const TOOL_THEME = "Deductions & Adjustments Pattern Sync";
 
 const rateInput = document.getElementById("rate");
 const hoursInput = document.getElementById("hours");
@@ -522,7 +522,7 @@ function createAdjustmentItem(item, type) {
 
   const label = document.createElement("span");
 
-  if (type === "tax") {
+  if (type === "tax" || item.entryType === "percent") {
     label.textContent = `${item.name} — ${formatNumber(item.value)}%`;
   } else {
     label.textContent = `${item.name} — ${formatMoney(item.value)}`;
@@ -625,7 +625,7 @@ function getAdjustmentConfig(type) {
   if (type === "deduction") {
     return {
       title: "Add Deduction",
-      help: "Add a fixed deduction amount. Example: Insurance at $75.",
+      help: "Add a deduction as a static amount or percentage. Example: Health Insurance at $150 or Retirement at 5%.",
       nameLabel: "Deduction Name",
       valueLabel: "Deduction Amount",
       defaultName: "Insurance",
@@ -636,7 +636,7 @@ function getAdjustmentConfig(type) {
 
   return {
     title: "Add Other Adjustment",
-    help: "Add any other fixed amount to subtract from estimated take-home pay.",
+    help: "Add another adjustment as a static amount or percentage. Example: Union Dues at $25 or Retirement at 5%.",
     nameLabel: "Adjustment Name",
     valueLabel: "Adjustment Amount",
     defaultName: "Other",
@@ -1753,11 +1753,19 @@ const SIGNAL_LABS_SUGGESTED_TAXES = [
 ];
 
 const SIGNAL_LABS_SUGGESTED_DEDUCTIONS = [
-  { name: "Retirement", type: "percent" },
-  { name: "Insurance", type: "amount" },
-  { name: "Union Dues", type: "amount" },
-  { name: "Deferred Comp", type: "percent" },
-  { name: "HSA", type: "amount" }
+  { name: "Retirement", type: "percent", value: "5" },
+  { name: "Health Insurance", type: "static", value: "150" },
+  { name: "Dental / Vision", type: "static", value: "20" },
+  { name: "Deferred Comp", type: "percent", value: "3" },
+  { name: "HSA", type: "static", value: "50" }
+];
+
+const SIGNAL_LABS_SUGGESTED_OTHER_ADJUSTMENTS = [
+  { name: "Union Dues", type: "static", value: "25" },
+  { name: "Garnishment", type: "static", value: "50" },
+  { name: "Child Support", type: "static", value: "100" },
+  { name: "Uniform Deduction", type: "static", value: "15" },
+  { name: "Other", type: "static", value: "0" }
 ];
 
 function signalLabsFindModalLabelInput(labelWords) {
@@ -1794,10 +1802,10 @@ function signalLabsInstallSuggestedPills(container, items, onSelect) {
   items.forEach((item) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "suggested-entry-pill";
+    button.className = "suggested-pill suggested-entry-pill";
     button.textContent = item.name;
     button.addEventListener("click", () => {
-      row.querySelectorAll(".suggested-entry-pill").forEach((pill) => pill.classList.remove("is-selected"));
+      row.querySelectorAll(".suggested-pill, .suggested-entry-pill").forEach((pill) => pill.classList.remove("is-selected"));
       button.classList.add("is-selected");
       onSelect(item);
     });
@@ -1821,12 +1829,12 @@ function signalLabsInstallTypePills(container, defaultType, onChange) {
   row.setAttribute("aria-label", "Entry type");
 
   [
-    ["amount", "Static Amount"],
+    ["static", "Static Amount"],
     ["percent", "Percentage"]
   ].forEach(([value, label]) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.className = "adjustment-type-pill" + (value === defaultType ? " is-selected" : "");
+    button.className = "amount-type-pill adjustment-type-pill" + (value === defaultType ? " is-selected" : "");
     button.dataset.adjustmentType = value;
     button.textContent = label;
     button.addEventListener("click", () => {
@@ -1864,13 +1872,20 @@ function signalLabsConfigureAdjustmentModal(type) {
     return;
   }
 
-  signalLabsInstallSuggestedPills(controlWrap, SIGNAL_LABS_SUGGESTED_DEDUCTIONS, (item) => {
+  const suggestions = type === "other"
+    ? SIGNAL_LABS_SUGGESTED_OTHER_ADJUSTMENTS
+    : SIGNAL_LABS_SUGGESTED_DEDUCTIONS;
+
+  signalLabsInstallSuggestedPills(controlWrap, suggestions, (item) => {
     el("adjustmentName").value = item.name;
+    if (typeof item.value !== "undefined") {
+      el("adjustmentValue").value = item.value;
+    }
     const typeButton = controlWrap.querySelector(`.adjustment-type-pill[data-adjustment-type="${item.type}"]`);
     if (typeButton) typeButton.click();
   });
 
-  signalLabsInstallTypePills(controlWrap, "amount", (entryType) => {
+  signalLabsInstallTypePills(controlWrap, "static", (entryType) => {
     modalBox.dataset.signalLabsEntryType = entryType;
     const valueInput = el("adjustmentValue");
     const valueLabel = el("adjustmentValueLabel");
@@ -1878,7 +1893,7 @@ function signalLabsConfigureAdjustmentModal(type) {
     if (valueLabel) valueLabel.textContent = entryType === "percent" ? "Percentage" : (type === "deduction" ? "Deduction Amount" : "Adjustment Amount");
   });
 
-  modalBox.dataset.signalLabsEntryType = "amount";
+  modalBox.dataset.signalLabsEntryType = "static";
 }
 
 function signalLabsEnhanceTakeHomeModals() {

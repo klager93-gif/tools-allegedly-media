@@ -1,3 +1,20 @@
+## Version 0.9.9.1
+
+**Date:** 2026-06-08  
+**Theme:** Deductions & Adjustments Pattern Sync
+
+### Changes
+
+- Synced Overtime adjustment modal styling and behavior with the Paycheck v0.2 shared Deductions & Adjustments pattern.
+- Added shared suggested pill and amount-type pill aliases while preserving existing Overtime class names.
+- Updated deduction and other adjustment suggestions to better match Paycheck defaults.
+- Added percentage display support for deduction and other adjustment list items.
+- Standardized Static Amount / Percentage modal wording and behavior.
+- Preserved Overtime-specific calculations, saved settings, Print Report, Copy Results, optional sections, and Target Pay behavior.
+- No image-based report generation is used.
+
+---
+
 ## Version 0.9.9
 
 **Date:** 2026-06-08  
@@ -22,7 +39,7 @@
 
 ### Changes
 
-- Renamed Basic Pay to Overtime Details.
+- Renamed Basic Information to Overtime Details.
 - Renamed Take-Home Estimate to Deductions & Adjustments.
 - Renamed Advanced Pay to Pay Details.
 - Renamed Goal Mode to Target Pay.

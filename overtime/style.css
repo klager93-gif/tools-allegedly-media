@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: style.css
-Version: v0.9.9
+Version: v0.9.9.1
 Purpose: Tool-specific styles
 */
 /* Overtime Calculator v0.8.3.1 — Live Folder Resync */
@@ -1951,3 +1951,59 @@ Purpose:
   vertical-align: middle !important;
 }
 
+
+
+/*
+--------------------------------
+v0.9.9.1 Deductions & Adjustments Pattern Sync
+--------------------------------
+Purpose:
+- Align Overtime adjustment modal pills with the Paycheck v0.2 shared pattern.
+- Keep legacy Overtime class names working while adding shared class aliases.
+*/
+
+.suggested-pill-row,
+.amount-type-row,
+.adjustment-type-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.suggested-pill,
+.suggested-entry-pill,
+.amount-type-pill,
+.adjustment-type-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 13px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.suggested-pill:hover,
+.suggested-entry-pill:hover,
+.amount-type-pill:hover,
+.adjustment-type-pill:hover {
+  border-color: rgba(34, 197, 94, 0.52);
+  transform: translateY(-1px);
+}
+
+.suggested-pill.is-selected,
+.suggested-entry-pill.is-selected,
+.amount-type-pill.is-selected,
+.adjustment-type-pill.is-selected {
+  border-color: rgba(34, 197, 94, 0.72);
+  background: rgba(34, 197, 94, 0.14);
+  color: #86efac;
+}

@@ -8,11 +8,11 @@ Estimate regular pay, overtime pay, before-tax pay, taxes, deductions, take-home
 
 ### Build
 
-v0.9.9
+v0.9.9.1
 
 ### Theme
 
-Pre-1.0 Sync & Metadata Cleanup
+Deductions & Adjustments Pattern Sync
 
 ### Status
 
@@ -28,6 +28,7 @@ Active Development
 - Currency display options.
 - Deductions & Adjustments for taxes, deductions, retirement, insurance, union dues, and custom adjustments.
 - Static Amount / Percentage support for deductions and other adjustments.
+- Synced Deductions & Adjustments pattern with Paycheck v0.2 where shared behavior overlaps.
 - Suggested entry pills inside adjustment modals.
 - Pay Details for shift differential, double time, and bonuses.
 - Target Pay planning.

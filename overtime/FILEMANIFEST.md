@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.9
+v0.9.9.1
 
 ## Theme
 
-Pre-1.0 Sync & Metadata Cleanup
+Deductions & Adjustments Pattern Sync
 
 ---
 
@@ -63,4 +63,15 @@ buildOvertimeResultsSummary
 buildOvertimeProfessionalReportHtml
 TOOL_VERSION
 TOOL_THEME
+```
+
+# Shared Pattern Checks
+
+```text
+Suggested pills
+Static Amount
+Percentage
+Add Tax
+Add Deduction
+Add Other Adjustment
 ```

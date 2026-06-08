@@ -59,6 +59,7 @@ This file tracks actual release order across the Signal Labs ecosystem.
 | 47 | 2026-06-08 | Time Off v0.9.9 | Pre-1.0 Cleanup & Report Fix | Fixed report helpers and docs. |
 | 48 | 2026-06-08 | Home v0.5.1 + Paycheck v0.1.1 | Navigation Refresh & Paycheck Integration | Added Paycheck to Home/nav and hidden ad framework. |
 | 49 | 2026-06-08 | Paycheck v0.2 | Deductions & Adjustments | Added itemized adjustment system. |
+| 50 | 2026-06-08 | Overtime v0.9.9.1 | Deductions & Adjustments Pattern Sync | Synced shared deduction/adjustment modal patterns with Paycheck v0.2. |
 
 ---
 
