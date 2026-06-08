@@ -1,24 +1,22 @@
 # Signal Labs Paycheck Calculator
 
-Estimate gross pay, taxes, deductions, and take-home pay.
+Estimate gross pay, taxes, deductions, adjustments, and take-home pay.
 
 ---
 
 # Current Version
 
-**v0.1.1**
+**v0.2**
 
 ## Theme
 
-Foundation + Hidden Ad Framework
+Deductions & Adjustments
 
 ---
 
 # Purpose
 
-The Paycheck Calculator is a simple first-version paycheck estimator for hourly workers.
-
-It estimates gross pay, estimated taxes, deductions, take-home pay, and effective hourly take-home rate.
+The Paycheck Calculator is a paycheck planning tool for hourly workers. It estimates before-tax pay, itemized taxes, deductions, other adjustments, take-home pay, and effective hourly take-home rate.
 
 ---
 
@@ -28,9 +26,15 @@ It estimates gross pay, estimated taxes, deductions, take-home pay, and effectiv
 - Hours worked input.
 - Pay period selector.
 - Currency selector.
-- Estimated tax rate input.
-- Deduction input.
-- Take-home pay estimate.
+- Add Tax modal.
+- Add Deduction modal.
+- Add Other Adjustment modal.
+- Suggested tax, deduction, and adjustment pills.
+- Static Amount / Percentage selector.
+- Itemized adjustment lists.
+- Before Taxes (Gross) result.
+- Take-Home Pay (Net) result.
+- Effective hourly take-home estimate.
 - Copy Results.
 - Print Report.
 - Saved settings.
@@ -41,6 +45,12 @@ It estimates gross pay, estimated taxes, deductions, take-home pay, and effectiv
 
 ---
 
+# Development Notes
+
+Paycheck v0.2 borrows the shared adjustment-pattern concept from Overtime. Per Signal Labs standards, future changes to shared patterns such as suggested pills, amount type selectors, and adjustment modals should be evaluated across all tools that use them.
+
+---
+
 # Status
 
-Initial prototype with hidden ad framework.
+Active development.

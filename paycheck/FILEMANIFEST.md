@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.1.1
+v0.2
 
 ## Theme
 
-Foundation + Hidden Ad Framework
+Deductions & Adjustments
 
 ---
 
@@ -28,11 +28,51 @@ BUILDMANIFEST.md
 
 ---
 
-# Required Checks
+# Shared Dependencies
 
-- Paycheck Calculator identity present.
-- Copy Results present.
-- Print Report present.
-- Disabled top ad slot present.
-- Disabled results ad slot present.
-- Disabled footer ad slot present.
+```text
+../assets/global.css?v=0.5.1
+../assets/global.js?v=0.5.1
+```
+
+---
+
+# Identity Checks
+
+## Must Contain
+
+```text
+Paycheck Calculator
+hourlyRateInput
+```
+
+## Must Not Contain
+
+```text
+categoryOptions
+document.getElementById("rate")
+```
+
+---
+
+# Feature Checks
+
+```text
+copyResults
+printResults
+adjustmentModal
+suggestedAdjustmentPills
+amountTypePercent
+amountTypeStatic
+```
+
+---
+
+# Hidden Ad Slot Checks
+
+```text
+paycheck-top
+paycheck-results
+paycheck-footer
+data-ad-status="disabled"
+```

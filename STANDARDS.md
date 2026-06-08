@@ -37,11 +37,7 @@ Build second.
 
 Package last.
 
-If uncertain:
-
-- Stop.
-- Discuss.
-- Never silently assume.
+If uncertain, stop, discuss, and never silently assume.
 
 ---
 
@@ -65,12 +61,7 @@ When files appear mixed, corrupted, or inconsistent, replace folders rather than
 
 # Rule 5 — Fail Loudly
 
-If validation fails:
-
-- Report what failed.
-- Report which file failed.
-- Explain why it matters.
-- Explain what must be corrected.
+If validation fails, report what failed, which file failed, why it matters, and what must be corrected.
 
 Never silently continue.
 
@@ -99,33 +90,13 @@ Documentation evolves alongside code.
 
 ## Master Documentation Requirements
 
-### MASTER-CHANGELOG.md
+MASTER-CHANGELOG.md must be updated for every release without exception, regardless of whether the change occurs in Home, shared assets, Overtime, Time Off, Paycheck, or future tools.
 
-Must be updated for every release without exception.
+MASTER-ROADMAP.md must be updated whenever versions, themes, plans, tools, or priorities change.
 
-This applies regardless of where the change occurs: Home, shared assets, Overtime, Time Off, Paycheck, or future tools.
+RELEASE-HISTORY.md must be updated whenever a release occurs.
 
-No release is complete until the master changelog is updated.
-
-Purpose: high-level running history of the entire Signal Labs ecosystem.
-
-If more detail is needed, refer to the tool's own CHANGELOG.md.
-
-### MASTER-ROADMAP.md
-
-Must be updated whenever versions, themes, plans, tools, or priorities change.
-
-Purpose: authoritative ecosystem future.
-
-### RELEASE-HISTORY.md
-
-Must be updated whenever a release occurs.
-
-Purpose: chronological release order.
-
-Failure to update master documentation is a rule violation.
-
-No release is complete until tool documentation, master documentation, and release history are updated.
+Failure to update master documentation is a rule violation. No release is complete until tool documentation, master documentation, and release history are updated.
 
 | File | Purpose |
 |---|---|
@@ -139,13 +110,7 @@ No release is complete until tool documentation, master documentation, and relea
 
 # Rule 7 — Version Every Release
 
-Every release should include:
-
-- Version number.
-- Theme name.
-- GitHub title.
-- GitHub description.
-- Matching cache-busting references.
+Every release should include a version number, theme name, GitHub title, GitHub description, and matching cache-busting references.
 
 Version numbers should reflect the amount of change, not artificial synchronization.
 
@@ -153,32 +118,17 @@ Version numbers should reflect the amount of change, not artificial synchronizat
 
 # Rule 8 — Validate Before and After Packaging
 
-Before packaging:
+Before packaging, verify required files, matching versions, current documentation, identity checks, and reviewed dependencies.
 
-- Verify required files exist.
-- Verify versions match.
-- Verify documentation is current.
-- Verify identity checks pass.
-- Verify dependencies have been reviewed.
-
-After packaging:
-
-- Verify ZIP contents.
-- Verify folder structure.
-- Verify expected files.
-- Verify no unexpected files exist.
+After packaging, verify ZIP contents, folder structure, expected files, and unexpected files.
 
 Abort packaging if validation fails.
-
-Malformed version strings should be corrected before release.
 
 ---
 
 # Rule 9 — Preserve Identity
 
-Files should clearly identify area/tool name, file name, version, and purpose.
-
-Identity should be easy to verify before packaging.
+Files should clearly identify area or tool name, file name, version, and purpose.
 
 Prevent cross-contamination between tools.
 
@@ -186,12 +136,7 @@ Prevent cross-contamination between tools.
 
 # Rule 10 — Backup and Restore
 
-Before uploading any release:
-
-1. Create a backup.
-2. Upload the release.
-3. Verify the live site.
-4. Restore from backup if problems are discovered.
+Before uploading any release, create a backup, upload the release, verify the live site, and restore from backup if problems are discovered.
 
 Use backup names such as:
 
@@ -199,9 +144,7 @@ Use backup names such as:
 YYYY-MM-DD-before-tool-version-theme
 ```
 
-Storage is cheap.
-
-Lost work is expensive.
+Storage is cheap. Lost work is expensive.
 
 Recovery should never depend on chat history or memory.
 
@@ -225,19 +168,38 @@ This order should not vary.
 
 Systems intended to span multiple tools should remain consistent.
 
-Examples include navigation, themes, settings, ad framework, shared assets, and modal behavior.
+Examples include navigation, themes, settings, ad framework, shared assets, modal behavior, and reusable UI patterns.
 
 Changes to shared systems should be reviewed against the entire ecosystem.
+
+## Shared Pattern Consistency
+
+When a feature pattern is reused across multiple tools, changes to that pattern should be reviewed for all tools that use it.
+
+Examples include:
+
+- Suggested pills.
+- Static Amount / Percentage selectors.
+- Add Tax modals.
+- Add Deduction modals.
+- Add Other Adjustment modals.
+- Info icons.
+- Copy Results output.
+- Print Report layouts.
+- Hidden ad slots.
+- Future reusable UI components.
+
+Tools do not need to be identical, but common patterns should remain visually and behaviorally consistent unless there is a clear reason to diverge.
+
+Improvements made to one tool should be evaluated for other tools that use the same pattern.
+
+Avoid creating unnecessary fragmentation between tools.
 
 ---
 
 # Rule 13 — Remove Carefully
 
-Before deleting files, features, or systems:
-
-- Verify nothing depends on them.
-- Verify no references remain.
-- Discuss uncertain cases.
+Before deleting files, features, or systems, verify nothing depends on them and no references remain.
 
 Removing dead code is good. Removing live code accidentally is not.
 
@@ -249,8 +211,6 @@ Favor scalable solutions over throwaway solutions.
 
 Consider future tools, shared code, mobile apps, themes, branding, and long-term maintenance.
 
-Build foundations, not temporary fixes.
-
 ---
 
 # Rule 15 — Use Common Sense
@@ -258,8 +218,6 @@ Build foundations, not temporary fixes.
 The standards exist to protect the project, not replace judgment.
 
 If something feels wrong, rushed, incomplete, or inconsistent, stop and discuss it.
-
-Common sense should always prevail over blindly following a checklist.
 
 ---
 
@@ -279,8 +237,4 @@ Storage is cheap.
 
 Lost work is expensive.
 
-Think first.
-
-Build second.
-
-Package last.
+Think first. Build second. Package last.

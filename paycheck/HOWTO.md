@@ -6,25 +6,78 @@
 
 ## Purpose
 
-Use the Paycheck Calculator to estimate gross pay, estimated taxes, deductions, and take-home pay.
+Use the Paycheck Calculator to estimate before-tax pay, taxes, deductions, adjustments, take-home pay, and effective hourly take-home rate.
 
 ---
 
 # How to Use
 
-1. Enter hourly rate.
-2. Enter hours worked.
-3. Choose pay period.
-4. Choose currency.
-5. Enter estimated tax rate.
-6. Enter deductions.
-7. Review estimated paycheck results.
+1. Enter your hourly rate.
+2. Enter your hours worked.
+3. Choose a pay period.
+4. Choose a currency.
+5. Add taxes, deductions, and other adjustments if needed.
+6. Choose whether each adjustment is a percentage or static amount.
+7. Review the estimated paycheck results.
 8. Use Copy Results or Print Report if needed.
 
 ---
 
-# Hidden Ad Framework
+# Deductions & Adjustments
 
-Paycheck v0.1.1 includes disabled ad slots for future monetization support.
+Use Add Tax for estimated taxes.
+
+Use Add Deduction for recurring paycheck deductions such as retirement, insurance, union dues, or benefits.
+
+Use Add Other Adjustment for other amounts that reduce the estimate.
+
+Percentage entries are calculated from before-tax gross pay.
+
+Static amount entries subtract the entered amount directly.
+
+---
+
+# Saved Settings
+
+The calculator saves values locally on the user's device.
+
+Saved values include:
+
+- Paycheck details.
+- Taxes.
+- Deductions.
+- Other adjustments.
+- Currency.
+- Pay period.
+
+---
+
+# Ad Slots
+
+Paycheck includes disabled ad slots for future monetization support.
 
 No live ads are served.
+
+## Slots
+
+```text
+paycheck-top
+paycheck-results
+paycheck-footer
+```
+
+All slots use:
+
+```html
+data-ad-status="disabled"
+```
+
+---
+
+# Maintenance Notes
+
+- Keep shared navigation controlled by `/assets/global.js`.
+- Keep shared ad framework controlled by `/assets/global.css` and `/assets/global.js`.
+- Keep Paycheck-specific layout in `/paycheck/style.css`.
+- Keep Paycheck logic in `/paycheck/script.js`.
+- Review Overtime when shared adjustment patterns change.

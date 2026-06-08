@@ -28,29 +28,37 @@ This file tracks actual release order across the Signal Labs ecosystem.
 | 16 | 2026-06-07 | Overtime v0.9.1 | Professional Reports Print Fix | Fixed report print window behavior. |
 | 17 | 2026-06-07 | Time Off v0.9.1 | Professional Reports Print Fix | Fixed Print Report behavior. |
 | 18 | 2026-06-07 | Home v0.2.6 | Backup & Recovery System | Added backup and restore documentation. |
-| 19 | 2026-06-07 | Home v0.2.7 | Release Management System | Added master changelog, master roadmap, and release history. |
-| 20 | 2026-06-07 | Home v0.3 | UI Density Refactor | Tightened shared UI spacing and density. |
+| 19 | 2026-06-07 | Home v0.2.7 | Release Management System | Added master docs and release history. |
+| 20 | 2026-06-07 | Home v0.3 | UI Density Refactor | Tightened shared UI spacing. |
 | 21 | 2026-06-07 | Overtime v0.9.3 | Inline Optional Toggles | Moved optional toggles into card headers. |
 | 22 | 2026-06-07 | Time Off v0.9.3 | Inline Optional Toggles | Moved optional toggles into card headers. |
-| 23 | 2026-06-07 | Home v0.4 | Release Standards Update | Renamed Root to Signal Labs Home and added release metadata rules. |
-| 24 | 2026-06-07 | Home v0.4.1 | Master Documentation | Added required master documentation checks. |
-| 25 | 2026-06-07 | Overtime v0.9.4 | Collapsible Optional Sections | Added collapsible optional card behavior. |
-| 26 | 2026-06-07 | Time Off v0.9.4 | Collapsible Optional Sections | Added collapsible optional card behavior. |
-| 27 | 2026-06-07 | Overtime v0.9.5 | Compact UI Pass | Tightened UI density. |
-| 28 | 2026-06-07 | Time Off v0.9.5 | Compact UI Pass | Tightened UI density. |
-| 29 | 2026-06-07 | Overtime v0.9.6 | Signal Labs UI Identity | Added info icons and pill controls. |
-| 30 | 2026-06-07 | Time Off v0.9.6 | Signal Labs UI Identity | Added category pills and planner controls. |
-| 31 | 2026-06-07 | Overtime v0.9.6.2 | Take-Home Controls Cleanup | Cleaned duplicate adjustment controls. |
-| 32 | 2026-06-07 | Time Off v0.9.8 | Quick Start + Stacked Layout | Reframed Time Off Planner and stacked layout. |
-| 33 | 2026-06-08 | Overtime v0.9.7.1 | Modal Suggested Pills Placement Fix | Kept modal pills inside popup. |
-| 34 | 2026-06-08 | Overtime v0.9.8 | UX Flow & Plain-English Polish | Renamed sections and improved workflow. |
-| 35 | 2026-06-08 | Home v0.5 | Standards Expansion & Sync Cleanup | Updated standards/docs and removed unused root style.css. |
-| 36 | 2026-06-08 | Overtime v0.9.9 | Pre-1.0 Sync & Metadata Cleanup | Synchronized versions and report metadata. |
-| 37 | 2026-06-08 | Time Off v0.9.9 | Pre-1.0 Cleanup & Report Fix | Fixed report helpers and HTML cleanup. |
-| 38 | 2026-06-08 | Paycheck v0.1 | Foundation | Added initial Paycheck Calculator. |
-| 39 | 2026-06-08 | Home v0.5.1 | Navigation Refresh & Paycheck Integration | Added Paycheck to Home and shared navigation. |
-| 40 | 2026-06-08 | Paycheck v0.1.1 | Foundation + Hidden Ad Framework | Added disabled ad slots and synchronized Paycheck metadata. |
-| 39 | 2026-06-08 | Home v0.5.1 | Navigation Refresh & Paycheck Integration | Added Paycheck to Home and refreshed shared navigation. |
+| 23 | 2026-06-07 | Home v0.4 | Release Standards Update | Added release metadata rules. |
+| 24 | 2026-06-07 | Home v0.4.1 | Master Documentation | Added master documentation checks. |
+| 25 | 2026-06-07 | Overtime v0.9.4 | Collapsible Optional Sections | Added optional collapse behavior. |
+| 26 | 2026-06-07 | Time Off v0.9.4 | Collapsible Optional Sections | Added optional collapse behavior. |
+| 27 | 2026-06-07 | Overtime v0.9.4.1 | Optional Toggle Logic Fix | Fixed saved toggle initialization. |
+| 28 | 2026-06-07 | Time Off v0.9.4.1 | Optional Toggle Logic Fix | Fixed optional toggle initialization. |
+| 29 | 2026-06-07 | Overtime v0.9.4.2 | Toggle Polish & Compact Headers | Tightened optional headers and toggles. |
+| 30 | 2026-06-07 | Time Off v0.9.4.2 | Toggle Polish & Compact Headers | Tightened optional headers and toggles. |
+| 31 | 2026-06-07 | Overtime v0.9.5 | Compact UI Pass | Reduced UI spacing. |
+| 32 | 2026-06-07 | Time Off v0.9.5 | Compact UI Pass | Reduced UI spacing. |
+| 33 | 2026-06-07 | Overtime v0.9.6 | Signal Labs UI Identity | Added info icons and pill controls. |
+| 34 | 2026-06-07 | Time Off v0.9.6 | Signal Labs UI Identity | Added category pills and planner controls. |
+| 35 | 2026-06-07 | Overtime v0.9.6.1 | UI Identity Polish | Refined info icons. |
+| 36 | 2026-06-07 | Time Off v0.9.6.1 | UI Identity Polish | Refined info icons and category pills. |
+| 37 | 2026-06-07 | Time Off v0.9.6.2 | Category Pill Visibility Fix | Hid legacy category selector. |
+| 38 | 2026-06-07 | Home v0.4.1 | Master Documentation | Backfilled master docs. |
+| 39 | 2026-06-07 | Time Off v0.9.7 | Planner Identity Overhaul | Reframed as Time Off Planner. |
+| 40 | 2026-06-07 | Overtime v0.9.6.2 | Take-Home Controls Cleanup | Cleaned duplicate take-home controls. |
+| 41 | 2026-06-07 | Time Off v0.9.8 | Quick Start + Stacked Layout | Simplified planner layout. |
+| 42 | 2026-06-07 | Overtime v0.9.7 | Modal Suggested Pills Fix | Moved modal pills into modals. |
+| 43 | 2026-06-08 | Overtime v0.9.7.1 | Modal Suggested Pills Placement Fix | Finalized modal pill placement. |
+| 44 | 2026-06-08 | Overtime v0.9.8 | UX Flow & Plain-English Polish | Renamed and reordered Overtime sections. |
+| 45 | 2026-06-08 | Home v0.5 | Standards Expansion & Sync Cleanup | Updated standards and removed unused root style.css. |
+| 46 | 2026-06-08 | Overtime v0.9.9 | Pre-1.0 Sync & Metadata Cleanup | Synchronized Overtime versions and docs. |
+| 47 | 2026-06-08 | Time Off v0.9.9 | Pre-1.0 Cleanup & Report Fix | Fixed report helpers and docs. |
+| 48 | 2026-06-08 | Home v0.5.1 + Paycheck v0.1.1 | Navigation Refresh & Paycheck Integration | Added Paycheck to Home/nav and hidden ad framework. |
+| 49 | 2026-06-08 | Paycheck v0.2 | Deductions & Adjustments | Added itemized adjustment system. |
 
 ---
 
