@@ -4,6 +4,26 @@
 
 ---
 
+## Version 0.6
+
+**Date:** 2026-06-08  
+**Theme:** Shared UX Foundation
+
+### Changes
+
+- Added the shared sticky action bar system to Signal Labs global assets.
+- Moved main calculator actions into a consistent bottom action bar on Paycheck, Overtime, and Time Off.
+- Added shared action bar styles for desktop and mobile layouts.
+- Added shared empty-state card styling for future tool consistency.
+- Updated shared global asset references to v0.6.
+- Updated Paycheck to v0.3.3 for shared action bar adoption.
+- Updated Overtime to v0.9.9.2 for shared action bar adoption while keeping feature work frozen.
+- Updated Time Off to v0.9.9 for shared action bar adoption.
+- Updated standards, master documentation, release history, and manifests.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.5.1
 
 **Date:** 2026-06-08  

@@ -12,7 +12,7 @@ v0.9.9
 
 ### Theme
 
-Pre-1.0 Cleanup & Report Fix
+Shared Action Bar
 
 ### Status
 
@@ -39,6 +39,6 @@ Active Development
 
 ---
 
-# v0.9.9 Pre-1.0 Cleanup & Report Fix
+# v0.9.9 Shared Action Bar
 
-This release fixes report helper mismatches, cleans invalid HTML, and synchronizes documentation before Time Off v1.0.
+This release moves Time Off Planner actions into the shared Signal Labs action bar while preserving existing planner behavior.

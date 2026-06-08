@@ -56,7 +56,7 @@ Time Off Planner | Signal Labs
 
 <link
   rel="stylesheet"
-  href="../assets/global.css?v=0.5.1">
+  href="../assets/global.css?v=0.6">
 
 <link
   rel="stylesheet"
@@ -223,31 +223,6 @@ Time Off Planner | Signal Labs
   <span>Hours Per Day<br><small>(Optional)</small></span>
   <input id="hoursPerDay" type="number" placeholder="8" min="1" step="1">
 </label>
-
-</div>
-
-<div class="button-row">
-
-<button
-  id="calculate"
-  class="primary-action"
-  type="button">
-  Calculate Time Off
-</button>
-
-<button
-  id="example"
-  class="secondary"
-  type="button">
-  Example
-</button>
-
-<button
-  id="reset"
-  class="secondary"
-  type="button">
-  Reset
-</button>
 
 </div>
 
@@ -454,15 +429,6 @@ Time Off Planner | Signal Labs
   </div>
 </div>
 
-<div class="results-action-row">
-  <button id="copyResults" class="secondary" type="button">
-    Copy Results
-  </button>
-
-  <button id="printResults" class="secondary" type="button">
-    Print Report
-  </button>
-</div>
 
 <div class="results-section mobile-result-section" data-result-section>
 
@@ -597,7 +563,7 @@ Time Off Planner | Signal Labs
 
   <p>
     Theme:
-    Pre-1.0 Cleanup & Report Fix
+    Shared Action Bar
   </p>
 
   <p>
@@ -620,6 +586,24 @@ Time Off Planner | Signal Labs
     <li>Planned events reduce projected balances but do not change saved starting balances.</li>
   </ul>
 </div>
+
+
+<nav class="shared-action-bar" data-shared-action-bar aria-label="Time Off actions">
+  <div class="shared-action-bar-inner">
+    <div class="shared-action-group shared-action-group-left">
+      <button id="example" class="secondary" type="button" data-action-target="example">Example</button>
+      <button id="reset" class="secondary" type="button" data-action-target="reset">Reset</button>
+    </div>
+    <div class="shared-action-group shared-action-group-center">
+      <button id="calculate" class="primary-action" type="button" data-action-target="calculate">Calculate Time Off</button>
+    </div>
+    <div class="shared-action-group shared-action-group-right">
+      <button id="copyResults" class="secondary" type="button" data-action-target="copyResults">Copy Results</button>
+      <button id="printResults" class="secondary" type="button" data-action-target="printResults">Print Report</button>
+    </div>
+  </div>
+  <p class="shared-action-note">Actions stay available while you review or update your time-off projection.</p>
+</nav>
 
 </main>
 
@@ -681,7 +665,7 @@ Loading...
 
 </div>
 
-<script src="../assets/global.js?v=0.5.1"></script>
+<script src="../assets/global.js?v=0.6"></script>
 <script src="script.js?v=0.9.9"></script>
 
 </body>

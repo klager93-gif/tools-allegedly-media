@@ -6,7 +6,7 @@ Version: v0.9.9
 Purpose: Tool-specific logic and event handling
 */
 const TOOL_VERSION = "v0.9.9";
-const TOOL_THEME = "Pre-1.0 Cleanup & Report Fix";
+const TOOL_THEME = "Shared Action Bar";
 
 const categoryOptionsEl = document.getElementById("categoryOptions");
 const categoryInputCardsEl = document.getElementById("categoryInputCards");

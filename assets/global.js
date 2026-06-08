@@ -2,7 +2,7 @@
 Signal Labs
 Shared Asset
 File: assets/global.js
-Version: v0.5.1
+Version: v0.6
 Purpose: Shared navigation, modal utilities, UTC helper, and ad slot initialization
 */
 
@@ -245,3 +245,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Shared Action System - Home v0.6
+|--------------------------------------------------------------------------
+*/
+
+function initializeSharedActionBars() {
+  document.querySelectorAll('[data-shared-action-bar]').forEach(function (bar) {
+    bar.querySelectorAll('button[data-action-target]').forEach(function (button) {
+      var targetId = button.getAttribute('data-action-target');
+      var target = targetId ? document.getElementById(targetId) : null;
+      if (!target) {
+        button.disabled = true;
+        button.title = 'Action unavailable on this page.';
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', initializeSharedActionBars);

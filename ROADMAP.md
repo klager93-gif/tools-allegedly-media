@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.5.1**
+**v0.6**
 
 ---
 
@@ -18,7 +18,7 @@
 
 | Version | Theme |
 |---|---|
-| v0.5.1 | Navigation Refresh & Paycheck Integration |
+| v0.6 | Shared UX Foundation |
 | v0.5 | Standards Expansion & Sync Cleanup |
 | v0.4.1 | Master Documentation |
 | v0.4 | Release Standards Update |
@@ -40,34 +40,31 @@
 
 # Upcoming Versions
 
-## Home v0.6
+## Paycheck v0.4
 
 ### Theme
 
-Theme System Foundation
+Rates, Multipliers & Rules
 
-### Planned Focus
+### Planned Features
 
-- Light / dark / auto theme support.
-- Future accent color support.
-- Shared setting storage.
-- Cross-tool theme consistency.
+- Improve Pay Details.
+- Add shift differential foundation.
+- Refine premium hour multipliers.
+- Prepare Target Pay for a later release.
 
 ---
 
-## Overtime v1.0
+## Home v0.7
 
 ### Theme
 
-Stable Release
+Shared Component Foundation
 
-### Planned Focus
+### Planned Features
 
-- Final verification pass.
-- Mobile layout review.
-- Print Report and Copy Results verification.
-- Modal suggested pills verification.
-- Documentation cleanup.
+- Evaluate shared components for deductions, dynamic rows, reports, modals, and action bars.
+- Continue reducing duplicated UI patterns across tools.
 
 ---
 
@@ -75,38 +72,22 @@ Stable Release
 
 ### Theme
 
-Stable Release
+Stable Planner Release
 
-### Planned Focus
+### Planned Features
 
-- Final planner verification.
-- Print Report and Copy Results verification.
-- Category pill and planned-event verification.
-- Documentation cleanup.
-
----
-
-## Paycheck v0.2
-
-### Theme
-
-Taxes & Deductions
-
-### Planned Focus
-
-- Add more flexible tax and deduction entries.
-- Separate percentage and static deductions.
-- Prepare for overtime integration.
+- Validate Print Report.
+- Validate Copy Results.
+- Clean documentation and manifests.
 
 ---
 
 # Future Ideas
 
-- Appearance settings.
-- System theme support.
-- Light mode.
-- Larger text mode.
-- Reduced motion support.
-- More calculators.
-- Shared HOWTO navigation.
-- Tool comparison pages.
+- Theme system.
+- PWA readiness.
+- Signal Schedule.
+- PTO Cash-Out Calculator.
+- Shift Differential Calculator.
+- Holiday Pay Calculator.
+- Job Offer Comparison Calculator.

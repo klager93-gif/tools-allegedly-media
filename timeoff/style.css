@@ -2242,7 +2242,7 @@ v0.9.7 Planner Identity Overhaul
 
 /*
 --------------------------------
-v0.9.8 Stacked Planner Layout
+v0.9.9 Stacked Planner Layout
 --------------------------------
 */
 .dashboard-layout {
@@ -2271,8 +2271,8 @@ v0.9.8 Stacked Planner Layout
 
 /*
 --------------------------------
-v0.9.9 Pre-1.0 Cleanup & Report Fix
+v0.9.9 Shared Action Bar
 --------------------------------
 Purpose:
-- Preserves v0.9.8 stacked layout while report/HTML cleanup occurs in script and markup.
+- Preserves v0.9.9 stacked layout while report/HTML cleanup occurs in script and markup.
 */

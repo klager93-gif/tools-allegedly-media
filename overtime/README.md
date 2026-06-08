@@ -8,11 +8,11 @@ Estimate regular pay, overtime pay, before-tax pay, taxes, deductions, take-home
 
 ### Build
 
-v0.9.9.1
+v0.9.9.2
 
 ### Theme
 
-Deductions & Adjustments Pattern Sync
+Shared Action Bar
 
 ### Status
 

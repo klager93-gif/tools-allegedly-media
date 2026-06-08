@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.3.2
+v0.3.3
 
 ## Theme
 
-Professional Report Polish
+Shared Action Bar
 
 ---
 
@@ -31,8 +31,8 @@ BUILDMANIFEST.md
 # Shared Dependencies
 
 ```text
-../assets/global.css?v=0.5.1
-../assets/global.js?v=0.5.1
+../assets/global.css?v=0.6
+../assets/global.js?v=0.6
 ```
 
 ---

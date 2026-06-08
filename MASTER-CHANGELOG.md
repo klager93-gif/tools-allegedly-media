@@ -10,6 +10,32 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-08
 
+### Home v0.6 — Shared UX Foundation
+
+- Added a shared sticky action bar system across Paycheck, Overtime, and Time Off.
+- Added shared empty-state styling foundations in global assets.
+- Updated shared global asset versions to v0.6.
+- Updated Paycheck to v0.3.3, Overtime to v0.9.9.2, and Time Off to v0.9.9 for action bar adoption.
+
+### Paycheck v0.3.3 — Shared Action Bar
+
+- Moved Calculate, Save, Example, Reset, Copy Results, and Print Report actions into the shared action bar.
+- Preserved Hours & Earnings, Deductions & Adjustments, saved settings, Copy Results, Print Report, and hidden ad slots.
+
+### Overtime v0.9.9.2 — Shared Action Bar
+
+- Moved calculator actions into the shared action bar while keeping Overtime feature work frozen.
+- Preserved Overtime calculations, Deductions & Adjustments, Target Pay, Copy Results, and Print Report.
+
+### Time Off v0.9.9 — Shared Action Bar
+
+- Moved planner actions into the shared action bar.
+- Preserved Time Off Planner calculations, optional sections, Copy Results, and Print Report.
+
+---
+
+## 2026-06-08
+
 ### Paycheck v0.3.2 — Professional Report Polish
 
 - Replaced Paycheck's plain print output with a polished professional HTML report.

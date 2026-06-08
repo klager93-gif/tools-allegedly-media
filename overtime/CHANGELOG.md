@@ -1,3 +1,16 @@
+## Version 0.9.9.2
+
+**Date:** 2026-06-08  
+**Theme:** Shared Action Bar
+
+### Changes
+
+- Moved main tool actions into the shared Signal Labs action bar.
+- Updated shared global asset references to v0.6.
+- Preserved existing calculations, saved settings, Copy Results, Print Report, and hidden ad slots.
+
+---
+
 ## Version 0.9.9.1
 
 **Date:** 2026-06-08  

@@ -10,26 +10,14 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Home | v0.5.1 | Navigation Refresh & Paycheck Integration |
-| Overtime | v0.9.9.1 | Deductions & Adjustments Pattern Sync |
-| Time Off | v0.9.9 | Pre-1.0 Cleanup & Report Fix |
-| Paycheck | v0.3.2 | Professional Report Polish |
+| Home | v0.6 | Shared UX Foundation |
+| Overtime | v0.9.9.2 | Shared Action Bar |
+| Time Off | v0.9.9 | Shared Action Bar |
+| Paycheck | v0.3.3 | Shared Action Bar |
 
 ---
 
 # Near-Term Roadmap
-
-## Paycheck v0.3.2
-
-### Theme
-
-Professional Report Polish
-
-### Status
-
-Completed report polish release.
-
----
 
 ## Paycheck v0.4
 
@@ -39,10 +27,10 @@ Rates, Multipliers & Rules
 
 ### Planned Focus
 
-- Shift differential.
-- More premium pay controls.
-- Holiday premium refinement.
-- Bonus pay foundation.
+- Improve Pay Details.
+- Add cleaner pay period controls.
+- Refine overtime, double time, and premium hour multiplier behavior.
+- Add shift differential foundation.
 
 ---
 
@@ -54,27 +42,53 @@ Target Pay
 
 ### Planned Focus
 
-- Gross target.
-- Take-home target.
+- Add target gross pay and target take-home pay mode.
 - Estimate additional hours needed.
+- Keep Overtime frozen unless critical bug fixes are required.
 
 ---
 
-## Paycheck v0.9
+## Home v0.7
 
 ### Theme
 
-Pre-1.0 Stabilization
+Shared Component Foundation
 
 ### Planned Focus
 
-- Shared component review.
-- Mobile polish.
-- Report polish.
-- Decide how Overtime branches from Paycheck.
+- Evaluate shared components for deductions, dynamic rows, reports, modals, and action bars.
+- Continue reducing duplicated UI patterns across tools.
 
 ---
 
 ## Overtime
 
-Feature work is frozen until Paycheck approaches v0.9. Only critical bugs and necessary pattern syncs should be made.
+### Status
+
+Feature frozen while Paycheck becomes the flagship paycheck system.
+
+### Allowed Work
+
+- Critical bug fixes.
+- Version/documentation corrections.
+- Shared-pattern sync only when necessary.
+
+---
+
+## Time Off
+
+### Status
+
+Stable but awaiting future cleanup and report validation.
+
+---
+
+# Future Tools
+
+- PTO Cash-Out Calculator.
+- Shift Differential Calculator.
+- Holiday Pay Calculator.
+- Raise Calculator.
+- Job Offer Comparison Calculator.
+- Signal Schedule.
+

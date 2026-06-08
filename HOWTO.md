@@ -104,7 +104,7 @@ Shared navigation is handled by:
 assets/global.js
 ```
 
-Future Home v0.5.1 work will refresh the navigation with desktop pill styling and mobile hamburger/collapsible behavior.
+Future Home v0.6 work will refresh the navigation with desktop pill styling and mobile hamburger/collapsible behavior.
 
 ---
 
@@ -131,6 +131,6 @@ Before planning, coding, packaging, or releasing, review:
 
 ---
 
-# Home v0.5.1 Navigation Refresh & Paycheck Integration
+# Home v0.6 Shared UX Foundation
 
-Home v0.5.1 adds Paycheck Calculator to the ecosystem and updates shared navigation. Desktop navigation uses pill-style links. Mobile navigation uses a Menu button that expands or collapses tool links.
+Home v0.6 adds Paycheck Calculator to the ecosystem and updates shared navigation. Desktop navigation uses pill-style links. Mobile navigation uses a Menu button that expands or collapses tool links.

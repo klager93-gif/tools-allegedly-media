@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.9.1
+v0.9.9.2
 
 ## Theme
 
-Deductions & Adjustments Pattern Sync
+Shared Action Bar
 
 ---
 
@@ -31,8 +31,8 @@ BUILDMANIFEST.md
 # Shared Dependencies
 
 ```text
-../assets/global.css?v=0.5
-../assets/global.js?v=0.5
+../assets/global.css?v=0.6
+../assets/global.js?v=0.6
 ```
 
 ---

@@ -8,7 +8,7 @@ v0.9.9
 
 ## Theme
 
-Pre-1.0 Cleanup & Report Fix
+Shared Action Bar
 
 ---
 
@@ -21,9 +21,6 @@ Pre-1.0 Cleanup & Report Fix
 - [ ] Header, footer, report, README, ROADMAP, FILEMANIFEST, and BUILDMANIFEST versions are synchronized.
 - [ ] Cache-busting references use v0.9.9.
 - [ ] TOOL_VERSION and TOOL_THEME are present.
-- [ ] Print Report helper names match current functions and variables.
-- [ ] Planned event chips are inside the HTML body.
-- [ ] No duplicate class attribute remains on categoryOptions.
 - [ ] Category pills render.
 - [ ] Custom category pills work.
 - [ ] Quick hour pills work.

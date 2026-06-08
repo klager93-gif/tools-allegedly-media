@@ -19,6 +19,10 @@ This file tracks actual release order across the Signal Labs ecosystem.
 
 ---
 
+| 7 | 2026-06-08 | Home v0.6 / Paycheck v0.3.3 / Overtime v0.9.9.2 / Time Off v0.9.9 | Shared UX Foundation | Added shared sticky action bar and shared empty-state foundations across active tools. |
+
+---
+
 # Backup Format
 
 ```text

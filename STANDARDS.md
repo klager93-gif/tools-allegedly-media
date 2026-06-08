@@ -238,3 +238,10 @@ Storage is cheap.
 Lost work is expensive.
 
 Think first. Build second. Package last.
+
+
+---
+
+# Shared Action System Note
+
+The shared action bar is a Signal Labs shared pattern. Changes to calculator actions should be reviewed across Paycheck, Overtime, Time Off, and future tools before release.

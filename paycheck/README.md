@@ -6,11 +6,11 @@ Estimate regular hours, premium hours, benefit hours, deductions, and take-home 
 
 # Current Version
 
-v0.3.2
+v0.3.3
 
 ## Theme
 
-Professional Report Polish
+Shared Action Bar
 
 ---
 

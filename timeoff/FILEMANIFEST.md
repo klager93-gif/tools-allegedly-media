@@ -8,7 +8,7 @@ v0.9.9
 
 ## Theme
 
-Pre-1.0 Cleanup & Report Fix
+Shared Action Bar
 
 ---
 
@@ -31,8 +31,8 @@ BUILDMANIFEST.md
 # Shared Dependencies
 
 ```text
-../assets/global.css?v=0.5
-../assets/global.js?v=0.5
+../assets/global.css?v=0.6
+../assets/global.js?v=0.6
 ```
 
 ---

@@ -4,20 +4,20 @@
 
 ## Current Build
 
-v0.3.2
+v0.3.3
 
 ## Theme
 
-Professional Report Polish
+Shared Action Bar
 
 ---
 
 # Required Validation Before ZIP
 
 - [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.3.2.
-- [ ] Footer version shows v0.3.2.
-- [ ] Cache-busting references use v0.3.2 for local files.
+- [ ] Header versions show v0.3.3.
+- [ ] Footer version shows v0.3.3.
+- [ ] Cache-busting references use v0.3.3 for local files.
 - [ ] Premium Hours pills render.
 - [ ] Benefit / Paid Leave Hours pills render.
 - [ ] Empty states render when no rows are selected.

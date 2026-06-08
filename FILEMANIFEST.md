@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.5.1
+v0.6
 
 ## Theme
 
-Navigation Refresh & Paycheck Integration
+Shared UX Foundation
 
 ---
 
@@ -58,7 +58,7 @@ backups/RESTORE-GUIDE.md
 style.css
 ```
 
-The old root `style.css` was removed in Home v0.5 after confirming no active files referenced it.
+The old root `style.css` was removed in Home v0.6 after confirming no active files referenced it.
 
 ---
 
@@ -77,7 +77,7 @@ assets/global.js
 
 ```text
 Shared Asset
-Version: v0.5
+Version: v0.6
 ```
 
 

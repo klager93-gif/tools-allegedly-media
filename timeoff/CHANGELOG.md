@@ -1,14 +1,12 @@
 ## Version 0.9.9
 
 **Date:** 2026-06-08  
-**Theme:** Pre-1.0 Cleanup & Report Fix
+**Theme:** Shared Action Bar
 
 ### Changes
 
-- Fixed Time Off Print Report helper mismatches that referenced outdated function and variable names.
-- Cleaned invalid HTML by moving planned event chips inside the document body.
-- Fixed duplicate class attributes in the hidden category source markup.
-- Synchronized documentation and manifests for the pre-1.0 release path.
+- Moved Time Off Planner actions into the shared Signal Labs action bar.
+- Updated shared global asset references to v0.6.
 - Preserved v0.9.8 Quick Start + Stacked Layout behavior.
 - Preserved category pills, custom categories, quick hour pills, policy pills, event chips, expandable notes, Print Report, and Copy Results.
 - No image-based report generation is used.

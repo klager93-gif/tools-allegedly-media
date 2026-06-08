@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.3.2
+Version: v0.3.3
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -19,8 +19,8 @@ Purpose: Main application page
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="../assets/global.css?v=0.5.1">
-<link rel="stylesheet" href="style.css?v=0.3.2">
+<link rel="stylesheet" href="../assets/global.css?v=0.6">
+<link rel="stylesheet" href="style.css?v=0.3.3">
 </head>
 <body>
 <main class="page">
@@ -105,13 +105,6 @@ Purpose: Main application page
         </label>
       </div>
 
-      <div class="button-row">
-        <button id="calculate" class="primary-action" type="button">Calculate Paycheck</button>
-        <button id="saveSettings" class="secondary" type="button">Save Settings</button>
-        <button id="example" class="secondary" type="button">Example</button>
-        <button id="reset" class="secondary" type="button">Reset</button>
-      </div>
-
       <p id="message" class="message">Enter values or load an example to begin.</p>
     </section>
 
@@ -166,11 +159,6 @@ Purpose: Main application page
       <h2>Estimated Paycheck</h2>
     </div>
 
-    <div class="results-action-row">
-      <button id="copyResults" class="secondary" type="button">Copy Results</button>
-      <button id="printResults" class="secondary" type="button">Print Report</button>
-    </div>
-
     <div class="ad-slot ad-slot-inline is-disabled" data-ad-slot="paycheck-results" data-ad-status="disabled" aria-hidden="true">
       <span class="ad-placeholder">Ad slot reserved</span>
     </div>
@@ -218,8 +206,8 @@ Purpose: Main application page
 
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.3.2</p>
-      <p>Theme: Professional Report Polish</p>
+      <p>Build: v0.3.3</p>
+      <p>Theme: Shared Action Bar</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -234,6 +222,25 @@ Purpose: Main application page
   </ul>
 </div>
 
+
+<nav class="shared-action-bar" data-shared-action-bar aria-label="Paycheck actions">
+  <div class="shared-action-bar-inner">
+    <div class="shared-action-group shared-action-group-left">
+      <button id="saveSettings" class="secondary" type="button" data-action-target="saveSettings">Save Settings</button>
+      <button id="example" class="secondary" type="button" data-action-target="example">Example</button>
+      <button id="reset" class="secondary" type="button" data-action-target="reset">Reset</button>
+    </div>
+    <div class="shared-action-group shared-action-group-center">
+      <button id="calculate" class="primary-action" type="button" data-action-target="calculate">Calculate Paycheck</button>
+    </div>
+    <div class="shared-action-group shared-action-group-right">
+      <button id="copyResults" class="secondary" type="button" data-action-target="copyResults">Copy Results</button>
+      <button id="printResults" class="secondary" type="button" data-action-target="printResults">Print Report</button>
+    </div>
+  </div>
+  <p class="shared-action-note">Actions stay available while you review or update your paycheck estimate.</p>
+</nav>
+
 </main>
 
 <footer class="version">
@@ -247,7 +254,7 @@ Purpose: Main application page
   </div>
 
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.3.2
+    Signal Labs · Paycheck Calculator · v0.3.3
     <br>
     Useful tools without the noise.
   </div>
@@ -288,7 +295,7 @@ Purpose: Main application page
   </div>
 </div>
 
-<script src="../assets/global.js?v=0.5.1"></script>
-<script src="script.js?v=0.3.2"></script>
+<script src="../assets/global.js?v=0.6"></script>
+<script src="script.js?v=0.3.3"></script>
 </body>
 </html>

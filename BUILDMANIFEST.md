@@ -4,15 +4,15 @@
 
 ## Current Build
 
-v0.5.1
+v0.6
 
 ## Theme
 
-Navigation Refresh & Paycheck Integration
+Shared UX Foundation
 
 ## Build Type
 
-Combined Home standards sync, Overtime metadata sync, and Time Off report cleanup release.
+Shared action bar and shared UX foundation release across active tools.
 
 ---
 
@@ -66,6 +66,6 @@ Before presenting a ZIP, confirm the response includes, in order:
 
 - [ ] Home page includes Paycheck Calculator card.
 - [ ] Shared navigation includes Paycheck.
-- [ ] Paycheck loads global.css and global.js with v0.5.1 cache-busting.
+- [ ] Paycheck loads global.css and global.js with v0.6 cache-busting.
 - [ ] Paycheck Copy Results works.
 - [ ] Paycheck Print Report works.

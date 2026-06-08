@@ -163,6 +163,6 @@ This release synchronizes version strings, report metadata, documentation, and m
 
 ---
 
-# v0.9.9.1 Deductions & Adjustments Pattern Sync
+# v0.9.9.2 Deductions & Adjustments Pattern Sync
 
 Overtime uses the same shared adjustment pattern direction as Paycheck where practical. Suggested pills, Static Amount / Percentage controls, and Add Tax / Add Deduction / Add Other Adjustment modal behavior should remain visually and behaviorally consistent across both tools unless there is a clear reason to diverge.
