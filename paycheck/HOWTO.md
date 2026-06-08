@@ -6,27 +6,25 @@
 
 ## Purpose
 
-Use this calculator to estimate a paycheck from hourly pay, hours worked, taxes, and deductions.
+Use the Paycheck Calculator to estimate gross pay, estimated taxes, deductions, and take-home pay.
 
 ---
 
 # How to Use
 
-1. Enter your hourly rate.
+1. Enter hourly rate.
 2. Enter hours worked.
-3. Choose your pay period.
-4. Choose your currency.
-5. Enter an estimated tax percentage.
-6. Enter deductions, if any.
-7. Review estimated gross pay and take-home pay.
+3. Choose pay period.
+4. Choose currency.
+5. Enter estimated tax rate.
+6. Enter deductions.
+7. Review estimated paycheck results.
 8. Use Copy Results or Print Report if needed.
 
 ---
 
-# Maintenance Notes
+# Hidden Ad Framework
 
-- Keep shared navigation controlled by `/assets/global.js`.
-- Keep shared styling controlled by `/assets/global.css`.
-- Keep Paycheck-specific layout in `/paycheck/style.css`.
-- Keep Paycheck logic in `/paycheck/script.js`.
-- Update README, ROADMAP, CHANGELOG, HOWTO, FILEMANIFEST, and BUILDMANIFEST with every meaningful release.
+Paycheck v0.1.1 includes disabled ad slots for future monetization support.
+
+No live ads are served.

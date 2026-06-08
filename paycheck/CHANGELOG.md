@@ -4,6 +4,20 @@
 
 ---
 
+## Version 0.1.1
+
+**Date:** 2026-06-08  
+**Theme:** Foundation + Hidden Ad Framework
+
+### Changes
+
+- Added disabled top, results, and footer ad slots for future monetization support.
+- Preserved no-live-ad policy: no ad provider scripts, tracking scripts, or ad requests are included.
+- Updated Paycheck build labels, footer version, script/style headers, and cache-busting references to v0.1.1.
+- Preserved gross pay, estimated taxes, deductions, take-home pay, Copy Results, Print Report, saved settings, example, and reset support.
+
+---
+
 ## Version 0.1
 
 **Date:** 2026-06-08  

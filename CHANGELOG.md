@@ -11,7 +11,7 @@
 
 ### Changes
 
-- Added Paycheck Calculator v0.1 to the Signal Labs ecosystem.
+- Added Paycheck Calculator v0.1.1 to the Signal Labs ecosystem with hidden ad framework support.
 - Added Paycheck Calculator card to Signal Labs Home.
 - Added Paycheck to shared navigation.
 - Refreshed desktop navigation with Signal Labs pill-style links.

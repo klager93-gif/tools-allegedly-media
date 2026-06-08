@@ -6,11 +6,11 @@ Estimate gross pay, taxes, deductions, and take-home pay.
 
 # Current Version
 
-**v0.1**
+**v0.1.1**
 
 ## Theme
 
-Foundation
+Foundation + Hidden Ad Framework
 
 ---
 
@@ -18,13 +18,7 @@ Foundation
 
 The Paycheck Calculator is a simple first-version paycheck estimator for hourly workers.
 
-It estimates:
-
-- Gross pay.
-- Estimated taxes.
-- Deductions.
-- Take-home pay.
-- Effective hourly take-home rate.
+It estimates gross pay, estimated taxes, deductions, take-home pay, and effective hourly take-home rate.
 
 ---
 
@@ -43,9 +37,10 @@ It estimates:
 - Example values.
 - Reset control.
 - Shared Signal Labs navigation.
+- Disabled hidden ad slots for future monetization support.
 
 ---
 
 # Status
 
-Initial prototype.
+Initial prototype with hidden ad framework.

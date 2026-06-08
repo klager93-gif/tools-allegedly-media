@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.1
+v0.1.1
 
 ## Theme
 
-Foundation
+Foundation + Hidden Ad Framework
 
 ---
 
@@ -28,37 +28,11 @@ BUILDMANIFEST.md
 
 ---
 
-# Shared Dependencies
+# Required Checks
 
-```text
-../assets/global.css?v=0.5.1
-../assets/global.js?v=0.5.1
-```
-
----
-
-# Identity Checks
-
-## Must Contain
-
-```text
-Paycheck Calculator
-document.getElementById("hourlyRateInput")
-```
-
-## Must Not Contain
-
-```text
-categoryOptions
-document.getElementById("rate")
-```
-
----
-
-# Feature Checks
-
-```text
-copyResults
-printResults
-buildPaycheckResultsSummary
-```
+- Paycheck Calculator identity present.
+- Copy Results present.
+- Print Report present.
+- Disabled top ad slot present.
+- Disabled results ad slot present.
+- Disabled footer ad slot present.

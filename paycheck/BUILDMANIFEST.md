@@ -4,32 +4,22 @@
 
 ## Current Build
 
-v0.1
+v0.1.1
 
 ## Theme
 
-Foundation
+Foundation + Hidden Ad Framework
 
 ---
 
 # Required Validation Before ZIP
 
 - [ ] Required files exist.
-- [ ] Identity checks pass.
 - [ ] Version strings are synchronized.
-- [ ] Cache-busting references use v0.1.
-- [ ] Copy Results button exists.
-- [ ] Print Report button exists.
-- [ ] No malformed version strings exist.
-
-# Functional Checks
-
-- [ ] Example loads.
-- [ ] Reset clears values.
-- [ ] Saved settings reload.
-- [ ] Gross pay calculates.
-- [ ] Taxes calculate.
-- [ ] Deductions subtract.
-- [ ] Take-home pay calculates.
 - [ ] Copy Results works.
-- [ ] Print Report opens a populated report window.
+- [ ] Print Report works.
+- [ ] Saved settings work.
+- [ ] Disabled top ad slot exists.
+- [ ] Disabled results ad slot exists.
+- [ ] Disabled footer ad slot exists.
+- [ ] No live ads, ad provider scripts, tracking scripts, or ad requests are included.

@@ -4,13 +4,13 @@
 
 ---
 
-## Last Updated
-
-2026-06-08
-
 ## Current Version
 
-**v0.1**
+**v0.1.1**
+
+## Theme
+
+Foundation + Hidden Ad Framework
 
 ---
 
@@ -18,65 +18,31 @@
 
 | Version | Theme |
 |---|---|
+| v0.1.1 | Foundation + Hidden Ad Framework |
 | v0.1 | Foundation |
 
 ---
 
 # Upcoming Versions
 
-## v0.2
+## v0.2 — Deductions & Adjustments
 
-### Theme
+- Add tax, deduction, and other adjustment rows.
+- Add suggested deduction/tax pills.
+- Add static amount / percentage controls.
 
-Taxes & Deductions
+## v0.3 — Pay Details
 
-### Planned Features
+- Add shift differential, bonus, holiday, and other pay detail support.
 
-- Separate tax rows.
-- Separate deduction rows.
-- Static amount and percentage support.
-- Suggested tax and deduction pills.
+## v0.4 — Overtime Mode
 
----
+- Add regular hours, overtime hours, overtime threshold, and multiplier support.
 
-## v0.3
+## v0.5 — Target Pay
 
-### Theme
+- Add target take-home and target gross planning.
 
-Overtime Integration
+## v1.0 — Stable Release
 
-### Planned Features
-
-- Overtime threshold.
-- Overtime multiplier.
-- Regular vs overtime pay breakdown.
-- Reuse stable Overtime Calculator patterns.
-
----
-
-## v0.4
-
-### Theme
-
-Salary Mode
-
-### Planned Features
-
-- Salary input mode.
-- Annual salary to paycheck estimate.
-- Pay period conversion.
-
----
-
-## v1.0
-
-### Theme
-
-Stable Release
-
-### Planned Features
-
-- Final mobile review.
-- Final report verification.
-- Documentation cleanup.
-- Production release notes.
+- Final polish, reports, mobile validation, documentation, and release validation.

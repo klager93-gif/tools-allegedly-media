@@ -26,7 +26,7 @@ Estimate future balances for vacation, sick time, personal time, comp time, holi
 
 ## Paycheck Calculator
 
-Estimate gross pay, taxes, deductions, and take-home pay.
+Estimate gross pay, taxes, deductions, and take-home pay. Includes hidden disabled ad slots for future monetization support.
 
 ---
 

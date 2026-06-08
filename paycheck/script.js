@@ -2,12 +2,12 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.1
+Version: v0.1.1
 Purpose: Tool-specific logic and event handling
 */
-const TOOL_VERSION = "v0.1";
-const TOOL_THEME = "Foundation";
-const STORAGE_KEY = "signalLabsPaycheckCalculatorV01";
+const TOOL_VERSION = "v0.1.1";
+const TOOL_THEME = "Foundation + Hidden Ad Framework";
+const STORAGE_KEY = "signalLabsPaycheckCalculatorV011";
 
 const hourlyRateInput = document.getElementById("hourlyRateInput");
 const hoursWorkedInput = document.getElementById("hoursWorkedInput");

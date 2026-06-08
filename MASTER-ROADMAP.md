@@ -13,7 +13,7 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Home | v0.5.1 | Navigation Refresh & Paycheck Integration |
 | Overtime | v0.9.9 | Pre-1.0 Sync & Metadata Cleanup |
 | Time Off | v0.9.9 | Pre-1.0 Cleanup & Report Fix |
-| Paycheck | v0.1 | Foundation |
+| Paycheck | v0.1.1 | Foundation + Hidden Ad Framework |
 
 ---
 

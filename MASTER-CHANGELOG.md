@@ -11,6 +11,22 @@ This file tracks major changes across the entire Signal Labs ecosystem in chrono
 ### Home v0.5.1 — Navigation Refresh & Paycheck Integration
 
 - Added Paycheck Calculator to the Signal Labs Home tool directory.
+- Added Paycheck to shared navigation and refreshed navigation behavior for desktop/mobile.
+- Updated ecosystem documentation for Paycheck integration.
+
+---
+
+### Paycheck v0.1.1 — Foundation + Hidden Ad Framework
+
+- Added disabled top, results, and footer ad slots for future monetization support.
+- Updated Paycheck metadata, cache-busting, footer, and documentation to v0.1.1.
+- Preserved foundation calculator behavior, Copy Results, Print Report, and saved settings.
+
+---
+
+### Home v0.5.1 — Navigation Refresh & Paycheck Integration
+
+- Added Paycheck Calculator to the Signal Labs Home tool directory.
 - Added Paycheck to shared navigation.
 - Refreshed desktop navigation with pill-style Signal Labs buttons.
 - Added mobile hamburger/collapsible navigation behavior.
