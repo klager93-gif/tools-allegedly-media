@@ -10,7 +10,7 @@
 
 ## Current Version
 
-**v0.2**
+**v0.3**
 
 ---
 
@@ -18,6 +18,7 @@
 
 | Version | Theme |
 |---|---|
+| v0.3 | Hours & Earnings |
 | v0.2 | Deductions & Adjustments |
 | v0.1.1 | Foundation + Hidden Ad Framework |
 | v0.1 | Foundation |
@@ -26,15 +27,16 @@
 
 # Upcoming Versions
 
-## v0.3
+## v0.4
 
 ### Theme
 
-Pay Details
+Advanced Pay Details
 
 ### Planned Features
 
 - Shift differential support.
+- Holiday premium rules.
 - Bonus pay support.
 - Additional earnings support.
 - Optional pay-detail cards.
@@ -42,7 +44,7 @@ Pay Details
 
 ---
 
-## v0.4
+## v0.5
 
 ### Theme
 
@@ -50,15 +52,14 @@ Overtime Mode
 
 ### Planned Features
 
-- Regular hours vs overtime hours.
-- Overtime multiplier.
-- Automatic / custom overtime thresholds.
+- Automatic / custom overtime threshold logic.
 - Pay period threshold guidance.
-- Overtime estimate integration.
+- Daily overtime support research.
+- Overtime estimate refinement.
 
 ---
 
-## v0.5
+## v0.6
 
 ### Theme
 
@@ -74,7 +75,7 @@ Target Pay
 
 ---
 
-## v0.6
+## v0.7
 
 ### Theme
 

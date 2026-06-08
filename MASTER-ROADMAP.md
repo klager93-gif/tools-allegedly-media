@@ -11,30 +11,32 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Area | Current Version | Theme |
 |---|---:|---|
 | Home | v0.5.1 | Navigation Refresh & Paycheck Integration |
-| Overtime | v0.9.9.1 | Deductions & Adjustments Pattern Sync |
+| Overtime | v0.9.9 | Pre-1.0 Sync & Metadata Cleanup |
 | Time Off | v0.9.9 | Pre-1.0 Cleanup & Report Fix |
-| Paycheck | v0.2 | Deductions & Adjustments |
+| Paycheck | v0.3 | Hours & Earnings |
 
 ---
 
 # Near-Term Roadmap
 
-## Paycheck v0.3
+## Paycheck v0.4
 
 ### Theme
 
-Pay Details
+Advanced Pay Details
 
 ### Planned Focus
 
 - Shift differential support.
+- Holiday premium rules.
 - Bonus pay support.
 - Additional earnings support.
-- Review shared adjustment patterns against Overtime.
+- Optional pay-detail cards.
+- Review reusable pay-detail patterns before extracting shared components.
 
 ---
 
-## Paycheck v0.4
+## Paycheck v0.5
 
 ### Theme
 
@@ -42,10 +44,10 @@ Overtime Mode
 
 ### Planned Focus
 
-- Regular and overtime hours.
-- Overtime multiplier.
 - Automatic / custom overtime threshold logic.
 - Pay period threshold guidance.
+- Daily overtime support research.
+- Overtime estimate refinement.
 
 ---
 

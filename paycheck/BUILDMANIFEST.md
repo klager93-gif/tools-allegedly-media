@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.2
+v0.3
 
 ## Theme
 
-Deductions & Adjustments
+Hours & Earnings
 
 ---
 
@@ -17,8 +17,16 @@ Deductions & Adjustments
 - [ ] Required files exist.
 - [ ] Identity checks pass.
 - [ ] No malformed version strings exist.
-- [ ] Cache-busting references use v0.2 for Paycheck local files.
+- [ ] Cache-busting references use v0.3 for Paycheck local files.
 - [ ] Shared assets reference Home v0.5.1.
+- [ ] Regular Hours input exists.
+- [ ] Overtime Hours input exists.
+- [ ] Double Time Hours input exists.
+- [ ] Benefit / Paid Leave pills render.
+- [ ] Benefit hour rows appear only when selected.
+- [ ] Empty benefit-time state appears when no benefit hours are selected.
+- [ ] Hourly rate, pay period, currency, overtime multiplier, and double time multiplier work.
+- [ ] Custom multiplier fields show only when custom is selected.
 - [ ] Add Tax modal works.
 - [ ] Add Deduction modal works.
 - [ ] Add Other Adjustment modal works.
@@ -33,10 +41,9 @@ Deductions & Adjustments
 
 # Shared Pattern Consistency Checks
 
-- [ ] Compare adjustment modal behavior with Overtime.
-- [ ] Compare suggested pill styling with Overtime.
-- [ ] Compare Static Amount / Percentage behavior with Overtime.
-- [ ] Document any intentional differences.
+- [ ] Keep Deductions & Adjustments visually consistent with the shared pattern.
+- [ ] Document any intentional differences from Overtime.
+- [ ] Do not expand Overtime unless a critical shared-pattern issue requires it.
 
 ---
 

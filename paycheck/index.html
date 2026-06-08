@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.2
+Version: v0.3
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -11,23 +11,23 @@ Purpose: Main application page
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Paycheck Calculator | Signal Labs</title>
-<meta name="description" content="Estimate gross pay, taxes, deductions, adjustments, and take-home pay with the Signal Labs Paycheck Calculator.">
+<meta name="description" content="Estimate gross pay, paid leave hours, taxes, deductions, adjustments, and take-home pay with the Signal Labs Paycheck Calculator.">
 <meta property="og:title" content="Signal Labs Paycheck Calculator">
-<meta property="og:description" content="Estimate gross pay, taxes, deductions, and take-home pay.">
+<meta property="og:description" content="Estimate hours, gross pay, deductions, and take-home pay.">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.5.1">
-<link rel="stylesheet" href="style.css?v=0.2">
+<link rel="stylesheet" href="style.css?v=0.3">
 </head>
 <body>
 <main class="page">
 <header class="hero">
   <p class="eyebrow">Signal Labs</p>
   <h1>Paycheck Calculator</h1>
-  <p class="subtitle">Estimate gross pay, taxes, deductions, other adjustments, and take-home pay before payday.</p>
+  <p class="subtitle">Enter the hours you worked, add paid leave when needed, and estimate your take-home pay before payday.</p>
 </header>
 
 <div class="ad-slot ad-slot-top is-disabled" data-ad-slot="paycheck-top" data-ad-status="disabled" aria-hidden="true">
@@ -40,8 +40,43 @@ Purpose: Main application page
       <div class="section-title">
         <div class="step-badge green">1</div>
         <div>
-          <h2>Paycheck Details</h2>
-          <p>Enter your base pay, hours, pay period, and currency.</p>
+          <h2>Hours &amp; Earnings</h2>
+          <p>Enter work hours first. Add paid leave hours only when they apply to this paycheck.</p>
+        </div>
+      </div>
+
+      <div class="form-grid">
+        <label>
+          <span>Regular Hours</span>
+          <input id="regularHoursInput" type="number" placeholder="80" min="0" step="0.01">
+        </label>
+        <label>
+          <span>Overtime Hours</span>
+          <input id="overtimeHoursInput" type="number" placeholder="0" min="0" step="0.01">
+        </label>
+        <label>
+          <span>Double Time Hours</span>
+          <input id="doubleTimeHoursInput" type="number" placeholder="0" min="0" step="0.01">
+        </label>
+      </div>
+
+      <div class="benefit-hours-panel">
+        <div class="adjustment-heading">
+          <h3>Benefit / Paid Leave Hours</h3>
+          <span>Add only the paid leave types used on this check.</span>
+        </div>
+
+        <div id="benefitHourPills" class="benefit-pill-row" aria-label="Benefit hour selector"></div>
+        <div id="benefitHourList" class="benefit-hour-list"></div>
+      </div>
+    </section>
+
+    <section class="card step-card">
+      <div class="section-title">
+        <div class="step-badge blue">2</div>
+        <div>
+          <h2>Pay Details</h2>
+          <p>Tell us how those hours are paid. Overtime and double time use your hourly rate and multiplier.</p>
         </div>
       </div>
 
@@ -51,10 +86,6 @@ Purpose: Main application page
           <input id="hourlyRateInput" type="number" placeholder="25" min="0" step="0.01">
         </label>
         <label>
-          <span>Hours Worked</span>
-          <input id="hoursWorkedInput" type="number" placeholder="80" min="0" step="0.01">
-        </label>
-        <label>
           <span>Pay Period</span>
           <select id="payPeriodInput">
             <option value="weekly">Weekly</option>
@@ -62,6 +93,32 @@ Purpose: Main application page
             <option value="semimonthly">Semi-Monthly</option>
             <option value="monthly">Monthly</option>
           </select>
+        </label>
+        <label>
+          <span>Overtime Multiplier</span>
+          <select id="overtimeMultiplierInput">
+            <option value="1.5" selected>1.5×</option>
+            <option value="2">2×</option>
+            <option value="1">Regular Rate</option>
+            <option value="custom">Custom</option>
+          </select>
+        </label>
+        <label id="customOvertimeMultiplierWrap" class="hidden-by-default">
+          <span>Custom Overtime Multiplier</span>
+          <input id="customOvertimeMultiplierInput" type="number" placeholder="1.5" min="0" step="0.01">
+        </label>
+        <label>
+          <span>Double Time Multiplier</span>
+          <select id="doubleTimeMultiplierInput">
+            <option value="2" selected>2×</option>
+            <option value="1.5">1.5×</option>
+            <option value="1">Regular Rate</option>
+            <option value="custom">Custom</option>
+          </select>
+        </label>
+        <label id="customDoubleTimeMultiplierWrap" class="hidden-by-default">
+          <span>Custom Double Time Multiplier</span>
+          <input id="customDoubleTimeMultiplierInput" type="number" placeholder="2" min="0" step="0.01">
         </label>
         <label>
           <span>Currency</span>
@@ -86,7 +143,7 @@ Purpose: Main application page
 
     <section class="card step-card">
       <div class="section-title section-title-with-action">
-        <div class="step-badge purple">2</div>
+        <div class="step-badge purple">3</div>
         <div>
           <h2>Deductions &amp; Adjustments</h2>
           <p>Add taxes, deductions, and other paycheck adjustments as either percentages or static amounts.</p>
@@ -149,6 +206,26 @@ Purpose: Main application page
       <strong id="grossPayResult">$0.00</strong>
     </div>
     <div class="result-row">
+      <span>Regular Pay</span>
+      <strong id="regularPayResult">$0.00</strong>
+    </div>
+    <div class="result-row">
+      <span>Overtime Pay</span>
+      <strong id="overtimePayResult">$0.00</strong>
+    </div>
+    <div class="result-row">
+      <span>Double Time Pay</span>
+      <strong id="doubleTimePayResult">$0.00</strong>
+    </div>
+    <div class="result-row">
+      <span>Benefit / Leave Pay</span>
+      <strong id="benefitPayResult">$0.00</strong>
+    </div>
+    <div class="result-row">
+      <span>Total Paid Hours</span>
+      <strong id="totalHoursResult">0.00 hrs</strong>
+    </div>
+    <div class="result-row">
       <span>Estimated Taxes</span>
       <strong id="taxesResult">-$0.00</strong>
     </div>
@@ -171,8 +248,8 @@ Purpose: Main application page
 
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.2</p>
-      <p>Theme: Deductions &amp; Adjustments</p>
+      <p>Build: v0.3</p>
+      <p>Theme: Hours &amp; Earnings</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -182,8 +259,8 @@ Purpose: Main application page
   <strong>ⓘ Notes</strong>
   <ul>
     <li>Results are estimates only and may differ from actual payroll withholding.</li>
-    <li>Percentage entries are calculated from before-tax gross pay.</li>
-    <li>Static amount entries subtract the entered amount directly.</li>
+    <li>Benefit and paid leave hours are estimated at the regular hourly rate for now.</li>
+    <li>Percentage deductions and taxes are calculated from before-tax gross pay.</li>
   </ul>
 </div>
 </main>
@@ -197,7 +274,7 @@ Purpose: Main application page
     <button id="openRoadmap" type="button">Roadmap</button>
   </div>
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.2<br>
+    Signal Labs · Paycheck Calculator · v0.3<br>
     Useful tools without the noise.
   </div>
 </footer>
@@ -242,6 +319,6 @@ Purpose: Main application page
 </div>
 
 <script src="../assets/global.js?v=0.5.1"></script>
-<script src="script.js?v=0.2"></script>
+<script src="script.js?v=0.3"></script>
 </body>
 </html>

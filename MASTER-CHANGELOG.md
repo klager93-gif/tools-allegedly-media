@@ -10,11 +10,12 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ## 2026-06-08
 
-### Overtime v0.9.9.1 — Deductions & Adjustments Pattern Sync
+### Paycheck v0.3 — Hours & Earnings
 
-- Synced Overtime adjustment modal styling and shared behavior with the Paycheck v0.2 Deductions & Adjustments pattern.
-- Standardized suggested pills and Static Amount / Percentage controls where shared patterns overlap.
-- Preserved Overtime-specific calculations, reports, saved settings, and Target Pay behavior.
+- Rebuilt Paycheck around a clearer Hours & Earnings first step.
+- Added regular, overtime, double time, and selectable benefit / paid leave hours.
+- Added Pay Details controls for hourly rate, pay period, currency, overtime multiplier, and double time multiplier.
+- Updated gross pay, Copy Results, and Print Report output for the new hour-based structure.
 
 ### Paycheck v0.2 — Deductions & Adjustments
 

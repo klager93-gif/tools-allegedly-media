@@ -4,6 +4,28 @@
 
 ---
 
+## Version 0.3
+
+**Date:** 2026-06-08  
+**Theme:** Hours & Earnings
+
+### Changes
+
+- Rebuilt the first input section as Hours & Earnings.
+- Split hours from pay-rate settings for a clearer paycheck workflow.
+- Added separate Regular Hours, Overtime Hours, and Double Time Hours inputs.
+- Added Benefit / Paid Leave hour pills for Vacation, Sick, Personal, Holiday, Comp Time, Bereavement, Training, and Other.
+- Added dynamic paid-leave hour rows that appear only when selected.
+- Added a smoother empty state when no benefit time is entered.
+- Added a Pay Details section for hourly rate, pay period, currency, overtime multiplier, and double time multiplier.
+- Added custom multiplier support for overtime and double time.
+- Updated gross pay calculation to include regular, overtime, double time, and benefit / leave pay.
+- Updated results to show Regular Pay, Overtime Pay, Double Time Pay, Benefit / Leave Pay, and Total Paid Hours.
+- Updated Copy Results and Print Report output for the new hours and earnings structure.
+- Preserved Deductions & Adjustments, saved settings, hidden ad slots, shared navigation, and no-live-ad behavior.
+
+---
+
 ## Version 0.2
 
 **Date:** 2026-06-08  

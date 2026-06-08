@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.2
+v0.3
 
 ## Theme
 
-Deductions & Adjustments
+Hours & Earnings
 
 ---
 
@@ -43,7 +43,8 @@ BUILDMANIFEST.md
 
 ```text
 Paycheck Calculator
-hourlyRateInput
+regularHoursInput
+benefitHourPills
 ```
 
 ## Must Not Contain
@@ -64,6 +65,10 @@ adjustmentModal
 suggestedAdjustmentPills
 amountTypePercent
 amountTypeStatic
+benefitHourPills
+benefitHourList
+overtimeMultiplierInput
+doubleTimeMultiplierInput
 ```
 
 ---

@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.2
+Version: v0.3
 Purpose: Tool-specific styles
 */
 
@@ -56,6 +56,11 @@ Purpose: Tool-specific styles
   color: #73ff8f;
 }
 
+.blue {
+  background: rgba(80, 140, 255, 0.2);
+  color: #56a6ff;
+}
+
 .purple {
   background: rgba(140, 80, 255, 0.2);
   color: #cb9cff;
@@ -105,6 +110,108 @@ select {
 
 .message.error {
   color: #ff8b8b;
+}
+
+.hidden-by-default {
+  display: none !important;
+}
+
+.benefit-hours-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.benefit-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+}
+
+.benefit-hour-pill,
+.suggested-pill,
+.amount-type-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 8px 13px;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.035);
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.benefit-hour-pill:hover,
+.suggested-pill:hover,
+.amount-type-pill:hover {
+  border-color: rgba(34, 197, 94, 0.52);
+  transform: translateY(-1px);
+}
+
+.benefit-hour-pill.is-selected,
+.amount-type-pill.is-selected {
+  border-color: rgba(34, 197, 94, 0.72);
+  background: rgba(34, 197, 94, 0.14);
+  color: #86efac;
+}
+
+.benefit-hour-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.empty-benefit-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  border: 1px dashed rgba(148, 163, 184, 0.24);
+  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.16);
+}
+
+.empty-benefit-hours strong {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 14px;
+}
+
+.empty-benefit-hours span {
+  color: #888;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.benefit-hour-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: end;
+  padding: 12px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.benefit-hour-item button,
+.adjustment-item button {
+  width: auto;
+  min-height: 34px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: transparent;
+  color: #999;
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .info-note {
@@ -197,16 +304,6 @@ select {
   color: #aaa;
   font-size: 12px;
   line-height: 1.4;
-}
-
-.adjustment-item button {
-  width: auto;
-  min-height: 30px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: transparent;
-  color: #999;
-  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .results-card {
@@ -327,30 +424,6 @@ select {
   align-items: center;
 }
 
-.suggested-pill,
-.amount-type-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 36px;
-  padding: 8px 13px;
-  border: 1px solid rgba(148, 163, 184, 0.28);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.035);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 12px;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.suggested-pill:hover,
-.amount-type-pill:hover,
-.amount-type-pill.is-selected {
-  border-color: rgba(34, 197, 94, 0.72);
-  background: rgba(34, 197, 94, 0.14);
-  color: #86efac;
-}
-
 .modal-form-grid {
   grid-template-columns: 1fr 1fr;
 }
@@ -405,6 +478,15 @@ select {
 
   .adjustment-heading span {
     text-align: left;
+  }
+
+  .benefit-hour-item {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .benefit-hour-item button {
+    width: 100%;
   }
 
   .result-row strong {
