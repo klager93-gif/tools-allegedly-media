@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.7
+v0.9.9
 
 ## Theme
 
-Take-Home Controls Cleanup
+Pre-1.0 Sync & Metadata Cleanup
 
 ---
 
@@ -31,8 +31,8 @@ BUILDMANIFEST.md
 # Shared Dependencies
 
 ```text
-../assets/global.css?v=0.2.5
-../assets/global.js?v=0.2.5
+../assets/global.css?v=0.5
+../assets/global.js?v=0.5
 ```
 
 ---
@@ -60,26 +60,7 @@ document.getElementById("categoryOptions")
 copyResults
 printResults
 buildOvertimeResultsSummary
-```
-
-
-# Report Checks
-
-```text
 buildOvertimeProfessionalReportHtml
-openProfessionalReportWindow
-Print Report
-```
-
-
-# UX Flow Checks
-
-```text
-Overtime Details
-Deductions & Adjustments
-Pay Details
-Target Pay
-Estimated Pay
-Before Taxes (Gross)
-Take-Home Pay (Net)
+TOOL_VERSION
+TOOL_THEME
 ```

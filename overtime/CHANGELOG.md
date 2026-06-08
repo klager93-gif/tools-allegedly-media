@@ -1,3 +1,20 @@
+## Version 0.9.9
+
+**Date:** 2026-06-08  
+**Theme:** Pre-1.0 Sync & Metadata Cleanup
+
+### Changes
+
+- Synchronized Overtime version strings, cache-busting references, footer labels, report metadata, documentation, and manifests.
+- Added tool version/theme constants in script.js for future report metadata consistency.
+- Updated README.md, ROADMAP.md, FILEMANIFEST.md, and BUILDMANIFEST.md to reflect the current pre-1.0 release state.
+- Preserved v0.9.8 UX Flow & Plain-English Polish changes.
+- Preserved modal suggested pills, Static Amount / Percentage controls, saved settings, Print Report, Copy Results, optional sections, and Target Pay behavior.
+- No calculator logic changes.
+- No image-based report generation is used.
+
+---
+
 ## Version 0.9.8
 
 **Date:** 2026-06-08  

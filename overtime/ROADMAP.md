@@ -6,20 +6,21 @@
 
 ## Last Updated
 
-2026-06-07  
-15:05 UTC
+2026-06-08
 
 ## Current Version
 
-**v0.9.7**
+**v0.9.9**
 
 ---
 
 # Completed Versions
 
 | Version | Theme |
-|-----------|--------|
+|---|---|
+| v0.9.9 | Pre-1.0 Sync & Metadata Cleanup |
 | v0.9.8 | UX Flow & Plain-English Polish |
+| v0.9.7.1 | Modal Suggested Pills Placement Fix |
 | v0.9.7 | Modal Suggested Pills Fix |
 | v0.9.6.2 | Take-Home Controls Cleanup |
 | v0.9.6.1 | UI Identity Polish |
@@ -33,11 +34,8 @@
 | v0.9.1 | Professional Reports Print Fix |
 | v0.9 | Professional Reports |
 | v0.8.5 | Share & Export Prep |
-| v0.8.3.1 | Standards Manifest Adoption |
+| v0.8.3.1 | Live Folder Resync / Standards Manifest Adoption |
 | v0.8.1 | Goal Mode |
-| v0.8.2 | Shared Navigation Repair |
-| v0.8.2.1 | Layout Repair Patch |
-| v0.8.3.1 | Live Folder Resync |
 
 ---
 
@@ -47,12 +45,14 @@
 
 ### Theme
 
-Stable Release Candidate
+Stable Release
 
 ### Planned Features
 
 - Final verification pass.
 - Mobile layout review.
+- Modal suggested pill verification.
+- Static Amount / Percentage selector verification.
+- Print Report verification.
+- Copy Results verification.
 - Documentation cleanup.
-- Report and copy output verification.
-- Prepare Overtime for long-term stable use before Paycheck Calculator planning.

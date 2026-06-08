@@ -152,3 +152,10 @@ Use the calculator in this order:
 5. Estimated Pay.
 
 Before Taxes (Gross) means pay before taxes and deductions. Take-Home Pay (Net) means the estimated amount after entered taxes, deductions, and adjustments.
+
+
+---
+
+# v0.9.9 Pre-1.0 Sync & Metadata Cleanup
+
+This release synchronizes version strings, report metadata, documentation, and manifests before Overtime v1.0.
