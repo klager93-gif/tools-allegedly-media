@@ -1,0 +1,41 @@
+/*
+Signal Labs
+Tool: Paycheck Calculator
+File: style.css
+Version: v0.1
+Purpose: Tool-specific styles
+*/
+.dashboard-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+.left-stack { display: flex; flex-direction: column; gap: 24px; }
+.step-card { display: flex; flex-direction: column; gap: 20px; }
+.section-title { display: flex; gap: 14px; align-items: flex-start; }
+.section-title h2 { margin-bottom: 6px; }
+.section-title p { color: #999; line-height: 1.6; }
+.step-badge { width: 36px; height: 36px; border-radius: 999px; display:flex; align-items:center; justify-content:center; font-weight:800; flex-shrink:0; }
+.green { background: rgba(70,180,90,.2); color:#73ff8f; }
+.purple { background: rgba(140,80,255,.2); color:#cb9cff; }
+.form-grid { display:grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+label span { display:block; margin-bottom: 8px; color:#ccc; font-size:14px; }
+input, select { width:100%; min-height:44px; padding: 10px 13px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background:rgba(0,0,0,.3); color:white; font-size:16px; }
+.button-row { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+.primary-action { grid-column:1 / -1; font-size:18px; }
+.message { color:#888; font-size:14px; line-height:1.6; }
+.message.error { color:#ff8b8b; }
+.info-note { padding:16px; border-radius:16px; background:rgba(140,80,255,.08); border:1px solid rgba(140,80,255,.2); color:#bfbfbf; line-height:1.6; }
+.info-note strong, .info-note span { display:block; }
+.results-card { position: sticky; top:24px; }
+.results-heading { margin-bottom:20px; }
+.results-action-row { display:grid; grid-template-columns: repeat(2,1fr); gap:12px; margin-bottom:20px; }
+.result-row { display:flex; justify-content:space-between; align-items:center; gap:18px; padding:12px 14px; margin-bottom:8px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); }
+.result-row span { color:#aaa; line-height:1.5; }
+.result-row strong { font-size:20px; text-align:right; }
+.total { background:rgba(50,150,80,.22); border-color:rgba(70,200,100,.3); }
+.total strong { font-size:30px; }
+.summary-card { margin-top:20px; padding:16px; border-radius:16px; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.05); }
+.summary-card p { color:#999; line-height:1.7; }
+.footer-notes { margin-top:16px; padding:14px 15px; border:1px solid rgba(148,163,184,.18); border-radius:16px; background:rgba(255,255,255,.025); color:rgba(255,255,255,.68); font-size:12px; line-height:1.45; }
+.footer-notes strong { display:block; margin-bottom:7px; color:rgba(255,255,255,.86); font-size:13px; }
+.footer-notes ul { margin:0; padding-left:17px; }
+.ad-slot.is-disabled, .ad-slot[data-ad-status="disabled"] { display:none !important; visibility:hidden !important; height:0 !important; min-height:0 !important; margin:0 !important; padding:0 !important; border:0 !important; overflow:hidden !important; }
+@media (max-width: 1050px) { .dashboard-layout { grid-template-columns: 1fr; } .results-card { position: static; } }
+@media (max-width: 700px) { body { padding:14px; } .hero { text-align:center; padding-top:26px; padding-bottom:28px; } .hero h1 { font-size: clamp(48px, 13vw, 68px); line-height:.98; } .form-grid, .button-row, .results-action-row { grid-template-columns:1fr; } .card { padding:18px !important; } .result-row strong { font-size:18px; } .total strong { font-size:24px; } }

@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.5
+v0.5.1
 
 ## Theme
 
-Standards Expansion & Sync Cleanup
+Navigation Refresh & Paycheck Integration
 
 ---
 
@@ -78,4 +78,30 @@ assets/global.js
 ```text
 Shared Asset
 Version: v0.5
+```
+
+
+---
+
+# Required Paycheck Files
+
+```text
+paycheck/index.html
+paycheck/style.css
+paycheck/script.js
+paycheck/README.md
+paycheck/ROADMAP.md
+paycheck/CHANGELOG.md
+paycheck/HOWTO.md
+paycheck/FILEMANIFEST.md
+paycheck/BUILDMANIFEST.md
+```
+
+# Paycheck Identity Checks
+
+## Must Contain
+
+```text
+Paycheck Calculator
+hourlyRateInput
 ```

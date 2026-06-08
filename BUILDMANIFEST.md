@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.5
+v0.5.1
 
 ## Theme
 
-Standards Expansion & Sync Cleanup
+Navigation Refresh & Paycheck Integration
 
 ## Build Type
 
@@ -46,3 +46,26 @@ Before presenting a ZIP, confirm the response includes, in order:
 5. GitHub summary.
 6. Theme.
 7. Version.
+
+
+---
+
+# Required Paycheck Files
+
+- [ ] paycheck/index.html
+- [ ] paycheck/style.css
+- [ ] paycheck/script.js
+- [ ] paycheck/README.md
+- [ ] paycheck/ROADMAP.md
+- [ ] paycheck/CHANGELOG.md
+- [ ] paycheck/HOWTO.md
+- [ ] paycheck/FILEMANIFEST.md
+- [ ] paycheck/BUILDMANIFEST.md
+
+# Paycheck Integration Checks
+
+- [ ] Home page includes Paycheck Calculator card.
+- [ ] Shared navigation includes Paycheck.
+- [ ] Paycheck loads global.css and global.js with v0.5.1 cache-busting.
+- [ ] Paycheck Copy Results works.
+- [ ] Paycheck Print Report works.

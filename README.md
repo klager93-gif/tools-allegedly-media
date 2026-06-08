@@ -6,11 +6,11 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.5**
+**v0.5.1**
 
 ## Theme
 
-Standards Expansion & Sync Cleanup
+Navigation Refresh & Paycheck Integration
 
 ---
 
@@ -23,6 +23,10 @@ Estimate regular pay, overtime pay, before-tax pay, taxes, deductions, take-home
 ## Time Off Planner
 
 Estimate future balances for vacation, sick time, personal time, comp time, holidays, planned events, caps, and policy warnings.
+
+## Paycheck Calculator
+
+Estimate gross pay, taxes, deductions, and take-home pay.
 
 ---
 
@@ -87,6 +91,17 @@ site.webmanifest
   HOWTO.md
   FILEMANIFEST.md
   BUILDMANIFEST.md
+
+/paycheck/
+  index.html
+  style.css
+  script.js
+  README.md
+  CHANGELOG.md
+  ROADMAP.md
+  HOWTO.md
+  FILEMANIFEST.md
+  BUILDMANIFEST.md
 ```
 
 ---
@@ -129,11 +144,11 @@ Example:
 
 ### Build
 
-v0.5
+v0.5.1
 
 ### Theme
 
-Standards Expansion & Sync Cleanup
+Navigation Refresh & Paycheck Integration
 
 ### Status
 

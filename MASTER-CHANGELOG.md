@@ -8,6 +8,27 @@ This file tracks major changes across the entire Signal Labs ecosystem in chrono
 
 ## 2026-06-08
 
+### Home v0.5.1 — Navigation Refresh & Paycheck Integration
+
+- Added Paycheck Calculator to the Signal Labs Home tool directory.
+- Added Paycheck to shared navigation.
+- Refreshed desktop navigation with pill-style Signal Labs buttons.
+- Added mobile hamburger/collapsible navigation behavior.
+- Updated master documentation, release history, and Home documentation for Paycheck integration.
+
+---
+
+### Paycheck v0.1 — Foundation
+
+- Added initial Paycheck Calculator prototype.
+- Added hourly rate, hours worked, pay period, currency, estimated tax rate, and deductions inputs.
+- Added gross pay, estimated taxes, deductions, take-home pay, and effective hourly take-home results.
+- Added Copy Results, Print Report, saved settings, example values, and reset support.
+- Added Paycheck README, ROADMAP, CHANGELOG, HOWTO, FILEMANIFEST, and BUILDMANIFEST.
+
+---
+
+
 ### Home v0.5 — Standards Expansion & Sync Cleanup
 
 - Upgraded Signal Labs Development Standards to v2.0.

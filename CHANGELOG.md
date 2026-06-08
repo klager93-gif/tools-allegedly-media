@@ -4,6 +4,25 @@
 
 ---
 
+## Version 0.5.1
+
+**Date:** 2026-06-08  
+**Theme:** Navigation Refresh & Paycheck Integration
+
+### Changes
+
+- Added Paycheck Calculator v0.1 to the Signal Labs ecosystem.
+- Added Paycheck Calculator card to Signal Labs Home.
+- Added Paycheck to shared navigation.
+- Refreshed desktop navigation with Signal Labs pill-style links.
+- Added mobile hamburger/collapsible navigation support.
+- Updated shared global asset cache-busting references to v0.5.1.
+- Updated Home README, ROADMAP, master changelog, master roadmap, release history, manifests, build manifest, and install documentation for Paycheck integration.
+- Preserved Overtime v0.9.9 and Time Off v0.9.9 behavior.
+- No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+
+---
+
 ## Version 0.5
 
 **Date:** 2026-06-08  

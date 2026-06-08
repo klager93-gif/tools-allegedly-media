@@ -17,7 +17,8 @@ Open the root `index.html` page to access the main Signal Labs tool directory.
 The root page currently links to:
 
 - Overtime Calculator.
-- Time Off Planner.
+- Time Off
+- Paycheck Planner.
 
 Use the navigation bar to move between Home and available tools.
 
@@ -126,3 +127,10 @@ Before planning, coding, packaging, or releasing, review:
 ```text
 /STANDARDS.md
 ```
+
+
+---
+
+# Home v0.5.1 Navigation Refresh & Paycheck Integration
+
+Home v0.5.1 adds Paycheck Calculator to the ecosystem and updates shared navigation. Desktop navigation uses pill-style links. Mobile navigation uses a Menu button that expands or collapses tool links.

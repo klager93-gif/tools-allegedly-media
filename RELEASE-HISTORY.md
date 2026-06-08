@@ -47,6 +47,8 @@ This file tracks actual release order across the Signal Labs ecosystem.
 | 35 | 2026-06-08 | Home v0.5 | Standards Expansion & Sync Cleanup | Updated standards/docs and removed unused root style.css. |
 | 36 | 2026-06-08 | Overtime v0.9.9 | Pre-1.0 Sync & Metadata Cleanup | Synchronized versions and report metadata. |
 | 37 | 2026-06-08 | Time Off v0.9.9 | Pre-1.0 Cleanup & Report Fix | Fixed report helpers and HTML cleanup. |
+| 38 | 2026-06-08 | Paycheck v0.1 | Foundation | Added initial Paycheck Calculator. |
+| 39 | 2026-06-08 | Home v0.5.1 | Navigation Refresh & Paycheck Integration | Added Paycheck to Home and refreshed shared navigation. |
 
 ---
 

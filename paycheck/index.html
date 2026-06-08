@@ -1,0 +1,108 @@
+<!--
+Signal Labs
+Tool: Paycheck Calculator
+File: index.html
+Version: v0.1
+Purpose: Main application page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paycheck Calculator | Signal Labs</title>
+<meta name="description" content="Estimate gross pay, taxes, deductions, and take-home pay with the Signal Labs Paycheck Calculator.">
+<meta property="og:title" content="Signal Labs Paycheck Calculator">
+<meta property="og:description" content="Estimate gross pay, taxes, deductions, and take-home pay.">
+<link rel="icon" href="/favicon.ico">
+<link rel="stylesheet" href="../assets/global.css?v=0.5.1">
+<link rel="stylesheet" href="style.css?v=0.1">
+</head>
+<body>
+<main class="page">
+<header class="hero">
+  <p class="eyebrow">Signal Labs</p>
+  <h1>Paycheck Calculator</h1>
+  <p class="subtitle">Estimate gross pay, taxes, deductions, and take-home pay for a paycheck.</p>
+</header>
+
+<div class="ad-slot ad-slot-top is-disabled" data-ad-slot="paycheck-top" data-ad-status="disabled" aria-hidden="true"><span class="ad-placeholder">Ad slot reserved</span></div>
+
+<section class="dashboard-layout">
+<section class="left-stack">
+
+<section class="card step-card">
+<div class="section-title">
+  <div class="step-badge green">1</div>
+  <div>
+    <h2>Paycheck Details</h2>
+    <p>Enter your pay rate, hours, and pay period.</p>
+  </div>
+</div>
+<div class="form-grid">
+<label><span>Hourly Rate</span><input id="hourlyRateInput" type="number" placeholder="25.00" min="0" step="0.01"></label>
+<label><span>Hours Worked</span><input id="hoursWorkedInput" type="number" placeholder="80" min="0" step="0.01"></label>
+<label><span>Pay Period</span><select id="payPeriodInput"><option value="weekly">Weekly</option><option value="biweekly" selected>Bi-Weekly</option><option value="semimonthly">Semi-Monthly</option><option value="monthly">Monthly</option></select></label>
+<label><span>Currency</span><select id="currencyInput"><option value="USD">USD ($)</option><option value="CAD">CAD ($)</option><option value="EUR">EUR (€)</option><option value="GBP">GBP (£)</option></select></label>
+</div>
+<div class="button-row">
+<button id="calculate" class="primary-action" type="button">Calculate Paycheck</button>
+<button id="saveSettings" class="secondary" type="button">Save Settings</button>
+<button id="example" class="secondary" type="button">Example</button>
+<button id="reset" class="secondary" type="button">Reset</button>
+</div>
+<p id="message" class="message">Enter values or load an example to begin.</p>
+</section>
+
+<section class="card step-card">
+<div class="section-title">
+  <div class="step-badge purple">2</div>
+  <div>
+    <h2>Taxes &amp; Deductions</h2>
+    <p>Add estimated tax percentages and paycheck deductions.</p>
+  </div>
+</div>
+<div class="form-grid">
+<label><span>Estimated Tax Rate (%)</span><input id="taxRateInput" type="number" placeholder="20" min="0" max="100" step="0.01"></label>
+<label><span>Deductions</span><input id="deductionsInput" type="number" placeholder="150.00" min="0" step="0.01"></label>
+</div>
+<div class="info-note"><strong>Simple estimate only.</strong><span>This first version uses one combined tax percentage and one deductions amount. Official payroll calculations may differ.</span></div>
+</section>
+
+</section>
+
+<section class="card results-card results-compact-mobile">
+<div class="results-heading"><h2>Estimated Paycheck</h2></div>
+<div class="results-action-row">
+<button id="copyResults" class="secondary" type="button">Copy Results</button>
+<button id="printResults" class="secondary" type="button">Print Report</button>
+</div>
+<div class="results-section">
+<div class="result-row"><span>Gross Pay</span><strong id="grossPayResult">$0.00</strong></div>
+<div class="result-row"><span>Estimated Taxes</span><strong id="taxesResult">-$0.00</strong></div>
+<div class="result-row"><span>Deductions</span><strong id="deductionsResult">-$0.00</strong></div>
+<div class="result-row total"><span>Take-Home Pay</span><strong id="takeHomeResult">$0.00</strong></div>
+<div class="result-row"><span>Effective Hourly Take-Home</span><strong id="effectiveRateResult">$0.00</strong></div>
+</div>
+<div class="summary-card">
+<p>Generated: <span id="generatedTime">--</span></p>
+<p>Build: v0.1</p>
+<p>Theme: Foundation</p>
+<p>Status: Initial Prototype</p>
+</div>
+</section>
+</section>
+
+<div class="footer-notes paycheck-notes"><strong>ⓘ Notes</strong><ul><li>Estimates only. Actual pay depends on taxes, deductions, benefits, payroll timing, and employer rules.</li><li>This version does not calculate official tax brackets.</li></ul></div>
+</main>
+
+<footer class="version">
+<div class="footer-actions"><button id="openChangelog" type="button">Changelog</button><button id="openRoadmap" type="button">Roadmap</button></div>
+<div class="footer-copy">Signal Labs · Paycheck Calculator · v0.1<br>Useful tools without the noise.</div>
+</footer>
+
+<div id="modal" class="modal hidden"><div class="modal-box"><button id="closeModal" class="modal-close" type="button">×</button><h2 id="modalTitle">Project Information</h2><pre id="modalContent">Loading...</pre></div></div>
+<script src="../assets/global.js?v=0.5.1"></script>
+<script src="script.js?v=0.1"></script>
+</body>
+</html>

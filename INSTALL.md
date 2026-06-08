@@ -3,54 +3,72 @@
 ## Versions
 
 ```text
-Home: v0.5 — Standards Expansion & Sync Cleanup
+Home: v0.5.1 — Navigation Refresh & Paycheck Integration
 Overtime: v0.9.9 — Pre-1.0 Sync & Metadata Cleanup
 Time Off: v0.9.9 — Pre-1.0 Cleanup & Report Fix
+Paycheck: v0.1 — Foundation
 ```
 
 ## Backup Reminder
 
-Back up the current live version before uploading this release.
+Before uploading this release, back up the current live Home/root folder and tool folders.
 
 ## Backup Folder Name
 
 ```text
-2026-06-08-before-signal-labs-combined-home-v0.5-overtime-v0.9.9-timeoff-v0.9.9-standards-sync-cleanup
+2026-06-08-before-home-v0.5.1-paycheck-v0.1-navigation-refresh-paycheck-integration
 ```
 
 ## GitHub Title
 
 ```text
-Signal Labs Combined Release — Home v0.5, Overtime v0.9.9, Time Off v0.9.9
+Home v0.5.1 + Paycheck v0.1 — Navigation Refresh & Paycheck Integration
 ```
 
 ## GitHub Summary
 
 ```text
-Signal Labs combined release updates Home standards/documentation, synchronizes Overtime pre-1.0 metadata, and fixes Time Off pre-1.0 report/HTML cleanup.
+- Updated Home to v0.5.1 with Paycheck integration.
+- Added Paycheck Calculator v0.1 foundation files.
+- Added Paycheck to Home tool cards and shared navigation.
+- Refreshed desktop navigation with pill-style links.
+- Added mobile hamburger/collapsible navigation behavior.
+- Updated master changelog, master roadmap, release history, Home documentation, manifests, and build checks.
+- Preserved Overtime v0.9.9 and Time Off v0.9.9 behavior.
 ```
 
 ## Upload Instructions
 
-Upload the full package contents to the matching live folders. Replace full folders/files, not partial snippets.
+Copy all files and folders in this package into the matching live locations. Replace complete files, not snippets.
 
 ```text
 root files -> site root
 assets/* -> /assets/
-backups/* -> /backups/
 overtime/* -> /overtime/
 timeoff/* -> /timeoff/
+paycheck/* -> /paycheck/
+backups/* -> /backups/
 ```
 
-Do not upload the removed legacy root `style.css`.
+## Expected Results
+
+- Home footer shows v0.5.1.
+- Home includes a Paycheck Calculator card.
+- Shared navigation includes Home, Overtime, Time Off, and Paycheck.
+- Desktop navigation uses pill-style links.
+- Mobile navigation uses a collapsible Menu button.
+- Paycheck Calculator opens and shows v0.1.
+- Overtime remains v0.9.9.
+- Time Off remains v0.9.9.
 
 ## Validation Checklist
 
-- Confirm Home footer says v0.5.
-- Confirm Overtime footer and report say v0.9.9.
-- Confirm Time Off footer and report say v0.9.9.
-- Confirm Copy Results works for Overtime and Time Off.
-- Confirm Print Report opens populated report windows.
-- Confirm Overtime modal suggested pills remain inside modals.
-- Confirm Time Off category pills and planned events work.
-- Confirm no root `style.css` is needed by Home.
+- Open `/`.
+- Open `/overtime/`.
+- Open `/timeoff/`.
+- Open `/paycheck/`.
+- Confirm all footer versions.
+- Confirm global asset cache-busting uses `v=0.5.1`.
+- Confirm Paycheck Copy Results works.
+- Confirm Paycheck Print Report opens a populated report window.
+- Confirm mobile navigation opens and closes.

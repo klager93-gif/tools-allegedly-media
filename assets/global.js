@@ -2,7 +2,7 @@
 Signal Labs
 Shared Asset
 File: assets/global.js
-Version: v0.5
+Version: v0.5.1
 Purpose: Shared navigation, modal utilities, UTC helper, and ad slot initialization
 */
 
@@ -50,7 +50,7 @@ function closeTextModal() {
 function getRelativeRootPath() {
   const path = window.location.pathname;
 
-  if (path.includes("/overtime/") || path.includes("/timeoff/")) {
+  if (path.includes("/overtime/") || path.includes("/timeoff/") || path.includes("/paycheck/")) {
     return "../";
   }
 
@@ -68,6 +68,10 @@ function getActiveToolPath() {
     return "timeoff";
   }
 
+  if (path.includes("/paycheck/")) {
+    return "paycheck";
+  }
+
   return "home";
 }
 
@@ -83,19 +87,38 @@ function buildSignalNavigation() {
   nav.className = "signal-nav";
   nav.setAttribute("aria-label", "Signal Labs navigation");
 
+  const navId = "signalNavLinks";
+
   nav.innerHTML = `
     <div class="signal-nav-inner">
       <a class="signal-nav-brand" href="${rootPath}">Signal Labs</a>
 
-      <div class="signal-nav-links">
+      <button class="signal-nav-toggle" type="button" aria-expanded="false" aria-controls="${navId}">
+        <span class="signal-nav-toggle-icon" aria-hidden="true">☰</span>
+        <span>Menu</span>
+      </button>
+
+      <div id="${navId}" class="signal-nav-links">
         <a class="signal-nav-link ${activePath === "home" ? "is-active" : ""}" href="${rootPath}">Home</a>
         <a class="signal-nav-link ${activePath === "overtime" ? "is-active" : ""}" href="${rootPath}overtime/">Overtime</a>
         <a class="signal-nav-link ${activePath === "timeoff" ? "is-active" : ""}" href="${rootPath}timeoff/">Time Off</a>
+        <a class="signal-nav-link ${activePath === "paycheck" ? "is-active" : ""}" href="${rootPath}paycheck/">Paycheck</a>
       </div>
     </div>
   `;
 
   document.body.insertBefore(nav, document.body.firstChild);
+
+  const toggle = nav.querySelector(".signal-nav-toggle");
+  const links = nav.querySelector(".signal-nav-links");
+
+  if (toggle && links) {
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!expanded));
+      links.classList.toggle("is-open", !expanded);
+    });
+  }
 }
 
 

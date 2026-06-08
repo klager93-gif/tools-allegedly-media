@@ -10,27 +10,14 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Home | v0.5 | Standards Expansion & Sync Cleanup |
+| Home | v0.5.1 | Navigation Refresh & Paycheck Integration |
 | Overtime | v0.9.9 | Pre-1.0 Sync & Metadata Cleanup |
 | Time Off | v0.9.9 | Pre-1.0 Cleanup & Report Fix |
+| Paycheck | v0.1 | Foundation |
 
 ---
 
 # Near-Term Roadmap
-
-## Home v0.5.1
-
-### Theme
-
-Navigation Refresh
-
-### Planned Focus
-
-- Desktop pill navigation.
-- Mobile hamburger/collapsible navigation.
-- Verify shared navigation across Home, Overtime, and Time Off.
-
----
 
 ## Overtime v1.0
 
@@ -66,6 +53,34 @@ Stable Release
 
 ---
 
+## Paycheck v0.2
+
+### Theme
+
+Taxes & Deductions
+
+### Planned Focus
+
+- Add more flexible tax and deduction entries.
+- Separate static and percentage deductions.
+- Improve paycheck breakdown explanations.
+
+---
+
+## Paycheck v0.3
+
+### Theme
+
+Overtime Integration
+
+### Planned Focus
+
+- Add overtime threshold support.
+- Add overtime multiplier support.
+- Begin migrating best Overtime Calculator features into Paycheck.
+
+---
+
 ## Home v0.6
 
 ### Theme
@@ -83,7 +98,6 @@ Theme System Foundation
 
 # Future Tools
 
-- Paycheck Calculator.
 - Shift Differential Calculator.
 - Holiday Pay Calculator.
 - PTO Cash-Out Calculator.
@@ -96,6 +110,10 @@ Theme System Foundation
 ## Home v1.0
 
 Signal Labs suite foundation.
+
+## Paycheck v1.0
+
+Stable paycheck calculator with overtime, deductions, reports, and saved settings.
 
 ## Signal Labs Ecosystem v2.0
 
