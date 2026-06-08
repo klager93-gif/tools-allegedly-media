@@ -13,11 +13,23 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Home | v0.5.1 | Navigation Refresh & Paycheck Integration |
 | Overtime | v0.9.9.1 | Deductions & Adjustments Pattern Sync |
 | Time Off | v0.9.9 | Pre-1.0 Cleanup & Report Fix |
-| Paycheck | v0.3.1 | Premium Hours & Benefit Hours |
+| Paycheck | v0.3.2 | Professional Report Polish |
 
 ---
 
 # Near-Term Roadmap
+
+## Paycheck v0.3.2
+
+### Theme
+
+Professional Report Polish
+
+### Status
+
+Completed report polish release.
+
+---
 
 ## Paycheck v0.4
 

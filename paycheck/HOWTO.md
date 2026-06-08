@@ -14,6 +14,8 @@
 6. Review the Estimated Paycheck panel.
 7. Use Copy Results or Print Report as needed.
 
+Print Report opens a professional report with summary cards and tables for hours, adjustments, and estimated pay.
+
 ---
 
 ## Notes

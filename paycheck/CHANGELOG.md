@@ -4,6 +4,22 @@
 
 ---
 
+## Version 0.3.2
+
+**Date:** 2026-06-08  
+**Theme:** Professional Report Polish
+
+### Changes
+
+- Replaced the plain text print output with a polished professional HTML report.
+- Added report header metadata for generated time, build, theme, and pay period.
+- Added summary cards for Before Taxes (Gross), Total Paid Hours, Total Reductions, and Take-Home Pay (Net).
+- Added structured report tables for Hours & Earnings, Deductions & Adjustments, and Estimated Pay.
+- Kept the report as real selectable HTML text and tables, not an image.
+- Preserved Copy Results, saved settings, hidden ad slots, and no-live-ad behavior.
+
+---
+
 ## Version 0.3.1
 
 **Date:** 2026-06-08  

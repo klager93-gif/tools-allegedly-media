@@ -2,13 +2,14 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.3.1
+Version: v0.3.2
 Purpose: Tool-specific logic and event handling
 */
 
-const TOOL_VERSION = "v0.3.1";
-const TOOL_THEME = "Premium Hours & Benefit Hours";
-const STORAGE_KEY = "signalLabsPaycheckCalculatorV031";
+const TOOL_VERSION = "v0.3.2";
+const TOOL_THEME = "Professional Report Polish";
+const STORAGE_KEY = "signalLabsPaycheckCalculatorV032";
+const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV031"];
 
 const PREMIUM_HOUR_TYPES = [
   { id: "overtime", label: "Overtime", defaultMultiplier: 1.5 },
@@ -495,7 +496,15 @@ function saveSettings(showNotice = false) {
 }
 
 function loadSettings() {
-  const saved = localStorage.getItem(STORAGE_KEY);
+  let saved = localStorage.getItem(STORAGE_KEY);
+
+  if (!saved) {
+    for (const legacyKey of LEGACY_STORAGE_KEYS) {
+      saved = localStorage.getItem(legacyKey);
+      if (saved) break;
+    }
+  }
+
   if (!saved) return false;
 
   try {
@@ -635,31 +644,322 @@ function escapeHtml(text) {
     .replaceAll('"', "&quot;");
 }
 
+function reportMoney(value) {
+  return escapeHtml(formatMoney(value));
+}
+
+function reportNumber(value) {
+  return escapeHtml(formatNumber(value));
+}
+
+function buildReportRows(rows) {
+  if (!rows.length) {
+    return `<tr><td colspan="3" class="muted">None entered.</td></tr>`;
+  }
+
+  return rows.map(row => `
+    <tr>
+      <td>${escapeHtml(row.label)}</td>
+      <td>${escapeHtml(row.detail)}</td>
+      <td class="amount">${escapeHtml(row.amount)}</td>
+    </tr>
+  `).join("");
+}
+
+function buildPremiumReportRows(totals) {
+  return state.premiumHours.map(entry => {
+    const hours = Number(entry.hours) || 0;
+    const multiplier = Number(entry.multiplier) || 0;
+    const pay = hours * totals.rate * multiplier;
+    return {
+      label: entry.label,
+      detail: `${formatNumber(hours)} hrs × ${formatMoney(totals.rate)} × ${formatNumber(multiplier)}x`,
+      amount: formatMoney(pay)
+    };
+  });
+}
+
+function buildBenefitReportRows(totals) {
+  return state.benefitHours.map(entry => {
+    const hours = Number(entry.hours) || 0;
+    const pay = hours * totals.rate;
+    return {
+      label: entry.label,
+      detail: `${formatNumber(hours)} hrs × ${formatMoney(totals.rate)}`,
+      amount: formatMoney(pay)
+    };
+  });
+}
+
+function buildAdjustmentReportRows(type) {
+  return (state.adjustments[type] || []).map(item => {
+    const rawAmount = Number(item.amount) || 0;
+    const calculated = item.amountType === "percent"
+      ? getTotals().grossPay * (rawAmount / 100)
+      : rawAmount;
+
+    return {
+      label: item.label,
+      detail: item.amountType === "percent" ? `${formatNumber(rawAmount)}% of gross pay` : "Static amount",
+      amount: `-${formatMoney(calculated)}`
+    };
+  });
+}
+
+function buildPaycheckProfessionalReportHtml() {
+  const totals = getTotals();
+  const generated = currentUtcTime();
+  const regularRows = totals.regularHours > 0 ? [{
+    label: "Regular Hours",
+    detail: `${formatNumber(totals.regularHours)} hrs × ${formatMoney(totals.rate)}`,
+    amount: formatMoney(totals.regularPay)
+  }] : [];
+
+  const premiumRows = buildPremiumReportRows(totals);
+  const benefitRows = buildBenefitReportRows(totals);
+  const taxRows = buildAdjustmentReportRows("tax");
+  const deductionRows = buildAdjustmentReportRows("deduction");
+  const otherRows = buildAdjustmentReportRows("other");
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paycheck Report</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 32px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111827;
+    background: #f8fafc;
+    line-height: 1.45;
+  }
+  .report-page {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 34px;
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.10);
+  }
+  .report-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    align-items: flex-start;
+    border-bottom: 2px solid #111827;
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+  }
+  .eyebrow {
+    margin: 0 0 7px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin: 0;
+    font-size: 34px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  .meta {
+    color: #64748b;
+    font-size: 12px;
+    text-align: right;
+    line-height: 1.6;
+    white-space: nowrap;
+  }
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .summary-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 14px;
+    background: #f8fafc;
+  }
+  .summary-card span {
+    display: block;
+    margin-bottom: 6px;
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .summary-card strong {
+    display: block;
+    font-size: 20px;
+    line-height: 1.15;
+  }
+  .summary-card.net {
+    border-color: #86efac;
+    background: #f0fdf4;
+  }
+  .section {
+    margin-top: 24px;
+  }
+  .section h2 {
+    margin: 0 0 10px;
+    font-size: 18px;
+    line-height: 1.2;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  th, td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+    vertical-align: top;
+    font-size: 13px;
+  }
+  th {
+    background: #f1f5f9;
+    color: #334155;
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  tr:last-child td { border-bottom: 0; }
+  .amount { text-align: right; font-weight: 800; white-space: nowrap; }
+  .muted { color: #64748b; }
+  .totals-table td:first-child { font-weight: 700; }
+  .totals-table .final td {
+    background: #f0fdf4;
+    border-top: 2px solid #86efac;
+    font-size: 15px;
+    font-weight: 900;
+  }
+  .note {
+    margin-top: 24px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    color: #475569;
+    background: #f8fafc;
+    font-size: 12px;
+  }
+  footer {
+    margin-top: 24px;
+    color: #64748b;
+    font-size: 11px;
+    text-align: center;
+  }
+  @media print {
+    body { padding: 0; background: #fff; }
+    .report-page { border: 0; border-radius: 0; box-shadow: none; padding: 18px; }
+    .summary-grid { grid-template-columns: repeat(4, 1fr); }
+    .section { break-inside: avoid; }
+    .note { break-inside: avoid; }
+  }
+  @media (max-width: 760px) {
+    .report-header { flex-direction: column; }
+    .meta { text-align: left; white-space: normal; }
+    .summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<div class="report-page">
+  <header class="report-header">
+    <div>
+      <p class="eyebrow">Signal Labs</p>
+      <h1>Paycheck Report</h1>
+    </div>
+    <div class="meta">
+      <div><strong>Generated:</strong> ${escapeHtml(generated)}</div>
+      <div><strong>Build:</strong> ${escapeHtml(TOOL_VERSION)}</div>
+      <div><strong>Theme:</strong> ${escapeHtml(TOOL_THEME)}</div>
+      <div><strong>Pay Period:</strong> ${escapeHtml(getPayPeriodLabel())}</div>
+    </div>
+  </header>
+
+  <section class="summary-grid" aria-label="Paycheck summary">
+    <div class="summary-card"><span>Before Taxes (Gross)</span><strong>${reportMoney(totals.grossPay)}</strong></div>
+    <div class="summary-card"><span>Total Paid Hours</span><strong>${reportNumber(totals.totalPaidHours)} hrs</strong></div>
+    <div class="summary-card"><span>Total Reductions</span><strong>-${reportMoney(totals.taxes + totals.deductions + totals.other)}</strong></div>
+    <div class="summary-card net"><span>Take-Home Pay (Net)</span><strong>${reportMoney(totals.takeHomePay)}</strong></div>
+  </section>
+
+  <section class="section">
+    <h2>Hours & Earnings</h2>
+    <table>
+      <thead><tr><th>Type</th><th>Details</th><th class="amount">Estimated Pay</th></tr></thead>
+      <tbody>
+        ${buildReportRows(regularRows)}
+        ${buildReportRows(premiumRows)}
+        ${buildReportRows(benefitRows)}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>Deductions & Adjustments</h2>
+    <table>
+      <thead><tr><th>Type</th><th>Details</th><th class="amount">Estimated Amount</th></tr></thead>
+      <tbody>
+        <tr><th colspan="3">Taxes</th></tr>
+        ${buildReportRows(taxRows)}
+        <tr><th colspan="3">Deductions</th></tr>
+        ${buildReportRows(deductionRows)}
+        <tr><th colspan="3">Other Adjustments</th></tr>
+        ${buildReportRows(otherRows)}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>Estimated Pay</h2>
+    <table class="totals-table">
+      <tbody>
+        <tr><td>Regular Pay</td><td class="amount">${reportMoney(totals.regularPay)}</td></tr>
+        <tr><td>Premium Pay</td><td class="amount">${reportMoney(totals.premiumPay)}</td></tr>
+        <tr><td>Benefit / Leave Pay</td><td class="amount">${reportMoney(totals.benefitPay)}</td></tr>
+        <tr><td>Before Taxes (Gross)</td><td class="amount">${reportMoney(totals.grossPay)}</td></tr>
+        <tr><td>Estimated Taxes</td><td class="amount">-${reportMoney(totals.taxes)}</td></tr>
+        <tr><td>Deductions</td><td class="amount">-${reportMoney(totals.deductions)}</td></tr>
+        <tr><td>Other Adjustments</td><td class="amount">-${reportMoney(totals.other)}</td></tr>
+        <tr><td>Effective Hourly Take-Home</td><td class="amount">${reportMoney(totals.effectiveRate)}</td></tr>
+        <tr class="final"><td>Take-Home Pay (Net)</td><td class="amount">${reportMoney(totals.takeHomePay)}</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="note">
+    Results are estimates only and may differ from actual payroll withholding, employer policy, taxes, benefits, deductions, overtime rules, and payroll timing.
+  </div>
+
+  <footer>Signal Labs • Paycheck Calculator • ${escapeHtml(TOOL_VERSION)}</footer>
+</div>
+<script>window.onload=function(){window.focus();window.print();};<\/script>
+</body>
+</html>`;
+}
+
 function printResults() {
-  const reportWindow = window.open("", "_blank", "width=900,height=1100");
+  const reportWindow = window.open("", "_blank", "width=980,height=1100");
   if (!reportWindow || reportWindow.closed) {
     showMessage("Unable to open the print report window. Try allowing popups.", true);
     return;
   }
 
-  const summary = escapeHtml(buildPaycheckResultsSummary());
   reportWindow.document.open();
-  reportWindow.document.write(`<!DOCTYPE html>
-<html>
-<head>
-<title>Paycheck Report</title>
-<style>
-body{font-family:Arial,sans-serif;line-height:1.55;color:#111;padding:32px;}
-h1{margin-bottom:6px;}pre{white-space:pre-wrap;background:#f6f7f8;border:1px solid #ddd;border-radius:12px;padding:18px;}footer{margin-top:28px;color:#666;font-size:12px;}@media print{body{padding:0;}pre{border:0;background:#fff;}}
-</style>
-</head>
-<body>
-<h1>Signal Labs Paycheck Report</h1>
-<pre>${summary}</pre>
-<footer>Signal Labs • Paycheck Calculator • ${TOOL_VERSION}</footer>
-<script>window.onload=function(){window.print();};<\/script>
-</body>
-</html>`);
+  reportWindow.document.write(buildPaycheckProfessionalReportHtml());
   reportWindow.document.close();
   showMessage("Print report opened.");
 }

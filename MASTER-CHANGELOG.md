@@ -10,6 +10,14 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-08
 
+### Paycheck v0.3.2 — Professional Report Polish
+
+- Replaced Paycheck's plain print output with a polished professional HTML report.
+- Added summary cards and structured report tables for hours, adjustments, and estimated pay.
+- Preserved Copy Results, saved settings, hidden ad slots, and no-live-ad behavior.
+
+---
+
 ### Paycheck v0.3.1 — Premium Hours & Benefit Hours
 
 - Rebuilt Paycheck Hours & Earnings into Regular Hours, Premium Hours, and Benefit / Paid Leave Hours.

@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.3.1
+v0.3.2
 
 ## Theme
 
-Premium Hours & Benefit Hours
+Professional Report Polish
 
 ---
 
@@ -53,4 +53,13 @@ benefitHourPills
 ```text
 Time Off Calculator
 Overtime Calculator
+```
+
+
+# Report Checks
+
+```text
+buildPaycheckProfessionalReportHtml
+printResults
+Print Report
 ```

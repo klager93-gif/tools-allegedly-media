@@ -3,7 +3,7 @@
 ## Versions
 
 ```text
-Paycheck: v0.3.1 — Premium Hours & Benefit Hours
+Paycheck: v0.3.2 — Professional Report Polish
 ```
 
 ## Backup Reminder
@@ -13,7 +13,7 @@ Back up the current live version before uploading this release.
 ## Backup Folder Name
 
 ```text
-2026-06-08-before-paycheck-v0.3.1-premium-hours-benefit-hours
+2026-06-08-before-paycheck-v0.3.2-professional-report-polish
 ```
 
 ## Upload Instructions
@@ -35,10 +35,10 @@ RELEASE-HISTORY.md
 ## Validation Checklist
 
 - Open `/paycheck/`.
-- Confirm footer says `v0.3.1`.
+- Confirm footer says `v0.3.2`.
 - Confirm Premium Hours pills appear.
 - Confirm Benefit / Paid Leave Hours pills appear.
 - Confirm Overtime and Double Time are premium pills, not permanent fields.
 - Confirm Copy Results works.
-- Confirm Print Report works.
+- Confirm Print Report opens a polished HTML report with summary cards and tables.
 - Confirm saved settings load.

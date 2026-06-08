@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.3.1
+v0.3.2
 
 ## Theme
 
-Premium Hours & Benefit Hours
+Professional Report Polish
 
 ---
 
@@ -23,6 +23,7 @@ Premium Hours & Benefit Hours
 | v0.2 | Deductions & Adjustments |
 | v0.3 | Hours & Earnings |
 | v0.3.1 | Premium Hours & Benefit Hours |
+| v0.3.2 | Professional Report Polish |
 
 ---
 

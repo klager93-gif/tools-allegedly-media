@@ -15,6 +15,7 @@ This file tracks actual release order across the Signal Labs ecosystem.
 | 3 | 2026-06-08 | Overtime v0.9.9.1 | Deductions & Adjustments Pattern Sync | Synced Overtime pattern after Paycheck change. |
 | 4 | 2026-06-08 | Paycheck v0.3 | Hours & Earnings | Rebuilt first Paycheck section around hours. |
 | 5 | 2026-06-08 | Paycheck v0.3.1 | Premium Hours & Benefit Hours | Converted OT/DT to premium pills and separated benefit hours. |
+| 6 | 2026-06-08 | Paycheck v0.3.2 | Professional Report Polish | Replaced plain print output with a professional HTML report. |
 
 ---
 
