@@ -6,12 +6,12 @@
 
 ## Last Updated
 
-2026-06-08  
-00:15 CT
+2026-06-07  
+15:05 UTC
 
 ## Current Version
 
-**v0.9.7.1**
+**v0.9.7**
 
 ---
 
@@ -19,7 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
-| v0.9.7.1 | Modal Suggested Pills Placement Fix |
+| v0.9.8 | UX Flow & Plain-English Polish |
 | v0.9.7 | Modal Suggested Pills Fix |
 | v0.9.6.2 | Take-Home Controls Cleanup |
 | v0.9.6.1 | UI Identity Polish |
@@ -43,16 +43,16 @@
 
 # Upcoming Versions
 
-## v0.9
+## v1.0
 
 ### Theme
 
-Share & Export
+Stable Release Candidate
 
 ### Planned Features
 
-- Print support.
-- Copy results.
-- Save as PDF.
-- Share links.
-- Improved summaries.
+- Final verification pass.
+- Mobile layout review.
+- Documentation cleanup.
+- Report and copy output verification.
+- Prepare Overtime for long-term stable use before Paycheck Calculator planning.

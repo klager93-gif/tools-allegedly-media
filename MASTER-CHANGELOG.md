@@ -10,6 +10,23 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ## 2026-06-08
 
+### Overtime v0.9.8 — UX Flow & Plain-English Polish
+
+- Renamed Basic Pay to Overtime Details.
+- Renamed Take-Home Estimate to Deductions & Adjustments.
+- Renamed Advanced Pay to Pay Details.
+- Renamed Goal Mode to Target Pay.
+- Renamed Results to Estimated Pay.
+- Renamed Total Gross Pay to Before Taxes (Gross).
+- Renamed Estimated Take-Home Pay to Take-Home Pay (Net).
+- Reordered Overtime sections so Deductions & Adjustments appears before Pay Details.
+- Added clearer section descriptions and info-icon examples.
+- Preserved v0.9.7.1 modal suggested-pill placement fix.
+- Preserved saved inputs, Print Report, Copy Results, optional sections, and Target Pay behavior.
+- Time Off remained v0.9.8 with no version bump.
+
+---
+
 ### Overtime v0.9.7.1 — Modal Suggested Pills Placement Fix
 
 - Fixed suggested tax, deduction, and other adjustment pills still rendering outside the adjustment modal.

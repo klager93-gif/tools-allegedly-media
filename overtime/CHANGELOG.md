@@ -1,16 +1,20 @@
-## Version 0.9.7.1
+## Version 0.9.8
 
 **Date:** 2026-06-08  
-**Theme:** Modal Suggested Pills Placement Fix
+**Theme:** UX Flow & Plain-English Polish
 
 ### Changes
 
-- Fixed suggested tax, deduction, and other adjustment pills still appearing outside the Add Adjustment modal.
-- Added a permanent modal controls container inside the adjustment modal.
-- Reworked modal pill injection to render into the dedicated modal container instead of relying on loose dynamic insertion.
-- Preserved Static Amount / Percentage selector support for deductions and other adjustments.
-- Preserved saved inputs, Print Report, Copy Results, optional sections, and Goal Mode.
-- No Time Off files required a version bump.
+- Renamed Basic Pay to Overtime Details.
+- Renamed Take-Home Estimate to Deductions & Adjustments.
+- Renamed Advanced Pay to Pay Details.
+- Renamed Goal Mode to Target Pay.
+- Renamed Results to Estimated Pay.
+- Renamed Total Gross Pay to Before Taxes (Gross).
+- Renamed Estimated Take-Home Pay to Take-Home Pay (Net).
+- Reordered sections so Deductions & Adjustments appears before Pay Details.
+- Added info icon examples for Deductions & Adjustments, Pay Details, and Target Pay.
+- Preserved modal suggested pills, Static Amount / Percentage controls, saved settings, Copy Results, and Print Report.
 - No image-based report generation is used.
 
 ---

@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.7.1
+v0.9.7
 
 ## Theme
 
-Modal Suggested Pills Placement Fix
+Modal Suggested Pills Fix
 
 ---
 
@@ -125,12 +125,27 @@ Modal Suggested Pills Placement Fix
 - [ ] Copy Results still works.
 
 
-# Modal Suggested Pills Placement Fix Checks
+# Modal Suggested Pills Fix Checks
 
 - [ ] Suggested tax pills appear inside the Add Tax modal.
 - [ ] Suggested deduction pills appear inside the Add Deduction modal.
 - [ ] Suggested other adjustment pills appear inside the Add Other Adjustment modal.
 - [ ] Suggested pills do not render behind the modal overlay.
 - [ ] Static Amount / Percentage selector remains inside the modal.
+- [ ] Print Report still works.
+- [ ] Copy Results still works.
+
+
+# UX Flow & Plain-English Polish Checks
+
+- [ ] Basic Pay is renamed to Overtime Details.
+- [ ] Take-Home Estimate is renamed to Deductions & Adjustments.
+- [ ] Advanced Pay is renamed to Pay Details.
+- [ ] Goal Mode is renamed to Target Pay.
+- [ ] Results is renamed to Estimated Pay.
+- [ ] Before Taxes (Gross) appears in results and reports.
+- [ ] Take-Home Pay (Net) appears in results and reports.
+- [ ] Deductions & Adjustments appears before Pay Details.
+- [ ] Modal suggested pills still appear inside the modal.
 - [ ] Print Report still works.
 - [ ] Copy Results still works.

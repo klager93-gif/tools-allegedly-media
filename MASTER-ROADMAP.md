@@ -11,29 +11,31 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Area | Current Version | Theme |
 |---|---:|---|
 | Home | v0.4.1 | Master Documentation |
-| Overtime | v0.9.7.1 | Modal Suggested Pills Placement Fix |
+| Overtime | v0.9.8 | UX Flow & Plain-English Polish |
 | Time Off | v0.9.8 | Quick Start + Stacked Layout |
 
 ---
 
 # Near-Term Roadmap
 
-## Overtime v0.9.7.1
+## Overtime v0.9.8
 
 ### Theme
 
-Modal Suggested Pills Placement Fix
+UX Flow & Plain-English Polish
 
 ### Status
 
-Completed hotfix.
+Completed UX release.
 
 ### Validation Focus
 
-- Confirm suggested pills render inside Add Tax modal.
-- Confirm suggested pills render inside Add Deduction modal.
-- Confirm suggested pills render inside Add Other Adjustment modal.
+- Confirm Overtime Details, Deductions & Adjustments, Pay Details, Target Pay, and Estimated Pay labels appear.
+- Confirm Deductions & Adjustments appears before Pay Details.
+- Confirm Before Taxes (Gross) and Take-Home Pay (Net) labels appear.
+- Confirm suggested pills remain inside Add Tax, Add Deduction, and Add Other Adjustment modals.
 - Confirm Static Amount / Percentage controls stay inside modal.
+- Confirm Print Report and Copy Results still work.
 
 ---
 
@@ -78,7 +80,7 @@ Final Pre-1.0 Polish
 
 ### Planned Focus
 
-- Verify v0.9.7.1 suggested modal pills remain inside Add Tax, Add Deduction, and Add Other Adjustment modals.
+- Verify v0.9.8 labels, section flow, and suggested modal pills remain inside Add Tax, Add Deduction, and Add Other Adjustment modals.
 - Verify Automatic / Custom OT threshold pills.
 - Verify info icons and footer notes.
 - Verify optional collapsible sections.
@@ -145,20 +147,6 @@ Production Release
 
 ---
 
-## Overtime v0.9.8
-
-### Theme
-
-Final pre-1.0 cleanup after Take-Home Controls Cleanup
-
-### Planned Focus
-
-- Verify take-home suggested pills.
-- Verify static amount / percentage handling for deductions and adjustments.
-- Verify duplicate Take-Home buttons stay removed.
-- Verify Print Report and Copy Results.
-
----
 
 ## Time Off v0.9.8
 

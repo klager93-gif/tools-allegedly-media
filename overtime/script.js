@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.7.1
+Version: v0.9.7
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -27,9 +27,8 @@ const thresholdNoteEl = document.getElementById("thresholdNote");
 const messageEl = document.getElementById("message");
 const generatedTimeEl = document.getElementById("generatedTime");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV0971";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV0962";
 const LEGACY_STORAGE_KEYS = [
-  "signalLabsOvertimeCalculatorV0962",
   "signalLabsOvertimeCalculatorV092",
   "signalLabsOvertimeCalculatorV085",
   "signalLabsOvertimeCalculatorV0821",
@@ -859,8 +858,8 @@ function calculateGoalMode() {
 
   note.textContent =
     goalType === "takehome"
-      ? "Take-home goal estimate uses your current tax, deduction, and adjustment settings."
-      : "Gross goal estimate uses your current pay period and overtime settings.";
+      ? "Take-home pay (net) target estimate uses your current tax, deduction, and adjustment settings."
+      : "Before taxes (gross) target estimate uses your current pay period and overtime settings.";
 }
 
 function calculateOvertime() {
@@ -892,7 +891,7 @@ function calculateOvertime() {
     resetResults();
     messageEl.textContent =
       hasGoalAmount
-        ? "Enter a positive hourly rate for Goal Mode."
+        ? "Enter a positive hourly rate for Target Pay."
         : "Enter positive numbers for hourly rate and hours worked.";
     messageEl.classList.add("error");
     return;
@@ -940,7 +939,7 @@ function calculateOvertime() {
     resetResults();
     calculateGoalMode();
     generatedTimeEl.textContent = localUtcTime();
-    messageEl.textContent = "Goal Mode updated. Enter hours worked to calculate regular pay results.";
+    messageEl.textContent = "Target Pay updated. Enter hours worked to calculate regular pay results.";
     return;
   }
 
@@ -1247,7 +1246,7 @@ function buildOvertimeResultsSummary() {
   const lines = [];
 
   lines.push("Signal Labs Overtime Calculator");
-  lines.push("Share & Export Prep Summary");
+  lines.push("Estimated Pay Summary");
   lines.push("");
   lines.push(`Generated: ${localUtcTime()}`);
   lines.push("");
@@ -1267,17 +1266,17 @@ function buildOvertimeResultsSummary() {
   lines.push(`Regular Pay: ${el("regularPay").textContent}`);
   lines.push(`Overtime Pay: ${el("overtimePay").textContent}`);
   if (optionalSettings.advancedPay) {
-    lines.push(`Advanced Pay: ${el("advancedPayTotal").textContent}`);
+    lines.push(`Pay Details: ${el("advancedPayTotal").textContent}`);
   }
-  lines.push(`Total Gross Pay: ${el("totalPay").textContent}`);
+  lines.push(`Before Taxes (Gross): ${el("totalPay").textContent}`);
   if (optionalSettings.takeHome) {
-    lines.push(`Estimated Take-Home Pay: ${el("takeHomePay").textContent}`);
-    lines.push(`Net Effective Rate: ${el("netEffectiveRate").textContent}`);
+    lines.push(`Take-Home Pay (Net): ${el("takeHomePay").textContent}`);
+    lines.push(`Take-Home Effective Rate (Net): ${el("netEffectiveRate").textContent}`);
   }
   lines.push("");
 
   if (optionalSettings.goalMode) {
-    lines.push("Goal Mode");
+    lines.push("Target Pay");
   lines.push(`Target: ${el("goalTargetAmount").textContent}`);
   lines.push(`Hours Needed: ${el("goalHoursNeeded").textContent}`);
   lines.push(`Estimated Shifts Needed: ${el("goalShiftsNeeded").textContent}`);
@@ -1331,8 +1330,8 @@ function buildOvertimeProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.7.1</div>
-          <div><strong>Theme:</strong> Modal Suggested Pills Placement Fix</div>
+          <div><strong>Build:</strong> v0.9.7</div>
+          <div><strong>Theme:</strong> Professional Reports</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
       </header>
@@ -1379,8 +1378,8 @@ function buildOvertimeProfessionalReportHtml() {
             <tbody>
               <tr><td>Hourly Rate</td><td class="value">${escapeReportHtml(el("hourlyRate").textContent)}</td></tr>
               <tr><td>Overtime Rate</td><td class="value">${escapeReportHtml(el("overtimeRate").textContent)}</td></tr>
-              <tr><td>Gross Effective Rate</td><td class="value">${escapeReportHtml(el("effectiveRate").textContent)}</td></tr>
-              <tr><td>Net Effective Rate</td><td class="value">${escapeReportHtml(el("netEffectiveRate").textContent)}</td></tr>
+              <tr><td>Before-Tax Effective Rate (Gross)</td><td class="value">${escapeReportHtml(el("effectiveRate").textContent)}</td></tr>
+              <tr><td>Take-Home Effective Rate (Net)</td><td class="value">${escapeReportHtml(el("netEffectiveRate").textContent)}</td></tr>
             </tbody>
           </table>
         </div>
@@ -1396,20 +1395,20 @@ function buildOvertimeProfessionalReportHtml() {
             <tr><td>Shift Differential Pay</td><td class="value">${escapeReportHtml(el("differentialPay").textContent)}</td></tr>
             <tr><td>Additional Double-Time Pay</td><td class="value">${escapeReportHtml(el("doubleTimePay").textContent)}</td></tr>
             <tr><td>Bonus Pay</td><td class="value">${escapeReportHtml(el("bonusPay").textContent)}</td></tr>
-            <tr class="total"><td>Total Gross Pay</td><td class="value">${escapeReportHtml(el("totalPay").textContent)}</td></tr>
+            <tr class="total"><td>Before Taxes (Gross)</td><td class="value">${escapeReportHtml(el("totalPay").textContent)}</td></tr>
             <tr><td>Taxes</td><td class="value">${escapeReportHtml(el("taxResultsTotal").textContent)}</td></tr>
             <tr><td>Deductions</td><td class="value">${escapeReportHtml(el("deductionResultsTotal").textContent)}</td></tr>
-            <tr class="success"><td>Estimated Take-Home Pay</td><td class="value">${escapeReportHtml(el("takeHomePay").textContent)}</td></tr>
+            <tr class="success"><td>Take-Home Pay (Net)</td><td class="value">${escapeReportHtml(el("takeHomePay").textContent)}</td></tr>
           </tbody>
         </table>
       </section>
 
       ${optionalSettings.goalMode ? `
       <section>
-        <h2>Goal Mode Results</h2>
+        <h2>Target Pay Results</h2>
         <table>
           <tbody>
-            <tr><th>Goal Type</th><td>${escapeReportHtml(el("goalType").selectedOptions[0].textContent)}</td><th>Hours Needed</th><td class="value">${escapeReportHtml(el("goalHoursNeeded").textContent)}</td></tr>
+            <tr><th>Target Type</th><td>${escapeReportHtml(el("goalType").selectedOptions[0].textContent)}</td><th>Hours Needed</th><td class="value">${escapeReportHtml(el("goalHoursNeeded").textContent)}</td></tr>
             <tr><th>Target Amount</th><td>${escapeReportHtml(goalAmount ? formatMoney(goalAmount) : "$0.00")}</td><th>Overtime Hours Needed</th><td class="value">${escapeReportHtml(el("goalOvertimeNeeded").textContent)}</td></tr>
             <tr><th>Typical Shift Length</th><td>${escapeReportHtml(formatNumber(goalShiftLength))} hrs</td><th>Estimated Shifts Needed</th><td class="value">${escapeReportHtml(el("goalShiftsNeeded").textContent)}</td></tr>
           </tbody>
@@ -1418,7 +1417,7 @@ function buildOvertimeProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
-        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.7.1</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.7</div>
       </footer>
     </main>
   `;
@@ -1782,9 +1781,8 @@ function signalLabsFillFirstAvailable(selectors, value) {
 }
 
 function signalLabsInstallSuggestedPills(container, items, onSelect) {
-  if (!container) return;
-
-  container.querySelectorAll(".suggested-pill-row, .signal-labs-modal-helper").forEach((node) => node.remove());
+  if (!container || container.dataset.signalLabsPillsInstalled === "true") return;
+  container.dataset.signalLabsPillsInstalled = "true";
 
   const row = document.createElement("div");
   row.className = "suggested-pill-row";
@@ -1812,9 +1810,8 @@ function signalLabsInstallSuggestedPills(container, items, onSelect) {
 }
 
 function signalLabsInstallTypePills(container, defaultType, onChange) {
-  if (!container) return;
-
-  container.querySelectorAll(".adjustment-type-pill-row").forEach((node) => node.remove());
+  if (!container || container.dataset.signalLabsTypePillsInstalled === "true") return;
+  container.dataset.signalLabsTypePillsInstalled = "true";
 
   const row = document.createElement("div");
   row.className = "adjustment-type-pill-row";
@@ -1844,12 +1841,17 @@ function signalLabsInstallTypePills(container, defaultType, onChange) {
 
 function signalLabsConfigureAdjustmentModal(type) {
   const modalBox = document.querySelector("#adjustmentModal .adjustment-modal-box");
-  const controlWrap = el("adjustmentModalControls");
-  if (!modalBox || !controlWrap) return;
+  const help = el("adjustmentModalHelp");
+  if (!modalBox || !help) return;
 
-  controlWrap.innerHTML = "";
-  controlWrap.dataset.signalLabsEntryType = "amount";
-  modalBox.dataset.signalLabsEntryType = "amount";
+  modalBox.querySelectorAll(".signal-labs-dynamic-modal-control").forEach((node) => node.remove());
+  modalBox.dataset.signalLabsTypePillsInstalled = "false";
+  modalBox.dataset.signalLabsPillsInstalled = "false";
+
+  const controlWrap = document.createElement("div");
+  controlWrap.className = "signal-labs-dynamic-modal-control";
+
+  help.insertAdjacentElement("afterend", controlWrap);
 
   if (type === "tax") {
     signalLabsInstallSuggestedPills(controlWrap, SIGNAL_LABS_SUGGESTED_TAXES, (item) => {
@@ -1859,18 +1861,18 @@ function signalLabsConfigureAdjustmentModal(type) {
     return;
   }
 
+  signalLabsInstallSuggestedPills(controlWrap, SIGNAL_LABS_SUGGESTED_DEDUCTIONS, (item) => {
+    el("adjustmentName").value = item.name;
+    const typeButton = controlWrap.querySelector(`.adjustment-type-pill[data-adjustment-type="${item.type}"]`);
+    if (typeButton) typeButton.click();
+  });
+
   signalLabsInstallTypePills(controlWrap, "amount", (entryType) => {
     modalBox.dataset.signalLabsEntryType = entryType;
     const valueInput = el("adjustmentValue");
     const valueLabel = el("adjustmentValueLabel");
     if (valueInput) valueInput.placeholder = entryType === "percent" ? "Example: 6.5" : "Example: 25.00";
     if (valueLabel) valueLabel.textContent = entryType === "percent" ? "Percentage" : (type === "deduction" ? "Deduction Amount" : "Adjustment Amount");
-  });
-
-  signalLabsInstallSuggestedPills(controlWrap, SIGNAL_LABS_SUGGESTED_DEDUCTIONS, (item) => {
-    el("adjustmentName").value = item.name;
-    const typeButton = controlWrap.querySelector(`.adjustment-type-pill[data-adjustment-type="${item.type}"]`);
-    if (typeButton) typeButton.click();
   });
 
   modalBox.dataset.signalLabsEntryType = "amount";

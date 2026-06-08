@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.9.7.1
+v0.9.7
 
 ### Theme
 
-Modal Suggested Pills Placement Fix
+Take-Home Controls Cleanup
 
 ### Status
 
@@ -22,23 +22,23 @@ Active Development
 
 # Current Features
 
-- Basic pay calculation.
+- Overtime details calculation.
 - Smart pay period overtime thresholds.
 - Custom overtime threshold override.
 - Currency display options.
-- Advanced pay.
+- Pay Details for shift differential, double time, and bonuses.
 - Shift differential.
 - Additional double-time hours.
 - Bonuses.
 - Dynamic taxes.
 - Dynamic deductions.
 - Other adjustments.
-- Take-home estimate.
+- Deductions & Adjustments for taxes, deductions, and other items.
 - Saved settings.
 - Saved layout state.
 - Mobile collapsible cards.
 - Mobile collapsible results.
-- Goal Mode.
+- Target Pay planning.
 - Shared Signal Labs navigation.
 
 ---
@@ -152,8 +152,16 @@ Cleans duplicate Take-Home action buttons and adds suggested tax/deduction/adjus
 
 ---
 
-# v0.9.7.1 Modal Suggested Pills Placement Fix
+# v0.9.8 UX Flow & Plain-English Polish
 
-Fixes suggested tax, deduction, and other adjustment pills so they render inside the Add Adjustment modal instead of appearing outside or behind the popup.
+Renames key sections and results to make the calculator easier to understand:
 
-This is an Overtime-only hotfix. Time Off remains v0.9.8.
+- Basic Pay is now Overtime Details.
+- Take-Home Estimate is now Deductions & Adjustments.
+- Advanced Pay is now Pay Details.
+- Goal Mode is now Target Pay.
+- Results is now Estimated Pay.
+- Total Gross Pay is now Before Taxes (Gross).
+- Estimated Take-Home Pay is now Take-Home Pay (Net).
+
+The section order now follows the user workflow: Overtime Details, Deductions & Adjustments, Pay Details, Target Pay, and Estimated Pay.

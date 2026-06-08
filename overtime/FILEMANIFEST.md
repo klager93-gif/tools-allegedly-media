@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.7.1
+v0.9.7
 
 ## Theme
 
-Modal Suggested Pills Placement Fix
+Take-Home Controls Cleanup
 
 ---
 
@@ -31,8 +31,8 @@ BUILDMANIFEST.md
 # Shared Dependencies
 
 ```text
-../assets/global.css?v=0.3
-../assets/global.js?v=0.3
+../assets/global.css?v=0.2.5
+../assets/global.js?v=0.2.5
 ```
 
 ---
@@ -71,11 +71,15 @@ openProfessionalReportWindow
 Print Report
 ```
 
-# Modal Placement Checks
+
+# UX Flow Checks
 
 ```text
-adjustmentModalControls
-signalLabsConfigureAdjustmentModal
-suggested-pill-row
-adjustment-type-pill-row
+Overtime Details
+Deductions & Adjustments
+Pay Details
+Target Pay
+Estimated Pay
+Before Taxes (Gross)
+Take-Home Pay (Net)
 ```

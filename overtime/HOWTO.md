@@ -6,7 +6,7 @@
 
 ## Purpose
 
-The Overtime Calculator estimates regular pay, overtime pay, advanced pay, taxes, deductions, take-home pay, and income goals.
+The Overtime Calculator estimates regular pay, overtime pay, pay details, taxes, deductions, take-home pay, and target pay planning.
 
 ---
 
@@ -16,10 +16,10 @@ The Overtime Calculator estimates regular pay, overtime pay, advanced pay, taxes
 2. Enter total hours worked.
 3. Choose your pay period.
 4. Confirm or override the overtime threshold.
-5. Add optional advanced pay items.
-6. Add optional taxes, deductions, or other adjustments.
-7. Use Goal Mode if you want to estimate hours needed for a target amount.
-8. Review the Results panel.
+5. Add taxes, deductions, or other adjustments in Deductions & Adjustments.
+6. Add optional Pay Details such as shift differential, double time, or bonuses.
+7. Use Target Pay if you want to estimate hours needed for a target amount.
+8. Review the Estimated Pay panel.
 
 ---
 
@@ -141,8 +141,14 @@ Use the contextual buttons in Taxes, Deductions, and Other Adjustments. Suggeste
 
 ---
 
-# v0.9.7.1 Modal Suggested Pills Placement Fix
+# v0.9.8 UX Flow & Plain-English Polish
 
-When using Add Tax, Add Deduction, or Add Other Adjustment, suggested pills should appear inside the popup above the name/value form.
+Use the calculator in this order:
 
-Deductions and other adjustments still support Static Amount and Percentage.
+1. Overtime Details.
+2. Deductions & Adjustments.
+3. Pay Details, if needed.
+4. Target Pay, if needed.
+5. Estimated Pay.
+
+Before Taxes (Gross) means pay before taxes and deductions. Take-Home Pay (Net) means the estimated amount after entered taxes, deductions, and adjustments.

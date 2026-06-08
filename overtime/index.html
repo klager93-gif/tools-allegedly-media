@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: index.html
-Version: v0.9.7.1
+Version: v0.9.7
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -60,7 +60,7 @@ Overtime Calculator | Signal Labs
 
 <link
   rel="stylesheet"
-  href="style.css?v=0.9.7.1">
+  href="style.css?v=0.9.7">
 
 </head>
 <body>
@@ -94,8 +94,8 @@ Overtime Calculator | Signal Labs
 <div class="section-title">
   <div class="step-badge green">1</div>
   <div>
-    <h2>Basic Pay</h2>
-    <p>Enter your pay period, hours, and overtime rules.</p>
+    <h2>Overtime Details</h2>
+    <p>Enter your pay rate, overtime hours, and overtime policy.</p>
   </div>
 
   <button
@@ -221,118 +221,19 @@ Overtime Calculator | Signal Labs
 </div>
 
 </section>
-<section class="card step-card advanced-pay-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="advancedPay">
-
-<div class="section-title">
-  <div class="step-badge blue">2</div>
-  <div>
-    <h2>Advanced Pay</h2>
-    <p>Add shift differential hours, weekend bonuses, holiday bonuses, or double-time hours.</p>
-  </div>
-
-      <div class="inline-optional-control">
-        <span class="optional-pill">Optional</span>
-        <span class="optional-state-label is-on" data-state-for="advancedPayEnabled">ON</span>
-        <label class="inline-toggle-switch" title="Include advanced pay in results and reports.">
-          <input id="advancedPayEnabled" type="checkbox" checked>
-          <span class="toggle-slider" aria-hidden="true"></span>
-        </label>
-      </div>
-
-  <button
-    class="collapse-toggle"
-    type="button"
-    aria-expanded="false">
-    Show
-  </button>
-</div>
-
-<div class="optional-section-body">
-
-<div class="card-collapse-content">
-
-<div class="advanced-subsection">
-  <h3>Shift Differential</h3>
-</div>
-
-<div class="form-grid advanced-form-grid">
-
-<label>
-  <span>Shift Differential Rate <span class="info-icon" tabindex="0" data-info="Additional pay for nights, weekends, or specialty shifts.">i</span></span>
-  <input id="differentialRate" type="number" placeholder="2.00" step="0.01">
-</label>
-
-<label>
-  <span>Differential Hours</span>
-  <input id="differentialHours" type="number" placeholder="8" step="0.01">
-</label>
-
-</div>
-
-<div class="advanced-subsection">
-  <h3>Double Time</h3>
-</div>
-
-<div class="form-grid advanced-form-grid single-field-grid">
-
-<label>
-  <span>Additional Double-Time Hours</span>
-  <input id="doubleTimeHours" type="number" placeholder="0" step="0.01">
-</label>
-
-</div>
-
-<div class="advanced-subsection">
-  <h3>Bonuses</h3>
-</div>
-
-<div class="form-grid advanced-form-grid">
-
-<label>
-  <span>Weekend Bonus</span>
-  <input id="weekendBonus" type="number" placeholder="0.00" step="0.01">
-</label>
-
-<label>
-  <span>Holiday Bonus</span>
-  <input id="holidayBonus" type="number" placeholder="0.00" step="0.01">
-</label>
-
-<label>
-  <span>Flat Bonus</span>
-  <input id="otherBonus" type="number" placeholder="0.00" step="0.01">
-</label>
-
-</div>
-
-<div class="info-note advanced-note">
-  <strong>Advanced pay is optional.</strong>
-  <span>
-    Differential pay, additional double-time hours, and flat bonuses are added to gross pay before taxes and deductions.
-  </span>
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
 <section class="card step-card adjustment-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="takeHome">
 
 <div class="section-title">
-  <div class="step-badge purple">3</div>
+  <div class="step-badge purple">2</div>
   <div>
-    <h2>Take-Home Estimate</h2>
-    <p>Add taxes, deductions, and other adjustments to estimate your take-home pay.</p>
+    <h2>Deductions &amp; Adjustments <span class="info-icon" tabindex="0" data-info="Examples: federal tax, state tax, retirement contributions, insurance deductions, union dues, HSA, deferred comp, or other custom items.">i</span></h2>
+    <p>Add taxes, deductions, and other adjustments to estimate your take-home overtime pay.</p>
   </div>
 
       <div class="inline-optional-control">
         <span class="optional-pill">Optional</span>
         <span class="optional-state-label is-on" data-state-for="takeHomeEnabled">ON</span>
-        <label class="inline-toggle-switch" title="Include take-home estimates in results and reports.">
+        <label class="inline-toggle-switch" title="Include deductions and adjustments in results and reports.">
           <input id="takeHomeEnabled" type="checkbox" checked>
           <span class="toggle-slider" aria-hidden="true"></span>
         </label>
@@ -448,20 +349,119 @@ Overtime Calculator | Signal Labs
 </section>
 
 
+<section class="card step-card advanced-pay-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="advancedPay">
+
+<div class="section-title">
+  <div class="step-badge blue">3</div>
+  <div>
+    <h2>Pay Details <span class="info-icon" tabindex="0" data-info="Examples: shift differential, hazard pay, bonus pay, incentive pay, holiday bonus, or other extra earnings.">i</span></h2>
+    <p>Include shift differentials, bonuses, and other earnings in your overtime estimate.</p>
+  </div>
+
+      <div class="inline-optional-control">
+        <span class="optional-pill">Optional</span>
+        <span class="optional-state-label is-on" data-state-for="advancedPayEnabled">ON</span>
+        <label class="inline-toggle-switch" title="Include pay details in results and reports.">
+          <input id="advancedPayEnabled" type="checkbox" checked>
+          <span class="toggle-slider" aria-hidden="true"></span>
+        </label>
+      </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="false">
+    Show
+  </button>
+</div>
+
+<div class="optional-section-body">
+
+<div class="card-collapse-content">
+
+<div class="advanced-subsection">
+  <h3>Shift Differential</h3>
+</div>
+
+<div class="form-grid advanced-form-grid">
+
+<label>
+  <span>Shift Differential Rate <span class="info-icon" tabindex="0" data-info="Additional pay for nights, weekends, or specialty shifts.">i</span></span>
+  <input id="differentialRate" type="number" placeholder="2.00" step="0.01">
+</label>
+
+<label>
+  <span>Differential Hours</span>
+  <input id="differentialHours" type="number" placeholder="8" step="0.01">
+</label>
+
+</div>
+
+<div class="advanced-subsection">
+  <h3>Double Time</h3>
+</div>
+
+<div class="form-grid advanced-form-grid single-field-grid">
+
+<label>
+  <span>Additional Double-Time Hours</span>
+  <input id="doubleTimeHours" type="number" placeholder="0" step="0.01">
+</label>
+
+</div>
+
+<div class="advanced-subsection">
+  <h3>Bonuses</h3>
+</div>
+
+<div class="form-grid advanced-form-grid">
+
+<label>
+  <span>Weekend Bonus</span>
+  <input id="weekendBonus" type="number" placeholder="0.00" step="0.01">
+</label>
+
+<label>
+  <span>Holiday Bonus</span>
+  <input id="holidayBonus" type="number" placeholder="0.00" step="0.01">
+</label>
+
+<label>
+  <span>Flat Bonus</span>
+  <input id="otherBonus" type="number" placeholder="0.00" step="0.01">
+</label>
+
+</div>
+
+<div class="info-note advanced-note">
+  <strong>Pay details are optional.</strong>
+  <span>
+    Differential pay, additional double-time hours, and flat bonuses are added to gross pay before taxes and deductions.
+  </span>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
 
 <section class="card step-card goal-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="goalMode">
 
 <div class="section-title">
   <div class="step-badge orange">4</div>
   <div>
-    <h2>Goal Mode</h2>
-    <p>Estimate the hours or shifts needed to reach a gross or take-home pay target.</p>
+    <h2>Target Pay <span class="info-icon" tabindex="0" data-info="Example: How much overtime do I need to earn an extra $500?">i</span></h2>
+    <p>Find out how much overtime you need to earn a desired amount.</p>
   </div>
 
       <div class="inline-optional-control">
         <span class="optional-pill">Optional</span>
         <span class="optional-state-label is-on" data-state-for="goalModeEnabled">ON</span>
-        <label class="inline-toggle-switch" title="Include goal mode in results and reports.">
+        <label class="inline-toggle-switch" title="Include target pay in results and reports.">
           <input id="goalModeEnabled" type="checkbox" checked>
           <span class="toggle-slider" aria-hidden="true"></span>
         </label>
@@ -484,8 +484,8 @@ Overtime Calculator | Signal Labs
 <label>
   <span>Goal Type</span>
   <select id="goalType">
-    <option value="gross">Gross Pay Goal</option>
-    <option value="takehome">Take-Home Pay Goal</option>
+    <option value="gross">Before Taxes (Gross) Goal</option>
+    <option value="takehome">Take-Home Pay (Net) Goal</option>
   </select>
 </label>
 
@@ -502,7 +502,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="info-note goal-note">
-  <strong>Goal Mode uses your current settings.</strong>
+  <strong>Target Pay uses your current settings.</strong>
   <span>Rate, pay period, overtime threshold, taxes, deductions, and advanced pay values are used to estimate the hours needed.</span>
 </div>
 
@@ -520,7 +520,7 @@ Overtime Calculator | Signal Labs
 
 <div class="results-heading">
   <div>
-    <h2>Results</h2>
+    <h2>Estimated Pay</h2>
   </div>
 
   <button
@@ -579,7 +579,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="result-row">
-  <span>Gross Effective Rate</span>
+  <span>Before-Tax Effective Rate (Gross)</span>
   <strong id="effectiveRate">$0.00</strong>
 </div>
 
@@ -601,7 +601,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="result-row total">
-  <span>Total Gross Pay</span>
+  <span>Before Taxes (Gross)</span>
   <strong id="totalPay">$0.00</strong>
 </div>
 
@@ -619,7 +619,7 @@ Overtime Calculator | Signal Labs
 <div class="results-section mobile-result-section advanced-result-section mobile-result-collapsed" data-result-section>
 
 <h3 class="blue-text">
-  Advanced Pay
+  Pay Details
   <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
   <span id="advancedPayTotal">$0.00</span>
 </h3>
@@ -670,19 +670,19 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="result-row net-total">
-  <span>Estimated Take-Home Pay</span>
+  <span>Take-Home Pay (Net)</span>
   <strong id="takeHomePay">$0.00</strong>
 </div>
 
 <div class="result-row">
-  <span>Net Effective Rate</span>
+  <span>Take-Home Effective Rate (Net)</span>
   <strong id="netEffectiveRate">$0.00</strong>
 </div>
 
 <div class="results-section mobile-result-section goal-result-section mobile-result-collapsed" data-result-section>
 
 <h3 class="orange-text">
-  Goal Mode
+  Target Pay
   <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
   <span id="goalTargetSummary">--</span>
 </h3>
@@ -708,12 +708,12 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="result-row">
-  <span>Estimated Gross Pay</span>
+  <span>Estimated Before Taxes (Gross)</span>
   <strong id="goalGrossRequired">$0.00</strong>
 </div>
 
 <div class="result-row">
-  <span>Estimated Take-Home Pay</span>
+  <span>Take-Home Pay (Net)</span>
   <strong id="goalTakeHomeEstimate">$0.00</strong>
 </div>
 
@@ -729,12 +729,12 @@ Overtime Calculator | Signal Labs
 
   <p>
     Build:
-    v0.9.7.1
+    v0.9.7
   </p>
 
   <p>
     Theme:
-    Modal Suggested Pills Placement Fix
+    Take-Home Controls Cleanup
   </p>
 
   <p>
@@ -782,7 +782,7 @@ Overtime Calculator | Signal Labs
 </div>
 
 <div class="footer-copy">
-  Signal Labs · Overtime Calculator · v0.9.7.1
+  Signal Labs · Overtime Calculator · v0.9.7
   <br>
   Estimates only. Actual pay may vary based on taxes, deductions,
   employer policies, and applicable labor laws.
@@ -843,12 +843,6 @@ Add Adjustment
 Enter a name and value for this adjustment.
 </p>
 
-<div
-  id="adjustmentModalControls"
-  class="signal-labs-dynamic-modal-control"
-  aria-live="polite">
-</div>
-
 <div class="adjustment-modal-form">
 
 <label>
@@ -897,7 +891,7 @@ Enter a name and value for this adjustment.
 </div>
 
 <script src="../assets/global.js?v=0.3"></script>
-<script src="script.js?v=0.9.7.1"></script>
+<script src="script.js?v=0.9.7"></script>
 
 </body>
 </html>
