@@ -4,20 +4,20 @@
 
 ## Current Build
 
-v0.3.4
+v0.4
 
 ## Theme
 
-Shared Report Format
+Rates, Multipliers & Rules
 
 ---
 
 # Required Validation Before ZIP
 
 - [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.3.4.
-- [ ] Footer version shows v0.3.4.
-- [ ] Cache-busting references use v0.3.4 for local files.
+- [ ] Header versions show v0.4.
+- [ ] Footer version shows v0.4.
+- [ ] Cache-busting references use v0.4 for local files.
 - [ ] Premium Hours pills render.
 - [ ] Benefit / Paid Leave Hours pills render.
 - [ ] Empty states render when no rows are selected.
@@ -30,7 +30,7 @@ Shared Report Format
 - [ ] No live ads, ad provider scripts, tracking scripts, or ad requests are included.
 
 
-# Shared Report Format Checks
+# Rates, Multipliers & Rules Checks
 
 - [ ] Report header uses shared Signal Labs format.
 - [ ] Report metadata includes Generated, Build, and Theme.

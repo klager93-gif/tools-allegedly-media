@@ -1,7 +1,24 @@
+## Version 0.4
+
+**Date:** 2026-06-08  
+**Theme:** Rates, Multipliers & Rules
+
+### Changes
+
+- Added expanded Pay Details configuration for hourly rate, pay period, shift differential, overtime rule, and premium multipliers.
+- Replaced the pay period dropdown with Signal Labs pill controls.
+- Added shift differential support with None, Flat Hourly, and Percentage options.
+- Added overtime rule pills for After 40, After 80, and Custom threshold labeling.
+- Added default premium multiplier controls for Overtime, Double Time, and Holiday Premium hours.
+- Updated gross pay, estimated pay, Copy Results, and Print Report output to include shift differential and pay rule details.
+- Preserved Hours & Earnings, Deductions & Adjustments, saved settings, shared action bar, shared report format, hidden ad slots, and no-live-ad behavior.
+
+---
+
 ## Version 0.3.3
 
 **Date:** 2026-06-08  
-**Theme:** Shared Report Format
+**Theme:** Rates, Multipliers & Rules
 
 ### Changes
 
@@ -14,7 +31,7 @@
 ## Version 0.3.4
 
 **Date:** 2026-06-08
-**Theme:** Shared Report Format
+**Theme:** Rates, Multipliers & Rules
 
 ### Changes
 

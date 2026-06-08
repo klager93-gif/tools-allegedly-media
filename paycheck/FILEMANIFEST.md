@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.3.4
+v0.4
 
 ## Theme
 
-Shared Report Format
+Rates, Multipliers & Rules
 
 ---
 

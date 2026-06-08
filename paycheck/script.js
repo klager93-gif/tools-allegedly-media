@@ -2,14 +2,14 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.3.4
+Version: v0.4
 Purpose: Tool-specific logic and event handling
 */
 
-const TOOL_VERSION = "v0.3.4";
-const TOOL_THEME = "Shared Report Format";
-const STORAGE_KEY = "signalLabsPaycheckCalculatorV032";
-const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV031"];
+const TOOL_VERSION = "v0.4";
+const TOOL_THEME = "Rates, Multipliers & Rules";
+const STORAGE_KEY = "signalLabsPaycheckCalculatorV04";
+const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
 
 const PREMIUM_HOUR_TYPES = [
   { id: "overtime", label: "Overtime", defaultMultiplier: 1.5 },
@@ -105,8 +105,76 @@ function currentUtcTime() {
 }
 
 function getPayPeriodLabel() {
-  const select = el("payPeriodInput");
-  return select?.selectedOptions?.[0]?.textContent || "Bi-Weekly";
+  const value = el("payPeriodInput")?.value || "biweekly";
+  const labels = {
+    weekly: "Weekly",
+    biweekly: "Biweekly",
+    semimonthly: "Semi-Monthly",
+    monthly: "Monthly"
+  };
+  return labels[value] || "Biweekly";
+}
+
+function getOvertimeRuleLabel() {
+  const value = el("overtimeRuleInput")?.value || "after80";
+  const labels = {
+    after40: "After 40 hours",
+    after80: "After 80 hours",
+    custom: `Custom${getNumber("customOvertimeThresholdInput") ? ` (${formatNumber(getNumber("customOvertimeThresholdInput"))} hrs)` : ""}`
+  };
+  return labels[value] || "After 80 hours";
+}
+
+function getShiftDifferentialInfo() {
+  const type = el("shiftDifferentialTypeInput")?.value || "none";
+  const amount = getNumber("shiftDifferentialAmountInput");
+  const rate = getNumber("hourlyRateInput");
+  let hourlyAmount = 0;
+
+  if (type === "flat") {
+    hourlyAmount = amount;
+  } else if (type === "percent") {
+    hourlyAmount = rate * (amount / 100);
+  }
+
+  return { type, amount, hourlyAmount };
+}
+
+function getPremiumMultiplier(typeId, fallback = 1) {
+  const map = {
+    overtime: getNumber("overtimeMultiplierInput") || 1.5,
+    doubleTime: getNumber("doubleTimeMultiplierInput") || 2,
+    holidayPremium: getNumber("holidayPremiumMultiplierInput") || 1.5
+  };
+  return Number(map[typeId] ?? fallback ?? 1) || 0;
+}
+
+function getShiftDifferentialLabel() {
+  const info = getShiftDifferentialInfo();
+  if (info.type === "flat") return `${formatMoney(info.amount)} / hr`;
+  if (info.type === "percent") return `${formatNumber(info.amount)}%`;
+  return "None";
+}
+
+function initializePillGroup(inputId) {
+  const input = el(inputId);
+  const group = document.querySelector(`[data-pill-group="${inputId}"]`);
+  if (!input || !group) return;
+
+  const update = value => {
+    input.value = value;
+    group.querySelectorAll(".pay-pill").forEach(button => {
+      button.classList.toggle("is-selected", button.dataset.value === value);
+    });
+    calculatePaycheck(false);
+    saveSettings();
+  };
+
+  group.querySelectorAll(".pay-pill").forEach(button => {
+    button.addEventListener("click", () => update(button.dataset.value));
+  });
+
+  update(input.value || group.querySelector(".pay-pill.is-selected")?.dataset.value || "");
 }
 
 function getTypeById(list, id) {
@@ -217,17 +285,11 @@ function renderHourEntryList(containerId, group, entries) {
     row.appendChild(hoursWrap);
 
     if (group === "premium") {
-      const multiplierWrap = document.createElement("label");
-      multiplierWrap.innerHTML = `<span>Multiplier</span>`;
-      const multiplierInput = document.createElement("input");
-      multiplierInput.type = "number";
-      multiplierInput.min = "0";
-      multiplierInput.step = "0.01";
-      multiplierInput.placeholder = "1.5";
-      multiplierInput.value = entry.multiplier;
-      multiplierInput.addEventListener("input", () => updateHourEntry(group, entry.uid, "multiplier", multiplierInput.value));
-      multiplierWrap.appendChild(multiplierInput);
-      row.appendChild(multiplierWrap);
+      const rule = document.createElement("div");
+      rule.className = "premium-rule-note";
+      const multiplier = getPremiumMultiplier(entry.typeId, entry.multiplier);
+      rule.innerHTML = `<span>Rate Rule</span><strong>${formatNumber(multiplier)}x</strong>`;
+      row.appendChild(rule);
     }
 
     const removeButton = document.createElement("button");
@@ -368,17 +430,24 @@ function renderAdjustmentList(containerId, type) {
 function getTotals() {
   const rate = getNumber("hourlyRateInput");
   const regularHours = getNumber("regularHoursInput");
+  const shiftDifferential = getShiftDifferentialInfo();
+  const workedRate = rate + shiftDifferential.hourlyAmount;
 
-  const regularPay = regularHours * rate;
+  const regularBasePay = regularHours * rate;
+  const regularShiftPay = regularHours * shiftDifferential.hourlyAmount;
+  const regularPay = regularHours * workedRate;
 
   const premiumTotals = state.premiumHours.reduce((totals, entry) => {
     const hours = Number(entry.hours) || 0;
-    const multiplier = Number(entry.multiplier) || 0;
-    const pay = hours * rate * multiplier;
+    const multiplier = getPremiumMultiplier(entry.typeId, entry.multiplier);
+    const basePay = hours * rate * multiplier;
+    const shiftPay = hours * shiftDifferential.hourlyAmount * multiplier;
+    const pay = basePay + shiftPay;
     totals.hours += hours;
     totals.pay += pay;
+    totals.shiftPay += shiftPay;
     return totals;
-  }, { hours: 0, pay: 0 });
+  }, { hours: 0, pay: 0, shiftPay: 0 });
 
   const benefitTotals = state.benefitHours.reduce((totals, entry) => {
     const hours = Number(entry.hours) || 0;
@@ -388,6 +457,7 @@ function getTotals() {
     return totals;
   }, { hours: 0, pay: 0 });
 
+  const shiftDifferentialPay = regularShiftPay + premiumTotals.shiftPay;
   const grossPay = regularPay + premiumTotals.pay + benefitTotals.pay;
 
   const adjustmentTotals = { tax: 0, deduction: 0, other: 0 };
@@ -405,7 +475,11 @@ function getTotals() {
 
   return {
     rate,
+    workedRate,
+    shiftDifferential,
+    shiftDifferentialPay,
     regularHours,
+    regularBasePay,
     regularPay,
     premiumHours: premiumTotals.hours,
     premiumPay: premiumTotals.pay,
@@ -440,6 +514,7 @@ function calculatePaycheck(showSuccess = true) {
   setText("grossPayResult", formatMoney(totals.grossPay));
   setText("regularPayResult", formatMoney(totals.regularPay));
   setText("premiumPayResult", formatMoney(totals.premiumPay));
+  setText("shiftDifferentialPayResult", formatMoney(totals.shiftDifferentialPay));
   setText("benefitPayResult", formatMoney(totals.benefitPay));
   setText("totalHoursResult", `${formatNumber(totals.totalPaidHours)} hrs`);
   setText("taxesResult", `-${formatMoney(totals.taxes)}`);
@@ -457,6 +532,7 @@ function resetResults() {
   setText("grossPayResult", "$0.00");
   setText("regularPayResult", "$0.00");
   setText("premiumPayResult", "$0.00");
+  setText("shiftDifferentialPayResult", "$0.00");
   setText("benefitPayResult", "$0.00");
   setText("totalHoursResult", "0.00 hrs");
   setText("taxesResult", "-$0.00");
@@ -480,6 +556,13 @@ function getState() {
     hourlyRate: el("hourlyRateInput").value,
     payPeriod: el("payPeriodInput").value,
     currency: el("currencyInput").value,
+    shiftDifferentialType: el("shiftDifferentialTypeInput").value,
+    shiftDifferentialAmount: el("shiftDifferentialAmountInput").value,
+    overtimeRule: el("overtimeRuleInput").value,
+    customOvertimeThreshold: el("customOvertimeThresholdInput").value,
+    overtimeMultiplier: el("overtimeMultiplierInput").value,
+    doubleTimeMultiplier: el("doubleTimeMultiplierInput").value,
+    holidayPremiumMultiplier: el("holidayPremiumMultiplierInput").value,
     premiumHours: state.premiumHours,
     benefitHours: state.benefitHours,
     adjustments: state.adjustments
@@ -513,6 +596,13 @@ function loadSettings() {
     el("hourlyRateInput").value = data.hourlyRate || "";
     el("payPeriodInput").value = data.payPeriod || "biweekly";
     el("currencyInput").value = data.currency || "USD";
+    el("shiftDifferentialTypeInput").value = data.shiftDifferentialType || "none";
+    el("shiftDifferentialAmountInput").value = data.shiftDifferentialAmount || "";
+    el("overtimeRuleInput").value = data.overtimeRule || "after80";
+    el("customOvertimeThresholdInput").value = data.customOvertimeThreshold || "";
+    el("overtimeMultiplierInput").value = data.overtimeMultiplier || "1.5";
+    el("doubleTimeMultiplierInput").value = data.doubleTimeMultiplier || "2";
+    el("holidayPremiumMultiplierInput").value = data.holidayPremiumMultiplier || "1.5";
     state.premiumHours = Array.isArray(data.premiumHours) ? data.premiumHours : [];
     state.benefitHours = Array.isArray(data.benefitHours) ? data.benefitHours : [];
     state.adjustments = data.adjustments || { tax: [], deduction: [], other: [] };
@@ -531,6 +621,13 @@ function loadExample() {
   el("hourlyRateInput").value = "25";
   el("payPeriodInput").value = "biweekly";
   el("currencyInput").value = "USD";
+  el("shiftDifferentialTypeInput").value = "flat";
+  el("shiftDifferentialAmountInput").value = "1.50";
+  el("overtimeRuleInput").value = "after80";
+  el("customOvertimeThresholdInput").value = "";
+  el("overtimeMultiplierInput").value = "1.5";
+  el("doubleTimeMultiplierInput").value = "2";
+  el("holidayPremiumMultiplierInput").value = "1.5";
 
   state.premiumHours = [
     { uid: uid("premium"), typeId: "overtime", label: "Overtime", hours: "8", multiplier: 1.5 },
@@ -564,6 +661,13 @@ function resetCalculator() {
   el("hourlyRateInput").value = "";
   el("payPeriodInput").value = "biweekly";
   el("currencyInput").value = "USD";
+  el("shiftDifferentialTypeInput").value = "none";
+  el("shiftDifferentialAmountInput").value = "";
+  el("overtimeRuleInput").value = "after80";
+  el("customOvertimeThresholdInput").value = "";
+  el("overtimeMultiplierInput").value = "1.5";
+  el("doubleTimeMultiplierInput").value = "2";
+  el("holidayPremiumMultiplierInput").value = "1.5";
   state.premiumHours = [];
   state.benefitHours = [];
   state.adjustments = { tax: [], deduction: [], other: [] };
@@ -578,7 +682,7 @@ function buildLineItems(entries, group) {
   return entries.map(entry => {
     const hours = formatNumber(Number(entry.hours) || 0);
     if (group === "Premium Hours") {
-      return `${entry.label}: ${hours} hrs at ${formatNumber(Number(entry.multiplier) || 0)}x`;
+      return `${entry.label}: ${hours} hrs at ${formatNumber(getPremiumMultiplier(entry.typeId, entry.multiplier))}x`;
     }
     return `${entry.label}: ${hours} hrs`;
   });
@@ -603,6 +707,8 @@ function buildPaycheckResultsSummary() {
     "Pay Details",
     `Hourly Rate: ${formatMoney(totals.rate)}`,
     `Pay Period: ${getPayPeriodLabel()}`,
+    `Shift Differential: ${getShiftDifferentialLabel()}`,
+    `Overtime Rule: ${getOvertimeRuleLabel()}`,
     `Regular Hours: ${formatNumber(totals.regularHours)} hrs`,
     "",
     ...buildLineItems(state.premiumHours, "Premium Hours"),
@@ -617,6 +723,7 @@ function buildPaycheckResultsSummary() {
     `Before Taxes (Gross): ${formatMoney(totals.grossPay)}`,
     `Regular Pay: ${formatMoney(totals.regularPay)}`,
     `Premium Pay: ${formatMoney(totals.premiumPay)}`,
+    `Shift Differential Pay: ${formatMoney(totals.shiftDifferentialPay)}`,
     `Benefit / Leave Pay: ${formatMoney(totals.benefitPay)}`,
     `Total Paid Hours: ${formatNumber(totals.totalPaidHours)} hrs`,
     `Estimated Taxes: -${formatMoney(totals.taxes)}`,
@@ -669,7 +776,7 @@ function buildReportRows(rows) {
 function buildPremiumReportRows(totals) {
   return state.premiumHours.map(entry => {
     const hours = Number(entry.hours) || 0;
-    const multiplier = Number(entry.multiplier) || 0;
+    const multiplier = getPremiumMultiplier(entry.typeId, entry.multiplier);
     const pay = hours * totals.rate * multiplier;
     return {
       label: entry.label,
@@ -755,6 +862,9 @@ function buildPaycheckProfessionalReportHtml() {
           <h2>Pay Details</h2>
           <dl class="summary-list">
             <dt>Hourly Rate</dt><dd>${reportMoney(totals.rate)}</dd>
+            <dt>Worked Rate</dt><dd>${reportMoney(totals.workedRate)}</dd>
+            <dt>Shift Differential</dt><dd>${escapeHtml(getShiftDifferentialLabel())}</dd>
+            <dt>Overtime Rule</dt><dd>${escapeHtml(getOvertimeRuleLabel())}</dd>
             <dt>Regular Hours</dt><dd>${reportNumber(totals.regularHours)} hrs</dd>
             <dt>Premium Entries</dt><dd>${premiumRows.length}</dd>
             <dt>Benefit Entries</dt><dd>${benefitRows.length}</dd>
@@ -807,6 +917,7 @@ function buildPaycheckProfessionalReportHtml() {
           <tbody>
             <tr><td>Regular Pay</td><td class="value">${reportMoney(totals.regularPay)}</td></tr>
             <tr><td>Premium Pay</td><td class="value">${reportMoney(totals.premiumPay)}</td></tr>
+            <tr><td>Shift Differential Pay</td><td class="value">${reportMoney(totals.shiftDifferentialPay)}</td></tr>
             <tr><td>Benefit / Leave Pay</td><td class="value">${reportMoney(totals.benefitPay)}</td></tr>
             <tr class="total"><td>Before Taxes (Gross)</td><td class="value">${reportMoney(totals.grossPay)}</td></tr>
             <tr><td>Estimated Taxes</td><td class="value">-${reportMoney(totals.taxes)}</td></tr>
@@ -1061,6 +1172,9 @@ function printResults() {
 function initializeEvents() {
   createHourPills("premiumHourPills", PREMIUM_HOUR_TYPES, "premium");
   createHourPills("benefitHourPills", BENEFIT_HOUR_TYPES, "benefit");
+  initializePillGroup("payPeriodInput");
+  initializePillGroup("shiftDifferentialTypeInput");
+  initializePillGroup("overtimeRuleInput");
 
   el("calculate")?.addEventListener("click", () => calculatePaycheck());
   el("saveSettings")?.addEventListener("click", () => saveSettings(true));
@@ -1069,7 +1183,7 @@ function initializeEvents() {
   el("copyResults")?.addEventListener("click", copyResults);
   el("printResults")?.addEventListener("click", printResults);
 
-  ["regularHoursInput", "hourlyRateInput", "payPeriodInput", "currencyInput"].forEach(id => {
+  ["regularHoursInput", "hourlyRateInput", "currencyInput", "shiftDifferentialAmountInput", "customOvertimeThresholdInput", "overtimeMultiplierInput", "doubleTimeMultiplierInput", "holidayPremiumMultiplierInput"].forEach(id => {
     el(id)?.addEventListener("input", () => calculatePaycheck(false));
     el(id)?.addEventListener("change", () => calculatePaycheck(false));
   });

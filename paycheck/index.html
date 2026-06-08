@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.3.4
+Version: v0.4
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -20,14 +20,14 @@ Purpose: Main application page
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.6.1">
-<link rel="stylesheet" href="style.css?v=0.3.3">
+<link rel="stylesheet" href="style.css?v=0.4">
 </head>
 <body>
 <main class="page">
 <header class="hero">
   <p class="eyebrow">Signal Labs</p>
   <h1>Paycheck Calculator</h1>
-  <p class="subtitle">Enter regular hours, add premium or paid leave hours only when needed, and estimate take-home pay before payday.</p>
+  <p class="subtitle">Enter hours, choose how they are paid, and estimate take-home pay before payday.</p>
 </header>
 
 <div class="ad-slot ad-slot-top is-disabled" data-ad-slot="paycheck-top" data-ad-status="disabled" aria-hidden="true">
@@ -76,7 +76,7 @@ Purpose: Main application page
         <div class="step-badge blue">2</div>
         <div>
           <h2>Pay Details</h2>
-          <p>Tell us your hourly rate, pay period, and currency. Premium rows can use their own multipliers.</p>
+          <p>Tell us your rate, pay period, premium rules, and shift differential settings.</p>
         </div>
       </div>
 
@@ -84,15 +84,6 @@ Purpose: Main application page
         <label>
           <span>Hourly Rate</span>
           <input id="hourlyRateInput" type="number" placeholder="25" min="0" step="0.01">
-        </label>
-        <label>
-          <span>Pay Period</span>
-          <select id="payPeriodInput">
-            <option value="weekly">Weekly</option>
-            <option value="biweekly" selected>Bi-Weekly</option>
-            <option value="semimonthly">Semi-Monthly</option>
-            <option value="monthly">Monthly</option>
-          </select>
         </label>
         <label>
           <span>Currency</span>
@@ -103,6 +94,79 @@ Purpose: Main application page
             <option value="GBP">GBP (£)</option>
           </select>
         </label>
+      </div>
+
+      <div class="pay-detail-panel">
+        <div class="adjustment-heading">
+          <h3>Pay Period</h3>
+          <span>Used for reports, saved settings, and future projections.</span>
+        </div>
+        <input id="payPeriodInput" type="hidden" value="biweekly">
+        <div class="pay-pill-row" data-pill-group="payPeriodInput" aria-label="Pay period">
+          <button type="button" class="pay-pill" data-value="weekly">Weekly</button>
+          <button type="button" class="pay-pill is-selected" data-value="biweekly">Biweekly</button>
+          <button type="button" class="pay-pill" data-value="semimonthly">Semi-Monthly</button>
+          <button type="button" class="pay-pill" data-value="monthly">Monthly</button>
+        </div>
+      </div>
+
+      <div class="pay-detail-panel">
+        <div class="adjustment-heading">
+          <h3>Shift Differential</h3>
+          <span>Optional extra pay added to worked hours. Benefit hours stay at base rate for now.</span>
+        </div>
+        <input id="shiftDifferentialTypeInput" type="hidden" value="none">
+        <div class="pay-pill-row" data-pill-group="shiftDifferentialTypeInput" aria-label="Shift differential type">
+          <button type="button" class="pay-pill is-selected" data-value="none">None</button>
+          <button type="button" class="pay-pill" data-value="flat">Flat Hourly</button>
+          <button type="button" class="pay-pill" data-value="percent">Percentage</button>
+        </div>
+        <div class="form-grid pay-detail-input-grid">
+          <label>
+            <span>Shift Differential Amount</span>
+            <input id="shiftDifferentialAmountInput" type="number" placeholder="1.50 or 10" min="0" step="0.01">
+          </label>
+        </div>
+      </div>
+
+      <div class="pay-detail-panel">
+        <div class="adjustment-heading">
+          <h3>Overtime Rule</h3>
+          <span>For labeling and future automation. Premium hours are still entered manually in Box 1.</span>
+        </div>
+        <input id="overtimeRuleInput" type="hidden" value="after80">
+        <div class="pay-pill-row" data-pill-group="overtimeRuleInput" aria-label="Overtime rule">
+          <button type="button" class="pay-pill" data-value="after40">After 40</button>
+          <button type="button" class="pay-pill is-selected" data-value="after80">After 80</button>
+          <button type="button" class="pay-pill" data-value="custom">Custom</button>
+        </div>
+        <div class="form-grid pay-detail-input-grid">
+          <label>
+            <span>Custom OT Threshold</span>
+            <input id="customOvertimeThresholdInput" type="number" placeholder="80" min="0" step="0.01">
+          </label>
+        </div>
+      </div>
+
+      <div class="pay-detail-panel">
+        <div class="adjustment-heading">
+          <h3>Premium Multipliers</h3>
+          <span>Default multipliers for premium-hour rows.</span>
+        </div>
+        <div class="form-grid multiplier-grid">
+          <label>
+            <span>Overtime Multiplier</span>
+            <input id="overtimeMultiplierInput" type="number" placeholder="1.5" min="0" step="0.01" value="1.5">
+          </label>
+          <label>
+            <span>Double Time Multiplier</span>
+            <input id="doubleTimeMultiplierInput" type="number" placeholder="2" min="0" step="0.01" value="2">
+          </label>
+          <label>
+            <span>Holiday Premium Multiplier</span>
+            <input id="holidayPremiumMultiplierInput" type="number" placeholder="1.5" min="0" step="0.01" value="1.5">
+          </label>
+        </div>
       </div>
 
       <p id="message" class="message">Enter values or load an example to begin.</p>
@@ -176,6 +240,10 @@ Purpose: Main application page
       <strong id="premiumPayResult">$0.00</strong>
     </div>
     <div class="result-row">
+      <span>Shift Differential Pay</span>
+      <strong id="shiftDifferentialPayResult">$0.00</strong>
+    </div>
+    <div class="result-row">
       <span>Benefit / Leave Pay</span>
       <strong id="benefitPayResult">$0.00</strong>
     </div>
@@ -206,8 +274,8 @@ Purpose: Main application page
 
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.3.4</p>
-      <p>Theme: Shared Report Format</p>
+      <p>Build: v0.4</p>
+      <p>Theme: Rates, Multipliers & Rules</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -217,7 +285,7 @@ Purpose: Main application page
   <strong>ⓘ Notes</strong>
   <ul>
     <li>Results are estimates only and may differ from actual payroll withholding.</li>
-    <li>Premium hours use their selected multipliers. Benefit and paid leave hours are estimated at the regular hourly rate for now.</li>
+    <li>Premium hours use Pay Details multipliers. Shift differential applies to worked hours. Benefit and paid leave hours are estimated at the base hourly rate for now.</li>
     <li>Percentage deductions and taxes are calculated from before-tax gross pay.</li>
   </ul>
 </div>
@@ -254,7 +322,7 @@ Purpose: Main application page
   </div>
 
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.3.4
+    Signal Labs · Paycheck Calculator · v0.4
     <br>
     Useful tools without the noise.
   </div>

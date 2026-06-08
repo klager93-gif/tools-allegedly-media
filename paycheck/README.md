@@ -6,11 +6,11 @@ Estimate regular hours, premium hours, benefit hours, deductions, and take-home 
 
 # Current Version
 
-v0.3.4
+v0.4
 
 ## Theme
 
-Shared Report Format
+Rates, Multipliers & Rules
 
 ---
 

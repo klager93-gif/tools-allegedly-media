@@ -4,9 +4,9 @@
 
 ```text
 Home: v0.6.1 — Shared Report System
-Paycheck: v0.3.4 — Shared Report Format
-Overtime: v0.9.9.3 — Shared Report Format
-Time Off: v0.9.9.1 — Shared Report Format
+Paycheck: v0.3.4 — Rates, Multipliers & Rules
+Overtime: v0.9.9.3 — Rates, Multipliers & Rules
+Time Off: v0.9.9.1 — Rates, Multipliers & Rules
 ```
 
 ## Backup Reminder

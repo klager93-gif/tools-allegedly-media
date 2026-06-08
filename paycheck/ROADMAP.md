@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.3.4
+v0.4
 
 ## Theme
 
-Shared Report Format
+Rates, Multipliers & Rules
 
 ---
 
@@ -24,7 +24,7 @@ Shared Report Format
 | v0.3 | Hours & Earnings |
 | v0.3.1 | Premium Hours & Benefit Hours |
 | v0.3.2 | Professional Report Polish |
-| v0.3.4 | Shared Report Format |
+| v0.4 | Rates, Multipliers & Rules |
 
 ---
 

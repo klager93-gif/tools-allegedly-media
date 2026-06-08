@@ -10,6 +10,14 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-08
 
+### Paycheck v0.4 — Rates, Multipliers & Rules
+
+- Added expanded Pay Details controls for pay period, shift differential, overtime rule labels, and premium multipliers.
+- Added shift differential pay into paycheck calculations, results, Copy Results, and Print Report output.
+- Preserved the shared action bar, shared report format, Deductions & Adjustments, and hidden ad framework.
+
+---
+
 ### Home v0.6.1 — Shared Report System
 
 - Standardized printed report structure across the Signal Labs ecosystem.
@@ -21,6 +29,14 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 
 ## 2026-06-08
+
+### Paycheck v0.4 — Rates, Multipliers & Rules
+
+- Added expanded Pay Details controls for pay period, shift differential, overtime rule labels, and premium multipliers.
+- Added shift differential pay into paycheck calculations, results, Copy Results, and Print Report output.
+- Preserved the shared action bar, shared report format, Deductions & Adjustments, and hidden ad framework.
+
+---
 
 ### Home v0.6 — Shared UX Foundation
 
@@ -47,6 +63,14 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 ---
 
 ## 2026-06-08
+
+### Paycheck v0.4 — Rates, Multipliers & Rules
+
+- Added expanded Pay Details controls for pay period, shift differential, overtime rule labels, and premium multipliers.
+- Added shift differential pay into paycheck calculations, results, Copy Results, and Print Report output.
+- Preserved the shared action bar, shared report format, Deductions & Adjustments, and hidden ad framework.
+
+---
 
 ### Paycheck v0.3.2 — Professional Report Polish
 
