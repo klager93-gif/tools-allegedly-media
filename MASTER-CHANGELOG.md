@@ -8,6 +8,18 @@ Individual tools still maintain their own CHANGELOG.md files. This master change
 
 ---
 
+## 2026-06-08
+
+### Overtime v0.9.7.1 — Modal Suggested Pills Placement Fix
+
+- Fixed suggested tax, deduction, and other adjustment pills still rendering outside the adjustment modal.
+- Added a permanent modal controls container inside the Add Adjustment modal.
+- Reworked modal pill injection so suggested pills and Static Amount / Percentage controls stay inside the popup.
+- Preserved saved inputs, Print Report, Copy Results, optional sections, and Goal Mode.
+- Time Off remained v0.9.8 with no version bump.
+
+---
+
 ## 2026-06-07
 
 ### Overtime v0.9.7 — Modal Suggested Pills Fix

@@ -8,11 +8,11 @@ Estimate overtime pay, gross earnings, taxes, deductions, and simple take-home p
 
 ### Build
 
-v0.9.7
+v0.9.7.1
 
 ### Theme
 
-Take-Home Controls Cleanup
+Modal Suggested Pills Placement Fix
 
 ### Status
 
@@ -148,3 +148,12 @@ Refines info icon styling and improves pill UI consistency while preserving exis
 # v0.9.7 Modal Suggested Pills Fix
 
 Cleans duplicate Take-Home action buttons and adds suggested tax/deduction/adjustment pills plus Static Amount / Percentage selector support for deductions and other adjustments.
+
+
+---
+
+# v0.9.7.1 Modal Suggested Pills Placement Fix
+
+Fixes suggested tax, deduction, and other adjustment pills so they render inside the Add Adjustment modal instead of appearing outside or behind the popup.
+
+This is an Overtime-only hotfix. Time Off remains v0.9.8.

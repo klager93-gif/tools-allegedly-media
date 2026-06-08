@@ -11,12 +11,32 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Area | Current Version | Theme |
 |---|---:|---|
 | Home | v0.4.1 | Master Documentation |
-| Overtime | v0.9.7 | Modal Suggested Pills Fix |
+| Overtime | v0.9.7.1 | Modal Suggested Pills Placement Fix |
 | Time Off | v0.9.8 | Quick Start + Stacked Layout |
 
 ---
 
 # Near-Term Roadmap
+
+## Overtime v0.9.7.1
+
+### Theme
+
+Modal Suggested Pills Placement Fix
+
+### Status
+
+Completed hotfix.
+
+### Validation Focus
+
+- Confirm suggested pills render inside Add Tax modal.
+- Confirm suggested pills render inside Add Deduction modal.
+- Confirm suggested pills render inside Add Other Adjustment modal.
+- Confirm Static Amount / Percentage controls stay inside modal.
+
+---
+
 
 ## Home v0.5
 
@@ -58,7 +78,7 @@ Final Pre-1.0 Polish
 
 ### Planned Focus
 
-- Verify suggested modal pills remain inside Add Tax, Add Deduction, and Add Other Adjustment modals.
+- Verify v0.9.7.1 suggested modal pills remain inside Add Tax, Add Deduction, and Add Other Adjustment modals.
 - Verify Automatic / Custom OT threshold pills.
 - Verify info icons and footer notes.
 - Verify optional collapsible sections.

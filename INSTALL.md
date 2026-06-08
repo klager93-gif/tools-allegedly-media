@@ -52,3 +52,8 @@ MASTER-ROADMAP.md
 - Planner sections stack full-width instead of squeezing into narrow columns.
 - Planner Summary no longer compresses the form cards.
 - Saved settings, Print Report, and Copy Results still work.
+
+
+## Overtime v0.9.7.1 Hotfix
+
+Replace the full `/overtime/` folder with the included overtime folder. Time Off is included unchanged for bundle continuity and remains v0.9.8.

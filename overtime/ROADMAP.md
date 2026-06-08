@@ -6,12 +6,12 @@
 
 ## Last Updated
 
-2026-06-07  
-15:05 UTC
+2026-06-08  
+00:15 CT
 
 ## Current Version
 
-**v0.9.7**
+**v0.9.7.1**
 
 ---
 
@@ -19,6 +19,7 @@
 
 | Version | Theme |
 |-----------|--------|
+| v0.9.7.1 | Modal Suggested Pills Placement Fix |
 | v0.9.7 | Modal Suggested Pills Fix |
 | v0.9.6.2 | Take-Home Controls Cleanup |
 | v0.9.6.1 | UI Identity Polish |

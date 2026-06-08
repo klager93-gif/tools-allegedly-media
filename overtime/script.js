@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: script.js
-Version: v0.9.7
+Version: v0.9.7.1
 Purpose: Tool-specific logic and event handling
 */
 const rateInput = document.getElementById("rate");
@@ -27,8 +27,9 @@ const thresholdNoteEl = document.getElementById("thresholdNote");
 const messageEl = document.getElementById("message");
 const generatedTimeEl = document.getElementById("generatedTime");
 
-const STORAGE_KEY = "signalLabsOvertimeCalculatorV0962";
+const STORAGE_KEY = "signalLabsOvertimeCalculatorV0971";
 const LEGACY_STORAGE_KEYS = [
+  "signalLabsOvertimeCalculatorV0962",
   "signalLabsOvertimeCalculatorV092",
   "signalLabsOvertimeCalculatorV085",
   "signalLabsOvertimeCalculatorV0821",
@@ -1330,8 +1331,8 @@ function buildOvertimeProfessionalReportHtml() {
 
         <div class="report-meta">
           <div><strong>Generated:</strong> ${escapeReportHtml(generated)}</div>
-          <div><strong>Build:</strong> v0.9.7</div>
-          <div><strong>Theme:</strong> Professional Reports</div>
+          <div><strong>Build:</strong> v0.9.7.1</div>
+          <div><strong>Theme:</strong> Modal Suggested Pills Placement Fix</div>
           <div><strong>Status:</strong> Active Development</div>
         </div>
       </header>
@@ -1417,7 +1418,7 @@ function buildOvertimeProfessionalReportHtml() {
 
       <footer class="footer">
         <div>Estimates only. Actual pay may vary based on taxes, deductions, employer policies, and applicable labor laws.</div>
-        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.7</div>
+        <div><strong>Signal Labs</strong> • Overtime Calculator • v0.9.7.1</div>
       </footer>
     </main>
   `;
@@ -1781,8 +1782,9 @@ function signalLabsFillFirstAvailable(selectors, value) {
 }
 
 function signalLabsInstallSuggestedPills(container, items, onSelect) {
-  if (!container || container.dataset.signalLabsPillsInstalled === "true") return;
-  container.dataset.signalLabsPillsInstalled = "true";
+  if (!container) return;
+
+  container.querySelectorAll(".suggested-pill-row, .signal-labs-modal-helper").forEach((node) => node.remove());
 
   const row = document.createElement("div");
   row.className = "suggested-pill-row";
@@ -1810,8 +1812,9 @@ function signalLabsInstallSuggestedPills(container, items, onSelect) {
 }
 
 function signalLabsInstallTypePills(container, defaultType, onChange) {
-  if (!container || container.dataset.signalLabsTypePillsInstalled === "true") return;
-  container.dataset.signalLabsTypePillsInstalled = "true";
+  if (!container) return;
+
+  container.querySelectorAll(".adjustment-type-pill-row").forEach((node) => node.remove());
 
   const row = document.createElement("div");
   row.className = "adjustment-type-pill-row";
@@ -1841,17 +1844,12 @@ function signalLabsInstallTypePills(container, defaultType, onChange) {
 
 function signalLabsConfigureAdjustmentModal(type) {
   const modalBox = document.querySelector("#adjustmentModal .adjustment-modal-box");
-  const help = el("adjustmentModalHelp");
-  if (!modalBox || !help) return;
+  const controlWrap = el("adjustmentModalControls");
+  if (!modalBox || !controlWrap) return;
 
-  modalBox.querySelectorAll(".signal-labs-dynamic-modal-control").forEach((node) => node.remove());
-  modalBox.dataset.signalLabsTypePillsInstalled = "false";
-  modalBox.dataset.signalLabsPillsInstalled = "false";
-
-  const controlWrap = document.createElement("div");
-  controlWrap.className = "signal-labs-dynamic-modal-control";
-
-  help.insertAdjacentElement("afterend", controlWrap);
+  controlWrap.innerHTML = "";
+  controlWrap.dataset.signalLabsEntryType = "amount";
+  modalBox.dataset.signalLabsEntryType = "amount";
 
   if (type === "tax") {
     signalLabsInstallSuggestedPills(controlWrap, SIGNAL_LABS_SUGGESTED_TAXES, (item) => {
@@ -1861,18 +1859,18 @@ function signalLabsConfigureAdjustmentModal(type) {
     return;
   }
 
-  signalLabsInstallSuggestedPills(controlWrap, SIGNAL_LABS_SUGGESTED_DEDUCTIONS, (item) => {
-    el("adjustmentName").value = item.name;
-    const typeButton = controlWrap.querySelector(`.adjustment-type-pill[data-adjustment-type="${item.type}"]`);
-    if (typeButton) typeButton.click();
-  });
-
   signalLabsInstallTypePills(controlWrap, "amount", (entryType) => {
     modalBox.dataset.signalLabsEntryType = entryType;
     const valueInput = el("adjustmentValue");
     const valueLabel = el("adjustmentValueLabel");
     if (valueInput) valueInput.placeholder = entryType === "percent" ? "Example: 6.5" : "Example: 25.00";
     if (valueLabel) valueLabel.textContent = entryType === "percent" ? "Percentage" : (type === "deduction" ? "Deduction Amount" : "Adjustment Amount");
+  });
+
+  signalLabsInstallSuggestedPills(controlWrap, SIGNAL_LABS_SUGGESTED_DEDUCTIONS, (item) => {
+    el("adjustmentName").value = item.name;
+    const typeButton = controlWrap.querySelector(`.adjustment-type-pill[data-adjustment-type="${item.type}"]`);
+    if (typeButton) typeButton.click();
   });
 
   modalBox.dataset.signalLabsEntryType = "amount";

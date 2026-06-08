@@ -4,11 +4,11 @@
 
 ## Current Build
 
-v0.9.7
+v0.9.7.1
 
 ## Theme
 
-Modal Suggested Pills Fix
+Modal Suggested Pills Placement Fix
 
 ---
 
@@ -125,7 +125,7 @@ Modal Suggested Pills Fix
 - [ ] Copy Results still works.
 
 
-# Modal Suggested Pills Fix Checks
+# Modal Suggested Pills Placement Fix Checks
 
 - [ ] Suggested tax pills appear inside the Add Tax modal.
 - [ ] Suggested deduction pills appear inside the Add Deduction modal.

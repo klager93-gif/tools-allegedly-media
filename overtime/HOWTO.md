@@ -137,3 +137,12 @@ Info icons are smaller and better aligned. Pill controls are cleaner and more co
 # v0.9.7 Modal Suggested Pills Fix
 
 Use the contextual buttons in Taxes, Deductions, and Other Adjustments. Suggested pills can fill common names, and deductions/adjustments can use static amount or percentage where supported.
+
+
+---
+
+# v0.9.7.1 Modal Suggested Pills Placement Fix
+
+When using Add Tax, Add Deduction, or Add Other Adjustment, suggested pills should appear inside the popup above the name/value form.
+
+Deductions and other adjustments still support Static Amount and Percentage.

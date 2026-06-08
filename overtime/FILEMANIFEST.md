@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.9.7
+v0.9.7.1
 
 ## Theme
 
-Take-Home Controls Cleanup
+Modal Suggested Pills Placement Fix
 
 ---
 
@@ -31,8 +31,8 @@ BUILDMANIFEST.md
 # Shared Dependencies
 
 ```text
-../assets/global.css?v=0.2.5
-../assets/global.js?v=0.2.5
+../assets/global.css?v=0.3
+../assets/global.js?v=0.3
 ```
 
 ---
@@ -69,4 +69,13 @@ buildOvertimeResultsSummary
 buildOvertimeProfessionalReportHtml
 openProfessionalReportWindow
 Print Report
+```
+
+# Modal Placement Checks
+
+```text
+adjustmentModalControls
+signalLabsConfigureAdjustmentModal
+suggested-pill-row
+adjustment-type-pill-row
 ```

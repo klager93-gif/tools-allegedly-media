@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Overtime Calculator
 File: style.css
-Version: v0.9.7
+Version: v0.9.7.1
 Purpose: Tool-specific styles
 */
 /* Overtime Calculator v0.8.3.1 — Live Folder Resync */
@@ -1886,7 +1886,7 @@ v0.9.6.1 UI Identity Polish
 
 /*
 --------------------------------
-v0.9.7 Modal Suggested Pills Fix
+v0.9.7.1 Modal Suggested Pills Placement Fix
 --------------------------------
 */
 
@@ -1934,4 +1934,49 @@ v0.9.7 Modal Suggested Pills Fix
   color: rgba(255,255,255,0.62);
   font-size: 12px;
   line-height: 1.35;
+}
+
+
+/*
+--------------------------------
+v0.9.7.1 Modal Suggested Pills Placement Fix
+--------------------------------
+*/
+
+#adjustmentModal .adjustment-modal-box {
+  position: relative;
+  overflow: visible;
+}
+
+#adjustmentModalControls.signal-labs-dynamic-modal-control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin: -8px 0 16px;
+  position: static !important;
+  z-index: auto !important;
+}
+
+#adjustmentModal .suggested-pill-row,
+#adjustmentModal .adjustment-type-pill-row {
+  position: static !important;
+  inset: auto !important;
+  width: 100%;
+  margin: 0;
+}
+
+#adjustmentModal .signal-labs-modal-helper {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  #adjustmentModalControls.signal-labs-dynamic-modal-control {
+    margin-bottom: 14px;
+  }
+
+  #adjustmentModal .suggested-entry-pill,
+  #adjustmentModal .adjustment-type-pill {
+    flex: 1 1 auto;
+  }
 }

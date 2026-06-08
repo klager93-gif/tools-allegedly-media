@@ -1,3 +1,20 @@
+## Version 0.9.7.1
+
+**Date:** 2026-06-08  
+**Theme:** Modal Suggested Pills Placement Fix
+
+### Changes
+
+- Fixed suggested tax, deduction, and other adjustment pills still appearing outside the Add Adjustment modal.
+- Added a permanent modal controls container inside the adjustment modal.
+- Reworked modal pill injection to render into the dedicated modal container instead of relying on loose dynamic insertion.
+- Preserved Static Amount / Percentage selector support for deductions and other adjustments.
+- Preserved saved inputs, Print Report, Copy Results, optional sections, and Goal Mode.
+- No Time Off files required a version bump.
+- No image-based report generation is used.
+
+---
+
 ## Version 0.9.7
 
 **Date:** 2026-06-07  
