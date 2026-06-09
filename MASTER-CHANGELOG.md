@@ -10,7 +10,7 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-09
 
-### Paycheck v0.7.9 — Professional Finish
+### Paycheck v0.8 — Progressive Disclosure
 
 - Completed a final desktop and mobile polish pass before shared component work.
 - Reduced visual noise in empty states, chips, profile cards, result rows, and action controls.

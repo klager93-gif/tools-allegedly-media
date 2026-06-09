@@ -1,4 +1,4 @@
-# Paycheck v0.7.9 — Professional Finish
+# Paycheck v0.8 — Progressive Disclosure
 
 - Performed the final visual polish pass across desktop and mobile before shared component work.
 - Reduced empty-state height, chip size, profile summary height, result-row spacing, and sticky action bar density.
@@ -54,6 +54,14 @@
 # CHANGELOG
 
 ---
+
+## v0.8 — Progressive Disclosure
+
+- Simplified the default Paycheck experience using progressive disclosure.
+- Kept Regular Hours, Pay Profile, Hourly Rate, Currency, Pay Period, Taxes, Deductions, and key Estimated Paycheck results visible by default.
+- Moved Premium Hours, Paid Leave, Shift Differential, Overtime Rules, Multipliers, Other Adjustments, Target Pay details, and detailed result rows behind expandable controls.
+- Reduced visible complexity without removing existing features.
+- Preserved calculations, saved settings, Copy Results, Print Report, shared report format, hidden ad slots, and no-live-ad behavior.
 
 ## Version 0.6
 

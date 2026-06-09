@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.7.9
+Version: v0.8
 Purpose: Tool-specific styles
 */
 
@@ -1413,7 +1413,7 @@ select:focus {
   }
 }
 
-/* v0.7.9 — Professional Finish
+/* v0.8 — Progressive Disclosure
    Final polish pass for compact empty states, chips, profile cards, result rows, and mobile action flow. No calculation changes. */
 
 .mobile-actions-trigger,
@@ -1696,5 +1696,108 @@ select:focus {
     color: rgba(255,255,255,0.62);
     font-size: 11.5px;
     line-height: 1.25;
+  }
+}
+
+
+/* v0.8 Progressive Disclosure */
+.progressive-disclosure {
+  margin-top: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.025);
+  overflow: hidden;
+}
+
+.progressive-disclosure > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  color: #f4f7f5;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progressive-disclosure > summary::-webkit-details-marker {
+  display: none;
+}
+
+.progressive-disclosure > summary::after {
+  content: "Open";
+  color: #9ca3af;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.progressive-disclosure[open] > summary::after {
+  content: "Close";
+}
+
+.progressive-disclosure[open] > summary {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.progressive-disclosure .hours-panel,
+.progressive-disclosure .pay-detail-panel,
+.progressive-disclosure .adjustment-section {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.advanced-settings-grid {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+}
+
+.compact-heading span,
+.pay-detail-panel .adjustment-heading span,
+.adjustment-section .adjustment-heading span {
+  font-size: 11px;
+}
+
+.result-details-disclosure {
+  margin-top: 8px;
+}
+
+.result-details-disclosure > summary {
+  padding: 10px 12px;
+}
+
+.result-details-disclosure .result-row {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.single-action {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 861px) {
+  .progressive-disclosure > summary {
+    padding: 10px 12px;
+  }
+
+  .advanced-settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 860px) {
+  .progressive-disclosure {
+    margin-top: 10px;
+    border-radius: 14px;
+  }
+
+  .progressive-disclosure > summary {
+    padding: 11px 12px;
   }
 }

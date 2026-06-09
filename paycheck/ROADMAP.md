@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.7.9
+v0.8
 
 ## Theme
 
-Professional Finish
+Progressive Disclosure
 
 ---
 
@@ -32,7 +32,7 @@ Professional Finish
 | v0.6 | Pay Profiles |
 | v0.7 | Other Earnings |
 | v0.7.5 | Specialty Pay |
-| v0.7.9 | Professional Finish |
+| v0.8 | Progressive Disclosure |
 
 ---
 

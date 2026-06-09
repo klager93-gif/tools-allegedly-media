@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.7.9
+Version: v0.8
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -27,7 +27,7 @@ Purpose: Main application page
 <header class="hero">
   <p class="eyebrow">Signal Labs</p>
   <h1>Paycheck Calculator</h1>
-  <p class="subtitle">Enter hours, choose how they are paid, and estimate take-home pay before payday.</p>
+  <p class="subtitle">Estimate take-home pay with the essentials first and advanced options when you need them.</p>
 </header>
 
 <div class="ad-slot ad-slot-top is-disabled" data-ad-slot="paycheck-top" data-ad-status="disabled" aria-hidden="true">
@@ -41,7 +41,7 @@ Purpose: Main application page
         <div class="step-badge green">1</div>
         <div>
           <h2>Hours &amp; Earnings</h2>
-          <p>Start with regular hours. Add premium hours and paid leave only when they apply to this paycheck.</p>
+          <p>Enter regular hours first. Add premium or paid leave hours only when needed.</p>
         </div>
         <button type="button" class="section-collapse-toggle" aria-expanded="true">Collapse</button>
       </div>
@@ -53,23 +53,29 @@ Purpose: Main application page
         </label>
       </div>
 
-      <div class="hours-panel premium-hours-panel">
-        <div class="adjustment-heading">
-          <h3>Premium Hours</h3>
-          <span>Hours worked at special or higher pay rates.</span>
+      <details class="progressive-disclosure hours-disclosure">
+        <summary>+ Add Premium Hours</summary>
+        <div class="hours-panel premium-hours-panel">
+          <div class="adjustment-heading compact-heading">
+            <h3>Premium Hours</h3>
+            <span>Overtime, double time, holiday premium, on-call, standby, or custom premium hours.</span>
+          </div>
+          <div id="premiumHourPills" class="hour-pill-row" aria-label="Premium hour selector"></div>
+          <div id="premiumHourList" class="hour-entry-list"></div>
         </div>
-        <div id="premiumHourPills" class="hour-pill-row" aria-label="Premium hour selector"></div>
-        <div id="premiumHourList" class="hour-entry-list"></div>
-      </div>
+      </details>
 
-      <div class="hours-panel benefit-hours-panel">
-        <div class="adjustment-heading">
-          <h3>Benefit / Paid Leave Hours</h3>
-          <span>Paid hours away from work, such as vacation, sick, holiday, or comp time.</span>
+      <details class="progressive-disclosure hours-disclosure">
+        <summary>+ Add Paid Leave</summary>
+        <div class="hours-panel benefit-hours-panel">
+          <div class="adjustment-heading compact-heading">
+            <h3>Benefit / Paid Leave Hours</h3>
+            <span>Vacation, sick, holiday, comp time, bereavement, or custom paid leave.</span>
+          </div>
+          <div id="benefitHourPills" class="hour-pill-row" aria-label="Benefit hour selector"></div>
+          <div id="benefitHourList" class="hour-entry-list"></div>
         </div>
-        <div id="benefitHourPills" class="hour-pill-row" aria-label="Benefit hour selector"></div>
-        <div id="benefitHourList" class="hour-entry-list"></div>
-      </div>
+      </details>
     </section>
 
     <section class="card step-card is-collapsible" data-collapse-key="payDetails" data-default-open="true">
@@ -77,7 +83,7 @@ Purpose: Main application page
         <div class="step-badge blue">2</div>
         <div>
           <h2>Pay Details</h2>
-          <p>Tell us your rate, pay period, premium rules, and shift differential settings.</p>
+          <p>Set the essentials first. Advanced pay rules stay available when needed.</p>
         </div>
         <button type="button" class="section-collapse-toggle" aria-expanded="true">Collapse</button>
       </div>
@@ -132,7 +138,10 @@ Purpose: Main application page
         </div>
       </div>
 
-      <div class="pay-detail-panel">
+      <details class="progressive-disclosure advanced-pay-settings">
+        <summary>Advanced Pay Settings</summary>
+        <div class="advanced-settings-grid">
+          <div class="pay-detail-panel">
         <div class="adjustment-heading">
           <h3>Shift Differential</h3>
           <span>Optional extra pay added to worked hours. Benefit hours stay at base rate for now.</span>
@@ -151,7 +160,7 @@ Purpose: Main application page
         </div>
       </div>
 
-      <div class="pay-detail-panel">
+          <div class="pay-detail-panel">
         <div class="adjustment-heading">
           <h3>Overtime Rule</h3>
           <span>For labeling and future automation. Premium hours are still entered manually in Box 1.</span>
@@ -170,7 +179,7 @@ Purpose: Main application page
         </div>
       </div>
 
-      <div class="pay-detail-panel">
+          <div class="pay-detail-panel">
         <div class="adjustment-heading">
           <h3>Premium Multipliers</h3>
           <span>Default multipliers for premium-hour rows.</span>
@@ -190,6 +199,8 @@ Purpose: Main application page
           </label>
         </div>
       </div>
+        </div>
+      </details>
 
       <p id="message" class="message">Enter values or load an example to begin.</p>
     </section>
@@ -199,15 +210,15 @@ Purpose: Main application page
         <div class="step-badge teal">3</div>
         <div>
           <h2>Other Earnings</h2>
-          <p>Add non-hourly earnings such as bonuses, commission, tips, mileage, per diem, or other pay.</p>
+          <p>Add only when this paycheck has extra non-hourly pay.</p>
         </div>
         <button type="button" class="section-collapse-toggle" aria-expanded="false">Expand</button>
       </div>
 
       <div class="other-earnings-panel">
-        <div class="adjustment-heading">
-          <h3>Additional Pay</h3>
-          <span>These amounts increase before-tax gross pay but are not counted as paid hours.</span>
+        <div class="adjustment-heading compact-heading">
+          <h3>+ Add Other Earnings</h3>
+          <span>Bonus, commission, tips, mileage, per diem, or custom pay.</span>
         </div>
         <div id="otherEarningPills" class="earning-pill-row" aria-label="Other earnings selector"></div>
         <div id="otherEarningList" class="earning-entry-list"></div>
@@ -239,7 +250,7 @@ Purpose: Main application page
         <div class="step-badge purple">5</div>
         <div>
           <h2>Deductions &amp; Adjustments</h2>
-          <p>Add taxes, deductions, and other paycheck adjustments as either percentages or static amounts.</p>
+          <p>Add common deductions first. Other adjustments stay available when needed.</p>
         </div>
         <button type="button" class="section-collapse-toggle" aria-expanded="true">Collapse</button>
       </div>
@@ -247,7 +258,6 @@ Purpose: Main application page
       <div class="adjustment-actions">
         <button id="addTax" type="button" class="secondary">Add Tax</button>
         <button id="addDeduction" type="button" class="secondary">Add Deduction</button>
-        <button id="addOther" type="button" class="secondary">Add Other Adjustment</button>
       </div>
 
       <div class="adjustment-section">
@@ -266,13 +276,19 @@ Purpose: Main application page
         <div id="deductionList" class="adjustment-list"></div>
       </div>
 
-      <div class="adjustment-section">
-        <div class="adjustment-heading">
-          <h3>Other Adjustments</h3>
-          <span>Other amounts that reduce or adjust the estimate.</span>
+      <details class="progressive-disclosure adjustments-disclosure">
+        <summary>Advanced: Other Adjustments</summary>
+        <div class="adjustment-section">
+          <div class="adjustment-heading compact-heading">
+            <h3>Other Adjustments</h3>
+            <span>Less common amounts that reduce or adjust the estimate.</span>
+          </div>
+          <div class="adjustment-actions single-action">
+            <button id="addOther" type="button" class="secondary">Add Other Adjustment</button>
+          </div>
+          <div id="otherList" class="adjustment-list"></div>
         </div>
-        <div id="otherList" class="adjustment-list"></div>
-      </div>
+      </details>
 
       <div class="info-note">
         <strong>Simple estimate only.</strong>
@@ -285,7 +301,7 @@ Purpose: Main application page
         <div class="step-badge orange">6</div>
         <div>
           <h2>Target Pay</h2>
-          <p>Set a paycheck or annual income goal and estimate how many extra hours may be needed.</p>
+          <p>Optional goal planning for gross, net, or annual income targets.</p>
         </div>
         <button type="button" class="section-collapse-toggle" aria-expanded="false">Expand</button>
       </div>
@@ -347,6 +363,8 @@ Purpose: Main application page
       <span>Before Taxes (Gross)</span>
       <strong id="grossPayResult">$0.00</strong>
     </div>
+    <details class="progressive-disclosure result-details-disclosure">
+      <summary>Details</summary>
     <div class="result-row mobile-detail-result">
       <span>Regular Pay</span>
       <strong id="regularPayResult">$0.00</strong>
@@ -387,14 +405,6 @@ Purpose: Main application page
       <span>Other Adjustments</span>
       <strong id="otherAdjustmentsResult">-$0.00</strong>
     </div>
-    <div class="result-row total net-total">
-      <span>Take-Home Pay (Net)</span>
-      <strong id="takeHomeResult">$0.00</strong>
-    </div>
-    <div class="result-row">
-      <span>Effective Hourly Take-Home</span>
-      <strong id="effectiveRateResult">$0.00</strong>
-    </div>
     <div class="result-row target-result-row mobile-detail-result">
       <span>Target Gap</span>
       <strong id="targetGapResult">--</strong>
@@ -407,11 +417,20 @@ Purpose: Main application page
       <span>Target Status</span>
       <strong id="targetStatusResult">--</strong>
     </div>
+    </details>
 
+    <div class="result-row total net-total">
+      <span>Take-Home Pay (Net)</span>
+      <strong id="takeHomeResult">$0.00</strong>
+    </div>
+    <div class="result-row">
+      <span>Effective Hourly Take-Home</span>
+      <strong id="effectiveRateResult">$0.00</strong>
+    </div>
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.7.9</p>
-      <p>Theme: Professional Finish</p>
+      <p>Build: v0.8</p>
+      <p>Theme: Progressive Disclosure</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -478,7 +497,7 @@ Purpose: Main application page
   </div>
 
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.7.9
+    Signal Labs · Paycheck Calculator · v0.8
     <br>
     Useful tools without the noise.
   </div>
