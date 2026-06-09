@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.7
+Version: v0.7.5
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ Purpose: Main application page
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.6.1">
-<link rel="stylesheet" href="style.css?v=0.7">
+<link rel="stylesheet" href="style.css?v=0.7.5">
 </head>
 <body>
 <main class="page">
@@ -211,9 +211,28 @@ Purpose: Main application page
       </div>
     </section>
 
+    <section class="card step-card specialty-pay-card">
+      <div class="section-title">
+        <div class="step-badge orange">4</div>
+        <div>
+          <h2>Specialty Pay</h2>
+          <p>Add job-specific earnings such as callback, court pay, certification pay, hazard pay, or allowances.</p>
+        </div>
+      </div>
+
+      <div class="other-earnings-panel specialty-pay-panel">
+        <div class="adjustment-heading">
+          <h3>Specialty Earnings</h3>
+          <span>These increase before-tax gross pay but do not add paid hours.</span>
+        </div>
+        <div id="specialtyPayPills" class="earning-pill-row" aria-label="Specialty pay selector"></div>
+        <div id="specialtyPayList" class="earning-entry-list"></div>
+      </div>
+    </section>
+
     <section class="card step-card">
       <div class="section-title section-title-with-action">
-        <div class="step-badge purple">4</div>
+        <div class="step-badge purple">5</div>
         <div>
           <h2>Deductions &amp; Adjustments</h2>
           <p>Add taxes, deductions, and other paycheck adjustments as either percentages or static amounts.</p>
@@ -258,7 +277,7 @@ Purpose: Main application page
 
     <section class="card step-card target-pay-card">
       <div class="section-title">
-        <div class="step-badge orange">5</div>
+        <div class="step-badge orange">6</div>
         <div>
           <h2>Target Pay</h2>
           <p>Set a paycheck or annual income goal and estimate how many extra hours may be needed.</p>
@@ -343,6 +362,10 @@ Purpose: Main application page
       <strong id="otherEarningsResult">$0.00</strong>
     </div>
     <div class="result-row">
+      <span>Specialty Pay</span>
+      <strong id="specialtyPayResult">$0.00</strong>
+    </div>
+    <div class="result-row">
       <span>Total Paid Hours</span>
       <strong id="totalHoursResult">0.00 hrs</strong>
     </div>
@@ -381,8 +404,8 @@ Purpose: Main application page
 
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.7</p>
-      <p>Theme: Other Earnings</p>
+      <p>Build: v0.7.5</p>
+      <p>Theme: Specialty Pay</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -392,7 +415,7 @@ Purpose: Main application page
   <strong>ⓘ Notes</strong>
   <ul>
     <li>Results are estimates only and may differ from actual payroll withholding.</li>
-    <li>Premium hours use Pay Details multipliers. Shift differential applies to worked hours. Benefit and paid leave hours are estimated at the base hourly rate for now. Other earnings increase gross pay but do not add paid hours.</li>
+    <li>Premium hours use Pay Details multipliers. Shift differential applies to worked hours. Benefit and paid leave hours are estimated at the base hourly rate for now. Other earnings and specialty pay increase gross pay but do not add paid hours.</li>
     <li>Percentage deductions and taxes are calculated from before-tax gross pay.</li>
   </ul>
 </div>
@@ -429,7 +452,7 @@ Purpose: Main application page
   </div>
 
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.7
+    Signal Labs · Paycheck Calculator · v0.7.5
     <br>
     Useful tools without the noise.
   </div>
@@ -471,6 +494,6 @@ Purpose: Main application page
 </div>
 
 <script src="../assets/global.js?v=0.6.1"></script>
-<script src="script.js?v=0.7"></script>
+<script src="script.js?v=0.7.5"></script>
 </body>
 </html>

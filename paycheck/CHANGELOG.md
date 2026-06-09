@@ -1,3 +1,14 @@
+# Paycheck v0.7.5 — Specialty Pay
+
+- Added a Specialty Pay section for job-specific earnings.
+- Added Callback Pay, Court Pay, Certification Pay, Longevity Pay, Education Incentive, Bilingual Pay, Hazard Pay, Shift Bonus, Travel Pay, Uniform Allowance, and Custom specialty pay pills.
+- Added dynamic specialty pay rows with smooth empty-state behavior.
+- Included specialty pay in Before Taxes (Gross), Copy Results, and Print Report output.
+- Updated saved settings to preserve specialty pay entries.
+- Preserved Hours & Earnings, Pay Details, Other Earnings, Deductions & Adjustments, Target Pay, saved settings, shared action bar, shared report format, hidden ad slots, and no-live-ad behavior.
+
+---
+
 # Paycheck v0.7 — Other Earnings
 
 - Added an Other Earnings section for non-hourly pay.

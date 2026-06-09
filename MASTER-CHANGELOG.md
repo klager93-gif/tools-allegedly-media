@@ -10,6 +10,14 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-09
 
+### Paycheck v0.7.5 — Specialty Pay
+
+- Added Specialty Pay for job-specific earnings such as callback, court pay, certification, hazard pay, shift bonus, travel pay, and uniform allowance.
+- Updated Paycheck gross pay, copy output, saved settings, and print reports to include specialty pay.
+- Preserved existing Paycheck systems and shared Signal Labs foundations.
+
+---
+
 ### Paycheck v0.7 — Other Earnings
 
 - Added an Other Earnings section for non-hourly pay.

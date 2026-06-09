@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.7
+Version: v0.7.5
 Purpose: Tool-specific styles
 */
 
@@ -586,3 +586,5 @@ select:focus {
   font-weight: 800;
   text-align: right;
 }
+
+.specialty-pay-card .step-badge { box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.12) inset; }

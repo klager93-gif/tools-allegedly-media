@@ -2,14 +2,14 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.7
+Version: v0.7.5
 Purpose: Tool-specific logic and event handling
 */
 
-const TOOL_VERSION = "v0.7";
-const TOOL_THEME = "Other Earnings";
-const STORAGE_KEY = "signalLabsPaycheckCalculatorV07";
-const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV06", "signalLabsPaycheckCalculatorV05", "signalLabsPaycheckCalculatorV04", "signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
+const TOOL_VERSION = "v0.7.5";
+const TOOL_THEME = "Specialty Pay";
+const STORAGE_KEY = "signalLabsPaycheckCalculatorV075";
+const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV07", "signalLabsPaycheckCalculatorV06", "signalLabsPaycheckCalculatorV05", "signalLabsPaycheckCalculatorV04", "signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
 
 const PREMIUM_HOUR_TYPES = [
   { id: "overtime", label: "Overtime", defaultMultiplier: 1.5 },
@@ -36,6 +36,20 @@ const OTHER_EARNING_TYPES = [
   { id: "tips", label: "Tips" },
   { id: "mileage", label: "Mileage" },
   { id: "perDiem", label: "Per Diem" },
+  { id: "custom", label: "Custom" }
+];
+
+const SPECIALTY_PAY_TYPES = [
+  { id: "callback", label: "Callback Pay" },
+  { id: "court", label: "Court Pay" },
+  { id: "certification", label: "Certification Pay" },
+  { id: "longevity", label: "Longevity Pay" },
+  { id: "education", label: "Education Incentive" },
+  { id: "bilingual", label: "Bilingual Pay" },
+  { id: "hazard", label: "Hazard Pay" },
+  { id: "shiftBonus", label: "Shift Bonus" },
+  { id: "travel", label: "Travel Pay" },
+  { id: "uniform", label: "Uniform Allowance" },
   { id: "custom", label: "Custom" }
 ];
 
@@ -142,6 +156,7 @@ const state = {
   premiumHours: [],
   benefitHours: [],
   otherEarnings: [],
+  specialtyPay: [],
   adjustments: {
     tax: [],
     deduction: [],
@@ -568,6 +583,104 @@ function renderOtherEarnings() {
   });
 }
 
+
+function createSpecialtyPayPills() {
+  const container = el("specialtyPayPills");
+  if (!container) return;
+
+  container.innerHTML = "";
+  SPECIALTY_PAY_TYPES.forEach(type => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "earning-pill specialty-pay-pill";
+    button.dataset.typeId = type.id;
+    button.textContent = type.label;
+    button.addEventListener("click", () => addSpecialtyPay(type));
+    container.appendChild(button);
+  });
+}
+
+function addSpecialtyPay(type, values = {}) {
+  if (type.id === "custom" && !values.label) {
+    const customName = window.prompt("Custom specialty pay label:");
+    if (!customName) return;
+    values.label = customName.trim().slice(0, 28) || "Custom";
+  }
+
+  state.specialtyPay.push({
+    uid: values.uid || uid("specialty"),
+    typeId: type.id,
+    label: values.label || type.label,
+    amount: values.amount || ""
+  });
+
+  renderSpecialtyPay();
+  calculatePaycheck(false);
+  saveSettings();
+}
+
+function removeSpecialtyPay(entryId) {
+  state.specialtyPay = state.specialtyPay.filter(entry => entry.uid !== entryId);
+  renderSpecialtyPay();
+  calculatePaycheck(false);
+  saveSettings();
+}
+
+function updateSpecialtyPay(entryId, value) {
+  const entry = state.specialtyPay.find(item => item.uid === entryId);
+  if (!entry) return;
+  entry.amount = value;
+  calculatePaycheck(false);
+  saveSettings();
+}
+
+function renderSpecialtyPay() {
+  const container = el("specialtyPayList");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  if (!state.specialtyPay.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.innerHTML = "<strong>No specialty pay entered yet.</strong><span>Add callback, court pay, certification pay, hazard pay, allowances, or custom specialty earnings when needed.</span>";
+    container.appendChild(empty);
+    return;
+  }
+
+  state.specialtyPay.forEach(entry => {
+    const row = document.createElement("div");
+    row.className = "earning-entry-row specialty-pay-entry-row";
+
+    const label = document.createElement("div");
+    label.className = "entry-label";
+    label.innerHTML = `${entry.label}<small>Specialty pay</small>`;
+
+    const amountWrap = document.createElement("label");
+    amountWrap.innerHTML = `<span>Amount</span>`;
+    const amountInput = document.createElement("input");
+    amountInput.type = "number";
+    amountInput.min = "0";
+    amountInput.step = "0.01";
+    amountInput.placeholder = "0";
+    amountInput.value = entry.amount;
+    amountInput.addEventListener("input", () => updateSpecialtyPay(entry.uid, amountInput.value));
+    amountWrap.appendChild(amountInput);
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.className = "remove-earning";
+    removeButton.textContent = "×";
+    removeButton.setAttribute("aria-label", `Remove ${entry.label}`);
+    removeButton.addEventListener("click", () => removeSpecialtyPay(entry.uid));
+
+    row.appendChild(label);
+    row.appendChild(amountWrap);
+    row.appendChild(removeButton);
+    container.appendChild(row);
+  });
+}
+
 function openAdjustmentModal(type) {
   activeAdjustmentType = type;
   activeAmountType = type === "tax" ? "percent" : "static";
@@ -723,7 +836,8 @@ function getTotals() {
 
   const shiftDifferentialPay = regularShiftPay + premiumTotals.shiftPay;
   const otherEarnings = state.otherEarnings.reduce((total, entry) => total + (Number(entry.amount) || 0), 0);
-  const grossPay = regularPay + premiumTotals.pay + benefitTotals.pay + otherEarnings;
+  const specialtyPay = state.specialtyPay.reduce((total, entry) => total + (Number(entry.amount) || 0), 0);
+  const grossPay = regularPay + premiumTotals.pay + benefitTotals.pay + otherEarnings + specialtyPay;
 
   const adjustmentTotals = { tax: 0, deduction: 0, other: 0 };
 
@@ -751,6 +865,7 @@ function getTotals() {
     benefitHours: benefitTotals.hours,
     benefitPay: benefitTotals.pay,
     otherEarnings,
+    specialtyPay,
     totalPaidHours,
     grossPay,
     taxes: adjustmentTotals.tax,
@@ -939,6 +1054,7 @@ function calculatePaycheck(showSuccess = true) {
   setText("shiftDifferentialPayResult", formatMoney(totals.shiftDifferentialPay));
   setText("benefitPayResult", formatMoney(totals.benefitPay));
   setText("otherEarningsResult", formatMoney(totals.otherEarnings));
+  setText("specialtyPayResult", formatMoney(totals.specialtyPay));
   setText("totalHoursResult", `${formatNumber(totals.totalPaidHours)} hrs`);
   setText("taxesResult", `-${formatMoney(totals.taxes)}`);
   setText("deductionsResult", `-${formatMoney(totals.deductions)}`);
@@ -959,6 +1075,7 @@ function resetResults() {
   setText("shiftDifferentialPayResult", "$0.00");
   setText("benefitPayResult", "$0.00");
   setText("otherEarningsResult", "$0.00");
+  setText("specialtyPayResult", "$0.00");
   setText("totalHoursResult", "0.00 hrs");
   setText("taxesResult", "-$0.00");
   setText("deductionsResult", "-$0.00");
@@ -997,6 +1114,7 @@ function getState() {
     premiumHours: state.premiumHours,
     benefitHours: state.benefitHours,
     otherEarnings: state.otherEarnings,
+    specialtyPay: state.specialtyPay,
     adjustments: state.adjustments
   };
 }
@@ -1043,6 +1161,7 @@ function loadSettings() {
     state.premiumHours = Array.isArray(data.premiumHours) ? data.premiumHours : [];
     state.benefitHours = Array.isArray(data.benefitHours) ? data.benefitHours : [];
     state.otherEarnings = Array.isArray(data.otherEarnings) ? data.otherEarnings : [];
+    state.specialtyPay = Array.isArray(data.specialtyPay) ? data.specialtyPay : [];
     state.adjustments = data.adjustments || { tax: [], deduction: [], other: [] };
     state.adjustments.tax ||= [];
     state.adjustments.deduction ||= [];
@@ -1088,6 +1207,11 @@ function loadExample() {
     { uid: uid("earning"), typeId: "mileage", label: "Mileage", amount: "45" }
   ];
 
+  state.specialtyPay = [
+    { uid: uid("specialty"), typeId: "court", label: "Court Pay", amount: "150" },
+    { uid: uid("specialty"), typeId: "certification", label: "Certification Pay", amount: "50" }
+  ];
+
   state.adjustments = {
     tax: [
       { uid: uid("tax"), label: "Federal Tax", amount: 12, amountType: "percent" },
@@ -1102,6 +1226,7 @@ function loadExample() {
 
   renderHourEntries();
   renderOtherEarnings();
+  renderSpecialtyPay();
   renderAdjustments();
   calculatePaycheck();
 }
@@ -1127,10 +1252,12 @@ function resetCalculator() {
   state.premiumHours = [];
   state.benefitHours = [];
   state.otherEarnings = [];
+  state.specialtyPay = [];
   state.adjustments = { tax: [], deduction: [], other: [] };
   syncAllPillGroups();
   renderHourEntries();
   renderOtherEarnings();
+  renderSpecialtyPay();
   renderAdjustments();
   resetResults();
   showMessage("Calculator reset. Saved settings cleared.");
@@ -1159,6 +1286,12 @@ function buildOtherEarningLines() {
   return entries.map(item => `${item.label}: ${formatMoney(item.amount)}`);
 }
 
+function buildSpecialtyPayLines() {
+  const entries = state.specialtyPay || [];
+  if (!entries.length) return ["Specialty Pay: None"];
+  return entries.map(item => `${item.label}: ${formatMoney(item.amount)}`);
+}
+
 function buildPaycheckResultsSummary() {
   const totals = getTotals();
   return [
@@ -1183,6 +1316,8 @@ function buildPaycheckResultsSummary() {
     "",
     ...buildOtherEarningLines(),
     "",
+    ...buildSpecialtyPayLines(),
+    "",
     ...buildAdjustmentLines("tax", "Taxes"),
     ...buildAdjustmentLines("deduction", "Deductions"),
     ...buildAdjustmentLines("other", "Other Adjustments"),
@@ -1200,6 +1335,7 @@ function buildPaycheckResultsSummary() {
     `Shift Differential Pay: ${formatMoney(totals.shiftDifferentialPay)}`,
     `Benefit / Leave Pay: ${formatMoney(totals.benefitPay)}`,
     `Other Earnings: ${formatMoney(totals.otherEarnings)}`,
+    `Specialty Pay: ${formatMoney(totals.specialtyPay)}`,
     `Total Paid Hours: ${formatNumber(totals.totalPaidHours)} hrs`,
     `Estimated Taxes: -${formatMoney(totals.taxes)}`,
     `Deductions: -${formatMoney(totals.deductions)}`,
@@ -1284,6 +1420,17 @@ function buildOtherEarningReportRows() {
   });
 }
 
+function buildSpecialtyPayReportRows() {
+  return (state.specialtyPay || []).map(item => {
+    const amount = Number(item.amount) || 0;
+    return {
+      label: item.label,
+      detail: "Specialty earning",
+      amount: formatMoney(amount)
+    };
+  });
+}
+
 function buildAdjustmentReportRows(type) {
   return (state.adjustments[type] || []).map(item => {
     const rawAmount = Number(item.amount) || 0;
@@ -1311,6 +1458,7 @@ function buildPaycheckProfessionalReportHtml() {
   const premiumRows = buildPremiumReportRows(totals);
   const benefitRows = buildBenefitReportRows(totals);
   const earningRows = buildOtherEarningReportRows();
+  const specialtyRows = buildSpecialtyPayReportRows();
   const taxRows = buildAdjustmentReportRows("tax");
   const deductionRows = buildAdjustmentReportRows("deduction");
   const otherRows = buildAdjustmentReportRows("other");
@@ -1341,6 +1489,7 @@ function buildPaycheckProfessionalReportHtml() {
             <dt>Before Taxes (Gross)</dt><dd>${reportMoney(totals.grossPay)}</dd>
             <dt>Total Paid Hours</dt><dd>${reportNumber(totals.totalPaidHours)} hrs</dd>
             <dt>Other Earnings</dt><dd>${reportMoney(totals.otherEarnings)}</dd>
+            <dt>Specialty Pay</dt><dd>${reportMoney(totals.specialtyPay)}</dd>
             <dt>Total Reductions</dt><dd>-${reportMoney(totals.taxes + totals.deductions + totals.other)}</dd>
             <dt>Take-Home Pay (Net)</dt><dd>${reportMoney(totals.takeHomePay)}</dd>
           </dl>
@@ -1382,6 +1531,14 @@ function buildPaycheckProfessionalReportHtml() {
         </table>
       </section>
 
+      <section>
+        <h2>Specialty Pay</h2>
+        <table>
+          <thead><tr><th>Description</th><th>Details</th><th class="value">Amount</th></tr></thead>
+          <tbody>${buildReportRows(specialtyRows)}</tbody>
+        </table>
+      </section>
+
       <section class="grid-2">
         <div>
           <h2>Taxes</h2>
@@ -1417,6 +1574,7 @@ function buildPaycheckProfessionalReportHtml() {
             <tr><td>Shift Differential Pay</td><td class="value">${reportMoney(totals.shiftDifferentialPay)}</td></tr>
             <tr><td>Benefit / Leave Pay</td><td class="value">${reportMoney(totals.benefitPay)}</td></tr>
             <tr><td>Other Earnings</td><td class="value">${reportMoney(totals.otherEarnings)}</td></tr>
+            <tr><td>Specialty Pay</td><td class="value">${reportMoney(totals.specialtyPay)}</td></tr>
             <tr class="total"><td>Before Taxes (Gross)</td><td class="value">${reportMoney(totals.grossPay)}</td></tr>
             <tr><td>Estimated Taxes</td><td class="value">-${reportMoney(totals.taxes)}</td></tr>
             <tr><td>Deductions</td><td class="value">-${reportMoney(totals.deductions)}</td></tr>
@@ -1684,6 +1842,7 @@ function initializeEvents() {
   createHourPills("premiumHourPills", PREMIUM_HOUR_TYPES, "premium");
   createHourPills("benefitHourPills", BENEFIT_HOUR_TYPES, "benefit");
   createEarningPills();
+  createSpecialtyPayPills();
   document.querySelectorAll("[data-profile-pills] .pay-pill").forEach(button => {
     button.addEventListener("click", () => applyPayProfile(button.dataset.profile));
   });
@@ -1723,6 +1882,7 @@ initializeEvents();
 const restored = loadSettings();
 renderHourEntries();
 renderOtherEarnings();
+renderSpecialtyPay();
 renderAdjustments();
 if (restored) {
   calculatePaycheck(false);

@@ -4,20 +4,20 @@
 
 ## Current Build
 
-v0.7
+v0.7.5
 
 ## Theme
 
-Other Earnings
+Specialty Pay
 
 ---
 
 # Required Validation Before ZIP
 
 - [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.7.
-- [ ] Footer version shows v0.7.
-- [ ] Cache-busting references use v0.7 for script.js and current build labels.
+- [ ] Header versions show v0.7.5.
+- [ ] Footer version shows v0.7.5.
+- [ ] Cache-busting references use v0.7.5 for script.js and current build labels.
 - [ ] Pay Profile pills render.
 - [ ] Profile selection applies smart defaults without locking settings.
 - [ ] Premium Hours pills render.
@@ -26,7 +26,10 @@ Other Earnings
 - [ ] Copy Results works.
 - [ ] Print Report works.
 - [ ] Print Report opens a polished HTML report, not a plain preformatted text block.
-- [ ] Report includes summary cards, Hours & Earnings, Deductions & Adjustments, and Estimated Pay tables.
+- [ ] Report includes summary cards, Hours & Earnings, Other Earnings, Specialty Pay, Deductions & Adjustments, and Estimated Pay tables.
+- [ ] Specialty Pay pills render.
+- [ ] Specialty Pay rows increase Before Taxes (Gross).
+- [ ] Copy Results and Print Report include Specialty Pay.
 - [ ] Saved settings work.
 - [ ] Hidden ad slots remain disabled.
 - [ ] No live ads, ad provider scripts, tracking scripts, or ad requests are included.

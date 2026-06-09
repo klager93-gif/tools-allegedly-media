@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.7
+v0.7.5
 
 ## Theme
 
-Other Earnings
+Specialty Pay
 
 ---
 

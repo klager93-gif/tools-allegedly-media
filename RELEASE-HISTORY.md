@@ -37,3 +37,5 @@ YYYY-MM-DD-before-tool-version-theme
 | 44 | 2026-06-09 | Home v0.6.2 | Standards v2.0 | Reorganized standards and added source, startup, hotfix, failed-release, and history rules. |
 | 45 | 2026-06-09 | Paycheck v0.7 | Other Earnings | Added non-hourly earning rows and reporting support. |
 | 46 | 2026-06-09 | Paycheck v0.6 | Pay Profiles | Added Pay Profile presets for Hourly, Salary, Public Safety, Healthcare, Trades, and Custom. |
+
+| 47 | 2026-06-09 | Paycheck v0.7.5 | Specialty Pay | Added job-specific specialty pay rows and reporting support. |

@@ -18,11 +18,11 @@ Standards v2.0
 
 ## Paycheck Calculator
 
-Estimate paid hours, premium hours, benefit hours, deductions, adjustments, take-home pay, and target pay, other earnings.
+Estimate paid hours, premium hours, benefit hours, deductions, adjustments, take-home pay, and target pay, other earnings, and specialty pay.
 
 ## Overtime Calculator
 
-Estimate regular pay, overtime pay, before-tax pay, deductions, take-home pay, and target pay, other earnings.
+Estimate regular pay, overtime pay, before-tax pay, deductions, take-home pay, and target pay, other earnings, and specialty pay.
 
 Status: feature-frozen while Paycheck is the active flagship tool.
 

@@ -6,11 +6,11 @@ Estimate regular hours, premium hours, benefit hours, deductions, and take-home 
 
 # Current Version
 
-v0.7
+v0.7.5
 
 ## Theme
 
-Other Earnings
+Specialty Pay
 
 ---
 
@@ -32,6 +32,7 @@ Other Earnings
 - Saved settings.
 - Target Pay planning.
 - Other earnings for bonus, commission, tips, mileage, per diem, and custom pay.
+- Specialty pay for callback, court pay, certification pay, longevity pay, education incentive, bilingual pay, hazard pay, shift bonus, travel pay, uniform allowance, and custom pay.
 - Hidden disabled ad slots.
 
 ---

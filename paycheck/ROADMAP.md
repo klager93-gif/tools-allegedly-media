@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.7
+v0.7.5
 
 ## Theme
 
-Other Earnings
+Specialty Pay
 
 ---
 
@@ -31,6 +31,7 @@ Other Earnings
 | v0.5 | Target Pay |
 | v0.6 | Pay Profiles |
 | v0.7 | Other Earnings |
+| v0.7.5 | Specialty Pay |
 
 ---
 

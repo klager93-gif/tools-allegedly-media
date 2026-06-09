@@ -11,13 +11,31 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Area | Current Version | Theme |
 |---|---:|---|
 | Home | v0.6.2 | Standards v2.0 |
-| Paycheck | v0.7 | Other Earnings |
+| Paycheck | v0.7.5 | Specialty Pay |
 | Overtime | v0.9.9.3 | Shared Report Format |
 | Time Off | v0.9.9.1 | Shared Report Format |
 
 ---
 
 # Near-Term Roadmap
+
+## Paycheck v0.7.5
+
+### Theme
+
+Specialty Pay
+
+### Status
+
+Completed feature release.
+
+### Focus
+
+- Added job-specific specialty pay earnings.
+- Included specialty pay in gross pay, Copy Results, Print Report, and saved settings.
+
+---
+
 
 ## Home v0.6.2
 
