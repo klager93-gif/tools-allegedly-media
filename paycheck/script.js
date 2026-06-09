@@ -2,14 +2,14 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.4.1
+Version: v0.5
 Purpose: Tool-specific logic and event handling
 */
 
-const TOOL_VERSION = "v0.4.1";
-const TOOL_THEME = "Rates, Multipliers & Rules";
-const STORAGE_KEY = "signalLabsPaycheckCalculatorV04";
-const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
+const TOOL_VERSION = "v0.5";
+const TOOL_THEME = "Target Pay";
+const STORAGE_KEY = "signalLabsPaycheckCalculatorV05";
+const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV04", "signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
 
 const PREMIUM_HOUR_TYPES = [
   { id: "overtime", label: "Overtime", defaultMultiplier: 1.5 },
@@ -115,6 +115,17 @@ function getPayPeriodLabel() {
   return labels[value] || "Biweekly";
 }
 
+function getPayPeriodsPerYear() {
+  const value = el("payPeriodInput")?.value || "biweekly";
+  const periods = {
+    weekly: 52,
+    biweekly: 26,
+    semimonthly: 24,
+    monthly: 12
+  };
+  return periods[value] || 26;
+}
+
 function getOvertimeRuleLabel() {
   const value = el("overtimeRuleInput")?.value || "after80";
   const labels = {
@@ -175,6 +186,26 @@ function initializePillGroup(inputId) {
   });
 
   update(input.value || group.querySelector(".pay-pill.is-selected")?.dataset.value || "");
+}
+
+function syncPillGroup(inputId) {
+  const input = el(inputId);
+  const group = document.querySelector(`[data-pill-group="${inputId}"]`);
+  if (!input || !group) return;
+
+  group.querySelectorAll(".pay-pill").forEach(button => {
+    button.classList.toggle("is-selected", button.dataset.value === input.value);
+  });
+}
+
+function syncAllPillGroups() {
+  [
+    "payPeriodInput",
+    "shiftDifferentialTypeInput",
+    "overtimeRuleInput",
+    "targetGoalTypeInput",
+    "targetHoursModeInput"
+  ].forEach(syncPillGroup);
 }
 
 function getTypeById(list, id) {
@@ -495,6 +526,162 @@ function getTotals() {
   };
 }
 
+
+function getPercentReductionRate() {
+  const percentItems = [
+    ...(state.adjustments.tax || []),
+    ...(state.adjustments.deduction || []),
+    ...(state.adjustments.other || [])
+  ].filter(item => item.amountType === "percent");
+
+  const percentTotal = percentItems.reduce((total, item) => total + ((Number(item.amount) || 0) / 100), 0);
+  return Math.min(Math.max(percentTotal, 0), 0.95);
+}
+
+function getTargetBaseValues(totals) {
+  const goalType = el("targetGoalTypeInput")?.value || "net";
+  const targetAmount = getNumber("targetAmountInput");
+  const periodsPerYear = getPayPeriodsPerYear();
+
+  if (goalType === "annual") {
+    return {
+      goalType,
+      targetAmount,
+      currentValue: totals.grossPay * periodsPerYear,
+      targetValue: targetAmount,
+      payPeriodTarget: periodsPerYear > 0 ? targetAmount / periodsPerYear : targetAmount,
+      label: "Annual Income"
+    };
+  }
+
+  if (goalType === "gross") {
+    return {
+      goalType,
+      targetAmount,
+      currentValue: totals.grossPay,
+      targetValue: targetAmount,
+      payPeriodTarget: targetAmount,
+      label: "Gross Pay"
+    };
+  }
+
+  return {
+    goalType,
+    targetAmount,
+    currentValue: totals.takeHomePay,
+    targetValue: targetAmount,
+    payPeriodTarget: targetAmount,
+    label: "Take-Home Pay (Net)"
+  };
+}
+
+function getAdditionalHourRates(totals) {
+  const percentReductionRate = getPercentReductionRate();
+  const regularGrossRate = totals.workedRate || totals.rate || 0;
+  const overtimeGrossRate = regularGrossRate * (getNumber("overtimeMultiplierInput") || 1.5);
+
+  return {
+    regularGrossRate,
+    overtimeGrossRate,
+    regularNetRate: regularGrossRate * (1 - percentReductionRate),
+    overtimeNetRate: overtimeGrossRate * (1 - percentReductionRate)
+  };
+}
+
+function getTargetPayEstimate(totals) {
+  const target = getTargetBaseValues(totals);
+  const mode = el("targetHoursModeInput")?.value || "overtime";
+  const maxHours = getNumber("targetMaxHoursInput");
+  const rates = getAdditionalHourRates(totals);
+  const periodsPerYear = getPayPeriodsPerYear();
+
+  if (!target.targetAmount || target.targetAmount <= 0) {
+    return {
+      hasTarget: false,
+      gap: 0,
+      hoursNeeded: 0,
+      status: "No target entered yet.",
+      detail: "Add a target amount to estimate the extra hours needed to reach it."
+    };
+  }
+
+  const gap = Math.max(target.targetValue - target.currentValue, 0);
+  if (gap <= 0) {
+    return {
+      hasTarget: true,
+      gap,
+      hoursNeeded: 0,
+      status: "Target already reached.",
+      detail: `Current ${target.label.toLowerCase()} meets or exceeds the target.`
+    };
+  }
+
+  let hourlyValue = rates.overtimeGrossRate;
+  let modeLabel = "overtime hours";
+
+  if (target.goalType === "net") {
+    hourlyValue = rates.overtimeNetRate;
+  }
+
+  if (mode === "regular") {
+    hourlyValue = target.goalType === "net" ? rates.regularNetRate : rates.regularGrossRate;
+    modeLabel = "regular hours";
+  }
+
+  if (mode === "either") {
+    const regularValue = target.goalType === "net" ? rates.regularNetRate : rates.regularGrossRate;
+    const overtimeValue = target.goalType === "net" ? rates.overtimeNetRate : rates.overtimeGrossRate;
+    hourlyValue = Math.max(regularValue, overtimeValue);
+    modeLabel = hourlyValue === overtimeValue ? "overtime hours" : "regular hours";
+  }
+
+  if (target.goalType === "annual") {
+    hourlyValue = hourlyValue * periodsPerYear;
+    modeLabel = `${modeLabel} per pay period`;
+  }
+
+  const hoursNeeded = hourlyValue > 0 ? gap / hourlyValue : 0;
+  const canReach = !maxHours || hoursNeeded <= maxHours;
+
+  return {
+    hasTarget: true,
+    gap,
+    hoursNeeded,
+    status: canReach ? "Target appears reachable." : "Target may exceed available extra hours.",
+    detail: canReach
+      ? `Estimate: ${formatNumber(hoursNeeded)} ${modeLabel} needed.`
+      : `Estimate: ${formatNumber(hoursNeeded)} ${modeLabel} needed, which is above the optional maximum entered.`,
+    modeLabel,
+    target
+  };
+}
+
+function updateTargetPayDisplay(totals) {
+  const estimate = getTargetPayEstimate(totals);
+  const summary = el("targetPaySummary");
+
+  if (!estimate.hasTarget) {
+    setText("targetGapResult", "--");
+    setText("targetHoursResult", "--");
+    setText("targetStatusResult", "--");
+    if (summary) {
+      summary.className = "target-summary empty-state";
+      summary.innerHTML = `<strong>No target entered yet.</strong><span>${escapeHtml(estimate.detail)}</span>`;
+    }
+    return;
+  }
+
+  setText("targetGapResult", estimate.gap > 0 ? formatMoney(estimate.gap) : "$0.00");
+  setText("targetHoursResult", estimate.hoursNeeded > 0 ? `${formatNumber(estimate.hoursNeeded)} hrs` : "0.00 hrs");
+  setText("targetStatusResult", estimate.status);
+
+  if (summary) {
+    const isWarning = estimate.status.includes("exceed");
+    summary.className = `target-summary empty-state ${isWarning ? "is-warning" : "is-success"}`;
+    summary.innerHTML = `<strong>${escapeHtml(estimate.status)}</strong><span>${escapeHtml(estimate.detail)}</span>`;
+  }
+}
+
 function calculatePaycheck(showSuccess = true) {
   const totals = getTotals();
   const hasHours = totals.regularHours > 0 || totals.premiumHours > 0 || totals.benefitHours > 0;
@@ -522,6 +709,7 @@ function calculatePaycheck(showSuccess = true) {
   setText("otherAdjustmentsResult", `-${formatMoney(totals.other)}`);
   setText("takeHomeResult", formatMoney(totals.takeHomePay));
   setText("effectiveRateResult", formatMoney(totals.effectiveRate));
+  updateTargetPayDisplay(totals);
   setText("generatedTime", currentUtcTime());
 
   if (showSuccess) showMessage("Paycheck estimate updated.");
@@ -540,6 +728,7 @@ function resetResults() {
   setText("otherAdjustmentsResult", "-$0.00");
   setText("takeHomeResult", "$0.00");
   setText("effectiveRateResult", "$0.00");
+  updateTargetPayDisplay(getTotals());
   setText("generatedTime", "--");
 }
 
@@ -563,6 +752,10 @@ function getState() {
     overtimeMultiplier: el("overtimeMultiplierInput").value,
     doubleTimeMultiplier: el("doubleTimeMultiplierInput").value,
     holidayPremiumMultiplier: el("holidayPremiumMultiplierInput").value,
+    targetGoalType: el("targetGoalTypeInput").value,
+    targetAmount: el("targetAmountInput").value,
+    targetMaxHours: el("targetMaxHoursInput").value,
+    targetHoursMode: el("targetHoursModeInput").value,
     premiumHours: state.premiumHours,
     benefitHours: state.benefitHours,
     adjustments: state.adjustments
@@ -603,12 +796,17 @@ function loadSettings() {
     el("overtimeMultiplierInput").value = data.overtimeMultiplier || "1.5";
     el("doubleTimeMultiplierInput").value = data.doubleTimeMultiplier || "2";
     el("holidayPremiumMultiplierInput").value = data.holidayPremiumMultiplier || "1.5";
+    el("targetGoalTypeInput").value = data.targetGoalType || "net";
+    el("targetAmountInput").value = data.targetAmount || "";
+    el("targetMaxHoursInput").value = data.targetMaxHours || "";
+    el("targetHoursModeInput").value = data.targetHoursMode || "overtime";
     state.premiumHours = Array.isArray(data.premiumHours) ? data.premiumHours : [];
     state.benefitHours = Array.isArray(data.benefitHours) ? data.benefitHours : [];
     state.adjustments = data.adjustments || { tax: [], deduction: [], other: [] };
     state.adjustments.tax ||= [];
     state.adjustments.deduction ||= [];
     state.adjustments.other ||= [];
+    syncAllPillGroups();
     return true;
   } catch (error) {
     localStorage.removeItem(STORAGE_KEY);
@@ -628,6 +826,11 @@ function loadExample() {
   el("overtimeMultiplierInput").value = "1.5";
   el("doubleTimeMultiplierInput").value = "2";
   el("holidayPremiumMultiplierInput").value = "1.5";
+  el("targetGoalTypeInput").value = "net";
+  el("targetAmountInput").value = "2500";
+  el("targetMaxHoursInput").value = "20";
+  el("targetHoursModeInput").value = "overtime";
+  syncAllPillGroups();
 
   state.premiumHours = [
     { uid: uid("premium"), typeId: "overtime", label: "Overtime", hours: "8", multiplier: 1.5 },
@@ -668,9 +871,14 @@ function resetCalculator() {
   el("overtimeMultiplierInput").value = "1.5";
   el("doubleTimeMultiplierInput").value = "2";
   el("holidayPremiumMultiplierInput").value = "1.5";
+  el("targetGoalTypeInput").value = "net";
+  el("targetAmountInput").value = "";
+  el("targetMaxHoursInput").value = "";
+  el("targetHoursModeInput").value = "overtime";
   state.premiumHours = [];
   state.benefitHours = [];
   state.adjustments = { tax: [], deduction: [], other: [] };
+  syncAllPillGroups();
   renderHourEntries();
   renderAdjustments();
   resetResults();
@@ -718,6 +926,12 @@ function buildPaycheckResultsSummary() {
     ...buildAdjustmentLines("tax", "Taxes"),
     ...buildAdjustmentLines("deduction", "Deductions"),
     ...buildAdjustmentLines("other", "Other Adjustments"),
+    "",
+    "Target Pay",
+    `Goal Type: ${getTargetBaseValues(totals).label}`,
+    `Target Amount: ${getTargetBaseValues(totals).targetAmount ? formatMoney(getTargetBaseValues(totals).targetAmount) : "Not set"}`,
+    `Target Status: ${getTargetPayEstimate(totals).status}`,
+    `Estimated Extra Hours Needed: ${getTargetPayEstimate(totals).hasTarget ? `${formatNumber(getTargetPayEstimate(totals).hoursNeeded)} hrs` : "--"}`,
     "",
     "Results",
     `Before Taxes (Gross): ${formatMoney(totals.grossPay)}`,
@@ -925,6 +1139,19 @@ function buildPaycheckProfessionalReportHtml() {
             <tr><td>Other Adjustments</td><td class="value">-${reportMoney(totals.other)}</td></tr>
             <tr><td>Effective Hourly Take-Home</td><td class="value">${reportMoney(totals.effectiveRate)}</td></tr>
             <tr class="success"><td>Take-Home Pay (Net)</td><td class="value">${reportMoney(totals.takeHomePay)}</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Target Pay</h2>
+        <table>
+          <tbody>
+            <tr><td>Goal Type</td><td class="value">${escapeHtml(getTargetBaseValues(totals).label)}</td></tr>
+            <tr><td>Target Amount</td><td class="value">${getTargetBaseValues(totals).targetAmount ? reportMoney(getTargetBaseValues(totals).targetAmount) : "Not set"}</td></tr>
+            <tr><td>Target Gap</td><td class="value">${getTargetPayEstimate(totals).hasTarget ? reportMoney(getTargetPayEstimate(totals).gap) : "--"}</td></tr>
+            <tr><td>Estimated Extra Hours Needed</td><td class="value">${getTargetPayEstimate(totals).hasTarget ? `${reportNumber(getTargetPayEstimate(totals).hoursNeeded)} hrs` : "--"}</td></tr>
+            <tr><td>Status</td><td class="value">${escapeHtml(getTargetPayEstimate(totals).status)}</td></tr>
           </tbody>
         </table>
       </section>
@@ -1175,6 +1402,8 @@ function initializeEvents() {
   initializePillGroup("payPeriodInput");
   initializePillGroup("shiftDifferentialTypeInput");
   initializePillGroup("overtimeRuleInput");
+  initializePillGroup("targetGoalTypeInput");
+  initializePillGroup("targetHoursModeInput");
 
   el("calculate")?.addEventListener("click", () => calculatePaycheck());
   el("saveSettings")?.addEventListener("click", () => saveSettings(true));
@@ -1183,7 +1412,7 @@ function initializeEvents() {
   el("copyResults")?.addEventListener("click", copyResults);
   el("printResults")?.addEventListener("click", printResults);
 
-  ["regularHoursInput", "hourlyRateInput", "currencyInput", "shiftDifferentialAmountInput", "customOvertimeThresholdInput", "overtimeMultiplierInput", "doubleTimeMultiplierInput", "holidayPremiumMultiplierInput"].forEach(id => {
+  ["regularHoursInput", "hourlyRateInput", "currencyInput", "shiftDifferentialAmountInput", "customOvertimeThresholdInput", "overtimeMultiplierInput", "doubleTimeMultiplierInput", "holidayPremiumMultiplierInput", "targetAmountInput", "targetMaxHoursInput"].forEach(id => {
     el(id)?.addEventListener("input", () => calculatePaycheck(false));
     el(id)?.addEventListener("change", () => calculatePaycheck(false));
   });

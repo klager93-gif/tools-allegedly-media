@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.4
+Version: v0.5
 Purpose: Tool-specific styles
 */
 
@@ -56,6 +56,7 @@ Purpose: Tool-specific styles
 .green { background: rgba(70, 180, 90, .2); color: #73ff8f; }
 .blue { background: rgba(80, 140, 255, .2); color: #56a6ff; }
 .purple { background: rgba(140, 80, 255, .2); color: #cb9cff; }
+.orange { background: rgba(255, 160, 70, .18); color: #ffbd72; }
 
 .form-grid {
   display: grid;
@@ -187,7 +188,8 @@ select:focus {
 }
 
 
-.pay-detail-panel {
+.pay-detail-panel,
+.target-pay-panel {
   padding: 16px;
   border-radius: 18px;
   background: rgba(255, 255, 255, .025);
@@ -228,7 +230,8 @@ select:focus {
 }
 
 .pay-detail-input-grid,
-.multiplier-grid {
+.multiplier-grid,
+.target-input-grid {
   margin-top: 12px;
 }
 
@@ -517,4 +520,29 @@ select:focus {
   .total strong {
     font-size: 24px;
   }
+}
+
+
+.target-pay-card {
+  border-color: rgba(255, 180, 90, .12);
+}
+
+.target-summary {
+  margin-top: 2px;
+}
+
+.target-summary.is-success {
+  border-style: solid;
+  border-color: rgba(34, 197, 94, .38);
+  background: rgba(34, 197, 94, .08);
+}
+
+.target-summary.is-warning {
+  border-style: solid;
+  border-color: rgba(245, 158, 11, .38);
+  background: rgba(245, 158, 11, .08);
+}
+
+.target-result-row strong {
+  font-size: 18px;
 }

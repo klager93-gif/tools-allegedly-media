@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.4.1
+v0.5
 
 ## Theme
 
-Rates, Multipliers & Rules
+Target Pay
 
 ---
 
@@ -24,38 +24,60 @@ Rates, Multipliers & Rules
 | v0.3 | Hours & Earnings |
 | v0.3.1 | Premium Hours & Benefit Hours |
 | v0.3.2 | Professional Report Polish |
+| v0.3.3 | Shared Action Bar |
+| v0.3.4 | Shared Report Format |
 | v0.4 | Rates, Multipliers & Rules |
+| v0.4.1 | Script Cache-Busting Hotfix |
+| v0.5 | Target Pay |
 
 ---
 
 # Upcoming Versions
 
-## Paycheck v0.4
+## Paycheck v0.6
 
 ### Theme
 
-Rates, Multipliers & Rules
+Pay Profiles
 
 ### Planned Focus
 
-- Shift differential.
-- More pay-rule controls.
-- Holiday premium refinement.
-- Optional bonus pay foundation.
+- Hourly profile.
+- Public Safety profile.
+- Healthcare profile.
+- Trades profile.
+- Future salary profile planning.
 
 ---
 
-## Paycheck v0.5
+## Paycheck v0.7
 
 ### Theme
 
-Target Pay
+Other Earnings
 
 ### Planned Focus
 
-- Gross target.
-- Take-home target.
-- Estimated additional hours needed.
+- Bonus pay.
+- Commission.
+- Tips.
+- Mileage.
+- Per diem.
+
+---
+
+## Paycheck v0.8
+
+### Theme
+
+Shared Component Review
+
+### Planned Focus
+
+- Review Deductions & Adjustments for reusable component extraction.
+- Review Pay Details for reusable component extraction.
+- Review Target Pay for reusable component extraction.
+- Preserve Overtime feature freeze unless a critical shared-pattern sync is needed.
 
 ---
 
@@ -69,5 +91,23 @@ Pre-1.0 Stabilization
 
 - Mobile polish.
 - Report polish.
+- Saved settings review.
 - Shared component review.
 - Overtime relationship review.
+
+---
+
+## Paycheck v1.0
+
+### Theme
+
+Stable Release
+
+### Planned Focus
+
+- Final validation.
+- Documentation cleanup.
+- Mobile verification.
+- Print Report verification.
+- Copy Results verification.
+- Production release notes.

@@ -11,84 +11,73 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Area | Current Version | Theme |
 |---|---:|---|
 | Home | v0.6.1 | Shared Report System |
-| Overtime | v0.9.9.3 | Rates, Multipliers & Rules |
-| Time Off | v0.9.9.1 | Rates, Multipliers & Rules |
-| Paycheck | v0.4.1 | Script Cache-Busting Hotfix |
+| Overtime | v0.9.9.3 | Shared Report Format |
+| Time Off | v0.9.9.1 | Shared Report Format |
+| Paycheck | v0.5 | Target Pay |
 
 ---
 
 # Near-Term Roadmap
 
-## Paycheck v0.4.1
+## Paycheck v0.6
 
 ### Theme
 
-Script Cache-Busting Hotfix
-
-### Status
-
-Completed hotfix to correct the Paycheck script cache-busting reference and synchronize hotfix documentation.
-
----
-
-
-## Home v0.6.1
-
-### Theme
-
-Shared Report System
-
-### Status
-
-Completed shared report alignment release.
-
-### Focus
-
-- Standardize printed reports across Paycheck, Overtime, and Time Off.
-- Add Source of Truth Disclosure to release standards.
-
----
-
-
-## Paycheck v0.4
-
-### Theme
-
-Rates, Multipliers & Rules
+Pay Profiles
 
 ### Planned Focus
 
-- Improve Pay Details.
-- Add cleaner pay period controls.
-- Refine overtime, double time, and premium hour multiplier behavior.
-- Add shift differential foundation.
+- Add profile presets for common worker types.
+- Explore Hourly, Public Safety, Healthcare, Trades, and Custom profiles.
+- Use profiles to preselect common pay periods, overtime rules, and premium pay defaults.
 
 ---
 
-## Paycheck v0.5
+## Paycheck v0.7
 
 ### Theme
 
-Target Pay
+Other Earnings
 
 ### Planned Focus
 
-- Add target gross pay and target take-home pay mode.
-- Estimate additional hours needed.
-- Keep Overtime frozen unless critical bug fixes are required.
+- Bonus pay.
+- Commission.
+- Tips.
+- Mileage.
+- Per diem.
+- Other non-hour earnings.
 
 ---
 
-## Home v0.7
+## Paycheck v0.8
 
 ### Theme
 
-Shared Component Foundation
+Shared Component Review
 
 ### Planned Focus
 
-- Evaluate shared components for deductions, dynamic rows, reports, modals, and action bars.
-- Continue reducing duplicated UI patterns across tools.
+- Review Deductions & Adjustments for reusable component extraction.
+- Review Pay Details for reusable component extraction.
+- Review Target Pay for reusable component extraction.
+- Preserve Overtime feature freeze unless a critical shared-pattern sync is needed.
+
+---
+
+## Paycheck v0.9
+
+### Theme
+
+Pre-1.0 Stabilization
+
+### Planned Focus
+
+- Mobile polish.
+- Report polish.
+- Saved settings review.
+- Shared component review.
+- Overtime relationship review.
 
 ---
 
@@ -114,6 +103,19 @@ Stable but awaiting future cleanup and report validation.
 
 ---
 
+## Home v0.7
+
+### Theme
+
+Shared Component Foundation
+
+### Planned Focus
+
+- Evaluate shared components for deductions, dynamic rows, reports, modals, and action bars.
+- Continue reducing duplicated UI patterns across tools.
+
+---
+
 # Future Tools
 
 - PTO Cash-Out Calculator.
@@ -121,5 +123,4 @@ Stable but awaiting future cleanup and report validation.
 - Holiday Pay Calculator.
 - Raise Calculator.
 - Job Offer Comparison Calculator.
-- Signal Schedule.
-
+- Signal Schedule / scheduling tools.

@@ -6,11 +6,11 @@ Estimate regular hours, premium hours, benefit hours, deductions, and take-home 
 
 # Current Version
 
-v0.4.1
+v0.5
 
 ## Theme
 
-Rates, Multipliers & Rules
+Target Pay
 
 ---
 
@@ -28,6 +28,7 @@ Rates, Multipliers & Rules
 - Copy Results.
 - Print Report.
 - Saved settings.
+- Target Pay planning.
 - Hidden disabled ad slots.
 
 ---

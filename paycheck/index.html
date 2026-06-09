@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.4.1
+Version: v0.5
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ Purpose: Main application page
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.6.1">
-<link rel="stylesheet" href="style.css?v=0.4">
+<link rel="stylesheet" href="style.css?v=0.5">
 </head>
 <body>
 <main class="page">
@@ -216,6 +216,58 @@ Purpose: Main application page
         <span>This calculator does not perform official payroll withholding calculations. Use it as a planning estimate.</span>
       </div>
     </section>
+
+    <section class="card step-card target-pay-card">
+      <div class="section-title">
+        <div class="step-badge orange">4</div>
+        <div>
+          <h2>Target Pay</h2>
+          <p>Set a paycheck or annual income goal and estimate how many extra hours may be needed.</p>
+        </div>
+      </div>
+
+      <div class="target-pay-panel">
+        <div class="adjustment-heading">
+          <h3>Goal Type</h3>
+          <span>Choose whether the target is take-home pay, before-tax pay, or annual income.</span>
+        </div>
+        <input id="targetGoalTypeInput" type="hidden" value="net">
+        <div class="pay-pill-row" data-pill-group="targetGoalTypeInput" aria-label="Target pay goal type">
+          <button type="button" class="pay-pill is-selected" data-value="net">Take-Home Pay (Net)</button>
+          <button type="button" class="pay-pill" data-value="gross">Gross Pay</button>
+          <button type="button" class="pay-pill" data-value="annual">Annual Income</button>
+        </div>
+      </div>
+
+      <div class="form-grid target-input-grid">
+        <label>
+          <span>Target Amount</span>
+          <input id="targetAmountInput" type="number" placeholder="2000" min="0" step="0.01">
+        </label>
+        <label>
+          <span>Maximum Extra Hours <small>(Optional)</small></span>
+          <input id="targetMaxHoursInput" type="number" placeholder="10" min="0" step="0.01">
+        </label>
+      </div>
+
+      <div class="target-pay-panel">
+        <div class="adjustment-heading">
+          <h3>Extra Hours Allowed</h3>
+          <span>Choose which type of added hours should be used to estimate the target.</span>
+        </div>
+        <input id="targetHoursModeInput" type="hidden" value="overtime">
+        <div class="pay-pill-row" data-pill-group="targetHoursModeInput" aria-label="Target pay extra hours mode">
+          <button type="button" class="pay-pill is-selected" data-value="overtime">Overtime Only</button>
+          <button type="button" class="pay-pill" data-value="regular">Regular Hours</button>
+          <button type="button" class="pay-pill" data-value="either">Either</button>
+        </div>
+      </div>
+
+      <div id="targetPaySummary" class="target-summary empty-state">
+        <strong>No target entered yet.</strong>
+        <span>Add a target amount to estimate the extra hours needed to reach it.</span>
+      </div>
+    </section>
   </section>
 
   <section class="card results-card">
@@ -271,11 +323,23 @@ Purpose: Main application page
       <span>Effective Hourly Take-Home</span>
       <strong id="effectiveRateResult">$0.00</strong>
     </div>
+    <div class="result-row target-result-row">
+      <span>Target Gap</span>
+      <strong id="targetGapResult">--</strong>
+    </div>
+    <div class="result-row target-result-row">
+      <span>Estimated Extra Hours Needed</span>
+      <strong id="targetHoursResult">--</strong>
+    </div>
+    <div class="result-row target-result-row">
+      <span>Target Status</span>
+      <strong id="targetStatusResult">--</strong>
+    </div>
 
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.4.1</p>
-      <p>Theme: Rates, Multipliers & Rules</p>
+      <p>Build: v0.5</p>
+      <p>Theme: Target Pay</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -322,7 +386,7 @@ Purpose: Main application page
   </div>
 
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.4.1
+    Signal Labs · Paycheck Calculator · v0.5
     <br>
     Useful tools without the noise.
   </div>
@@ -364,6 +428,6 @@ Purpose: Main application page
 </div>
 
 <script src="../assets/global.js?v=0.6.1"></script>
-<script src="script.js?v=0.4.1"></script>
+<script src="script.js?v=0.5"></script>
 </body>
 </html>

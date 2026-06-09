@@ -4,20 +4,20 @@
 
 ## Current Build
 
-v0.4.1
+v0.5
 
 ## Theme
 
-Rates, Multipliers & Rules
+Target Pay
 
 ---
 
 # Required Validation Before ZIP
 
 - [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.4.1.
-- [ ] Footer version shows v0.4.1.
-- [ ] Cache-busting references use v0.4.1 for script.js and current build labels.
+- [ ] Header versions show v0.5.
+- [ ] Footer version shows v0.5.
+- [ ] Cache-busting references use v0.5 for script.js and current build labels.
 - [ ] Premium Hours pills render.
 - [ ] Benefit / Paid Leave Hours pills render.
 - [ ] Empty states render when no rows are selected.
@@ -30,7 +30,7 @@ Rates, Multipliers & Rules
 - [ ] No live ads, ad provider scripts, tracking scripts, or ad requests are included.
 
 
-# Rates, Multipliers & Rules Checks
+# Target Pay Checks
 
 - [ ] Report header uses shared Signal Labs format.
 - [ ] Report metadata includes Generated, Build, and Theme.

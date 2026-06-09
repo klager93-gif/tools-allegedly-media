@@ -4,6 +4,24 @@
 
 ---
 
+## Version 0.5
+
+**Date:** 2026-06-08  
+**Theme:** Target Pay
+
+### Changes
+
+- Added Target Pay as a new paycheck planning section.
+- Added goal type pills for Take-Home Pay (Net), Gross Pay, and Annual Income.
+- Added target amount and optional maximum extra hours inputs.
+- Added extra-hours mode pills for Overtime Only, Regular Hours, and Either.
+- Added Target Gap, Estimated Extra Hours Needed, and Target Status results.
+- Updated Copy Results and Print Report output to include Target Pay details.
+- Updated saved settings to preserve Target Pay inputs and selections.
+- Preserved Hours & Earnings, Pay Details, Deductions & Adjustments, shared action bar, shared report format, hidden ad slots, and no-live-ad behavior.
+
+---
+
 ## Version 0.4.1
 
 **Date:** 2026-06-08  
