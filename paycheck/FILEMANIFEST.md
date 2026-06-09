@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.5
+v0.6
 
 ## Theme
 
-Target Pay
+Pay Profiles
 
 ---
 
@@ -46,6 +46,7 @@ Paycheck Calculator
 regularHoursInput
 premiumHourPills
 benefitHourPills
+payProfileInput
 ```
 
 ## Must Not Contain

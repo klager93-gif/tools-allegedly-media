@@ -2,14 +2,14 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.5
+Version: v0.6
 Purpose: Tool-specific logic and event handling
 */
 
-const TOOL_VERSION = "v0.5";
-const TOOL_THEME = "Target Pay";
-const STORAGE_KEY = "signalLabsPaycheckCalculatorV05";
-const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV04", "signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
+const TOOL_VERSION = "v0.6";
+const TOOL_THEME = "Pay Profiles";
+const STORAGE_KEY = "signalLabsPaycheckCalculatorV06";
+const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV05", "signalLabsPaycheckCalculatorV04", "signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
 
 const PREMIUM_HOUR_TYPES = [
   { id: "overtime", label: "Overtime", defaultMultiplier: 1.5 },
@@ -29,6 +29,84 @@ const BENEFIT_HOUR_TYPES = [
   { id: "bereavement", label: "Bereavement" },
   { id: "custom", label: "Custom" }
 ];
+
+const PAY_PROFILES = {
+  hourly: {
+    label: "Hourly",
+    summary: "Weekly pay period, 40-hour overtime rule, and standard premium multipliers are ready to customize.",
+    defaults: {
+      payPeriod: "weekly",
+      overtimeRule: "after40",
+      customOvertimeThreshold: "",
+      shiftDifferentialType: "none",
+      shiftDifferentialAmount: "",
+      overtimeMultiplier: "1.5",
+      doubleTimeMultiplier: "2",
+      holidayPremiumMultiplier: "1.5"
+    }
+  },
+  salary: {
+    label: "Salary",
+    summary: "Salary profile is a foundation mode. Use an hourly equivalent for now; overtime handling may vary by employer.",
+    defaults: {
+      payPeriod: "biweekly",
+      overtimeRule: "custom",
+      customOvertimeThreshold: "",
+      shiftDifferentialType: "none",
+      shiftDifferentialAmount: "",
+      overtimeMultiplier: "1",
+      doubleTimeMultiplier: "1",
+      holidayPremiumMultiplier: "1"
+    }
+  },
+  publicSafety: {
+    label: "Public Safety",
+    summary: "Biweekly pay, 80-hour overtime rule, double time, holiday premium, on-call, standby, and comp time friendly defaults.",
+    defaults: {
+      payPeriod: "biweekly",
+      overtimeRule: "after80",
+      customOvertimeThreshold: "",
+      shiftDifferentialType: "none",
+      shiftDifferentialAmount: "",
+      overtimeMultiplier: "1.5",
+      doubleTimeMultiplier: "2",
+      holidayPremiumMultiplier: "1.5"
+    }
+  },
+  healthcare: {
+    label: "Healthcare",
+    summary: "Biweekly pay, 80-hour overtime rule, shift differential ready, and holiday premium friendly defaults.",
+    defaults: {
+      payPeriod: "biweekly",
+      overtimeRule: "after80",
+      customOvertimeThreshold: "",
+      shiftDifferentialType: "flat",
+      shiftDifferentialAmount: "",
+      overtimeMultiplier: "1.5",
+      doubleTimeMultiplier: "2",
+      holidayPremiumMultiplier: "1.5"
+    }
+  },
+  trades: {
+    label: "Trades",
+    summary: "Weekly pay, 40-hour overtime rule, double time, holiday premium, standby, and custom premium-friendly defaults.",
+    defaults: {
+      payPeriod: "weekly",
+      overtimeRule: "after40",
+      customOvertimeThreshold: "",
+      shiftDifferentialType: "none",
+      shiftDifferentialAmount: "",
+      overtimeMultiplier: "1.5",
+      doubleTimeMultiplier: "2",
+      holidayPremiumMultiplier: "1.5"
+    }
+  },
+  custom: {
+    label: "Custom",
+    summary: "Custom profile keeps all options available without forcing a standard pay period, overtime rule, or multiplier setup.",
+    defaults: {}
+  }
+};
 
 const ADJUSTMENT_SUGGESTIONS = {
   tax: [
@@ -206,6 +284,53 @@ function syncAllPillGroups() {
     "targetGoalTypeInput",
     "targetHoursModeInput"
   ].forEach(syncPillGroup);
+  syncProfilePills();
+}
+
+function getProfileLabel() {
+  const profileId = el("payProfileInput")?.value || "hourly";
+  return PAY_PROFILES[profileId]?.label || "Hourly";
+}
+
+function syncProfilePills() {
+  const value = el("payProfileInput")?.value || "hourly";
+  document.querySelectorAll("[data-profile-pills] .pay-pill").forEach(button => {
+    button.classList.toggle("is-selected", button.dataset.profile === value);
+  });
+  updateProfileSummary();
+}
+
+function updateProfileSummary() {
+  const summary = el("profileSummary");
+  if (!summary) return;
+  const profileId = el("payProfileInput")?.value || "hourly";
+  const profile = PAY_PROFILES[profileId] || PAY_PROFILES.hourly;
+  summary.innerHTML = `<strong>${escapeHtml(profile.label)} profile selected.</strong><span>${escapeHtml(profile.summary)}</span>`;
+}
+
+function setInputValue(id, value) {
+  const node = el(id);
+  if (node) node.value = value;
+}
+
+function applyPayProfile(profileId, announce = true) {
+  const profile = PAY_PROFILES[profileId] || PAY_PROFILES.hourly;
+  setInputValue("payProfileInput", profileId);
+
+  const defaults = profile.defaults || {};
+  if (Object.prototype.hasOwnProperty.call(defaults, "payPeriod")) setInputValue("payPeriodInput", defaults.payPeriod);
+  if (Object.prototype.hasOwnProperty.call(defaults, "overtimeRule")) setInputValue("overtimeRuleInput", defaults.overtimeRule);
+  if (Object.prototype.hasOwnProperty.call(defaults, "customOvertimeThreshold")) setInputValue("customOvertimeThresholdInput", defaults.customOvertimeThreshold);
+  if (Object.prototype.hasOwnProperty.call(defaults, "shiftDifferentialType")) setInputValue("shiftDifferentialTypeInput", defaults.shiftDifferentialType);
+  if (Object.prototype.hasOwnProperty.call(defaults, "shiftDifferentialAmount")) setInputValue("shiftDifferentialAmountInput", defaults.shiftDifferentialAmount);
+  if (Object.prototype.hasOwnProperty.call(defaults, "overtimeMultiplier")) setInputValue("overtimeMultiplierInput", defaults.overtimeMultiplier);
+  if (Object.prototype.hasOwnProperty.call(defaults, "doubleTimeMultiplier")) setInputValue("doubleTimeMultiplierInput", defaults.doubleTimeMultiplier);
+  if (Object.prototype.hasOwnProperty.call(defaults, "holidayPremiumMultiplier")) setInputValue("holidayPremiumMultiplierInput", defaults.holidayPremiumMultiplier);
+
+  syncAllPillGroups();
+  calculatePaycheck(false);
+  saveSettings();
+  if (announce) showMessage(`${profile.label} profile applied. You can still customize any setting.`);
 }
 
 function getTypeById(list, id) {
@@ -741,6 +866,7 @@ function showMessage(text, isError = false) {
 
 function getState() {
   return {
+    payProfile: el("payProfileInput")?.value || "hourly",
     regularHours: el("regularHoursInput").value,
     hourlyRate: el("hourlyRateInput").value,
     payPeriod: el("payPeriodInput").value,
@@ -785,6 +911,7 @@ function loadSettings() {
 
   try {
     const data = JSON.parse(saved);
+    el("payProfileInput").value = data.payProfile || "hourly";
     el("regularHoursInput").value = data.regularHours || "";
     el("hourlyRateInput").value = data.hourlyRate || "";
     el("payPeriodInput").value = data.payPeriod || "biweekly";
@@ -815,6 +942,7 @@ function loadSettings() {
 }
 
 function loadExample() {
+  el("payProfileInput").value = "publicSafety";
   el("regularHoursInput").value = "80";
   el("hourlyRateInput").value = "25";
   el("payPeriodInput").value = "biweekly";
@@ -860,13 +988,14 @@ function loadExample() {
 
 function resetCalculator() {
   localStorage.removeItem(STORAGE_KEY);
+  el("payProfileInput").value = "hourly";
   el("regularHoursInput").value = "";
   el("hourlyRateInput").value = "";
-  el("payPeriodInput").value = "biweekly";
+  el("payPeriodInput").value = "weekly";
   el("currencyInput").value = "USD";
   el("shiftDifferentialTypeInput").value = "none";
   el("shiftDifferentialAmountInput").value = "";
-  el("overtimeRuleInput").value = "after80";
+  el("overtimeRuleInput").value = "after40";
   el("customOvertimeThresholdInput").value = "";
   el("overtimeMultiplierInput").value = "1.5";
   el("doubleTimeMultiplierInput").value = "2";
@@ -913,6 +1042,7 @@ function buildPaycheckResultsSummary() {
     `Theme: ${TOOL_THEME}`,
     "",
     "Pay Details",
+    `Pay Profile: ${getProfileLabel()}`,
     `Hourly Rate: ${formatMoney(totals.rate)}`,
     `Pay Period: ${getPayPeriodLabel()}`,
     `Shift Differential: ${getShiftDifferentialLabel()}`,
@@ -1075,6 +1205,7 @@ function buildPaycheckProfessionalReportHtml() {
         <div>
           <h2>Pay Details</h2>
           <dl class="summary-list">
+            <dt>Pay Profile</dt><dd>${escapeHtml(getProfileLabel())}</dd>
             <dt>Hourly Rate</dt><dd>${reportMoney(totals.rate)}</dd>
             <dt>Worked Rate</dt><dd>${reportMoney(totals.workedRate)}</dd>
             <dt>Shift Differential</dt><dd>${escapeHtml(getShiftDifferentialLabel())}</dd>
@@ -1399,6 +1530,10 @@ function printResults() {
 function initializeEvents() {
   createHourPills("premiumHourPills", PREMIUM_HOUR_TYPES, "premium");
   createHourPills("benefitHourPills", BENEFIT_HOUR_TYPES, "benefit");
+  document.querySelectorAll("[data-profile-pills] .pay-pill").forEach(button => {
+    button.addEventListener("click", () => applyPayProfile(button.dataset.profile));
+  });
+  syncProfilePills();
   initializePillGroup("payPeriodInput");
   initializePillGroup("shiftDifferentialTypeInput");
   initializePillGroup("overtimeRuleInput");

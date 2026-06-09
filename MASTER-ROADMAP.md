@@ -10,49 +10,14 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Home | v0.6.2 | Standards v2.0 |
-| Paycheck | v0.5 | Target Pay |
+| Home | v0.6.1 | Shared Report System |
 | Overtime | v0.9.9.3 | Shared Report Format |
 | Time Off | v0.9.9.1 | Shared Report Format |
+| Paycheck | v0.6 | Pay Profiles |
 
 ---
 
 # Near-Term Roadmap
-
-## Home v0.6.2
-
-### Theme
-
-Standards v2.0
-
-### Status
-
-Completed standards release.
-
-### Focus
-
-- Source Preference.
-- Mandatory Daily Startup Procedure.
-- Hotfix documentation requirements.
-- Failed-release handling.
-- Successful release history rules.
-
----
-
-
-## Paycheck v0.6
-
-### Theme
-
-Pay Profiles
-
-### Planned Focus
-
-- Add profile presets for common worker types.
-- Explore Hourly, Public Safety, Healthcare, Trades, and Custom profiles.
-- Use profiles to preselect common pay periods, overtime rules, and premium pay defaults.
-
----
 
 ## Paycheck v0.7
 

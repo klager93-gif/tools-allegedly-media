@@ -4,6 +4,22 @@
 
 ---
 
+## Version 0.6
+
+**Date:** 2026-06-09  
+**Theme:** Pay Profiles
+
+### Changes
+
+- Added Pay Profile presets for Hourly, Salary, Public Safety, Healthcare, Trades, and Custom users.
+- Added smart defaults for pay period, overtime rule, shift differential readiness, and premium multipliers.
+- Added a profile summary card explaining which profile is active.
+- Preserved customizable settings after profile selection.
+- Updated saved settings, Copy Results, and Print Report output to include the active Pay Profile.
+- Preserved Hours & Earnings, Deductions & Adjustments, Target Pay, shared action bar, shared report format, hidden ad slots, and no-live-ad behavior.
+
+---
+
 ## Version 0.5
 
 **Date:** 2026-06-08  

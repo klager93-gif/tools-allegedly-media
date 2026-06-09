@@ -6,21 +6,23 @@ Estimate regular hours, premium hours, benefit hours, deductions, and take-home 
 
 # Current Version
 
-v0.5
+v0.6
 
 ## Theme
 
-Target Pay
+Pay Profiles
 
 ---
 
 # Current Features
 
+- Pay profile presets.
 - Regular hours.
 - Premium hour categories.
 - Benefit / paid leave hour categories.
 - Per-row premium multipliers.
 - Hourly rate.
+- Smart defaults for Hourly, Salary, Public Safety, Healthcare, Trades, and Custom profiles.
 - Pay period.
 - Currency selection.
 - Itemized taxes, deductions, and other adjustments.

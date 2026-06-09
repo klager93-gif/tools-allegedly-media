@@ -4,20 +4,22 @@
 
 ## Current Build
 
-v0.5
+v0.6
 
 ## Theme
 
-Target Pay
+Pay Profiles
 
 ---
 
 # Required Validation Before ZIP
 
 - [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.5.
-- [ ] Footer version shows v0.5.
-- [ ] Cache-busting references use v0.5 for script.js and current build labels.
+- [ ] Header versions show v0.6.
+- [ ] Footer version shows v0.6.
+- [ ] Cache-busting references use v0.6 for script.js and current build labels.
+- [ ] Pay Profile pills render.
+- [ ] Profile selection applies smart defaults without locking settings.
 - [ ] Premium Hours pills render.
 - [ ] Benefit / Paid Leave Hours pills render.
 - [ ] Empty states render when no rows are selected.

@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.5
+v0.6
 
 ## Theme
 
-Target Pay
+Pay Profiles
 
 ---
 
@@ -29,26 +29,11 @@ Target Pay
 | v0.4 | Rates, Multipliers & Rules |
 | v0.4.1 | Script Cache-Busting Hotfix |
 | v0.5 | Target Pay |
+| v0.6 | Pay Profiles |
 
 ---
 
 # Upcoming Versions
-
-## Paycheck v0.6
-
-### Theme
-
-Pay Profiles
-
-### Planned Focus
-
-- Hourly profile.
-- Public Safety profile.
-- Healthcare profile.
-- Trades profile.
-- Future salary profile planning.
-
----
 
 ## Paycheck v0.7
 

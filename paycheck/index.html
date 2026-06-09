@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.5
+Version: v0.6
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ Purpose: Main application page
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.6.1">
-<link rel="stylesheet" href="style.css?v=0.5">
+<link rel="stylesheet" href="style.css?v=0.6">
 </head>
 <body>
 <main class="page">
@@ -77,6 +77,26 @@ Purpose: Main application page
         <div>
           <h2>Pay Details</h2>
           <p>Tell us your rate, pay period, premium rules, and shift differential settings.</p>
+        </div>
+      </div>
+
+      <div class="pay-detail-panel profile-panel">
+        <div class="adjustment-heading">
+          <h3>Pay Profile</h3>
+          <span>Choose a starting point. Profiles apply smart defaults but never lock your settings.</span>
+        </div>
+        <input id="payProfileInput" type="hidden" value="hourly">
+        <div class="pay-pill-row profile-pill-row" data-profile-pills aria-label="Pay profile">
+          <button type="button" class="pay-pill is-selected" data-profile="hourly">Hourly</button>
+          <button type="button" class="pay-pill" data-profile="salary">Salary</button>
+          <button type="button" class="pay-pill" data-profile="publicSafety">Public Safety</button>
+          <button type="button" class="pay-pill" data-profile="healthcare">Healthcare</button>
+          <button type="button" class="pay-pill" data-profile="trades">Trades</button>
+          <button type="button" class="pay-pill" data-profile="custom">Custom</button>
+        </div>
+        <div id="profileSummary" class="profile-summary empty-state">
+          <strong>Hourly profile selected.</strong>
+          <span>Weekly pay period, 40-hour overtime rule, and standard premium multipliers are ready to customize.</span>
         </div>
       </div>
 
@@ -338,8 +358,8 @@ Purpose: Main application page
 
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.5</p>
-      <p>Theme: Target Pay</p>
+      <p>Build: v0.6</p>
+      <p>Theme: Pay Profiles</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -386,7 +406,7 @@ Purpose: Main application page
   </div>
 
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.5
+    Signal Labs · Paycheck Calculator · v0.6
     <br>
     Useful tools without the noise.
   </div>
@@ -428,6 +448,6 @@ Purpose: Main application page
 </div>
 
 <script src="../assets/global.js?v=0.6.1"></script>
-<script src="script.js?v=0.5"></script>
+<script src="script.js?v=0.6"></script>
 </body>
 </html>

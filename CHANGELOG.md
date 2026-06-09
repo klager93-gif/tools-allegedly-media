@@ -1,17 +1,4 @@
-# Signal Labs Home Changelog
-
-## v0.6.2 — Standards v2.0
-
-- Reorganized Signal Labs Development Standards into a clearer priority order.
-- Added Source Preference rules and GitHub-first workflow guidance.
-- Added mandatory Daily Startup Procedure comparison requirements.
-- Added Trust Successful Releases and Successful Releases Become History rules.
-- Expanded hotfix documentation requirements and hotfix file replacement exceptions.
-- Clarified shared systems, source disclosure, validation, and failed-release handling.
-- No calculator logic changes.
-- No shared asset changes.
-
----
+# Signal Labs Home
 
 # CHANGELOG
 

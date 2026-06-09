@@ -10,13 +10,11 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-09
 
-### Home v0.6.2 — Standards v2.0
+### Paycheck v0.6 — Pay Profiles
 
-**Summary**
-
-- Reorganized Signal Labs Development Standards into a clearer priority order.
-- Added source preference, mandatory daily startup comparison, hotfix, failed-release, and release-history rules.
-- No calculator logic or shared asset changes.
+- Added Pay Profile presets for Hourly, Salary, Public Safety, Healthcare, Trades, and Custom users.
+- Added smart defaults for pay period, overtime rule, shift differential readiness, and premium multipliers.
+- Preserved customizable settings, Target Pay, shared action bar, shared report format, and no-live-ad behavior.
 
 ---
 
