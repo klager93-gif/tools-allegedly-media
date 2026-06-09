@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.6
+v0.7
 
 ## Theme
 
-Pay Profiles
+Other Earnings
 
 ---
 
@@ -30,26 +30,11 @@ Pay Profiles
 | v0.4.1 | Script Cache-Busting Hotfix |
 | v0.5 | Target Pay |
 | v0.6 | Pay Profiles |
+| v0.7 | Other Earnings |
 
 ---
 
 # Upcoming Versions
-
-## Paycheck v0.7
-
-### Theme
-
-Other Earnings
-
-### Planned Focus
-
-- Bonus pay.
-- Commission.
-- Tips.
-- Mileage.
-- Per diem.
-
----
 
 ## Paycheck v0.8
 

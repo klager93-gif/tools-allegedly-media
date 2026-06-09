@@ -1,39 +1,30 @@
-# Signal Labs Paycheck Release
+# Signal Labs Release Install Notes
 
-## Versions
+## Release
 
-```text
-Paycheck: v0.6 — Pay Profiles
-Home: v0.6.1 — Shared Report System
-Overtime: v0.9.9.3 — Shared Report Format
-Time Off: v0.9.9.1 — Shared Report Format
-```
+Paycheck v0.7 — Other Earnings
 
-## Backup Reminder
-
-Before uploading this release, back up the current live files.
-
-## Backup Folder Name
+## Backup Folder
 
 ```text
-2026-06-09-before-paycheck-v0.6-pay-profiles
+2026-06-09-before-paycheck-v0.7-other-earnings
 ```
 
-## Upload Instructions
-
-Copy the updated Paycheck folder into the live Paycheck location and copy updated master docs into the Signal Labs Home/root folder.
+## Source
 
 ```text
-paycheck/* -> /paycheck/
-MASTER-CHANGELOG.md -> /
-MASTER-ROADMAP.md -> /
-RELEASE-HISTORY.md -> /
+Previous release ZIP:
+signal-labs-paycheck-v0.6-pay-profiles.zip
 ```
 
-## Expected Results
+## Upload
 
-- Paycheck shows v0.6.
-- Pay Profile pills appear in Pay Details.
-- Hourly, Salary, Public Safety, Healthcare, Trades, and Custom profiles can be selected.
-- Profiles apply smart defaults without locking the user out of manual changes.
-- Print Report and Copy Results include the selected profile.
+Replace the affected files in the matching live locations.
+
+## Validation
+
+- Confirm Paycheck footer/build shows v0.7.
+- Confirm Other Earnings section appears.
+- Confirm Bonus, Commission, Tips, Mileage, Per Diem, and Custom pills work.
+- Confirm other earnings increase Before Taxes (Gross).
+- Confirm Copy Results and Print Report include Other Earnings.

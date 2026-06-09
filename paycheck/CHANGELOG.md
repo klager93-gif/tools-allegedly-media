@@ -1,3 +1,13 @@
+# Paycheck v0.7 — Other Earnings
+
+- Added an Other Earnings section for non-hourly pay.
+- Added Bonus, Commission, Tips, Mileage, Per Diem, and Custom earning pills.
+- Added dynamic earning rows with smooth empty state behavior.
+- Included other earnings in gross pay, Copy Results, and Print Report output.
+- Preserved Hours & Earnings, Pay Details, Deductions & Adjustments, Target Pay, saved settings, shared action bar, shared report format, hidden ad slots, and no-live-ad behavior.
+
+---
+
 # Signal Labs Paycheck Calculator
 
 # CHANGELOG

@@ -24,6 +24,6 @@ Print Report opens a professional report with summary cards and tables for hours
 Premium hours use their selected multipliers. Benefit / paid leave hours are estimated at the regular hourly rate for now.
 
 
-## Pay Profiles
+## Other Earnings
 
 Profiles apply smart defaults but do not lock settings. Users can change any value after a profile is selected.

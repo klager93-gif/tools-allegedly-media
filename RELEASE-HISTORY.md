@@ -33,4 +33,7 @@ YYYY-MM-DD-before-tool-version-theme
 | 10 | 2026-06-08 | Paycheck v0.4.1 | Script Cache-Busting Hotfix | Fixed Paycheck script cache-busting reference and updated required hotfix documentation. |
 
 | 43 | 2026-06-08 | Paycheck v0.5 | Target Pay | Added paycheck target planning and extra-hours estimates. |
-| 44 | 2026-06-09 | Paycheck v0.6 | Pay Profiles | Added profile presets and smart defaults for common worker types. |
+
+| 44 | 2026-06-09 | Home v0.6.2 | Standards v2.0 | Reorganized standards and added source, startup, hotfix, failed-release, and history rules. |
+| 45 | 2026-06-09 | Paycheck v0.7 | Other Earnings | Added non-hourly earning rows and reporting support. |
+| 46 | 2026-06-09 | Paycheck v0.6 | Pay Profiles | Added Pay Profile presets for Hourly, Salary, Public Safety, Healthcare, Trades, and Custom. |

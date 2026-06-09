@@ -10,11 +10,23 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-09
 
-### Paycheck v0.6 — Pay Profiles
+### Paycheck v0.7 — Other Earnings
 
-- Added Pay Profile presets for Hourly, Salary, Public Safety, Healthcare, Trades, and Custom users.
-- Added smart defaults for pay period, overtime rule, shift differential readiness, and premium multipliers.
-- Preserved customizable settings, Target Pay, shared action bar, shared report format, and no-live-ad behavior.
+- Added an Other Earnings section for non-hourly pay.
+- Added Bonus, Commission, Tips, Mileage, Per Diem, and Custom earning support.
+- Updated paycheck gross pay, copy output, and print reports to include other earnings.
+- Preserved existing Paycheck systems and shared Signal Labs foundations.
+
+---
+
+
+### Home v0.6.2 — Standards v2.0
+
+**Summary**
+
+- Reorganized Signal Labs Development Standards into a clearer priority order.
+- Added source preference, mandatory daily startup comparison, hotfix, failed-release, and release-history rules.
+- No calculator logic or shared asset changes.
 
 ---
 

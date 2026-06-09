@@ -10,31 +10,35 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Home | v0.6.1 | Shared Report System |
+| Home | v0.6.2 | Standards v2.0 |
+| Paycheck | v0.7 | Other Earnings |
 | Overtime | v0.9.9.3 | Shared Report Format |
 | Time Off | v0.9.9.1 | Shared Report Format |
-| Paycheck | v0.6 | Pay Profiles |
 
 ---
 
 # Near-Term Roadmap
 
-## Paycheck v0.7
+## Home v0.6.2
 
 ### Theme
 
-Other Earnings
+Standards v2.0
 
-### Planned Focus
+### Status
 
-- Bonus pay.
-- Commission.
-- Tips.
-- Mileage.
-- Per diem.
-- Other non-hour earnings.
+Completed standards release.
+
+### Focus
+
+- Source Preference.
+- Mandatory Daily Startup Procedure.
+- Hotfix documentation requirements.
+- Failed-release handling.
+- Successful release history rules.
 
 ---
+
 
 ## Paycheck v0.8
 

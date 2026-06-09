@@ -6,11 +6,11 @@ Estimate regular hours, premium hours, benefit hours, deductions, and take-home 
 
 # Current Version
 
-v0.6
+v0.7
 
 ## Theme
 
-Pay Profiles
+Other Earnings
 
 ---
 
@@ -31,6 +31,7 @@ Pay Profiles
 - Print Report.
 - Saved settings.
 - Target Pay planning.
+- Other earnings for bonus, commission, tips, mileage, per diem, and custom pay.
 - Hidden disabled ad slots.
 
 ---

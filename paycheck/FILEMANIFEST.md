@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.6
+v0.7
 
 ## Theme
 
-Pay Profiles
+Other Earnings
 
 ---
 

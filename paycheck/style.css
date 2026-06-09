@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.6
+Version: v0.7
 Purpose: Tool-specific styles
 */
 
@@ -57,6 +57,7 @@ Purpose: Tool-specific styles
 .blue { background: rgba(80, 140, 255, .2); color: #56a6ff; }
 .purple { background: rgba(140, 80, 255, .2); color: #cb9cff; }
 .orange { background: rgba(255, 160, 70, .18); color: #ffbd72; }
+.teal { background: rgba(45, 212, 191, .16); color: #5eead4; }
 
 .form-grid {
   display: grid;
@@ -146,6 +147,7 @@ select:focus {
 }
 
 .hour-pill-row,
+.earning-pill-row,
 .suggestion-pill-row,
 .adjustment-actions,
 .amount-type-row {
@@ -156,6 +158,7 @@ select:focus {
 }
 
 .hour-pill,
+.earning-pill,
 .suggestion-pill,
 .amount-type-pill {
   display: inline-flex;
@@ -174,12 +177,14 @@ select:focus {
 }
 
 .hour-pill:hover,
+.earning-pill:hover,
 .suggestion-pill:hover,
 .amount-type-pill:hover {
   border-color: rgba(34, 197, 94, .52);
 }
 
 .hour-pill.is-selected,
+.earning-pill.is-selected,
 .suggestion-pill.is-selected,
 .amount-type-pill.is-selected {
   border-color: rgba(34, 197, 94, .72);
@@ -189,7 +194,8 @@ select:focus {
 
 
 .pay-detail-panel,
-.target-pay-panel {
+.target-pay-panel,
+.other-earnings-panel {
   padding: 16px;
   border-radius: 18px;
   background: rgba(255, 255, 255, .025);
@@ -271,6 +277,7 @@ select:focus {
 }
 
 .hour-entry-list,
+.earning-entry-list,
 .adjustment-list {
   display: flex;
   flex-direction: column;
@@ -294,6 +301,7 @@ select:focus {
 }
 
 .hour-entry-row,
+.earning-entry-row,
 .adjustment-item {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 130px 110px auto;
@@ -325,11 +333,13 @@ select:focus {
   font-weight: 600;
 }
 
-.hour-entry-row input {
+.hour-entry-row input,
+.earning-entry-row input {
   min-height: 40px;
 }
 
 .icon-button,
+.remove-earning,
 .remove-adjustment {
   width: auto;
   min-width: 40px;
@@ -510,6 +520,7 @@ select:focus {
   .results-action-row,
   .hour-entry-row,
   .hour-entry-row.benefit-row,
+  .earning-entry-row,
   .adjustment-item {
     grid-template-columns: 1fr;
   }
@@ -559,4 +570,19 @@ select:focus {
 
 .target-result-row strong {
   font-size: 18px;
+}
+
+
+.other-earnings-card {
+  border-color: rgba(45, 212, 191, .12);
+}
+
+.earning-entry-row {
+  grid-template-columns: minmax(0, 1fr) 160px auto;
+}
+
+.earning-amount {
+  color: #ddd;
+  font-weight: 800;
+  text-align: right;
 }
