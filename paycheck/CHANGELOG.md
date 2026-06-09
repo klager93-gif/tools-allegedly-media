@@ -1,3 +1,14 @@
+# Paycheck v0.7.8 — Mobile Optimization
+
+- Reduced the mobile hero further so users reach the calculator faster.
+- Made the mobile Estimated Paycheck card a compact summary-first panel.
+- Hid detailed result rows on small screens while preserving full desktop results, Copy Results, and Print Report output.
+- Tightened mobile cards, section headers, chips, inputs, empty states, and result rows.
+- Shortened the mobile sticky action bar by placing secondary actions on one compact row under the primary Calculate Paycheck button.
+- Preserved all Paycheck calculations, saved settings, reports, hidden ad slots, and no-live-ad behavior.
+
+---
+
 # Paycheck v0.7.7 — UX Foundation
 
 - Compressed the Paycheck desktop hero, cards, result rows, pills, empty states, and sticky action bar for a more professional dashboard feel.

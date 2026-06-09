@@ -10,11 +10,27 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-09
 
+### Paycheck v0.7.8 — Mobile Optimization
+
+- Reduced mobile hero, cards, chips, empty states, and action bar height for faster mobile use.
+- Moved mobile Estimated Paycheck into a compact summary-first experience.
+- Preserved full desktop results, Copy Results, Print Report, saved settings, and calculator logic.
+
+---
+
 ### Paycheck v0.7.7 — UX Foundation
 
-- Compressed Paycheck desktop and mobile layout density for a more professional, usable interface.
-- Reduced oversized hero, cards, pills, empty states, result rows, and action controls without changing calculator logic.
-- Preserved Paycheck calculations, saved settings, reports, shared action bar, and hidden ad behavior.
+- Compressed desktop and mobile UI density for a more professional dashboard feel.
+- Reduced oversized cards, result rows, pills, empty states, and action controls.
+- Preserved existing Paycheck calculations and shared systems.
+
+---
+
+### Paycheck v0.7.6 — Layout Compression & Section Flow
+
+- Added collapsible paycheck sections to reduce page length without removing features.
+- Kept core sections open by default and collapsed optional earning/target sections by default.
+- Preserved existing Paycheck calculations, reports, and saved settings.
 
 ---
 

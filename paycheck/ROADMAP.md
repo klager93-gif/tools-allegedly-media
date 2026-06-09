@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.7.7
+v0.7.8
 
 ## Theme
 
-UX Foundation
+Mobile Optimization
 
 ---
 
@@ -32,7 +32,7 @@ UX Foundation
 | v0.6 | Pay Profiles |
 | v0.7 | Other Earnings |
 | v0.7.5 | Specialty Pay |
-| v0.7.7 | UX Foundation |
+| v0.7.8 | Mobile Optimization |
 
 ---
 

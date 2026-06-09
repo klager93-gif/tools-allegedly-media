@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.7.7
+Version: v0.7.8
 Purpose: Tool-specific styles
 */
 
@@ -1178,5 +1178,237 @@ select:focus {
 
   .subtitle {
     font-size: 14px;
+  }
+}
+
+
+/* v0.7.8 — Mobile Optimization
+   Mobile-first refinements: smaller hero, compact summary-first results, tighter sections, and a shorter action bar.
+   Calculator logic remains unchanged. */
+
+@media (max-width: 760px) {
+  body {
+    padding: 8px;
+    padding-bottom: 94px;
+  }
+
+  .page {
+    gap: 10px;
+  }
+
+  .hero {
+    padding: 10px 0 8px;
+  }
+
+  .hero .eyebrow,
+  .eyebrow {
+    margin-bottom: 5px;
+    font-size: 10px;
+    letter-spacing: .24em;
+  }
+
+  .hero h1 {
+    max-width: 320px;
+    margin-bottom: 6px;
+    font-size: clamp(28px, 8.6vw, 36px);
+    line-height: .98;
+    letter-spacing: -.045em;
+  }
+
+  .subtitle {
+    max-width: 310px;
+    font-size: 12.5px;
+    line-height: 1.32;
+  }
+
+  .dashboard-layout,
+  .left-stack {
+    gap: 10px;
+  }
+
+  .card {
+    padding: 11px !important;
+    border-radius: 16px;
+  }
+
+  .step-card {
+    gap: 9px;
+  }
+
+  .section-title {
+    gap: 8px;
+  }
+
+  .section-title h2,
+  .card h2 {
+    font-size: 18px;
+    line-height: 1.06;
+  }
+
+  .section-title p {
+    display: none;
+  }
+
+  .step-badge {
+    width: 26px;
+    min-width: 26px;
+    height: 26px;
+    font-size: 11px;
+  }
+
+  .section-collapse-toggle {
+    min-height: 28px;
+    padding: 5px 8px;
+    font-size: 9.5px;
+  }
+
+  .hours-panel,
+  .adjustment-section,
+  .info-note,
+  .pay-detail-panel,
+  .target-pay-panel,
+  .other-earnings-panel {
+    padding: 10px;
+    border-radius: 13px;
+  }
+
+  .adjustment-heading h3 {
+    font-size: 14px;
+  }
+
+  .adjustment-heading span {
+    font-size: 10.5px;
+  }
+
+  .hour-pill,
+  .earning-pill,
+  .suggestion-pill,
+  .amount-type-pill,
+  .pay-pill {
+    min-height: 27px;
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  input,
+  select {
+    min-height: 35px;
+    padding: 7px 9px;
+    font-size: 14px;
+  }
+
+  label span {
+    font-size: 11px;
+  }
+
+  .empty-state,
+  .shared-empty-state {
+    padding: 8px 10px;
+    font-size: 11px;
+    line-height: 1.28;
+  }
+
+  .empty-state span,
+  .shared-empty-state span {
+    display: none;
+  }
+
+  .hour-entry-row,
+  .earning-entry-row,
+  .adjustment-item {
+    padding: 8px;
+    border-radius: 11px;
+  }
+
+  .results-card {
+    order: -1;
+    position: sticky;
+    top: 6px;
+    z-index: 8;
+    border-color: rgba(34, 197, 94, .16);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, .38);
+  }
+
+  .results-heading {
+    margin-bottom: 7px;
+  }
+
+  .results-heading h2 {
+    font-size: 17px;
+  }
+
+  .mobile-detail-result {
+    display: none !important;
+  }
+
+  .result-row {
+    padding: 7px 9px;
+    margin-bottom: 5px;
+    border-radius: 11px;
+  }
+
+  .result-row span {
+    font-size: 11px;
+  }
+
+  .result-row strong {
+    font-size: 13px;
+  }
+
+  .total strong {
+    font-size: 20px;
+  }
+
+  .summary-card {
+    display: none;
+  }
+
+  .footer-notes {
+    padding: 9px 10px;
+    font-size: 10.5px;
+  }
+
+  .shared-action-bar {
+    padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
+    border-radius: 14px 14px 0 0;
+  }
+
+  .shared-action-bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .shared-action-group-center {
+    order: 0;
+    width: 100%;
+  }
+
+  .shared-action-group-left,
+  .shared-action-group-right {
+    display: contents;
+  }
+
+  .shared-action-bar button {
+    flex: 1 1 calc(20% - 6px);
+    min-width: 0;
+    min-height: 28px;
+    padding: 5px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .shared-action-bar .primary-action {
+    width: 100%;
+    flex-basis: 100%;
+    min-height: 39px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 420px) {
+  .shared-action-bar button {
+    font-size: 9.5px;
   }
 }
