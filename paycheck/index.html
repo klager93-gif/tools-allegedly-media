@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.7.5
+Version: v0.7.6
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ Purpose: Main application page
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.6.1">
-<link rel="stylesheet" href="style.css?v=0.7.5">
+<link rel="stylesheet" href="style.css?v=0.7.6">
 </head>
 <body>
 <main class="page">
@@ -36,13 +36,14 @@ Purpose: Main application page
 
 <section class="dashboard-layout">
   <section class="left-stack">
-    <section class="card step-card">
-      <div class="section-title">
+    <section class="card step-card is-collapsible" data-collapse-key="hours" data-default-open="true">
+      <div class="section-title section-title-collapsible">
         <div class="step-badge green">1</div>
         <div>
           <h2>Hours &amp; Earnings</h2>
           <p>Start with regular hours. Add premium hours and paid leave only when they apply to this paycheck.</p>
         </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="true">Collapse</button>
       </div>
 
       <div class="form-grid one-column-mobile">
@@ -71,13 +72,14 @@ Purpose: Main application page
       </div>
     </section>
 
-    <section class="card step-card">
-      <div class="section-title">
+    <section class="card step-card is-collapsible" data-collapse-key="payDetails" data-default-open="true">
+      <div class="section-title section-title-collapsible">
         <div class="step-badge blue">2</div>
         <div>
           <h2>Pay Details</h2>
           <p>Tell us your rate, pay period, premium rules, and shift differential settings.</p>
         </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="true">Collapse</button>
       </div>
 
       <div class="pay-detail-panel profile-panel">
@@ -192,13 +194,14 @@ Purpose: Main application page
       <p id="message" class="message">Enter values or load an example to begin.</p>
     </section>
 
-    <section class="card step-card other-earnings-card">
-      <div class="section-title">
+    <section class="card step-card other-earnings-card is-collapsible" data-collapse-key="otherEarnings" data-default-open="false">
+      <div class="section-title section-title-collapsible">
         <div class="step-badge teal">3</div>
         <div>
           <h2>Other Earnings</h2>
           <p>Add non-hourly earnings such as bonuses, commission, tips, mileage, per diem, or other pay.</p>
         </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="false">Expand</button>
       </div>
 
       <div class="other-earnings-panel">
@@ -211,13 +214,14 @@ Purpose: Main application page
       </div>
     </section>
 
-    <section class="card step-card specialty-pay-card">
-      <div class="section-title">
+    <section class="card step-card specialty-pay-card is-collapsible" data-collapse-key="specialtyPay" data-default-open="false">
+      <div class="section-title section-title-collapsible">
         <div class="step-badge orange">4</div>
         <div>
           <h2>Specialty Pay</h2>
           <p>Add job-specific earnings such as callback, court pay, certification pay, hazard pay, or allowances.</p>
         </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="false">Expand</button>
       </div>
 
       <div class="other-earnings-panel specialty-pay-panel">
@@ -230,13 +234,14 @@ Purpose: Main application page
       </div>
     </section>
 
-    <section class="card step-card">
-      <div class="section-title section-title-with-action">
+    <section class="card step-card is-collapsible" data-collapse-key="deductions" data-default-open="true">
+      <div class="section-title section-title-with-action section-title-collapsible">
         <div class="step-badge purple">5</div>
         <div>
           <h2>Deductions &amp; Adjustments</h2>
           <p>Add taxes, deductions, and other paycheck adjustments as either percentages or static amounts.</p>
         </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="true">Collapse</button>
       </div>
 
       <div class="adjustment-actions">
@@ -275,13 +280,14 @@ Purpose: Main application page
       </div>
     </section>
 
-    <section class="card step-card target-pay-card">
-      <div class="section-title">
+    <section class="card step-card target-pay-card is-collapsible" data-collapse-key="targetPay" data-default-open="false">
+      <div class="section-title section-title-collapsible">
         <div class="step-badge orange">6</div>
         <div>
           <h2>Target Pay</h2>
           <p>Set a paycheck or annual income goal and estimate how many extra hours may be needed.</p>
         </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="false">Expand</button>
       </div>
 
       <div class="target-pay-panel">
@@ -404,8 +410,8 @@ Purpose: Main application page
 
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.7.5</p>
-      <p>Theme: Specialty Pay</p>
+      <p>Build: v0.7.6</p>
+      <p>Theme: Layout Compression & Section Flow</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -452,7 +458,7 @@ Purpose: Main application page
   </div>
 
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.7.5
+    Signal Labs · Paycheck Calculator · v0.7.6
     <br>
     Useful tools without the noise.
   </div>
@@ -494,6 +500,6 @@ Purpose: Main application page
 </div>
 
 <script src="../assets/global.js?v=0.6.1"></script>
-<script src="script.js?v=0.7.5"></script>
+<script src="script.js?v=0.7.6"></script>
 </body>
 </html>

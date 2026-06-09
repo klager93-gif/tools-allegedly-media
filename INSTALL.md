@@ -1,30 +1,36 @@
-# Signal Labs Release Install Notes
+# Signal Labs Paycheck Release
 
-## Release
-
-Paycheck v0.7.5 — Specialty Pay
-
-## Backup Folder
+## Version
 
 ```text
-2026-06-09-before-paycheck-v0.7.5-specialty-pay
+Paycheck v0.7.6 — Layout Compression & Section Flow
 ```
 
-## Source
+## Backup Reminder
+
+Back up the current live version before uploading this release.
+
+## Backup Folder Name
 
 ```text
-Previous release ZIP:
-signal-labs-paycheck-v0.7-other-earnings.zip
+2026-06-09-before-paycheck-v0.7.6-layout-compression-section-flow
 ```
 
-## Upload
+## Upload Instructions
 
-Replace the affected files in the matching live locations.
+Copy the updated files into the matching live locations.
 
-## Validation
+## Expected Results
 
-- Confirm Paycheck footer/build shows v0.7.5.
-- Confirm Specialty Pay section appears.
-- Confirm Callback Pay, Court Pay, Certification Pay, Longevity Pay, Education Incentive, Bilingual Pay, Hazard Pay, Shift Bonus, Travel Pay, Uniform Allowance, and Custom pills work.
-- Confirm specialty pay increases Before Taxes (Gross).
-- Confirm Copy Results and Print Report include Specialty Pay.
+- Paycheck sections can be expanded and collapsed.
+- Hours & Earnings, Pay Details, Deductions & Adjustments, and Estimated Paycheck are open by default.
+- Other Earnings, Specialty Pay, and Target Pay are collapsed by default.
+- Existing calculations, saved settings, Copy Results, Print Report, hidden ad slots, and no-live-ad behavior remain preserved.
+
+## Validation Checklist
+
+- Open /paycheck/.
+- Confirm footer/build shows v0.7.6.
+- Confirm section collapse buttons work.
+- Confirm optional sections start collapsed.
+- Confirm Calculate, Copy Results, Print Report, and saved settings still work.

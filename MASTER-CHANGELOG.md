@@ -10,6 +10,14 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-09
 
+### Paycheck v0.7.6 — Layout Compression & Section Flow
+
+- Added collapsible paycheck sections to reduce page length without removing features.
+- Kept core sections open by default and collapsed optional earning/target sections by default.
+- Preserved existing Paycheck calculations, reports, and saved settings.
+
+---
+
 ### Paycheck v0.7.5 — Specialty Pay
 
 - Added Specialty Pay for job-specific earnings such as callback, court pay, certification, hazard pay, shift bonus, travel pay, and uniform allowance.

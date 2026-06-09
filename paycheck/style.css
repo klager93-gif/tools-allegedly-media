@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.7.5
+Version: v0.7.6
 Purpose: Tool-specific styles
 */
 
@@ -588,3 +588,61 @@ select:focus {
 }
 
 .specialty-pay-card .step-badge { box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.12) inset; }
+
+/* v0.7.6 — Layout Compression & Section Flow */
+.section-title-collapsible {
+  align-items: center;
+}
+
+.section-title-collapsible > div:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+
+.section-collapse-toggle {
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: rgba(255, 255, 255, .06);
+  color: rgba(255, 255, 255, .82);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.section-collapse-toggle:hover,
+.section-collapse-toggle:focus-visible {
+  background: rgba(255, 255, 255, .11);
+  color: #fff;
+}
+
+.step-card.is-collapsible.is-collapsed {
+  gap: 0;
+}
+
+.step-card.is-collapsible.is-collapsed > *:not(.section-title) {
+  display: none !important;
+}
+
+.step-card.is-collapsible.is-collapsed .section-title {
+  margin-bottom: 0;
+}
+
+.step-card.is-collapsible.is-collapsed .section-title p::after {
+  content: " Section collapsed.";
+  color: rgba(255, 255, 255, .48);
+}
+
+@media (max-width: 720px) {
+  .section-title-collapsible {
+    align-items: flex-start;
+  }
+
+  .section-collapse-toggle {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+}

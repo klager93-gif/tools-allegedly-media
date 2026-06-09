@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.7.5
+v0.7.6
 
 ## Theme
 
-Specialty Pay
+Layout Compression & Section Flow
 
 ---
 

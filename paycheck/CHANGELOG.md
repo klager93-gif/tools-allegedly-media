@@ -1,3 +1,13 @@
+# Paycheck v0.7.6 — Layout Compression & Section Flow
+
+- Added collapsible paycheck sections to reduce page length.
+- Kept Hours & Earnings, Pay Details, Deductions & Adjustments, and Estimated Paycheck open by default.
+- Collapsed Other Earnings, Specialty Pay, and Target Pay by default.
+- Added section expand/collapse controls with saved layout state.
+- Preserved Hours & Earnings, Pay Details, Other Earnings, Specialty Pay, Deductions & Adjustments, Target Pay, saved settings, shared action bar, shared report format, hidden ad slots, and no-live-ad behavior.
+
+---
+
 # Paycheck v0.7.5 — Specialty Pay
 
 - Added a Specialty Pay section for job-specific earnings.

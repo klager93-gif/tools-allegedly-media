@@ -2,6 +2,11 @@
 
 # HOWTO
 
+## Layout
+
+Paycheck sections can be expanded or collapsed to keep the page manageable. Core sections are open by default while optional sections such as Other Earnings, Specialty Pay, and Target Pay start collapsed.
+
+
 ---
 
 ## How to Use

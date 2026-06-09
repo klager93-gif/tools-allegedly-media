@@ -2,14 +2,15 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.7.5
+Version: v0.7.6
 Purpose: Tool-specific logic and event handling
 */
 
-const TOOL_VERSION = "v0.7.5";
-const TOOL_THEME = "Specialty Pay";
-const STORAGE_KEY = "signalLabsPaycheckCalculatorV075";
-const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV07", "signalLabsPaycheckCalculatorV06", "signalLabsPaycheckCalculatorV05", "signalLabsPaycheckCalculatorV04", "signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
+const TOOL_VERSION = "v0.7.6";
+const TOOL_THEME = "Layout Compression & Section Flow";
+const STORAGE_KEY = "signalLabsPaycheckCalculatorV076";
+const LAYOUT_STORAGE_KEY = "signalLabsPaycheckLayoutV076";
+const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV075", "signalLabsPaycheckCalculatorV07", "signalLabsPaycheckCalculatorV06", "signalLabsPaycheckCalculatorV05", "signalLabsPaycheckCalculatorV04", "signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
 
 const PREMIUM_HOUR_TYPES = [
   { id: "overtime", label: "Overtime", defaultMultiplier: 1.5 },
@@ -1838,7 +1839,48 @@ function printResults() {
   showMessage("Print report opened.");
 }
 
+function initializeSectionCollapse() {
+  const cards = Array.from(document.querySelectorAll(".step-card.is-collapsible"));
+  if (!cards.length) return;
+
+  let savedLayout = {};
+  try {
+    savedLayout = JSON.parse(localStorage.getItem(LAYOUT_STORAGE_KEY) || "{}");
+  } catch (error) {
+    savedLayout = {};
+  }
+
+  cards.forEach(card => {
+    const key = card.dataset.collapseKey;
+    const toggle = card.querySelector(".section-collapse-toggle");
+    const defaultOpen = card.dataset.defaultOpen !== "false";
+    const isOpen = key && Object.prototype.hasOwnProperty.call(savedLayout, key)
+      ? Boolean(savedLayout[key])
+      : defaultOpen;
+
+    function apply(open) {
+      card.classList.toggle("is-collapsed", !open);
+      if (toggle) {
+        toggle.textContent = open ? "Collapse" : "Expand";
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+    }
+
+    apply(isOpen);
+
+    toggle?.addEventListener("click", () => {
+      const nextOpen = card.classList.contains("is-collapsed");
+      apply(nextOpen);
+      if (key) {
+        savedLayout[key] = nextOpen;
+        localStorage.setItem(LAYOUT_STORAGE_KEY, JSON.stringify(savedLayout));
+      }
+    });
+  });
+}
+
 function initializeEvents() {
+  initializeSectionCollapse();
   createHourPills("premiumHourPills", PREMIUM_HOUR_TYPES, "premium");
   createHourPills("benefitHourPills", BENEFIT_HOUR_TYPES, "benefit");
   createEarningPills();

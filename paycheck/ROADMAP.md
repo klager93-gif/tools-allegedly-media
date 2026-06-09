@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.7.5
+v0.7.6
 
 ## Theme
 
-Specialty Pay
+Layout Compression & Section Flow
 
 ---
 
@@ -32,6 +32,7 @@ Specialty Pay
 | v0.6 | Pay Profiles |
 | v0.7 | Other Earnings |
 | v0.7.5 | Specialty Pay |
+| v0.7.6 | Layout Compression & Section Flow |
 
 ---
 
