@@ -1,3 +1,24 @@
+# Signal Labs Paycheck Calculator
+
+# CHANGELOG
+
+---
+
+## Version 0.4.1
+
+**Date:** 2026-06-08  
+**Theme:** Script Cache-Busting Hotfix
+
+### Changes
+
+- Fixed Paycheck `index.html` loading the old `script.js?v=0.3.3` cache-busting reference after the v0.4 release.
+- Updated Paycheck script reference to `script.js?v=0.4.1`.
+- Updated Paycheck build/footer labels and report metadata to v0.4.1.
+- Updated Paycheck documentation and manifests for the hotfix.
+- No calculation, styling, shared asset, or layout changes.
+
+---
+
 ## Version 0.4
 
 **Date:** 2026-06-08  

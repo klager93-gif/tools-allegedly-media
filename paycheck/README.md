@@ -6,7 +6,7 @@ Estimate regular hours, premium hours, benefit hours, deductions, and take-home 
 
 # Current Version
 
-v0.4
+v0.4.1
 
 ## Theme
 

@@ -29,3 +29,5 @@ This file tracks actual release order across the Signal Labs ecosystem.
 YYYY-MM-DD-before-tool-version-theme
 ```
 | 8 | 2026-06-08 | Home v0.6.1 / Paycheck v0.4 / Overtime v0.9.9.3 / Time Off v0.9.9.1 | Shared Report System | Standardized printed report format across active tools and added source disclosure rules. |
+
+| 10 | 2026-06-08 | Paycheck v0.4.1 | Script Cache-Busting Hotfix | Fixed Paycheck script cache-busting reference and updated required hotfix documentation. |

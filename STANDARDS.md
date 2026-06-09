@@ -247,6 +247,29 @@ If something feels wrong, rushed, incomplete, or inconsistent, stop and discuss 
 
 ---
 
+
+---
+
+## Hotfix Exception
+
+Hotfixes may replace only the affected live file or files when the change is narrowly scoped and urgent.
+
+However, every hotfix still requires:
+
+- Tool CHANGELOG.md update.
+- MASTER-CHANGELOG.md update.
+- RELEASE-HISTORY.md update.
+- GitHub title.
+- GitHub description.
+- Backup folder name.
+- Source disclosure.
+
+If the hotfix changes visible version labels, cache-busting references, roadmap direction, current version status, manifests, or report metadata, then the affected documentation and manifest files must also be updated.
+
+A hotfix may be small, but it is still a release.
+
+---
+
 # Core Philosophy
 
 Protect Project Integrity.

@@ -1,42 +1,40 @@
-# Signal Labs Shared Report System Release
+# Signal Labs Paycheck Release
 
 ## Versions
 
 ```text
-Home: v0.6.1 — Shared Report System
-Paycheck: v0.3.4 — Rates, Multipliers & Rules
-Overtime: v0.9.9.3 — Rates, Multipliers & Rules
-Time Off: v0.9.9.1 — Rates, Multipliers & Rules
+Paycheck: v0.4.1 — Script Cache-Busting Hotfix
 ```
 
 ## Backup Reminder
 
-Before uploading this release, back up the current live version.
+Before uploading this release, back up the current live Paycheck files.
 
 ## Backup Folder Name
 
 ```text
-2026-06-08-before-home-v0.6-shared-ux-foundation-paycheck-v0.3.3-overtime-v0.9.9.2-timeoff-v0.9.9
+2026-06-08-before-paycheck-v0.4.1-script-cache-busting-hotfix
 ```
 
 ## Upload Instructions
 
-Copy all files into the matching live locations.
+Copy the included files into their matching live locations.
+
+This hotfix package intentionally includes only the affected Paycheck files and required documentation files.
 
 ## Expected Results
 
-- Home shows v0.6.
-- Global assets use v0.6 cache busting.
-- Paycheck, Overtime, and Time Off each show a sticky shared action bar.
-- Calculate, Example, Reset, Copy Results, and Print Report still work where available.
-- Paycheck Save Settings still works.
-- Existing calculator logic remains unchanged.
+- Paycheck loads `script.js?v=0.4.1`.
+- Pay Details pill controls function correctly.
+- Paycheck build/footer labels show v0.4.1.
+- Paycheck report metadata shows v0.4.1.
+- Changelog, master changelog, release history, and manifests are synchronized.
 
 ## Validation Checklist
 
-- Open `/` and confirm Home v0.6.
-- Open `/paycheck/` and confirm the action bar appears and Paycheck v0.3.3 displays.
-- Open `/overtime/` and confirm the action bar appears and Overtime v0.9.9.2 displays.
-- Open `/timeoff/` and confirm the action bar appears and Time Off v0.9.9 displays.
-- Test Calculate, Copy Results, and Print Report on each tool.
-- Hard refresh after upload if old CSS or JS appears.
+- Open `/paycheck/`.
+- Confirm Pay Details pills respond when clicked.
+- Confirm footer says `Signal Labs · Paycheck Calculator · v0.4.1`.
+- Confirm script reference uses `script.js?v=0.4.1`.
+- Confirm Copy Results works.
+- Confirm Print Report opens and shows v0.4.1.

@@ -4,7 +4,7 @@
 
 ## Current Build
 
-v0.4
+v0.4.1
 
 ## Theme
 
@@ -15,9 +15,9 @@ Rates, Multipliers & Rules
 # Required Validation Before ZIP
 
 - [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.4.
-- [ ] Footer version shows v0.4.
-- [ ] Cache-busting references use v0.4 for local files.
+- [ ] Header versions show v0.4.1.
+- [ ] Footer version shows v0.4.1.
+- [ ] Cache-busting references use v0.4.1 for script.js and current build labels.
 - [ ] Premium Hours pills render.
 - [ ] Benefit / Paid Leave Hours pills render.
 - [ ] Empty states render when no rows are selected.

@@ -10,6 +10,16 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-08
 
+### Paycheck v0.4.1 — Script Cache-Busting Hotfix
+
+- Fixed Paycheck `index.html` loading the old `script.js?v=0.3.3` cache-busting reference from the v0.4 release.
+- Updated Paycheck build/footer labels and report metadata to v0.4.1.
+- Updated Paycheck changelog, manifests, release history, and master documentation for hotfix compliance.
+- No calculation, styling, shared asset, or layout changes.
+
+---
+
+
 ### Paycheck v0.4 — Rates, Multipliers & Rules
 
 - Added expanded Pay Details controls for pay period, shift differential, overtime rule labels, and premium multipliers.

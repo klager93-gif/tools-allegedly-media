@@ -13,11 +13,24 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Home | v0.6.1 | Shared Report System |
 | Overtime | v0.9.9.3 | Rates, Multipliers & Rules |
 | Time Off | v0.9.9.1 | Rates, Multipliers & Rules |
-| Paycheck | v0.4 | Rates, Multipliers & Rules |
+| Paycheck | v0.4.1 | Script Cache-Busting Hotfix |
 
 ---
 
 # Near-Term Roadmap
+
+## Paycheck v0.4.1
+
+### Theme
+
+Script Cache-Busting Hotfix
+
+### Status
+
+Completed hotfix to correct the Paycheck script cache-busting reference and synchronize hotfix documentation.
+
+---
+
 
 ## Home v0.6.1
 
