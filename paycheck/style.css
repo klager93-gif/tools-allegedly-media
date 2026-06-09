@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.7.6
+Version: v0.7.7
 Purpose: Tool-specific styles
 */
 
@@ -589,7 +589,7 @@ select:focus {
 
 .specialty-pay-card .step-badge { box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.12) inset; }
 
-/* v0.7.6 — Layout Compression & Section Flow */
+/* v0.7.7 — UX Foundation */
 .section-title-collapsible {
   align-items: center;
 }
@@ -644,5 +644,539 @@ select:focus {
   .section-collapse-toggle {
     padding: 7px 10px;
     font-size: 11px;
+  }
+}
+
+
+/* v0.7.7 — UX Foundation
+   Professional desktop density and mobile usability pass.
+   This release reduces oversized spacing, chips, cards, hero areas, result rows, and action controls without changing calculator logic. */
+
+@media (min-width: 761px) {
+  .page {
+    width: min(1260px, 100%);
+  }
+
+  .hero {
+    padding: 16px 0 18px;
+  }
+
+  .hero .eyebrow,
+  .eyebrow {
+    margin-bottom: 8px;
+    font-size: 11px;
+    letter-spacing: .28em;
+  }
+
+  .hero h1 {
+    max-width: 760px;
+    margin-bottom: 8px;
+    font-size: clamp(38px, 5.2vw, 62px);
+    line-height: .96;
+  }
+
+  .subtitle {
+    max-width: 620px;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+
+  .dashboard-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(340px, 440px);
+    gap: 16px;
+  }
+
+  .left-stack {
+    gap: 12px;
+  }
+
+  .card {
+    padding: 16px !important;
+    border-radius: 20px;
+  }
+
+  .step-card {
+    gap: 12px;
+  }
+
+  .section-title {
+    gap: 10px;
+  }
+
+  .section-title h2,
+  .card h2 {
+    margin-bottom: 3px;
+    font-size: 23px;
+    line-height: 1.05;
+  }
+
+  .section-title p,
+  .card p {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .step-badge {
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .section-collapse-toggle {
+    min-height: 30px;
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .form-grid {
+    gap: 10px;
+  }
+
+  label span {
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  input,
+  select {
+    min-height: 36px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .hours-panel,
+  .adjustment-section,
+  .info-note,
+  .pay-detail-panel,
+  .target-pay-panel,
+  .other-earnings-panel {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .adjustment-heading {
+    gap: 10px;
+    margin-bottom: 9px;
+  }
+
+  .adjustment-heading h3 {
+    font-size: 16px;
+    line-height: 1.1;
+  }
+
+  .adjustment-heading span {
+    max-width: 290px;
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .hour-pill-row,
+  .earning-pill-row,
+  .suggestion-pill-row,
+  .adjustment-actions,
+  .amount-type-row,
+  .pay-pill-row {
+    gap: 6px;
+  }
+
+  .hour-pill,
+  .earning-pill,
+  .suggestion-pill,
+  .amount-type-pill,
+  .pay-pill {
+    min-height: 28px;
+    padding: 5px 9px;
+    font-size: 10.5px;
+  }
+
+  .profile-pill-row,
+  .profile-summary,
+  .pay-detail-input-grid,
+  .multiplier-grid,
+  .target-input-grid,
+  .hour-entry-list,
+  .earning-entry-list,
+  .adjustment-list {
+    margin-top: 8px;
+  }
+
+  .empty-state,
+  .shared-empty-state {
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .empty-state strong,
+  .shared-empty-state strong {
+    margin-bottom: 2px;
+    font-size: 12px;
+  }
+
+  .hour-entry-row,
+  .earning-entry-row,
+  .adjustment-item {
+    gap: 8px;
+    padding: 9px;
+    border-radius: 12px;
+  }
+
+  .entry-label,
+  .adjustment-label {
+    font-size: 13px;
+  }
+
+  .entry-label small,
+  .adjustment-label small {
+    margin-top: 2px;
+    font-size: 10px;
+  }
+
+  .hour-entry-row input,
+  .earning-entry-row input,
+  .icon-button,
+  .remove-earning,
+  .remove-adjustment {
+    min-height: 34px;
+  }
+
+  .results-card {
+    top: 12px;
+  }
+
+  .results-heading {
+    margin-bottom: 12px;
+  }
+
+  .result-row {
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    border-radius: 12px;
+  }
+
+  .result-row span {
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  .result-row strong {
+    font-size: 15px;
+  }
+
+  .total strong {
+    font-size: 23px;
+  }
+
+  .target-result-row strong {
+    font-size: 15px;
+  }
+
+  .summary-card {
+    margin-top: 12px;
+    padding: 11px;
+    border-radius: 12px;
+  }
+
+  .summary-card p {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .footer-notes {
+    padding: 11px 12px;
+    border-radius: 12px;
+    font-size: 11px;
+  }
+
+  .shared-action-bar {
+    width: min(980px, calc(100% - 28px));
+    padding: 8px;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .shared-action-bar-inner {
+    gap: 8px;
+  }
+
+  .shared-action-group {
+    gap: 6px;
+  }
+
+  .shared-action-bar button {
+    min-height: 34px;
+    padding: 8px 12px;
+    border-radius: 11px;
+    font-size: 13px;
+  }
+
+  .shared-action-bar .primary-action {
+    min-width: 170px;
+    min-height: 38px;
+    font-size: 15px;
+  }
+
+  .shared-action-note {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    padding: 10px;
+    padding-bottom: 122px;
+  }
+
+  .signal-nav {
+    padding: 9px;
+    border-radius: 18px;
+  }
+
+  .signal-nav-brand,
+  .signal-nav-toggle {
+    min-height: 36px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .hero {
+    padding: 18px 0 14px;
+    text-align: center;
+  }
+
+  .hero .eyebrow,
+  .eyebrow {
+    margin-bottom: 8px;
+    font-size: 11px;
+    letter-spacing: .28em;
+  }
+
+  .hero h1 {
+    max-width: 360px;
+    margin: 0 auto 10px;
+    font-size: clamp(38px, 11.5vw, 48px);
+    line-height: .96;
+  }
+
+  .subtitle {
+    max-width: 340px;
+    font-size: 15px;
+    line-height: 1.42;
+  }
+
+  .dashboard-layout,
+  .left-stack {
+    gap: 12px;
+  }
+
+  .card {
+    padding: 14px !important;
+    border-radius: 18px;
+  }
+
+  .step-card {
+    gap: 11px;
+  }
+
+  .section-title {
+    gap: 9px;
+  }
+
+  .section-title h2,
+  .card h2 {
+    margin-bottom: 2px;
+    font-size: 22px;
+    line-height: 1.05;
+  }
+
+  .section-title p,
+  .card p {
+    font-size: 13px;
+    line-height: 1.35;
+  }
+
+  .step-badge {
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+
+  .section-collapse-toggle {
+    min-height: 30px;
+    padding: 6px 9px;
+    font-size: 10px;
+  }
+
+  .form-grid {
+    gap: 10px;
+  }
+
+  label span {
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  input,
+  select {
+    min-height: 38px;
+    padding: 8px 10px;
+    border-radius: 11px;
+    font-size: 15px;
+  }
+
+  .hours-panel,
+  .adjustment-section,
+  .info-note,
+  .pay-detail-panel,
+  .target-pay-panel,
+  .other-earnings-panel {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .adjustment-heading {
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+
+  .adjustment-heading h3 {
+    font-size: 16px;
+    line-height: 1.1;
+  }
+
+  .adjustment-heading span {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .hour-pill-row,
+  .earning-pill-row,
+  .suggestion-pill-row,
+  .adjustment-actions,
+  .amount-type-row,
+  .pay-pill-row {
+    gap: 6px;
+  }
+
+  .hour-pill,
+  .earning-pill,
+  .suggestion-pill,
+  .amount-type-pill,
+  .pay-pill {
+    min-height: 30px;
+    padding: 6px 9px;
+    font-size: 10.5px;
+  }
+
+  .empty-state,
+  .shared-empty-state {
+    padding: 10px 11px;
+    border-radius: 12px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .empty-state strong,
+  .shared-empty-state strong {
+    margin-bottom: 2px;
+    font-size: 12px;
+  }
+
+  .results-card {
+    order: -1;
+  }
+
+  .results-heading {
+    margin-bottom: 10px;
+  }
+
+  .result-row {
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    border-radius: 12px;
+  }
+
+  .result-row span {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .result-row strong {
+    font-size: 14px;
+  }
+
+  .total strong {
+    font-size: 22px;
+  }
+
+  .summary-card {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .summary-card p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .shared-action-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    border-radius: 16px 16px 0 0;
+  }
+
+  .shared-action-bar-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .shared-action-group-center {
+    order: -1;
+  }
+
+  .shared-action-group-left,
+  .shared-action-group-right {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    gap: 7px;
+  }
+
+  .shared-action-bar button {
+    width: 100%;
+    min-height: 36px;
+    padding: 7px 9px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+
+  .shared-action-bar .primary-action {
+    min-height: 42px;
+    font-size: 16px;
+  }
+
+  .shared-action-note {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero h1 {
+    font-size: clamp(36px, 12vw, 44px);
+  }
+
+  .subtitle {
+    font-size: 14px;
   }
 }

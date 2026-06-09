@@ -10,11 +10,11 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-09
 
-### Paycheck v0.7.6 — Layout Compression & Section Flow
+### Paycheck v0.7.7 — UX Foundation
 
-- Added collapsible paycheck sections to reduce page length without removing features.
-- Kept core sections open by default and collapsed optional earning/target sections by default.
-- Preserved existing Paycheck calculations, reports, and saved settings.
+- Compressed Paycheck desktop and mobile layout density for a more professional, usable interface.
+- Reduced oversized hero, cards, pills, empty states, result rows, and action controls without changing calculator logic.
+- Preserved Paycheck calculations, saved settings, reports, shared action bar, and hidden ad behavior.
 
 ---
 

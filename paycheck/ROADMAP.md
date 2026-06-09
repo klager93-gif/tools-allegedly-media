@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.7.6
+v0.7.7
 
 ## Theme
 
-Layout Compression & Section Flow
+UX Foundation
 
 ---
 
@@ -32,7 +32,7 @@ Layout Compression & Section Flow
 | v0.6 | Pay Profiles |
 | v0.7 | Other Earnings |
 | v0.7.5 | Specialty Pay |
-| v0.7.6 | Layout Compression & Section Flow |
+| v0.7.7 | UX Foundation |
 
 ---
 

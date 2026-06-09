@@ -4,11 +4,11 @@
 
 ## Current Version
 
-v0.7.6
+v0.7.7
 
 ## Theme
 
-Layout Compression & Section Flow
+UX Foundation
 
 ---
 

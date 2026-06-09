@@ -40,4 +40,4 @@ YYYY-MM-DD-before-tool-version-theme
 
 | 47 | 2026-06-09 | Paycheck v0.7.5 | Specialty Pay | Added job-specific specialty pay rows and reporting support. |
 
-| 48 | 2026-06-09 | Paycheck v0.7.6 | Layout Compression & Section Flow | Added collapsible paycheck sections and default collapsed optional sections. |
+| 48 | 2026-06-09 | Paycheck v0.7.7 | UX Foundation | Compressed Paycheck desktop/mobile density and professionalized layout scale. |

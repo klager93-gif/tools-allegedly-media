@@ -1,13 +1,11 @@
-# Paycheck v0.7.6 — Layout Compression & Section Flow
+# Paycheck v0.7.7 — UX Foundation
 
-- Added collapsible paycheck sections to reduce page length.
-- Kept Hours & Earnings, Pay Details, Deductions & Adjustments, and Estimated Paycheck open by default.
-- Collapsed Other Earnings, Specialty Pay, and Target Pay by default.
-- Added section expand/collapse controls with saved layout state.
-- Preserved Hours & Earnings, Pay Details, Other Earnings, Specialty Pay, Deductions & Adjustments, Target Pay, saved settings, shared action bar, shared report format, hidden ad slots, and no-live-ad behavior.
+- Compressed the Paycheck desktop hero, cards, result rows, pills, empty states, and sticky action bar for a more professional dashboard feel.
+- Reduced mobile hero size, card spacing, chip size, result rows, and action bar height so users can reach inputs faster.
+- Kept the two-column desktop layout and collapsed-section behavior while improving information density.
+- Preserved all existing Paycheck calculations, saved settings, Copy Results, Print Report, shared report format, hidden ad slots, and no-live-ad behavior.
 
 ---
-
 # Paycheck v0.7.5 — Specialty Pay
 
 - Added a Specialty Pay section for job-specific earnings.

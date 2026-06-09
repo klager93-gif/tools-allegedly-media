@@ -4,20 +4,20 @@
 
 ## Current Build
 
-v0.7.6
+v0.7.7
 
 ## Theme
 
-Layout Compression & Section Flow
+UX Foundation
 
 ---
 
 # Required Validation Before ZIP
 
 - [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.7.6.
-- [ ] Footer version shows v0.7.6.
-- [ ] Cache-busting references use v0.7.6 for script.js and current build labels.
+- [ ] Header versions show v0.7.7.
+- [ ] Footer version shows v0.7.7.
+- [ ] Cache-busting references use v0.7.7 for script.js and current build labels.
 - [ ] Pay Profile pills render.
 - [ ] Profile selection applies smart defaults without locking settings.
 - [ ] Premium Hours pills render.
@@ -31,6 +31,8 @@ Layout Compression & Section Flow
 - [ ] Other Earnings, Specialty Pay, and Target Pay start collapsed by default.
 - [ ] Core sections remain open by default.
 - [ ] Saved layout state works.
+- [ ] Desktop hero, cards, pills, empty states, result rows, and action bar use v0.7.7 compact density.
+- [ ] Mobile hero, cards, chips, result rows, and action bar use v0.7.7 compact density.
 - [ ] Saved settings work.
 - [ ] Hidden ad slots remain disabled.
 - [ ] No live ads, ad provider scripts, tracking scripts, or ad requests are included.

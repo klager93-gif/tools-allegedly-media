@@ -11,7 +11,7 @@ This file tracks the full Signal Labs ecosystem roadmap.
 | Area | Current Version | Theme |
 |---|---:|---|
 | Home | v0.6.2 | Standards v2.0 |
-| Paycheck | v0.7.6 | Layout Compression & Section Flow |
+| Paycheck | v0.7.7 | UX Foundation |
 | Overtime | v0.9.9.3 | Shared Report Format |
 | Time Off | v0.9.9.1 | Shared Report Format |
 
@@ -19,11 +19,11 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 # Near-Term Roadmap
 
-## Paycheck v0.7.6
+## Paycheck v0.7.7
 
 ### Theme
 
-Layout Compression & Section Flow
+UX Foundation
 
 ### Status
 
@@ -31,9 +31,9 @@ Completed feature release.
 
 ### Focus
 
-- Added collapsible paycheck sections to reduce page length.
-- Kept core sections open by default.
-- Collapsed Other Earnings, Specialty Pay, and Target Pay by default.
+- Compressed desktop and mobile layout density.
+- Reduced hero, card, pill, empty-state, result-row, and action-bar scale.
+- Preserved calculator behavior while improving professional usability.
 
 ---
 
