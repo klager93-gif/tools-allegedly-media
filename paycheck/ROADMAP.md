@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.7.8
+v0.7.9
 
 ## Theme
 
-Mobile Optimization
+Professional Finish
 
 ---
 
@@ -32,7 +32,7 @@ Mobile Optimization
 | v0.6 | Pay Profiles |
 | v0.7 | Other Earnings |
 | v0.7.5 | Specialty Pay |
-| v0.7.8 | Mobile Optimization |
+| v0.7.9 | Professional Finish |
 
 ---
 

@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.7.8
+Version: v0.7.9
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ Purpose: Main application page
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.6.1">
-<link rel="stylesheet" href="style.css?v=0.7.8">
+<link rel="stylesheet" href="style.css?v=0.7.9">
 </head>
 <body>
 <main class="page">
@@ -410,8 +410,8 @@ Purpose: Main application page
 
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.7.8</p>
-      <p>Theme: Mobile Optimization</p>
+      <p>Build: v0.7.9</p>
+      <p>Theme: Professional Finish</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -436,6 +436,7 @@ Purpose: Main application page
     </div>
     <div class="shared-action-group shared-action-group-center">
       <button id="calculate" class="primary-action" type="button" data-action-target="calculate">Calculate Paycheck</button>
+      <button id="mobileActionsToggle" class="secondary mobile-actions-trigger" type="button" aria-controls="mobileActionsSheet" aria-expanded="false">⋮ Actions</button>
     </div>
     <div class="shared-action-group shared-action-group-right">
       <button id="copyResults" class="secondary" type="button" data-action-target="copyResults">Copy Results</button>
@@ -444,6 +445,25 @@ Purpose: Main application page
   </div>
   <p class="shared-action-note">Actions stay available while you review or update your paycheck estimate.</p>
 </nav>
+
+
+<div id="mobileActionsSheet" class="mobile-actions-sheet hidden" aria-hidden="true">
+  <div class="mobile-actions-backdrop" data-mobile-actions-close></div>
+  <div class="mobile-actions-panel" role="dialog" aria-modal="true" aria-labelledby="mobileActionsTitle">
+    <div class="mobile-actions-handle" aria-hidden="true"></div>
+    <div class="mobile-actions-header">
+      <h2 id="mobileActionsTitle">Actions</h2>
+      <button id="mobileActionsClose" class="modal-close" type="button" aria-label="Close actions">×</button>
+    </div>
+    <div class="mobile-actions-list">
+      <button type="button" data-mobile-action="saveSettings"><strong>Save Settings</strong><span>Save your current inputs and preferences.</span></button>
+      <button type="button" data-mobile-action="example"><strong>Example</strong><span>Load sample paycheck values.</span></button>
+      <button type="button" data-mobile-action="reset"><strong>Reset</strong><span>Clear inputs and start over.</span></button>
+      <button type="button" data-mobile-action="copyResults"><strong>Copy Results</strong><span>Copy the estimate to your clipboard.</span></button>
+      <button type="button" data-mobile-action="printResults"><strong>Print Report</strong><span>Open a printable paycheck report.</span></button>
+    </div>
+  </div>
+</div>
 
 </main>
 
@@ -458,7 +478,7 @@ Purpose: Main application page
   </div>
 
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.7.8
+    Signal Labs · Paycheck Calculator · v0.7.9
     <br>
     Useful tools without the noise.
   </div>
@@ -500,6 +520,6 @@ Purpose: Main application page
 </div>
 
 <script src="../assets/global.js?v=0.6.1"></script>
-<script src="script.js?v=0.7.8"></script>
+<script src="script.js?v=0.7.9"></script>
 </body>
 </html>

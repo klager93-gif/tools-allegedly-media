@@ -1,36 +1,34 @@
-# Signal Labs Paycheck v0.7.8 Release
+# Signal Labs Paycheck v0.7.9 Release
 
 ## Version
 
-Paycheck v0.7.8 — Mobile Optimization
+Paycheck v0.7.9 — Professional Finish
 
-## Backup Reminder
-
-Back up the current live version before uploading this release.
-
-## Backup Folder Name
+## Backup Folder
 
 ```text
-2026-06-09-before-paycheck-v0.7.8-mobile-optimization
+2026-06-09-before-paycheck-v0.7.9-professional-finish
 ```
+
+## Upload
+
+Copy the updated Paycheck files into:
+
+```text
+paycheck/* -> /paycheck/
+```
+
+Also copy updated master documentation to the site root.
 
 ## Source
 
-Previous release ZIP:
+Previous release ZIP: signal-labs-paycheck-v0.7.8-mobile-optimization.zip
 
-```text
-signal-labs-paycheck-v0.7.7-ux-foundation.zip
-```
+## Validation
 
-## Upload Instructions
-
-Copy the updated files into the matching live locations.
-
-## Expected Results
-
-- Paycheck mobile hero is smaller.
-- Mobile Estimated Paycheck appears as a compact summary-first card.
-- Mobile action bar is shorter, with Calculate Paycheck emphasized first.
-- Mobile cards, chips, empty states, and result rows are tighter.
-- Desktop v0.7.7 density remains preserved.
-- Calculations, saved settings, Copy Results, Print Report, hidden ad slots, and no-live-ad behavior remain unchanged.
+- Confirm footer/build shows v0.7.9.
+- Confirm style and script cache busting use v0.7.9.
+- Confirm mobile Actions opens and closes.
+- Confirm Calculate Paycheck remains visible as the primary action.
+- Confirm Save, Example, Reset, Copy, and Print work from the Actions sheet on mobile.
+- Confirm desktop action bar remains compact.

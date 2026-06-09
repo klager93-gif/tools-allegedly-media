@@ -2,12 +2,12 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.7.8
+Version: v0.7.9
 Purpose: Tool-specific logic and event handling
 */
 
-const TOOL_VERSION = "v0.7.8";
-const TOOL_THEME = "Mobile Optimization";
+const TOOL_VERSION = "v0.7.9";
+const TOOL_THEME = "Professional Finish";
 const STORAGE_KEY = "signalLabsPaycheckCalculatorV076";
 const LAYOUT_STORAGE_KEY = "signalLabsPaycheckLayoutV076";
 const LEGACY_STORAGE_KEYS = ["signalLabsPaycheckCalculatorV075", "signalLabsPaycheckCalculatorV07", "signalLabsPaycheckCalculatorV06", "signalLabsPaycheckCalculatorV05", "signalLabsPaycheckCalculatorV04", "signalLabsPaycheckCalculatorV032", "signalLabsPaycheckCalculatorV031"];
@@ -1879,6 +1879,48 @@ function initializeSectionCollapse() {
   });
 }
 
+
+function initializeMobileActionsSheet() {
+  const sheet = el("mobileActionsSheet");
+  const toggle = el("mobileActionsToggle");
+  const close = el("mobileActionsClose");
+
+  function openSheet() {
+    if (!sheet || !toggle) return;
+    sheet.classList.remove("hidden");
+    sheet.setAttribute("aria-hidden", "false");
+    toggle.setAttribute("aria-expanded", "true");
+  }
+
+  function closeSheet() {
+    if (!sheet || !toggle) return;
+    sheet.classList.add("hidden");
+    sheet.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+  }
+
+  toggle?.addEventListener("click", openSheet);
+  close?.addEventListener("click", closeSheet);
+  sheet?.querySelectorAll("[data-mobile-actions-close]").forEach(item => {
+    item.addEventListener("click", closeSheet);
+  });
+  sheet?.querySelectorAll("[data-mobile-action]").forEach(button => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-mobile-action");
+      closeSheet();
+      if (!targetId) return;
+      window.setTimeout(() => {
+        el(targetId)?.click();
+      }, 80);
+    });
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && sheet && !sheet.classList.contains("hidden")) {
+      closeSheet();
+    }
+  });
+}
+
 function initializeEvents() {
   initializeSectionCollapse();
   createHourPills("premiumHourPills", PREMIUM_HOUR_TYPES, "premium");
@@ -1921,6 +1963,7 @@ function initializeEvents() {
 }
 
 initializeEvents();
+initializeMobileActionsSheet();
 const restored = loadSettings();
 renderHourEntries();
 renderOtherEarnings();

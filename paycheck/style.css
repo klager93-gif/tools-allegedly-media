@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.7.8
+Version: v0.7.9
 Purpose: Tool-specific styles
 */
 
@@ -1410,5 +1410,291 @@ select:focus {
 @media (max-width: 420px) {
   .shared-action-bar button {
     font-size: 9.5px;
+  }
+}
+
+/* v0.7.9 — Professional Finish
+   Final polish pass for compact empty states, chips, profile cards, result rows, and mobile action flow. No calculation changes. */
+
+.mobile-actions-trigger,
+.mobile-actions-sheet {
+  display: none;
+}
+
+.empty-state,
+.shared-empty-state {
+  padding: 9px 12px;
+  border-radius: 13px;
+  line-height: 1.25;
+}
+
+.empty-state strong,
+.shared-empty-state strong {
+  margin-bottom: 0;
+  font-size: 12px;
+}
+
+.empty-state span,
+.shared-empty-state span {
+  margin-top: 2px;
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.profile-summary.empty-state {
+  padding: 8px 10px;
+}
+
+.profile-summary.empty-state span {
+  display: block;
+}
+
+.hour-pill,
+.earning-pill,
+.suggestion-pill,
+.amount-type-pill,
+.pay-pill {
+  min-height: 24px;
+  padding: 4px 8px;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.section-title h2,
+.card h2 {
+  letter-spacing: -0.025em;
+}
+
+.section-title p {
+  max-width: 520px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.adjustment-heading span {
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.result-row {
+  min-height: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.result-row span {
+  font-size: 12px;
+}
+
+.result-row strong {
+  font-size: 14px;
+}
+
+.total strong {
+  font-size: 22px;
+}
+
+.shared-action-bar {
+  padding: 8px 10px;
+}
+
+.shared-action-bar .primary-action {
+  min-height: 36px;
+}
+
+.shared-action-bar .secondary,
+.shared-action-bar .mini-button {
+  min-height: 32px;
+  padding: 7px 10px;
+  font-size: 12px;
+}
+
+.shared-action-note {
+  margin-top: 5px;
+  font-size: 10.5px;
+}
+
+@media (max-width: 760px) {
+  body {
+    padding-bottom: 82px;
+  }
+
+  .hero {
+    padding: 8px 0 6px;
+  }
+
+  .hero h1 {
+    max-width: 340px;
+    font-size: clamp(26px, 8vw, 34px);
+  }
+
+  .subtitle {
+    font-size: 12px;
+    line-height: 1.28;
+  }
+
+  .card {
+    padding: 10px !important;
+  }
+
+  .section-title h2,
+  .card h2 {
+    font-size: 17px;
+  }
+
+  .hours-panel,
+  .adjustment-section,
+  .info-note,
+  .pay-detail-panel,
+  .target-pay-panel,
+  .other-earnings-panel {
+    padding: 9px;
+  }
+
+  .empty-state,
+  .shared-empty-state {
+    padding: 7px 9px;
+  }
+
+  .empty-state span,
+  .shared-empty-state span {
+    display: none;
+  }
+
+  .hour-pill,
+  .earning-pill,
+  .suggestion-pill,
+  .amount-type-pill,
+  .pay-pill {
+    min-height: 25px;
+    padding: 4px 7px;
+    font-size: 9.5px;
+  }
+
+  .shared-action-bar {
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    border-radius: 18px 18px 0 0;
+  }
+
+  .shared-action-bar-inner {
+    display: block;
+  }
+
+  .shared-action-group-left,
+  .shared-action-group-right {
+    display: none;
+  }
+
+  .shared-action-group-center {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .mobile-actions-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 92px !important;
+    min-height: 42px !important;
+    padding: 9px 12px !important;
+    font-size: 12px !important;
+  }
+
+  .shared-action-bar .primary-action {
+    min-height: 42px;
+    font-size: 14px;
+  }
+
+  .shared-action-note {
+    display: none;
+  }
+
+  .mobile-actions-sheet {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: block;
+  }
+
+  .mobile-actions-sheet.hidden {
+    display: none;
+  }
+
+  .mobile-actions-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.58);
+  }
+
+  .mobile-actions-panel {
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 22px;
+    background: rgba(18,20,27,0.98);
+    box-shadow: 0 -24px 70px rgba(0,0,0,0.55);
+    padding: 10px;
+    backdrop-filter: blur(18px);
+  }
+
+  .mobile-actions-handle {
+    width: 44px;
+    height: 4px;
+    margin: 0 auto 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.22);
+  }
+
+  .mobile-actions-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 0 2px 8px;
+  }
+
+  .mobile-actions-header h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .mobile-actions-list {
+    display: grid;
+    gap: 7px;
+  }
+
+  .mobile-actions-list button {
+    width: 100%;
+    min-height: 48px;
+    padding: 10px 12px;
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.045);
+    color: #f8fafc;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .mobile-actions-list button strong,
+  .mobile-actions-list button span {
+    display: block;
+  }
+
+  .mobile-actions-list button strong {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  .mobile-actions-list button span {
+    color: rgba(255,255,255,0.62);
+    font-size: 11.5px;
+    line-height: 1.25;
   }
 }

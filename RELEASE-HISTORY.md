@@ -44,3 +44,4 @@ YYYY-MM-DD-before-tool-version-theme
 
 | 49 | 2026-06-09 | Paycheck v0.7.7 | UX Foundation | Compressed desktop and mobile UI density for a more professional calculator experience. |
 | 50 | 2026-06-09 | Paycheck v0.7.8 | Mobile Optimization | Improved mobile hero, estimated pay summary, section density, and sticky action bar. |
+| 51 | 2026-06-09 | Paycheck v0.7.9 | Professional Finish | Final UI polish pass with compact empty states, chips, result rows, and mobile Actions bottom sheet. |

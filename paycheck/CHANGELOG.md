@@ -1,3 +1,14 @@
+# Paycheck v0.7.9 — Professional Finish
+
+- Performed the final visual polish pass across desktop and mobile before shared component work.
+- Reduced empty-state height, chip size, profile summary height, result-row spacing, and sticky action bar density.
+- Added a mobile Actions bottom sheet so secondary actions no longer dominate the mobile screen.
+- Kept Calculate Paycheck as the primary mobile action.
+- Preserved all Paycheck calculations, saved settings, Copy Results, Print Report, shared report format, hidden ad slots, and no-live-ad behavior.
+- No formula or feature changes.
+
+---
+
 # Paycheck v0.7.8 — Mobile Optimization
 
 - Reduced the mobile hero further so users reach the calculator faster.

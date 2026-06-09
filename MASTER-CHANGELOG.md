@@ -10,6 +10,14 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ## 2026-06-09
 
+### Paycheck v0.7.9 — Professional Finish
+
+- Completed a final desktop and mobile polish pass before shared component work.
+- Reduced visual noise in empty states, chips, profile cards, result rows, and action controls.
+- Added a compact mobile Actions bottom sheet while keeping Calculate Paycheck as the primary action.
+
+---
+
 ### Paycheck v0.7.8 — Mobile Optimization
 
 - Reduced mobile hero, cards, chips, empty states, and action bar height for faster mobile use.
