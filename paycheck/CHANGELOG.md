@@ -1,3 +1,17 @@
+# Paycheck v0.8.1 — Progressive Disclosure Polish
+
+## 2026-06-09
+
+- Slimmed the Pay Details experience after Progressive Disclosure testing.
+- Reduced Pay Profile summary height and Pay Period visual weight.
+- Added spacing around the Estimated Paycheck Details disclosure so it no longer crowds adjacent result rows.
+- Normalized fonts across buttons, chips, disclosure controls, inputs, and add controls.
+- Restyled Add Premium Hours, Add Paid Leave, and Advanced Pay Rules controls to better match the Signal Labs chip/pill style.
+- Slightly reduced section badge size, helper-text prominence, input height, and desktop spacing.
+- Preserved all calculations, saved settings, Copy Results, Print Report, hidden ad slots, and shared report format.
+
+---
+
 # Paycheck v0.8 — Progressive Disclosure
 
 - Performed the final visual polish pass across desktop and mobile before shared component work.

@@ -2,11 +2,11 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: script.js
-Version: v0.8
+Version: v0.8.1
 Purpose: Tool-specific logic and event handling
 */
 
-const TOOL_VERSION = "v0.8";
+const TOOL_VERSION = "v0.8.1";
 const TOOL_THEME = "Progressive Disclosure";
 const STORAGE_KEY = "signalLabsPaycheckCalculatorV076";
 const LAYOUT_STORAGE_KEY = "signalLabsPaycheckLayoutV076";

@@ -1,34 +1,42 @@
-# Signal Labs Paycheck v0.8 Release
+# Signal Labs Paycheck v0.8.1 Release
 
 ## Version
 
-Paycheck v0.8 — Progressive Disclosure
+Paycheck v0.8.1 — Progressive Disclosure Polish
 
 ## Backup Folder
 
 ```text
-2026-06-09-before-paycheck-v0.8-professional-finish
+2026-06-09-before-paycheck-v0.8.1-progressive-disclosure-polish
 ```
 
-## Upload
+## Upload Instructions
 
-Copy the updated Paycheck files into:
+Copy the included files into the matching live locations.
 
 ```text
 paycheck/* -> /paycheck/
+MASTER-CHANGELOG.md -> /
+MASTER-ROADMAP.md -> /
+RELEASE-HISTORY.md -> /
+INSTALL.md -> /
 ```
 
-Also copy updated master documentation to the site root.
+## Expected Result
 
-## Source
-
-Previous release ZIP: signal-labs-paycheck-v0.7.8-mobile-optimization.zip
+- Pay Details is slimmer and easier to scan.
+- Pay Period is visually lighter.
+- Pay Profile summary is shorter.
+- Estimated Paycheck Details has better spacing.
+- Add Premium Hours, Add Paid Leave, and Advanced Pay Rules feel closer to the shared chip style.
+- Fonts are normalized across controls.
+- Calculations remain unchanged.
 
 ## Validation
 
-- Confirm footer/build shows v0.8.
-- Confirm style and script cache busting use v0.8.
-- Confirm mobile Actions opens and closes.
-- Confirm Calculate Paycheck remains visible as the primary action.
-- Confirm Save, Example, Reset, Copy, and Print work from the Actions sheet on mobile.
-- Confirm desktop action bar remains compact.
+- Confirm footer/build shows v0.8.1.
+- Confirm style and script cache busting use v0.8.1.
+- Confirm Paycheck still calculates.
+- Confirm Copy Results works.
+- Confirm Print Report works.
+- Confirm saved settings still load.

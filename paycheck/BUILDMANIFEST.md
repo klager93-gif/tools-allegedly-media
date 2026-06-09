@@ -4,20 +4,20 @@
 
 ## Current Build
 
-v0.8
+v0.8.1
 
 ## Theme
 
-Progressive Disclosure
+Progressive Disclosure Polish
 
 ---
 
 # Required Validation Before ZIP
 
 - [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.8.
-- [ ] Footer version shows v0.8.
-- [ ] Cache-busting references use v0.8 for script.js and current build labels.
+- [ ] Header versions show v0.8.1.
+- [ ] Footer version shows v0.8.1.
+- [ ] Cache-busting references use v0.8.1 for script.js and current build labels.
 - [ ] Pay Profile pills render.
 - [ ] Profile selection applies smart defaults without locking settings.
 - [ ] Premium Hours pills render.
@@ -31,8 +31,8 @@ Progressive Disclosure
 - [ ] Other Earnings, Specialty Pay, and Target Pay start collapsed by default.
 - [ ] Core sections remain open by default.
 - [ ] Saved layout state works.
-- [ ] Desktop hero, cards, pills, empty states, result rows, and action bar use v0.8 compact density.
-- [ ] Mobile hero, cards, chips, result rows, and action bar use v0.8 compact density.
+- [ ] Desktop hero, cards, pills, empty states, result rows, and action bar use v0.8.1 compact density.
+- [ ] Mobile hero, cards, chips, result rows, and action bar use v0.8.1 compact density.
 - [ ] Saved settings work.
 - [ ] Hidden ad slots remain disabled.
 - [ ] No live ads, ad provider scripts, tracking scripts, or ad requests are included.
@@ -45,7 +45,7 @@ Progressive Disclosure
 - [ ] Report footer uses shared Signal Labs footer treatment.
 - [ ] Print Report remains real HTML/text, not an image.
 
-## v0.8 Mobile Validation
+## v0.8.1 Mobile Validation
 
 - [ ] Mobile hero is smaller than v0.7.7.
 - [ ] Estimated Paycheck appears near the top on mobile.

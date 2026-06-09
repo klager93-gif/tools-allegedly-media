@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.8
+Version: v0.8.1
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -20,14 +20,14 @@ Purpose: Main application page
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.6.1">
-<link rel="stylesheet" href="style.css?v=0.7.9">
+<link rel="stylesheet" href="style.css?v=0.8.1">
 </head>
 <body>
 <main class="page">
 <header class="hero">
   <p class="eyebrow">Signal Labs</p>
   <h1>Paycheck Calculator</h1>
-  <p class="subtitle">Estimate take-home pay with the essentials first and advanced options when you need them.</p>
+  <p class="subtitle">Estimate take-home pay with essentials first and advanced options when needed.</p>
 </header>
 
 <div class="ad-slot ad-slot-top is-disabled" data-ad-slot="paycheck-top" data-ad-status="disabled" aria-hidden="true">
@@ -124,7 +124,7 @@ Purpose: Main application page
         </label>
       </div>
 
-      <div class="pay-detail-panel">
+      <div class="pay-detail-panel pay-period-panel">
         <div class="adjustment-heading">
           <h3>Pay Period</h3>
           <span>Used for reports, saved settings, and future projections.</span>
@@ -139,7 +139,7 @@ Purpose: Main application page
       </div>
 
       <details class="progressive-disclosure advanced-pay-settings">
-        <summary>Advanced Pay Settings</summary>
+        <summary>Advanced Pay Rules</summary>
         <div class="advanced-settings-grid">
           <div class="pay-detail-panel">
         <div class="adjustment-heading">
@@ -429,8 +429,8 @@ Purpose: Main application page
     </div>
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.8</p>
-      <p>Theme: Progressive Disclosure</p>
+      <p>Build: v0.8.1</p>
+      <p>Theme: Progressive Disclosure Polish</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -497,7 +497,7 @@ Purpose: Main application page
   </div>
 
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.8
+    Signal Labs · Paycheck Calculator · v0.8.1
     <br>
     Useful tools without the noise.
   </div>
@@ -539,6 +539,6 @@ Purpose: Main application page
 </div>
 
 <script src="../assets/global.js?v=0.6.1"></script>
-<script src="script.js?v=0.7.9"></script>
+<script src="script.js?v=0.8.1"></script>
 </body>
 </html>

@@ -8,6 +8,16 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ---
 
+
+## 2026-06-09
+
+### Paycheck v0.8.1 — Progressive Disclosure Polish
+
+- Polished the v0.8 progressive disclosure layout after live desktop and mobile review.
+- Slimmed Pay Details, Pay Period, profile summary, disclosure controls, and result spacing.
+- Normalized font behavior and brought add/disclosure controls closer to the shared chip style.
+
+---
 ## 2026-06-09
 
 ### Paycheck v0.8 — Progressive Disclosure

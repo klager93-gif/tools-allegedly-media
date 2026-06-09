@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: style.css
-Version: v0.8
+Version: v0.8.1
 Purpose: Tool-specific styles
 */
 
@@ -1700,7 +1700,7 @@ select:focus {
 }
 
 
-/* v0.8 Progressive Disclosure */
+/* v0.8.1 Progressive Disclosure Polish */
 .progressive-disclosure {
   margin-top: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1799,5 +1799,237 @@ select:focus {
 
   .progressive-disclosure > summary {
     padding: 11px 12px;
+  }
+}
+
+
+/* v0.8.1 — Progressive Disclosure Polish
+   Slims Pay Details, normalizes font behavior, aligns disclosure controls with chip styling, and improves result details spacing. */
+
+.paycheck-page,
+.paycheck-page *,
+button,
+input,
+select,
+textarea,
+summary {
+  font-family: inherit;
+}
+
+.step-badge {
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
+}
+
+.section-title {
+  gap: 11px;
+}
+
+.section-title h2 {
+  margin-bottom: 3px;
+}
+
+.section-title p {
+  font-size: 11px;
+  line-height: 1.25;
+  color: rgba(255,255,255,0.54);
+}
+
+.profile-panel {
+  padding: 11px 12px;
+}
+
+.profile-panel .adjustment-heading {
+  margin-bottom: 8px;
+}
+
+.profile-pill-row {
+  margin-bottom: 8px;
+}
+
+.profile-summary.empty-state {
+  margin-top: 8px;
+  padding: 7px 9px;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-summary.empty-state strong {
+  font-size: 11px;
+}
+
+.profile-summary.empty-state span {
+  font-size: 10.5px;
+  line-height: 1.25;
+}
+
+.pay-period-panel {
+  padding: 10px 12px;
+  margin-top: -2px;
+}
+
+.pay-period-panel .adjustment-heading {
+  margin-bottom: 7px;
+}
+
+.pay-period-panel .adjustment-heading h3 {
+  font-size: 14px;
+}
+
+.pay-period-panel .adjustment-heading span {
+  font-size: 10.5px;
+  line-height: 1.2;
+}
+
+.progressive-disclosure {
+  background: transparent;
+  border-color: rgba(148, 163, 184, .22);
+}
+
+.progressive-disclosure > summary {
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 8px 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255,255,255,0.92);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.progressive-disclosure.hours-disclosure {
+  display: inline-flex;
+  width: fit-content;
+  min-width: 0;
+  max-width: 100%;
+  margin-top: 8px;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.progressive-disclosure.hours-disclosure > summary {
+  min-height: 28px;
+  padding: 5px 10px;
+  border: 1px solid rgba(148, 163, 184, .30);
+  border-radius: 999px;
+  background: rgba(255,255,255,.035);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.progressive-disclosure.hours-disclosure > summary:hover {
+  border-color: rgba(34,197,94,.52);
+}
+
+.progressive-disclosure.hours-disclosure[open] {
+  display: block;
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, .20);
+  border-radius: 14px;
+  background: rgba(255,255,255,.018);
+  overflow: hidden;
+}
+
+.progressive-disclosure.hours-disclosure[open] > summary {
+  border: 0;
+  border-radius: 0;
+  background: rgba(255,255,255,.026);
+  padding: 9px 11px;
+}
+
+.progressive-disclosure > summary::after {
+  content: "";
+}
+
+.progressive-disclosure[open] > summary::after {
+  content: "";
+}
+
+.advanced-pay-settings > summary {
+  min-height: 30px;
+  width: fit-content;
+  padding: 6px 11px;
+  border: 1px solid rgba(148,163,184,.30);
+  border-radius: 999px;
+  background: rgba(255,255,255,.035);
+  font-size: 12px;
+}
+
+.advanced-pay-settings[open] > summary {
+  margin-bottom: 8px;
+}
+
+.result-details-disclosure {
+  margin: 8px 0 12px;
+}
+
+.result-details-disclosure > summary {
+  width: fit-content;
+  padding: 4px 0 6px;
+  font-size: 12px;
+}
+
+.result-details-disclosure[open] > summary {
+  margin-bottom: 6px;
+}
+
+.result-details-disclosure + .result-row {
+  margin-top: 10px;
+}
+
+.result-row {
+  min-height: 0;
+}
+
+@media (min-width: 861px) {
+  .step-card {
+    gap: 14px;
+  }
+
+  .form-grid {
+    gap: 10px;
+  }
+
+  label span {
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  input,
+  select {
+    min-height: 36px;
+    padding: 8px 11px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .step-badge {
+    width: 34px;
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .section-title p {
+    display: none;
+  }
+
+  .progressive-disclosure.hours-disclosure > summary,
+  .advanced-pay-settings > summary {
+    min-height: 34px;
+    padding: 7px 12px;
+    font-size: 14px;
+  }
+
+  .profile-summary.empty-state span {
+    display: block;
+  }
+
+  .result-details-disclosure {
+    margin-bottom: 14px;
   }
 }

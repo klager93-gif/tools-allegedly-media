@@ -6,11 +6,11 @@
 
 ## Current Version
 
-v0.8
+v0.8.1
 
 ## Theme
 
-Progressive Disclosure
+Progressive Disclosure Polish
 
 ---
 
@@ -32,13 +32,13 @@ Progressive Disclosure
 | v0.6 | Pay Profiles |
 | v0.7 | Other Earnings |
 | v0.7.5 | Specialty Pay |
-| v0.8 | Progressive Disclosure |
+| v0.8.1 | Progressive Disclosure Polish |
 
 ---
 
 # Upcoming Versions
 
-## Paycheck v0.8
+## Paycheck v0.8.1
 
 ### Theme
 

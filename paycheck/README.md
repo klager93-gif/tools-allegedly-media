@@ -6,11 +6,11 @@ Estimate regular hours, premium hours, benefit hours, deductions, and take-home 
 
 # Current Version
 
-v0.8
+v0.8.1
 
 ## Theme
 
-Progressive Disclosure
+Progressive Disclosure Polish
 
 ---
 

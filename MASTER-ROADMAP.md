@@ -19,11 +19,11 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 # Near-Term Roadmap
 
-## Paycheck v0.8
+## Paycheck v0.8.1
 
 ### Theme
 
-Progressive Disclosure
+Progressive Disclosure Polish
 
 ### Status
 
@@ -72,7 +72,7 @@ Completed standards release.
 ---
 
 
-## Paycheck v0.8
+## Paycheck v0.8.1
 
 ### Theme
 
