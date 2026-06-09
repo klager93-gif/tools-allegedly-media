@@ -134,3 +134,14 @@ Before planning, coding, packaging, or releasing, review:
 # Home v0.6 Shared Report System
 
 Home v0.6 adds Paycheck Calculator to the ecosystem and updates shared navigation. Desktop navigation uses pill-style links. Mobile navigation uses a Menu button that expands or collapses tool links.
+
+
+---
+
+# Home v0.6.2 Standards v2.0
+
+Before starting a new work session, follow the mandatory Daily Startup Procedure in STANDARDS.md.
+
+Every release response must disclose the source used to build the package.
+
+Hotfixes may replace only affected files, but they still require changelog, master changelog, and release history updates.

@@ -1,16 +1,16 @@
-# Signal Labs Home
-
-# ROADMAP
-
----
+# Signal Labs Home Roadmap
 
 ## Last Updated
 
-2026-06-08
+2026-06-09
 
 ## Current Version
 
-**v0.6.1**
+**v0.6.2**
+
+## Theme
+
+Standards v2.0
 
 ---
 
@@ -18,42 +18,20 @@
 
 | Version | Theme |
 |---|---|
-| v0.6 | Shared Report System |
+| v0.6.2 | Standards v2.0 |
+| v0.6.1 | Shared Report System |
+| v0.6 | Shared UX Foundation |
+| v0.5.1 | Navigation Refresh & Paycheck Integration |
 | v0.5 | Standards Expansion & Sync Cleanup |
 | v0.4.1 | Master Documentation |
 | v0.4 | Release Standards Update |
 | v0.3 | UI Density Refactor |
 | v0.2.7 | Release Management System |
 | v0.2.6 | Backup & Recovery System |
-| v0.2.5 | Versioning Guidance |
-| v0.2.4 | Modal UX Polish |
-| v0.2.3 | Standards Manifest Adoption |
-| v0.2.2.2 | Standards Preservation |
-| v0.2.2.1 | Disabled Ad Slot Fix |
-| v0.2.2 | Ad Slot Framework |
-| v0.2.1 | Navigation Version Label Fix |
-| v0.2 | Navigation |
-| v0.1.1 | Root Cleanup |
-| v0.1 | Initial Root Prototype |
 
 ---
 
-# Upcoming Versions
-
-## Paycheck v0.4
-
-### Theme
-
-Rates, Multipliers & Rules
-
-### Planned Features
-
-- Improve Pay Details.
-- Add shift differential foundation.
-- Refine premium hour multipliers.
-- Prepare Target Pay for a later release.
-
----
+# Upcoming Home Versions
 
 ## Home v0.7
 
@@ -61,33 +39,48 @@ Rates, Multipliers & Rules
 
 Shared Component Foundation
 
-### Planned Features
+### Planned Focus
 
-- Evaluate shared components for deductions, dynamic rows, reports, modals, and action bars.
-- Continue reducing duplicated UI patterns across tools.
+- Begin extracting reusable front-end components when Paycheck patterns stabilize.
+- Review shared action bar, report, empty state, modal, and pill systems.
+- Prepare future tools to reuse stable Signal Labs patterns.
 
 ---
 
-## Time Off v1.0
+## Home v0.8
 
 ### Theme
 
-Stable Planner Release
+Mobile/PWA Foundation
 
-### Planned Features
+### Planned Focus
 
-- Validate Print Report.
-- Validate Copy Results.
-- Clean documentation and manifests.
+- Review installable app requirements.
+- Review icons and manifest fields.
+- Prepare mobile-first testing requirements.
 
 ---
 
-# Future Ideas
+# Tool Priorities
 
-- Theme system.
-- PWA readiness.
-- Signal Schedule.
-- PTO Cash-Out Calculator.
-- Shift Differential Calculator.
-- Holiday Pay Calculator.
-- Job Offer Comparison Calculator.
+## Paycheck v0.6
+
+Pay Profiles.
+
+## Paycheck v0.7
+
+Other Earnings.
+
+## Paycheck v0.8
+
+Shared Component Preparation.
+
+## Paycheck v0.9
+
+Pre-1.0 Stabilization and Overtime strategy review.
+
+---
+
+# Long-Term
+
+Signal Labs becomes a cohesive tool suite for work, pay, time off, scheduling, career, money, and public-safety planning.

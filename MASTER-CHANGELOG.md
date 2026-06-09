@@ -8,6 +8,18 @@ Tool-specific CHANGELOG.md files contain detailed release notes.
 
 ---
 
+## 2026-06-09
+
+### Home v0.6.2 — Standards v2.0
+
+**Summary**
+
+- Reorganized Signal Labs Development Standards into a clearer priority order.
+- Added source preference, mandatory daily startup comparison, hotfix, failed-release, and release-history rules.
+- No calculator logic or shared asset changes.
+
+---
+
 ## 2026-06-08
 
 ### Paycheck v0.5 — Target Pay
