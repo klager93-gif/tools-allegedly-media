@@ -1,55 +1,27 @@
-# Restore Instructions
+# Restore Instructions — Home v0.8.0
 
 ## Release
 
-Home v0.7.1 — Version Synchronization
+Home v0.8.0 — Signal Labs Design System
 
-## Before Upload
+## Restore Previous Version
 
-Create or confirm an external backup.
+If this release causes problems:
 
-Recommended backup folder:
+1. Restore the external backup created before upload.
+2. Revert Home files to the previous successful Home release.
+3. Confirm `index.html` no longer references `assets/global.css?v=0.8.0` or `assets/global.js?v=0.8.0` if reverting shared assets.
+4. Redeploy through GitHub/Coolify.
+5. Verify Home and tool pages load.
 
-```text
-2026-06-10-before-home-v0.7.1-version-synchronization
-```
-
-## Upload
-
-Replace the included files at the repository root.
-
-## Files Included
-
-See `FILEMANIFEST.md`.
-
-## Post-Upload Verification
-
-After deployment, verify:
+## Files Most Likely To Revert
 
 ```text
-https://tools.allegedly-media.com/
+index.html
+assets/global.css
+assets/global.js
 ```
 
-Expected Home page references:
+## Documentation Files
 
-```text
-Build: v0.7.1
-Theme: Version Synchronization
-Signal Labs · Home · v0.7.1
-```
-
-Also verify:
-
-```text
-/STANDARDS.md
-/UX_STANDARDS.md
-/SCRIPT_STANDARDS.md
-/DOCUMENTATION_STANDARDS.md
-/VERSIONING_STANDARDS.md
-/WORKFLOW_STANDARDS.md
-/CHANGELOG.md
-```
-
-## Rollback
-
-If deployment fails, restore the previous successful Home v0.7.0 package or repository backup.
+If reverting fully, also restore the documentation files included in this release package.

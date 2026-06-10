@@ -1,4 +1,4 @@
-# Signal Labs UX Standards v2.1
+# Signal Labs UX Standards v2.2
 
 ## Purpose
 
@@ -215,3 +215,49 @@ A user should understand:
 - What they can click.
 - What changed after they clicked.
 - What the result means.
+
+
+---
+# UX Rule 13 — Signal Labs Design System
+
+Shared UI components should use the same visual language:
+
+- Rounded dark glass containers.
+- Soft borders.
+- Compact pill-style controls.
+- A clear primary action.
+- Secondary actions grouped around the primary action.
+- Mobile-first wrapping and stacking.
+
+## Tool Action Bars
+
+Tool action bars should follow this structure when possible:
+
+```text
+Setup actions | Primary action | Output actions
+```
+
+Examples:
+
+```text
+Save Settings · Load Example · Reset | Calculate | Copy Results · Print Report
+```
+
+The primary action should be visually strongest. Secondary actions should stay compact.
+
+## Modals and Popups
+
+Popups, modals, confirms, alerts, and prompt-style interactions should share:
+
+- Same dark glass styling.
+- Same border radius.
+- Same close behavior.
+- Same button hierarchy.
+- Same spacing rhythm.
+- Same mobile treatment.
+
+Do not use inconsistent one-off popup styles when a shared modal/dialog pattern exists.
+
+## Footer/Header Discipline
+
+Global header/footer styling should be consistent across tools, but footer/header content should only change when release identity, navigation, branding, or metadata behavior actually changes.

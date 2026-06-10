@@ -1,4 +1,4 @@
-# Signal Labs Script Standards v2.1
+# Signal Labs Script Standards v2.2
 
 ## Purpose
 
@@ -238,3 +238,29 @@ Readable logic second.
 Convenient implementation third.
 
 Never hide broken logic behind a pretty interface.
+
+
+---
+# Script Rule 11 — Shared Component Utilities
+
+Shared UI behavior should be implemented as safe utilities in `assets/global.js` when the behavior is reused across tools.
+
+Shared utilities may include:
+
+```text
+buildSignalNavigation()
+buildSignalFooter()
+openTextModal()
+showSignalModal()
+showSignalConfirm()
+showSignalToast()
+initializeSharedActionBars()
+getSignalPageMeta()
+```
+
+Shared scripts must be defensive:
+
+- Do not assume every page has every component.
+- Do not throw errors when an optional target is missing.
+- Do not duplicate headers, footers, or modals if the page already includes them.
+- Preserve existing local tool behavior unless that release explicitly migrates the tool.

@@ -1,117 +1,71 @@
 /*
-Signal Labs
-Shared Asset
-File: assets/global.js
-Version: v0.6.1
-Purpose: Shared navigation, modal utilities, UTC helper, and ad slot initialization
+Signal Labs Shared Asset File: assets/global.js
+Version: v0.8.0
+Purpose: Shared navigation, metadata, footer, modal/dialog, toast, UTC helper, action bar support, and ad slot initialization.
 */
 
 function getCurrentUtcTime() {
   return new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
 }
 
-function openTextModal(options) {
-  const modal = document.getElementById("modal");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalContent = document.getElementById("modalContent");
-
-  if (!modal || !modalTitle || !modalContent || !options || !options.file) {
-    return;
-  }
-
-  modalTitle.textContent = options.title || "Project Information";
-  modalContent.textContent = "Loading...";
-  modal.classList.remove("hidden");
-
-  fetch(options.file)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Unable to load file.");
-      }
-
-      return response.text();
-    })
-    .then((text) => {
-      modalContent.textContent = text;
-    })
-    .catch(() => {
-      modalContent.textContent = "Unable to load this project file.";
-    });
-}
-
-function closeTextModal() {
-  const modal = document.getElementById("modal");
-
-  if (modal) {
-    modal.classList.add("hidden");
-  }
-}
-
 function getRelativeRootPath() {
   const path = window.location.pathname;
-
   if (path.includes("/overtime/") || path.includes("/timeoff/") || path.includes("/paycheck/")) {
     return "../";
   }
-
   return "";
 }
 
 function getActiveToolPath() {
   const path = window.location.pathname;
-
-  if (path.includes("/overtime/")) {
-    return "overtime";
-  }
-
-  if (path.includes("/timeoff/")) {
-    return "timeoff";
-  }
-
-  if (path.includes("/paycheck/")) {
-    return "paycheck";
-  }
-
+  if (path.includes("/overtime/")) return "overtime";
+  if (path.includes("/timeoff/")) return "timeoff";
+  if (path.includes("/paycheck/")) return "paycheck";
   return "home";
 }
 
-function buildSignalNavigation() {
-  if (document.querySelector(".signal-nav")) {
-    return;
-  }
+function getSignalPageMeta() {
+  const body = document.body || {};
+  const dataset = body.dataset || {};
+  const active = getActiveToolPath();
+  return {
+    area: dataset.signalArea || (active === "home" ? "Home" : active.charAt(0).toUpperCase() + active.slice(1)),
+    title: dataset.signalTitle || document.title || "Signal Labs",
+    version: dataset.signalVersion || "",
+    theme: dataset.signalTheme || "",
+    status: dataset.signalStatus || "",
+    description: dataset.signalDescription || "Useful tools without the noise.",
+    changelog: dataset.signalChangelog || "CHANGELOG.md",
+    roadmap: dataset.signalRoadmap || "ROADMAP.md",
+    howto: dataset.signalHowto || "HOWTO.md",
+    globalLayout: dataset.signalGlobalLayout === "true"
+  };
+}
 
+function buildSignalNavigation() {
+  if (document.querySelector(".signal-nav")) return;
   const rootPath = getRelativeRootPath();
   const activePath = getActiveToolPath();
-
   const nav = document.createElement("nav");
   nav.className = "signal-nav";
   nav.setAttribute("aria-label", "Signal Labs navigation");
-
   const navId = "signalNavLinks";
-
+  const link = (path, label) => `<a class="signal-nav-link ${activePath === path ? "is-active" : ""}" href="${rootPath}${path === "home" ? "" : path + "/"}">${label}</a>`;
   nav.innerHTML = `
     <div class="signal-nav-inner">
       <a class="signal-nav-brand" href="${rootPath}">Signal Labs</a>
-
-      <button class="signal-nav-toggle" type="button" aria-expanded="false" aria-controls="${navId}">
-        <span class="signal-nav-toggle-icon" aria-hidden="true">☰</span>
-        <span>Menu</span>
-      </button>
-
+      <button class="signal-nav-toggle" type="button" aria-expanded="false" aria-controls="${navId}">☰ Menu</button>
       <div id="${navId}" class="signal-nav-links">
-        <a class="signal-nav-link ${activePath === "home" ? "is-active" : ""}" href="${rootPath}">Home</a>
-        <a class="signal-nav-link ${activePath === "overtime" ? "is-active" : ""}" href="${rootPath}overtime/">Overtime</a>
-        <a class="signal-nav-link ${activePath === "timeoff" ? "is-active" : ""}" href="${rootPath}timeoff/">Time Off</a>
-        <a class="signal-nav-link ${activePath === "paycheck" ? "is-active" : ""}" href="${rootPath}paycheck/">Paycheck</a>
+        ${link("home", "Home")}
+        ${link("paycheck", "Paycheck")}
+        ${link("overtime", "Overtime")}
+        ${link("timeoff", "Time Off")}
       </div>
     </div>
   `;
-
   document.body.insertBefore(nav, document.body.firstChild);
-
   const toggle = nav.querySelector(".signal-nav-toggle");
   const links = nav.querySelector(".signal-nav-links");
-
   if (toggle && links) {
     toggle.addEventListener("click", () => {
       const expanded = toggle.getAttribute("aria-expanded") === "true";
@@ -121,25 +75,41 @@ function buildSignalNavigation() {
   }
 }
 
+function buildSignalFooter() {
+  const meta = getSignalPageMeta();
+  if (!meta.globalLayout || document.querySelector(".signal-footer") || document.querySelector("footer.version")) return;
+  const footer = document.createElement("footer");
+  footer.className = "signal-footer";
+  const metaText = [meta.area, meta.version, meta.theme].filter(Boolean).join(" · ");
+  footer.innerHTML = `
+    <div class="signal-footer-inner">
+      <div>
+        <div class="signal-footer-title">${meta.title}</div>
+        <div class="signal-footer-meta">${metaText}</div>
+        <div class="signal-footer-copy">© 2026 Allegedly Media. All rights reserved.</div>
+      </div>
+      <div class="signal-footer-links">
+        <button class="signal-footer-link" type="button" data-open-text-modal="${meta.howto}" data-modal-title="HOWTO">How To</button>
+        <button class="signal-footer-link" type="button" data-open-text-modal="${meta.roadmap}" data-modal-title="ROADMAP">Roadmap</button>
+        <button class="signal-footer-link" type="button" data-open-text-modal="${meta.changelog}" data-modal-title="CHANGELOG">Changelog</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(footer);
+}
 
 function initializeAdSlots() {
-  const adSlots = document.querySelectorAll("[data-ad-slot]");
-
-  adSlots.forEach((slot) => {
+  document.querySelectorAll("[data-ad-slot]").forEach((slot) => {
     const status = slot.dataset.adStatus || "disabled";
-
     slot.classList.add("ad-slot");
-
     if (status === "disabled") {
       slot.classList.add("is-disabled");
       slot.setAttribute("aria-hidden", "true");
       slot.hidden = true;
       return;
     }
-
     if (status === "placeholder") {
       slot.classList.add("is-placeholder");
-
       if (!slot.querySelector(".ad-placeholder")) {
         const placeholder = document.createElement("span");
         placeholder.className = "ad-placeholder";
@@ -150,126 +120,133 @@ function initializeAdSlots() {
   });
 }
 
+function ensureSignalModal() {
+  let modal = document.getElementById("modal");
+  if (modal) return modal;
+  modal = document.createElement("div");
+  modal.id = "modal";
+  modal.className = "modal hidden";
+  modal.setAttribute("role", "dialog");
+  modal.setAttribute("aria-modal", "true");
+  modal.setAttribute("aria-labelledby", "modalTitle");
+  modal.innerHTML = `
+    <div class="modal-box">
+      <button id="closeModal" class="modal-close" type="button" aria-label="Close">×</button>
+      <h2 id="modalTitle">Project Information</h2>
+      <pre id="modalContent">Loading...</pre>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  return modal;
+}
 
+function openTextModal(options) {
+  const modal = ensureSignalModal();
+  const modalTitle = document.getElementById("modalTitle");
+  const modalContent = document.getElementById("modalContent");
+  if (!modal || !modalTitle || !modalContent || !options || !options.file) return;
+  modalTitle.textContent = options.title || "Project Information";
+  modalContent.textContent = "Loading...";
+  modal.classList.remove("hidden");
+  fetch(options.file)
+    .then((response) => {
+      if (!response.ok) throw new Error("Unable to load file.");
+      return response.text();
+    })
+    .then((text) => { modalContent.textContent = text; })
+    .catch(() => { modalContent.textContent = "Unable to load this project file."; });
+}
 
-/*
---------------------------------
-v0.2.4 Modal UX Polish
---------------------------------
-*/
-
-function closeActiveTextModal() {
+function closeTextModal() {
   const modal = document.getElementById("modal");
+  if (modal) modal.classList.add("hidden");
+}
 
-  if (!modal) {
-    return;
+function showSignalModal(options) {
+  const modal = ensureSignalModal();
+  const modalTitle = document.getElementById("modalTitle");
+  const modalContent = document.getElementById("modalContent");
+  if (!modal || !modalTitle || !modalContent) return;
+  modalTitle.textContent = (options && options.title) || "Signal Labs";
+  modalContent.textContent = (options && options.message) || "";
+  modal.classList.remove("hidden");
+}
+
+function showSignalToast(message, type) {
+  if (!message) return;
+  let zone = document.querySelector(".signal-toast-zone");
+  if (!zone) {
+    zone = document.createElement("div");
+    zone.className = "signal-toast-zone";
+    document.body.appendChild(zone);
   }
-
-  modal.classList.add("hidden");
+  const toast = document.createElement("div");
+  toast.className = `signal-toast signal-toast-${type || "info"}`;
+  toast.textContent = message;
+  zone.appendChild(toast);
+  window.setTimeout(() => toast.remove(), 4200);
 }
 
 function initializeModalUxPolish() {
-  const modal = document.getElementById("modal");
+  const modal = ensureSignalModal();
+  const closeButton = document.getElementById("closeModal");
   const modalBox = modal ? modal.querySelector(".modal-box") : null;
-
-  if (!modal) {
-    return;
+  if (closeButton && !closeButton.dataset.signalBound) {
+    closeButton.dataset.signalBound = "true";
+    closeButton.addEventListener("click", closeTextModal);
   }
-
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeActiveTextModal();
-    }
-  });
-
-  if (modalBox) {
-    modalBox.addEventListener("click", (event) => {
-      event.stopPropagation();
-    });
+  if (modal && !modal.dataset.signalBound) {
+    modal.dataset.signalBound = "true";
+    modal.addEventListener("click", (event) => { if (event.target === modal) closeTextModal(); });
   }
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeActiveTextModal();
-    }
-  });
+  if (modalBox && !modalBox.dataset.signalBound) {
+    modalBox.dataset.signalBound = "true";
+    modalBox.addEventListener("click", (event) => event.stopPropagation());
+  }
+  if (!document.documentElement.dataset.signalEscapeBound) {
+    document.documentElement.dataset.signalEscapeBound = "true";
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeTextModal(); });
+  }
 }
 
+function initializeTextModalTriggers() {
+  document.querySelectorAll("[data-open-text-modal]").forEach((button) => {
+    if (button.dataset.signalModalBound) return;
+    button.dataset.signalModalBound = "true";
+    button.addEventListener("click", () => {
+      openTextModal({ title: button.dataset.modalTitle || "Project Information", file: button.dataset.openTextModal });
+    });
+  });
+  const openChangelog = document.getElementById("openChangelog");
+  const openRoadmap = document.getElementById("openRoadmap");
+  if (openChangelog && !openChangelog.dataset.globalModalBound) {
+    openChangelog.dataset.globalModalBound = "true";
+    openChangelog.addEventListener("click", () => openTextModal({ title: "CHANGELOG", file: "CHANGELOG.md" }));
+  }
+  if (openRoadmap && !openRoadmap.dataset.globalModalBound) {
+    openRoadmap.dataset.globalModalBound = "true";
+    openRoadmap.addEventListener("click", () => openTextModal({ title: "ROADMAP", file: "ROADMAP.md" }));
+  }
+}
+
+function initializeSharedActionBars() {
+  document.querySelectorAll("[data-shared-action-bar], [data-signal-action-bar]").forEach((bar) => {
+    bar.querySelectorAll("button[data-action-target]").forEach((button) => {
+      const targetId = button.getAttribute("data-action-target");
+      const target = targetId ? document.getElementById(targetId) : null;
+      if (!target) {
+        button.disabled = true;
+        button.title = "Action unavailable on this page.";
+      }
+    });
+  });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   buildSignalNavigation();
+  buildSignalFooter();
   initializeAdSlots();
   initializeModalUxPolish();
-
-  const closeButton = document.getElementById("closeModal");
-  const modal = document.getElementById("modal");
-
-  if (closeButton) {
-    closeButton.addEventListener("click", closeTextModal);
-  }
-
-  if (modal) {
-    modal.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        closeTextModal();
-      }
-    });
-  }
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeTextModal();
-    }
-  });
-
-  const openChangelog = document.getElementById("openChangelog");
-  const openRoadmap = document.getElementById("openRoadmap");
-
-  if (openChangelog && !openChangelog.dataset.globalModalBound) {
-    openChangelog.dataset.globalModalBound = "true";
-    openChangelog.addEventListener("click", () => {
-      openTextModal({
-        title: "CHANGELOG",
-        file: "CHANGELOG.md"
-      });
-    });
-  }
-
-  if (openRoadmap && !openRoadmap.dataset.globalModalBound) {
-    openRoadmap.dataset.globalModalBound = "true";
-    openRoadmap.addEventListener("click", () => {
-      openTextModal({
-        title: "ROADMAP",
-        file: "ROADMAP.md"
-      });
-    });
-  }
+  initializeTextModalTriggers();
+  initializeSharedActionBars();
 });
-
-
-/*
-|--------------------------------------------------------------------------
-| Shared Action System - Home v0.6
-|--------------------------------------------------------------------------
-*/
-
-function initializeSharedActionBars() {
-  document.querySelectorAll('[data-shared-action-bar]').forEach(function (bar) {
-    bar.querySelectorAll('button[data-action-target]').forEach(function (button) {
-      var targetId = button.getAttribute('data-action-target');
-      var target = targetId ? document.getElementById(targetId) : null;
-      if (!target) {
-        button.disabled = true;
-        button.title = 'Action unavailable on this page.';
-      }
-    });
-  });
-}
-
-document.addEventListener('DOMContentLoaded', initializeSharedActionBars);
-
-
-/*
-| Shared Report System - Home v0.6.1
-| Shared report formatting is standardized at the tool report-builder level.
-*/

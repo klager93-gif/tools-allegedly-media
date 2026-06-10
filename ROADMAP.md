@@ -1,108 +1,44 @@
 # Signal Labs Home Roadmap
 
-## Last Updated
+## Current
 
-2026-06-10
+### v0.8.0 — Signal Labs Design System
 
-## Current Version
+Status: Built
 
-**v0.7.1**
-
-## Theme
-
-Version Synchronization
-
----
-
-# Completed Versions
-
-| Version | Theme |
-|---|---|
-| v0.7.1 | Version Synchronization |
-| v0.7.0 | Standards Architecture |
-| v0.6.2 | Standards v2.0 |
-| v0.6.1 | Shared Report System |
-| v0.6 | Shared UX Foundation |
-| v0.5.1 | Navigation Refresh & Paycheck Integration |
-| v0.5 | Standards Expansion & Sync Cleanup |
-| v0.4.1 | Master Documentation |
-| v0.4 | Release Standards Update |
-| v0.3 | UI Density Refactor |
-| v0.2.7 | Release Management System |
-| v0.2.6 | Backup & Recovery System |
+- Shared global visual language foundation.
+- Shared action bar pattern.
+- Shared modal/dialog pattern.
+- Shared toast pattern.
+- Metadata-aware global footer foundation.
+- Home public/admin changelog split.
 
 ---
 
-# Upcoming Home Versions
+## Next Home Candidates
 
-## Home v0.7.2
+### Dynamic Global Layout
 
-### Theme
+- Metadata-driven global header.
+- Metadata-driven global footer across all tools.
+- Tool navigation and breadcrumbs.
+- Footer links pointing to public changelogs.
 
-Standards Refinement
+### Documentation Architecture
 
-### Planned Focus
+- Finalize public/admin changelog rules.
+- Redefine `MASTER-CHANGELOG.md` as the append-only ecosystem chronology.
+- Evaluate whether `RELEASE-HISTORY.md` should fold into the master changelog.
 
-- Review standards architecture after first use.
-- Tighten unclear rule language.
-- Add examples where needed.
-- Confirm all standards files are linked from Home documentation.
+### Component Standards
 
----
-
-## Home v0.8
-
-### Theme
-
-Shared Component Foundation
-
-### Planned Focus
-
-- Begin extracting reusable front-end components when Paycheck patterns stabilize.
-- Review shared action bar, report, empty state, modal, card, and pill systems.
-- Prepare future tools to reuse stable Signal Labs patterns.
+- Create deeper standards for buttons, cards, modals, action bars, empty states, and forms.
 
 ---
 
-## Home v0.9
+## Tool Migration Candidates
 
-### Theme
-
-Mobile/PWA Foundation
-
-### Planned Focus
-
-- Review installable app requirements.
-- Review icons and manifest fields.
-- Prepare mobile-first testing requirements.
-
----
-
-# Tool Priorities
-
-## Paycheck
-
-- Pay Profiles.
-- Other Earnings.
-- Shared Component Preparation.
-- Pre-1.0 Stabilization.
-
-## Overtime
-
-Feature frozen while Paycheck becomes the flagship paycheck system.
-
-Allowed work:
-
-- Critical bug fixes.
-- Documentation corrections.
-- Shared-pattern sync only when necessary.
-
-## Time Off
-
-Stable but awaiting future cleanup, report validation, and possible UX overhaul.
-
----
-
-# Long-Term
-
-Signal Labs becomes a cohesive tool suite for work, pay, time off, scheduling, career, money, and public-safety planning.
+- Paycheck adopts global metadata/footer system.
+- Overtime adopts shared action bar pattern.
+- Time Off adopts shared action bar pattern.
+- Tools migrate popups/modals to shared modal system.

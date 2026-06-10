@@ -1,4 +1,4 @@
-# Signal Labs Versioning Standards v2.1.1
+# Signal Labs Versioning Standards v2.2
 
 ## Purpose
 
@@ -286,3 +286,13 @@ If cache-busting values are intentionally left unchanged, document that decision
 The version number is a promise.
 
 The package, documentation, changelog, roadmap, and release notes must all tell the same story.
+
+
+---
+# Versioning Rule 15 — Shared Asset Versioning
+
+When `assets/global.css` or `assets/global.js` changes, update cache-busting references on every affected page included in the release package.
+
+If a tool is not included in the release package, disclose that the shared asset changed and that tool migration or cache-busting may be handled in a future tool release.
+
+Shared asset versions should reflect the Home/global release that changed them.

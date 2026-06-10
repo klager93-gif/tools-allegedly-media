@@ -1,4 +1,4 @@
-# Signal Labs Development Standards v2.1.1
+# Signal Labs Development Standards v2.2
 
 ## Purpose
 
@@ -414,3 +414,29 @@ Storage is cheap. Lost work is expensive.
 # Constitution Note — Version Synchronization
 
 Every release must verify visible and hidden version references across affected pages and documentation. Footer version updates are required when a page or tool version changes, but footer wording/layout should not be changed without an explicit footer, navigation, branding, or layout reason.
+
+
+---
+# Rule 19 — Shared Design System
+
+Signal Labs shared UI patterns should be treated as reusable systems, not one-off page decorations.
+
+The shared design system includes:
+
+```text
+Global header
+Global navigation
+Global footer
+Tool action bars
+Cards
+Buttons
+Pills
+Empty states
+Modals / dialogs
+Toasts / notifications
+Metadata display
+```
+
+Shared design changes should be reviewed against Home, Paycheck, Overtime, Time Off, and future tools before release.
+
+Do not force every tool to adopt a new shared component immediately. Introduce global components safely, then migrate tools in future appropriate releases.

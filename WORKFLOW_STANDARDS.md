@@ -1,4 +1,4 @@
-# Signal Labs Workflow Standards v2.1.1
+# Signal Labs Workflow Standards v2.2
 
 ## Purpose
 
@@ -419,3 +419,32 @@ Work by standards.
 Package only after validation.
 
 End with a clear release state.
+
+
+---
+# Workflow Rule 15 — Shared Design System Releases
+
+Before building a release that modifies shared layout, header, footer, nav, action bars, modals, or shared visual components:
+
+1. Review `UX_STANDARDS.md`.
+2. Review `SCRIPT_STANDARDS.md`.
+3. Review `VERSIONING_STANDARDS.md`.
+4. Identify which tools may be affected.
+5. State whether tools are being migrated now or only prepared for future migration.
+6. Validate that optional global components do not duplicate existing local components.
+
+## Required Design System Validation
+
+```text
+Global navigation checked.
+Global footer behavior checked.
+Action bar pattern checked.
+Modal/dialog pattern checked.
+Mobile behavior checked.
+Existing tool pages considered.
+Cache-busting updated for changed shared assets.
+```
+
+Principle:
+
+> Shared components should make future releases easier, not surprise existing tools.

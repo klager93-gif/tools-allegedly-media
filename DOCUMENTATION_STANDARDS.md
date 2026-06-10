@@ -1,4 +1,4 @@
-# Signal Labs Documentation Standards v2.1
+# Signal Labs Documentation Standards v2.2
 
 ## Purpose
 

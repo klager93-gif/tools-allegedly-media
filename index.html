@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Labs Home
 File: index.html
-Version: v0.7.1
-Purpose: Home tool directory page
+Version: v0.8.0
+Purpose: Home tool directory page with Signal Labs Design System foundation
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,11 +19,22 @@ Purpose: Home tool directory page
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="assets/global.css?v=0.6.1">
+<link rel="stylesheet" href="assets/global.css?v=0.8.0">
 </head>
-<body>
-<main class="page">
-<header class="hero">
+<body
+  data-signal-global-layout="true"
+  data-signal-area="Home"
+  data-signal-title="Signal Labs"
+  data-signal-version="v0.8.0"
+  data-signal-theme="Signal Labs Design System"
+  data-signal-status="Active Development"
+  data-signal-description="Useful tools without the noise."
+  data-signal-changelog="PUBLIC_CHANGELOG.md"
+  data-signal-roadmap="ROADMAP.md"
+  data-signal-howto="HOWTO.md"
+>
+<main class="page signal-page-shell">
+<header class="hero signal-hero">
   <p class="eyebrow">Signal Labs</p>
   <h1>Useful tools without the noise.</h1>
   <p class="subtitle">Lightweight calculators and planning tools built for real-life decisions.</p>
@@ -40,6 +51,12 @@ Purpose: Home tool directory page
   </div>
 
   <div class="tool-grid">
+    <a class="tool-card" href="paycheck/">
+      <span class="tool-kicker">Work</span>
+      <strong>Paycheck Calculator</strong>
+      <p>Estimate gross pay, taxes, deductions, target pay, and take-home pay.</p>
+    </a>
+
     <a class="tool-card" href="overtime/">
       <span class="tool-kicker">Work</span>
       <strong>Overtime Calculator</strong>
@@ -51,41 +68,32 @@ Purpose: Home tool directory page
       <strong>Time Off Planner</strong>
       <p>Project vacation, sick time, personal time, comp time, holidays, planned time off, caps, and policy reminders.</p>
     </a>
-
-    <a class="tool-card" href="paycheck/">
-      <span class="tool-kicker">Work</span>
-      <strong>Paycheck Calculator</strong>
-      <p>Estimate gross pay, taxes, deductions, target pay, and take-home pay.</p>
-    </a>
   </div>
 </section>
 
 <section class="card status-card">
   <h2>Project Status</h2>
-  <div class="summary-card">
-    <p>Build: v0.7.1</p>
-    <p>Theme: Version Synchronization</p>
-    <p>Status: Active Development</p>
+  <div class="summary-card signal-meta-card">
+    <p><strong>Build:</strong> v0.8.0</p>
+    <p><strong>Theme:</strong> Signal Labs Design System</p>
+    <p><strong>Status:</strong> Active Development</p>
   </div>
+</section>
+
+<section class="card status-card">
+  <h2>Design System Foundation</h2>
+  <p>This release establishes shared component patterns for future headers, footers, action bars, modals, dialogs, toasts, cards, buttons, pills, and metadata display.</p>
 </section>
 </main>
 
-<footer class="version">
-  <div class="footer-actions">
-    <button id="openChangelog" type="button">Changelog</button>
-    <button id="openRoadmap" type="button">Roadmap</button>
-  </div>
-  <div class="footer-copy">Signal Labs · Home · v0.7.1<br>Useful tools without the noise.</div>
-</footer>
-
-<div id="modal" class="modal hidden">
+<div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box">
-    <button id="closeModal" class="modal-close" type="button">×</button>
+    <button id="closeModal" class="modal-close" type="button" aria-label="Close">×</button>
     <h2 id="modalTitle">Project Information</h2>
     <pre id="modalContent">Loading...</pre>
   </div>
 </div>
 
-<script src="assets/global.js?v=0.6.1"></script>
+<script src="assets/global.js?v=0.8.0"></script>
 </body>
 </html>

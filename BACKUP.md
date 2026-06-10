@@ -1,27 +1,21 @@
-# Backup Record
+# Backup Information — Home v0.8.0
 
-## Release
-
-Home v0.7.1 — Version Synchronization
-
-## Backup Reminder
-
-External backup should be completed before upload.
-
-## Recommended Backup Folder Name
+## Required Backup Folder Name
 
 ```text
-2026-06-10-before-home-v0.7.1-version-synchronization
+2026-06-10-before-home-v0.8.0-signal-labs-design-system
 ```
-
-## Previous Successful Release
-
-Home v0.7.0 — Standards Architecture
 
 ## Source Repository
 
+```text
 https://github.com/klager93-gif/tools-allegedly-media
+```
 
-## Notes
+## Previous Home Release
 
-This release corrects Home page version/footer references and updates standards requiring version sweeps for affected pages.
+Home v0.7.1 — Version Synchronization
+
+## Backup Status
+
+User should create or confirm the external backup before uploading this release.
