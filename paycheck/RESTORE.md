@@ -1,4 +1,4 @@
-# Paycheck v0.8.3 Restore Instructions
+# Paycheck v0.8.4 Restore Instructions
 
 ## Before Upload
 
@@ -6,7 +6,7 @@ Confirm an external backup exists.
 
 Suggested backup folder:
 
-`2026-06-10-before-paycheck-v0.8.3-progressive-details-compact-density`
+`2026-06-10-before-paycheck-v0.8.4-result-density-cleanup`
 
 ## Upload
 
@@ -17,9 +17,9 @@ Replace the existing `/paycheck/` files with the files from this package.
 After deployment, check:
 
 - `/paycheck/` loads.
-- Footer shows `Signal Labs · Paycheck Calculator · v0.8.3`.
-- Build card shows `Build: v0.8.3`.
-- Theme shows `Progressive Details & Compact Density`.
+- Footer shows `Signal Labs · Paycheck Calculator · v0.8.4`.
+- Build card shows `Build: v0.8.4`.
+- Theme shows `Result Density Cleanup`.
 - Results do not show zero-value clutter rows.
 - Rows appear when premium hours, paid leave, other earnings, taxes, deductions, or target values exist.
 - Pills are smaller on desktop and mobile.

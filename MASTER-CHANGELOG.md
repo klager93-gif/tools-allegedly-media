@@ -17,10 +17,23 @@ Tool-specific changelogs contain the complete history for their own tool. This m
 
 ## 2026-06-10
 
+### Paycheck v0.8.4 — Result Density Cleanup
+
+- Refined Paycheck v0.8.3 after visual review of the live page.
+- Left the result metadata block unchanged for now.
+- Reduced visual weight in Paycheck subsections by changing large “+ Add …” headings to quieter section headings.
+- Tightened premium hours, paid leave, tax, deduction, adjustment, pay-rule, and target-mode pills for better desktop and mobile density.
+- Reduced empty-state padding and result-row height so the page requires less scrolling, especially on mobile.
+- Added initial hidden-state classes to progressive result rows so unused breakdown rows do not flash or appear in the page text before script initialization.
+- Updated Paycheck build labels, footer version, cache-busting references, documentation, manifests, public/admin changelogs, and checksum manifest to v0.8.4.
+- No shared asset content changes.
+
+---
+
 ### Paycheck v0.8.3 — Progressive Details & Compact Density
 
 - Corrected the v0.8.2 result-detail implementation after visual review.
-- Kept the removed Details accordion, but changed result rows so zero-value rows do not appear.
+- Kept the removed Details accordion, but changed result rows so zero-value rows do not appear visually.
 - Added progressive result details for premium pay, shift differential pay, benefit / leave pay, other earnings, specialty pay, taxes, deductions, other adjustments, total paid hours, and target planning.
 - Reduced oversized pills, empty states, result rows, card padding, and mobile spacing.
 - Improved mobile usability by reducing unnecessary vertical scrolling.

@@ -4,6 +4,21 @@ User-facing Paycheck Calculator changes. Entries are append-only and should neve
 
 ---
 
+## v0.8.4 — Result Density Cleanup
+
+**Date:** 2026-06-10
+
+### User-Facing Changes
+
+- Made the Paycheck page feel lighter and less bulky after visual review.
+- Made Premium Hours, Paid Leave, and Other Earnings section headings quieter.
+- Made pills smaller and easier to scan on desktop and mobile.
+- Reduced empty-state height and result-row spacing.
+- Kept the result metadata block unchanged for now.
+- Updated Paycheck version display to v0.8.4.
+
+---
+
 ## v0.8.3 — Progressive Details & Compact Density
 
 **Date:** 2026-06-10

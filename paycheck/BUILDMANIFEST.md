@@ -1,12 +1,12 @@
-# Paycheck v0.8.3 Build Manifest
+# Paycheck v0.8.4 Build Manifest
 
 ## Version
 
-Paycheck v0.8.3
+Paycheck v0.8.4
 
 ## Theme
 
-Progressive Details & Compact Density
+Result Density Cleanup
 
 ## Build Date
 
@@ -18,7 +18,7 @@ https://github.com/klager93-gif/tools-allegedly-media
 
 ## Source Baseline
 
-Paycheck v0.8.1 — Progressive Disclosure Polish, plus v0.8.2 draft package reviewed in chat.
+Paycheck v0.8.3 — Progressive Details & Compact Density, plus live visual review in chat.
 
 ## Build Type
 
@@ -26,7 +26,7 @@ Full replacement Paycheck release package.
 
 ## Primary Change
 
-Corrects the v0.8.2 result details approach by hiding zero-value result rows and tightening desktop/mobile density.
+Refines the v0.8.3 result-density pass by reducing remaining visual bulk and adding initial hidden states before script initialization.
 
 ## Shared Assets
 

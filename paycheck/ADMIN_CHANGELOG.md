@@ -4,6 +4,23 @@ Internal Paycheck development notes. This file is for technical, workflow, stand
 
 ---
 
+## v0.8.4 — Result Density Cleanup
+
+**Date:** 2026-06-10
+
+### Internal / Development Notes
+
+- Built as a follow-up to v0.8.3 after live visual review showed remaining density and hierarchy issues.
+- Left the metadata block unchanged because metadata/header/footer work is planned for a later Home/global layout release.
+- Added initial `is-hidden` classes to progressive result rows in `index.html` so hidden rows are not visible before `script.js` initializes.
+- Added additional compact density overrides in `style.css` for desktop and mobile.
+- Reduced subsection heading prominence without changing calculation behavior.
+- Updated documentation, manifests, public/admin changelogs, backup notes, and master changelog.
+- Kept shared asset content unchanged.
+- Regenerated checksum manifest for the v0.8.4 release package.
+
+---
+
 ## v0.8.3 — Progressive Details & Compact Density
 
 **Date:** 2026-06-10

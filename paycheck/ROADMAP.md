@@ -2,11 +2,11 @@
 
 ## Current Version
 
-v0.8.3
+v0.8.4
 
 ## Theme
 
-Progressive Details & Compact Density
+Result Density Cleanup
 
 ---
 
@@ -35,20 +35,21 @@ Progressive Details & Compact Density
 | v0.8.1 | Progressive Disclosure Polish |
 | v0.8.2 | Inline Result Details |
 | v0.8.3 | Progressive Details & Compact Density |
+| v0.8.4 | Result Density Cleanup |
 
 ---
 
 ## Upcoming Versions
 
-### Paycheck v0.8.4 or v0.9
+### Paycheck v0.8.5 or v0.9
 
 Potential focus:
 
-- Live mobile verification after v0.8.3 deployment.
+- Live mobile verification after v0.8.4 deployment.
 - Backfill full Paycheck history into `PUBLIC_CHANGELOG.md` and `ADMIN_CHANGELOG.md` without deleting existing history.
 - Review print report formatting against progressive result rows.
 - Review Copy Results output against progressive result rows.
-- Review saved settings migration after v0.8.3.
+- Review saved settings migration after v0.8.4.
 
 ### Paycheck v1.0
 

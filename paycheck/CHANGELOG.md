@@ -9,6 +9,23 @@ Entries are append-only. Do not delete prior history.
 
 ---
 
+## v0.8.4 — Result Density Cleanup
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Refined Paycheck v0.8.3 after live visual review.
+- Left the metadata block alone for a future global header/footer/navigation project.
+- Changed oversized subsection labels such as `+ Add Premium Hours`, `+ Add Paid Leave`, and `+ Add Other Earnings` to quieter headings.
+- Tightened pill sizing across premium hours, paid leave, pay rules, taxes, deductions, adjustments, and target controls.
+- Reduced empty-state height, result-row height, card padding, and mobile spacing.
+- Added initial hidden-state classes to progressive result rows so unused breakdown rows stay hidden before script initialization.
+- Updated build labels, footer version, cache-busting references, and documentation to v0.8.4.
+- No shared asset content changes.
+
+---
+
 ## v0.8.3 — Progressive Details & Compact Density
 
 **Date:** 2026-06-10

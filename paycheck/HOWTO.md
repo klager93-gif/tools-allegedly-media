@@ -12,7 +12,7 @@
 
 ## Result Details
 
-Starting in v0.8.3, the results breakdown appears progressively. There is no hidden Details accordion, and empty zero-value rows are hidden.
+Starting in v0.8.4, the results breakdown appears progressively. There is no hidden Details accordion, and empty zero-value rows are hidden.
 
 Rows appear only when they matter, such as:
 

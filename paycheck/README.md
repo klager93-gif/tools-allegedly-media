@@ -6,11 +6,11 @@ Estimate regular hours, premium hours, benefit hours, deductions, other earnings
 
 ## Current Version
 
-v0.8.3
+v0.8.4
 
 ## Theme
 
-Progressive Details & Compact Density
+Result Density Cleanup
 
 ---
 
