@@ -1,5 +1,15 @@
 # Signal Labs Public Changelog
 
+## v0.8.3 — Homepage Density Pass
+
+**Date:** 2026-06-10
+
+- Improved the Home page on mobile by reducing oversized cards, spacing, and the hero graphic.
+- Made the footer easier to use on mobile with collapsible Resources, Support, and About sections.
+- Tightened desktop spacing while preserving the redesigned Signal Labs look.
+- Added footer placeholder pages to the future work list.
+
+
 ## v0.8.2 — Homepage Redesign
 
 **Date:** 2026-06-10

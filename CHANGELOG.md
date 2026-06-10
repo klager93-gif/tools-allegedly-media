@@ -1,5 +1,23 @@
 # Signal Labs Home Changelog
 
+## v0.8.3 — Homepage Density Pass
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Refined the v0.8.2 Home redesign after desktop and mobile visual review.
+- Reduced oversized mobile elements, including hero spacing, hero graphic size, tool card padding, and section gaps.
+- Tightened desktop density slightly without changing the overall design direction.
+- Converted mobile footer resource groups into collapsible sections to reduce footer height.
+- Kept footer groups expanded on desktop.
+- Adjusted the Why Signal Labs section to use a compact two-column mobile layout.
+- Added footer placeholder pages to the Home roadmap/TODO list.
+- Updated Home metadata to v0.8.3 / Homepage Density Pass.
+- Updated shared asset cache-busting to v0.8.3 because global CSS and JS changed.
+- No calculator logic changes.
+
+
 ## v0.8.2 — Homepage Redesign
 
 **Date:** 2026-06-10

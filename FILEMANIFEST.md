@@ -1,12 +1,12 @@
 # File Manifest
 
-## Home v0.8.2 — Homepage Redesign
+## Home v0.8.3 — Homepage Density Pass
 
 ### Public Home Files
 
-- `index.html` — redesigned Signal Labs Home page.
-- `assets/global.css` — shared CSS plus Home redesign styles.
-- `assets/global.js` — shared JS plus existing-nav toggle support.
+- `index.html` — Signal Labs Home page with v0.8.3 metadata and mobile footer groups.
+- `assets/global.css` — shared CSS plus Home density and mobile footer accordion styles.
+- `assets/global.js` — shared JS plus Home footer accordion behavior.
 
 ### Changelogs
 

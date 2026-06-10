@@ -1,6 +1,6 @@
 /*
 Signal Labs Shared Asset File: assets/global.js
-Version: v0.8.2
+Version: v0.8.3
 Purpose: Shared navigation, metadata, footer, modal/dialog, toast, UTC helper, action bar support, and ad slot initialization.
 */
 
@@ -244,6 +244,25 @@ function initializeSharedActionBars() {
   });
 }
 
+
+
+function initHomeFooterAccordions() {
+  const groups = document.querySelectorAll('.home-footer-group');
+  if (!groups.length) return;
+  const sync = () => {
+    const collapse = window.matchMedia('(max-width: 700px)').matches;
+    groups.forEach((group) => {
+      if (collapse) {
+        group.removeAttribute('open');
+      } else {
+        group.setAttribute('open', '');
+      }
+    });
+  };
+  sync();
+  window.addEventListener('resize', sync);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   buildSignalNavigation();
   buildSignalFooter();
@@ -252,3 +271,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeTextModalTriggers();
   initializeSharedActionBars();
 });
+
+document.addEventListener('DOMContentLoaded', initHomeFooterAccordions);

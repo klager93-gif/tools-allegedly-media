@@ -1,9 +1,11 @@
 # Signal Labs Master Roadmap
 
-## Completed — Home v0.8.2
+## Completed — Home v0.8.3
 
-- Public Home homepage redesign.
-- Refreshed Home navigation, hero, tool cards, Why Signal Labs section, and footer.
+- Home homepage density pass.
+- Mobile hero, tool cards, Why Signal Labs section, and footer spacing tightened.
+- Mobile footer accordions added.
+- Footer placeholder pages added to TODO tracking.
 
 ## Current Focus
 

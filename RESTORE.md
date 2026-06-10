@@ -1,6 +1,6 @@
 # Restore Notes
 
-## Home v0.8.2 — Homepage Redesign
+## Home v0.8.3 — Homepage Density Pass
 
 If this release causes problems:
 
@@ -11,4 +11,4 @@ If this release causes problems:
 
 ## Previous Stable Release
 
-Home v0.8.1 — Design System Cleanup.
+Home v0.8.2 — Homepage Redesign.

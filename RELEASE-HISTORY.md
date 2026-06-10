@@ -1,5 +1,14 @@
 # Signal Labs Release History
 
+## Home v0.8.3 — Homepage Density Pass
+
+**Date:** 2026-06-10
+
+Status: Built
+
+Summary: Tightened Home desktop/mobile spacing, reduced oversized mobile cards and hero graphic, added mobile footer accordions, and added footer placeholder pages to future work tracking.
+
+
 ## Home v0.8.2 — Homepage Redesign
 
 **Date:** 2026-06-10

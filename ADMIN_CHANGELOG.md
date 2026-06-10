@@ -1,5 +1,17 @@
 # Signal Labs Home Admin Changelog
 
+## v0.8.3 — Homepage Density Pass
+
+**Date:** 2026-06-10
+
+- Built a density pass from user-supplied desktop and mobile screenshots.
+- Kept the v0.8.2 visual direction but reduced mobile vertical weight.
+- Added responsive footer accordion behavior in `assets/global.js` for Home footer groups.
+- Added CSS overrides in `assets/global.css` for mobile card density, hero graphic sizing, two-column Why Signal Labs layout, and collapsible footer groups.
+- Added footer placeholder pages to roadmap/TODO tracking.
+- No calculator logic changes.
+
+
 ## v0.8.2 — Homepage Redesign
 
 **Date:** 2026-06-10

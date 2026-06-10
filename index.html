@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Labs Home
 File: index.html
-Version: v0.8.2
-Purpose: Public Home landing page with Signal Labs homepage redesign
+Version: v0.8.3
+Purpose: Public Home landing page with Signal Labs homepage density pass
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,15 +19,15 @@ Purpose: Public Home landing page with Signal Labs homepage redesign
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="assets/global.css?v=0.8.2">
+<link rel="stylesheet" href="assets/global.css?v=0.8.3">
 </head>
 <body
   class="home-redesign"
   data-signal-global-layout="true"
   data-signal-area="Home"
   data-signal-title="Signal Labs"
-  data-signal-version="v0.8.2"
-  data-signal-theme="Homepage Redesign"
+  data-signal-version="v0.8.3"
+  data-signal-theme="Homepage Density Pass"
   data-signal-status="Active Development"
   data-signal-description="Useful tools without the noise."
   data-signal-changelog="PUBLIC_CHANGELOG.md"
@@ -155,27 +155,27 @@ Purpose: Public Home landing page with Signal Labs homepage redesign
     </section>
 
     <nav class="home-footer-links" aria-label="Footer resources">
-      <div>
-        <h3>Resources</h3>
+      <details class="home-footer-group" open>
+        <summary><span>Resources</span></summary>
         <a href="HOWTO.md">How To Guide</a>
         <a href="PUBLIC_CHANGELOG.md">Changelog</a>
         <a href="ROADMAP.md">Roadmap</a>
         <a href="STANDARDS.md">Calculator Standards</a>
         <a href="README.md">Documentation</a>
-      </div>
-      <div>
-        <h3>Support</h3>
+      </details>
+      <details class="home-footer-group" open>
+        <summary><span>Support</span></summary>
         <a href="mailto:support@allegedly-media.com">Report an Issue</a>
         <a href="mailto:support@allegedly-media.com">Request a Feature</a>
         <a href="mailto:support@allegedly-media.com">Provide Feedback</a>
         <a href="mailto:support@allegedly-media.com">Contact</a>
-      </div>
-      <div>
-        <h3>About</h3>
+      </details>
+      <details class="home-footer-group" open>
+        <summary><span>About</span></summary>
         <a href="README.md">About Signal Labs</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Use</a>
-      </div>
+      </details>
     </nav>
 
     <section class="home-footer-status" aria-label="Project status">
@@ -187,8 +187,8 @@ Purpose: Public Home landing page with Signal Labs homepage redesign
   </div>
   <div class="home-footer-bottom">
     <span>© 2026 Signal Labs. All rights reserved.</span>
-    <span>Build: v0.8.2</span>
-    <span>Theme: Homepage Redesign</span>
+    <span>Build: v0.8.3</span>
+    <span>Theme: Homepage Density Pass</span>
     <span>Status: <strong>Active Development</strong></span>
     <nav aria-label="Footer quick links">
       <a href="PUBLIC_CHANGELOG.md">Changelog</a>
@@ -206,6 +206,6 @@ Purpose: Public Home landing page with Signal Labs homepage redesign
   </div>
 </div>
 
-<script src="assets/global.js?v=0.8.2"></script>
+<script src="assets/global.js?v=0.8.3"></script>
 </body>
 </html>

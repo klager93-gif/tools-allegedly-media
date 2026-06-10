@@ -2,11 +2,11 @@
 
 ## Required Backup Folder
 
-`2026-06-10-before-home-v0.8.2-homepage-redesign`
+`2026-06-10-before-home-v0.8.3-homepage-density-pass`
 
 ## Previous Release
 
-Home v0.8.1 — Design System Cleanup.
+Home v0.8.2 — Homepage Redesign.
 
 ## Reminder
 

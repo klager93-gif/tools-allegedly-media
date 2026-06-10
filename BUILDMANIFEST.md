@@ -2,7 +2,7 @@
 
 ## Release
 
-Home v0.8.2 — Homepage Redesign
+Home v0.8.3 — Homepage Density Pass
 
 ## Build Type
 
@@ -10,11 +10,11 @@ Full replacement Home/shared-asset release.
 
 ## Source
 
-GitHub baseline: Home v0.8.1 — Design System Cleanup.
+GitHub baseline / prior package: Home v0.8.2 — Homepage Redesign.
 
 ## Backup Folder
 
-`2026-06-10-before-home-v0.8.2-homepage-redesign`
+`2026-06-10-before-home-v0.8.3-homepage-density-pass`
 
 ## Files Changed
 
@@ -28,6 +28,7 @@ GitHub baseline: Home v0.8.1 — Design System Cleanup.
 - `ROADMAP.md`
 - `HOWTO.md`
 - `MASTER-CHANGELOG.md`
+- `MASTER-ROADMAP.md`
 - `RELEASE-HISTORY.md`
 - `FILEMANIFEST.md`
 - `BUILDMANIFEST.md`
@@ -40,6 +41,8 @@ GitHub baseline: Home v0.8.1 — Design System Cleanup.
 
 - ZIP integrity check required after packaging.
 - `assets/global.js` syntax check passed.
-- Home metadata updated to v0.8.2.
-- Global asset cache-busting updated to v0.8.2.
+- Home metadata updated to v0.8.3.
+- Global asset cache-busting updated to v0.8.3.
+- Mobile footer accordion behavior added.
+- Footer placeholder pages added to roadmap/TODO tracking.
 - No calculator logic changes.
