@@ -2,28 +2,44 @@
 
 ## Release
 
-- Project: Home
-- Version: v0.8.1
-- Theme: Design System Cleanup
-- Date: 2026-06-10
-- Build type: Full replacement Home cleanup release
-- Source: GitHub baseline plus Home v0.8.0 package and live visual review
+Home v0.8.2 — Homepage Redesign
 
-## Purpose
+## Build Type
 
-Remove the public-facing Design System Foundation card from the Home page while preserving the shared design-system foundation for future gradual tool adoption.
+Full replacement Home/shared-asset release.
 
-## Shared Assets
+## Source
 
-- `assets/global.css` unchanged from v0.8.0.
-- `assets/global.js` unchanged from v0.8.0.
-- Home cache-busting references remain at `v=0.8.0` because shared asset content did not change.
+GitHub baseline: Home v0.8.1 — Design System Cleanup.
+
+## Backup Folder
+
+`2026-06-10-before-home-v0.8.2-homepage-redesign`
+
+## Files Changed
+
+- `index.html`
+- `assets/global.css`
+- `assets/global.js`
+- `README.md`
+- `CHANGELOG.md`
+- `PUBLIC_CHANGELOG.md`
+- `ADMIN_CHANGELOG.md`
+- `ROADMAP.md`
+- `HOWTO.md`
+- `MASTER-CHANGELOG.md`
+- `RELEASE-HISTORY.md`
+- `FILEMANIFEST.md`
+- `BUILDMANIFEST.md`
+- `RESTORE.md`
+- `INSTALL.md`
+- `BACKUP.md`
+- `SHA256SUMS.txt`
 
 ## Validation
 
-- Public Design System Foundation card removed from `index.html`.
-- Home build metadata updated to v0.8.1.
-- Home theme metadata updated to Design System Cleanup.
+- ZIP integrity check required after packaging.
+- `assets/global.js` syntax check passed.
+- Home metadata updated to v0.8.2.
+- Global asset cache-busting updated to v0.8.2.
 - No calculator logic changes.
-- No shared asset content changes.
-- SHA256SUMS.txt generated.

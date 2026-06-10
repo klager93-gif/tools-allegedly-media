@@ -1,5 +1,13 @@
 # Signal Labs Master Changelog
 
+## 2026-06-10 — Home v0.8.2 — Homepage Redesign
+
+- Rebuilt the public Signal Labs Home page using the approved dark dashboard direction.
+- Added refreshed hero, navigation, tool cards, Why Signal Labs section, and full footer structure.
+- Updated shared global CSS/JS for Home visual layout and existing-nav mobile toggle support.
+- No calculator logic changes.
+
+---
 ## 2026-06-10 — Home v0.8.1 — Design System Cleanup
 
 - Removed the public-facing Design System Foundation card from Home after live review.

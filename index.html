@@ -2,84 +2,201 @@
 Signal Labs
 Area: Signal Labs Home
 File: index.html
-Version: v0.8.1
-Purpose: Home tool directory page with public design-system cleanup
+Version: v0.8.2
+Purpose: Public Home landing page with Signal Labs homepage redesign
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signal Labs</title>
-<meta name="description" content="Signal Labs builds simple, useful calculators and planning tools.">
+<title>Signal Labs — Useful tools without the noise</title>
+<meta name="description" content="Signal Labs builds lightweight calculators and planning tools for real-life decisions.">
 <meta property="og:title" content="Signal Labs">
-<meta property="og:description" content="Simple, useful calculators and planning tools.">
+<meta property="og:description" content="Useful tools without the noise. Lightweight calculators and planning tools built for real-life decisions.">
 <link rel="icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="assets/global.css?v=0.8.0">
+<link rel="stylesheet" href="assets/global.css?v=0.8.2">
 </head>
 <body
+  class="home-redesign"
   data-signal-global-layout="true"
   data-signal-area="Home"
   data-signal-title="Signal Labs"
-  data-signal-version="v0.8.1"
-  data-signal-theme="Design System Cleanup"
+  data-signal-version="v0.8.2"
+  data-signal-theme="Homepage Redesign"
   data-signal-status="Active Development"
   data-signal-description="Useful tools without the noise."
   data-signal-changelog="PUBLIC_CHANGELOG.md"
   data-signal-roadmap="ROADMAP.md"
   data-signal-howto="HOWTO.md"
 >
-<main class="page signal-page-shell">
-<header class="hero signal-hero">
-  <p class="eyebrow">Signal Labs</p>
-  <h1>Useful tools without the noise.</h1>
-  <p class="subtitle">Lightweight calculators and planning tools built for real-life decisions.</p>
-</header>
-
-<div class="ad-slot ad-slot-top is-disabled" data-ad-slot="root-top" data-ad-status="disabled" aria-hidden="true">
-  <span class="ad-placeholder">Ad slot reserved</span>
-</div>
-
-<section class="card tool-section">
-  <div class="section-heading">
-    <h2>Tools</h2>
-    <p>Choose a calculator to get started.</p>
-  </div>
-
-  <div class="tool-grid">
-    <a class="tool-card" href="paycheck/">
-      <span class="tool-kicker">Work</span>
-      <strong>Paycheck Calculator</strong>
-      <p>Estimate gross pay, taxes, deductions, target pay, and take-home pay.</p>
+<nav class="signal-nav home-nav" aria-label="Signal Labs navigation">
+  <div class="signal-nav-inner home-nav-inner">
+    <a class="signal-nav-brand signal-nav-mark" href="/" aria-label="Signal Labs home">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="4" y="4" width="24" height="24" rx="5"></rect>
+        <path d="M9 22h14"></path>
+        <path d="M10 18l5-5 4 4 5-7"></path>
+        <path d="M20 10h4v4"></path>
+      </svg>
     </a>
-
-    <a class="tool-card" href="overtime/">
-      <span class="tool-kicker">Work</span>
-      <strong>Overtime Calculator</strong>
-      <p>Estimate regular pay, overtime pay, before-tax pay, deductions, take-home pay, Pay Details, and Target Pay.</p>
-    </a>
-
-    <a class="tool-card" href="timeoff/">
-      <span class="tool-kicker">Work</span>
-      <strong>Time Off Planner</strong>
-      <p>Project vacation, sick time, personal time, comp time, holidays, planned time off, caps, and policy reminders.</p>
-    </a>
+    <button class="signal-nav-toggle" type="button" aria-expanded="false" aria-controls="signalNavLinks">☰ Menu</button>
+    <div id="signalNavLinks" class="signal-nav-links home-nav-links">
+      <a class="signal-nav-link is-active" href="/">Home</a>
+      <a class="signal-nav-link" href="/paycheck/">Paycheck</a>
+      <a class="signal-nav-link" href="/overtime/">Overtime</a>
+      <a class="signal-nav-link" href="/timeoff/">Time Off</a>
+    </div>
   </div>
-</section>
+</nav>
 
-<section class="card status-card">
-  <h2>Project Status</h2>
-  <div class="summary-card signal-meta-card">
-    <p><strong>Build:</strong> v0.8.1</p>
-    <p><strong>Theme:</strong> Design System Cleanup</p>
-    <p><strong>Status:</strong> Active Development</p>
-  </div>
-</section>
+<main class="home-page-shell">
+  <section class="home-hero" aria-labelledby="homeHeroTitle">
+    <div class="home-hero-copy">
+      <p class="home-kicker">Welcome to Signal Labs</p>
+      <h1 id="homeHeroTitle">Signal Labs</h1>
+      <p class="home-tagline">Useful tools without the noise.</p>
+      <p class="home-subtitle">Lightweight calculators and planning tools built for real-life decisions.</p>
+      <div class="home-hero-actions">
+        <a class="signal-button signal-button-primary" href="#tools">Explore Tools <span aria-hidden="true">→</span></a>
+        <a class="signal-button" href="#why-signal-labs">How It Works <span aria-hidden="true">ⓘ</span></a>
+      </div>
+    </div>
+    <div class="home-hero-art" aria-hidden="true">
+      <div class="home-hero-orb"></div>
+      <div class="home-hero-icon">
+        <svg viewBox="0 0 120 120" focusable="false">
+          <rect x="15" y="15" width="90" height="90" rx="22"></rect>
+          <path d="M32 78h58"></path>
+          <path d="M35 66l22-22 17 17 24-33"></path>
+          <path d="M80 28h18v18"></path>
+          <path d="M48 92h46"></path>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="tools" class="home-section home-tools-section" aria-labelledby="toolsTitle">
+    <div class="home-section-heading">
+      <span class="home-section-icon" aria-hidden="true">⌁</span>
+      <div>
+        <h2 id="toolsTitle">Our Tools</h2>
+        <p>Practical tools to help you calculate, plan, and decide with confidence.</p>
+      </div>
+    </div>
+    <div class="home-tool-grid">
+      <a class="home-tool-card" href="/paycheck/">
+        <span class="home-tool-icon" aria-hidden="true">$</span>
+        <strong>Paycheck Calculator</strong>
+        <p>Calculate your take-home pay based on your inputs and settings.</p>
+        <span class="home-card-link">Open Tool <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="home-tool-card" href="/overtime/">
+        <span class="home-tool-icon" aria-hidden="true">◷</span>
+        <strong>Overtime Calculator</strong>
+        <p>Estimate overtime pay for different scenarios and rules.</p>
+        <span class="home-card-link">Open Tool <span aria-hidden="true">→</span></span>
+      </a>
+      <a class="home-tool-card" href="/timeoff/">
+        <span class="home-tool-icon" aria-hidden="true">□</span>
+        <strong>Time Off Calculator</strong>
+        <p>Estimate leave balances and plan your time off with ease.</p>
+        <span class="home-card-link">Open Tool <span aria-hidden="true">→</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section id="why-signal-labs" class="home-section home-why-card" aria-labelledby="whyTitle">
+    <h2 id="whyTitle">Why Signal Labs?</h2>
+    <div class="home-why-grid">
+      <div>
+        <span class="home-why-icon" aria-hidden="true">◇</span>
+        <strong>Private &amp; Secure</strong>
+        <p>Your data stays in your browser. Nothing is stored or shared.</p>
+      </div>
+      <div>
+        <span class="home-why-icon" aria-hidden="true">ϟ</span>
+        <strong>Fast &amp; Lightweight</strong>
+        <p>Built for speed and simplicity. No clutter, no distractions.</p>
+      </div>
+      <div>
+        <span class="home-why-icon" aria-hidden="true">▦</span>
+        <strong>Accurate Calculations</strong>
+        <p>Reliable formulas and clear breakdowns you can understand.</p>
+      </div>
+      <div>
+        <span class="home-why-icon" aria-hidden="true">○</span>
+        <strong>Built for Real Life</strong>
+        <p>Designed for practical decisions, not complicated spreadsheets.</p>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="home-footer signal-footer" aria-label="Signal Labs footer">
+  <div class="home-footer-main">
+    <section class="home-footer-brand" aria-label="Signal Labs summary">
+      <div class="home-footer-brandline">
+        <span class="home-footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" focusable="false">
+            <rect x="4" y="4" width="24" height="24" rx="5"></rect>
+            <path d="M9 22h14"></path>
+            <path d="M10 18l5-5 4 4 5-7"></path>
+            <path d="M20 10h4v4"></path>
+          </svg>
+        </span>
+        <strong>Signal Labs</strong>
+      </div>
+      <p>Useful tools without the noise. Lightweight calculators and planning tools built for real-life decisions.</p>
+    </section>
+
+    <nav class="home-footer-links" aria-label="Footer resources">
+      <div>
+        <h3>Resources</h3>
+        <a href="HOWTO.md">How To Guide</a>
+        <a href="PUBLIC_CHANGELOG.md">Changelog</a>
+        <a href="ROADMAP.md">Roadmap</a>
+        <a href="STANDARDS.md">Calculator Standards</a>
+        <a href="README.md">Documentation</a>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <a href="mailto:support@allegedly-media.com">Report an Issue</a>
+        <a href="mailto:support@allegedly-media.com">Request a Feature</a>
+        <a href="mailto:support@allegedly-media.com">Provide Feedback</a>
+        <a href="mailto:support@allegedly-media.com">Contact</a>
+      </div>
+      <div>
+        <h3>About</h3>
+        <a href="README.md">About Signal Labs</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </div>
+    </nav>
+
+    <section class="home-footer-status" aria-label="Project status">
+      <h3>Status</h3>
+      <span class="home-status-pill">● Active Development</span>
+      <p>All systems operational. We're constantly improving and adding new tools.</p>
+      <a class="home-status-link" href="ROADMAP.md">View Roadmap <span aria-hidden="true">→</span></a>
+    </section>
+  </div>
+  <div class="home-footer-bottom">
+    <span>© 2026 Signal Labs. All rights reserved.</span>
+    <span>Build: v0.8.2</span>
+    <span>Theme: Homepage Redesign</span>
+    <span>Status: <strong>Active Development</strong></span>
+    <nav aria-label="Footer quick links">
+      <a href="PUBLIC_CHANGELOG.md">Changelog</a>
+      <a href="ROADMAP.md">Roadmap</a>
+      <a href="HOWTO.md">How To</a>
+    </nav>
+  </div>
+</footer>
 
 <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box">
@@ -89,6 +206,6 @@ Purpose: Home tool directory page with public design-system cleanup
   </div>
 </div>
 
-<script src="assets/global.js?v=0.8.0"></script>
+<script src="assets/global.js?v=0.8.2"></script>
 </body>
 </html>

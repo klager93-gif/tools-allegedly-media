@@ -1,5 +1,12 @@
 # Signal Labs Release History
 
+## Home v0.8.2 — Homepage Redesign
+
+**Date:** 2026-06-10
+
+Rebuilt the public Home page with the approved Signal Labs dashboard layout, updated navigation style, refreshed tool cards, Why Signal Labs section, and expanded footer.
+
+---
 ## Home v0.8.1 — Design System Cleanup
 
 Date: 2026-06-10

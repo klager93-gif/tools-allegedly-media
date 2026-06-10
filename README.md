@@ -1,90 +1,29 @@
 # Signal Labs Home
 
-Signal Labs is the shared home for simple, useful calculators and planning tools.
+Signal Labs is the Home site for lightweight calculators and planning tools built for real-life decisions.
 
----
+## Current Version
 
-# Current Version
+**Home v0.8.2 — Homepage Redesign**
 
-v0.8.1
+## What Changed
 
-## Theme
+- Rebuilt the public Home page with the approved dark dashboard-style design.
+- Added the permanent tagline: **Useful tools without the noise.**
+- Added refreshed navigation, tool cards, Why Signal Labs section, and full footer.
+- Preserved the shared design-system foundation for future tool migration.
 
-Design System Cleanup
+## Tools
 
----
+- Paycheck Calculator: `/paycheck/`
+- Overtime Calculator: `/overtime/`
+- Time Off Calculator: `/timeoff/`
 
-# Current Tools
+## Documentation
 
-## Paycheck Calculator
-
-Estimate gross pay, paid hours, taxes, deductions, adjustments, target pay, and take-home pay.
-
-## Overtime Calculator
-
-Estimate regular pay, overtime pay, before-tax pay, deductions, take-home pay, and target pay.
-
-## Time Off Planner
-
-Plan vacation, sick time, personal time, comp time, holidays, and planned time off.
-
----
-
-# Shared Design System
-
-Home v0.8.1 introduces the Design System Cleanup foundation.
-
-Shared systems now include or prepare for:
-
-- Global navigation.
-- Metadata-aware global footer.
-- Shared tool action bar pattern.
-- Shared modal/dialog styling.
-- Shared toast notification styling.
-- Shared cards, buttons, pills, and empty states.
-
-Tools do not have to migrate all at once. Future tool releases can adopt the shared system gradually.
-
----
-
-# Shared Assets
-
-## assets/global.css
-
-Provides shared Signal Labs styling, navigation, footer, action bar support, empty states, modal/dialog styling, toast styling, report foundations, and responsive foundations.
-
-## assets/global.js
-
-Provides shared navigation, metadata helpers, optional global footer rendering, modal utilities, toast utilities, action bar support, ad slot initialization, and shared helper behavior.
-
----
-
-# Development Standards
-
-This project follows:
-
-```text
-/STANDARDS.md
-/UX_STANDARDS.md
-/SCRIPT_STANDARDS.md
-/DOCUMENTATION_STANDARDS.md
-/VERSIONING_STANDARDS.md
-/WORKFLOW_STANDARDS.md
-```
-
-`STANDARDS.md` is the constitution. Supporting standards files are authoritative within their domains.
-
----
-
-# Current Status
-
-Build: v0.8.1
-
-Theme: Design System Cleanup
-
-Status: Active Development
-
-
-## v0.8.1 Note
-
-Home v0.8.1 removes the public design-system demo card while preserving the shared design-system foundation for future tool adoption.
+- `PUBLIC_CHANGELOG.md` — clean public-facing Home changelog.
+- `ADMIN_CHANGELOG.md` — internal Home changelog.
+- `CHANGELOG.md` — Home changelog.
+- `MASTER-CHANGELOG.md` — full Signal Labs chronology.
+- `ROADMAP.md` — Home roadmap.
+- `HOWTO.md` — Home usage notes.

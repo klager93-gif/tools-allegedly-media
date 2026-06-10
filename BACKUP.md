@@ -1,17 +1,13 @@
 # Backup
 
-## Home v0.8.1 — Design System Cleanup
+## Required Backup Folder
 
-Backup folder name:
+`2026-06-10-before-home-v0.8.2-homepage-redesign`
 
-```text
-2026-06-10-before-home-v0.8.1-design-system-cleanup
-```
+## Previous Release
+
+Home v0.8.1 — Design System Cleanup.
+
+## Reminder
 
 Create or confirm an external backup before uploading this release.
-
-Previous release baseline:
-
-```text
-Home v0.8.0 — Signal Labs Design System
-```

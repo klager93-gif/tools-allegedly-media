@@ -1,5 +1,17 @@
 # Signal Labs Home Admin Changelog
 
+## v0.8.2 — Homepage Redesign
+
+**Date:** 2026-06-10
+
+- Converted the approved homepage mockup direction into actual Home files.
+- Removed duplicate Signal Labs text from the nav/hero combination by using an icon-style nav mark.
+- Added Home-specific landing page CSS in `assets/global.css`.
+- Updated `assets/global.js` so existing static nav markup receives the same mobile toggle behavior as injected nav markup.
+- Preserved the shared design-system foundation while making the public Home page look finished instead of demo-like.
+- Added footer links for future public/admin/support/legal pages without building those pages yet.
+
+---
 ## v0.8.1 — Design System Cleanup
 
 **Date:** 2026-06-10

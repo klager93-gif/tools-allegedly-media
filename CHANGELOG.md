@@ -1,5 +1,23 @@
 # Signal Labs Home Changelog
 
+## v0.8.2 — Homepage Redesign
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Rebuilt the public Home page to match the approved dark dashboard-style mockup direction.
+- Added a larger hero section with the permanent Signal Labs tagline: "Useful tools without the noise."
+- Added a compact glass-style navigation bar with icon branding and no repeated Signal Labs text.
+- Added refreshed Home tool cards for Paycheck, Overtime, and Time Off.
+- Added a "Why Signal Labs?" section for privacy, speed, clear calculations, and real-life use.
+- Rebuilt the Home footer with Resources, Support, About, Status, and bottom metadata areas.
+- Included footer links for future pages, including documentation, support/contact links, privacy, and terms placeholders.
+- Updated Home metadata to v0.8.2 / Homepage Redesign.
+- Updated shared asset cache-busting to v0.8.2 because global CSS and JS changed.
+- No calculator logic changes.
+
+---
 ## v0.8.1 — Design System Cleanup
 
 **Date:** 2026-06-10

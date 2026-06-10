@@ -1,13 +1,14 @@
-# Restore Instructions
+# Restore Notes
 
-## Home v0.8.1 — Design System Cleanup
+## Home v0.8.2 — Homepage Redesign
 
-1. Confirm external backup exists.
-2. Upload the files from this package to the repository root.
-3. Commit and deploy through the normal GitHub/Coolify workflow.
-4. Visit the Home page.
-5. Confirm the public Design System Foundation card is gone.
-6. Confirm the Project Status card shows Build v0.8.1 and Theme Design System Cleanup.
-7. Confirm Paycheck, Overtime, and Time Off links still work.
+If this release causes problems:
 
-Rollback: restore the previous Home v0.8.0 package or the external backup folder.
+1. Restore the external backup created before upload.
+2. Revert affected files in GitHub.
+3. Redeploy through Coolify.
+4. Confirm the Home page loads and the footer/version metadata match the restored version.
+
+## Previous Stable Release
+
+Home v0.8.1 — Design System Cleanup.

@@ -1,5 +1,10 @@
 # Signal Labs Master Roadmap
 
+## Completed — Home v0.8.2
+
+- Public Home homepage redesign.
+- Refreshed Home navigation, hero, tool cards, Why Signal Labs section, and footer.
+
 ## Current Focus
 
 Home v0.8.0 establishes the Signal Labs Design System foundation.

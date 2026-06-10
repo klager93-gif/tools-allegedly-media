@@ -1,6 +1,6 @@
 /*
 Signal Labs Shared Asset File: assets/global.js
-Version: v0.8.0
+Version: v0.8.2
 Purpose: Shared navigation, metadata, footer, modal/dialog, toast, UTC helper, action bar support, and ad slot initialization.
 */
 
@@ -42,8 +42,18 @@ function getSignalPageMeta() {
   };
 }
 
+function bindSignalNavigationToggle(nav) {
+  if (!nav || nav.dataset.signalNavBound) return;
+  nav.dataset.signalNavBound = "true";
+  bindSignalNavigationToggle(nav);
+}
+
 function buildSignalNavigation() {
-  if (document.querySelector(".signal-nav")) return;
+  const existingNav = document.querySelector(".signal-nav");
+  if (existingNav) {
+    bindSignalNavigationToggle(existingNav);
+    return;
+  }
   const rootPath = getRelativeRootPath();
   const activePath = getActiveToolPath();
   const nav = document.createElement("nav");
@@ -53,7 +63,7 @@ function buildSignalNavigation() {
   const link = (path, label) => `<a class="signal-nav-link ${activePath === path ? "is-active" : ""}" href="${rootPath}${path === "home" ? "" : path + "/"}">${label}</a>`;
   nav.innerHTML = `
     <div class="signal-nav-inner">
-      <a class="signal-nav-brand" href="${rootPath}">Signal Labs</a>
+      <a class="signal-nav-brand signal-nav-mark" href="${rootPath}" aria-label="Signal Labs home"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="4" y="4" width="24" height="24" rx="5"></rect><path d="M9 22h14"></path><path d="M10 18l5-5 4 4 5-7"></path><path d="M20 10h4v4"></path></svg></a>
       <button class="signal-nav-toggle" type="button" aria-expanded="false" aria-controls="${navId}">☰ Menu</button>
       <div id="${navId}" class="signal-nav-links">
         ${link("home", "Home")}
@@ -64,15 +74,7 @@ function buildSignalNavigation() {
     </div>
   `;
   document.body.insertBefore(nav, document.body.firstChild);
-  const toggle = nav.querySelector(".signal-nav-toggle");
-  const links = nav.querySelector(".signal-nav-links");
-  if (toggle && links) {
-    toggle.addEventListener("click", () => {
-      const expanded = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!expanded));
-      links.classList.toggle("is-open", !expanded);
-    });
-  }
+  bindSignalNavigationToggle(nav);
 }
 
 function buildSignalFooter() {

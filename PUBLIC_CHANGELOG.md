@@ -1,5 +1,17 @@
 # Signal Labs Public Changelog
 
+## v0.8.2 — Homepage Redesign
+
+**Date:** 2026-06-10
+
+- Redesigned the Signal Labs Home page with a cleaner dark dashboard layout.
+- Added the new Signal Labs tagline and clearer site description.
+- Improved the main navigation so it feels more consistent with the newer tool action bar style.
+- Added updated tool cards for Paycheck, Overtime, and Time Off.
+- Added a "Why Signal Labs?" section.
+- Redesigned the footer with Resources, Support, About, Status, and quick links.
+
+---
 ## v0.8.1 — Design System Cleanup
 
 **Date:** 2026-06-10
