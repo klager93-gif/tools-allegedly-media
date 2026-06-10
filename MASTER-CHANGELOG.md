@@ -1,4 +1,13 @@
-# Signal Labs Master Changelog
+# Master Changelog
+
+## 2026-06-10 — Paycheck v0.9.3 — Footer Inheritance
+
+- Removed version, theme, and status metadata from the Paycheck hero/header area.
+- Adopted the Home-style footer structure on Paycheck.
+- Pointed footer changelog links to `PUBLIC_CHANGELOG.md`.
+- Preserved calculator math and behavior.
+
+---
 
 ## 2026-06-10 — Paycheck v0.9.2 — Mobile Menu Fix
 

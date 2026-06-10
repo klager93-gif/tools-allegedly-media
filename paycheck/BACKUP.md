@@ -1,15 +1,11 @@
-# Backup Reminder — Paycheck v0.9.2
+# Backup
 
-Create or confirm an external backup before uploading this release.
+## Paycheck v0.9.3 — Footer Inheritance
 
 Recommended backup folder name:
 
 ```text
-2026-06-10-before-paycheck-v0.9.2-mobile-menu-fix
+2026-06-10-before-paycheck-v0.9.3-footer-inheritance
 ```
 
-Previous release:
-
-```text
-Paycheck v0.9.1 — Header Alignment
-```
+Source baseline: Paycheck v0.9.2 — Mobile Menu Fix.

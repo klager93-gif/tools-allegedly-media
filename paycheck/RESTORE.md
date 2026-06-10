@@ -1,11 +1,14 @@
-# Restore Notes — Paycheck v0.9.2
+# Restore
 
-If this release needs to be rolled back, restore the previous Paycheck release files from the external backup created before upload.
+## Paycheck v0.9.3 — Footer Inheritance
 
-Previous release:
+To restore the previous version, replace the Paycheck files with the external backup created before this upload.
 
-```text
-Paycheck v0.9.1 — Header Alignment
-```
+Previous known release baseline: Paycheck v0.9.2 — Mobile Menu Fix.
 
-This release only changes Paycheck presentation/navigation files and documentation. No calculator math or shared asset content is changed.
+## Restore Check
+
+- Paycheck page loads.
+- Mobile menu opens.
+- Footer links display.
+- Calculator math still runs.

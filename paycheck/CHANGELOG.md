@@ -1,5 +1,19 @@
 # Paycheck Calculator Changelog
 
+## v0.9.3 — Footer Inheritance
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Removed version, theme, and status metadata from the Paycheck hero.
+- Kept the hero focused on the tool name and purpose.
+- Adopted the Home-style footer structure for Paycheck with Resources, Support, About, and Status sections.
+- Footer Changelog links now point to `PUBLIC_CHANGELOG.md`.
+- Updated Paycheck version metadata, cache-busting, manifests, and release documentation.
+- No calculator math changes.
+
+---
 ## v0.9.2 — Mobile Menu Fix
 
 **Date:** 2026-06-10

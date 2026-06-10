@@ -1,5 +1,15 @@
 # Paycheck Calculator Public Changelog
 
+## v0.9.3 — Footer Inheritance
+
+**Date:** 2026-06-10
+
+- Cleaned up the Paycheck header by removing release metadata from the hero area.
+- Added the Home-style Signal Labs footer to the Paycheck page.
+- Footer links now use the public changelog.
+- Calculator behavior and math are unchanged.
+
+---
 ## v0.9.2 — Mobile Menu Fix
 
 **Date:** 2026-06-10

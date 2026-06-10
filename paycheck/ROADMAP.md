@@ -2,6 +2,21 @@
 
 ## Completed
 
+### v0.9.3 — Footer Inheritance
+
+- Removed version/theme/status metadata from the Paycheck hero.
+- Adopted the Home-style footer layout.
+- Pointed footer changelog links to the public changelog.
+
+## Next
+
+- Continue extracting repeated header/footer/action patterns into shared components.
+- Continue modal/toast consistency work.
+- Bring Overtime and Time Off into the same design-system direction.
+
+---
+## Completed
+
 ### v0.9.2 — Mobile Menu Fix
 
 - Home-aligned global navigation.

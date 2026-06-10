@@ -1,20 +1,22 @@
-# Build Manifest — Paycheck v0.9.2
+# Build Manifest
 
-Version: Paycheck v0.9.2
+Version: Paycheck v0.9.3
+Theme: Footer Inheritance
+Build Date: 2026-06-10
+Build Type: Full replacement Paycheck release
+Source Baseline: Paycheck v0.9.2 — Mobile Menu Fix
+Architecture Reference: Home v0.8.3 — Homepage Density Pass
 
-Theme: Mobile Menu Fix
+## Purpose
 
-Build type: Full replacement Paycheck hotfix release
+Adopt the Home-style footer structure and remove version/theme/status metadata from the Paycheck hero.
 
-Source: Paycheck v0.9.1 — Header Alignment
-
-Package: paycheck-v0.9.2-mobile-menu-fix.zip
-
-Validation:
+## Validation
 
 - ZIP integrity passed.
 - script.js syntax check passed.
-- Mobile Menu button opens Paycheck global nav links.
-- Stale script metadata constants corrected.
-- No calculator math changes.
-- No shared asset content changes.
+- Version/theme/status removed from hero.
+- Home-style footer adopted.
+- Footer changelog points to PUBLIC_CHANGELOG.md.
+- style.css and script.js cache busting updated to v0.9.3.
+- SHA256SUMS.txt regenerated.

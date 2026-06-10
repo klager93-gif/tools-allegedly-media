@@ -1,5 +1,16 @@
 # Paycheck Calculator Admin Changelog
 
+## v0.9.3 — Footer Inheritance
+
+**Date:** 2026-06-10
+
+- Continued Paycheck design-system migration after v0.9.2.
+- Removed hero release metadata per design decision: tool heroes describe tools, not releases.
+- Preserved release metadata in page data attributes, footer/status areas, and changelogs.
+- Adopted local Home-style footer markup pending future shared footer component extraction.
+- No calculator math changes.
+
+---
 ## v0.9.2 — Mobile Menu Fix
 
 **Date:** 2026-06-10
