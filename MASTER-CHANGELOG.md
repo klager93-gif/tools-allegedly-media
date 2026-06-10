@@ -1,5 +1,14 @@
 # Signal Labs Master Changelog
 
+## 2026-06-10 — Home v0.9.0 — Public Pages Architecture
+
+- Built public HTML pages for changelog, roadmap, how-to, support, about, privacy, terms, and status.
+- Updated footer links to route to pages instead of downloading markdown files or opening popups.
+- Removed developer-only public footer links from Home.
+- Updated shared global JS/CSS for public page routing and styling.
+
+
+
 ## 2026-06-10 — Home v0.8.5 + Paycheck v0.9.5 — Documentation & File Cleanup
 
 - Cleaned up duplicate changelog/release-history files across Home and Paycheck.

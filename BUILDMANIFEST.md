@@ -2,28 +2,37 @@
 
 ## Release
 
-Home v0.8.5 + Paycheck v0.9.5 — Documentation & File Cleanup
+Home v0.9.0 — Public Pages Architecture
 
 ## Build Type
 
-Coordinated documentation and file cleanup release.
+Full replacement Home public pages release.
 
 ## Source
 
-- Baseline package: Home v0.8.4 + Paycheck v0.9.4 polish release.
-- GitHub repository reviewed: https://github.com/klager93-gif/tools-allegedly-media
+Baseline: Home v0.8.5 cleanup package from current work session.
 
-## Cleanup
+## Scope
 
-Removed deprecated duplicate files from this package:
+Home/root files and shared assets only. No calculator logic files are included.
 
-- `CHANGELOG.md`
-- `RELEASE-HISTORY.md`
-- `paycheck/CHANGELOG.md`
+## New Public Page Directories
+
+- changelog/
+- roadmap/
+- how-to/
+- report-issue/
+- request-feature/
+- contact/
+- about/
+- privacy/
+- terms/
+- status/
 
 ## Validation
 
-- Changelog links point to public changelogs.
-- Master changelog remains append-only.
-- Shared global JS default changelog target changed to `PUBLIC_CHANGELOG.md`.
-- No calculator math changes.
+- ZIP integrity checked.
+- `assets/global.js` syntax checked.
+- Footer public links route to pages.
+- Deprecated markdown/download footer behavior removed from Home.
+- SHA256SUMS.txt regenerated.

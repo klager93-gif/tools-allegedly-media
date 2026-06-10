@@ -1,25 +1,23 @@
-# Signal Labs Home How-To
+# Signal Labs Home How To
 
-## Changelogs
+## Public Pages
 
-Use:
+Use real pages for public-facing content:
 
-- `PUBLIC_CHANGELOG.md` for public Home changes.
-- `ADMIN_CHANGELOG.md` for internal Home changes.
-- `MASTER-CHANGELOG.md` for the permanent cross-project history.
+- Changelog: `/changelog/`
+- Roadmap: `/roadmap/`
+- How To: `/how-to/`
+- Support pages: `/report-issue/`, `/request-feature/`, `/contact/`
+- About pages: `/about/`, `/privacy/`, `/terms/`
+- Status: `/status/`
 
-Do not recreate `CHANGELOG.md` or `RELEASE-HISTORY.md` unless standards are changed later.
+Do not use popups for changelog, roadmap, documentation, privacy, terms, contact, or similar long-form content.
 
-## Footer Links
+## Modals
 
-Footer changelog links should point to `PUBLIC_CHANGELOG.md`.
+Use modals for short interactions only:
 
-## Release Check
-
-Before releasing, verify:
-
-- Home visible version.
-- Footer changelog target.
-- `MASTER-CHANGELOG.md` updated.
-- Public/admin changelogs updated.
-- Deprecated changelog files not included.
+- confirmation
+- warnings
+- save/copy feedback
+- focused form dialogs

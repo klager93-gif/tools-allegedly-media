@@ -453,3 +453,8 @@ Principle:
 ## Public Page Review
 
 Before releasing Home or any public tool page, verify that internal planning, demo, test, and architecture notes are not exposed as public content unless intentionally approved for users.
+
+
+## Public Pages Rule — Added in Home v0.9.0
+
+Public-facing long-form content should be served as real pages, not as markdown downloads or modal popups. This applies to changelog, roadmap, how-to, support, about, privacy, terms, and status content. Use modals only for short tool interactions such as confirmations, warnings, save/copy feedback, and focused dialogs.

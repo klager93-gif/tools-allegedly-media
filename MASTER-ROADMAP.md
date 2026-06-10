@@ -44,3 +44,9 @@ Home v0.8.0 establishes the Signal Labs Design System foundation.
 
 - Gradual tool adoption of shared design-system components.
 - Future dynamic global header/footer/nav system.
+
+
+## Completed — Home v0.9.0 — Public Pages Architecture
+
+- Added real public pages for footer resources and support links.
+- Replaced public markdown download/modal behavior with page routes.

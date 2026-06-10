@@ -1,39 +1,31 @@
 # Signal Labs Home Roadmap
 
-## Completed
+## Current Release
 
-### Home v0.8.5 — Documentation & File Cleanup
+### v0.9.0 — Public Pages Architecture
 
-- Removed duplicate regular changelog/release-history files from the release package.
-- Confirmed `MASTER-CHANGELOG.md` is the permanent cross-platform chronology.
-- Confirmed Home uses `PUBLIC_CHANGELOG.md` and `ADMIN_CHANGELOG.md` for project-specific history.
-- Updated documentation and standards to prevent changelog duplication.
+- Build real public content pages.
+- Route footer links to pages instead of markdown downloads or modal popups.
+- Remove developer-only links from the public footer.
 
-### Previous Completed Work
+## Next Priorities
 
-- Home v0.8.4 — Hero Control Polish
-- Home v0.8.3 — Homepage Density Pass
-- Home v0.8.2 — Homepage Redesign
-- Home v0.8.0 — Signal Labs Design System
+### Home v0.9.x — Technical Debt Cleanup
 
-## Next
+- Review unused CSS classes.
+- Review old modal/text-file behavior.
+- Review shared navigation/footer duplication.
+- Review documentation automation for manifests and checksums.
 
-- Build placeholder footer pages:
-  - Documentation
-  - How To
-  - Changelog
-  - Roadmap
-  - Support
-  - Contact
-  - Privacy
-  - Terms
-  - Status
-- Continue tool migrations into the shared design system.
-- Begin Overtime design-system adoption.
+### Home v0.9.x — Shared Components
 
-## Later
+- `header.js`
+- `footer.js`
+- `actionbar.js`
+- `toast.js`
+- `modal.js`
+- `dialog.js`
 
-- Shared footer/header components.
-- Toast system.
-- Modal/dialog system.
-- Component library.
+### Platform Tool Migration
+
+- Continue migrating Paycheck, Overtime, and Time Off into shared Home patterns.

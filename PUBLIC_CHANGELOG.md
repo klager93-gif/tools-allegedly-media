@@ -1,5 +1,18 @@
 # Signal Labs Public Changelog
 
+## v0.9.0 — Public Pages Architecture
+
+**Date:** 2026-06-10
+
+### User-facing changes
+
+- Added real public pages for Changelog, Roadmap, How To, Report Issue, Request Feature, Contact, About, Privacy, Terms, and Status.
+- Updated Home footer links to open pages instead of markdown files or popups.
+- Removed developer-only footer links such as Calculator Standards, README, and Documentation from the public footer.
+- Kept mobile and desktop footer behavior consistent by using normal page links.
+
+
+
 ## v0.8.5 — Documentation & File Cleanup
 
 **Date:** 2026-06-10

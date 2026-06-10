@@ -1,48 +1,35 @@
 # File Manifest
 
-## Included Root Files
+## Home v0.9.0 — Public Pages Architecture
 
-- `index.html`
-- `assets/global.css`
-- `assets/global.js`
-- `README.md`
-- `ROADMAP.md`
-- `HOWTO.md`
-- `PUBLIC_CHANGELOG.md`
 - `ADMIN_CHANGELOG.md`
+- `BACKUP.md`
+- `BUILDMANIFEST.md`
+- `DOCUMENTATION_STANDARDS.md`
+- `FILEMANIFEST.md`
+- `HOWTO.md`
+- `INSTALL.md`
 - `MASTER-CHANGELOG.md`
 - `MASTER-ROADMAP.md`
+- `PUBLIC_CHANGELOG.md`
+- `README.md`
+- `RESTORE.md`
+- `ROADMAP.md`
+- `SCRIPT_STANDARDS.md`
 - `STANDARDS.md`
 - `UX_STANDARDS.md`
-- `SCRIPT_STANDARDS.md`
-- `DOCUMENTATION_STANDARDS.md`
 - `VERSIONING_STANDARDS.md`
 - `WORKFLOW_STANDARDS.md`
-- `BUILDMANIFEST.md`
-- `FILEMANIFEST.md`
-- `RESTORE.md`
-- `INSTALL.md`
-- `BACKUP.md`
-- `SHA256SUMS.txt`
-
-## Included Paycheck Files
-
-- `paycheck/index.html`
-- `paycheck/style.css`
-- `paycheck/script.js`
-- `paycheck/README.md`
-- `paycheck/ROADMAP.md`
-- `paycheck/HOWTO.md`
-- `paycheck/PUBLIC_CHANGELOG.md`
-- `paycheck/ADMIN_CHANGELOG.md`
-- `paycheck/FILEMANIFEST.md`
-- `paycheck/BUILDMANIFEST.md`
-- `paycheck/RESTORE.md`
-- `paycheck/BACKUP.md`
-- `paycheck/SHA256SUMS.txt`
-
-## Deprecated / Removed From Package
-
-- `CHANGELOG.md`
-- `RELEASE-HISTORY.md`
-- `paycheck/CHANGELOG.md`
+- `about/index.html`
+- `assets/global.css`
+- `assets/global.js`
+- `changelog/index.html`
+- `contact/index.html`
+- `how-to/index.html`
+- `index.html`
+- `privacy/index.html`
+- `report-issue/index.html`
+- `request-feature/index.html`
+- `roadmap/index.html`
+- `status/index.html`
+- `terms/index.html`

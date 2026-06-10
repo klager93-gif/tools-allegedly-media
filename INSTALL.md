@@ -1,9 +1,21 @@
 # Install Notes
 
-Upload the package at repository root.
+Upload all files in this package to the repository root.
 
-After upload, manually remove deprecated files that remain in GitHub because ZIP extraction may not delete old files:
+This release adds new directories containing `index.html` files:
+
+- `changelog/`
+- `roadmap/`
+- `how-to/`
+- `report-issue/`
+- `request-feature/`
+- `contact/`
+- `about/`
+- `privacy/`
+- `terms/`
+- `status/`
+
+Delete deprecated duplicate files if they still exist:
 
 - `CHANGELOG.md`
 - `RELEASE-HISTORY.md`
-- `paycheck/CHANGELOG.md`

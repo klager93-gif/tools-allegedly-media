@@ -1,5 +1,19 @@
 # Signal Labs Home Admin Changelog
 
+## v0.9.0 — Public Pages Architecture
+
+**Date:** 2026-06-10
+
+### Internal changes
+
+- Converted public documentation navigation from modal/file behavior to routed static HTML pages.
+- Updated `assets/global.js` generated footer behavior to use links instead of text modal buttons.
+- Fixed the shared navigation toggle binding logic while updating global page behavior.
+- Added public page styles to `assets/global.css`.
+- Preserved modal/dialog utilities for future confirmations and tool interactions, but removed changelog/roadmap/how-to modal usage from Home footer flows.
+
+
+
 ## v0.8.5 — Documentation & File Cleanup
 
 **Date:** 2026-06-10

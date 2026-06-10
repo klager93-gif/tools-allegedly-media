@@ -1,11 +1,22 @@
 # Restore Instructions
 
-1. Confirm external backup exists.
-2. Upload/extract the release package into the repository root.
-3. Delete deprecated files from GitHub if still present:
-   - `CHANGELOG.md`
-   - `RELEASE-HISTORY.md`
-   - `paycheck/CHANGELOG.md`
-4. Confirm Home and Paycheck load.
-5. Confirm footer changelog links use public changelogs.
-6. Commit and deploy.
+## Release
+
+Home v0.9.0 — Public Pages Architecture
+
+## Restore
+
+1. Restore the external backup created before upload.
+2. Replace Home root files and `assets/global.css` / `assets/global.js` with the previous release files.
+3. Remove the new public page directories if rolling back fully:
+   - `changelog/`
+   - `roadmap/`
+   - `how-to/`
+   - `report-issue/`
+   - `request-feature/`
+   - `contact/`
+   - `about/`
+   - `privacy/`
+   - `terms/`
+   - `status/`
+4. Redeploy from GitHub.
