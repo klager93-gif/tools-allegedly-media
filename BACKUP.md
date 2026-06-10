@@ -1,9 +1,7 @@
 # Backup Reminder
 
-Create or confirm an external backup before uploading.
+Create or confirm an external backup before uploading this release.
 
-Backup folder name:
+Recommended backup folder:
 
-```text
-2026-06-10-before-home-v0.8.4-paycheck-v0.9.4-polish-release
-```
+`2026-06-10-before-home-v0.8.5-paycheck-v0.9.5-documentation-file-cleanup`

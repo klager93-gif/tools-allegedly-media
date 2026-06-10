@@ -1,36 +1,48 @@
 # File Manifest
 
-## Home v0.8.4 — Hero Control Polish
+## Included Root Files
 
-### Public Home Files
-
-- `index.html` — Signal Labs Home page with v0.8.4 metadata and mobile footer groups.
-- `assets/global.css` — shared CSS plus Home density and mobile footer accordion styles.
-- `assets/global.js` — shared JS plus Home footer accordion behavior.
-
-### Changelogs
-
-- `PUBLIC_CHANGELOG.md` — public Home changelog.
-- `ADMIN_CHANGELOG.md` — internal Home changelog.
-- `CHANGELOG.md` — Home changelog.
-- `MASTER-CHANGELOG.md` — append-only Signal Labs-wide chronology.
-- `RELEASE-HISTORY.md` — release history pending future consolidation into master changelog.
-
-### Documentation
-
+- `index.html`
+- `assets/global.css`
+- `assets/global.js`
 - `README.md`
 - `ROADMAP.md`
 - `HOWTO.md`
-- `INSTALL.md`
-- `RESTORE.md`
-- `BACKUP.md`
+- `PUBLIC_CHANGELOG.md`
+- `ADMIN_CHANGELOG.md`
+- `MASTER-CHANGELOG.md`
+- `MASTER-ROADMAP.md`
+- `STANDARDS.md`
+- `UX_STANDARDS.md`
+- `SCRIPT_STANDARDS.md`
+- `DOCUMENTATION_STANDARDS.md`
+- `VERSIONING_STANDARDS.md`
+- `WORKFLOW_STANDARDS.md`
 - `BUILDMANIFEST.md`
 - `FILEMANIFEST.md`
+- `RESTORE.md`
+- `INSTALL.md`
+- `BACKUP.md`
+- `SHA256SUMS.txt`
 
-### Standards
+## Included Paycheck Files
 
-Existing standards files remain included for continuity.
+- `paycheck/index.html`
+- `paycheck/style.css`
+- `paycheck/script.js`
+- `paycheck/README.md`
+- `paycheck/ROADMAP.md`
+- `paycheck/HOWTO.md`
+- `paycheck/PUBLIC_CHANGELOG.md`
+- `paycheck/ADMIN_CHANGELOG.md`
+- `paycheck/FILEMANIFEST.md`
+- `paycheck/BUILDMANIFEST.md`
+- `paycheck/RESTORE.md`
+- `paycheck/BACKUP.md`
+- `paycheck/SHA256SUMS.txt`
 
-### Integrity
+## Deprecated / Removed From Package
 
-- `SHA256SUMS.txt` — checksum manifest.
+- `CHANGELOG.md`
+- `RELEASE-HISTORY.md`
+- `paycheck/CHANGELOG.md`

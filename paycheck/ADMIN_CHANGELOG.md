@@ -1,5 +1,18 @@
 # Paycheck Calculator Admin Changelog
 
+## v0.9.5 — Documentation & File Cleanup
+
+**Date:** 2026-06-10
+
+- Formalized Paycheck changelog ownership.
+- `paycheck/PUBLIC_CHANGELOG.md` is the user-facing Paycheck changelog.
+- `paycheck/ADMIN_CHANGELOG.md` is the internal/development Paycheck changelog.
+- `paycheck/CHANGELOG.md` is deprecated and removed from this package.
+- Updated Paycheck manifests, README, and roadmap references.
+- Updated Paycheck metadata to v0.9.5 / Documentation & File Cleanup.
+- No calculator math changes.
+
+
 ## v0.9.4 — Typography & Breathing Room
 
 **Date:** 2026-06-10

@@ -1,30 +1,42 @@
 # Signal Labs Home
 
-Signal Labs is the Home site for lightweight calculators and planning tools built for real-life decisions.
+**Current Version:** Home v0.8.5 — Documentation & File Cleanup
 
-## Current Version
+Signal Labs is the shared home for lightweight calculators and planning tools built for real-life decisions.
 
-**Home v0.8.4 — Hero Control Polish**
+## Active Tools
 
-## What Changed
+- Paycheck Calculator — `v0.9.5`
+- Overtime Calculator
+- Time Off Planner
 
-- Tightened desktop and mobile homepage density after visual review.
-- Reduced oversized mobile hero, tool cards, Why Signal Labs section, and footer spacing.
-- Converted mobile footer link groups into collapsible sections.
-- Added footer placeholder pages to the Home roadmap/TODO list.
-- Preserved the v0.8.2 homepage redesign and shared design-system foundation.
+## Changelog Architecture
 
-## Tools
+Signal Labs now uses a simplified changelog structure:
 
-- Paycheck Calculator: `/paycheck/`
-- Overtime Calculator: `/overtime/`
-- Time Off Calculator: `/timeoff/`
-
-## Documentation
-
-- `PUBLIC_CHANGELOG.md` — clean public-facing Home changelog.
+- `MASTER-CHANGELOG.md` — permanent append-only chronology across all Signal Labs projects.
+- `PUBLIC_CHANGELOG.md` — public Home changelog.
 - `ADMIN_CHANGELOG.md` — internal Home changelog.
-- `CHANGELOG.md` — Home changelog.
-- `MASTER-CHANGELOG.md` — full Signal Labs chronology.
-- `ROADMAP.md` — Home roadmap.
-- `HOWTO.md` — Home usage notes.
+- `paycheck/PUBLIC_CHANGELOG.md` — public Paycheck changelog.
+- `paycheck/ADMIN_CHANGELOG.md` — internal Paycheck changelog.
+
+Deprecated duplicate files are no longer included in release packages:
+
+- `CHANGELOG.md`
+- `RELEASE-HISTORY.md`
+- `paycheck/CHANGELOG.md`
+
+## Standards
+
+Follow the standards files before work:
+
+- `STANDARDS.md`
+- `UX_STANDARDS.md`
+- `SCRIPT_STANDARDS.md`
+- `DOCUMENTATION_STANDARDS.md`
+- `VERSIONING_STANDARDS.md`
+- `WORKFLOW_STANDARDS.md`
+
+## Status
+
+Active Development

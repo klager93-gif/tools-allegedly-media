@@ -241,7 +241,7 @@ Meta/version notes
 CSS cache-busting query strings
 JS cache-busting query strings
 README version references
-CHANGELOG version references
+public/admin changelog version references
 ROADMAP version references
 Manifest version references
 Restore/build metadata

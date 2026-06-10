@@ -142,9 +142,9 @@ Hotfixes may replace only affected file or files when the change is narrowly sco
 
 Every hotfix still requires, at minimum:
 
-- Tool `CHANGELOG.md` update.
+- Relevant `PUBLIC_CHANGELOG.md` and `ADMIN_CHANGELOG.md` updates.
 - `MASTER-CHANGELOG.md` update.
-- `RELEASE-HISTORY.md` update.
+- No separate release-history file; update `MASTER-CHANGELOG.md`.
 - GitHub title.
 - GitHub description.
 - Backup folder name.
@@ -180,7 +180,7 @@ Every tool should eventually maintain:
 ```text
 README.md
 ROADMAP.md
-CHANGELOG.md
+PUBLIC_CHANGELOG.md / ADMIN_CHANGELOG.md
 HOWTO.md
 FILEMANIFEST.md
 BUILDMANIFEST.md
@@ -197,7 +197,7 @@ VERSIONING_STANDARDS.md
 WORKFLOW_STANDARDS.md
 MASTER-CHANGELOG.md
 MASTER-ROADMAP.md
-RELEASE-HISTORY.md
+MASTER-CHANGELOG.md
 RESTORE.md
 INSTALL.md
 ```
@@ -383,9 +383,9 @@ Only successful releases should update historical release records.
 
 Successful releases may update:
 
-- `CHANGELOG.md`
+- `PUBLIC_CHANGELOG.md / ADMIN_CHANGELOG.md`
 - `MASTER-CHANGELOG.md`
-- `RELEASE-HISTORY.md`
+- `MASTER-CHANGELOG.md`
 
 Failed releases should not appear as completed release history.
 

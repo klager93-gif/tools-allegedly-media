@@ -1,18 +1,25 @@
-# Signal Labs Home How To
+# Signal Labs Home How-To
 
-## Use the Home Page
+## Changelogs
 
-1. Open the Home page.
-2. Choose a tool card: Paycheck, Overtime, or Time Off.
-3. Use the footer resource links for changelog, roadmap, documentation, support, and future policy pages.
+Use:
 
-## Notes
+- `PUBLIC_CHANGELOG.md` for public Home changes.
+- `ADMIN_CHANGELOG.md` for internal Home changes.
+- `MASTER-CHANGELOG.md` for the permanent cross-project history.
 
-- Home is a public landing page and tool directory.
-- Footer support/legal links may point to future pages or contact routes until those pages are built.
-- Calculator logic is handled inside each tool folder.
+Do not recreate `CHANGELOG.md` or `RELEASE-HISTORY.md` unless standards are changed later.
 
+## Footer Links
 
-## Footer Placeholder Links
+Footer changelog links should point to `PUBLIC_CHANGELOG.md`.
 
-Some footer links are intentionally included before their final public pages exist. They are tracked in `ROADMAP.md` and should be built in a future Home release.
+## Release Check
+
+Before releasing, verify:
+
+- Home visible version.
+- Footer changelog target.
+- `MASTER-CHANGELOG.md` updated.
+- Public/admin changelogs updated.
+- Deprecated changelog files not included.

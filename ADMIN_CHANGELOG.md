@@ -1,5 +1,19 @@
 # Signal Labs Home Admin Changelog
 
+## v0.8.5 — Documentation & File Cleanup
+
+**Date:** 2026-06-10
+
+- Formalized the changelog architecture for Home.
+- `PUBLIC_CHANGELOG.md` is the Home user-facing changelog.
+- `ADMIN_CHANGELOG.md` is the Home internal/development changelog.
+- `MASTER-CHANGELOG.md` remains the permanent append-only cross-platform chronology.
+- `CHANGELOG.md` and `RELEASE-HISTORY.md` are deprecated duplicates and are removed from this package.
+- Updated standards and manifests so future releases do not maintain three changelog tracks per project.
+- Updated `assets/global.js` default changelog target from `CHANGELOG.md` to `PUBLIC_CHANGELOG.md`.
+- No shared visual redesign included.
+
+
 ## v0.8.4 — Hero Control Polish
 
 **Date:** 2026-06-10

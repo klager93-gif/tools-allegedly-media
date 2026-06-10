@@ -1,5 +1,15 @@
 # Paycheck Calculator Public Changelog
 
+## v0.9.5 — Documentation & File Cleanup
+
+**Date:** 2026-06-10
+
+- Cleaned up Paycheck documentation so the public and admin changelogs are the active Paycheck history files.
+- Removed the duplicate regular Paycheck changelog from the release package after preserving the current history structure.
+- Confirmed footer changelog behavior should point to `PUBLIC_CHANGELOG.md`.
+- No calculator math changes.
+
+
 ## v0.9.4 — Typography & Breathing Room
 
 **Date:** 2026-06-10
@@ -132,4 +142,4 @@ User-facing Paycheck Calculator changes. Entries are append-only and should neve
 
 ## Earlier Versions
 
-Earlier Paycheck history should be backfilled from the existing `CHANGELOG.md` during a future documentation cleanup release. Do not delete existing history.
+Earlier Paycheck history is preserved in the public/admin changelog structure and the master changelog. Do not delete historical entries.

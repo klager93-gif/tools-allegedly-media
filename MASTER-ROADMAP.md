@@ -1,5 +1,11 @@
 # Signal Labs Master Roadmap
 
+## Completed — Home v0.8.5 + Paycheck v0.9.5
+
+- Cleaned up duplicate changelog files.
+- Deprecated regular changelog and release-history files in favor of master/public/admin changelog structure.
+
+
 ## Completed — Home v0.8.4
 
 - Home homepage density pass.

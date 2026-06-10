@@ -1,6 +1,6 @@
 /*
 Signal Labs Shared Asset File: assets/global.js
-Version: v0.8.4
+Version: v0.8.5
 Purpose: Shared navigation, metadata, footer, modal/dialog, toast, UTC helper, action bar support, and ad slot initialization.
 */
 
@@ -35,7 +35,7 @@ function getSignalPageMeta() {
     theme: dataset.signalTheme || "",
     status: dataset.signalStatus || "",
     description: dataset.signalDescription || "Useful tools without the noise.",
-    changelog: dataset.signalChangelog || "CHANGELOG.md",
+    changelog: dataset.signalChangelog || "PUBLIC_CHANGELOG.md",
     roadmap: dataset.signalRoadmap || "ROADMAP.md",
     howto: dataset.signalHowto || "HOWTO.md",
     globalLayout: dataset.signalGlobalLayout === "true"
@@ -223,7 +223,7 @@ function initializeTextModalTriggers() {
   const openRoadmap = document.getElementById("openRoadmap");
   if (openChangelog && !openChangelog.dataset.globalModalBound) {
     openChangelog.dataset.globalModalBound = "true";
-    openChangelog.addEventListener("click", () => openTextModal({ title: "CHANGELOG", file: "CHANGELOG.md" }));
+    openChangelog.addEventListener("click", () => openTextModal({ title: "CHANGELOG", file: "PUBLIC_CHANGELOG.md" }));
   }
   if (openRoadmap && !openRoadmap.dataset.globalModalBound) {
     openRoadmap.dataset.globalModalBound = "true";

@@ -1,25 +1,21 @@
-# File Manifest
+# Paycheck File Manifest
 
-## Paycheck v0.9.4 — Typography & Breathing Room
+## Included
 
-### Updated
+- `index.html`
+- `style.css`
+- `script.js`
+- `README.md`
+- `ROADMAP.md`
+- `HOWTO.md`
+- `PUBLIC_CHANGELOG.md`
+- `ADMIN_CHANGELOG.md`
+- `FILEMANIFEST.md`
+- `BUILDMANIFEST.md`
+- `RESTORE.md`
+- `BACKUP.md`
+- `SHA256SUMS.txt`
 
-- paycheck/index.html
-- paycheck/style.css
-- paycheck/script.js
-- paycheck/README.md
-- paycheck/CHANGELOG.md
-- paycheck/PUBLIC_CHANGELOG.md
-- paycheck/ADMIN_CHANGELOG.md
-- paycheck/ROADMAP.md
-- paycheck/HOWTO.md
-- paycheck/FILEMANIFEST.md
-- paycheck/BUILDMANIFEST.md
-- paycheck/RESTORE.md
-- paycheck/BACKUP.md
-- paycheck/SHA256SUMS.txt
-- MASTER-CHANGELOG.md
+## Deprecated / Removed From Package
 
-### Added
-
-- None
+- `CHANGELOG.md`

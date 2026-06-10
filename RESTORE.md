@@ -1,14 +1,11 @@
-# Restore Notes
+# Restore Instructions
 
-## Home v0.8.4 — Hero Control Polish
-
-If this release causes problems:
-
-1. Restore the external backup created before upload.
-2. Revert affected files in GitHub.
-3. Redeploy through Coolify.
-4. Confirm the Home page loads and the footer/version metadata match the restored version.
-
-## Previous Stable Release
-
-Home v0.8.2 — Homepage Redesign.
+1. Confirm external backup exists.
+2. Upload/extract the release package into the repository root.
+3. Delete deprecated files from GitHub if still present:
+   - `CHANGELOG.md`
+   - `RELEASE-HISTORY.md`
+   - `paycheck/CHANGELOG.md`
+4. Confirm Home and Paycheck load.
+5. Confirm footer changelog links use public changelogs.
+6. Commit and deploy.

@@ -1,55 +1,39 @@
 # Signal Labs Home Roadmap
 
-## Current
+## Completed
 
-### v0.8.3 — Homepage Density Pass
+### Home v0.8.5 — Documentation & File Cleanup
 
-Completed a desktop/mobile density pass after visual review. Reduced oversized mobile elements, tightened page spacing, added mobile footer accordions, and kept the v0.8.2 design direction.
+- Removed duplicate regular changelog/release-history files from the release package.
+- Confirmed `MASTER-CHANGELOG.md` is the permanent cross-platform chronology.
+- Confirmed Home uses `PUBLIC_CHANGELOG.md` and `ADMIN_CHANGELOG.md` for project-specific history.
+- Updated documentation and standards to prevent changelog duplication.
+
+### Previous Completed Work
+
+- Home v0.8.4 — Hero Control Polish
+- Home v0.8.3 — Homepage Density Pass
+- Home v0.8.2 — Homepage Redesign
+- Home v0.8.0 — Signal Labs Design System
 
 ## Next
 
-### Home v0.8.x — Global Layout Refinement
-
-- Continue refining shared nav/header/footer patterns.
-- Decide how page metadata should feed global header/footer displays.
-- Keep public pages clean and avoid internal/demo architecture content.
-
-### Tool Adoption
-
-- Gradually migrate Paycheck, Overtime, and Time Off into the shared design-system patterns.
-- Use shared action bars, modals, toasts, cards, buttons, pills, and empty states.
-
-### Documentation Architecture
-
-- Keep `MASTER-CHANGELOG.md` append-only across all Signal Labs projects.
-- Add or refine public/admin changelogs per tool during each tool's next appropriate release.
-- Footer changelog links should point to public changelogs.
+- Build placeholder footer pages:
+  - Documentation
+  - How To
+  - Changelog
+  - Roadmap
+  - Support
+  - Contact
+  - Privacy
+  - Terms
+  - Status
+- Continue tool migrations into the shared design system.
+- Begin Overtime design-system adoption.
 
 ## Later
 
-- Admin/status dashboard.
-- Dynamic metadata-driven global footer/header.
-- Additional calculator and planning tools.
-
-
-## TODO — Footer Placeholder Pages
-
-Create public placeholder pages or routes for footer links:
-
-- How To Guide
-- Changelog
-- Roadmap
-- Calculator Standards
-- Documentation
-- Report an Issue
-- Request a Feature
-- Provide Feedback
-- Contact
-- About Signal Labs
-- Privacy Policy
-- Terms of Use
-- Status
-
-## Recent Completion Notes
-
-- Home v0.8.4 completed hero control polish.
+- Shared footer/header components.
+- Toast system.
+- Modal/dialog system.
+- Component library.

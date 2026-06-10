@@ -2,52 +2,28 @@
 
 ## Release
 
-Home v0.8.4 — Hero Control Polish
+Home v0.8.5 + Paycheck v0.9.5 — Documentation & File Cleanup
 
 ## Build Type
 
-Full replacement Home/shared-asset release.
+Coordinated documentation and file cleanup release.
 
 ## Source
 
-GitHub baseline / prior package: Home v0.8.2 — Homepage Redesign.
+- Baseline package: Home v0.8.4 + Paycheck v0.9.4 polish release.
+- GitHub repository reviewed: https://github.com/klager93-gif/tools-allegedly-media
 
-## Backup Folder
+## Cleanup
 
-`2026-06-10-before-home-v0.8.4-homepage-density-pass`
+Removed deprecated duplicate files from this package:
 
-## Files Changed
-
-- `index.html`
-- `assets/global.css`
-- `assets/global.js`
-- `README.md`
 - `CHANGELOG.md`
-- `PUBLIC_CHANGELOG.md`
-- `ADMIN_CHANGELOG.md`
-- `ROADMAP.md`
-- `HOWTO.md`
-- `MASTER-CHANGELOG.md`
-- `MASTER-ROADMAP.md`
 - `RELEASE-HISTORY.md`
-- `FILEMANIFEST.md`
-- `BUILDMANIFEST.md`
-- `RESTORE.md`
-- `INSTALL.md`
-- `BACKUP.md`
-- `SHA256SUMS.txt`
+- `paycheck/CHANGELOG.md`
 
 ## Validation
 
-- ZIP integrity check required after packaging.
-- `assets/global.js` syntax check passed.
-- Home metadata updated to v0.8.4.
-- Global asset cache-busting updated to v0.8.4.
-- Mobile footer accordion behavior added.
-- Footer placeholder pages added to roadmap/TODO tracking.
-- No calculator logic changes.
-
-
-## Coordinated Release Note
-
-This package also includes Paycheck v0.9.4 — Typography & Breathing Room.
+- Changelog links point to public changelogs.
+- Master changelog remains append-only.
+- Shared global JS default changelog target changed to `PUBLIC_CHANGELOG.md`.
+- No calculator math changes.

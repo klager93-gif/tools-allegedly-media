@@ -1,5 +1,17 @@
 # Signal Labs Public Changelog
 
+## v0.8.5 — Documentation & File Cleanup
+
+**Date:** 2026-06-10
+
+- Cleaned up Home documentation so public and admin changelogs are the active Home history files.
+- Removed the duplicate regular Home changelog from the release package after preserving history in the public/admin changelog system.
+- Retired the duplicate release-history file in favor of the permanent append-only master changelog.
+- Updated Home documentation and manifests to point to `PUBLIC_CHANGELOG.md`, `ADMIN_CHANGELOG.md`, and `MASTER-CHANGELOG.md`.
+- Added cleanup guidance for old changelog files that should be deleted from the repository after upload.
+- No calculator logic changes.
+
+
 ## v0.8.4 — Hero Control Polish
 
 **Date:** 2026-06-10

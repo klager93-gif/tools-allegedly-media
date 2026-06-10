@@ -1,18 +1,19 @@
 # Paycheck Calculator
 
-## Current Version
+**Current Version:** Paycheck v0.9.5 — Documentation & File Cleanup
 
-**v0.9.4 — Typography & Breathing Room**
+Estimate take-home pay with essentials first and advanced options when needed.
 
-The Paycheck Calculator estimates take-home pay with regular hours, premium hours, paid leave, taxes, deductions, adjustments, and optional target pay planning.
+## Changelog Architecture
 
-## This Release
+- `PUBLIC_CHANGELOG.md` — user-facing Paycheck history.
+- `ADMIN_CHANGELOG.md` — internal Paycheck development history.
+- `../MASTER-CHANGELOG.md` — Signal Labs-wide history.
 
-- Removes release metadata from the hero/header area.
-- Adds the Home-style Signal Labs footer structure.
-- Keeps the footer changelog link pointed at `PUBLIC_CHANGELOG.md`.
-- Makes no calculator math changes.
+Deprecated and removed from this package:
 
-## Signal Labs Direction
+- `paycheck/CHANGELOG.md`
 
-Tool pages should share global navigation and footer patterns while keeping calculator-specific actions near the tool.
+## Status
+
+Active Development

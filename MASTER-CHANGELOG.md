@@ -1,5 +1,14 @@
 # Signal Labs Master Changelog
 
+## 2026-06-10 — Home v0.8.5 + Paycheck v0.9.5 — Documentation & File Cleanup
+
+- Cleaned up duplicate changelog/release-history files across Home and Paycheck.
+- Preserved the intended changelog hierarchy: root `MASTER-CHANGELOG.md` for all Signal Labs releases, plus per-project `PUBLIC_CHANGELOG.md` and `ADMIN_CHANGELOG.md` files.
+- Deprecated root `CHANGELOG.md`, root `RELEASE-HISTORY.md`, and `paycheck/CHANGELOG.md`.
+- Updated documentation, manifests, standards, and shared changelog defaults to avoid maintaining three parallel changelogs.
+- No calculator math changes.
+
+
 ## 2026-06-10 — Paycheck v0.9.4 — Typography & Breathing Room
 
 - Removed version/theme/status metadata from the Paycheck hero.

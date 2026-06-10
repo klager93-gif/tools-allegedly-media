@@ -1,15 +1,11 @@
-# Paycheck Calculator How To
+# Paycheck How-To
 
-Use the Paycheck Calculator to estimate gross pay, deductions, and take-home pay.
+## Changelogs
 
-## Basic Use
+Use:
 
-1. Enter regular hours.
-2. Enter hourly rate and pay period.
-3. Add premium hours, paid leave, taxes, deductions, or adjustments only when needed.
-4. Select **Calculate Paycheck**.
-5. Use **Copy Results** or **Print Report** if you need to save/share the estimate.
+- `PUBLIC_CHANGELOG.md` for user-facing Paycheck changes.
+- `ADMIN_CHANGELOG.md` for internal Paycheck changes.
+- `../MASTER-CHANGELOG.md` for Signal Labs-wide history.
 
-## Notes
-
-Release metadata now belongs in the footer/status/changelog areas, not the tool hero.
+Do not recreate `paycheck/CHANGELOG.md` unless standards change later.
