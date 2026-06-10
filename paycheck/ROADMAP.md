@@ -2,11 +2,11 @@
 
 ## Current Version
 
-v0.8.4
+v0.8.5
 
 ## Theme
 
-Result Density Cleanup
+Tool Action Bar Foundation
 
 ---
 
@@ -35,7 +35,7 @@ Result Density Cleanup
 | v0.8.1 | Progressive Disclosure Polish |
 | v0.8.2 | Inline Result Details |
 | v0.8.3 | Progressive Details & Compact Density |
-| v0.8.4 | Result Density Cleanup |
+| v0.8.5 | Tool Action Bar Foundation |
 
 ---
 
@@ -45,11 +45,11 @@ Result Density Cleanup
 
 Potential focus:
 
-- Live mobile verification after v0.8.4 deployment.
+- Live mobile verification after v0.8.5 deployment.
 - Backfill full Paycheck history into `PUBLIC_CHANGELOG.md` and `ADMIN_CHANGELOG.md` without deleting existing history.
 - Review print report formatting against progressive result rows.
 - Review Copy Results output against progressive result rows.
-- Review saved settings migration after v0.8.4.
+- Review saved settings migration after v0.8.5.
 
 ### Paycheck v1.0
 
@@ -61,3 +61,15 @@ Potential focus:
 - Print Report verification.
 - Copy Results verification.
 - Production release notes.
+
+
+## Completed
+
+| Version | Theme |
+|---|---|
+| v0.8.5 | Tool Action Bar Foundation |
+
+## Future
+
+- Move local tool action bar into a future shared/global layout system.
+- Add dynamic global header, footer, nav, and page metadata rendering.

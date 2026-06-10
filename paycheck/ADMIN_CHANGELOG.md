@@ -1,5 +1,19 @@
 # Paycheck Admin Changelog
 
+## v0.8.5 — Tool Action Bar Foundation
+
+**Date:** 2026-06-10
+
+### Internal Notes
+
+- Starts the local Paycheck implementation of the future shared/global tool action bar pattern.
+- Keeps the action system local for now so a future Home/global release can extract it into a reusable site-wide component.
+- Removes the visible mobile action dropdown pattern because it created duplicated controls and poor text spacing.
+- Preserves existing button IDs so current JavaScript event bindings continue to work.
+- Updates version labels, cache-busting references, documentation, manifests, and checksums to v0.8.5.
+
+---
+
 Internal Paycheck development notes. This file is for technical, workflow, standards, packaging, and process history. Entries are append-only.
 
 ---

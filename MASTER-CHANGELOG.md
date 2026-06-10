@@ -1,5 +1,14 @@
 # Signal Labs Master Changelog
 
+## 2026-06-10 — Paycheck v0.8.5 — Tool Action Bar Foundation
+
+- Reworked the Paycheck action area into a cleaner local tool action bar.
+- Removed the awkward `⋮ Actions` button and visible action-sheet/dropdown pattern.
+- Grouped setup, primary calculate, and output actions in preparation for a future global tool action component.
+- Updated Paycheck version labels, footer, cache-busting references, documentation, manifests, and checksum manifest to v0.8.5.
+
+---
+
 ## Purpose
 
 This file tracks all changes across the entire Signal Labs ecosystem in the literal order they occur.

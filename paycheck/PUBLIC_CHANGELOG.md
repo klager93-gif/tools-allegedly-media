@@ -1,5 +1,21 @@
 # Paycheck Public Changelog
 
+## v0.8.5 — Tool Action Bar Foundation
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Reworked the Paycheck action area into a cleaner tool action bar.
+- Removed the awkward `⋮ Actions` button and mobile action sheet from the visible workflow.
+- Kept primary action focus on `Calculate Paycheck`.
+- Grouped setup actions (`Save Settings`, `Load Example`, `Reset`) separately from output actions (`Copy Results`, `Print Report`).
+- Improved mobile action layout so the primary calculate action appears first and secondary actions stack cleanly.
+- No calculator logic changes.
+- No shared asset content changes.
+
+---
+
 User-facing Paycheck Calculator changes. Entries are append-only and should never be deleted, collapsed, or replaced.
 
 ---

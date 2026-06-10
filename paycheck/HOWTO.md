@@ -12,7 +12,7 @@
 
 ## Result Details
 
-Starting in v0.8.4, the results breakdown appears progressively. There is no hidden Details accordion, and empty zero-value rows are hidden.
+Starting in v0.8.5, the results breakdown appears progressively. There is no hidden Details accordion, and empty zero-value rows are hidden.
 
 Rows appear only when they matter, such as:
 
@@ -29,3 +29,8 @@ Rows appear only when they matter, such as:
 The footer changelog link points to `PUBLIC_CHANGELOG.md`.
 
 Internal development notes are kept in `ADMIN_CHANGELOG.md`.
+
+
+## Action Bar
+
+Use `Calculate Paycheck` as the primary action. Use `Save Settings`, `Load Example`, and `Reset` for setup. Use `Copy Results` and `Print Report` for output.

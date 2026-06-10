@@ -1,5 +1,18 @@
 # Signal Labs Paycheck Calculator Changelog
 
+## v0.8.5 — Tool Action Bar Foundation
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Reworked the action area into a cleaner tool action bar.
+- Removed the awkward `⋮ Actions` trigger and action-sheet style dropdown from the main workflow.
+- Grouped setup, calculate, and output actions for better desktop and mobile hierarchy.
+- Preserved calculator logic and existing action button IDs.
+
+---
+
 This file remains as the legacy combined changelog for developer compatibility. Paycheck also maintains:
 
 - `PUBLIC_CHANGELOG.md` for user-facing changes.

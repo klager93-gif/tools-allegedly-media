@@ -1,17 +1,17 @@
-# Paycheck v0.8.4 Backup Notes
+# Paycheck v0.8.5 Backup Notes
 
-## Required Backup
+## Backup Reminder
 
-Create or confirm an external backup before upload.
+Create or confirm an external backup before uploading this release.
 
-## Suggested Backup Folder Name
+## Backup Folder Name
 
-`2026-06-10-before-paycheck-v0.8.4-result-density-cleanup`
+`2026-06-10-before-paycheck-v0.8.5-tool-action-bar-foundation`
 
-## Previous Version
-
-Paycheck v0.8.3 — Progressive Details & Compact Density
-
-## New Version
+## Previous Release
 
 Paycheck v0.8.4 — Result Density Cleanup
+
+## New Release
+
+Paycheck v0.8.5 — Tool Action Bar Foundation

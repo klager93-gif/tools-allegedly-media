@@ -1,42 +1,36 @@
-# Paycheck v0.8.4 Build Manifest
+# Paycheck v0.8.5 Build Manifest
 
 ## Version
 
-Paycheck v0.8.4
+Paycheck v0.8.5
 
 ## Theme
 
-Result Density Cleanup
-
-## Build Date
-
-2026-06-10
-
-## Source Repository
-
-https://github.com/klager93-gif/tools-allegedly-media
-
-## Source Baseline
-
-Paycheck v0.8.3 — Progressive Details & Compact Density, plus live visual review in chat.
+Tool Action Bar Foundation
 
 ## Build Type
 
-Full replacement Paycheck release package.
+Full replacement Paycheck release.
 
-## Primary Change
+## Source
 
-Refines the v0.8.3 result-density pass by reducing remaining visual bulk and adding initial hidden states before script initialization.
+Recent Paycheck v0.8.4 release package plus approved action-bar direction from chat.
 
-## Shared Assets
+## Backup Folder
 
-No shared asset content changes.
+`2026-06-10-before-paycheck-v0.8.5-tool-action-bar-foundation`
 
-Shared references preserved:
+## Summary
 
-- `../assets/global.css?v=0.6.1`
-- `../assets/global.js?v=0.6.1`
+Reworks the local Paycheck action area into a cleaner tool action bar, removes the awkward visible action dropdown, and prepares the pattern for future global layout extraction.
 
-## Checksum Manifest
+## Validation
 
-`SHA256SUMS.txt` is intentionally included.
+- ZIP integrity passed.
+- `script.js` syntax check passed.
+- Visible `⋮ Actions` trigger removed.
+- Mobile action sheet removed from page markup.
+- Existing action button IDs preserved.
+- Footer and build labels updated to v0.8.5.
+- Cache-busting references updated to v0.8.5.
+- SHA256SUMS.txt generated.

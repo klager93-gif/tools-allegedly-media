@@ -1,32 +1,23 @@
-# Paycheck v0.8.4 Restore Instructions
+# Paycheck v0.8.5 Restore Instructions
 
-## Before Upload
+## Backup Folder
 
-Confirm an external backup exists.
+`2026-06-10-before-paycheck-v0.8.5-tool-action-bar-foundation`
 
-Suggested backup folder:
+## Restore Steps
 
-`2026-06-10-before-paycheck-v0.8.4-result-density-cleanup`
+1. Confirm the current live Paycheck files are backed up externally.
+2. Upload the contents of the `paycheck/` folder from this package to `/paycheck/`.
+3. Upload `MASTER-CHANGELOG.md` to the repository root.
+4. Commit changes to GitHub.
+5. Allow Coolify/static deployment to complete.
+6. Verify the live Paycheck page.
 
-## Upload
+## Verification
 
-Replace the existing `/paycheck/` files with the files from this package.
-
-## Verify
-
-After deployment, check:
-
-- `/paycheck/` loads.
-- Footer shows `Signal Labs · Paycheck Calculator · v0.8.4`.
-- Build card shows `Build: v0.8.4`.
-- Theme shows `Result Density Cleanup`.
-- Results do not show zero-value clutter rows.
-- Rows appear when premium hours, paid leave, other earnings, taxes, deductions, or target values exist.
-- Pills are smaller on desktop and mobile.
-- Mobile layout requires less vertical scrolling.
-- Changelog footer link points to `PUBLIC_CHANGELOG.md`.
-- Calculator still calculates gross pay, taxes, deductions, net pay, and target pay.
-
-## Rollback
-
-Restore the external backup folder if a critical issue appears.
+- Footer shows `Signal Labs · Paycheck Calculator · v0.8.5`.
+- Build card shows `Build: v0.8.5`.
+- Theme shows `Tool Action Bar Foundation`.
+- The visible `⋮ Actions` button is gone.
+- Setup actions, Calculate Paycheck, Copy Results, and Print Report are visible in a clean action bar.
+- Mobile view places Calculate Paycheck first.
