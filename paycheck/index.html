@@ -2,8 +2,8 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.8.5
-Purpose: Main application page
+Version: v0.9.0
+Purpose: Paycheck Calculator page using Signal Labs design system foundations
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,15 +19,51 @@ Purpose: Main application page
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="../assets/global.css?v=0.6.1">
-<link rel="stylesheet" href="style.css?v=0.8.5">
+<link rel="stylesheet" href="../assets/global.css?v=0.8.3">
+<link rel="stylesheet" href="style.css?v=0.9.0">
 </head>
-<body>
+<body
+  class="tool-page paycheck-page"
+  data-signal-global-layout="false"
+  data-signal-area="Paycheck"
+  data-signal-title="Paycheck Calculator"
+  data-signal-version="v0.9.0"
+  data-signal-theme="Design System Adoption"
+  data-signal-status="Active Development"
+  data-signal-description="Estimate take-home pay with essentials first and advanced options when needed."
+  data-signal-changelog="PUBLIC_CHANGELOG.md"
+  data-signal-roadmap="ROADMAP.md"
+  data-signal-howto="HOWTO.md"
+>
+<nav class="signal-nav tool-nav paycheck-tool-nav" aria-label="Signal Labs navigation">
+  <div class="signal-nav-inner">
+    <a class="signal-nav-brand signal-nav-mark" href="../" aria-label="Signal Labs home">
+      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <rect x="4" y="4" width="24" height="24" rx="5"></rect>
+        <path d="M9 22h14"></path>
+        <path d="M10 18l5-5 4 4 5-7"></path>
+        <path d="M20 10h4v4"></path>
+      </svg>
+    </a>
+    <button class="signal-nav-toggle" type="button" aria-expanded="false" aria-controls="signalNavLinks">☰ Menu</button>
+    <div id="signalNavLinks" class="signal-nav-links">
+      <a class="signal-nav-link" href="../">Home</a>
+      <a class="signal-nav-link is-active" href="./">Paycheck</a>
+      <a class="signal-nav-link" href="../overtime/">Overtime</a>
+      <a class="signal-nav-link" href="../timeoff/">Time Off</a>
+    </div>
+  </div>
+</nav>
 <main class="page">
-<header class="hero">
-  <p class="eyebrow">Signal Labs</p>
+<header class="hero tool-hero paycheck-hero">
+  <p class="eyebrow">Signal Labs Tool</p>
   <h1>Paycheck Calculator</h1>
   <p class="subtitle">Estimate take-home pay with essentials first and advanced options when needed.</p>
+  <div class="tool-meta-row" aria-label="Paycheck release metadata">
+    <span>v0.9.0</span>
+    <span>Design System Adoption</span>
+    <span>Active Development</span>
+  </div>
 </header>
 
 <div class="ad-slot ad-slot-top is-disabled" data-ad-slot="paycheck-top" data-ad-status="disabled" aria-hidden="true">
@@ -407,8 +443,8 @@ Purpose: Main application page
     </div>
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.8.5</p>
-      <p>Theme: Tool Action Bar Foundation</p>
+      <p>Build: v0.9.0</p>
+      <p>Theme: Design System Adoption</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -450,13 +486,13 @@ Purpose: Main application page
     <a href="ROADMAP.md">Roadmap</a>
   </div>
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.8.5<br>
+    Signal Labs · Paycheck Calculator · v0.9.0<br>
     Useful tools without the noise.
   </div>
 </footer>
 
-<div id="adjustmentModal" class="modal hidden">
-  <div class="modal-box">
+<div id="adjustmentModal" class="modal hidden signal-modal-local">
+  <div class="modal-box signal-modal-box-local">
     <button id="closeAdjustmentModal" class="modal-close" type="button">×</button>
     <h2 id="adjustmentModalTitle">Add Adjustment</h2>
     <p id="adjustmentModalDescription" class="modal-description">Add a paycheck adjustment.</p>
@@ -482,7 +518,7 @@ Purpose: Main application page
   </div>
 </div>
 
-<script src="../assets/global.js?v=0.6.1"></script>
-<script src="script.js?v=0.8.5"></script>
+<script src="../assets/global.js?v=0.8.3"></script>
+<script src="script.js?v=0.9.0"></script>
 </body>
 </html>

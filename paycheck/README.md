@@ -37,3 +37,9 @@ Tool Action Bar Foundation
 # Notes
 
 This calculator provides planning estimates only. Actual payroll withholding, benefits, deductions, and employer policies may differ.
+
+Current Version: v0.9.0
+
+## v0.9.0 — Design System Adoption
+
+Paycheck now begins adopting the Signal Labs design system with shared-style navigation, action-bar refinement, modal styling, and toast feedback. Calculator math is unchanged.

@@ -1,5 +1,27 @@
 # Paycheck Public Changelog
 
+## v0.9.0 — Design System Adoption
+
+**Date:** 2026-06-10
+
+### Public Changes
+
+- Adopted the Signal Labs design-system direction for the Paycheck Calculator.
+- Added the shared-style Signal Labs navigation bar with Paycheck marked active.
+- Refined the local tool action bar to better match the global rounded-toolbar design language.
+- Updated modal styling for adjustment popups so they better match the rest of the calculator.
+- Added toast-style feedback support for saved settings, loaded examples, copied results, and validation messages.
+- Updated visible Paycheck metadata, footer version, and cache-busting references to v0.9.0.
+
+### Technical Notes
+
+- No calculator math changes.
+- No payroll logic changes.
+- Shared global assets are referenced at the current Home design-system version; no shared asset content changes are included in this package.
+
+---
+
+
 ## v0.8.5 — Tool Action Bar Foundation
 
 **Date:** 2026-06-10

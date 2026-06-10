@@ -1,17 +1,9 @@
-# Paycheck v0.8.5 Backup Notes
+# Backup Record
 
-## Backup Reminder
+Recommended Backup Folder:
 
-Create or confirm an external backup before uploading this release.
+`2026-06-10-before-paycheck-v0.9.0-design-system-adoption`
 
-## Backup Folder Name
-
-`2026-06-10-before-paycheck-v0.8.5-tool-action-bar-foundation`
-
-## Previous Release
-
-Paycheck v0.8.4 — Result Density Cleanup
-
-## New Release
-
-Paycheck v0.8.5 — Tool Action Bar Foundation
+Backup Required: Yes
+Previous Release: Paycheck v0.8.5 — Tool Action Bar Foundation
+New Release: Paycheck v0.9.0 — Design System Adoption

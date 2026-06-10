@@ -1,5 +1,17 @@
 # Paycheck Admin Changelog
 
+## v0.9.0 — Design System Adoption
+
+**Date:** 2026-06-10
+
+- Began Paycheck migration into the Signal Labs design-system architecture.
+- Kept tool-specific calculator logic intact while aligning shell, navigation, action bar, modal, and toast behavior with the new global direction.
+- Added local fallback handling for the Signal Labs navigation toggle so Paycheck remains usable while the global component system continues to mature.
+- Preserved the future path for global header/footer/action-bar replacement without forcing a site-wide migration in this release.
+
+---
+
+
 ## v0.8.5 — Tool Action Bar Foundation
 
 **Date:** 2026-06-10

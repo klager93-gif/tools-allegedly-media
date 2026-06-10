@@ -10,7 +10,9 @@ Tool Action Bar Foundation
 
 ---
 
-## Completed Versions
+## Completed
+
+- v0.9.0 — Design System Adoption: aligned Paycheck shell, nav, action bar, modal styling, and feedback with the Signal Labs design system. Versions
 
 | Version | Theme |
 |---|---|
@@ -73,3 +75,9 @@ Potential focus:
 
 - Move local tool action bar into a future shared/global layout system.
 - Add dynamic global header, footer, nav, and page metadata rendering.
+
+## Future
+
+- Future global header/footer metadata migration.
+- Replace local action bar with the finalized shared action-bar component once all tools are ready.
+- Continue mobile polish after live visual review.

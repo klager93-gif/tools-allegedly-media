@@ -34,3 +34,7 @@ Internal development notes are kept in `ADMIN_CHANGELOG.md`.
 ## Action Bar
 
 Use `Calculate Paycheck` as the primary action. Use `Save Settings`, `Load Example`, and `Reset` for setup. Use `Copy Results` and `Print Report` for output.
+
+## Use the Action Bar
+
+Use Save Settings, Load Example, Reset, Calculate Paycheck, Copy Results, and Print Report from the rounded action bar below the calculator. On mobile, Calculate Paycheck is prioritized first.
