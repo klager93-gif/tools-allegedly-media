@@ -1,66 +1,24 @@
-# Signal Labs Paycheck Calculator
+# Paycheck v0.8.2 File Manifest
 
-# FILEMANIFEST
+## Updated Files
 
-## Current Version
+| File | Purpose |
+|---|---|
+| `index.html` | Main Paycheck Calculator page. Removes results Details accordion and updates version references. |
+| `style.css` | Tool-specific styles. Adds inline result detail grouping and spacing. |
+| `script.js` | Tool-specific calculator logic and dynamic UI behavior. Updates version constants. |
+| `README.md` | Current version and feature documentation. |
+| `CHANGELOG.md` | Legacy combined changelog with v0.8.2 entry. |
+| `ROADMAP.md` | Current and upcoming Paycheck version planning. |
+| `HOWTO.md` | User instructions updated for inline result details. |
+| `BUILDMANIFEST.md` | Build metadata. |
+| `RESTORE.md` | Restore instructions. |
+| `BACKUP.md` | Backup metadata. |
 
-v0.8.1
+## Added Files
 
-## Theme
-
-Progressive Disclosure Polish
-
----
-
-# Required Files
-
-```text
-index.html
-style.css
-script.js
-README.md
-ROADMAP.md
-CHANGELOG.md
-HOWTO.md
-FILEMANIFEST.md
-BUILDMANIFEST.md
-```
-
----
-
-# Shared Dependencies
-
-```text
-../assets/global.css?v=0.6.1
-../assets/global.js?v=0.6.1
-```
-
----
-
-# Identity Checks
-
-## Must Contain
-
-```text
-Paycheck Calculator
-regularHoursInput
-premiumHourPills
-benefitHourPills
-payProfileInput
-```
-
-## Must Not Contain
-
-```text
-Time Off Calculator
-Overtime Calculator
-```
-
-
-# Report Checks
-
-```text
-buildPaycheckProfessionalReportHtml
-printResults
-Print Report
-```
+| File | Purpose |
+|---|---|
+| `PUBLIC_CHANGELOG.md` | User-facing Paycheck changelog. Footer changelog link points here. |
+| `ADMIN_CHANGELOG.md` | Internal/development Paycheck changelog. |
+| `SHA256SUMS.txt` | Checksum manifest for package integrity verification. |

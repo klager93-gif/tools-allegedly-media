@@ -1,65 +1,196 @@
 # Signal Labs Master Changelog
----
-
-## Home v0.7.1 — Version Synchronization
-
-**Date:** 2026-06-10
-
-- Corrected Home page visible version references to v0.7.1.
-- Corrected Home footer version.
-- Added release standards requiring affected page version sweeps.
-- Added footer change discipline: update version references when needed, but avoid cosmetic footer churn.
-- No calculator logic changes.
-- No shared asset content changes.
-
 
 ## Purpose
 
-This file tracks high-level changes across the entire Signal Labs ecosystem.
+This file tracks all changes across the entire Signal Labs ecosystem in the literal order they occur.
 
-Tool-specific `CHANGELOG.md` files contain detailed release notes.
+MASTER_CHANGELOG is append-only:
+
+- Do not delete entries.
+- Do not collapse old entries.
+- Do not replace history with summaries.
+- Do not move history to an archive as a substitute for keeping it here.
+
+Tool-specific changelogs contain the complete history for their own tool. This master file contains the cross-project chronology.
 
 ---
 
 ## 2026-06-10
 
-### Home v0.7.1 — Standards Architecture
+### Paycheck v0.8.2 — Inline Result Details
 
-- Introduced the Signal Labs standards architecture.
-- Converted `STANDARDS.md` into the project constitution/master index.
-- Added dedicated supporting standards files:
-  - `UX_STANDARDS.md`
-  - `SCRIPT_STANDARDS.md`
-  - `DOCUMENTATION_STANDARDS.md`
-  - `VERSIONING_STANDARDS.md`
-  - `WORKFLOW_STANDARDS.md`
-- Added daily startup requirement to review all standards files.
-- Added domain-specific verification before script, CSS/UI, documentation, and versioning/release work.
-- Formalized the principle: `Review broadly. Verify specifically.`
-- Added requirement to review `WORKFLOW_STANDARDS.md` before building any files.
-- Added release response format requirement so every release looks like a release in chat.
-- Reinforced GitHub as the authoritative source of truth.
-- Added recent user-provided ZIP exception for standards not yet represented in GitHub.
-- No calculator logic changes.
-- No shared asset changes.
+- Removed the hidden Estimated Paycheck Details accordion.
+- Replaced the collapsed details section with visible inline result rows.
+- Kept Gross Pay and Take-Home Pay as emphasized totals.
+- Kept Regular Pay, Premium Pay, Shift Differential Pay, Benefit / Leave Pay, Other Earnings, Specialty Pay, Total Paid Hours, Taxes, Deductions, Other Adjustments, and Target Pay details visible without requiring a click.
+- Started Paycheck public/admin changelog split.
+- Updated the Paycheck footer changelog link to point to `PUBLIC_CHANGELOG.md`.
+- Updated Paycheck build labels, footer version, cache-busting references, documentation, manifests, and checksum manifest to v0.8.2.
+- No shared asset content changes.
+
+---
+
+## 2026-06-09
+
+### Paycheck v0.8.1 — Progressive Disclosure Polish
+
+- Polished the v0.8 progressive disclosure layout after live desktop and mobile review.
+- Slimmed Pay Details, Pay Period, profile summary, disclosure controls, and result spacing.
+- Normalized font behavior and brought add/disclosure controls closer to the shared chip style.
+
+---
+
+### Paycheck v0.8 — Progressive Disclosure
+
+- Completed a final desktop and mobile polish pass before shared component work.
+- Reduced visual noise in empty states, chips, profile cards, result rows, and action controls.
+- Added a compact mobile Actions bottom sheet while keeping Calculate Paycheck as the primary action.
+
+---
+
+### Paycheck v0.7.8 — Mobile Optimization
+
+- Reduced mobile hero, cards, chips, empty states, and action bar height for faster mobile use.
+- Moved mobile Estimated Paycheck into a compact summary-first experience.
+- Preserved full desktop results, Copy Results, Print Report, saved settings, and calculator logic.
+
+---
+
+### Paycheck v0.7.7 — UX Foundation
+
+- Compressed desktop and mobile UI density for a more professional dashboard feel.
+- Reduced oversized cards, result rows, pills, empty states, and action controls.
+- Preserved existing Paycheck calculations and shared systems.
+
+---
+
+### Paycheck v0.7.6 — Layout Compression & Section Flow
+
+- Added collapsible paycheck sections to reduce page length without removing features.
+- Kept core sections open by default and collapsed optional earning/target sections by default.
+- Preserved existing Paycheck calculations, reports, and saved settings.
+
+---
+
+### Paycheck v0.7.5 — Specialty Pay
+
+- Added Specialty Pay for job-specific earnings such as callback, court pay, certification, hazard pay, shift bonus, travel pay, and uniform allowance.
+- Updated Paycheck gross pay, copy output, saved settings, and print reports to include specialty pay.
+- Preserved existing Paycheck systems and shared Signal Labs foundations.
+
+---
+
+### Paycheck v0.7 — Other Earnings
+
+- Added an Other Earnings section for non-hourly pay.
+- Added Bonus, Commission, Tips, Mileage, Per Diem, and Custom earning support.
+- Updated paycheck gross pay, copy output, and print reports to include other earnings.
+- Preserved existing Paycheck systems and shared Signal Labs foundations.
+
+---
+
+### Home v0.6.2 — Standards v2.0
+
+- Reorganized Signal Labs Development Standards into a clearer priority order.
+- Added source preference, mandatory daily startup comparison, hotfix, failed-release, and release-history rules.
+- No calculator logic or shared asset changes.
 
 ---
 
 ## 2026-06-08
 
-### Home v0.6.2 — Standards v2.0
+### Paycheck v0.5 — Target Pay
 
-- Reorganized Signal Labs Development Standards into a clearer priority order.
-- Added Source Preference rules and GitHub-first workflow guidance.
-- Added mandatory Daily Startup Procedure comparison requirements.
-- Added Trust Successful Releases and Successful Releases Become History rules.
-- Expanded hotfix documentation requirements and hotfix file replacement exceptions.
-- Clarified shared systems, source disclosure, validation, and failed-release handling.
+- Added Target Pay planning for take-home, gross, and annual income goals.
+- Added estimated extra hours needed using overtime, regular hours, or either.
+- Updated Paycheck saved settings, Copy Results, and Print Report output for Target Pay.
+
+---
+
+### Paycheck v0.4 — Rates, Multipliers & Rules
+
+- Added expanded Pay Details controls for pay period, shift differential, overtime rule labels, and premium multipliers.
+- Added shift differential pay into paycheck calculations, results, Copy Results, and Print Report output.
+- Preserved the shared action bar, shared report format, Deductions & Adjustments, and hidden ad framework.
+
+---
+
+### Home v0.6.1 — Shared Report System
+
+- Standardized printed report structure across the Signal Labs ecosystem.
+- Updated Paycheck to v0.3.4, Overtime to v0.9.9.3, and Time Off to v0.9.9.1 for shared report format alignment.
+- Added Source of Truth Disclosure requirements to the development standards.
+- Preserved calculator logic, saved settings, Copy Results, hidden ad slots, and no-live-ad behavior.
+
+---
+
+### Home v0.6 — Shared UX Foundation
+
+- Added a shared sticky action bar system across Paycheck, Overtime, and Time Off.
+- Added shared empty-state styling foundations in global assets.
+- Updated shared global asset versions to v0.6.
+- Updated Paycheck to v0.3.3, Overtime to v0.9.9.2, and Time Off to v0.9.9 for action bar adoption.
+
+---
+
+### Paycheck v0.3.3 — Shared Action Bar
+
+- Moved Calculate, Save, Example, Reset, Copy Results, and Print Report actions into the shared action bar.
+- Preserved Hours & Earnings, Deductions & Adjustments, saved settings, Copy Results, Print Report, and hidden ad slots.
+
+---
+
+### Overtime v0.9.9.2 — Shared Action Bar
+
+- Moved calculator actions into the shared action bar while keeping Overtime feature work frozen.
+- Preserved Overtime calculations, Deductions & Adjustments, Target Pay, Copy Results, and Print Report.
+
+---
+
+### Time Off v0.9.9 — Shared Action Bar
+
+- Moved planner actions into the shared action bar.
+- Preserved Time Off Planner calculations, optional sections, Copy Results, and Print Report.
+
+---
+
+### Paycheck v0.3.2 — Professional Report Polish
+
+- Replaced Paycheck's plain print output with a polished professional HTML report.
+- Added summary cards and structured report tables for hours, adjustments, and estimated pay.
+- Preserved Copy Results, saved settings, hidden ad slots, and no-live-ad behavior.
+
+---
+
+### Paycheck v0.3.1 — Premium Hours & Benefit Hours
+
+- Rebuilt Paycheck Hours & Earnings into Regular Hours, Premium Hours, and Benefit / Paid Leave Hours.
+- Converted Overtime and Double Time into selectable premium hour categories.
+- Added common premium and benefit hour pills with smooth empty states and dynamic rows.
+- Preserved deductions, reports, saved settings, hidden ad slots, and no-live-ad behavior.
+
+---
+
+### Paycheck v0.3 — Hours & Earnings
+
+- Rebuilt the first Paycheck input section around hours and earnings.
+- Added Regular, Overtime, Double Time, and Benefit / Paid Leave hours.
+
+---
+
+### Paycheck v0.2 — Deductions & Adjustments
+
+- Added itemized taxes, deductions, and other paycheck adjustments.
+
+---
+
+### Home v0.5.1 + Paycheck v0.1.1 — Navigation Refresh & Paycheck Integration
+
+- Added Paycheck to the Signal Labs ecosystem and shared navigation.
+- Added disabled hidden ad slots to Paycheck.
 
 ---
 
 ## Notes
 
 Every Signal Labs release must be reflected here without exception.
-
-- Home v0.7.0 includes `SHA256SUMS.txt` as an intentional checksum manifest for release integrity validation.

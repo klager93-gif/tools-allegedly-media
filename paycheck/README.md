@@ -1,20 +1,20 @@
 # Signal Labs Paycheck Calculator
 
-Estimate regular hours, premium hours, benefit hours, deductions, and take-home pay.
+Estimate regular hours, premium hours, benefit hours, deductions, other earnings, specialty pay, and take-home pay.
 
 ---
 
-# Current Version
+## Current Version
 
-v0.8.1
+v0.8.2
 
 ## Theme
 
-Progressive Disclosure Polish
+Inline Result Details
 
 ---
 
-# Current Features
+## Current Features
 
 - Pay profile presets.
 - Regular hours.
@@ -25,18 +25,21 @@ Progressive Disclosure Polish
 - Smart defaults for Hourly, Salary, Public Safety, Healthcare, Trades, and Custom profiles.
 - Pay period.
 - Currency selection.
+- Shift differential estimates.
+- Other earnings for bonus, commission, tips, mileage, per diem, and custom pay.
+- Specialty pay for callback, court pay, certification pay, longevity pay, education incentive, bilingual pay, hazard pay, shift bonus, travel pay, uniform allowance, and custom pay.
 - Itemized taxes, deductions, and other adjustments.
 - Percentage and static amount adjustments.
+- Target Pay planning.
 - Copy Results.
 - Print Report.
 - Saved settings.
-- Target Pay planning.
-- Other earnings for bonus, commission, tips, mileage, per diem, and custom pay.
-- Specialty pay for callback, court pay, certification pay, longevity pay, education incentive, bilingual pay, hazard pay, shift bonus, travel pay, uniform allowance, and custom pay.
+- Inline result details without a hidden Details accordion.
+- Public and admin changelog split started for Paycheck.
 - Hidden disabled ad slots.
 
 ---
 
-# Notes
+## Notes
 
 This calculator provides planning estimates only. Actual payroll withholding, benefits, deductions, and employer policies may differ.

@@ -1,20 +1,16 @@
-# Signal Labs Paycheck Calculator
-
-# ROADMAP
-
----
+# Signal Labs Paycheck Calculator Roadmap
 
 ## Current Version
 
-v0.8.1
+v0.8.2
 
 ## Theme
 
-Progressive Disclosure Polish
+Inline Result Details
 
 ---
 
-# Completed Versions
+## Completed Versions
 
 | Version | Theme |
 |---|---|
@@ -32,50 +28,29 @@ Progressive Disclosure Polish
 | v0.6 | Pay Profiles |
 | v0.7 | Other Earnings |
 | v0.7.5 | Specialty Pay |
+| v0.7.6 | Layout Compression & Section Flow |
+| v0.7.7 | UX Foundation |
+| v0.7.8 | Mobile Optimization |
+| v0.8 | Progressive Disclosure |
 | v0.8.1 | Progressive Disclosure Polish |
+| v0.8.2 | Inline Result Details |
 
 ---
 
-# Upcoming Versions
+## Upcoming Versions
 
-## Paycheck v0.8.1
+### Paycheck v0.8.3 or v0.9
 
-### Theme
+Potential focus:
 
-Shared Component Review
+- Backfill full Paycheck history into `PUBLIC_CHANGELOG.md` and `ADMIN_CHANGELOG.md` without deleting existing history.
+- Review mobile spacing after live v0.8.2 testing.
+- Review print report formatting against current result rows.
+- Review saved settings migration after v0.8.2.
 
-### Planned Focus
+### Paycheck v1.0
 
-- Review Deductions & Adjustments for reusable component extraction.
-- Review Pay Details for reusable component extraction.
-- Review Target Pay for reusable component extraction.
-- Preserve Overtime feature freeze unless a critical shared-pattern sync is needed.
-
----
-
-## Paycheck v0.9
-
-### Theme
-
-Pre-1.0 Stabilization
-
-### Planned Focus
-
-- Mobile polish.
-- Report polish.
-- Saved settings review.
-- Shared component review.
-- Overtime relationship review.
-
----
-
-## Paycheck v1.0
-
-### Theme
-
-Stable Release
-
-### Planned Focus
+Potential focus:
 
 - Final validation.
 - Documentation cleanup.

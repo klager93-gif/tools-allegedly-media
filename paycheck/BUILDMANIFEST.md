@@ -1,56 +1,42 @@
-# Signal Labs Paycheck Calculator
+# Paycheck v0.8.2 Build Manifest
 
-# BUILDMANIFEST
+## Version
 
-## Current Build
-
-v0.8.1
+Paycheck v0.8.2
 
 ## Theme
 
-Progressive Disclosure Polish
+Inline Result Details
 
----
+## Build Date
 
-# Required Validation Before ZIP
+2026-06-10
 
-- [ ] Required Paycheck files exist.
-- [ ] Header versions show v0.8.1.
-- [ ] Footer version shows v0.8.1.
-- [ ] Cache-busting references use v0.8.1 for script.js and current build labels.
-- [ ] Pay Profile pills render.
-- [ ] Profile selection applies smart defaults without locking settings.
-- [ ] Premium Hours pills render.
-- [ ] Benefit / Paid Leave Hours pills render.
-- [ ] Empty states render when no rows are selected.
-- [ ] Copy Results works.
-- [ ] Print Report works.
-- [ ] Print Report opens a polished HTML report, not a plain preformatted text block.
-- [ ] Report includes summary cards, Hours & Earnings, Other Earnings, Specialty Pay, Deductions & Adjustments, and Estimated Pay tables.
-- [ ] Section collapse buttons render.
-- [ ] Other Earnings, Specialty Pay, and Target Pay start collapsed by default.
-- [ ] Core sections remain open by default.
-- [ ] Saved layout state works.
-- [ ] Desktop hero, cards, pills, empty states, result rows, and action bar use v0.8.1 compact density.
-- [ ] Mobile hero, cards, chips, result rows, and action bar use v0.8.1 compact density.
-- [ ] Saved settings work.
-- [ ] Hidden ad slots remain disabled.
-- [ ] No live ads, ad provider scripts, tracking scripts, or ad requests are included.
+## Source Repository
 
+https://github.com/klager93-gif/tools-allegedly-media
 
-# Target Pay Checks
+## Source Baseline
 
-- [ ] Report header uses shared Signal Labs format.
-- [ ] Report metadata includes Generated, Build, and Theme.
-- [ ] Report footer uses shared Signal Labs footer treatment.
-- [ ] Print Report remains real HTML/text, not an image.
+Paycheck v0.8.1 — Progressive Disclosure Polish
 
-## v0.8.1 Mobile Validation
+## Build Type
 
-- [ ] Mobile hero is smaller than v0.7.7.
-- [ ] Estimated Paycheck appears near the top on mobile.
-- [ ] Mobile summary shows key totals without overwhelming the screen.
-- [ ] Sticky action bar is shorter on mobile.
-- [ ] Calculate Paycheck remains the primary action.
-- [ ] Copy Results and Print Report still work.
-- [ ] Saved settings still work.
+Full replacement Paycheck release package.
+
+## Primary Change
+
+Removed the Estimated Paycheck Details accordion and replaced it with visible inline result rows.
+
+## Shared Assets
+
+No shared asset content changes.
+
+Shared references preserved:
+
+- `../assets/global.css?v=0.6.1`
+- `../assets/global.js?v=0.6.1`
+
+## Checksum Manifest
+
+`SHA256SUMS.txt` is intentionally included.
