@@ -1,13 +1,13 @@
-# Signal Labs Home v0.7.0 Release
+# Signal Labs Home v0.7.1 Release
 
 ## Version
 
-Home v0.7.0 — Standards Architecture
+Home v0.7.1 — Version Synchronization
 
 ## Backup Folder
 
 ```text
-2026-06-10-before-home-v0.7.0-standards-architecture
+2026-06-10-before-home-v0.7.1-standards-architecture
 ```
 
 ---
@@ -40,7 +40,7 @@ RELEASE-HISTORY.md -> /
 
 # Expected Result
 
-- Home documentation identifies v0.7.0 as Standards Architecture.
+- Home documentation identifies v0.7.1 as Version Synchronization.
 - `STANDARDS.md` acts as the master constitution.
 - Five supporting standards files exist beside `STANDARDS.md`.
 - Daily startup requires all standards files to be reviewed.
@@ -60,9 +60,16 @@ After upload, confirm:
 - `DOCUMENTATION_STANDARDS.md` loads.
 - `VERSIONING_STANDARDS.md` loads.
 - `WORKFLOW_STANDARDS.md` loads.
-- `README.md` says Home v0.7.0.
-- `ROADMAP.md` says Home v0.7.0.
-- `CHANGELOG.md` includes Home v0.7.0.
-- `MASTER-CHANGELOG.md` includes Home v0.7.0.
-- `MASTER-ROADMAP.md` current Home version is v0.7.0.
-- `RELEASE-HISTORY.md` includes Home v0.7.0.
+- `README.md` says Home v0.7.1.
+- `ROADMAP.md` says Home v0.7.1.
+- `CHANGELOG.md` includes Home v0.7.1.
+- `MASTER-CHANGELOG.md` includes Home v0.7.1.
+- `MASTER-ROADMAP.md` current Home version is v0.7.1.
+- `RELEASE-HISTORY.md` includes Home v0.7.1.
+
+
+---
+
+# v0.7.1 Verification
+
+After upload, confirm the Home page displays `Build: v0.7.1`, `Theme: Version Synchronization`, and footer `Signal Labs · Home · v0.7.1`.

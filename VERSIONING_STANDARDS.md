@@ -1,4 +1,4 @@
-# Signal Labs Versioning Standards v2.1
+# Signal Labs Versioning Standards v2.1.1
 
 ## Purpose
 
@@ -221,6 +221,63 @@ FILEMANIFEST.md
 BUILDMANIFEST.md
 WORKFLOW_STANDARDS.md
 ```
+
+---
+
+# Versioning Rule 14 — Version Synchronization Across Affected Pages
+
+Every release must verify visible and hidden version references for every affected page and file.
+
+Required checks include:
+
+```text
+Version badges
+Build labels
+Theme labels
+Footer version text
+Footer theme text when present
+HTML comments
+Meta/version notes
+CSS cache-busting query strings
+JS cache-busting query strings
+README version references
+CHANGELOG version references
+ROADMAP version references
+Manifest version references
+Restore/build metadata
+```
+
+Home version updates apply to Home pages. Tool version updates apply only to the changed tool unless a shared release intentionally affects multiple tools.
+
+Do not artificially bump unrelated tool versions.
+
+---
+
+# Versioning Rule 15 — Footer Version Updates
+
+Update footer version references when the page, tool, or Home release version changes.
+
+Do not change footer wording, layout, or branding purely for churn.
+
+Footer changes should be limited to:
+
+- Correct version synchronization.
+- Correct release identity.
+- Explicit footer, layout, navigation, or branding work.
+
+If a page version changes, its footer version must be checked before release.
+
+---
+
+# Versioning Rule 16 — Cache Busting Discipline
+
+Cache-busting query strings must be reviewed during every release.
+
+Update cache-busting references only when the referenced asset changes or when the release explicitly requires a cache reset.
+
+Do not change global asset cache-busting values solely because a Home documentation or standards release occurred.
+
+If cache-busting values are intentionally left unchanged, document that decision in the build manifest.
 
 ---
 

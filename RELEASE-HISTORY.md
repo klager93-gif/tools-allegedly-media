@@ -1,5 +1,16 @@
 # Signal Labs Release History
 
+## Home v0.7.1 — Version Synchronization
+
+**Date:** 2026-06-10
+
+Status: Built
+
+Summary: Corrects Home page version/footer references missed in v0.7.0 and adds standards requiring affected page version sweeps and disciplined footer updates.
+
+---
+
+
 ## Purpose
 
 This file tracks actual successful release order across the Signal Labs ecosystem.

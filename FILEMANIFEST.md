@@ -2,11 +2,11 @@
 
 ## Current Version
 
-v0.7.0
+v0.7.1
 
 ## Theme
 
-Standards Architecture
+Version Synchronization
 
 ---
 
@@ -37,36 +37,10 @@ SHA256SUMS.txt
 
 ---
 
-# Required Folders
+# Home v0.7.1 Release Package Files
 
 ```text
-assets/
-backups/
-overtime/
-timeoff/
-paycheck/
-```
-
----
-
-# Standards Architecture Files
-
-```text
-STANDARDS.md
-UX_STANDARDS.md
-SCRIPT_STANDARDS.md
-DOCUMENTATION_STANDARDS.md
-VERSIONING_STANDARDS.md
-WORKFLOW_STANDARDS.md
-```
-
----
-
-# Home v0.7.0 Release Package Files
-
-This release package includes documentation and standards files only.
-
-```text
+index.html
 STANDARDS.md
 UX_STANDARDS.md
 SCRIPT_STANDARDS.md
@@ -84,17 +58,46 @@ INSTALL.md
 MASTER-CHANGELOG.md
 MASTER-ROADMAP.md
 RELEASE-HISTORY.md
+BACKUP.md
+SHA256SUMS.txt
+```
+
+---
+
+# Files Added
+
+No brand-new project files were introduced beyond the existing v0.7.0 standards architecture.
+
+---
+
+# Files Updated
+
+```text
+index.html
+STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
+README.md
+ROADMAP.md
+CHANGELOG.md
+HOWTO.md
+FILEMANIFEST.md
+BUILDMANIFEST.md
+RESTORE.md
+INSTALL.md
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+RELEASE-HISTORY.md
+BACKUP.md
+SHA256SUMS.txt
 ```
 
 ---
 
 # Notes
 
+- `index.html` is included because the Home page version, theme, and footer required synchronization.
 - No calculator logic files are included.
-- No shared asset files are included.
-- The legacy root `style.css` file is not required and should not be included.
-- Shared assets remain on their current asset version because `global.css` and `global.js` are unchanged.
-- `BACKUP.md` records backup status, source, and previous-version protection.
-
-- `SHA256SUMS.txt` is included intentionally as release metadata for file integrity verification.
-- `SHA256SUMS.txt` should be regenerated after final file changes and before ZIP packaging.
+- No shared asset content files are included.
+- `assets/global.css?v=0.6.1` and `assets/global.js?v=0.6.1` remain unchanged because the shared asset files were not changed.
+- `SHA256SUMS.txt` is included intentionally as release metadata for file integrity verification and is regenerated after final file changes.

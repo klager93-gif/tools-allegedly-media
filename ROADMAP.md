@@ -6,11 +6,11 @@
 
 ## Current Version
 
-**v0.7.0**
+**v0.7.1**
 
 ## Theme
 
-Standards Architecture
+Version Synchronization
 
 ---
 
@@ -18,6 +18,7 @@ Standards Architecture
 
 | Version | Theme |
 |---|---|
+| v0.7.1 | Version Synchronization |
 | v0.7.0 | Standards Architecture |
 | v0.6.2 | Standards v2.0 |
 | v0.6.1 | Shared Report System |
@@ -34,7 +35,7 @@ Standards Architecture
 
 # Upcoming Home Versions
 
-## Home v0.7.1
+## Home v0.7.2
 
 ### Theme
 

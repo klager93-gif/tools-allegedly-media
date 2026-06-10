@@ -1,4 +1,4 @@
-# Signal Labs Development Standards v2.1
+# Signal Labs Development Standards v2.1.1
 
 ## Purpose
 
@@ -408,3 +408,9 @@ Ship complete files.
 Fail loudly.
 
 Storage is cheap. Lost work is expensive.
+
+---
+
+# Constitution Note — Version Synchronization
+
+Every release must verify visible and hidden version references across affected pages and documentation. Footer version updates are required when a page or tool version changes, but footer wording/layout should not be changed without an explicit footer, navigation, branding, or layout reason.

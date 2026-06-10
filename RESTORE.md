@@ -1,135 +1,55 @@
-# Signal Labs Restore Guide
+# Restore Instructions
 
-## Purpose
+## Release
 
-Use this guide when a release breaks the live site or a tool folder gets mixed, overwritten, or corrupted.
+Home v0.7.1 — Version Synchronization
 
----
+## Before Upload
 
-# Emergency Restore Steps
+Create or confirm an external backup.
 
-1. Stop uploading new files.
-2. Locate the most recent known-good backup.
-3. Restore the full affected folder or folders.
-4. Confirm cache-busting versions in restored files.
-5. Test the live site.
-6. Hard refresh or clear cache if needed.
-7. Record what happened in the backup log.
-
----
-
-# Standard Restore Locations
+Recommended backup folder:
 
 ```text
-root/* -> site root
-overtime/* -> /overtime/
-timeoff/* -> /timeoff/
-paycheck/* -> /paycheck/
-assets/* -> /assets/
+2026-06-10-before-home-v0.7.1-version-synchronization
 ```
 
----
+## Upload
 
-# Version Verification After Restore
+Replace the included files at the repository root.
 
-Verify:
+## Files Included
 
-- Footer version.
-- Build/status card version.
-- Report version when applicable.
-- README version.
-- ROADMAP version.
-- FILEMANIFEST version.
-- BUILDMANIFEST version.
-- CSS cache-busting reference when applicable.
-- JS cache-busting reference when applicable.
+See `FILEMANIFEST.md`.
 
----
+## Post-Upload Verification
 
-# Standards Architecture Restore Check
-
-After restoring Home v0.7.0 or later, verify these standards files exist:
+After deployment, verify:
 
 ```text
-STANDARDS.md
-UX_STANDARDS.md
-SCRIPT_STANDARDS.md
-DOCUMENTATION_STANDARDS.md
-VERSIONING_STANDARDS.md
-WORKFLOW_STANDARDS.md
+https://tools.allegedly-media.com/
 ```
 
-If one is missing, the standards architecture restore is incomplete.
+Expected Home page references:
 
----
+```text
+Build: v0.7.1
+Theme: Version Synchronization
+Signal Labs · Home · v0.7.1
+```
 
-# Tool Checks
+Also verify:
 
-## Home
+```text
+/STANDARDS.md
+/UX_STANDARDS.md
+/SCRIPT_STANDARDS.md
+/DOCUMENTATION_STANDARDS.md
+/VERSIONING_STANDARDS.md
+/WORKFLOW_STANDARDS.md
+/CHANGELOG.md
+```
 
-- Home page loads.
-- Navigation works.
-- Changelog modal works if applicable.
-- Roadmap modal works if applicable.
-- Footer version is correct.
-- Standards files are present.
+## Rollback
 
-## Paycheck
-
-- Page says Paycheck Calculator.
-- Calculator inputs work.
-- Copy Results works.
-- Print Report works.
-- Footer/report versions are correct.
-
-## Overtime
-
-- Page says Overtime Calculator.
-- Calculator inputs work.
-- Copy Results works.
-- Print Report works.
-- Footer/report versions are correct.
-
-## Time Off
-
-- Page says Time Off Planner.
-- Category pills work.
-- Planned Time Off works.
-- Copy Results works.
-- Print Report works.
-- Footer/report versions are correct.
-
----
-
-# Important
-
-Storage is cheap. Lost work is expensive.
-
-If a live folder appears cross-contaminated, do not patch one file.
-
-Replace the full affected folder from backup.
-
----
-
-# Home v0.7.0 Release Metadata
-
-## Source Repository
-
-https://github.com/klager93-gif/tools-allegedly-media
-
-## Previous Version
-
-Home v0.6.2 — Standards v2.0
-
-## Backup Status
-
-External backup completed by user before build; exact backup filename was not provided in chat.
-
-## Package
-
-`home-v0.7.0-standards-architecture.zip`
-
-## GitHub Release Text
-
-Use the GitHub title and summary provided in the chat response that delivered this ZIP.
-
+If deployment fails, restore the previous successful Home v0.7.0 package or repository backup.

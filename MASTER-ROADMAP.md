@@ -10,7 +10,7 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Home | v0.7.0 | Standards Architecture |
+| Home | v0.7.1 | Standards Architecture |
 | Paycheck | v0.5 | Target Pay |
 | Overtime | v0.9.9.3 | Shared Report Format |
 | Time Off | v0.9.9.1 | Shared Report Format |
@@ -107,3 +107,12 @@ Stable but awaiting future cleanup, report validation, and possible UX overhaul.
 - Raise Calculator.
 - Job Offer Comparison Calculator.
 - Signal Schedule / scheduling tools.
+
+
+---
+
+## Completed: Home v0.7.1 — Version Synchronization
+
+- Corrected Home version/footer references.
+- Added affected-page version sweep rule.
+- Added footer change discipline rule.

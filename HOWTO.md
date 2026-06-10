@@ -163,7 +163,7 @@ YYYY-MM-DD-before-tool-version-theme
 Example:
 
 ```text
-2026-06-10-before-home-v0.7.0-standards-architecture
+2026-06-10-before-home-v0.7.1-standards-architecture
 ```
 
 ---
@@ -180,3 +180,10 @@ Every release response should include:
 6. Theme.
 7. Version.
 8. Source.
+
+
+---
+
+# Version Synchronization Check
+
+Before uploading a Home release, confirm affected pages, footers, visible build labels, theme labels, documentation, manifests, and restore metadata all reflect the release version. Do not change footer wording or layout unless the release explicitly includes footer, layout, navigation, or branding work.

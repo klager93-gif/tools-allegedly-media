@@ -1,4 +1,17 @@
 # Signal Labs Master Changelog
+---
+
+## Home v0.7.1 — Version Synchronization
+
+**Date:** 2026-06-10
+
+- Corrected Home page visible version references to v0.7.1.
+- Corrected Home footer version.
+- Added release standards requiring affected page version sweeps.
+- Added footer change discipline: update version references when needed, but avoid cosmetic footer churn.
+- No calculator logic changes.
+- No shared asset content changes.
+
 
 ## Purpose
 
@@ -10,7 +23,7 @@ Tool-specific `CHANGELOG.md` files contain detailed release notes.
 
 ## 2026-06-10
 
-### Home v0.7.0 — Standards Architecture
+### Home v0.7.1 — Standards Architecture
 
 - Introduced the Signal Labs standards architecture.
 - Converted `STANDARDS.md` into the project constitution/master index.

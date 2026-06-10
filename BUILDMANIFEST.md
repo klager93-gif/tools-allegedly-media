@@ -2,15 +2,15 @@
 
 ## Release
 
-Home v0.7.0 — Standards Architecture
+Home v0.7.1 — Version Synchronization
 
 ## Version
 
-v0.7.0
+v0.7.1
 
 ## Previous Version
 
-Home v0.6.2 — Standards v2.0
+Home v0.7.0 — Standards Architecture
 
 ## Build Date
 
@@ -18,7 +18,7 @@ Home v0.6.2 — Standards v2.0
 
 ## Build Type
 
-Full replacement documentation/standards release.
+Full replacement Home synchronization and standards refinement release.
 
 ## Source Repository
 
@@ -26,67 +26,37 @@ https://github.com/klager93-gif/tools-allegedly-media
 
 ## Source Baseline
 
-GitHub repository baseline reviewed 2026-06-10. README reports Current Version v0.6.2 and Theme Standards v2.0; STANDARDS.md is authoritative v2.0 in repo baseline.
+GitHub main branch was checked and `index.html` still showed Home v0.6.2 labels and footer while the v0.7.0 standards package had already been prepared. This v0.7.1 release corrects that mismatch.
 
 ## Backup Record
 
-External backup completed by user before build; exact backup filename was not provided in chat.
+External backup should be completed before upload. Recommended backup folder: `2026-06-10-before-home-v0.7.1-version-synchronization`.
 
 ## Package Name
 
-`home-v0.7.0-standards-architecture.zip`
-
----
-
-
-## Checksum Manifest
-
-`SHA256SUMS.txt` is included intentionally as release metadata.
-
-Purpose:
-
-- File integrity verification.
-- Backup validation.
-- Corruption detection after download or extraction.
-
-The checksum manifest was regenerated after final file changes.
+`home-v0.7.1-version-synchronization.zip`
 
 ---
 
 # Build Scope
 
-This release updates Home standards and documentation only.
+This release updates Home page version references and standards validation rules.
 
 No calculator logic changes.
 
-No shared asset changes.
+No shared asset content changes.
 
-No `index.html` changes.
-
-No `assets/global.css` changes.
-
-No `assets/global.js` changes.
-
----
-
-# Files Added
-
-```text
-UX_STANDARDS.md
-SCRIPT_STANDARDS.md
-DOCUMENTATION_STANDARDS.md
-VERSIONING_STANDARDS.md
-WORKFLOW_STANDARDS.md
-BACKUP.md
-SHA256SUMS.txt
-```
+Cache-busting references for `assets/global.css` and `assets/global.js` remain `v=0.6.1` because the referenced shared asset files were not changed.
 
 ---
 
 # Files Updated
 
 ```text
+index.html
 STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
 README.md
 ROADMAP.md
 CHANGELOG.md
@@ -98,45 +68,26 @@ INSTALL.md
 MASTER-CHANGELOG.md
 MASTER-ROADMAP.md
 RELEASE-HISTORY.md
+BACKUP.md
+SHA256SUMS.txt
 ```
+
+---
+
+# Version Synchronization Validation
+
+- `index.html` file comment updated to v0.7.1.
+- Home visible build label updated to v0.7.1.
+- Home visible theme label updated to Version Synchronization.
+- Home footer updated to `Signal Labs · Home · v0.7.1`.
+- Footer wording/layout otherwise unchanged.
+- Shared asset cache-busting reviewed and intentionally left unchanged because shared asset files were not changed.
+- Documentation version references updated.
+- Standards updated with affected-page version sweep requirements.
+- Checksum manifest regenerated after final file changes.
 
 ---
 
 # GitHub Release
 
-## Title
-
-Home v0.7.0 — Standards Architecture
-
-## Summary
-
-Introduces the Signal Labs Standards Architecture, with `STANDARDS.md` serving as the constitution and dedicated standards files for UX, scripting, documentation, versioning, and workflow.
-
 GitHub title and summary are provided in the release chat response, not packaged as a file.
-
----
-
-# Validation Checks
-
-- `STANDARDS.md` acts as the master constitution.
-- Supporting standards files are present.
-- Daily startup reviews all standards files.
-- Domain-specific verification is documented.
-- Script work requires Script Standards review.
-- CSS/UI work requires UX Standards review.
-- Documentation work requires Documentation Standards review.
-- Release/versioning work requires Versioning Standards review.
-- Source hierarchy includes GitHub-first authority and recent ZIP exception.
-- Backup status, source repository, previous version, and package name are documented.
-- GitHub title and summary are provided in chat with the release package.
-- Home terminology replaces Root terminology.
-- Master changelog is updated.
-- Master roadmap is updated.
-- Release history is updated.
-- No calculator files are changed.
-- No shared asset files are changed.
-- Workflow Standards review is required before building any files.
-- Release response format requires backup reminder, backup folder name, download link, GitHub title, GitHub summary, source, validation, files changed, and build metadata in chat.
-- ZIP contents verified after packaging.
-- `SHA256SUMS.txt` included intentionally as checksum manifest.
-- Checksum manifest regenerated after final file changes.

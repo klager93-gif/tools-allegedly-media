@@ -6,11 +6,11 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.7.0**
+**v0.7.1**
 
 ## Theme
 
-Standards Architecture
+Version Synchronization
 
 ---
 
@@ -181,11 +181,11 @@ Signal Labs tools are intended to be useful, fast, mobile-friendly, easy to unde
 
 ### Build
 
-v0.7.0
+v0.7.1
 
 ### Theme
 
-Standards Architecture
+Version Synchronization
 
 ### Status
 
@@ -196,8 +196,8 @@ Active Development
 
 # Release Metadata
 
-- Current Release: Home v0.7.0 — Standards Architecture
-- Previous Release: Home v0.6.2 — Standards v2.0
+- Current Release: Home v0.7.1 — Version Synchronization
+- Previous Release: Home v0.7.0 — Standards Architecture
 - Source Repository: https://github.com/klager93-gif/tools-allegedly-media
 - Backup Status: External backup completed by user before build; exact backup filename was not provided in chat.
 - GitHub Release Text: Provided in chat with release package delivery; not stored as a package file.
@@ -208,4 +208,11 @@ Active Development
 
 ## Release Integrity
 
-Home v0.7.0 includes `SHA256SUMS.txt` as an intentional checksum manifest for release integrity verification.
+Home v0.7.1 includes `SHA256SUMS.txt` as an intentional checksum manifest for release integrity verification.
+
+
+---
+
+## Version Synchronization
+
+Home releases must verify affected page version labels, footer version text, theme labels, documentation references, manifests, and cache-busting decisions before packaging. Footer version text should be corrected when a page version changes, but footer wording and layout should not be changed for churn.

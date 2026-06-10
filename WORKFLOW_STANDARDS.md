@@ -1,4 +1,4 @@
-# Signal Labs Workflow Standards v2.1
+# Signal Labs Workflow Standards v2.1.1
 
 ## Purpose
 
@@ -363,6 +363,50 @@ Required checks:
 - The checksum manifest is regenerated after final file changes.
 
 Do not include checksum files silently.
+
+---
+
+# Workflow Rule 18 — Affected Page Version Sweep
+
+Before packaging any release, perform a version sweep on every affected page and documentation file.
+
+For each affected page, check:
+
+```text
+Top file comment/version note
+Visible build label
+Visible theme label
+Footer version
+Footer release identity
+Linked CSS cache-busting value
+Linked JS cache-busting value
+```
+
+For each affected documentation file, check:
+
+```text
+Current version
+Release theme
+Changelog entry
+Roadmap status
+Build metadata
+Restore metadata
+Manifest package list
+```
+
+If any affected page still shows the previous release version, validation fails.
+
+---
+
+# Workflow Rule 19 — Footer Change Discipline
+
+Footers must be checked during release validation.
+
+Footer version text must match the page or tool release when that page or tool changed.
+
+Do not change footer wording, styling, links, or layout unless the release explicitly includes footer, navigation, layout, or branding work.
+
+A version correction is allowed. Cosmetic footer churn is not.
 
 ---
 

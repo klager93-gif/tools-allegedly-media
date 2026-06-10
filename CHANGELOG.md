@@ -1,5 +1,25 @@
 # Signal Labs Home Changelog
 
+## v0.7.1 — Version Synchronization
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Updated `index.html` Home version references from `v0.6.2` to `v0.7.1`.
+- Updated visible Home build label to `v0.7.1`.
+- Updated visible Home theme label to `Version Synchronization`.
+- Updated Home footer version to `Signal Labs · Home · v0.7.1`.
+- Added Version Synchronization rules to `VERSIONING_STANDARDS.md`.
+- Added Affected Page Version Sweep and Footer Change Discipline rules to `WORKFLOW_STANDARDS.md`.
+- Clarified that footers should be updated when page/tool version changes, but not changed for cosmetic churn.
+- Clarified that cache-busting values must be reviewed, but unchanged global assets should not be bumped solely for unrelated releases.
+- No calculator logic changes.
+- No shared asset content changes.
+
+---
+
+
 ## v0.7.0 — Standards Architecture
 
 **Date:** 2026-06-10
