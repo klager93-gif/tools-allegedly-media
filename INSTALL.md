@@ -1,42 +1,68 @@
-# Signal Labs Paycheck v0.8.1 Release
+# Signal Labs Home v0.7.0 Release
 
 ## Version
 
-Paycheck v0.8.1 — Progressive Disclosure Polish
+Home v0.7.0 — Standards Architecture
 
 ## Backup Folder
 
 ```text
-2026-06-09-before-paycheck-v0.8.1-progressive-disclosure-polish
+2026-06-10-before-home-v0.7.0-standards-architecture
 ```
 
-## Upload Instructions
+---
 
-Copy the included files into the matching live locations.
+# Upload Instructions
+
+Copy the included files into the matching live root locations.
 
 ```text
-paycheck/* -> /paycheck/
+STANDARDS.md -> /
+UX_STANDARDS.md -> /
+SCRIPT_STANDARDS.md -> /
+DOCUMENTATION_STANDARDS.md -> /
+VERSIONING_STANDARDS.md -> /
+WORKFLOW_STANDARDS.md -> /
+README.md -> /
+ROADMAP.md -> /
+CHANGELOG.md -> /
+HOWTO.md -> /
+FILEMANIFEST.md -> /
+BUILDMANIFEST.md -> /
+RESTORE.md -> /
+INSTALL.md -> /
 MASTER-CHANGELOG.md -> /
 MASTER-ROADMAP.md -> /
 RELEASE-HISTORY.md -> /
-INSTALL.md -> /
 ```
 
-## Expected Result
+---
 
-- Pay Details is slimmer and easier to scan.
-- Pay Period is visually lighter.
-- Pay Profile summary is shorter.
-- Estimated Paycheck Details has better spacing.
-- Add Premium Hours, Add Paid Leave, and Advanced Pay Rules feel closer to the shared chip style.
-- Fonts are normalized across controls.
-- Calculations remain unchanged.
+# Expected Result
 
-## Validation
+- Home documentation identifies v0.7.0 as Standards Architecture.
+- `STANDARDS.md` acts as the master constitution.
+- Five supporting standards files exist beside `STANDARDS.md`.
+- Daily startup requires all standards files to be reviewed.
+- Domain-specific verification is documented.
+- No calculator behavior changes.
+- No shared asset behavior changes.
 
-- Confirm footer/build shows v0.8.1.
-- Confirm style and script cache busting use v0.8.1.
-- Confirm Paycheck still calculates.
-- Confirm Copy Results works.
-- Confirm Print Report works.
-- Confirm saved settings still load.
+---
+
+# Validation
+
+After upload, confirm:
+
+- `STANDARDS.md` loads in GitHub/site root.
+- `UX_STANDARDS.md` loads.
+- `SCRIPT_STANDARDS.md` loads.
+- `DOCUMENTATION_STANDARDS.md` loads.
+- `VERSIONING_STANDARDS.md` loads.
+- `WORKFLOW_STANDARDS.md` loads.
+- `README.md` says Home v0.7.0.
+- `ROADMAP.md` says Home v0.7.0.
+- `CHANGELOG.md` includes Home v0.7.0.
+- `MASTER-CHANGELOG.md` includes Home v0.7.0.
+- `MASTER-ROADMAP.md` current Home version is v0.7.0.
+- `RELEASE-HISTORY.md` includes Home v0.7.0.

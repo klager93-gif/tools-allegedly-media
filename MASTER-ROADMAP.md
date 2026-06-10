@@ -10,8 +10,8 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 | Area | Current Version | Theme |
 |---|---:|---|
-| Home | v0.6.2 | Standards v2.0 |
-| Paycheck | v0.7.6 | Layout Compression & Section Flow |
+| Home | v0.7.0 | Standards Architecture |
+| Paycheck | v0.5 | Target Pay |
 | Overtime | v0.9.9.3 | Shared Report Format |
 | Time Off | v0.9.9.1 | Shared Report Format |
 
@@ -19,87 +19,61 @@ This file tracks the full Signal Labs ecosystem roadmap.
 
 # Near-Term Roadmap
 
-## Paycheck v0.8.1
+## Home v0.7.1
 
 ### Theme
 
-Progressive Disclosure Polish
-
-### Status
-
-Completed polish release.
-
----
-
-
-## Paycheck v0.7.6
-
-### Theme
-
-Layout Compression & Section Flow
-
-### Status
-
-Completed feature release.
-
-### Focus
-
-- Added collapsible paycheck sections to reduce page length.
-- Kept core sections open by default.
-- Collapsed Other Earnings, Specialty Pay, and Target Pay by default.
-
----
-
-
-## Home v0.6.2
-
-### Theme
-
-Standards v2.0
-
-### Status
-
-Completed standards release.
-
-### Focus
-
-- Source Preference.
-- Mandatory Daily Startup Procedure.
-- Hotfix documentation requirements.
-- Failed-release handling.
-- Successful release history rules.
-
----
-
-
-## Paycheck v0.8.1
-
-### Theme
-
-Shared Component Review
+Standards Refinement
 
 ### Planned Focus
 
-- Review Deductions & Adjustments for reusable component extraction.
-- Review Pay Details for reusable component extraction.
-- Review Target Pay for reusable component extraction.
-- Preserve Overtime feature freeze unless a critical shared-pattern sync is needed.
+- Review the new standards architecture after first use.
+- Clarify any ambiguous standards.
+- Confirm daily startup and domain-specific verification are working.
 
 ---
 
-## Paycheck v0.9
+## Home v0.8
 
 ### Theme
 
-Pre-1.0 Stabilization
+Shared Component Foundation
 
 ### Planned Focus
 
-- Mobile polish.
-- Report polish.
-- Saved settings review.
-- Shared component review.
-- Overtime relationship review.
+- Evaluate shared components for deductions, dynamic rows, reports, modals, action bars, cards, and pills.
+- Continue reducing duplicated UI patterns across tools.
+
+---
+
+## Paycheck v0.6
+
+### Theme
+
+Pay Profiles
+
+### Planned Focus
+
+- Add profile presets for common worker types.
+- Explore Hourly, Public Safety, Healthcare, Trades, and Custom profiles.
+- Use profiles to preselect common pay periods, overtime rules, and premium pay defaults.
+
+---
+
+## Paycheck v0.7
+
+### Theme
+
+Other Earnings
+
+### Planned Focus
+
+- Bonus pay.
+- Commission.
+- Tips.
+- Mileage.
+- Per diem.
+- Other non-hour earnings.
 
 ---
 
@@ -121,20 +95,7 @@ Feature frozen while Paycheck becomes the flagship paycheck system.
 
 ### Status
 
-Stable but awaiting future cleanup and report validation.
-
----
-
-## Home v0.7
-
-### Theme
-
-Shared Component Foundation
-
-### Planned Focus
-
-- Evaluate shared components for deductions, dynamic rows, reports, modals, and action bars.
-- Continue reducing duplicated UI patterns across tools.
+Stable but awaiting future cleanup, report validation, and possible UX overhaul.
 
 ---
 

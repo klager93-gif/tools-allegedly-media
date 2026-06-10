@@ -2,15 +2,15 @@
 
 ## Last Updated
 
-2026-06-09
+2026-06-10
 
 ## Current Version
 
-**v0.6.2**
+**v0.7.0**
 
 ## Theme
 
-Standards v2.0
+Standards Architecture
 
 ---
 
@@ -18,6 +18,7 @@ Standards v2.0
 
 | Version | Theme |
 |---|---|
+| v0.7.0 | Standards Architecture |
 | v0.6.2 | Standards v2.0 |
 | v0.6.1 | Shared Report System |
 | v0.6 | Shared UX Foundation |
@@ -33,7 +34,22 @@ Standards v2.0
 
 # Upcoming Home Versions
 
-## Home v0.7
+## Home v0.7.1
+
+### Theme
+
+Standards Refinement
+
+### Planned Focus
+
+- Review standards architecture after first use.
+- Tighten unclear rule language.
+- Add examples where needed.
+- Confirm all standards files are linked from Home documentation.
+
+---
+
+## Home v0.8
 
 ### Theme
 
@@ -42,12 +58,12 @@ Shared Component Foundation
 ### Planned Focus
 
 - Begin extracting reusable front-end components when Paycheck patterns stabilize.
-- Review shared action bar, report, empty state, modal, and pill systems.
+- Review shared action bar, report, empty state, modal, card, and pill systems.
 - Prepare future tools to reuse stable Signal Labs patterns.
 
 ---
 
-## Home v0.8
+## Home v0.9
 
 ### Theme
 
@@ -63,21 +79,26 @@ Mobile/PWA Foundation
 
 # Tool Priorities
 
-## Paycheck v0.6
+## Paycheck
 
-Pay Profiles.
+- Pay Profiles.
+- Other Earnings.
+- Shared Component Preparation.
+- Pre-1.0 Stabilization.
 
-## Paycheck v0.7
+## Overtime
 
-Other Earnings.
+Feature frozen while Paycheck becomes the flagship paycheck system.
 
-## Paycheck v0.8
+Allowed work:
 
-Shared Component Preparation.
+- Critical bug fixes.
+- Documentation corrections.
+- Shared-pattern sync only when necessary.
 
-## Paycheck v0.9
+## Time Off
 
-Pre-1.0 Stabilization and Overtime strategy review.
+Stable but awaiting future cleanup, report validation, and possible UX overhaul.
 
 ---
 

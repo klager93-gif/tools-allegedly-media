@@ -21,9 +21,11 @@ Use this guide when a release breaks the live site or a tool folder gets mixed, 
 # Standard Restore Locations
 
 ```text
-root/*      -> site root
-overtime/*  -> /overtime/
-timeoff/*   -> /timeoff/
+root/* -> site root
+overtime/* -> /overtime/
+timeoff/* -> /timeoff/
+paycheck/* -> /paycheck/
+assets/* -> /assets/
 ```
 
 ---
@@ -39,8 +41,25 @@ Verify:
 - ROADMAP version.
 - FILEMANIFEST version.
 - BUILDMANIFEST version.
-- CSS cache-busting reference.
-- JS cache-busting reference.
+- CSS cache-busting reference when applicable.
+- JS cache-busting reference when applicable.
+
+---
+
+# Standards Architecture Restore Check
+
+After restoring Home v0.7.0 or later, verify these standards files exist:
+
+```text
+STANDARDS.md
+UX_STANDARDS.md
+SCRIPT_STANDARDS.md
+DOCUMENTATION_STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
+```
+
+If one is missing, the standards architecture restore is incomplete.
 
 ---
 
@@ -50,9 +69,18 @@ Verify:
 
 - Home page loads.
 - Navigation works.
-- Changelog modal works.
-- Roadmap modal works.
+- Changelog modal works if applicable.
+- Roadmap modal works if applicable.
 - Footer version is correct.
+- Standards files are present.
+
+## Paycheck
+
+- Page says Paycheck Calculator.
+- Calculator inputs work.
+- Copy Results works.
+- Print Report works.
+- Footer/report versions are correct.
 
 ## Overtime
 
@@ -77,4 +105,31 @@ Verify:
 
 Storage is cheap. Lost work is expensive.
 
-If a live folder appears cross-contaminated, do not patch one file. Replace the full affected folder from backup.
+If a live folder appears cross-contaminated, do not patch one file.
+
+Replace the full affected folder from backup.
+
+---
+
+# Home v0.7.0 Release Metadata
+
+## Source Repository
+
+https://github.com/klager93-gif/tools-allegedly-media
+
+## Previous Version
+
+Home v0.6.2 — Standards v2.0
+
+## Backup Status
+
+External backup completed by user before build; exact backup filename was not provided in chat.
+
+## Package
+
+`home-v0.7.0-standards-architecture.zip`
+
+## GitHub Release Text
+
+Use the GitHub title and summary provided in the chat response that delivered this ZIP.
+

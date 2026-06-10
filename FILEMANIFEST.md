@@ -2,15 +2,15 @@
 
 ## Current Version
 
-v0.6.2
+v0.7.0
 
 ## Theme
 
-Standards v2.0
+Standards Architecture
 
 ---
 
-# Required Root Files
+# Required Home Files
 
 ```text
 index.html
@@ -19,13 +19,20 @@ ROADMAP.md
 CHANGELOG.md
 HOWTO.md
 STANDARDS.md
+UX_STANDARDS.md
+SCRIPT_STANDARDS.md
+DOCUMENTATION_STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
 MASTER-CHANGELOG.md
 MASTER-ROADMAP.md
 RELEASE-HISTORY.md
 RESTORE.md
 FILEMANIFEST.md
 BUILDMANIFEST.md
+INSTALL.md
 site.webmanifest
+SHA256SUMS.txt
 ```
 
 ---
@@ -42,8 +49,52 @@ paycheck/
 
 ---
 
+# Standards Architecture Files
+
+```text
+STANDARDS.md
+UX_STANDARDS.md
+SCRIPT_STANDARDS.md
+DOCUMENTATION_STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
+```
+
+---
+
+# Home v0.7.0 Release Package Files
+
+This release package includes documentation and standards files only.
+
+```text
+STANDARDS.md
+UX_STANDARDS.md
+SCRIPT_STANDARDS.md
+DOCUMENTATION_STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
+README.md
+ROADMAP.md
+CHANGELOG.md
+HOWTO.md
+FILEMANIFEST.md
+BUILDMANIFEST.md
+RESTORE.md
+INSTALL.md
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+RELEASE-HISTORY.md
+```
+
+---
+
 # Notes
 
-The legacy root style.css file is not required and should not be included.
+- No calculator logic files are included.
+- No shared asset files are included.
+- The legacy root `style.css` file is not required and should not be included.
+- Shared assets remain on their current asset version because `global.css` and `global.js` are unchanged.
+- `BACKUP.md` records backup status, source, and previous-version protection.
 
-Shared assets remain on their current asset version unless global.css or global.js changes.
+- `SHA256SUMS.txt` is included intentionally as release metadata for file integrity verification.
+- `SHA256SUMS.txt` should be regenerated after final file changes and before ZIP packaging.

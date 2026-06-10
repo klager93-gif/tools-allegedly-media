@@ -1,38 +1,136 @@
-# Signal Labs Development Standards v2.0
+# Signal Labs Development Standards v2.1
 
 ## Purpose
 
 These standards define how Signal Labs tools are planned, built, validated, documented, packaged, and released.
 
-This file is the authoritative project copy of the standards. Chat history or AI memory should never be the only place these rules exist.
+`STANDARDS.md` is the master constitution for the project. It defines authority, philosophy, source rules, ecosystem rules, and links to the supporting standards files.
+
+The supporting standards files are authoritative within their domains:
+
+```text
+UX_STANDARDS.md
+SCRIPT_STANDARDS.md
+DOCUMENTATION_STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
+```
+
+Chat history and AI memory should never be the only place standards exist.
 
 ---
 
-# Rule 0 — Rules First
+# Rule 0 — Standards First
 
-Before planning, coding, refactoring, documentation, packaging, ZIP creation, or releasing, the current Signal Labs Development Standards must be reviewed mentally.
+Before planning, coding, refactoring, documentation, packaging, ZIP creation, or releasing, review the current Signal Labs standards.
 
-If a proposed action would violate a rule, it must either be prevented or explicitly brought to the user's attention.
+At daily startup, review all standards files:
 
-Never knowingly proceed with a rule violation without discussing it first.
+```text
+STANDARDS.md
+UX_STANDARDS.md
+SCRIPT_STANDARDS.md
+DOCUMENTATION_STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
+```
+
+Before task-specific work, review the domain-specific standards again.
+
+- Before script work, review `SCRIPT_STANDARDS.md`.
+- Before CSS, layout, or UI work, review `UX_STANDARDS.md`.
+- Before documentation work, review `DOCUMENTATION_STANDARDS.md`.
+- Before versioning, cache-busting, packaging, or release work, review `VERSIONING_STANDARDS.md`.
+- Before starting or closing a work session, review `WORKFLOW_STANDARDS.md`.
+
+Principle:
+
+> Review broadly. Verify specifically.
+
+If a proposed action would violate a rule, prevent it or explicitly bring it to the user's attention before proceeding.
 
 ---
 
-# Rule 1 — Version Every Release
+# Rule 1 — GitHub Is the Source of Truth
 
-Every release should include:
+Repository:
+
+```text
+https://github.com/klager93-gif/tools-allegedly-media
+```
+
+GitHub is normally authoritative because it is the deployment source for the live website.
+
+If memory, conversation history, or old ZIPs disagree with GitHub, GitHub wins unless a recent user-provided ZIP exception applies.
+
+---
+
+# Rule 2 — Standards Authority Hierarchy
+
+Use the newest authoritative source available.
+
+Priority:
+
+```text
+1. Standards files in GitHub
+2. GitHub repository files
+3. Recent user-provided ZIP standards not yet represented in GitHub
+4. Current-chat uploaded files
+5. Recent conversation context
+6. AI memory
+```
+
+## Recent ZIP Standards Exception
+
+Standards from ZIP files may be treated as temporarily authoritative only when all are true:
+
+- The ZIP was provided by the user or created in the current chat.
+- The ZIP is recent.
+- The ZIP contains standards not yet available in GitHub.
+- The ZIP appears newer than GitHub for that specific standards work.
+
+If confused, clarify. Otherwise, GitHub wins.
+
+---
+
+# Rule 3 — Home Terminology
+
+The top-level website project is called:
+
+```text
+Home
+```
+
+Do not refer to it as Root, Main, or Root Website in current release language unless discussing old history.
+
+---
+
+# Rule 4 — Version Every Release
+
+Every release must include:
 
 - Version number.
 - Theme name.
 - GitHub title.
 - GitHub description.
+- Source disclosure.
 - Matching cache-busting references when changed assets are involved.
 
 Version numbers should reflect the amount of change, not artificial synchronization.
 
+Independent version trees are maintained for:
+
+```text
+Home
+Paycheck
+Overtime
+Time Off
+Future tools
+```
+
 ---
 
-# Rule 2 — Ship Complete Files
+# Rule 5 — Ship Complete Files
 
 Prefer complete files over snippets.
 
@@ -40,69 +138,29 @@ Prefer whole-folder replacement over patching when files appear mixed, corrupted
 
 ## Hotfix Exception
 
-Hotfixes may replace only the affected file or files when the change is narrowly scoped and urgent.
+Hotfixes may replace only affected file or files when the change is narrowly scoped and urgent.
 
-However, every hotfix still requires, at minimum:
+Every hotfix still requires, at minimum:
 
-- Tool CHANGELOG.md update.
-- MASTER-CHANGELOG.md update.
-- RELEASE-HISTORY.md update.
+- Tool `CHANGELOG.md` update.
+- `MASTER-CHANGELOG.md` update.
+- `RELEASE-HISTORY.md` update.
 - GitHub title.
 - GitHub description.
 - Backup folder name.
 - Source disclosure.
 
-If a hotfix changes visible version labels, cache-busting references, manifests, roadmap direction, or current version status, then affected documentation and manifest files must also be updated.
+If a hotfix changes visible version labels, cache-busting references, manifests, roadmap direction, or current version status, affected documentation and manifest files must also be updated.
 
-Feature releases and normal bug releases should still replace the full affected folder or release package.
+Feature releases and normal bug releases should replace the full affected folder or release package.
 
 ---
 
-# Rule 3 — Consider the Entire Ecosystem
+# Rule 6 — Consider the Entire Ecosystem
 
 Never think about one file, folder, or tool in isolation.
 
 Changes may affect:
-
-- Signal Labs Home.
-- Shared assets.
-- Paycheck.
-- Overtime.
-- Time Off.
-- Future tools.
-
-Bring dependency concerns and side effects to the user's attention.
-
-Think beyond the immediate task.
-
----
-
-# Rule 4 — Maintain Required Documentation
-
-Every tool should eventually maintain:
-
-- README.md
-- ROADMAP.md
-- CHANGELOG.md
-- HOWTO.md
-- FILEMANIFEST.md
-- BUILDMANIFEST.md
-
-Signal Labs Home additionally maintains:
-
-- STANDARDS.md
-- MASTER-CHANGELOG.md
-- MASTER-ROADMAP.md
-- RELEASE-HISTORY.md
-- RESTORE.md
-
-Documentation evolves alongside code.
-
-## Master Documentation Requirements
-
-MASTER-CHANGELOG.md must be updated for every release without exception.
-
-This applies regardless of where the change occurs:
 
 - Home.
 - Shared assets.
@@ -111,25 +169,44 @@ This applies regardless of where the change occurs:
 - Time Off.
 - Future tools.
 
-MASTER-ROADMAP.md must be updated whenever versions, themes, plans, new tools, or priorities change.
-
-RELEASE-HISTORY.md must be updated whenever a release occurs.
-
-No release is complete until tool documentation, master documentation, and release history are updated as required.
-
-## File Responsibilities
-
-| File | Purpose |
-|---|---|
-| CHANGELOG.md | Detailed tool history |
-| ROADMAP.md | Tool future |
-| MASTER-CHANGELOG.md | Running ecosystem history |
-| MASTER-ROADMAP.md | Ecosystem future |
-| RELEASE-HISTORY.md | Chronological release order |
+Bring dependency concerns and side effects to the user's attention.
 
 ---
 
-# Rule 5 — Protect Project Integrity
+# Rule 7 — Maintain Required Documentation
+
+Every tool should eventually maintain:
+
+```text
+README.md
+ROADMAP.md
+CHANGELOG.md
+HOWTO.md
+FILEMANIFEST.md
+BUILDMANIFEST.md
+```
+
+Home additionally maintains:
+
+```text
+STANDARDS.md
+UX_STANDARDS.md
+SCRIPT_STANDARDS.md
+DOCUMENTATION_STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+RELEASE-HISTORY.md
+RESTORE.md
+INSTALL.md
+```
+
+Documentation evolves alongside code.
+
+---
+
+# Rule 8 — Protect Project Integrity
 
 Project integrity takes precedence over convenience.
 
@@ -137,10 +214,13 @@ Project integrity takes precedence over convenience.
 - Preserve working functionality whenever possible.
 - Avoid silent breaking changes.
 - Favor correctness over speed.
+- Failed releases are not releases.
+- Successful releases become history.
+- Storage is cheap. Lost work is expensive.
 
 ---
 
-# Rule 6 — Verify File Identity
+# Rule 9 — Verify File Identity
 
 Files should clearly identify:
 
@@ -155,150 +235,30 @@ Prevent cross-contamination between tools.
 
 ---
 
-# Rule 7 — Source of Truth Disclosure
+# Rule 10 — Source Disclosure
 
-When planning, building, validating, or packaging a release, the source used for the work must be disclosed.
+When planning, building, validating, or packaging a release, disclose the source used.
 
-Every release response should include:
+Examples:
 
 ```text
-Source:
+Source: GitHub repository
+Source: Uploaded files
+Source: Recent user-provided ZIP
+Source: Mixed source: GitHub + current-chat standards package
 ```
 
-followed by the actual source used, such as:
-
-- GitHub repository.
-- Uploaded files.
-- Previous release ZIP.
-- Mixed sources.
-
 Never silently switch sources.
-
-If the source changes during development, disclose the change, explain why, and identify the new source.
 
 AI memory may assist planning and continuity, but it is never an authoritative project source.
 
 ---
 
-# Rule 8 — Source Preference
-
-Use the newest authoritative source available.
-
-Priority:
-
-```text
-1. Uploaded files
-2. GitHub repository (normally authoritative)
-3. Recent release ZIPs containing uncommitted work
-4. Older release ZIPs
-5. Conversation snippets
-6. AI memory
-```
-
-Normal workflow:
-
-```text
-GitHub
-↓
-Build
-↓
-Deploy
-↓
-GitHub
-↓
-Build
-```
-
-GitHub should normally be preferred because it is the deployment source for the live website.
-
-ZIPs are temporary exceptions only when they contain work newer than GitHub, are needed for recovery, or are needed to reproduce a prior release.
-
----
-
-# Rule 9 — Daily Startup Procedure
-
-This procedure is mandatory at the first work session of every day.
-
-Never assume memory is current.
-
-Never assume sources match.
-
-## Step 1 — Check Live Website
-
-Review:
-
-```text
-https://tools.allegedly-media.com/
-```
-
-Look at visible versions, active tools, navigation, and obvious UI changes.
-
-## Step 2 — Check GitHub Repository
-
-Review:
-
-```text
-https://github.com/klager93-gif/tools-allegedly-media
-```
-
-Look at versions, documentation, manifests, and master files.
-
-## Step 3 — Compare Sources
-
-This step is mandatory.
-
-The Daily Startup Procedure is not complete until one of the following outcomes has been determined:
-
-```text
-Website == GitHub
-```
-
-```text
-Website ≠ GitHub
-```
-
-```text
-Comparison failed
-```
-
-Comparison must be based on evidence, not assumptions.
-
-The invalid outcome is:
-
-```text
-Comparison not performed
-```
-
-unless the comparison itself failed.
-
-Looking at the website and repository without comparing them does not satisfy Rule 9.
-
-## Step 4 — Apply Rule 8
-
-Determine the working source of truth using the Source Preference rule.
-
-## Step 5 — Report
-
-Provide:
-
-- Current versions.
-- Source.
-- Verification status.
-- Warnings.
-
-## Step 6 — Begin Planning
-
-Only begin planning or coding after Steps 1 through 5 are complete.
-
-Assumptions are not verification.
-
----
-
-# Rule 10 — Preserve Shared Systems
+# Rule 11 — Preserve Shared Systems
 
 Systems intended to span multiple tools should remain consistent.
 
-Examples include:
+Examples:
 
 - Reports.
 - Action bars.
@@ -309,27 +269,28 @@ Examples include:
 - Report headers.
 - Shared section numbering.
 - Hidden ad framework.
+- Navigation.
 
 When a feature pattern is reused across multiple tools, changes to that pattern should be reviewed for every tool that uses it.
 
-Tools do not need to be identical, but common patterns should remain visually and behaviorally consistent unless there is a clear reason to diverge.
-
-Improvements made to one tool should be evaluated for other tools that use the same pattern.
-
 ---
 
-# Rule 11 — Review Shared Dependencies
+# Rule 12 — Review Shared Dependencies
 
 Changes to shared dependencies require reviewing dependent tools.
 
 Examples:
 
-- assets/global.css
-- assets/global.js
+```text
+assets/global.css
+assets/global.js
+assets/
+site.webmanifest
+```
 
 Review effects on:
 
-- Signal Labs Home.
+- Home.
 - Paycheck.
 - Overtime.
 - Time Off.
@@ -337,7 +298,7 @@ Review effects on:
 
 ---
 
-# Rule 12 — Validate Before Packaging
+# Rule 13 — Validate Before Packaging
 
 Before packaging, verify:
 
@@ -348,14 +309,14 @@ Before packaging, verify:
 - Source has been disclosed.
 - Dependencies have been reviewed.
 - Shared systems have been considered.
+- Standards files have been reviewed.
+- Domain-specific standards have been reviewed for the type of work performed.
 
 Abort packaging if validation fails.
 
-Malformed version strings should be corrected before release.
-
 ---
 
-# Rule 13 — Validate After Packaging
+# Rule 14 — Validate After Packaging
 
 After packaging, verify:
 
@@ -364,12 +325,14 @@ After packaging, verify:
 - Expected files.
 - No unexpected files.
 - Documentation completeness.
+- Version consistency.
+- Release notes.
 
 Only then should the ZIP be released.
 
 ---
 
-# Rule 14 — Fail Loudly
+# Rule 15 — Fail Loudly
 
 If validation fails, report:
 
@@ -382,7 +345,18 @@ Never silently continue.
 
 ---
 
-# Rule 15 — Trust Successful Releases
+# Rule 16 — Clarify Rather Than Guess
+
+If sources disagree or intent is unclear:
+
+- State the conflict.
+- Ask for clarification when needed.
+- Do not silently invent standards.
+- Do not reconstruct authoritative rules from memory when GitHub contains the official version.
+
+---
+
+# Rule 17 — Trust Successful Releases
 
 Failed releases are not releases.
 
@@ -401,19 +375,17 @@ Release status = FAILED
 
 The previous successful release remains the source of truth.
 
-Never assume a failed package became the new baseline.
-
 ---
 
-# Rule 16 — Successful Releases Become History
+# Rule 18 — Successful Releases Become History
 
 Only successful releases should update historical release records.
 
 Successful releases may update:
 
-- CHANGELOG.md.
-- MASTER-CHANGELOG.md.
-- RELEASE-HISTORY.md.
+- `CHANGELOG.md`
+- `MASTER-CHANGELOG.md`
+- `RELEASE-HISTORY.md`
 
 Failed releases should not appear as completed release history.
 
@@ -421,20 +393,18 @@ Failed releases should not appear as completed release history.
 
 # Core Philosophy
 
-Protect Project Integrity.
+Protect project integrity.
 
-Think first.
+Think first. Build second. Package last.
 
-Build second.
+Review broadly. Verify specifically.
 
-Package last.
+GitHub is truth.
 
-Consider the entire ecosystem.
+Home is Home.
 
 Ship complete files.
 
 Fail loudly.
 
-Storage is cheap.
-
-Lost work is expensive.
+Storage is cheap. Lost work is expensive.

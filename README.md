@@ -6,11 +6,11 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-**v0.6.2**
+**v0.7.0**
 
 ## Theme
 
-Standards v2.0
+Standards Architecture
 
 ---
 
@@ -18,17 +18,17 @@ Standards v2.0
 
 ## Paycheck Calculator
 
-Estimate paid hours, premium hours, benefit hours, deductions, adjustments, take-home pay, and target pay, other earnings, and specialty pay.
+Estimate paid hours, premium hours, benefit hours, deductions, adjustments, take-home pay, target pay, other earnings, and specialty pay.
 
 ## Overtime Calculator
 
-Estimate regular pay, overtime pay, before-tax pay, deductions, take-home pay, and target pay, other earnings, and specialty pay.
+Estimate regular pay, overtime pay, before-tax pay, deductions, take-home pay, target pay, other earnings, and specialty pay.
 
 Status: feature-frozen while Paycheck is the active flagship tool.
 
 ## Time Off Planner
 
-Plan vacation, sick time, personal time, comp time, holidays, and planned time off.
+Plan vacation, sick time, personal time, comp time, holidays, planned time off, caps, and policy warnings.
 
 ---
 
@@ -46,13 +46,35 @@ Provides shared navigation, mobile menu behavior, modal utilities, action bar su
 
 # Development Standards
 
-This project follows:
+Signal Labs uses a standards architecture.
+
+The master constitution is:
 
 ```text
 /STANDARDS.md
 ```
 
-`STANDARDS.md` is the authoritative copy of Signal Labs Development Standards v2.0.
+Supporting standards:
+
+```text
+/UX_STANDARDS.md
+/SCRIPT_STANDARDS.md
+/DOCUMENTATION_STANDARDS.md
+/VERSIONING_STANDARDS.md
+/WORKFLOW_STANDARDS.md
+```
+
+Daily startup must review all standards files.
+
+Task-specific work must also review the relevant domain standard.
+
+Before building any files, `WORKFLOW_STANDARDS.md` must be reviewed as the final workflow quality gate.
+
+Principle:
+
+```text
+Review broadly. Verify specifically.
+```
 
 ---
 
@@ -61,13 +83,97 @@ This project follows:
 Signal Labs Home maintains:
 
 ```text
+STANDARDS.md
+UX_STANDARDS.md
+SCRIPT_STANDARDS.md
+DOCUMENTATION_STANDARDS.md
+VERSIONING_STANDARDS.md
+WORKFLOW_STANDARDS.md
 MASTER-CHANGELOG.md
 MASTER-ROADMAP.md
 RELEASE-HISTORY.md
 RESTORE.md
+INSTALL.md
 ```
 
 Every successful release must update master documentation and release history as required by the standards.
+
+---
+
+# Folder Structure
+
+```text
+/
+  index.html
+  README.md
+  CHANGELOG.md
+  ROADMAP.md
+  HOWTO.md
+  STANDARDS.md
+  UX_STANDARDS.md
+  SCRIPT_STANDARDS.md
+  DOCUMENTATION_STANDARDS.md
+  VERSIONING_STANDARDS.md
+  WORKFLOW_STANDARDS.md
+  FILEMANIFEST.md
+  BUILDMANIFEST.md
+  INSTALL.md
+  RESTORE.md
+  MASTER-CHANGELOG.md
+  MASTER-ROADMAP.md
+  RELEASE-HISTORY.md
+  site.webmanifest
+
+/assets/
+  global.css
+  global.js
+
+/backups/
+  README.md
+  BACKUP-LOG.md
+  RESTORE-GUIDE.md
+
+/overtime/
+  index.html
+  style.css
+  script.js
+  README.md
+  CHANGELOG.md
+  ROADMAP.md
+  HOWTO.md
+  FILEMANIFEST.md
+  BUILDMANIFEST.md
+
+/timeoff/
+  index.html
+  style.css
+  script.js
+  README.md
+  CHANGELOG.md
+  ROADMAP.md
+  HOWTO.md
+  FILEMANIFEST.md
+  BUILDMANIFEST.md
+
+/paycheck/
+  index.html
+  style.css
+  script.js
+  README.md
+  CHANGELOG.md
+  ROADMAP.md
+  HOWTO.md
+  FILEMANIFEST.md
+  BUILDMANIFEST.md
+```
+
+---
+
+# Development Philosophy
+
+Signal Labs tools are intended to be useful, fast, mobile-friendly, easy to understand, lightweight, and free from unnecessary complexity.
+
+> Useful tools without the noise.
 
 ---
 
@@ -75,12 +181,31 @@ Every successful release must update master documentation and release history as
 
 ### Build
 
-v0.6.2
+v0.7.0
 
 ### Theme
 
-Standards v2.0
+Standards Architecture
 
 ### Status
 
 Active Development
+
+
+---
+
+# Release Metadata
+
+- Current Release: Home v0.7.0 — Standards Architecture
+- Previous Release: Home v0.6.2 — Standards v2.0
+- Source Repository: https://github.com/klager93-gif/tools-allegedly-media
+- Backup Status: External backup completed by user before build; exact backup filename was not provided in chat.
+- GitHub Release Text: Provided in chat with release package delivery; not stored as a package file.
+- Build Manifest: `BUILDMANIFEST.md`
+- File Manifest: `FILEMANIFEST.md`
+
+---
+
+## Release Integrity
+
+Home v0.7.0 includes `SHA256SUMS.txt` as an intentional checksum manifest for release integrity verification.
