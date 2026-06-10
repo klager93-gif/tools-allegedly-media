@@ -6,11 +6,11 @@ Estimate regular hours, premium hours, benefit hours, deductions, other earnings
 
 ## Current Version
 
-v0.8.2
+v0.8.3
 
 ## Theme
 
-Inline Result Details
+Progressive Details & Compact Density
 
 ---
 
@@ -34,7 +34,8 @@ Inline Result Details
 - Copy Results.
 - Print Report.
 - Saved settings.
-- Inline result details without a hidden Details accordion.
+- Progressive result details that only show rows when a value exists.
+- Compact pill, empty-state, result-row, and mobile density refinements.
 - Public and admin changelog split started for Paycheck.
 - Hidden disabled ad slots.
 

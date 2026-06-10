@@ -2,11 +2,11 @@
 
 ## Current Version
 
-v0.8.2
+v0.8.3
 
 ## Theme
 
-Inline Result Details
+Progressive Details & Compact Density
 
 ---
 
@@ -34,19 +34,21 @@ Inline Result Details
 | v0.8 | Progressive Disclosure |
 | v0.8.1 | Progressive Disclosure Polish |
 | v0.8.2 | Inline Result Details |
+| v0.8.3 | Progressive Details & Compact Density |
 
 ---
 
 ## Upcoming Versions
 
-### Paycheck v0.8.3 or v0.9
+### Paycheck v0.8.4 or v0.9
 
 Potential focus:
 
+- Live mobile verification after v0.8.3 deployment.
 - Backfill full Paycheck history into `PUBLIC_CHANGELOG.md` and `ADMIN_CHANGELOG.md` without deleting existing history.
-- Review mobile spacing after live v0.8.2 testing.
-- Review print report formatting against current result rows.
-- Review saved settings migration after v0.8.2.
+- Review print report formatting against progressive result rows.
+- Review Copy Results output against progressive result rows.
+- Review saved settings migration after v0.8.3.
 
 ### Paycheck v1.0
 

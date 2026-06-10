@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.8.2
+Version: v0.8.3
 Purpose: Main application page
 -->
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ Purpose: Main application page
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.6.1">
-<link rel="stylesheet" href="style.css?v=0.8.2">
+<link rel="stylesheet" href="style.css?v=0.8.3">
 </head>
 <body>
 <main class="page">
@@ -334,7 +334,7 @@ Purpose: Main application page
   <section class="card results-card">
     <div class="results-heading">
       <h2>Estimated Paycheck</h2>
-      <p>Result details now stay visible so the breakdown is clear without opening another box.</p>
+      <p>Result details appear only when that part of the estimate has a value.</p>
     </div>
     <div class="ad-slot ad-slot-inline is-disabled" data-ad-slot="paycheck-results" data-ad-status="disabled" aria-hidden="true">
       <span class="ad-placeholder">Ad slot reserved</span>
@@ -344,55 +344,55 @@ Purpose: Main application page
       <strong id="grossPayResult">$0.00</strong>
     </div>
     <div class="result-detail-group" aria-label="Paycheck detail breakdown">
-      <div class="result-row detail-result-row">
+      <div class="result-row detail-result-row" data-result-row="regularPay">
         <span>Regular Pay</span>
         <strong id="regularPayResult">$0.00</strong>
       </div>
-      <div class="result-row detail-result-row">
+      <div class="result-row detail-result-row" data-result-row="premiumPay">
         <span>Premium Pay</span>
         <strong id="premiumPayResult">$0.00</strong>
       </div>
-      <div class="result-row detail-result-row">
+      <div class="result-row detail-result-row" data-result-row="shiftPay">
         <span>Shift Differential Pay</span>
         <strong id="shiftDifferentialPayResult">$0.00</strong>
       </div>
-      <div class="result-row detail-result-row">
+      <div class="result-row detail-result-row" data-result-row="benefitPay">
         <span>Benefit / Leave Pay</span>
         <strong id="benefitPayResult">$0.00</strong>
       </div>
-      <div class="result-row detail-result-row">
+      <div class="result-row detail-result-row" data-result-row="otherEarnings">
         <span>Other Earnings</span>
         <strong id="otherEarningsResult">$0.00</strong>
       </div>
-      <div class="result-row detail-result-row">
+      <div class="result-row detail-result-row" data-result-row="specialtyPay">
         <span>Specialty Pay</span>
         <strong id="specialtyPayResult">$0.00</strong>
       </div>
-      <div class="result-row detail-result-row">
+      <div class="result-row detail-result-row" data-result-row="totalHours">
         <span>Total Paid Hours</span>
         <strong id="totalHoursResult">0.00 hrs</strong>
       </div>
-      <div class="result-row detail-result-row reduction-row">
+      <div class="result-row detail-result-row reduction-row" data-result-row="taxes">
         <span>Estimated Taxes</span>
         <strong id="taxesResult">-$0.00</strong>
       </div>
-      <div class="result-row detail-result-row reduction-row">
+      <div class="result-row detail-result-row reduction-row" data-result-row="deductions">
         <span>Deductions</span>
         <strong id="deductionsResult">-$0.00</strong>
       </div>
-      <div class="result-row detail-result-row reduction-row">
+      <div class="result-row detail-result-row reduction-row" data-result-row="otherAdjustments">
         <span>Other Adjustments</span>
         <strong id="otherAdjustmentsResult">-$0.00</strong>
       </div>
-      <div class="result-row target-result-row detail-result-row">
+      <div class="result-row target-result-row detail-result-row" data-result-row="targetGap">
         <span>Target Gap</span>
         <strong id="targetGapResult">--</strong>
       </div>
-      <div class="result-row target-result-row detail-result-row">
+      <div class="result-row target-result-row detail-result-row" data-result-row="targetHours">
         <span>Estimated Extra Hours Needed</span>
         <strong id="targetHoursResult">--</strong>
       </div>
-      <div class="result-row target-result-row detail-result-row">
+      <div class="result-row target-result-row detail-result-row" data-result-row="targetStatus">
         <span>Target Status</span>
         <strong id="targetStatusResult">--</strong>
       </div>
@@ -407,8 +407,8 @@ Purpose: Main application page
     </div>
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.8.2</p>
-      <p>Theme: Inline Result Details</p>
+      <p>Build: v0.8.3</p>
+      <p>Theme: Progressive Details & Compact Density</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -470,7 +470,7 @@ Purpose: Main application page
     <a href="ROADMAP.md">Roadmap</a>
   </div>
   <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.8.2<br>
+    Signal Labs · Paycheck Calculator · v0.8.3<br>
     Useful tools without the noise.
   </div>
 </footer>
@@ -503,6 +503,6 @@ Purpose: Main application page
 </div>
 
 <script src="../assets/global.js?v=0.6.1"></script>
-<script src="script.js?v=0.8.2"></script>
+<script src="script.js?v=0.8.3"></script>
 </body>
 </html>

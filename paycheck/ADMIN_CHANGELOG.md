@@ -4,6 +4,22 @@ Internal Paycheck development notes. This file is for technical, workflow, stand
 
 ---
 
+## v0.8.3 — Progressive Details & Compact Density
+
+**Date:** 2026-06-10
+
+### Internal / Development Notes
+
+- Bumped from v0.8.2 to v0.8.3 because the v0.8.2 package had already been built and visually reviewed as not meeting the intended UX.
+- Corrected the interpretation of the Details-box request: rows should not simply all expand; result rows should only appear when meaningful values exist.
+- Added progressive result-row visibility in `script.js` using `data-result-row` attributes.
+- Added compact density overrides in `style.css` for desktop and mobile.
+- Updated documentation, manifests, public/admin changelogs, backup notes, and master changelog.
+- Kept shared asset content unchanged.
+- Regenerated checksum manifest for the v0.8.3 release package.
+
+---
+
 ## v0.8.2 — Inline Result Details
 
 **Date:** 2026-06-10
@@ -16,4 +32,3 @@ Internal Paycheck development notes. This file is for technical, workflow, stand
 - Updated footer changelog behavior so the public-facing changelog is the linked changelog.
 - Preserved the internal/admin changelog for development-process notes.
 - Kept shared asset content unchanged.
-- Regenerated file and build manifests for the v0.8.2 release package.

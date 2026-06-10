@@ -1,12 +1,12 @@
-# Paycheck v0.8.2 Build Manifest
+# Paycheck v0.8.3 Build Manifest
 
 ## Version
 
-Paycheck v0.8.2
+Paycheck v0.8.3
 
 ## Theme
 
-Inline Result Details
+Progressive Details & Compact Density
 
 ## Build Date
 
@@ -18,7 +18,7 @@ https://github.com/klager93-gif/tools-allegedly-media
 
 ## Source Baseline
 
-Paycheck v0.8.1 — Progressive Disclosure Polish
+Paycheck v0.8.1 — Progressive Disclosure Polish, plus v0.8.2 draft package reviewed in chat.
 
 ## Build Type
 
@@ -26,7 +26,7 @@ Full replacement Paycheck release package.
 
 ## Primary Change
 
-Removed the Estimated Paycheck Details accordion and replaced it with visible inline result rows.
+Corrects the v0.8.2 result details approach by hiding zero-value result rows and tightening desktop/mobile density.
 
 ## Shared Assets
 

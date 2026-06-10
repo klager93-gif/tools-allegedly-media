@@ -17,12 +17,23 @@ Tool-specific changelogs contain the complete history for their own tool. This m
 
 ## 2026-06-10
 
+### Paycheck v0.8.3 — Progressive Details & Compact Density
+
+- Corrected the v0.8.2 result-detail implementation after visual review.
+- Kept the removed Details accordion, but changed result rows so zero-value rows do not appear.
+- Added progressive result details for premium pay, shift differential pay, benefit / leave pay, other earnings, specialty pay, taxes, deductions, other adjustments, total paid hours, and target planning.
+- Reduced oversized pills, empty states, result rows, card padding, and mobile spacing.
+- Improved mobile usability by reducing unnecessary vertical scrolling.
+- Updated Paycheck build labels, footer version, cache-busting references, documentation, manifests, public/admin changelogs, and checksum manifest to v0.8.3.
+- No shared asset content changes.
+
+---
+
 ### Paycheck v0.8.2 — Inline Result Details
 
 - Removed the hidden Estimated Paycheck Details accordion.
 - Replaced the collapsed details section with visible inline result rows.
 - Kept Gross Pay and Take-Home Pay as emphasized totals.
-- Kept Regular Pay, Premium Pay, Shift Differential Pay, Benefit / Leave Pay, Other Earnings, Specialty Pay, Total Paid Hours, Taxes, Deductions, Other Adjustments, and Target Pay details visible without requiring a click.
 - Started Paycheck public/admin changelog split.
 - Updated the Paycheck footer changelog link to point to `PUBLIC_CHANGELOG.md`.
 - Updated Paycheck build labels, footer version, cache-busting references, documentation, manifests, and checksum manifest to v0.8.2.

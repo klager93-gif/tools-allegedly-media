@@ -12,21 +12,17 @@
 
 ## Result Details
 
-Starting in v0.8.2, the results breakdown is visible directly on the page. There is no hidden Details accordion.
+Starting in v0.8.3, the results breakdown appears progressively. There is no hidden Details accordion, and empty zero-value rows are hidden.
 
-Visible rows include:
+Rows appear only when they matter, such as:
 
-- Regular Pay
-- Premium Pay
-- Shift Differential Pay
-- Benefit / Leave Pay
-- Other Earnings
-- Specialty Pay
-- Total Paid Hours
-- Estimated Taxes
-- Deductions
-- Other Adjustments
-- Target Pay details
+- Regular Pay when regular hours/rate create regular pay.
+- Premium Pay when premium hours exist.
+- Shift Differential Pay when a differential creates added pay.
+- Benefit / Leave Pay when paid leave hours exist.
+- Other Earnings and Specialty Pay when those items are added.
+- Taxes, Deductions, and Other Adjustments when those reductions exist.
+- Target Pay details when a target amount is entered.
 
 ## Changelog
 
