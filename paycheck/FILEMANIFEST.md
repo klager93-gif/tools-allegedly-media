@@ -1,6 +1,6 @@
 # File Manifest
 
-## Paycheck v0.9.3 — Footer Inheritance
+## Paycheck v0.9.4 — Typography & Breathing Room
 
 ### Updated
 

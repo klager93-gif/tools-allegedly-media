@@ -1,6 +1,6 @@
 # Restore Notes
 
-## Home v0.8.3 — Homepage Density Pass
+## Home v0.8.4 — Hero Control Polish
 
 If this release causes problems:
 

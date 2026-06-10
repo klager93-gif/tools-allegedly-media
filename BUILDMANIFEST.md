@@ -2,7 +2,7 @@
 
 ## Release
 
-Home v0.8.3 — Homepage Density Pass
+Home v0.8.4 — Hero Control Polish
 
 ## Build Type
 
@@ -14,7 +14,7 @@ GitHub baseline / prior package: Home v0.8.2 — Homepage Redesign.
 
 ## Backup Folder
 
-`2026-06-10-before-home-v0.8.3-homepage-density-pass`
+`2026-06-10-before-home-v0.8.4-homepage-density-pass`
 
 ## Files Changed
 
@@ -41,8 +41,13 @@ GitHub baseline / prior package: Home v0.8.2 — Homepage Redesign.
 
 - ZIP integrity check required after packaging.
 - `assets/global.js` syntax check passed.
-- Home metadata updated to v0.8.3.
-- Global asset cache-busting updated to v0.8.3.
+- Home metadata updated to v0.8.4.
+- Global asset cache-busting updated to v0.8.4.
 - Mobile footer accordion behavior added.
 - Footer placeholder pages added to roadmap/TODO tracking.
 - No calculator logic changes.
+
+
+## Coordinated Release Note
+
+This package also includes Paycheck v0.9.4 — Typography & Breathing Room.

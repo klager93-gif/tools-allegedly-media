@@ -4,7 +4,7 @@ Signal Labs is the Home site for lightweight calculators and planning tools buil
 
 ## Current Version
 
-**Home v0.8.3 — Homepage Density Pass**
+**Home v0.8.4 — Hero Control Polish**
 
 ## What Changed
 

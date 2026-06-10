@@ -1,5 +1,20 @@
 # Signal Labs Public Changelog
 
+## v0.8.4 — Hero Control Polish
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Improved the optical centering of the Home hero `Explore Tools` button.
+- Converted hero buttons to explicit flex alignment for cleaner text and arrow positioning.
+- Added a clearer gap between the primary button label and arrow.
+- Simplified the `How It Works` control by removing the info icon from the visible label.
+- No calculator logic changes.
+
+---
+
+
 ## v0.8.3 — Homepage Density Pass
 
 **Date:** 2026-06-10

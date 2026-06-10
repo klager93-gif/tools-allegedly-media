@@ -1,5 +1,20 @@
 # Paycheck Calculator Admin Changelog
 
+## v0.9.4 — Typography & Breathing Room
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Removed release metadata from the Paycheck hero area so the header focuses on the tool instead of the build.
+- Increased readability for section descriptions, helper text, empty states, and notes.
+- Added more breathing room to the Paycheck action bar.
+- Kept the Home-style footer inheritance from v0.9.3.
+- No calculator math changes.
+
+---
+
+
 ## v0.9.3 — Footer Inheritance
 
 **Date:** 2026-06-10

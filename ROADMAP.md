@@ -49,3 +49,7 @@ Create public placeholder pages or routes for footer links:
 - Privacy Policy
 - Terms of Use
 - Status
+
+## Recent Completion Notes
+
+- Home v0.8.4 completed hero control polish.

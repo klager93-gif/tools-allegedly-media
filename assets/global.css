@@ -1,6 +1,6 @@
 /*
 Signal Labs Shared Asset File: assets/global.css
-Version: v0.8.3
+Version: v0.8.4
 Purpose: Shared styles, navigation, footer, action bar, modal/dialog, toast, empty-state, and ad slot framework.
 */
 
@@ -636,4 +636,34 @@ button:disabled { opacity: .45; cursor: not-allowed; }
   .home-hero-actions .signal-button { width: 100%; padding-left: 12px; padding-right: 12px; }
   .home-hero-actions .signal-button-primary { min-width: 0; }
   .home-why-grid { gap: 16px 14px; }
+}
+
+
+/* Home v0.8.4 — Hero Control Polish */
+.home-hero-actions .signal-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+.home-hero-actions .signal-button-primary {
+  padding-left: 24px;
+  padding-right: 28px;
+}
+.home-hero-actions .signal-button:not(.signal-button-primary) {
+  padding-left: 18px;
+  padding-right: 18px;
+  font-weight: 800;
+}
+@media (max-width: 700px) {
+  .home-hero-actions .signal-button {
+    min-height: 48px;
+    align-items: center;
+  }
+  .home-hero-actions .signal-button-primary {
+    padding-left: 18px;
+    padding-right: 20px;
+  }
 }

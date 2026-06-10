@@ -1,6 +1,6 @@
 # Signal Labs Release History
 
-## Home v0.8.3 — Homepage Density Pass
+## Home v0.8.4 — Hero Control Polish
 
 **Date:** 2026-06-10
 

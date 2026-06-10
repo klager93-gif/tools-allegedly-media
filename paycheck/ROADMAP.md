@@ -2,7 +2,7 @@
 
 ## Completed
 
-### v0.9.3 — Footer Inheritance
+### v0.9.4 — Typography & Breathing Room
 
 - Removed version/theme/status metadata from the Paycheck hero.
 - Adopted the Home-style footer layout.
@@ -114,3 +114,7 @@ Potential focus:
 - Future global header/footer metadata migration.
 - Replace local action bar with the finalized shared action-bar component once all tools are ready.
 - Continue mobile polish after live visual review.
+
+## Recent Completion Notes
+
+- Paycheck v0.9.4 completed typography and breathing-room polish.

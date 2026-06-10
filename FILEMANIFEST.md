@@ -1,10 +1,10 @@
 # File Manifest
 
-## Home v0.8.3 — Homepage Density Pass
+## Home v0.8.4 — Hero Control Polish
 
 ### Public Home Files
 
-- `index.html` — Signal Labs Home page with v0.8.3 metadata and mobile footer groups.
+- `index.html` — Signal Labs Home page with v0.8.4 metadata and mobile footer groups.
 - `assets/global.css` — shared CSS plus Home density and mobile footer accordion styles.
 - `assets/global.js` — shared JS plus Home footer accordion behavior.
 

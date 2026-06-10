@@ -1,6 +1,6 @@
 # Signal Labs Master Roadmap
 
-## Completed — Home v0.8.3
+## Completed — Home v0.8.4
 
 - Home homepage density pass.
 - Mobile hero, tool cards, Why Signal Labs section, and footer spacing tightened.

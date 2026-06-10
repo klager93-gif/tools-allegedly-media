@@ -1,11 +1,9 @@
-# Backup
+# Backup Reminder
 
-## Paycheck v0.9.3 — Footer Inheritance
+Create or confirm an external backup before uploading Paycheck v0.9.4.
 
-Recommended backup folder name:
+Backup folder name:
 
 ```text
-2026-06-10-before-paycheck-v0.9.3-footer-inheritance
+2026-06-10-before-paycheck-v0.9.4-typography-breathing-room
 ```
-
-Source baseline: Paycheck v0.9.2 — Mobile Menu Fix.

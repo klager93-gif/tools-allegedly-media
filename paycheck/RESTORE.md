@@ -1,6 +1,6 @@
 # Restore
 
-## Paycheck v0.9.3 — Footer Inheritance
+## Paycheck v0.9.4 — Typography & Breathing Room
 
 To restore the previous version, replace the Paycheck files with the external backup created before this upload.
 
