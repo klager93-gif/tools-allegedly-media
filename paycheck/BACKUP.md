@@ -1,3 +1,17 @@
+# Backup
+
+## Paycheck v0.9.1 — Header Alignment
+
+Recommended backup folder name:
+
+```text
+2026-06-10-before-paycheck-v0.9.1-header-alignment
+```
+
+Source baseline: Paycheck v0.9.0 — Design System Adoption.
+
+---
+
 # Backup Record
 
 Recommended Backup Folder:

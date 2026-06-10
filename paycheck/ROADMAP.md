@@ -1,3 +1,21 @@
+# Paycheck Calculator Roadmap
+
+## Completed
+
+### v0.9.1 — Header Alignment
+
+- Home-aligned global navigation.
+- Home-style footer pattern.
+- Readability and spacing polish.
+
+## Next
+
+- Continue design-system migration.
+- Move header/footer/action bar into shared global components when the platform is ready.
+- Continue modal/toast consistency work.
+
+---
+
 # Signal Labs Paycheck Calculator Roadmap
 
 ## Current Version

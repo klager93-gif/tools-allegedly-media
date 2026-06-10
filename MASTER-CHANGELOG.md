@@ -1,4 +1,13 @@
-# Signal Labs Master Changelog
+# Master Changelog
+
+## 2026-06-10 — Paycheck v0.9.1 — Header Alignment
+
+- Aligned Paycheck global navigation with the Home header/nav style.
+- Replaced the small Paycheck footer with a Home-style global footer pattern.
+- Improved hero spacing, page width, and readability.
+- No calculator math changes.
+
+---
 
 ## 2026-06-10 — Paycheck v0.9.0 — Design System Adoption
 

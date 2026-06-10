@@ -1,3 +1,13 @@
+# Restore
+
+## Paycheck v0.9.1 — Header Alignment
+
+To restore, replace the Paycheck folder files with the prior backup created before this release.
+
+Previous release: Paycheck v0.9.0 — Design System Adoption.
+
+---
+
 # Restore Instructions — Paycheck v0.9.0
 
 1. Confirm an external backup exists.

@@ -1,3 +1,13 @@
+# Paycheck Calculator How To
+
+The Paycheck Calculator estimates take-home pay from regular hours, premium hours, paid leave, deductions, taxes, adjustments, and optional target pay settings.
+
+## v0.9.1 Note
+
+The page header and footer now follow the Signal Labs Home layout more closely. Calculator usage is unchanged.
+
+---
+
 # Paycheck Calculator How-To
 
 ## Basic Use

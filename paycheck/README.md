@@ -1,3 +1,13 @@
+# Paycheck Calculator
+
+## Current Version
+
+**v0.9.1 — Header Alignment**
+
+Paycheck Calculator is part of Signal Labs. This release aligns the Paycheck header and footer with the current Home design system direction.
+
+---
+
 # Signal Labs Paycheck Calculator
 
 Estimate regular hours, premium hours, benefit hours, deductions, adjustments, other earnings, specialty pay, and take-home pay.

@@ -1,3 +1,19 @@
+# Paycheck Calculator Changelog
+
+## v0.9.1 — Header Alignment
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Aligned the Paycheck global navigation with the current Home navigation style.
+- Replaced the smaller Paycheck footer with the Home-style global footer pattern.
+- Improved Paycheck hero spacing and desktop readability.
+- Preserved the v0.9.0 tool action bar and calculator behavior.
+- No calculator math changes.
+
+---
+
 # Signal Labs Paycheck Calculator Changelog
 
 ## v0.9.0 — Design System Adoption

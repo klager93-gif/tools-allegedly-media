@@ -1,3 +1,17 @@
+# Build Manifest
+
+Version: Paycheck v0.9.1
+Theme: Header Alignment
+Build Date: 2026-06-10
+Build Type: Full replacement Paycheck release
+Source: Paycheck v0.9.0 baseline
+
+## Purpose
+
+Align the Paycheck header and footer with the current Signal Labs Home design language.
+
+---
+
 # Paycheck Build Manifest
 
 Version: v0.9.0

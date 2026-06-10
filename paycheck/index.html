@@ -2,8 +2,8 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.9.0
-Purpose: Paycheck Calculator page using Signal Labs design system foundations
+Version: v0.9.1
+Purpose: Paycheck Calculator page with Home-aligned global header and footer
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -20,23 +20,23 @@ Purpose: Paycheck Calculator page using Signal Labs design system foundations
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.8.3">
-<link rel="stylesheet" href="style.css?v=0.9.0">
+<link rel="stylesheet" href="style.css?v=0.9.1">
 </head>
 <body
   class="tool-page paycheck-page"
   data-signal-global-layout="false"
   data-signal-area="Paycheck"
   data-signal-title="Paycheck Calculator"
-  data-signal-version="v0.9.0"
-  data-signal-theme="Design System Adoption"
+  data-signal-version="v0.9.1"
+  data-signal-theme="Header Alignment"
   data-signal-status="Active Development"
   data-signal-description="Estimate take-home pay with essentials first and advanced options when needed."
   data-signal-changelog="PUBLIC_CHANGELOG.md"
   data-signal-roadmap="ROADMAP.md"
   data-signal-howto="HOWTO.md"
 >
-<nav class="signal-nav tool-nav paycheck-tool-nav" aria-label="Signal Labs navigation">
-  <div class="signal-nav-inner">
+<nav class="signal-nav home-nav paycheck-global-nav" aria-label="Signal Labs navigation">
+  <div class="signal-nav-inner home-nav-inner">
     <a class="signal-nav-brand signal-nav-mark" href="../" aria-label="Signal Labs home">
       <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
         <rect x="4" y="4" width="24" height="24" rx="5"></rect>
@@ -46,7 +46,7 @@ Purpose: Paycheck Calculator page using Signal Labs design system foundations
       </svg>
     </a>
     <button class="signal-nav-toggle" type="button" aria-expanded="false" aria-controls="signalNavLinks">☰ Menu</button>
-    <div id="signalNavLinks" class="signal-nav-links">
+    <div id="signalNavLinks" class="signal-nav-links home-nav-links">
       <a class="signal-nav-link" href="../">Home</a>
       <a class="signal-nav-link is-active" href="./">Paycheck</a>
       <a class="signal-nav-link" href="../overtime/">Overtime</a>
@@ -60,8 +60,8 @@ Purpose: Paycheck Calculator page using Signal Labs design system foundations
   <h1>Paycheck Calculator</h1>
   <p class="subtitle">Estimate take-home pay with essentials first and advanced options when needed.</p>
   <div class="tool-meta-row" aria-label="Paycheck release metadata">
-    <span>v0.9.0</span>
-    <span>Design System Adoption</span>
+    <span>v0.9.1</span>
+    <span>Header Alignment</span>
     <span>Active Development</span>
   </div>
 </header>
@@ -443,8 +443,8 @@ Purpose: Paycheck Calculator page using Signal Labs design system foundations
     </div>
     <div class="summary-card">
       <p>Generated: <span id="generatedTime">--</span></p>
-      <p>Build: v0.9.0</p>
-      <p>Theme: Design System Adoption</p>
+      <p>Build: v0.9.1</p>
+      <p>Theme: Header Alignment</p>
       <p>Status: Active Development</p>
     </div>
   </section>
@@ -477,17 +477,64 @@ Purpose: Paycheck Calculator page using Signal Labs design system foundations
 </nav>
 </main>
 
-<footer class="version">
-  <div class="ad-slot ad-slot-footer is-disabled" data-ad-slot="paycheck-footer" data-ad-status="disabled" aria-hidden="true">
-    <span class="ad-placeholder">Ad slot reserved</span>
+<footer class="home-footer signal-footer paycheck-global-footer" aria-label="Signal Labs footer">
+  <div class="home-footer-main">
+    <section class="home-footer-brand" aria-label="Signal Labs summary">
+      <div class="home-footer-brandline">
+        <span class="home-footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" focusable="false">
+            <rect x="4" y="4" width="24" height="24" rx="5"></rect>
+            <path d="M9 22h14"></path>
+            <path d="M10 18l5-5 4 4 5-7"></path>
+            <path d="M20 10h4v4"></path>
+          </svg>
+        </span>
+        <strong>Signal Labs</strong>
+      </div>
+      <p>Useful tools without the noise. Lightweight calculators and planning tools built for real-life decisions.</p>
+    </section>
+
+    <nav class="home-footer-links" aria-label="Footer resources">
+      <details class="home-footer-group" open>
+        <summary><span>Resources</span></summary>
+        <a href="HOWTO.md">How To Guide</a>
+        <a href="PUBLIC_CHANGELOG.md">Changelog</a>
+        <a href="ROADMAP.md">Roadmap</a>
+        <a href="../STANDARDS.md">Calculator Standards</a>
+        <a href="README.md">Documentation</a>
+      </details>
+      <details class="home-footer-group" open>
+        <summary><span>Support</span></summary>
+        <a href="mailto:support@allegedly-media.com">Report an Issue</a>
+        <a href="mailto:support@allegedly-media.com">Request a Feature</a>
+        <a href="mailto:support@allegedly-media.com">Provide Feedback</a>
+        <a href="mailto:support@allegedly-media.com">Contact</a>
+      </details>
+      <details class="home-footer-group" open>
+        <summary><span>About</span></summary>
+        <a href="../README.md">About Signal Labs</a>
+        <a href="../privacy.html">Privacy Policy</a>
+        <a href="../terms.html">Terms of Use</a>
+      </details>
+    </nav>
+
+    <section class="home-footer-status" aria-label="Paycheck status">
+      <h3>Paycheck Status</h3>
+      <span class="home-status-pill">● Active Development</span>
+      <p>Paycheck Calculator is being refined as part of the Signal Labs design system rollout.</p>
+      <a class="home-status-link" href="ROADMAP.md">View Roadmap <span aria-hidden="true">→</span></a>
+    </section>
   </div>
-  <div class="footer-actions">
-    <a href="PUBLIC_CHANGELOG.md">Changelog</a>
-    <a href="ROADMAP.md">Roadmap</a>
-  </div>
-  <div class="footer-copy">
-    Signal Labs · Paycheck Calculator · v0.9.0<br>
-    Useful tools without the noise.
+  <div class="home-footer-bottom">
+    <span>© 2026 Signal Labs. All rights reserved.</span>
+    <span>Build: v0.9.1</span>
+    <span>Theme: Header Alignment</span>
+    <span>Status: <strong>Active Development</strong></span>
+    <nav aria-label="Footer quick links">
+      <a href="PUBLIC_CHANGELOG.md">Changelog</a>
+      <a href="ROADMAP.md">Roadmap</a>
+      <a href="HOWTO.md">How To</a>
+    </nav>
   </div>
 </footer>
 
@@ -519,6 +566,6 @@ Purpose: Paycheck Calculator page using Signal Labs design system foundations
 </div>
 
 <script src="../assets/global.js?v=0.8.3"></script>
-<script src="script.js?v=0.9.0"></script>
+<script src="script.js?v=0.9.1"></script>
 </body>
 </html>

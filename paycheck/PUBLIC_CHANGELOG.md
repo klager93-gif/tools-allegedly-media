@@ -1,3 +1,15 @@
+# Paycheck Calculator Public Changelog
+
+## v0.9.1 — Header Alignment
+
+**Date:** 2026-06-10
+
+- Updated the Paycheck header and navigation to better match the Signal Labs Home design.
+- Added the richer Signal Labs footer layout to the Paycheck page.
+- Improved page spacing and readability while keeping calculator behavior the same.
+
+---
+
 # Paycheck Public Changelog
 
 ## v0.9.0 — Design System Adoption

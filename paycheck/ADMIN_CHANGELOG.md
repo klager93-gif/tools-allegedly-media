@@ -1,3 +1,16 @@
+# Paycheck Calculator Admin Changelog
+
+## v0.9.1 — Header Alignment
+
+**Date:** 2026-06-10
+
+- Migrated Paycheck toward the Home global header/footer component pattern.
+- Kept the implementation local to Paycheck while future global component extraction remains planned.
+- Updated package metadata, build references, and cache-busting.
+- No calculator math changes.
+
+---
+
 # Paycheck Admin Changelog
 
 ## v0.9.0 — Design System Adoption
