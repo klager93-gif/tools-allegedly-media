@@ -440,3 +440,8 @@ Metadata display
 Shared design changes should be reviewed against Home, Paycheck, Overtime, Time Off, and future tools before release.
 
 Do not force every tool to adopt a new shared component immediately. Introduce global components safely, then migrate tools in future appropriate releases.
+
+
+## Public Release Surface
+
+Public pages should not expose internal demo content, design-system test cards, or architecture notes unless intentionally approved as user-facing content.

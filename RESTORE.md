@@ -1,27 +1,13 @@
-# Restore Instructions — Home v0.8.0
+# Restore Instructions
 
-## Release
+## Home v0.8.1 — Design System Cleanup
 
-Home v0.8.0 — Signal Labs Design System
+1. Confirm external backup exists.
+2. Upload the files from this package to the repository root.
+3. Commit and deploy through the normal GitHub/Coolify workflow.
+4. Visit the Home page.
+5. Confirm the public Design System Foundation card is gone.
+6. Confirm the Project Status card shows Build v0.8.1 and Theme Design System Cleanup.
+7. Confirm Paycheck, Overtime, and Time Off links still work.
 
-## Restore Previous Version
-
-If this release causes problems:
-
-1. Restore the external backup created before upload.
-2. Revert Home files to the previous successful Home release.
-3. Confirm `index.html` no longer references `assets/global.css?v=0.8.0` or `assets/global.js?v=0.8.0` if reverting shared assets.
-4. Redeploy through GitHub/Coolify.
-5. Verify Home and tool pages load.
-
-## Files Most Likely To Revert
-
-```text
-index.html
-assets/global.css
-assets/global.js
-```
-
-## Documentation Files
-
-If reverting fully, also restore the documentation files included in this release package.
+Rollback: restore the previous Home v0.8.0 package or the external backup folder.

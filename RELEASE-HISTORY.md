@@ -1,5 +1,16 @@
 # Signal Labs Release History
 
+## Home v0.8.1 — Design System Cleanup
+
+Date: 2026-06-10
+
+- Removed public Design System Foundation card from Home.
+- Updated Home visible build and theme metadata.
+- No shared asset content changes.
+
+---
+
+
 ## Home v0.8.0 — Signal Labs Design System
 
 **Date:** 2026-06-10

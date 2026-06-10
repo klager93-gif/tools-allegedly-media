@@ -1,39 +1,27 @@
-# Home v0.8.0 File Manifest
+# File Manifest
 
-## Release
+## Home v0.8.1 — Design System Cleanup
 
-Home v0.8.0 — Signal Labs Design System
+### Updated Files
 
-## Files Included
+- `index.html` — removes the public Design System Foundation card and updates visible Home metadata.
+- `README.md` — updates current release notes.
+- `CHANGELOG.md` — adds Home v0.8.1.
+- `PUBLIC_CHANGELOG.md` — adds user-facing Home v0.8.1 note.
+- `ADMIN_CHANGELOG.md` — adds internal Home v0.8.1 note.
+- `ROADMAP.md` — notes cleanup completion and future design-system adoption.
+- `HOWTO.md` — notes design-system demo card guidance.
+- `MASTER-CHANGELOG.md` — adds chronological Home v0.8.1 entry.
+- `MASTER-ROADMAP.md` — preserves master roadmap context.
+- `RELEASE-HISTORY.md` — adds Home v0.8.1 release entry.
+- `BACKUP.md` — documents backup folder name.
+- `BUILDMANIFEST.md` — documents build metadata.
+- `FILEMANIFEST.md` — documents release files.
+- `RESTORE.md` — documents restore steps.
+- `INSTALL.md` — documents upload steps.
+- `SHA256SUMS.txt` — checksum manifest.
 
-```text
-index.html
-assets/global.css
-assets/global.js
-README.md
-PUBLIC_CHANGELOG.md
-ADMIN_CHANGELOG.md
-CHANGELOG.md
-ROADMAP.md
-HOWTO.md
-FILEMANIFEST.md
-BUILDMANIFEST.md
-RESTORE.md
-INSTALL.md
-BACKUP.md
-MASTER-CHANGELOG.md
-MASTER-ROADMAP.md
-RELEASE-HISTORY.md
-STANDARDS.md
-UX_STANDARDS.md
-SCRIPT_STANDARDS.md
-DOCUMENTATION_STANDARDS.md
-VERSIONING_STANDARDS.md
-WORKFLOW_STANDARDS.md
-SHA256SUMS.txt
-```
+### Shared Assets Included
 
-## Notes
-
-- `assets/global.css` and `assets/global.js` are included because this release changes shared design-system foundations.
-- Calculator folders are not included; future tool releases should adopt the shared system gradually.
+- `assets/global.css` — unchanged shared design-system foundation.
+- `assets/global.js` — unchanged shared design-system foundation.

@@ -21,3 +21,13 @@ Home v0.8.0 establishes the Signal Labs Design System foundation.
 - Shared toast notifications.
 - Shared component standards.
 - Admin section when there is enough internal material to justify it.
+
+
+## Completed
+
+- Home v0.8.1 — Design System Cleanup.
+
+## Next
+
+- Gradual tool adoption of shared design-system components.
+- Future dynamic global header/footer/nav system.

@@ -68,3 +68,8 @@ Check:
 - Version labels show v0.8.0.
 - `assets/global.css?v=0.8.0` is referenced.
 - `assets/global.js?v=0.8.0` is referenced.
+
+
+## Design System Cleanup
+
+The shared design-system foundation is available for future tool migrations, but the Home page should not expose internal design-system demo cards to public users.

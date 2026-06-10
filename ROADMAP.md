@@ -42,3 +42,13 @@ Status: Built
 - Overtime adopts shared action bar pattern.
 - Time Off adopts shared action bar pattern.
 - Tools migrate popups/modals to shared modal system.
+
+
+## Completed
+
+- Home v0.8.1 — Design System Cleanup: removed the public design-system card and preserved the foundation for future migration.
+
+## Planned
+
+- Gradually migrate tools to the shared action bar, modal/dialog, toast, card, button, pill, and metadata systems.
+- Future global header/footer/nav should read page metadata and display version/theme/status consistently.

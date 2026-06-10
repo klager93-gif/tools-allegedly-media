@@ -1,21 +1,17 @@
-# Backup Information — Home v0.8.0
+# Backup
 
-## Required Backup Folder Name
+## Home v0.8.1 — Design System Cleanup
 
-```text
-2026-06-10-before-home-v0.8.0-signal-labs-design-system
-```
-
-## Source Repository
+Backup folder name:
 
 ```text
-https://github.com/klager93-gif/tools-allegedly-media
+2026-06-10-before-home-v0.8.1-design-system-cleanup
 ```
 
-## Previous Home Release
+Create or confirm an external backup before uploading this release.
 
-Home v0.7.1 — Version Synchronization
+Previous release baseline:
 
-## Backup Status
-
-User should create or confirm the external backup before uploading this release.
+```text
+Home v0.8.0 — Signal Labs Design System
+```

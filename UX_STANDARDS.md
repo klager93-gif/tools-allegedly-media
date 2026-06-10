@@ -261,3 +261,8 @@ Do not use inconsistent one-off popup styles when a shared modal/dialog pattern 
 ## Footer/Header Discipline
 
 Global header/footer styling should be consistent across tools, but footer/header content should only change when release identity, navigation, branding, or metadata behavior actually changes.
+
+
+## Public Surface Rule
+
+Design-system foundations may be added to shared CSS/JS, but public pages should not display internal design-system demo, test, or architecture cards unless the release specifically intends to expose a public user-facing feature.

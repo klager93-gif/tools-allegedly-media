@@ -6,11 +6,11 @@ Signal Labs is the shared home for simple, useful calculators and planning tools
 
 # Current Version
 
-v0.8.0
+v0.8.1
 
 ## Theme
 
-Signal Labs Design System
+Design System Cleanup
 
 ---
 
@@ -32,7 +32,7 @@ Plan vacation, sick time, personal time, comp time, holidays, and planned time o
 
 # Shared Design System
 
-Home v0.8.0 introduces the Signal Labs Design System foundation.
+Home v0.8.1 introduces the Design System Cleanup foundation.
 
 Shared systems now include or prepare for:
 
@@ -78,8 +78,13 @@ This project follows:
 
 # Current Status
 
-Build: v0.8.0
+Build: v0.8.1
 
-Theme: Signal Labs Design System
+Theme: Design System Cleanup
 
 Status: Active Development
+
+
+## v0.8.1 Note
+
+Home v0.8.1 removes the public design-system demo card while preserving the shared design-system foundation for future tool adoption.

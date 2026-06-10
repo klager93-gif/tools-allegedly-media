@@ -1,5 +1,22 @@
 # Signal Labs Home Admin Changelog
 
+## v0.8.1 — Design System Cleanup
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Removed the public-facing Design System Foundation card from the Home page.
+- Updated Home visible build metadata to `v0.8.1`.
+- Updated Home theme text to `Design System Cleanup`.
+- Preserved the shared design-system foundations added in v0.8.0 for future tool adoption.
+- Kept shared asset cache-busting references at `v0.8.0` because no shared asset content changed in this release.
+- No calculator logic changes.
+- No shared asset content changes.
+
+---
+
+
 ## Home v0.8.0 — Signal Labs Design System
 
 **Date:** 2026-06-10

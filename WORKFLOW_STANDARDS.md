@@ -448,3 +448,8 @@ Cache-busting updated for changed shared assets.
 Principle:
 
 > Shared components should make future releases easier, not surprise existing tools.
+
+
+## Public Page Review
+
+Before releasing Home or any public tool page, verify that internal planning, demo, test, and architecture notes are not exposed as public content unless intentionally approved for users.
