@@ -1,45 +1,19 @@
-# File Manifest
+# File Manifest — Paycheck v0.9.2
 
-## Paycheck v0.9.1 — Header Alignment
+## Updated
 
-Updated files:
-
-- paycheck/index.html
-- paycheck/style.css
-- paycheck/script.js
-- paycheck/README.md
-- paycheck/CHANGELOG.md
-- paycheck/PUBLIC_CHANGELOG.md
-- paycheck/ADMIN_CHANGELOG.md
-- paycheck/ROADMAP.md
-- paycheck/HOWTO.md
-- paycheck/FILEMANIFEST.md
-- paycheck/BUILDMANIFEST.md
-- paycheck/RESTORE.md
-- paycheck/BACKUP.md
-- paycheck/SHA256SUMS.txt
-- MASTER-CHANGELOG.md
-
----
-
-# Paycheck File Manifest
-
-Version: v0.9.0
-Theme: Design System Adoption
-
-## Files
-
-- `MASTER-CHANGELOG.md`
-- `paycheck/ADMIN_CHANGELOG.md`
-- `paycheck/BACKUP.md`
-- `paycheck/BUILDMANIFEST.md`
-- `paycheck/CHANGELOG.md`
-- `paycheck/FILEMANIFEST.md`
-- `paycheck/HOWTO.md`
-- `paycheck/PUBLIC_CHANGELOG.md`
-- `paycheck/README.md`
-- `paycheck/RESTORE.md`
-- `paycheck/ROADMAP.md`
-- `paycheck/index.html`
-- `paycheck/script.js`
-- `paycheck/style.css`
+- `paycheck/index.html` — updates version/theme metadata and cache busting.
+- `paycheck/style.css` — adds mobile-open CSS for the Home-aligned Paycheck nav.
+- `paycheck/script.js` — strengthens local mobile nav fallback and corrects script metadata.
+- `paycheck/README.md` — documentation update.
+- `paycheck/CHANGELOG.md` — changelog update.
+- `paycheck/PUBLIC_CHANGELOG.md` — public changelog update.
+- `paycheck/ADMIN_CHANGELOG.md` — admin changelog update.
+- `paycheck/ROADMAP.md` — roadmap/version reference update.
+- `paycheck/HOWTO.md` — how-to/version reference update.
+- `paycheck/BUILDMANIFEST.md` — build metadata.
+- `paycheck/FILEMANIFEST.md` — file list.
+- `paycheck/RESTORE.md` — restore notes.
+- `paycheck/BACKUP.md` — backup reminder.
+- `paycheck/SHA256SUMS.txt` — checksum manifest.
+- `MASTER-CHANGELOG.md` — cross-project history update.

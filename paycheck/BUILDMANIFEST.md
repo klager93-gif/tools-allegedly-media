@@ -1,23 +1,20 @@
-# Build Manifest
+# Build Manifest — Paycheck v0.9.2
 
-Version: Paycheck v0.9.1
-Theme: Header Alignment
-Build Date: 2026-06-10
-Build Type: Full replacement Paycheck release
-Source: Paycheck v0.9.0 baseline
+Version: Paycheck v0.9.2
 
-## Purpose
+Theme: Mobile Menu Fix
 
-Align the Paycheck header and footer with the current Signal Labs Home design language.
+Build type: Full replacement Paycheck hotfix release
 
----
+Source: Paycheck v0.9.1 — Header Alignment
 
-# Paycheck Build Manifest
+Package: paycheck-v0.9.2-mobile-menu-fix.zip
 
-Version: v0.9.0
-Theme: Design System Adoption
-Build Date: 2026-06-10
-Build Type: Full replacement Paycheck release
-Source: Paycheck v0.8.5 package + approved v0.9.0 design-system adoption scope
-Shared Asset Policy: References existing Home global assets at v0.8.3; no shared asset content changes included.
-Package: paycheck-v0.9.0-design-system-adoption.zip
+Validation:
+
+- ZIP integrity passed.
+- script.js syntax check passed.
+- Mobile Menu button opens Paycheck global nav links.
+- Stale script metadata constants corrected.
+- No calculator math changes.
+- No shared asset content changes.

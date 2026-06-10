@@ -1,6 +1,17 @@
 # Paycheck Calculator Admin Changelog
 
-## v0.9.1 — Header Alignment
+## v0.9.2 — Mobile Menu Fix
+
+**Date:** 2026-06-10
+
+- Fixed missing mobile-open CSS for the Home-aligned `.paycheck-global-nav` implementation.
+- Strengthened the local navigation fallback to toggle both the links and nav container state.
+- Corrected stale script constants from v0.9.0 / Design System Adoption to v0.9.2 / Mobile Menu Fix.
+- No calculator math changes.
+- No shared asset content changes.
+
+
+## v0.9.2 — Mobile Menu Fix
 
 **Date:** 2026-06-10
 

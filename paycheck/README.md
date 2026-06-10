@@ -2,7 +2,7 @@
 
 ## Current Version
 
-**v0.9.1 — Header Alignment**
+**v0.9.2 — Mobile Menu Fix**
 
 Paycheck Calculator is part of Signal Labs. This release aligns the Paycheck header and footer with the current Home design system direction.
 

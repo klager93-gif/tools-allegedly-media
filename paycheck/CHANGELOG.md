@@ -1,6 +1,16 @@
 # Paycheck Calculator Changelog
 
-## v0.9.1 — Header Alignment
+## v0.9.2 — Mobile Menu Fix
+
+**Date:** 2026-06-10
+
+- Fixed the Paycheck mobile Menu button so the Home-aligned navigation opens when tapped.
+- Corrected stale script metadata constants.
+- No calculator math changes.
+- No shared asset content changes.
+
+
+## v0.9.2 — Mobile Menu Fix
 
 **Date:** 2026-06-10
 

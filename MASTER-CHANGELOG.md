@@ -1,3 +1,13 @@
+# Signal Labs Master Changelog
+
+## 2026-06-10 — Paycheck v0.9.2 — Mobile Menu Fix
+
+- Fixed the Paycheck mobile navigation menu so tapping the Menu button opens the Home-aligned nav links.
+- Added local CSS support for `.paycheck-global-nav .signal-nav-links.is-open` on mobile.
+- Updated Paycheck script metadata from the stale v0.9.0 value to v0.9.2.
+- No calculator math changes.
+- No shared asset content changes.
+
 # Master Changelog
 
 ## 2026-06-10 — Paycheck v0.9.1 — Header Alignment

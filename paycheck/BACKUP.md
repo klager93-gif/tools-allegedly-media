@@ -1,23 +1,15 @@
-# Backup
+# Backup Reminder — Paycheck v0.9.2
 
-## Paycheck v0.9.1 — Header Alignment
+Create or confirm an external backup before uploading this release.
 
 Recommended backup folder name:
 
 ```text
-2026-06-10-before-paycheck-v0.9.1-header-alignment
+2026-06-10-before-paycheck-v0.9.2-mobile-menu-fix
 ```
 
-Source baseline: Paycheck v0.9.0 — Design System Adoption.
+Previous release:
 
----
-
-# Backup Record
-
-Recommended Backup Folder:
-
-`2026-06-10-before-paycheck-v0.9.0-design-system-adoption`
-
-Backup Required: Yes
-Previous Release: Paycheck v0.8.5 — Tool Action Bar Foundation
-New Release: Paycheck v0.9.0 — Design System Adoption
+```text
+Paycheck v0.9.1 — Header Alignment
+```

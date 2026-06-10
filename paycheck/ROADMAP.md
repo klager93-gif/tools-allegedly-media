@@ -2,7 +2,7 @@
 
 ## Completed
 
-### v0.9.1 — Header Alignment
+### v0.9.2 — Mobile Menu Fix
 
 - Home-aligned global navigation.
 - Home-style footer pattern.
