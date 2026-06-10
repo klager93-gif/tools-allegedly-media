@@ -1,3 +1,18 @@
+
+## Home v0.9.1 — Shared Header & Footer Components
+
+**Date:** 2026-06-10
+
+### Internal Notes
+
+- Added `/assets/components/header.js`.
+- Added `/assets/components/footer.js`.
+- Converted Home/public pages to component mount points.
+- Component system reads page metadata from body data attributes.
+- This reduces duplicated header/footer markup and prevents layout drift.
+
+---
+
 # Signal Labs Home Admin Changelog
 
 ## v0.9.0 — Public Pages Architecture

@@ -1,22 +1,6 @@
 # Restore Instructions
 
-## Release
-
-Home v0.9.0 — Public Pages Architecture
-
-## Restore
-
-1. Restore the external backup created before upload.
-2. Replace Home root files and `assets/global.css` / `assets/global.js` with the previous release files.
-3. Remove the new public page directories if rolling back fully:
-   - `changelog/`
-   - `roadmap/`
-   - `how-to/`
-   - `report-issue/`
-   - `request-feature/`
-   - `contact/`
-   - `about/`
-   - `privacy/`
-   - `terms/`
-   - `status/`
-4. Redeploy from GitHub.
+1. Restore the previous external backup if deployment fails.
+2. Confirm Home, public pages, and Paycheck load.
+3. Confirm mobile menu opens on Home, public pages, and Paycheck.
+4. Confirm footer links route to public HTML pages.

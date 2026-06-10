@@ -1,3 +1,17 @@
+
+
+## Completed — Home v0.9.1 Shared Header & Footer Components
+
+- Shared header component added.
+- Shared footer component added.
+- Public pages and Paycheck began using shared layout components.
+
+## Future
+
+- Continue moving Overtime and Time Off to shared header/footer components.
+- Add shared action bar component.
+- Add shared toast and modal/dialog components.
+
 # Signal Labs Home Roadmap
 
 ## Current Release

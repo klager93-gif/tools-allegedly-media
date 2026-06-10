@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Labs Home
 File: index.html
-Version: v0.9.0
+Version: v0.9.1
 Purpose: Public Home landing page with real public content pages
 -->
 <!DOCTYPE html>
@@ -19,41 +19,22 @@ Purpose: Public Home landing page with real public content pages
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="assets/global.css?v=0.9.0">
+<link rel="stylesheet" href="assets/global.css?v=0.9.1">
 </head>
 <body
   class="home-redesign"
   data-signal-global-layout="true"
   data-signal-area="Home"
   data-signal-title="Signal Labs"
-  data-signal-version="v0.9.0"
-  data-signal-theme="Public Pages Architecture"
+  data-signal-version="v0.9.1"
+  data-signal-theme="Shared Header & Footer Components"
   data-signal-status="Active Development"
   data-signal-description="Useful tools without the noise."
   data-signal-changelog="/changelog/"
   data-signal-roadmap="/roadmap/"
   data-signal-howto="/how-to/"
 >
-<nav class="signal-nav home-nav" aria-label="Signal Labs navigation">
-  <div class="signal-nav-inner home-nav-inner">
-    <a class="signal-nav-brand signal-nav-mark" href="/" aria-label="Signal Labs home">
-      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-        <rect x="4" y="4" width="24" height="24" rx="5"></rect>
-        <path d="M9 22h14"></path>
-        <path d="M10 18l5-5 4 4 5-7"></path>
-        <path d="M20 10h4v4"></path>
-      </svg>
-    </a>
-    <button class="signal-nav-toggle" type="button" aria-expanded="false" aria-controls="signalNavLinks">☰ Menu</button>
-    <div id="signalNavLinks" class="signal-nav-links home-nav-links">
-      <a class="signal-nav-link is-active" href="/">Home</a>
-      <a class="signal-nav-link" href="/paycheck/">Paycheck</a>
-      <a class="signal-nav-link" href="/overtime/">Overtime</a>
-      <a class="signal-nav-link" href="/timeoff/">Time Off</a>
-    </div>
-  </div>
-</nav>
-
+<div id="sl-header"></div>
 <main class="home-page-shell">
   <section class="home-hero" aria-labelledby="homeHeroTitle">
     <div class="home-hero-copy">
@@ -137,62 +118,11 @@ Purpose: Public Home landing page with real public content pages
   </section>
 </main>
 
-<footer class="home-footer signal-footer" aria-label="Signal Labs footer">
-  <div class="home-footer-main">
-    <section class="home-footer-brand" aria-label="Signal Labs summary">
-      <div class="home-footer-brandline">
-        <span class="home-footer-mark" aria-hidden="true"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
-        <rect x="4" y="4" width="24" height="24" rx="5"></rect>
-        <path d="M9 22h14"></path>
-        <path d="M10 18l5-5 4 4 5-7"></path>
-        <path d="M20 10h4v4"></path>
-      </svg></span>
-        <strong>Signal Labs</strong>
-      </div>
-      <p>Useful tools without the noise. Lightweight calculators and planning tools built for real-life decisions.</p>
-    </section>
+<div id="sl-footer"></div>
 
-    <nav class="home-footer-links" aria-label="Footer resources">
-      <details class="home-footer-group" open>
-        <summary><span>Resources</span></summary>
-        <a href="/changelog/">Changelog</a>
-        <a href="/roadmap/">Roadmap</a>
-        <a href="/how-to/">How To</a>
-      </details>
-      <details class="home-footer-group" open>
-        <summary><span>Support</span></summary>
-        <a href="/report-issue/">Report an Issue</a>
-        <a href="/request-feature/">Request a Feature</a>
-        <a href="/contact/">Contact</a>
-      </details>
-      <details class="home-footer-group" open>
-        <summary><span>About</span></summary>
-        <a href="/about/">About Signal Labs</a>
-        <a href="/privacy/">Privacy Policy</a>
-        <a href="/terms/">Terms of Use</a>
-      </details>
-    </nav>
 
-    <section class="home-footer-status" aria-label="Project status">
-      <h3>Status</h3>
-      <span class="home-status-pill">● Active Development</span>
-      <p>All systems operational. We're constantly improving and adding new tools.</p>
-      <a class="home-status-link" href="/status/">View Status <span aria-hidden="true">→</span></a>
-    </section>
-  </div>
-  <div class="home-footer-bottom">
-    <span>© 2026 Signal Labs. All rights reserved.</span>
-    <span>Build: v0.9.0</span>
-    <span>Theme: Public Pages Architecture</span>
-    <span>Status: <strong>Active Development</strong></span>
-    <nav aria-label="Footer quick links">
-      <a href="/changelog/">Changelog</a>
-      <a href="/roadmap/">Roadmap</a>
-      <a href="/how-to/">How To</a>
-    </nav>
-  </div>
-</footer>
-
-<script src="assets/global.js?v=0.9.0"></script>
+<script src="assets/components/header.js?v=0.9.1"></script>
+<script src="assets/components/footer.js?v=0.9.1"></script>
+<script src="assets/global.js?v=0.9.1"></script>
 </body>
 </html>

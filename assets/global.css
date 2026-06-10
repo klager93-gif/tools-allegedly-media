@@ -1,6 +1,6 @@
 /*
 Signal Labs Shared Asset File: assets/global.css
-Version: v0.9.0
+Version: v0.9.1
 Purpose: Shared styles, navigation, footer, public pages, action bar, modal/dialog, toast, empty-state, and ad slot framework.
 */
 
@@ -765,3 +765,8 @@ button:disabled { opacity: .45; cursor: not-allowed; }
   .public-page-card { padding: 20px; border-radius: 18px; }
   .public-card-grid { grid-template-columns: 1fr; gap: 14px; }
 }
+
+
+/* Shared component mount points */
+#sl-header, #sl-footer { display: block; }
+.public-page-hero .public-page-meta { display: none; }

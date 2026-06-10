@@ -1,38 +1,17 @@
 # Build Manifest
 
-## Release
+Version: Home v0.9.1 + Paycheck v0.9.6
+Theme: Shared Header & Footer Components
+Build Type: Coordinated full replacement layout-component release
+Source: Home v0.9.0 + Paycheck v0.9.3 package baseline with approved shared-component migration
 
-Home v0.9.0 — Public Pages Architecture
+## Added
 
-## Build Type
+- assets/components/header.js
+- assets/components/footer.js
 
-Full replacement Home public pages release.
+## Notes
 
-## Source
-
-Baseline: Home v0.8.5 cleanup package from current work session.
-
-## Scope
-
-Home/root files and shared assets only. No calculator logic files are included.
-
-## New Public Page Directories
-
-- changelog/
-- roadmap/
-- how-to/
-- report-issue/
-- request-feature/
-- contact/
-- about/
-- privacy/
-- terms/
-- status/
-
-## Validation
-
-- ZIP integrity checked.
-- `assets/global.js` syntax checked.
-- Footer public links route to pages.
-- Deprecated markdown/download footer behavior removed from Home.
-- SHA256SUMS.txt regenerated.
+- Header and footer are now rendered by shared components.
+- Public pages no longer show version/theme pills in the hero.
+- Paycheck uses shared header/footer components and keeps calculator math unchanged.

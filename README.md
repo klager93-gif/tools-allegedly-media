@@ -1,3 +1,4 @@
+<!-- Updated for Home v0.9.1 Shared Header & Footer Components -->
 # Signal Labs Home
 
 **Version:** v0.9.0  

@@ -1,3 +1,17 @@
+
+## Home v0.9.1 — Shared Header & Footer Components
+
+**Date:** 2026-06-10
+
+### Changes
+
+- Added shared header and footer components.
+- Updated Home and public pages to use the shared layout components.
+- Removed public page version/theme pills from the page hero area.
+- Kept public pages as real HTML pages instead of markdown downloads or popups.
+
+---
+
 # Signal Labs Public Changelog
 
 ## v0.9.0 — Public Pages Architecture

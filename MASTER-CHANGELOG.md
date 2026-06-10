@@ -1,3 +1,14 @@
+
+## 2026-06-10 — Home v0.9.1 + Paycheck v0.9.6 — Shared Header & Footer Components
+
+- Added shared Signal Labs header and footer components.
+- Updated Home, public pages, and Paycheck to use shared layout components.
+- Removed public page version/theme pills from hero sections.
+- Reduced header/footer drift by moving repeated layout into reusable component files.
+- No calculator math changes.
+
+---
+
 # Signal Labs Master Changelog
 
 ## 2026-06-10 — Home v0.9.0 — Public Pages Architecture

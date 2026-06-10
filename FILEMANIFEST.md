@@ -1,6 +1,6 @@
 # File Manifest
 
-## Home v0.9.0 — Public Pages Architecture
+Home v0.9.1 + Paycheck v0.9.6 — Shared Header & Footer Components
 
 - `ADMIN_CHANGELOG.md`
 - `BACKUP.md`
@@ -21,12 +21,28 @@
 - `VERSIONING_STANDARDS.md`
 - `WORKFLOW_STANDARDS.md`
 - `about/index.html`
+- `assets/components/footer.js`
+- `assets/components/header.js`
 - `assets/global.css`
 - `assets/global.js`
 - `changelog/index.html`
 - `contact/index.html`
 - `how-to/index.html`
 - `index.html`
+- `paycheck/ADMIN_CHANGELOG.md`
+- `paycheck/BACKUP.md`
+- `paycheck/BUILDMANIFEST.md`
+- `paycheck/CHANGELOG.md`
+- `paycheck/FILEMANIFEST.md`
+- `paycheck/HOWTO.md`
+- `paycheck/PUBLIC_CHANGELOG.md`
+- `paycheck/README.md`
+- `paycheck/RESTORE.md`
+- `paycheck/ROADMAP.md`
+- `paycheck/SHA256SUMS.txt`
+- `paycheck/index.html`
+- `paycheck/script.js`
+- `paycheck/style.css`
 - `privacy/index.html`
 - `report-issue/index.html`
 - `request-feature/index.html`

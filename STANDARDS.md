@@ -1,3 +1,4 @@
+<!-- Updated for Home v0.9.1 Shared Header & Footer Components -->
 # Signal Labs Development Standards v2.2
 
 ## Purpose

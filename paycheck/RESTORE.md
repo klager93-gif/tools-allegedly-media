@@ -1,7 +1,14 @@
-# Paycheck Restore Instructions
+# Restore
 
-1. Confirm external backup exists.
-2. Upload/extract the package.
-3. Delete `paycheck/CHANGELOG.md` from GitHub if still present.
-4. Confirm Paycheck loads.
-5. Confirm footer changelog link points to `PUBLIC_CHANGELOG.md`.
+## Paycheck v0.9.3 — Footer Inheritance
+
+To restore the previous version, replace the Paycheck files with the external backup created before this upload.
+
+Previous known release baseline: Paycheck v0.9.2 — Mobile Menu Fix.
+
+## Restore Check
+
+- Paycheck page loads.
+- Mobile menu opens.
+- Footer links display.
+- Calculator math still runs.

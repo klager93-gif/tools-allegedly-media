@@ -1,32 +1,17 @@
-# Paycheck Calculator Admin Changelog
 
-## v0.9.5 — Documentation & File Cleanup
-
-**Date:** 2026-06-10
-
-- Formalized Paycheck changelog ownership.
-- `paycheck/PUBLIC_CHANGELOG.md` is the user-facing Paycheck changelog.
-- `paycheck/ADMIN_CHANGELOG.md` is the internal/development Paycheck changelog.
-- `paycheck/CHANGELOG.md` is deprecated and removed from this package.
-- Updated Paycheck manifests, README, and roadmap references.
-- Updated Paycheck metadata to v0.9.5 / Documentation & File Cleanup.
-- No calculator math changes.
-
-
-## v0.9.4 — Typography & Breathing Room
+## Paycheck v0.9.6 — Shared Layout Components
 
 **Date:** 2026-06-10
 
-### Changes
+### Internal Notes
 
-- Removed release metadata from the Paycheck hero area so the header focuses on the tool instead of the build.
-- Increased readability for section descriptions, helper text, empty states, and notes.
-- Added more breathing room to the Paycheck action bar.
-- Kept the Home-style footer inheritance from v0.9.3.
-- No calculator math changes.
+- Replaced local header/footer markup with shared component mount points.
+- Uses `/assets/components/header.js` and `/assets/components/footer.js`.
+- Keeps Paycheck-specific version metadata in body data attributes for footer display.
 
 ---
 
+# Paycheck Calculator Admin Changelog
 
 ## v0.9.3 — Footer Inheritance
 

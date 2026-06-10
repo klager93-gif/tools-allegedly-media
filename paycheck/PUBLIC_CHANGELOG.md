@@ -1,29 +1,18 @@
-# Paycheck Calculator Public Changelog
 
-## v0.9.5 — Documentation & File Cleanup
-
-**Date:** 2026-06-10
-
-- Cleaned up Paycheck documentation so the public and admin changelogs are the active Paycheck history files.
-- Removed the duplicate regular Paycheck changelog from the release package after preserving the current history structure.
-- Confirmed footer changelog behavior should point to `PUBLIC_CHANGELOG.md`.
-- No calculator math changes.
-
-
-## v0.9.4 — Typography & Breathing Room
+## Paycheck v0.9.6 — Shared Layout Components
 
 **Date:** 2026-06-10
 
 ### Changes
 
-- Removed release metadata from the Paycheck hero area so the header focuses on the tool instead of the build.
-- Increased readability for section descriptions, helper text, empty states, and notes.
-- Added more breathing room to the Paycheck action bar.
-- Kept the Home-style footer inheritance from v0.9.3.
+- Updated Paycheck to use shared Signal Labs header and footer components.
+- Footer links now match the Home public pages.
+- Reduced duplicated layout markup.
 - No calculator math changes.
 
 ---
 
+# Paycheck Calculator Public Changelog
 
 ## v0.9.3 — Footer Inheritance
 
@@ -142,4 +131,4 @@ User-facing Paycheck Calculator changes. Entries are append-only and should neve
 
 ## Earlier Versions
 
-Earlier Paycheck history is preserved in the public/admin changelog structure and the master changelog. Do not delete historical entries.
+Earlier Paycheck history should be backfilled from the existing `CHANGELOG.md` during a future documentation cleanup release. Do not delete existing history.
