@@ -1,17 +1,10 @@
 # Build Manifest
 
-Build: v0.9.9.4 / Signal Schedule v0.1.0
+Release: v0.9.9.5 / Signal Schedule v0.1.1 — Logic Sandbox
+Backup Title: v0.9.9.4 / Signal Schedule v0.1.0 — Schedule Tool MVP
 Date: 2026-06-11
-Package: signal-schedule-v0.1.0-revised.zip
+Package: signal-schedule-v0.1.1-logic-sandbox.zip
 
-## Purpose
-
-Adds Signal Schedule as a new local-first weekly scheduler and syncs shared/global assets, root docs, cache versions, and build manifests.
-
-## Primary Additions
-
-- `/schedule/` tool
-- Restored `assets/components/header.js`
-- Restored `assets/global.js`
-- Missing icon placeholder assets
-- Root and tool documentation updates
+Notes:
+- Updates Schedule only plus required root/build documentation.
+- Does not modify home, shared navigation, footer, paycheck logic, pay planner logic, overtime, or timeoff.

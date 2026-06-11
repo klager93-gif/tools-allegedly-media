@@ -1,5 +1,31 @@
 # Signal Labs Master Changelog
 
+## v0.9.9.5 / Signal Schedule v0.1.1 — Logic Sandbox
+
+**Date:** 2026-06-11  
+**Type:** Feature refinement
+
+### Added
+
+- Added employee role selection to Signal Schedule.
+- Added minimum staffing requirement per shift.
+- Added sandbox rules for max weekly hours and minimum rest gap between shifts.
+- Added coverage, weekly-hour, and rest-gap warnings.
+- Added plain-text schedule output with copy support.
+- Added rough month planning preview.
+- Added `schedule/DATABASE-PLAN.md` for future PHP/database planning.
+
+### Changed
+
+- Reframed Signal Schedule as a logic-first sandbox before full UI/backend expansion.
+- Updated Schedule documentation to clarify temporary local-storage status.
+- Updated Schedule roadmap around month view, date-based assignments, and later PHP/backend work.
+
+### Fixed
+
+- Reduced risk of overbuilding temporary UI before schedule rules are proven.
+- Clarified that future employees and login users should be modeled separately.
+
 ## v0.9.9.4 / Signal Schedule v0.1.0 — Schedule Tool MVP
 
 **Date:** 2026-06-11  

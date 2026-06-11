@@ -2,30 +2,30 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.1.0
-Purpose: Local-first weekly schedule builder MVP
+Version: v0.1.1
+Purpose: Logic-first schedule sandbox with text output and rule warnings
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signal Schedule — Weekly Schedule Builder</title>
-<meta name="description" content="Build a weekly staff schedule with employees, shifts, assignments, and browser-based saving.">
+<title>Signal Schedule — Logic Sandbox</title>
+<meta name="description" content="Test schedule logic with employees, shifts, rules, warnings, weekly output, and month planning notes.">
 <meta property="og:title" content="Signal Schedule">
-<meta property="og:description" content="A lightweight weekly schedule builder from Signal Labs.">
+<meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.4">
-<link rel="stylesheet" href="style.css?v=0.1.0">
+<link rel="stylesheet" href="style.css?v=0.1.1">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.1.0"
-  data-signal-theme="Schedule MVP"
+  data-signal-version="v0.1.1"
+  data-signal-theme="Logic Sandbox"
   data-signal-status="Active Development"
-  data-signal-description="Build a weekly staff schedule that saves in your browser."
-  data-signal-status-text="Signal Schedule v0.1.0 is a local-first MVP. Login, admin roles, shared teams, and publishing controls are planned later."
+  data-signal-description="Test staffing rules, schedule output, coverage gaps, and month-view logic before backend work."
+  data-signal-status-text="Signal Schedule v0.1.1 is a logic sandbox. Login, database storage, admin roles, and publishing controls remain planned later."
 >
 <div id="sl-header"></div>
 
@@ -34,7 +34,7 @@ Purpose: Local-first weekly schedule builder MVP
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Build a simple weekly schedule, assign staff to shifts, and keep it saved in your browser.</p>
+      <p class="schedule-subtitle">Build a rough weekly schedule, test staffing rules, and generate plain-text output before the app becomes a full PHP-backed scheduling system.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Current Week</span>
@@ -43,11 +43,18 @@ Purpose: Local-first weekly schedule builder MVP
     </div>
   </section>
 
+  <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
+    <div>
+      <h2 id="prototypeTitle">Prototype Notice</h2>
+      <p>This version is not the final scheduling system. It is a logic sandbox for employees, shifts, coverage rules, warnings, and text output. Database tables, logins, admin roles, month publishing, and employee access should be designed after the rules are proven.</p>
+    </div>
+  </section>
+
   <section class="schedule-card schedule-controls" aria-labelledby="setupTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="setupTitle">Setup</h2>
-        <p>Add your people and the shifts you need covered.</p>
+        <p>Add people, shifts, and basic coverage rules.</p>
       </div>
       <div class="schedule-actions-inline">
         <button type="button" id="sampleDataBtn">Load Sample</button>
@@ -60,6 +67,12 @@ Purpose: Local-first weekly schedule builder MVP
         <label for="employeeName">Employee Name</label>
         <div class="schedule-input-row">
           <input id="employeeName" name="employeeName" type="text" placeholder="Example: Alex" autocomplete="off">
+          <select id="employeeRole" name="employeeRole" aria-label="Employee role">
+            <option value="Dispatcher">Dispatcher</option>
+            <option value="Supervisor">Supervisor</option>
+            <option value="Part-Time">Part-Time</option>
+            <option value="Trainee">Trainee</option>
+          </select>
           <button type="submit">Add Person</button>
         </div>
       </form>
@@ -70,10 +83,27 @@ Purpose: Local-first weekly schedule builder MVP
           <input id="shiftName" name="shiftName" type="text" placeholder="Example: Days">
           <input id="shiftStart" name="shiftStart" type="time" value="07:00" aria-label="Shift start time">
           <input id="shiftEnd" name="shiftEnd" type="time" value="15:00" aria-label="Shift end time">
+          <input id="shiftMinStaff" name="shiftMinStaff" type="number" min="1" max="12" value="1" aria-label="Minimum staff needed">
           <button type="submit">Add Shift</button>
         </div>
       </form>
     </div>
+
+    <form id="ruleForm" class="schedule-rule-form">
+      <label>
+        <span>Max hours per person/week</span>
+        <input id="maxHoursPerWeek" type="number" min="1" max="168" value="40">
+      </label>
+      <label>
+        <span>Minimum gap between shifts</span>
+        <input id="minGapHours" type="number" min="0" max="48" value="8">
+      </label>
+      <label>
+        <span>Month planning start</span>
+        <input id="monthStart" type="month">
+      </label>
+      <button type="submit">Save Rules</button>
+    </form>
 
     <div class="schedule-list-grid">
       <div>
@@ -120,11 +150,33 @@ Purpose: Local-first weekly schedule builder MVP
     <div class="schedule-card-heading">
       <div>
         <h2 id="summaryTitle">Coverage Summary</h2>
-        <p>Quickly see who is scheduled and where gaps remain.</p>
+        <p>Quickly see who is scheduled, where gaps remain, and which rules are being violated.</p>
       </div>
       <button type="button" id="printBtn">Print Schedule</button>
     </div>
     <div id="coverageSummary" class="coverage-grid"></div>
+    <div id="ruleWarnings" class="warning-list" aria-live="polite"></div>
+  </section>
+
+  <section class="schedule-card" aria-labelledby="outputTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="outputTitle">Text Output</h2>
+        <p>Use this to test the schedule logic before we build logins, database tables, month publishing, and admin workflows.</p>
+      </div>
+      <button type="button" id="copyOutputBtn">Copy Text</button>
+    </div>
+    <textarea id="scheduleOutput" class="schedule-output" readonly></textarea>
+  </section>
+
+  <section class="schedule-card" aria-labelledby="monthTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="monthTitle">Month Planning Notes</h2>
+        <p>This is not a full calendar yet. It shows the month structure we should support next.</p>
+      </div>
+    </div>
+    <div id="monthPreview" class="month-preview"></div>
   </section>
 </main>
 
@@ -133,6 +185,6 @@ Purpose: Local-first weekly schedule builder MVP
 <script src="../assets/components/header.js?v=0.9.9.4"></script>
 <script src="../assets/components/footer.js?v=0.9.9.4"></script>
 <script src="../assets/global.js?v=0.9.9.4"></script>
-<script src="script.js?v=0.1.0"></script>
+<script src="script.js?v=0.1.1"></script>
 </body>
 </html>

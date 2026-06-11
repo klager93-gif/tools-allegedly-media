@@ -28,6 +28,7 @@ report-issue/index.html
 request-feature/index.html
 roadmap/index.html
 schedule/CHANGELOG.md
+schedule/DATABASE-PLAN.md
 schedule/HOWTO.md
 schedule/README.md
 schedule/ROADMAP.md

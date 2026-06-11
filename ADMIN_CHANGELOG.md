@@ -1,5 +1,47 @@
 # Signal Labs Admin Changelog
 
+## v0.9.9.5 / Signal Schedule v0.1.1 — Logic Sandbox
+
+**Date:** 2026-06-11
+
+### Added
+
+- Added employee roles in `/schedule/`.
+- Added minimum staff per shift.
+- Added schedule rules for max weekly hours and minimum rest gap.
+- Added rule warning panel.
+- Added text output panel and copy action.
+- Added rough month planning preview.
+- Added `schedule/DATABASE-PLAN.md`.
+
+### Changed
+
+- Updated `schedule/index.html`, `schedule/style.css`, and `schedule/script.js` for logic sandbox behavior.
+- Updated `schedule/README.md`, `schedule/HOWTO.md`, `schedule/CHANGELOG.md`, and `schedule/ROADMAP.md`.
+- Updated root README, ROADMAP, MASTER-CHANGELOG, ADMIN_CHANGELOG, and HOWTO for the v0.1.1 Schedule release.
+- Kept global navigation, footer, and home page unchanged because Schedule was already added in v0.1.0.
+
+### Fixed
+
+- Clarified temporary local-storage behavior.
+- Clarified that PHP/database work should wait until schedule logic is proven.
+- Clarified that future employees and login users should be separate data models.
+
+### Affected Pages
+
+- Schedule
+- Root documentation
+
+### Not Modified
+
+- Home layout
+- Shared navigation
+- Shared footer
+- Overtime
+- Time Off
+- Paycheck calculator logic
+- Pay Planner tool logic
+
 ## v0.9.9.4 / Signal Schedule v0.1.0 — Schedule Tool MVP
 
 **Date:** 2026-06-11

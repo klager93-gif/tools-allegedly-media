@@ -10,7 +10,8 @@ When changing shared assets:
 4. Update cache-busting references.
 5. Verify live behavior after deploy.
 
-
 ## Signal Schedule
 
-Use Signal Schedule to build a weekly schedule locally in the browser. Add employees, add shifts, assign employees to days, review coverage, and print the weekly schedule.
+Use Signal Schedule v0.1.1 as a logic sandbox before treating it like a finished scheduling app. Add employees, roles, shifts, minimum staffing rules, max weekly hours, and rest-gap rules. Then review the warnings and plain-text output to decide whether the schedule model makes sense.
+
+This version is still local-browser only. PHP, database tables, logins, admin roles, employee accounts, permissions, publishing, and shared schedules should come later after the logic is proven.

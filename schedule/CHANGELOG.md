@@ -1,5 +1,34 @@
 # Signal Schedule Changelog
 
+## v0.1.1 — Logic Sandbox
+
+### Added
+
+- Added prototype notice explaining that the tool is still temporary.
+- Added employee role selection.
+- Added minimum staff needed per shift.
+- Added sandbox rules for max weekly hours and minimum rest gap between shifts.
+- Added rule warnings for understaffed shifts.
+- Added rule warnings for employees exceeding weekly hour limits.
+- Added rule warnings for short rest gaps between shifts.
+- Added estimated total scheduled hours.
+- Added plain-text schedule output.
+- Added copy text output action.
+- Added rough month planning preview.
+- Added `DATABASE-PLAN.md` for future PHP/database planning.
+
+### Changed
+
+- Repositioned Signal Schedule as a logic-first sandbox instead of a polished final app.
+- Updated sample data to trigger useful coverage and hour warnings.
+- Updated local storage key to `signalSchedule.v0.1.1` while still reading v0.1.0 data when available.
+- Updated Schedule README, HOWTO, and ROADMAP.
+
+### Fixed
+
+- Reduced risk of overbuilding UI before the schedule model is clear.
+- Clarified that employees and login users should become separate future data concepts.
+
 ## v0.1.0 — Initial Working Schedule Builder
 
 ### Added

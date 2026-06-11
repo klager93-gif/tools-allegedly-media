@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.1.0
-Purpose: Signal Schedule MVP styles
+Version: v0.1.1
+Purpose: Signal Schedule logic sandbox styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
 .schedule-hero { display: grid; grid-template-columns: 1fr minmax(220px, 320px); gap: 18px; align-items: stretch; margin: 18px 0; padding: 28px; border: 1px solid var(--border); border-radius: 30px; background: linear-gradient(135deg, rgba(34,197,94,.14), rgba(86,166,255,.08)); box-shadow: var(--shadow-toolbar); }
@@ -19,17 +19,19 @@ Purpose: Signal Schedule MVP styles
 .schedule-actions-inline { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
 .schedule-setup-grid { display: grid; grid-template-columns: 1fr 1.35fr; gap: 16px; }
 .schedule-mini-form label, .assignment-form label span { display: block; margin-bottom: 8px; color: var(--soft); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
-.schedule-input-row, .schedule-shift-row { display: flex; gap: 8px; }
-.schedule-input-row input { min-width: 0; flex: 1; }
-.schedule-shift-row input[type="text"] { min-width: 120px; flex: 1; }
+.schedule-input-row, .schedule-shift-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.schedule-input-row input { min-width: 160px; flex: 1; }
+.schedule-input-row select { min-width: 145px; flex: 0 0 160px; }
+.schedule-shift-row input[type="text"] { min-width: 140px; flex: 1; }
+.schedule-shift-row input[type="number"] { width: 92px; }
 .schedule-list-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
 .pill-list { display: flex; flex-wrap: wrap; gap: 8px; min-height: 46px; padding: 10px; border: 1px dashed rgba(255,255,255,.13); border-radius: 18px; background: rgba(0,0,0,.12); }
 .schedule-pill { display: inline-flex; align-items: center; gap: 8px; min-height: 34px; padding: 7px 10px 7px 12px; border: 1px solid rgba(148,163,184,.24); border-radius: var(--radius-pill); background: rgba(255,255,255,.04); color: var(--text); font-weight: 850; }
 .schedule-pill small { color: var(--muted); font-weight: 800; }
 .icon-button { width: 24px; min-height: 24px; padding: 0; border-radius: 999px; color: #ffb4b4; }
 .assignment-form { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 12px; align-items: end; padding: 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 22px; background: rgba(0,0,0,.12); }
-.assignment-form select, .assignment-form input, .schedule-mini-form input { width: 100%; min-height: 42px; padding: 10px 12px; border: 1px solid rgba(148,163,184,.24); border-radius: 14px; background: rgba(0,0,0,.22); color: var(--text); font: inherit; }
-.assignment-form button, .schedule-mini-form button, .schedule-actions-inline button, #printBtn { min-height: 42px; padding: 10px 14px; border-radius: var(--radius-pill); font-weight: 900; }
+.assignment-form select, .assignment-form input, .schedule-mini-form input, .schedule-mini-form select, .schedule-rule-form input, .schedule-rule-form select { width: 100%; min-height: 42px; padding: 10px 12px; border: 1px solid rgba(148,163,184,.24); border-radius: 14px; background: rgba(0,0,0,.22); color: var(--text); font: inherit; }
+.assignment-form button, .schedule-mini-form button, .schedule-rule-form button, .schedule-actions-inline button, #printBtn, #copyOutputBtn { min-height: 42px; padding: 10px 14px; border-radius: var(--radius-pill); font-weight: 900; }
 .danger-button { color: #ffb4b4; border-color: rgba(255,123,123,.34); }
 .schedule-board-wrap { overflow-x: auto; margin-top: 18px; }
 .schedule-board { display: grid; grid-template-columns: repeat(7, minmax(170px, 1fr)); gap: 10px; min-width: 980px; }
@@ -48,3 +50,24 @@ Purpose: Signal Schedule MVP styles
 .coverage-card p { margin-top: 8px; }
 @media (max-width: 850px) { .schedule-hero, .schedule-setup-grid, .schedule-list-grid, .coverage-grid { grid-template-columns: 1fr; } .assignment-form { grid-template-columns: 1fr; } .schedule-card-heading { flex-direction: column; } .schedule-actions-inline { justify-content: flex-start; } }
 @media print { body { background: #fff; color: #111; } #sl-header, #sl-footer, .schedule-controls, .assignment-form, #printBtn { display: none !important; } .schedule-card, .schedule-hero { box-shadow: none; border-color: #ccc; background: #fff; } .schedule-board { min-width: 0; grid-template-columns: repeat(7, 1fr); } .day-column, .assignment-card, .coverage-card { border-color: #ccc; background: #fff; color: #111; } }
+
+
+.schedule-warning-card { border-color: rgba(250,204,21,.28); background: rgba(250,204,21,.08); }
+.schedule-warning-card h2 { margin: 0 0 6px; }
+.schedule-rule-form { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 12px; align-items: end; margin-top: 18px; padding: 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 22px; background: rgba(0,0,0,.12); }
+.schedule-rule-form label span { display: block; margin-bottom: 8px; color: var(--soft); font-size: 13px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+.warning-list { display: grid; gap: 8px; margin-top: 14px; }
+.warning-item, .success-item { padding: 11px 12px; border-radius: 16px; font-weight: 800; line-height: 1.45; }
+.warning-item { border: 1px solid rgba(250,204,21,.32); background: rgba(250,204,21,.09); color: #fde68a; }
+.success-item { border: 1px solid rgba(34,197,94,.28); background: rgba(34,197,94,.09); color: #86efac; }
+.schedule-output { width: 100%; min-height: 360px; padding: 16px; border: 1px solid rgba(148,163,184,.24); border-radius: 18px; background: rgba(0,0,0,.22); color: var(--text); font: 14px/1.55 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; resize: vertical; }
+.month-heading { margin-bottom: 12px; color: var(--soft); font-weight: 950; letter-spacing: -.02em; }
+.month-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.month-cell { min-height: 86px; padding: 10px; border: 1px solid rgba(255,255,255,.1); border-radius: 16px; background: rgba(0,0,0,.12); }
+.month-cell strong, .month-cell span, .month-cell small { display: block; }
+.month-cell strong { font-size: 20px; }
+.month-cell span { margin-top: 2px; color: var(--muted); font-weight: 900; font-size: 12px; text-transform: uppercase; }
+.month-cell small { margin-top: 8px; color: var(--muted); line-height: 1.35; }
+@media (max-width: 850px) { .schedule-rule-form { grid-template-columns: 1fr; } .month-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .month-grid { grid-template-columns: 1fr; } }
+@media print { .schedule-warning-card, #copyOutputBtn, .schedule-rule-form { display: none !important; } .schedule-output { border-color: #ccc; background: #fff; color: #111; } .warning-item, .success-item, .month-cell { border-color: #ccc; background: #fff; color: #111; } }

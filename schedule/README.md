@@ -1,21 +1,32 @@
 # Signal Schedule
 
-Signal Schedule is a lightweight weekly schedule builder for Signal Labs.
+Signal Schedule is a scheduling tool for Signal Labs.
 
 ## Version
 
-v0.1.0
+v0.1.1
 
-## What it does
+## Current Purpose
 
-- Add employees
-- Add reusable shifts
+This release is a logic sandbox, not the final scheduling system. It is meant to prove the schedule model before PHP, database tables, logins, admin roles, employee accounts, month publishing, and permissions are added.
+
+## What it does now
+
+- Add employees with basic roles
+- Add reusable shifts with start/end times
+- Set minimum staff per shift
 - Assign people to days and shifts
-- View a weekly schedule board
-- Review coverage summary cards
-- Print the schedule
+- Show a weekly schedule board
+- Calculate estimated scheduled hours
+- Show coverage warnings
+- Show max-hours warnings
+- Show rest-gap warnings
+- Generate plain-text schedule output
+- Show a rough month planning preview
 - Save data locally in the browser
 
 ## Important limitation
 
-This version does not include accounts, admin users, shared teams, permissions, or cloud sync. Those are planned future upgrades.
+This version still uses browser local storage. It is temporary by design. Future versions should move to a PHP/database model after the schedule logic is clearer.
+
+See `DATABASE-PLAN.md` for backend planning notes.
