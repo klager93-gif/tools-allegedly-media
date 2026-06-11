@@ -122,3 +122,14 @@ Potential focus:
 - Future global header/footer metadata migration.
 - Replace local action bar with the finalized shared action-bar component once all tools are ready.
 - Continue mobile polish after live visual review.
+
+
+## Completed in v0.9.7
+
+- Weekly overtime profile support.
+- Biweekly paycheck with weekly overtime rule support.
+- Functional After 40 / After 80 / Custom overtime threshold controls.
+
+## Upcoming
+
+- List and card density polish for taxes, deductions, other adjustments, and related row components.

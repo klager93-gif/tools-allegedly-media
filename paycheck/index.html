@@ -20,7 +20,7 @@ Purpose: Paycheck Calculator page using shared header/footer components
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.1">
-<link rel="stylesheet" href="style.css?v=0.9.6">
+<link rel="stylesheet" href="style.css?v=0.9.7">
 </head>
 <body
   class="tool-page paycheck-page"
@@ -63,6 +63,7 @@ Purpose: Paycheck Calculator page using shared header/footer components
           <label>
             <span>Regular Hours</span>
             <input id="regularHoursInput" type="number" placeholder="80" min="0" step="0.01">
+              <small id="regularHoursHelp" class="field-help">Used for standard profiles. Weekly OT profiles calculate regular and overtime from week 1/week 2 hours.</small>
           </label>
         </div>
         <div class="hours-panel">
@@ -106,6 +107,7 @@ Purpose: Paycheck Calculator page using shared header/footer components
             <button type="button" class="pay-pill" data-profile="publicSafety">Public Safety</button>
             <button type="button" class="pay-pill" data-profile="healthcare">Healthcare</button>
             <button type="button" class="pay-pill" data-profile="trades">Trades</button>
+            <button type="button" class="pay-pill" data-profile="weeklyOt">36/44 Weekly OT</button>
             <button type="button" class="pay-pill" data-profile="custom">Custom</button>
           </div>
           <div id="profileSummary" class="profile-summary empty-state">
@@ -162,22 +164,48 @@ Purpose: Paycheck Calculator page using shared header/footer components
                 </label>
               </div>
             </div>
-            <div class="pay-detail-panel">
+            <div class="pay-detail-panel overtime-rule-panel">
               <div class="adjustment-heading compact-heading">
                 <h3>Overtime Rule</h3>
-                <span>For labeling and future automation. Premium hours are still entered manually in Box 1.</span>
+                <span>Choose how the calculator should automatically split regular and overtime hours.</span>
               </div>
-              <input id="overtimeRuleInput" type="hidden" value="after40">
+              <input id="overtimeRuleInput" type="hidden" value="manual">
               <div class="pay-pill-row" data-pill-group="overtimeRuleInput" aria-label="Overtime rule">
-                <button type="button" class="pay-pill is-selected" data-value="after40">After 40</button>
+                <button type="button" class="pay-pill is-selected" data-value="manual">Manual</button>
+                <button type="button" class="pay-pill" data-value="after40">After 40</button>
                 <button type="button" class="pay-pill" data-value="after80">After 80</button>
+                <button type="button" class="pay-pill" data-value="weeklySplit">Weekly OT</button>
                 <button type="button" class="pay-pill" data-value="custom">Custom</button>
               </div>
-              <div class="form-grid one-column-mobile pay-detail-input-grid">
+              <div id="customOvertimePanel" class="form-grid one-column-mobile pay-detail-input-grid">
                 <label>
                   <span>Custom OT Threshold</span>
                   <input id="customOvertimeThresholdInput" type="number" placeholder="80" min="0" step="0.01">
                 </label>
+              </div>
+              <div id="weeklyOvertimePanel" class="weekly-overtime-panel hidden-by-default">
+                <div class="weekly-overtime-summary empty-state">
+                  <strong>Weekly OT mode</strong>
+                  <span>Use this when you are paid biweekly but overtime is calculated separately for each workweek.</span>
+                </div>
+                <div class="form-grid pay-detail-input-grid">
+                  <label>
+                    <span>Week 1 Hours</span>
+                    <input id="weekOneHoursInput" type="number" placeholder="36" min="0" step="0.01">
+                  </label>
+                  <label>
+                    <span>Week 2 Hours</span>
+                    <input id="weekTwoHoursInput" type="number" placeholder="44" min="0" step="0.01">
+                  </label>
+                  <label>
+                    <span>Weekly OT After</span>
+                    <input id="weeklyOvertimeThresholdInput" type="number" placeholder="40" min="0" step="0.01">
+                  </label>
+                </div>
+                <div id="weeklyOvertimeBreakdown" class="weekly-overtime-breakdown empty-state">
+                  <strong>Regular / OT split will appear here.</strong>
+                  <span>Enter week 1 and week 2 hours to see how the schedule is split.</span>
+                </div>
               </div>
             </div>
             <div class="pay-detail-panel">
@@ -487,6 +515,6 @@ Purpose: Paycheck Calculator page using shared header/footer components
 <script src="../assets/components/header.js?v=0.9.1"></script>
 <script src="../assets/components/footer.js?v=0.9.1"></script>
 <script src="../assets/global.js?v=0.9.1"></script>
-<script src="script.js?v=0.9.6"></script>
+<script src="script.js?v=0.9.7"></script>
 </body>
 </html>

@@ -146,3 +146,6 @@
 .paycheck-hero .subtitle{max-width:780px}
 .paycheck-global-footer .home-footer-bottom a[href="CHANGELOG.md"]{display:none}
 @media (max-width:760px){.paycheck-hero{padding-bottom:16px}.paycheck-hero .subtitle{margin-bottom:0}}
+
+/* v0.9.7 Weekly OT Profiles */
+.field-help{display:block;margin-top:7px;color:rgba(255,255,255,.48);font-size:11px;line-height:1.35}.weekly-overtime-panel{margin-top:12px;display:grid;gap:12px}.weekly-overtime-panel.hidden-by-default{display:none!important}.weekly-overtime-summary,.weekly-overtime-breakdown{margin-top:0}.overtime-rule-panel .pay-detail-input-grid{margin-top:12px}

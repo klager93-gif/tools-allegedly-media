@@ -136,3 +136,8 @@ Entries are append-only. Do not delete prior history.
 ## Earlier Versions
 
 The previous combined Paycheck changelog contained v0.1 through v0.8.1 history. Preserve existing history when merging this release into GitHub.
+
+
+## v0.9.7 — Weekly OT Profiles
+
+Added weekly overtime profile support and fixed overtime threshold calculation behavior.

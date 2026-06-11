@@ -20,3 +20,8 @@ Adopt the Home-style footer structure and remove version/theme/status metadata f
 - Footer changelog points to PUBLIC_CHANGELOG.md.
 - style.css and script.js cache busting updated to v0.9.3.
 - SHA256SUMS.txt regenerated.
+
+
+## v0.9.7
+
+Updated Paycheck files for Weekly OT Profiles.

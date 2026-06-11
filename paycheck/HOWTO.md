@@ -13,3 +13,8 @@ Use the Paycheck Calculator to estimate gross pay, deductions, and take-home pay
 ## Notes
 
 Release metadata now belongs in the footer/status/changelog areas, not the tool hero.
+
+
+## Weekly OT / 36-44 schedule
+
+Choose the **36/44 Weekly OT** pay profile when you are paid biweekly but overtime is calculated each week. Enter Week 1 Hours and Week 2 Hours. The calculator treats up to 40 hours each week as regular time and moves hours above 40 in each week to overtime automatically.

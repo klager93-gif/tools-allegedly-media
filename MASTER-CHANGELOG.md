@@ -128,3 +128,10 @@ See existing project history for earlier Home, Paycheck, Overtime, and Time Off 
 ## Notes
 
 `MASTER-CHANGELOG.md` is intended to become the complete append-only chronology of Signal Labs changes across all tools, in the order releases occur.
+
+
+## 2026-06-10 — Paycheck v0.9.7 — Weekly OT Profiles
+
+- Added a 36/44 Weekly OT profile for biweekly pay with weekly overtime rules.
+- Added automatic weekly overtime split calculations.
+- Fixed overtime threshold controls so they affect calculations.

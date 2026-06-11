@@ -12,3 +12,8 @@ Previous known release baseline: Paycheck v0.9.2 — Mobile Menu Fix.
 - Mobile menu opens.
 - Footer links display.
 - Calculator math still runs.
+
+
+## Restore v0.9.7
+
+Restore the previous Paycheck folder from backup if weekly overtime calculations or saved-setting behavior does not match expectations.

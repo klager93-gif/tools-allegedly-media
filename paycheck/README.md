@@ -16,3 +16,8 @@ The Paycheck Calculator estimates take-home pay with regular hours, premium hour
 ## Signal Labs Direction
 
 Tool pages should share global navigation and footer patterns while keeping calculator-specific actions near the tool.
+
+
+## v0.9.7 — Weekly OT Profiles
+
+Adds automatic overtime splitting for weekly overtime rules, including a short **36/44 Weekly OT** profile for biweekly paychecks where each week is tested separately against a 40-hour threshold.

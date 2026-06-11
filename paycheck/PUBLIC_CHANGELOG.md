@@ -132,3 +132,11 @@ User-facing Paycheck Calculator changes. Entries are append-only and should neve
 ## Earlier Versions
 
 Earlier Paycheck history should be backfilled from the existing `CHANGELOG.md` during a future documentation cleanup release. Do not delete existing history.
+
+
+## v0.9.7 — Weekly OT Profiles
+
+- Added a **36/44 Weekly OT** pay profile for biweekly checks where overtime is calculated separately by week.
+- Added Week 1 and Week 2 hour fields for weekly overtime mode.
+- Fixed overtime threshold controls so After 40, After 80, Weekly OT, and Custom affect calculations instead of only acting as labels.
+- Preserved manual premium hour rows for special cases.

@@ -123,3 +123,11 @@ Internal Paycheck development notes. This file is for technical, workflow, stand
 - Updated footer changelog behavior so the public-facing changelog is the linked changelog.
 - Preserved the internal/admin changelog for development-process notes.
 - Kept shared asset content unchanged.
+
+
+## v0.9.7 — Weekly OT Profiles
+
+- Implemented automatic overtime split logic in `calculateTotals()`.
+- Added `getAutomaticOvertimeSplit()`, weekly split UI synchronization, and weekly overtime breakdown text.
+- Added `weeklyOt` pay profile labelled `36/44 Weekly OT`.
+- Updated saved settings serialization for week 1, week 2, and weekly threshold fields.
