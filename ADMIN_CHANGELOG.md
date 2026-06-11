@@ -23,3 +23,9 @@
 
 - Bumped Paycheck metadata to v1.0.1.
 - Paycheck inherits the shared footer simplification through `footer.js`.
+
+## Home v0.9.4 + Paycheck v1.0.2 — Footer Strip Cleanup
+
+- Updated assets/components/footer.js shared footer renderer.
+- Footer strip now omits theme, status, and duplicate links across shared-footer pages.
+

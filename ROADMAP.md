@@ -18,3 +18,9 @@
 ## Completed: Home v0.9.3 + Paycheck v1.0.1 — Footer Simplification
 
 - Simplified shared footer bottom strip across shared-layout pages.
+
+## Next
+
+- Continue shared component cleanup.
+- Migrate Overtime and Time Off to shared header/footer later.
+

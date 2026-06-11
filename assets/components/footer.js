@@ -1,6 +1,6 @@
 /*
 Signal Labs Component File: assets/components/footer.js
-Version: v0.9.3
+Version: v0.9.4
 Purpose: Shared Signal Labs footer component for Home, public pages, and tools.
 */
 (function () {
@@ -42,7 +42,7 @@ Purpose: Shared Signal Labs footer component for Home, public pages, and tools.
       '</nav>' +
       '<section class="home-footer-status" aria-label="Project status"><h3>' + statusTitle + '</h3><span class="home-status-pill">● ' + m.status + '</span><p>' + m.statusText + '</p><a class="home-status-link" href="' + root + 'status/">View Status <span aria-hidden="true">→</span></a></section>' +
       '</div>' +
-      '<div class="home-footer-bottom"><span>© 2026 Signal Labs · ' + (m.area || 'Home') + (m.version ? ' ' + m.version : '') + '</span></div>' +
+      '<div class="home-footer-bottom"><span>© 2026 Signal Labs' + (m.version ? ' · ' + m.version : '') + '</span></div>' +
       '</footer>';
     syncFooterAccordions(mount);
   }

@@ -12,3 +12,8 @@ Useful tools without the noise.
 - `/pay-planner/` unlinked Pay Planner incubator.
 - `/overtime/` Overtime Calculator.
 - `/timeoff/` Time Off Planner.
+
+## Home v0.9.4 + Paycheck v1.0.2
+
+Footer strip cleanup simplified shared footer output to copyright plus version only.
+

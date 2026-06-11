@@ -10,3 +10,8 @@
 ## Incubators
 
 - Pay Planner.
+
+## Shared Component Roadmap
+
+- Continue expanding shared components after footer strip cleanup.
+

@@ -158,3 +158,9 @@ See existing project history for earlier Home, Paycheck, Overtime, and Time Off 
 - Removed duplicate build/theme/status and repeated quick links from the bottom footer row.
 - Updated Paycheck to v1.0.1 so the footer fix is tracked with the tool release.
 - No calculator math changes.
+
+## 2026-06-10 — Home v0.9.4 + Paycheck v1.0.2 — Footer Strip Cleanup
+
+- Simplified shared footer bottom strip across shared-layout pages.
+- Kept only Signal Labs copyright and page/tool version.
+

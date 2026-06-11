@@ -27,3 +27,9 @@
 
 - Paycheck now receives the simplified shared footer bottom strip.
 - No calculator math changes.
+
+## Home v0.9.4 + Paycheck v1.0.2 — Footer Strip Cleanup
+
+- Simplified shared footer bottom strip to show only copyright and version.
+- Removed theme/status/link duplication from the bottom strip.
+
