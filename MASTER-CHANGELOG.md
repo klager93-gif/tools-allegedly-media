@@ -1,31 +1,16 @@
 # Signal Labs Master Changelog
 
-## Home v0.9.6 + Paycheck v1.0.2 — Footer Strip Cleanup
+## Home v0.9.7 — Footer Component Hotfix
 
-**Date:** 2026-06-10
+**Date:** 2026-06-10  
+**Type:** Hotfix
 
 ### Changes
 
-- Simplified the shared Signal Labs footer bottom strip.
-- Removed duplicate theme/status/link information from shared-footer pages.
-- Preserved main footer sections:
-  - Signal Labs
-  - Resources
-  - Support
-  - About
-  - Status
-- No calculator math changes.
+- Hotfixed `assets/components/footer.js`.
+- Simplified shared footer bottom strip.
+- Removed duplicate Build / Theme / Status text and duplicate footer utility links from the bottom strip.
 
-### Applies To
+### Notes
 
-- Home
-- Paycheck
-- Pay Planner
-- Public pages using `#sl-footer`
-
-### Not Yet Applied To
-
-- Overtime
-- Time Off
-
-Those will be migrated during their own design-system releases.
+No calculator logic changes. No public changelog update.

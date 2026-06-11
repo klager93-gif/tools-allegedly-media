@@ -2,12 +2,10 @@
 |--------------------------------------------------------------------------
 | Signal Labs Shared Footer Component
 |--------------------------------------------------------------------------
-| Version: Home v0.9.6 / Paycheck v1.0.2
-| Theme: Shared Footer Strip Cleanup
+| Hotfix: Home v0.9.7
+| Purpose: Remove duplicate footer bottom-strip metadata from shared-footer pages.
 |--------------------------------------------------------------------------
-| Renders the shared Signal Labs footer on pages with #sl-footer.
-| Bottom strip is intentionally minimal:
-| © 2026 Signal Labs · vX.X.X
+| Pages using #sl-footer inherit this component automatically.
 |--------------------------------------------------------------------------
 */
 
@@ -16,47 +14,41 @@
 
     const DEFAULTS = {
         page: "home",
-        label: "Signal Labs",
-        version: "v0.9.6",
+        title: "Signal Labs",
+        version: "v0.9.7",
         status: "Active Development",
         statusTitle: "Status",
         statusBody: "All systems operational. We are constantly improving and adding new tools.",
         statusLink: "/status/",
-        statusLinkText: "View Status",
+        statusLinkText: "View Status"
     };
 
-    const TOOL_STATUS_TITLES = {
+    const STATUS_TITLES = {
         home: "Status",
         paycheck: "Paycheck Status",
         "pay-planner": "Pay Planner Status",
         overtime: "Overtime Status",
-        timeoff: "Time Off Status",
+        timeoff: "Time Off Status"
     };
 
     function readMeta() {
-        const body = document.body || {};
-        const dataset = body.dataset || {};
+        const dataset = document.body ? document.body.dataset : {};
 
         const page = dataset.slPage || DEFAULTS.page;
-        const title = dataset.slTitle || DEFAULTS.label;
-        const version = dataset.slVersion || DEFAULTS.version;
-        const status = dataset.slStatus || DEFAULTS.status;
 
         return {
             page,
-            title,
-            version,
-            status,
-            statusTitle: dataset.slStatusTitle || TOOL_STATUS_TITLES[page] || DEFAULTS.statusTitle,
+            title: dataset.slTitle || DEFAULTS.title,
+            version: dataset.slVersion || DEFAULTS.version,
+            status: dataset.slStatus || DEFAULTS.status,
+            statusTitle: dataset.slStatusTitle || STATUS_TITLES[page] || DEFAULTS.statusTitle,
             statusBody: dataset.slStatusBody || DEFAULTS.statusBody,
             statusLink: dataset.slStatusLink || DEFAULTS.statusLink,
-            statusLinkText: dataset.slStatusLinkText || DEFAULTS.statusLinkText,
+            statusLinkText: dataset.slStatusLinkText || DEFAULTS.statusLinkText
         };
     }
 
-    function html(meta) {
-        const safeVersion = meta.version || DEFAULTS.version;
-
+    function renderFooter(meta) {
         return `
 <footer class="sl-footer" aria-label="Signal Labs footer">
     <div class="sl-footer-main">
@@ -98,18 +90,19 @@
     </div>
 
     <div class="sl-footer-bottom">
-        <p>© 2026 Signal Labs · ${safeVersion}</p>
+        <p>© 2026 Signal Labs · ${meta.version}</p>
     </div>
 </footer>`;
     }
 
     function mountFooter() {
-        const mount = document.getElementById("sl-footer");
-        if (!mount) {
+        const footerMount = document.getElementById("sl-footer");
+
+        if (!footerMount) {
             return;
         }
 
-        mount.innerHTML = html(readMeta());
+        footerMount.innerHTML = renderFooter(readMeta());
     }
 
     if (document.readyState === "loading") {

@@ -1,20 +1,27 @@
 # Signal Labs Admin Changelog
 
-## Home v0.9.6 + Paycheck v1.0.2 — Footer Strip Cleanup
+## Home v0.9.7 — Footer Component Hotfix
 
 **Date:** 2026-06-10
 
-### Changed
+### Fixed
 
 - Updated `assets/components/footer.js`.
-- Removed bottom-strip rendering of:
-  - Build label
-  - Theme label
-  - Status label
+- Removed duplicate bottom-strip metadata from shared-footer pages.
+- Removed bottom-strip output for:
+  - Build
+  - Theme
+  - Status
   - duplicate Changelog / Roadmap / How To links
-- Bottom strip now renders:
-  - `© 2026 Signal Labs · vX.X.X`
+
+### Result
+
+The shared footer bottom strip now renders only:
+
+```text
+© 2026 Signal Labs · vX.X.X
+```
 
 ### Scope
 
-Applies to pages using the shared footer component. Does not modify standalone legacy Overtime or Time Off pages yet.
+This hotfix only changes the shared footer component and internal changelogs. No public changelog entry was added.
