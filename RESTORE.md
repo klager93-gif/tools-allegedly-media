@@ -1,4 +1,4 @@
-<!-- Updated for Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation -->
+<!-- Updated for Paycheck v0.9.9 — Report & Metadata Cleanup -->
 # Restore Instructions
 
 1. Restore the previous external backup if deployment fails.

@@ -1,4 +1,4 @@
-## Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation
+## Paycheck v0.9.9 — Report & Metadata Cleanup
 
 - Synced Paycheck footer/header metadata while preserving Weekly OT profile support.
 

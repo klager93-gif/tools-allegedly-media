@@ -1,8 +1,8 @@
-## Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation
+## Paycheck v0.9.9 — Report & Metadata Cleanup
 
 - Preserved the **36/44 Weekly OT** profile and weekly overtime calculation behavior.
 - Synced Paycheck footer/header metadata to the current shared layout system.
-- Updated visible Paycheck version/theme references to v0.9.8.
+- Updated visible Paycheck version/theme references to v0.9.9.
 - No calculator math changes beyond preserving the Weekly OT behavior already added in v0.9.7.
 
 

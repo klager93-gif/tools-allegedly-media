@@ -1,4 +1,4 @@
-<!-- Updated for Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation -->
+<!-- Updated for Paycheck v0.9.9 — Report & Metadata Cleanup -->
 # Backup
 
 Backup folder name:

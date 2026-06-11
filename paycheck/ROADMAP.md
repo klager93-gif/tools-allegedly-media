@@ -1,4 +1,4 @@
-## Completed — v0.9.8 Footer Sync & Weekly OT Preservation
+## Completed — v0.9.9 Report & Metadata Cleanup
 
 - Preserve Weekly OT profile work.
 - Re-sync Paycheck with shared Signal Labs header/footer components.

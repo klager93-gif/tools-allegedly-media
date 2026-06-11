@@ -1,4 +1,4 @@
-<!-- Updated for Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation -->
+<!-- Updated for Paycheck v0.9.9 — Report & Metadata Cleanup -->
 <!-- Updated for Home v0.9.1 Shared Header & Footer Components -->
 # Signal Labs Home
 

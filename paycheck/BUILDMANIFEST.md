@@ -1,7 +1,7 @@
-# Paycheck v0.9.8 Build Manifest
+# Paycheck v0.9.9 Build Manifest
 
-Version: Paycheck v0.9.8
-Theme: Footer Sync & Weekly OT Preservation
+Version: Paycheck v0.9.9
+Theme: Report & Metadata Cleanup
 Build type: Full replacement Paycheck release
 Source baseline: Paycheck v0.9.7 Weekly OT Profiles + shared layout component state
 

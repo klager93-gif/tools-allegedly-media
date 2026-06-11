@@ -1,4 +1,4 @@
-## Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation
+## Paycheck v0.9.9 — Report & Metadata Cleanup
 
 - Rebased the footer/header component state onto the v0.9.7 Weekly OT package.
 - Corrected stale Paycheck metadata references left from v0.9.3/v0.9.6/v0.9.7 drift.
