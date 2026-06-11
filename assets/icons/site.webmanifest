@@ -1,0 +1,11 @@
+{
+  "name": "Signal Labs",
+  "short_name": "Signal Labs",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07110b",
+  "theme_color": "#07110b",
+  "icons": [
+    { "src": "/assets/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

@@ -12,3 +12,14 @@
 - Overtime design-system migration.
 - Time Off design-system migration.
 - Shared report system.
+
+## Signal Schedule
+
+### v0.1.0
+
+- Local-first weekly schedule builder MVP.
+
+### Planned
+
+- Assignment editing, copy week/day, notes, shift labels, time-off warnings.
+- Later: login, admin roles, employee roles, permissions, publishing, cloud sync, CSV/PDF export.

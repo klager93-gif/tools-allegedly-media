@@ -9,3 +9,8 @@ When changing shared assets:
 3. Include matched CSS/JS files.
 4. Update cache-busting references.
 5. Verify live behavior after deploy.
+
+
+## Signal Schedule
+
+Use Signal Schedule to build a weekly schedule locally in the browser. Add employees, add shifts, assign employees to days, review coverage, and print the weekly schedule.

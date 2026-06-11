@@ -1,12 +1,12 @@
 /*
 Signal Labs Component File: assets/components/footer.js
-Version: v0.9.9.3
+Version: v0.9.9.4
 Purpose: Shared Signal Labs footer component. Compatible with existing home-footer CSS.
 */
 (function () {
   function rootPath() {
     var path = window.location.pathname;
-    if (path.includes('/paycheck/') || path.includes('/pay-planner/') || path.includes('/overtime/') || path.includes('/timeoff/')) return '../';
+    if (path.includes('/paycheck/') || path.includes('/pay-planner/') || path.includes('/overtime/') || path.includes('/timeoff/') || path.includes('/schedule/')) return '../';
     if (/^\/(changelog|roadmap|how-to|report-issue|request-feature|contact|about|privacy|terms|status)\//.test(path)) return '../';
     return '';
   }
@@ -29,7 +29,7 @@ Purpose: Shared Signal Labs footer component. Compatible with existing home-foot
       'status': true,
       'terms': true
     };
-    var version = homePages[page] ? 'v0.9.9.3' : (ds.signalVersion || '');
+    var version = ds.signalVersion || (homePages[page] ? 'v0.9.9.4' : '');
     return {
       area: area,
       title: ds.signalTitle || 'Signal Labs',

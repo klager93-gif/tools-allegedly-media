@@ -1,0 +1,138 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/index.html
+Version: v0.1.0
+Purpose: Local-first weekly schedule builder MVP
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Weekly Schedule Builder</title>
+<meta name="description" content="Build a weekly staff schedule with employees, shifts, assignments, and browser-based saving.">
+<meta property="og:title" content="Signal Schedule">
+<meta property="og:description" content="A lightweight weekly schedule builder from Signal Labs.">
+<link rel="stylesheet" href="../assets/global.css?v=0.9.9.4">
+<link rel="stylesheet" href="style.css?v=0.1.0">
+</head>
+<body
+  data-signal-global-layout="true"
+  data-signal-area="Signal Schedule"
+  data-signal-title="Signal Schedule"
+  data-signal-version="v0.1.0"
+  data-signal-theme="Schedule MVP"
+  data-signal-status="Active Development"
+  data-signal-description="Build a weekly staff schedule that saves in your browser."
+  data-signal-status-text="Signal Schedule v0.1.0 is a local-first MVP. Login, admin roles, shared teams, and publishing controls are planned later."
+>
+<div id="sl-header"></div>
+
+<main class="schedule-shell">
+  <section class="schedule-hero" aria-labelledby="scheduleTitle">
+    <div>
+      <p class="schedule-kicker">Signal Labs Tool</p>
+      <h1 id="scheduleTitle">Signal Schedule</h1>
+      <p class="schedule-subtitle">Build a simple weekly schedule, assign staff to shifts, and keep it saved in your browser.</p>
+    </div>
+    <div class="schedule-status-card" aria-label="Schedule summary">
+      <span>Current Week</span>
+      <strong id="currentWeekLabel">This week</strong>
+      <small id="scheduleSaveStatus">Saved locally</small>
+    </div>
+  </section>
+
+  <section class="schedule-card schedule-controls" aria-labelledby="setupTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="setupTitle">Setup</h2>
+        <p>Add your people and the shifts you need covered.</p>
+      </div>
+      <div class="schedule-actions-inline">
+        <button type="button" id="sampleDataBtn">Load Sample</button>
+        <button type="button" id="clearDataBtn" class="danger-button">Clear</button>
+      </div>
+    </div>
+
+    <div class="schedule-setup-grid">
+      <form id="employeeForm" class="schedule-mini-form">
+        <label for="employeeName">Employee Name</label>
+        <div class="schedule-input-row">
+          <input id="employeeName" name="employeeName" type="text" placeholder="Example: Alex" autocomplete="off">
+          <button type="submit">Add Person</button>
+        </div>
+      </form>
+
+      <form id="shiftForm" class="schedule-mini-form">
+        <label for="shiftName">Shift</label>
+        <div class="schedule-shift-row">
+          <input id="shiftName" name="shiftName" type="text" placeholder="Example: Days">
+          <input id="shiftStart" name="shiftStart" type="time" value="07:00" aria-label="Shift start time">
+          <input id="shiftEnd" name="shiftEnd" type="time" value="15:00" aria-label="Shift end time">
+          <button type="submit">Add Shift</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="schedule-list-grid">
+      <div>
+        <h3>People</h3>
+        <div id="employeeList" class="pill-list"></div>
+      </div>
+      <div>
+        <h3>Shifts</h3>
+        <div id="shiftList" class="pill-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule-card" aria-labelledby="builderTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="builderTitle">Weekly Builder</h2>
+        <p>Pick a day, shift, and person, then add it to the board.</p>
+      </div>
+    </div>
+
+    <form id="assignmentForm" class="assignment-form">
+      <label>
+        <span>Day</span>
+        <select id="assignmentDay"></select>
+      </label>
+      <label>
+        <span>Shift</span>
+        <select id="assignmentShift"></select>
+      </label>
+      <label>
+        <span>Person</span>
+        <select id="assignmentEmployee"></select>
+      </label>
+      <button type="submit" class="primary-action">Add to Schedule</button>
+    </form>
+
+    <div class="schedule-board-wrap">
+      <div id="scheduleBoard" class="schedule-board" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="schedule-card schedule-summary" aria-labelledby="summaryTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="summaryTitle">Coverage Summary</h2>
+        <p>Quickly see who is scheduled and where gaps remain.</p>
+      </div>
+      <button type="button" id="printBtn">Print Schedule</button>
+    </div>
+    <div id="coverageSummary" class="coverage-grid"></div>
+  </section>
+</main>
+
+<div id="sl-footer"></div>
+
+<script src="../assets/components/header.js?v=0.9.9.4"></script>
+<script src="../assets/components/footer.js?v=0.9.9.4"></script>
+<script src="../assets/global.js?v=0.9.9.4"></script>
+<script src="script.js?v=0.1.0"></script>
+</body>
+</html>
