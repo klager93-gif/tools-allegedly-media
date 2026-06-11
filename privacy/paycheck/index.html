@@ -1,0 +1,452 @@
+<!--
+Signal Labs
+Tool: Paycheck Calculator
+File: index.html
+Version: v1.0.0
+Purpose: Paycheck Calculator page with shared footer/header sync and weekly overtime support
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paycheck Calculator | Signal Labs</title>
+<meta name="description" content="Estimate gross pay, premium hours, benefit hours, deductions, adjustments, and take-home pay with the Signal Labs Paycheck Calculator.">
+<meta property="og:title" content="Signal Labs Paycheck Calculator">
+<meta property="og:description" content="Estimate regular hours, premium hours, paid leave, deductions, and take-home pay.">
+
+<link rel="icon" href="../assets/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="../assets/icons/site.webmanifest">
+<meta name="theme-color" content="#07110b">
+<link rel="stylesheet" href="../assets/global.css?v=0.9.2">
+<link rel="stylesheet" href="style.css?v=1.0.1">
+</head>
+<body
+  class="tool-page paycheck-page"
+  data-signal-global-layout="true"
+  data-signal-area="Paycheck"
+  data-signal-title="Paycheck Calculator"
+  data-signal-version="v1.0.1"
+  data-signal-theme="Footer Simplification"
+  data-signal-status="Active Development"
+  data-signal-description="Estimate take-home pay with essentials first and advanced options when needed."
+  data-signal-changelog="../changelog/"
+  data-signal-roadmap="../roadmap/"
+  data-signal-howto="../how-to/"
+>
+<div id="sl-header"></div>
+<main class="page">
+<header class="hero tool-hero paycheck-hero">
+  <p class="eyebrow">Signal Labs Tool</p>
+  <h1>Paycheck Calculator</h1>
+  <p class="subtitle">Estimate take-home pay with essentials first and advanced options when needed.</p>
+</header>
+
+<div class="ad-slot ad-slot-top is-disabled" data-ad-slot="paycheck-top" data-ad-status="disabled" aria-hidden="true">
+  <span class="ad-placeholder">Ad slot reserved</span>
+</div>
+
+<section class="dashboard-layout">
+  <section class="left-stack">
+    <section class="card step-card is-collapsible" data-collapse-key="hours" data-default-open="true">
+      <div class="section-title section-title-collapsible">
+        <div class="step-badge green">1</div>
+        <div>
+          <h2>Hours &amp; Earnings</h2>
+          <p>Enter regular hours first. Add premium or paid leave hours only when needed.</p>
+        </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="true">Collapse</button>
+      </div>
+      <div class="section-body">
+        <div class="form-grid one-column-mobile">
+          <label>
+            <span>Regular Hours</span>
+            <input id="regularHoursInput" type="number" placeholder="80" min="0" step="0.01">
+              <small id="regularHoursHelp" class="field-help">Used for standard profiles. Weekly OT profiles calculate regular and overtime from week 1/week 2 hours.</small>
+          </label>
+        </div>
+        <div class="hours-panel">
+          <div class="adjustment-heading compact-heading">
+            <h3>Premium Hours</h3>
+            <span>Overtime, double time, holiday premium, on-call, standby, or custom premium hours.</span>
+          </div>
+          <div id="premiumHourPills" class="hour-pill-row" aria-label="Premium hour selector"></div>
+          <div id="premiumHourList" class="hour-entry-list"></div>
+        </div>
+        <div class="hours-panel benefit-hours-panel">
+          <div class="adjustment-heading compact-heading">
+            <h3>Paid Leave</h3>
+            <span>Vacation, sick, holiday, comp time, bereavement, or custom paid leave.</span>
+          </div>
+          <div id="benefitHourPills" class="hour-pill-row" aria-label="Benefit hour selector"></div>
+          <div id="benefitHourList" class="hour-entry-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card step-card is-collapsible" data-collapse-key="payDetails" data-default-open="true">
+      <div class="section-title section-title-collapsible">
+        <div class="step-badge blue">2</div>
+        <div>
+          <h2>Pay Details</h2>
+          <p>Set the essentials first. Advanced pay rules stay available when needed.</p>
+        </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="true">Collapse</button>
+      </div>
+      <div class="section-body">
+        <div class="pay-detail-panel profile-panel">
+          <div class="adjustment-heading compact-heading">
+            <h3>Pay Profile</h3>
+            <span>Choose a starting point. Profiles apply smart defaults but never lock your settings.</span>
+          </div>
+          <input id="payProfileInput" type="hidden" value="hourly">
+          <div class="pay-pill-row profile-pill-row" data-profile-pills aria-label="Pay profile">
+            <button type="button" class="pay-pill is-selected" data-profile="hourly">Hourly</button>
+            <button type="button" class="pay-pill" data-profile="salary">Salary</button>
+            <button type="button" class="pay-pill" data-profile="publicSafety">Public Safety</button>
+            <button type="button" class="pay-pill" data-profile="healthcare">Healthcare</button>
+            <button type="button" class="pay-pill" data-profile="trades">Trades</button>
+            <button type="button" class="pay-pill" data-profile="weeklyOt">36/44 Weekly OT</button>
+            <button type="button" class="pay-pill" data-profile="custom">Custom</button>
+          </div>
+          <div id="profileSummary" class="profile-summary empty-state">
+            <strong>Hourly profile selected.</strong>
+            <span>Weekly pay period, 40-hour overtime rule, and standard premium multipliers are ready to customize.</span>
+          </div>
+        </div>
+        <div class="form-grid">
+          <label>
+            <span>Hourly Rate</span>
+            <input id="hourlyRateInput" type="number" placeholder="25" min="0" step="0.01">
+          </label>
+          <label>
+            <span>Currency</span>
+            <select id="currencyInput">
+              <option value="USD">USD ($)</option>
+              <option value="CAD">CAD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+            </select>
+          </label>
+        </div>
+        <div class="pay-detail-panel pay-period-panel">
+          <div class="adjustment-heading compact-heading">
+            <h3>Pay Period</h3>
+            <span>Used for reports, saved settings, and future projections.</span>
+          </div>
+          <input id="payPeriodInput" type="hidden" value="biweekly">
+          <div class="pay-pill-row" data-pill-group="payPeriodInput" aria-label="Pay period">
+            <button type="button" class="pay-pill" data-value="weekly">Weekly</button>
+            <button type="button" class="pay-pill is-selected" data-value="biweekly">Biweekly</button>
+            <button type="button" class="pay-pill" data-value="semimonthly">Semi-Monthly</button>
+            <button type="button" class="pay-pill" data-value="monthly">Monthly</button>
+          </div>
+        </div>
+        <details class="progressive-disclosure advanced-pay-settings">
+          <summary>Advanced Pay Rules</summary>
+          <div class="advanced-settings-grid">
+            <div class="pay-detail-panel">
+              <div class="adjustment-heading compact-heading">
+                <h3>Shift Differential</h3>
+                <span>Optional extra pay added to worked hours. Benefit hours stay at base rate for now.</span>
+              </div>
+              <input id="shiftDifferentialTypeInput" type="hidden" value="none">
+              <div class="pay-pill-row" data-pill-group="shiftDifferentialTypeInput" aria-label="Shift differential type">
+                <button type="button" class="pay-pill is-selected" data-value="none">None</button>
+                <button type="button" class="pay-pill" data-value="flat">Flat Hourly</button>
+                <button type="button" class="pay-pill" data-value="percent">Percentage</button>
+              </div>
+              <div class="form-grid one-column-mobile pay-detail-input-grid">
+                <label>
+                  <span>Shift Differential Amount</span>
+                  <input id="shiftDifferentialAmountInput" type="number" placeholder="2.50" min="0" step="0.01">
+                </label>
+              </div>
+            </div>
+            <div class="pay-detail-panel overtime-rule-panel">
+              <div class="adjustment-heading compact-heading">
+                <h3>Overtime Rule</h3>
+                <span>Choose how the calculator should automatically split regular and overtime hours.</span>
+              </div>
+              <input id="overtimeRuleInput" type="hidden" value="manual">
+              <div class="pay-pill-row" data-pill-group="overtimeRuleInput" aria-label="Overtime rule">
+                <button type="button" class="pay-pill is-selected" data-value="manual">Manual</button>
+                <button type="button" class="pay-pill" data-value="after40">After 40</button>
+                <button type="button" class="pay-pill" data-value="after80">After 80</button>
+                <button type="button" class="pay-pill" data-value="weeklySplit">Weekly OT</button>
+                <button type="button" class="pay-pill" data-value="custom">Custom</button>
+              </div>
+              <div id="customOvertimePanel" class="form-grid one-column-mobile pay-detail-input-grid">
+                <label>
+                  <span>Custom OT Threshold</span>
+                  <input id="customOvertimeThresholdInput" type="number" placeholder="80" min="0" step="0.01">
+                </label>
+              </div>
+              <div id="weeklyOvertimePanel" class="weekly-overtime-panel hidden-by-default">
+                <div class="weekly-overtime-summary empty-state">
+                  <strong>Weekly OT mode</strong>
+                  <span>Use this when you are paid biweekly but overtime is calculated separately for each workweek.</span>
+                </div>
+                <div class="form-grid pay-detail-input-grid">
+                  <label>
+                    <span>Week 1 Hours</span>
+                    <input id="weekOneHoursInput" type="number" placeholder="36" min="0" step="0.01">
+                  </label>
+                  <label>
+                    <span>Week 2 Hours</span>
+                    <input id="weekTwoHoursInput" type="number" placeholder="44" min="0" step="0.01">
+                  </label>
+                  <label>
+                    <span>Weekly OT After</span>
+                    <input id="weeklyOvertimeThresholdInput" type="number" placeholder="40" min="0" step="0.01">
+                  </label>
+                </div>
+                <div id="weeklyOvertimeBreakdown" class="weekly-overtime-breakdown empty-state">
+                  <strong>Regular / OT split will appear here.</strong>
+                  <span>Enter week 1 and week 2 hours to see how the schedule is split.</span>
+                </div>
+              </div>
+            </div>
+            <div class="pay-detail-panel">
+              <div class="adjustment-heading compact-heading">
+                <h3>Premium Multipliers</h3>
+                <span>Default multipliers for premium-hour rows.</span>
+              </div>
+              <div class="form-grid multiplier-grid">
+                <label>
+                  <span>Overtime Multiplier</span>
+                  <input id="overtimeMultiplierInput" type="number" placeholder="1.5" min="0" step="0.01" value="1.5">
+                </label>
+                <label>
+                  <span>Double Time Multiplier</span>
+                  <input id="doubleTimeMultiplierInput" type="number" placeholder="2" min="0" step="0.01" value="2">
+                </label>
+                <label>
+                  <span>Holiday Premium Multiplier</span>
+                  <input id="holidayPremiumMultiplierInput" type="number" placeholder="1.5" min="0" step="0.01" value="1.5">
+                </label>
+              </div>
+            </div>
+          </div>
+        </details>
+        <p id="message" class="message">Enter values or load an example to begin.</p>
+      </div>
+    </section>
+
+    <section class="card step-card other-earnings-card is-collapsible" data-collapse-key="otherEarnings" data-default-open="false">
+      <div class="section-title section-title-collapsible">
+        <div class="step-badge teal">3</div>
+        <div>
+          <h2>Other Earnings</h2>
+          <p>Add only when this paycheck has extra non-hourly pay.</p>
+        </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="false">Expand</button>
+      </div>
+      <div class="section-body other-earnings-panel">
+        <div class="adjustment-heading compact-heading">
+          <h3>Other Earnings</h3>
+          <span>Bonus, commission, tips, mileage, per diem, or custom pay.</span>
+        </div>
+        <div id="otherEarningPills" class="earning-pill-row" aria-label="Other earnings selector"></div>
+        <div id="otherEarningList" class="earning-entry-list"></div>
+      </div>
+    </section>
+
+    <section class="card step-card specialty-pay-card is-collapsible" data-collapse-key="specialtyPay" data-default-open="false">
+      <div class="section-title section-title-collapsible">
+        <div class="step-badge orange">4</div>
+        <div>
+          <h2>Specialty Pay</h2>
+          <p>Add job-specific earnings such as callback, court pay, certification pay, hazard pay, or allowances.</p>
+        </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="false">Expand</button>
+      </div>
+      <div class="section-body other-earnings-panel specialty-pay-panel">
+        <div class="adjustment-heading compact-heading">
+          <h3>Specialty Earnings</h3>
+          <span>These increase before-tax gross pay but do not add paid hours.</span>
+        </div>
+        <div id="specialtyPayPills" class="earning-pill-row" aria-label="Specialty pay selector"></div>
+        <div id="specialtyPayList" class="earning-entry-list"></div>
+      </div>
+    </section>
+
+    <section class="card step-card is-collapsible" data-collapse-key="deductions" data-default-open="true">
+      <div class="section-title section-title-with-action section-title-collapsible">
+        <div class="step-badge purple">5</div>
+        <div>
+          <h2>Deductions &amp; Adjustments</h2>
+          <p>Add common deductions first. Other adjustments stay available when needed.</p>
+        </div>
+        <button type="button" class="section-collapse-toggle" aria-expanded="true">Collapse</button>
+      </div>
+      <div class="section-body">
+        <div class="adjustment-actions">
+          <button id="addTax" type="button" class="secondary">Add Tax</button>
+          <button id="addDeduction" type="button" class="secondary">Add Deduction</button>
+        </div>
+        <div class="adjustment-section">
+          <div class="adjustment-heading compact-heading">
+            <h3>Taxes</h3>
+            <span>Percentages or static tax amounts.</span>
+          </div>
+          <div id="taxList" class="adjustment-list"></div>
+        </div>
+        <div class="adjustment-section">
+          <div class="adjustment-heading compact-heading">
+            <h3>Deductions</h3>
+            <span>Insurance, retirement, union dues, and other paycheck deductions.</span>
+          </div>
+          <div id="deductionList" class="adjustment-list"></div>
+        </div>
+        <details class="progressive-disclosure advanced-adjustment-settings">
+          <summary>Advanced: Other Adjustments</summary>
+          <div class="adjustment-section">
+            <div class="adjustment-heading compact-heading">
+              <h3>Other Adjustments</h3>
+              <span>Less common amounts that reduce or adjust the estimate.</span>
+            </div>
+            <div class="adjustment-actions nested-action-row">
+              <button id="addOtherAdjustment" type="button" class="secondary">Add Other Adjustment</button>
+            </div>
+            <div id="otherAdjustmentList" class="adjustment-list"></div>
+          </div>
+        </details>
+        <div class="info-note">
+          <strong>Simple estimate only.</strong>
+          <span>This calculator does not perform official payroll withholding calculations. Use it as a planning estimate.</span>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <section class="card results-card">
+    <div class="results-heading">
+      <h2>Estimated Paycheck</h2>
+      <p>Result details appear only when that part of the estimate has a value.</p>
+    </div>
+    <div class="ad-slot ad-slot-inline is-disabled" data-ad-slot="paycheck-results" data-ad-status="disabled" aria-hidden="true">
+      <span class="ad-placeholder">Ad slot reserved</span>
+    </div>
+    <div class="result-row total">
+      <span>Before Taxes (Gross)</span>
+      <strong id="grossPayResult">$0.00</strong>
+    </div>
+    <div class="result-detail-group" aria-label="Paycheck detail breakdown">
+      <div class="result-row detail-result-row is-hidden" data-result-row="regularPay">
+        <span>Regular Pay</span>
+        <strong id="regularPayResult">$0.00</strong>
+      </div>
+      <div class="result-row detail-result-row is-hidden" data-result-row="premiumPay">
+        <span>Premium Pay</span>
+        <strong id="premiumPayResult">$0.00</strong>
+      </div>
+      <div class="result-row detail-result-row is-hidden" data-result-row="shiftPay">
+        <span>Shift Differential Pay</span>
+        <strong id="shiftDifferentialPayResult">$0.00</strong>
+      </div>
+      <div class="result-row detail-result-row is-hidden" data-result-row="benefitPay">
+        <span>Benefit / Leave Pay</span>
+        <strong id="benefitPayResult">$0.00</strong>
+      </div>
+      <div class="result-row detail-result-row is-hidden" data-result-row="otherEarnings">
+        <span>Other Earnings</span>
+        <strong id="otherEarningsResult">$0.00</strong>
+      </div>
+      <div class="result-row detail-result-row is-hidden" data-result-row="specialtyPay">
+        <span>Specialty Pay</span>
+        <strong id="specialtyPayResult">$0.00</strong>
+      </div>
+      <div class="result-row detail-result-row is-hidden" data-result-row="totalHours">
+        <span>Total Paid Hours</span>
+        <strong id="totalHoursResult">0.00 hrs</strong>
+      </div>
+      <div class="result-row detail-result-row reduction-row is-hidden" data-result-row="taxes">
+        <span>Estimated Taxes</span>
+        <strong id="taxesResult">-$0.00</strong>
+      </div>
+      <div class="result-row detail-result-row reduction-row is-hidden" data-result-row="deductions">
+        <span>Deductions</span>
+        <strong id="deductionsResult">-$0.00</strong>
+      </div>
+      <div class="result-row detail-result-row reduction-row is-hidden" data-result-row="otherAdjustments">
+        <span>Other Adjustments</span>
+        <strong id="otherAdjustmentsResult">-$0.00</strong>
+      </div>
+    </div>
+    <div class="result-row total net-total">
+      <span>Take-Home Pay (Net)</span>
+      <strong id="takeHomeResult">$0.00</strong>
+    </div>
+    <div class="result-row">
+      <span>Effective Hourly Take-Home</span>
+      <strong id="effectiveRateResult">$0.00</strong>
+    </div>
+  </section>
+</section>
+
+<div class="footer-notes paycheck-notes">
+  <strong>ⓘ Notes</strong>
+  <ul>
+    <li>Results are estimates only and may differ from actual payroll withholding.</li>
+    <li>Premium hours use Pay Details multipliers. Shift differential applies to worked hours. Benefit and paid leave hours are estimated at the base hourly rate for now. Other earnings and specialty pay increase gross pay but do not add paid hours.</li>
+    <li>Percentage deductions and taxes are calculated from before-tax gross pay.</li>
+  </ul>
+</div>
+
+<nav class="shared-action-bar tool-action-bar" data-shared-action-bar aria-label="Paycheck actions">
+  <div class="shared-action-bar-inner">
+    <div class="shared-action-group shared-action-group-left" aria-label="Setup actions">
+      <button id="saveSettings" class="secondary action-button" type="button" data-action-target="saveSettings">Save Settings</button>
+      <button id="example" class="secondary action-button" type="button" data-action-target="example">Load Example</button>
+      <button id="reset" class="secondary action-button" type="button" data-action-target="reset">Reset</button>
+    </div>
+    <div class="shared-action-group shared-action-group-center" aria-label="Primary action">
+      <button id="calculate" class="primary-action action-button" type="button" data-action-target="calculate">Calculate Paycheck</button>
+    </div>
+    <div class="shared-action-group shared-action-group-right" aria-label="Output actions">
+      <button id="copyResults" class="secondary action-button" type="button" data-action-target="copyResults">Copy Results</button>
+      <button id="printResults" class="secondary action-button" type="button" data-action-target="printResults">Print Report</button>
+    </div>
+  </div>
+</nav>
+</main>
+
+<div id="sl-footer"></div>
+
+
+<div id="adjustmentModal" class="modal hidden signal-modal-local">
+  <div class="modal-box signal-modal-box-local">
+    <button id="closeAdjustmentModal" class="modal-close" type="button">×</button>
+    <h2 id="adjustmentModalTitle">Add Adjustment</h2>
+    <p id="adjustmentModalDescription" class="modal-description">Add a paycheck adjustment.</p>
+    <div id="adjustmentSuggestionPills" class="suggestion-pill-row"></div>
+    <div class="amount-type-row" role="group" aria-label="Adjustment amount type">
+      <button id="amountTypePercent" type="button" class="amount-type-pill is-selected">Percentage</button>
+      <button id="amountTypeStatic" type="button" class="amount-type-pill">Static Amount</button>
+    </div>
+    <div class="form-grid modal-form-grid">
+      <label>
+        <span>Label</span>
+        <input id="adjustmentLabelInput" type="text" placeholder="Federal Tax">
+      </label>
+      <label>
+        <span id="adjustmentAmountLabel">Percentage</span>
+        <input id="adjustmentAmountInput" type="number" placeholder="12" min="0" step="0.01">
+      </label>
+    </div>
+    <div class="button-row modal-button-row">
+      <button id="confirmAdjustment" type="button" class="primary-action">Add Adjustment</button>
+      <button id="cancelAdjustment" type="button" class="secondary">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/components/header.js?v=0.9.2"></script>
+<script src="../assets/components/footer.js?v=0.9.2"></script>
+<script src="../assets/global.js?v=0.9.2"></script>
+<script src="script.js?v=1.0.1"></script>
+</body>
+</html>
