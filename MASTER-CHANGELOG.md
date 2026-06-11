@@ -151,3 +151,10 @@ See existing project history for earlier Home, Paycheck, Overtime, and Time Off 
 - Added a 36/44 Weekly OT profile for biweekly pay with weekly overtime rules.
 - Added automatic weekly overtime split calculations.
 - Fixed overtime threshold controls so they affect calculations.
+
+## 2026-06-10 — Home v0.9.3 + Paycheck v1.0.1 — Footer Simplification
+
+- Simplified the shared Signal Labs footer bottom strip.
+- Removed duplicate build/theme/status and repeated quick links from the bottom footer row.
+- Updated Paycheck to v1.0.1 so the footer fix is tracked with the tool release.
+- No calculator math changes.

@@ -2,8 +2,8 @@
 
 ## Current
 
-- Home v0.9.2: repository cleanup and standards folder migration.
-- Paycheck v1.0.0: stable calculator release.
+- Home v0.9.3: repository cleanup and standards folder migration.
+- Paycheck v1.0.1: stable calculator release.
 - Pay Planner v0.1.0: unlinked incubator.
 
 ## Next
@@ -13,3 +13,8 @@
 - Shared report system under `/assets/reports/`.
 - Shared toast system under `/assets/components/toast.js`.
 - Shared modal/dialog system.
+
+
+## Completed: Home v0.9.3 + Paycheck v1.0.1 — Footer Simplification
+
+- Simplified shared footer bottom strip across shared-layout pages.

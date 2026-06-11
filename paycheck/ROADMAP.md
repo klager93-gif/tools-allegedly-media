@@ -1,6 +1,6 @@
 # Paycheck Roadmap
 
-## Completed for v1.0.0
+## Completed for v1.0.1
 
 - Weekly OT profiles.
 - Professional print report.
