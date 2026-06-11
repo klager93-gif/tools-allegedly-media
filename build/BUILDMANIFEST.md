@@ -1,13 +1,5 @@
 # Build Manifest
 
-## Home v0.9.9.1 — Public Page Version Sync Resolution + Standards v2.0 Consolidation
+## Home v0.9.9.2 — Footer Style Recovery + Matched Components Rule
 
-Build type: Corrective focused release.
-
-## Includes
-
-- assets/components/footer.js
-- standards/*
-- root documentation updates
-- docs/*
-- build/*
+Includes matched footer component and CSS files plus affected public page cache/version updates.

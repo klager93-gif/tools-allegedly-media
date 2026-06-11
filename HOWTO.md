@@ -1,19 +1,15 @@
 # Signal Labs How To
 
-## Version Sync Checks
+## Shared Component Fixes
 
-When footer versions are wrong:
+When updating a shared component:
 
-1. Check page metadata.
-2. Check shared footer component.
-3. Check cache-busting query strings.
-4. Check live site.
-5. If two hotfixes fail, invoke the Nuclear Option.
+1. Inspect the component markup.
+2. Inspect matching CSS selectors.
+3. Include both files when needed.
+4. Update cache-busting references.
+5. Verify affected and unaffected pages.
 
-## Chat Naming
+## Nuclear Option
 
-Daily Signal Labs chats should be titled:
-
-```text
-YYYY-MM-DD
-```
+After two failed hotfixes, stop patching and compare backups, ZIPs, GitHub, live output, and affected files.

@@ -1,5 +1,5 @@
-# Restore Instructions
+# Restore
 
-Replace the files in this package at their matching paths.
+Replace included files at matching paths.
 
-This is not intended to delete Overtime or Time Off. Preserve all existing top-level folders.
+This package is focused and does not remove or replace Overtime/Time Off.

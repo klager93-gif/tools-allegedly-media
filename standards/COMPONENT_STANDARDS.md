@@ -4,33 +4,23 @@
 
 Shared components include:
 
-```text
-assets/components/header.js
-assets/components/footer.js
-assets/global.js
-assets/global.css
-```
+- assets/components/header.js
+- assets/components/footer.js
+- assets/global.css
+- assets/global.js
 
-Future components:
+## Matched Component Rule
 
-```text
-assets/components/actionbar.js
-assets/components/toast.js
-assets/components/modal.js
-assets/reports/report-base.js
-```
+Shared components and their CSS are a matched set.
 
-## Before Changing Shared Components
+Do not replace component markup without verifying the stylesheet that supports it.
 
-Identify:
+Before replacing a shared component, verify:
 
-- affected pages
-- unaffected pages
-- legacy pages not yet migrated
-- required cache-busting changes
+- markup class names match existing CSS selectors,
+- required CSS is included in the package,
+- cache-busting is updated when shared assets change,
+- affected pages are listed,
+- legacy/unaffected pages are identified.
 
-## Avoid Drift
-
-Prefer shared components over copied markup.
-
-If copied markup still exists, do not assume shared component changes will affect it.
+If a shared component visually breaks after hotfixes, invoke the Nuclear Option.

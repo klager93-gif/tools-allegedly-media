@@ -2,47 +2,30 @@
 
 ## Session Startup
 
-When a Signal Labs work session starts, verify:
+At the start of a Signal Labs work session:
 
-```text
-Chat title: YYYY-MM-DD
-```
-
-Then review:
-
-- current versions
-- roadmap
-- active issues
-- releases in progress
-- whether the next package is full replacement or partial update
-
-## Daily Work
-
-Before script work, review Script/Development standards.
-
-Before UI/CSS work, review UX standards.
-
-Before documentation work, review Documentation standards.
-
-Before releases or packaging, review Release and Workflow standards.
+- Chat title should be YYYY-MM-DD.
+- Review current versions.
+- Review roadmap.
+- Review active bugs/issues.
+- Review releases in progress.
+- Determine full replacement or partial update.
 
 ## Nuclear Option
 
-Nickname: **Nuclear Option**
+Nickname: Nuclear Option.
 
-Trigger:
-
-```text
-Two failed hotfixes for the same issue.
-```
+Trigger: two failed hotfixes for the same issue.
 
 Procedure:
 
 1. Stop patching.
 2. Compare last backup.
-3. Compare latest ChatGPT ZIP.
+3. Compare latest ZIP.
 4. Compare GitHub.
-5. Compare live site behavior.
+5. Compare live site.
 6. Inspect affected files line-by-line if needed.
 7. Identify root cause.
 8. Build one corrective package.
+
+For shared visual components, inspect both component JavaScript and matching CSS.

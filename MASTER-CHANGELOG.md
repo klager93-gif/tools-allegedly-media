@@ -1,20 +1,19 @@
 # Signal Labs Master Changelog
 
-## Home v0.9.9.1 — Public Page Version Sync Resolution + Standards v2.0 Consolidation
+## Home v0.9.9.2 — Footer Style Recovery + Matched Components Rule
 
 **Date:** 2026-06-10  
 **Type:** Corrective release
 
 ### Changes
 
-- Resolved Home/public footer version mismatch.
-- Corrected shared footer metadata compatibility.
-- Consolidated Signal Labs standards into v2.0 structure.
-- Preserved independent tool versions:
-  - Paycheck remains v1.0.2.
-  - Pay Planner remains v0.1.0.
-  - Overtime and Time Off remain unchanged legacy/restored tools.
+- Recovered styled shared footer output.
+- Preserved Home/public version sync.
+- Restored footer compatibility with existing Home footer CSS.
+- Added standards lesson that shared components and CSS are matched sets.
 
-### Root Cause
+### Notes
 
-Previous hotfixes expected `data-sl-*` metadata, while the actual site pages used `data-signal-*` metadata.
+No calculator logic changes.
+Paycheck remains independent.
+Overtime and Time Off are not modified.

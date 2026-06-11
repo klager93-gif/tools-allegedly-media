@@ -2,14 +2,13 @@
 
 ## Immediate
 
-- Verify Home/public pages show the correct Home version.
-- Verify Paycheck retains independent tool version.
-- Prepare Overtime migration to shared design system.
-- Prepare Time Off migration to shared design system.
+- Verify Home/public footers render styled and show the correct Home version.
+- Verify Paycheck keeps independent versioning.
+- Continue toward Overtime shared-component migration.
 
 ## Upcoming
 
 - Overtime design-system migration.
+- Time Off design-system migration.
 - Shared report system.
-- Shared toast system.
-- Shared modal/dialog system.
+- Shared toast/modal systems.

@@ -1,9 +1,7 @@
-# Backup Notes
+# Backup
 
-## Home v0.9.9.1
-
-Backup folder name:
+Use backup folder:
 
 ```text
-2026-06-10-before-home-v0.9.9.1-public-page-version-sync-resolution-standards-v2
+2026-06-10-before-home-v0.9.9.2-footer-style-recovery
 ```
