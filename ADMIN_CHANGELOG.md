@@ -1,3 +1,7 @@
+## Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation
+
+- Synced Paycheck footer/header metadata while preserving Weekly OT profile support.
+
 
 ## Home v0.9.1 — Shared Header & Footer Components
 

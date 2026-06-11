@@ -1,5 +1,11 @@
 # Paycheck Calculator
 
+**v0.9.8 — Footer Sync & Weekly OT Preservation**
+
+Preserves Weekly OT profile support while syncing Paycheck back to the shared Signal Labs header/footer layout. Overtime logic is preserved and footer/header metadata references are updated.
+
+# Paycheck Calculator
+
 ## Current Version
 
 **v0.9.3 — Footer Inheritance**

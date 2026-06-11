@@ -1,27 +1,12 @@
-# Build Manifest
+# Paycheck v0.9.8 Build Manifest
 
-Version: Paycheck v0.9.3
-Theme: Footer Inheritance
-Build Date: 2026-06-10
-Build Type: Full replacement Paycheck release
-Source Baseline: Paycheck v0.9.2 — Mobile Menu Fix
-Architecture Reference: Home v0.8.3 — Homepage Density Pass
+Version: Paycheck v0.9.8
+Theme: Footer Sync & Weekly OT Preservation
+Build type: Full replacement Paycheck release
+Source baseline: Paycheck v0.9.7 Weekly OT Profiles + shared layout component state
 
-## Purpose
-
-Adopt the Home-style footer structure and remove version/theme/status metadata from the Paycheck hero.
-
-## Validation
-
-- ZIP integrity passed.
+Validation:
 - script.js syntax check passed.
-- Version/theme/status removed from hero.
-- Home-style footer adopted.
-- Footer changelog points to PUBLIC_CHANGELOG.md.
-- style.css and script.js cache busting updated to v0.9.3.
-- SHA256SUMS.txt regenerated.
-
-
-## v0.9.7
-
-Updated Paycheck files for Weekly OT Profiles.
+- Shared header/footer mount points present.
+- Weekly OT profile preserved.
+- Stale metadata corrected.

@@ -1,14 +1,11 @@
-# File Manifest
+# Paycheck v0.9.8 File Manifest
 
-## Paycheck v0.9.3 — Footer Inheritance
-
-### Updated
+## Updated
 
 - paycheck/index.html
 - paycheck/style.css
 - paycheck/script.js
 - paycheck/README.md
-- paycheck/CHANGELOG.md
 - paycheck/PUBLIC_CHANGELOG.md
 - paycheck/ADMIN_CHANGELOG.md
 - paycheck/ROADMAP.md
@@ -20,11 +17,6 @@
 - paycheck/SHA256SUMS.txt
 - MASTER-CHANGELOG.md
 
-### Added
+## Removed from package
 
-- None
-
-
-## v0.9.7
-
-Updated Paycheck files for Weekly OT Profiles.
+- paycheck/CHANGELOG.md

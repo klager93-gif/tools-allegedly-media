@@ -1,3 +1,9 @@
+## 2026-06-10 — Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation
+
+- Preserved Paycheck v0.9.7 Weekly OT profile support.
+- Synced Paycheck header/footer metadata and shared component references.
+- Corrected stale version/theme drift after shared layout work.
+
 
 ## 2026-06-10 — Home v0.9.1 + Paycheck v0.9.6 — Shared Header & Footer Components
 

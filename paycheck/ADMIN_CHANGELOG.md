@@ -1,3 +1,10 @@
+## Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation
+
+- Rebased the footer/header component state onto the v0.9.7 Weekly OT package.
+- Corrected stale Paycheck metadata references left from v0.9.3/v0.9.6/v0.9.7 drift.
+- Removed deprecated paycheck/CHANGELOG.md from this package.
+- Preserved shared component files and Weekly OT script logic.
+
 
 ## Paycheck v0.9.6 — Shared Layout Components
 

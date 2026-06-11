@@ -1,3 +1,4 @@
+<!-- Updated for Paycheck v0.9.8 — Footer Sync & Weekly OT Preservation -->
 # Build Manifest
 
 Version: Home v0.9.1 + Paycheck v0.9.6

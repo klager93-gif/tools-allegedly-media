@@ -1,3 +1,9 @@
+## Completed — v0.9.8 Footer Sync & Weekly OT Preservation
+
+- Preserve Weekly OT profile work.
+- Re-sync Paycheck with shared Signal Labs header/footer components.
+- Remove stale footer/header version drift.
+
 
 
 ## Completed — Paycheck v0.9.6 Shared Layout Components

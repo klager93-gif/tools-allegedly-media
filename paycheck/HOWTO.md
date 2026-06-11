@@ -1,3 +1,7 @@
+## Weekly OT Profile
+
+Use **36/44 Weekly OT** when a biweekly paycheck is calculated with weekly overtime rules, such as Week 1 = 36 hours and Week 2 = 44 hours with overtime after 40 hours each week.
+
 # Paycheck Calculator How To
 
 Use the Paycheck Calculator to estimate gross pay, deductions, and take-home pay.
