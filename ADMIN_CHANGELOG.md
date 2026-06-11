@@ -1,18 +1,17 @@
 # Signal Labs Admin Changelog
 
-## Home v0.9.8 — Home Version Sync Hotfix
+## Home v0.9.9 — Public Page Version Sync Hotfix
 
 **Date:** 2026-06-10
 
 ### Fixed
 
-- Updated `assets/components/footer.js`.
-- Home/public shared-footer pages now display the current Home version from the shared footer component instead of stale page-level metadata.
-- Preserves independent tool versions:
-  - Paycheck keeps its own version.
-  - Pay Planner keeps its own version.
-  - Overtime and Time Off are not modified in this hotfix.
+- Replaced `assets/components/footer.js`.
+- Home and public shared-footer pages now force the current Home version in the footer bottom strip.
+- This avoids stale page-level `data-sl-version` values such as `v0.9.4`.
 
-### Reason
+### Preserved
 
-Home/public pages were still showing `v0.9.4` because their individual page metadata had not been updated. The shared footer now treats Home/public pages as Home-versioned pages.
+- Paycheck keeps its independent tool version.
+- Pay Planner keeps its independent incubator version.
+- Overtime and Time Off are untouched.

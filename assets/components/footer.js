@@ -2,18 +2,18 @@
 |--------------------------------------------------------------------------
 | Signal Labs Shared Footer Component
 |--------------------------------------------------------------------------
-| Hotfix: Home v0.9.8
+| Hotfix: Home v0.9.9
 | Purpose:
-| - Keep shared-footer public Home pages synced to the current Home version.
+| - Force Home/public pages to the current Home version in the shared footer.
 | - Preserve independent tool versions for Paycheck and Pay Planner.
-| - Keep legacy Overtime and Time Off untouched until migration.
+| - Do not modify legacy Overtime or Time Off until their migration releases.
 |--------------------------------------------------------------------------
 */
 
 (function () {
     "use strict";
 
-    const HOME_VERSION = "v0.9.8";
+    const HOME_VERSION = "v0.9.9";
 
     const DEFAULTS = {
         page: "home",
@@ -48,18 +48,22 @@
         timeoff: "Time Off Status"
     };
 
-    function pageFromPath() {
-        const path = window.location.pathname.replace(/^\/+|\/+$/g, "");
+    function getPathPage() {
+        const cleanedPath = window.location.pathname.replace(/^\/+|\/+$/g, "");
 
-        if (!path) {
+        if (!cleanedPath) {
             return "home";
         }
 
-        return path.split("/")[0] || "home";
+        return cleanedPath.split("/")[0] || "home";
     }
 
-    function normalizePage(page) {
-        return page || pageFromPath() || "home";
+    function resolvePage(datasetPage) {
+        if (!datasetPage || datasetPage === "root") {
+            return getPathPage();
+        }
+
+        return datasetPage;
     }
 
     function resolveVersion(page, datasetVersion) {
@@ -72,7 +76,7 @@
 
     function readMeta() {
         const dataset = document.body ? document.body.dataset : {};
-        const page = normalizePage(dataset.slPage || pageFromPath());
+        const page = resolvePage(dataset.slPage);
 
         return {
             page,

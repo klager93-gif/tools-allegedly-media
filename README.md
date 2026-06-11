@@ -4,6 +4,6 @@ Useful tools without the noise.
 
 ## Current Hotfix
 
-**Home v0.9.8 — Home Version Sync Hotfix**
+**Home v0.9.9 — Public Page Version Sync Hotfix**
 
-Fixes shared footer version display for Home/public pages while preserving independent tool versions.
+Fixes Home/public shared footer version display while preserving independent tool versions.
