@@ -1,6 +1,9 @@
-# Paycheck Calculator
+# Signal Labs
 
-Stable paycheck calculator for estimating gross pay, taxes, deductions, and take-home pay.
+Useful tools without the noise.
 
-Version: v1.0.2
-Theme: Stable Calculator Release
+## Current Hotfix
+
+**Home v0.9.9 — Public Page Version Sync Hotfix**
+
+Fixes Home/public shared footer version display while preserving independent tool versions.

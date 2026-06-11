@@ -1,13 +1,21 @@
-# Paycheck Admin Changelog
+# Signal Labs Admin Changelog
 
-## v1.0.2 — Stable Calculator Release
+## Home v0.9.9 — Public Page Version Sync Hotfix
 
-- Removed Target Pay UI from `/paycheck/`.
-- Created `/pay-planner/` incubator for future goal planning.
-- Updated metadata and cache-busting to v1.0.2.
+**Date:** 2026-06-10
 
-## Paycheck v1.0.2 — Footer Strip Cleanup
+### Fixed
 
-- Inherits simplified shared footer bottom strip.
-- No calculation changes.
+- Updated `assets/components/footer.js`.
+- Home and public shared-footer pages now force the current Home version in the footer bottom strip.
+- This avoids stale `data-sl-version` values on individual public pages showing older Home versions.
 
+### Preserved
+
+- Paycheck keeps its independent tool version.
+- Pay Planner keeps its independent incubator version.
+- Overtime and Time Off are untouched legacy/restored tools until their migration releases.
+
+### Scope
+
+Hotfix only. No public changelog update.
