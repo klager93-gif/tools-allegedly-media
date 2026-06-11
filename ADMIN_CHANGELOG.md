@@ -1,27 +1,18 @@
 # Signal Labs Admin Changelog
 
-## Home v0.9.7 — Footer Component Hotfix
+## Home v0.9.8 — Home Version Sync Hotfix
 
 **Date:** 2026-06-10
 
 ### Fixed
 
 - Updated `assets/components/footer.js`.
-- Removed duplicate bottom-strip metadata from shared-footer pages.
-- Removed bottom-strip output for:
-  - Build
-  - Theme
-  - Status
-  - duplicate Changelog / Roadmap / How To links
+- Home/public shared-footer pages now display the current Home version from the shared footer component instead of stale page-level metadata.
+- Preserves independent tool versions:
+  - Paycheck keeps its own version.
+  - Pay Planner keeps its own version.
+  - Overtime and Time Off are not modified in this hotfix.
 
-### Result
+### Reason
 
-The shared footer bottom strip now renders only:
-
-```text
-© 2026 Signal Labs · vX.X.X
-```
-
-### Scope
-
-This hotfix only changes the shared footer component and internal changelogs. No public changelog entry was added.
+Home/public pages were still showing `v0.9.4` because their individual page metadata had not been updated. The shared footer now treats Home/public pages as Home-versioned pages.

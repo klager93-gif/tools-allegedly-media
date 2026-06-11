@@ -1,16 +1,20 @@
 # Signal Labs Master Changelog
 
-## Home v0.9.7 — Footer Component Hotfix
+## Home v0.9.8 — Home Version Sync Hotfix
 
 **Date:** 2026-06-10  
 **Type:** Hotfix
 
 ### Changes
 
-- Hotfixed `assets/components/footer.js`.
-- Simplified shared footer bottom strip.
-- Removed duplicate Build / Theme / Status text and duplicate footer utility links from the bottom strip.
+- Hotfixed shared footer version resolution.
+- Home and public shared-footer pages now show the current Home version.
+- Independent tool versioning is preserved.
+- No calculator logic changes.
 
-### Notes
+### Not Changed
 
-No calculator logic changes. No public changelog update.
+- Paycheck calculation logic.
+- Pay Planner incubator logic.
+- Overtime.
+- Time Off.

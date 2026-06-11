@@ -2,26 +2,43 @@
 |--------------------------------------------------------------------------
 | Signal Labs Shared Footer Component
 |--------------------------------------------------------------------------
-| Hotfix: Home v0.9.7
-| Purpose: Remove duplicate footer bottom-strip metadata from shared-footer pages.
-|--------------------------------------------------------------------------
-| Pages using #sl-footer inherit this component automatically.
+| Hotfix: Home v0.9.8
+| Purpose:
+| - Keep shared-footer public Home pages synced to the current Home version.
+| - Preserve independent tool versions for Paycheck and Pay Planner.
+| - Keep legacy Overtime and Time Off untouched until migration.
 |--------------------------------------------------------------------------
 */
 
 (function () {
     "use strict";
 
+    const HOME_VERSION = "v0.9.8";
+
     const DEFAULTS = {
         page: "home",
         title: "Signal Labs",
-        version: "v0.9.7",
+        version: HOME_VERSION,
         status: "Active Development",
         statusTitle: "Status",
         statusBody: "All systems operational. We are constantly improving and adding new tools.",
         statusLink: "/status/",
         statusLinkText: "View Status"
     };
+
+    const HOME_PUBLIC_PAGES = new Set([
+        "home",
+        "about",
+        "changelog",
+        "contact",
+        "how-to",
+        "privacy",
+        "report-issue",
+        "request-feature",
+        "roadmap",
+        "status",
+        "terms"
+    ]);
 
     const STATUS_TITLES = {
         home: "Status",
@@ -31,15 +48,36 @@
         timeoff: "Time Off Status"
     };
 
+    function pageFromPath() {
+        const path = window.location.pathname.replace(/^\/+|\/+$/g, "");
+
+        if (!path) {
+            return "home";
+        }
+
+        return path.split("/")[0] || "home";
+    }
+
+    function normalizePage(page) {
+        return page || pageFromPath() || "home";
+    }
+
+    function resolveVersion(page, datasetVersion) {
+        if (HOME_PUBLIC_PAGES.has(page)) {
+            return HOME_VERSION;
+        }
+
+        return datasetVersion || DEFAULTS.version;
+    }
+
     function readMeta() {
         const dataset = document.body ? document.body.dataset : {};
-
-        const page = dataset.slPage || DEFAULTS.page;
+        const page = normalizePage(dataset.slPage || pageFromPath());
 
         return {
             page,
             title: dataset.slTitle || DEFAULTS.title,
-            version: dataset.slVersion || DEFAULTS.version,
+            version: resolveVersion(page, dataset.slVersion),
             status: dataset.slStatus || DEFAULTS.status,
             statusTitle: dataset.slStatusTitle || STATUS_TITLES[page] || DEFAULTS.statusTitle,
             statusBody: dataset.slStatusBody || DEFAULTS.statusBody,
