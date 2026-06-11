@@ -1,17 +1,18 @@
 /*
 Signal Labs Component File: assets/components/header.js
-Version: v0.9.1
+Version: v0.9.2
 Purpose: Shared Signal Labs header/navigation component for Home, public pages, and tools.
 */
 (function () {
   function rootPath() {
     var path = window.location.pathname;
-    if (path.includes('/paycheck/') || path.includes('/overtime/') || path.includes('/timeoff/')) return '../';
+    if (path.includes('/paycheck/') || path.includes('/pay-planner/') || path.includes('/overtime/') || path.includes('/timeoff/')) return '../';
     if (/^\/(changelog|roadmap|how-to|report-issue|request-feature|contact|about|privacy|terms|status)\//.test(path)) return '../';
     return '';
   }
   function activePath() {
     var path = window.location.pathname;
+    if (path.includes('/pay-planner/')) return 'pay-planner';
     if (path.includes('/paycheck/')) return 'paycheck';
     if (path.includes('/overtime/')) return 'overtime';
     if (path.includes('/timeoff/')) return 'timeoff';

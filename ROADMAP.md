@@ -1,46 +1,15 @@
-<!-- Updated for Paycheck v0.9.9 — Report & Metadata Cleanup -->
+# Signal Labs Roadmap
 
+## Current
 
-## Completed — Home v0.9.1 Shared Header & Footer Components
+- Home v0.9.2: repository cleanup and standards folder migration.
+- Paycheck v1.0.0: stable calculator release.
+- Pay Planner v0.1.0: unlinked incubator.
 
-- Shared header component added.
-- Shared footer component added.
-- Public pages and Paycheck began using shared layout components.
+## Next
 
-## Future
-
-- Continue moving Overtime and Time Off to shared header/footer components.
-- Add shared action bar component.
-- Add shared toast and modal/dialog components.
-
-# Signal Labs Home Roadmap
-
-## Current Release
-
-### v0.9.0 — Public Pages Architecture
-
-- Build real public content pages.
-- Route footer links to pages instead of markdown downloads or modal popups.
-- Remove developer-only links from the public footer.
-
-## Next Priorities
-
-### Home v0.9.x — Technical Debt Cleanup
-
-- Review unused CSS classes.
-- Review old modal/text-file behavior.
-- Review shared navigation/footer duplication.
-- Review documentation automation for manifests and checksums.
-
-### Home v0.9.x — Shared Components
-
-- `header.js`
-- `footer.js`
-- `actionbar.js`
-- `toast.js`
-- `modal.js`
-- `dialog.js`
-
-### Platform Tool Migration
-
-- Continue migrating Paycheck, Overtime, and Time Off into shared Home patterns.
+- Overtime design system adoption.
+- Paycheck list/card density pass if needed after v1.0 QA.
+- Shared report system under `/assets/reports/`.
+- Shared toast system under `/assets/components/toast.js`.
+- Shared modal/dialog system.

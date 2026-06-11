@@ -1,12 +1,5 @@
-# Paycheck v0.9.9 Build Manifest
+# Paycheck Build Manifest
 
-Version: Paycheck v0.9.9
-Theme: Report & Metadata Cleanup
-Build type: Full replacement Paycheck release
-Source baseline: Paycheck v0.9.7 Weekly OT Profiles + shared layout component state
-
-Validation:
-- script.js syntax check passed.
-- Shared header/footer mount points present.
-- Weekly OT profile preserved.
-- Stale metadata corrected.
+Version: v1.0.0
+Theme: Stable Calculator Release
+Build Type: Full replacement stable release

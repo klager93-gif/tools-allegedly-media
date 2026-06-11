@@ -1,6 +1,6 @@
 /*
 Signal Labs Shared Asset File: assets/global.js
-Version: v0.9.1
+Version: v0.9.2
 Purpose: Shared navigation, metadata-aware footer links, modal/dialog, toast, UTC helper, action bar support, and ad slot initialization.
 */
 

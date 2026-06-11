@@ -2,7 +2,7 @@
 Signal Labs
 Tool: Paycheck Calculator
 File: index.html
-Version: v0.9.9
+Version: v1.0.0
 Purpose: Paycheck Calculator page with shared footer/header sync and weekly overtime support
 -->
 <!DOCTYPE html>
@@ -14,21 +14,22 @@ Purpose: Paycheck Calculator page with shared footer/header sync and weekly over
 <meta name="description" content="Estimate gross pay, premium hours, benefit hours, deductions, adjustments, and take-home pay with the Signal Labs Paycheck Calculator.">
 <meta property="og:title" content="Signal Labs Paycheck Calculator">
 <meta property="og:description" content="Estimate regular hours, premium hours, paid leave, deductions, and take-home pay.">
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="stylesheet" href="../assets/global.css?v=0.9.1">
-<link rel="stylesheet" href="style.css?v=0.9.9">
+
+<link rel="icon" href="../assets/icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="../assets/icons/site.webmanifest">
+<meta name="theme-color" content="#07110b">
+<link rel="stylesheet" href="../assets/global.css?v=0.9.2">
+<link rel="stylesheet" href="style.css?v=1.0.0">
 </head>
 <body
   class="tool-page paycheck-page"
   data-signal-global-layout="true"
   data-signal-area="Paycheck"
   data-signal-title="Paycheck Calculator"
-  data-signal-version="v0.9.9"
-  data-signal-theme="Report & Metadata Cleanup"
+  data-signal-version="v1.0.0"
+  data-signal-theme="Stable Calculator Release"
   data-signal-status="Active Development"
   data-signal-description="Estimate take-home pay with essentials first and advanced options when needed."
   data-signal-changelog="../changelog/"
@@ -319,57 +320,6 @@ Purpose: Paycheck Calculator page with shared footer/header sync and weekly over
         </div>
       </div>
     </section>
-
-    <section class="card step-card target-pay-card is-collapsible" data-collapse-key="targetPay" data-default-open="false">
-      <div class="section-title section-title-collapsible">
-        <div class="step-badge orange">6</div>
-        <div>
-          <h2>Target Pay</h2>
-          <p>Optional goal planning for gross, net, or annual income targets.</p>
-        </div>
-        <button type="button" class="section-collapse-toggle" aria-expanded="false">Expand</button>
-      </div>
-      <div class="section-body">
-        <div class="target-pay-panel">
-          <div class="adjustment-heading compact-heading">
-            <h3>Goal Type</h3>
-            <span>Choose whether the target is take-home pay, before-tax pay, or annual income.</span>
-          </div>
-          <input id="targetGoalTypeInput" type="hidden" value="net">
-          <div class="pay-pill-row" data-pill-group="targetGoalTypeInput" aria-label="Target pay goal type">
-            <button type="button" class="pay-pill is-selected" data-value="net">Take-Home Pay (Net)</button>
-            <button type="button" class="pay-pill" data-value="gross">Gross Pay</button>
-            <button type="button" class="pay-pill" data-value="annual">Annual Income</button>
-          </div>
-        </div>
-        <div class="form-grid target-input-grid">
-          <label>
-            <span>Target Amount</span>
-            <input id="targetAmountInput" type="number" placeholder="2000" min="0" step="0.01">
-          </label>
-          <label>
-            <span>Maximum Extra Hours <small>(Optional)</small></span>
-            <input id="targetMaxHoursInput" type="number" placeholder="10" min="0" step="0.01">
-          </label>
-        </div>
-        <div class="target-pay-panel">
-          <div class="adjustment-heading compact-heading">
-            <h3>Extra Hours Allowed</h3>
-            <span>Choose which type of added hours should be used to estimate the target.</span>
-          </div>
-          <input id="targetHoursModeInput" type="hidden" value="overtime">
-          <div class="pay-pill-row" data-pill-group="targetHoursModeInput" aria-label="Target pay extra hours mode">
-            <button type="button" class="pay-pill is-selected" data-value="overtime">Overtime Only</button>
-            <button type="button" class="pay-pill" data-value="regular">Regular Hours</button>
-            <button type="button" class="pay-pill" data-value="either">Either</button>
-          </div>
-        </div>
-        <div id="targetPaySummary" class="target-summary empty-state">
-          <strong>No target entered yet.</strong>
-          <span>Add a target amount to estimate the extra hours needed to reach it.</span>
-        </div>
-      </div>
-    </section>
   </section>
 
   <section class="card results-card">
@@ -424,18 +374,6 @@ Purpose: Paycheck Calculator page with shared footer/header sync and weekly over
       <div class="result-row detail-result-row reduction-row is-hidden" data-result-row="otherAdjustments">
         <span>Other Adjustments</span>
         <strong id="otherAdjustmentsResult">-$0.00</strong>
-      </div>
-      <div class="result-row target-result-row detail-result-row is-hidden" data-result-row="targetGap">
-        <span>Target Gap</span>
-        <strong id="targetGapResult">--</strong>
-      </div>
-      <div class="result-row target-result-row detail-result-row is-hidden" data-result-row="targetHours">
-        <span>Estimated Extra Hours Needed</span>
-        <strong id="targetHoursResult">--</strong>
-      </div>
-      <div class="result-row target-result-row detail-result-row is-hidden" data-result-row="targetStatus">
-        <span>Target Status</span>
-        <strong id="targetStatusResult">--</strong>
       </div>
     </div>
     <div class="result-row total net-total">
@@ -506,9 +444,9 @@ Purpose: Paycheck Calculator page with shared footer/header sync and weekly over
   </div>
 </div>
 
-<script src="../assets/components/header.js?v=0.9.1"></script>
-<script src="../assets/components/footer.js?v=0.9.1"></script>
-<script src="../assets/global.js?v=0.9.1"></script>
-<script src="script.js?v=0.9.9"></script>
+<script src="../assets/components/header.js?v=0.9.2"></script>
+<script src="../assets/components/footer.js?v=0.9.2"></script>
+<script src="../assets/global.js?v=0.9.2"></script>
+<script src="script.js?v=1.0.0"></script>
 </body>
 </html>

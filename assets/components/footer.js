@@ -1,12 +1,12 @@
 /*
 Signal Labs Component File: assets/components/footer.js
-Version: v0.9.1
+Version: v0.9.2
 Purpose: Shared Signal Labs footer component for Home, public pages, and tools.
 */
 (function () {
   function rootPath() {
     var path = window.location.pathname;
-    if (path.includes('/paycheck/') || path.includes('/overtime/') || path.includes('/timeoff/')) return '../';
+    if (path.includes('/paycheck/') || path.includes('/pay-planner/') || path.includes('/overtime/') || path.includes('/timeoff/')) return '../';
     if (/^\/(changelog|roadmap|how-to|report-issue|request-feature|contact|about|privacy|terms|status)\//.test(path)) return '../';
     return '';
   }

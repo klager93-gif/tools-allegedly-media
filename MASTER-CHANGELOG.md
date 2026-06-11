@@ -1,3 +1,14 @@
+# Signal Labs Master Changelog
+
+## 2026-06-10 — Home v0.9.2 + Paycheck v1.0.0
+
+- Reorganized root documentation into `/standards/`, `/docs/`, and `/build/`.
+- Added Signal Labs favicon/app icon kit under `/assets/icons/`.
+- Promoted Paycheck Calculator to v1.0.0 Stable Calculator Release.
+- Removed Target Pay planning UI from Paycheck.
+- Created unlinked Pay Planner v0.1.0 incubator under `/pay-planner/`.
+- Preserved 36/44 Weekly OT and professional print report behavior.
+
 ## 2026-06-10 — Paycheck v0.9.9 — Report & Metadata Cleanup
 
 - Preserved Paycheck v0.9.7 Weekly OT profile support.
@@ -15,7 +26,6 @@
 
 ---
 
-# Signal Labs Master Changelog
 
 ## 2026-06-10 — Home v0.9.0 — Public Pages Architecture
 
