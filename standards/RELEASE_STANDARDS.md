@@ -1,8 +1,8 @@
 # Release Standards
 
-## Release Response
+## Hotfixes
 
-Every release should include backup name, download link, GitHub title, GitHub summary, validation, files changed, and build metadata.
+Hotfixes include only affected files and required internal changelog updates.
 
 ## Full Replacement Rule
 
@@ -10,10 +10,6 @@ Before full-replacement packages, ask whether the user is deleting/replacing the
 
 If yes, include every live top-level folder, even unchanged ones.
 
-## Hotfix Rule
+## Shared Asset Releases
 
-Hotfixes include only affected files and required internal changelog updates.
-
-## Version Sync
-
-Check metadata, visible footer/header output, shared components, and cache-busting.
+Shared asset releases must include all affected page files and cache-busting updates.

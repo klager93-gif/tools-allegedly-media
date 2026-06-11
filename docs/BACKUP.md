@@ -3,5 +3,5 @@
 Use backup folder:
 
 ```text
-2026-06-10-before-home-v0.9.9.2-footer-style-recovery
+2026-06-11-before-home-v0.9.9.3-paycheck-v1.0.3-global-footer-recovery
 ```

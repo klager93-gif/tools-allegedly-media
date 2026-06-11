@@ -1,21 +1,43 @@
 # Signal Labs Admin Changelog
 
-## Home v0.9.9.2 — Footer Style Recovery + Matched Components Rule
+## Home v0.9.9.3 + Paycheck v1.0.3 — Global Footer Recovery
 
-**Date:** 2026-06-10
+**Date:** 2026-06-11
 
 ### Fixed
 
-- Restored shared footer markup compatibility with the existing `home-footer` CSS system.
-- Corrected Home/public footer version sync to `v0.9.9.2`.
-- Included `assets/global.css` because the shared footer component and stylesheet are a matched set.
-- Updated Home/public page footer and global CSS cache-busting references.
+- Recovered styled shared footer across all currently migrated shared-footer pages.
+- Synced Paycheck footer/global asset references with the recovered shared footer system.
+- Synced Pay Planner footer/global asset references with the recovered shared footer system.
+- Preserved Home/public page footer version sync.
+- Included matched `footer.js` and `global.css`.
 
 ### Root Cause
 
-A previous footer hotfix replaced `assets/components/footer.js` with markup using new `.sl-footer` classes, but the live stylesheet did not contain matching `.sl-footer` CSS. The footer rendered as unstyled text.
+The previous shared footer recovery fixed Home/public pages but did not include all affected shared-footer pages, especially Paycheck and Pay Planner.
 
 ### Standards Updated
 
-- Added Matched Component Rule.
-- Shared component JavaScript and CSS must be verified together.
+- Added Global Change Rule.
+- Shared asset changes must include all affected pages and cache-busting updates.
+
+### Affected Pages
+
+- Home
+- About
+- Changelog
+- Contact
+- How To
+- Privacy
+- Report Issue
+- Request Feature
+- Roadmap
+- Status
+- Terms
+- Paycheck
+- Pay Planner
+
+### Not Modified
+
+- Overtime
+- Time Off

@@ -29,3 +29,7 @@ Procedure:
 8. Build one corrective package.
 
 For shared visual components, inspect both component JavaScript and matching CSS.
+
+## Global Change Workflow
+
+If a shared asset changes, update and verify every page that depends on it.

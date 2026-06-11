@@ -1,25 +1,5 @@
 # Repository Standards
 
-## Root Files
+Preserve all live top-level folders during full replacements.
 
-Keep front-desk files at root:
-
-- index.html
-- README.md
-- ROADMAP.md
-- HOWTO.md
-- PUBLIC_CHANGELOG.md
-- ADMIN_CHANGELOG.md
-- MASTER-CHANGELOG.md
-- MASTER-ROADMAP.md
-
-## Root Folders
-
-Preserve all live top-level folders, including unchanged tools, during full replacements.
-
-## Support Folders
-
-- standards/
-- docs/
-- build/
-- assets/
+Root front-desk files stay at root. Operational docs live in docs/. Build files live in build/. Standards live in standards/.

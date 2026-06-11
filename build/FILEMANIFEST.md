@@ -1,8 +1,9 @@
 # File Manifest
 
+## Included
 - assets/components/footer.js
 - assets/global.css
-- Home/public index.html files
+- all affected shared-footer index.html files
 - standards/*.md
 - root docs/changelogs
 - docs/*

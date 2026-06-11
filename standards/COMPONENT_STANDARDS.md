@@ -4,10 +4,12 @@
 
 Shared components include:
 
-- assets/components/header.js
-- assets/components/footer.js
-- assets/global.css
-- assets/global.js
+```text
+assets/components/header.js
+assets/components/footer.js
+assets/global.css
+assets/global.js
+```
 
 ## Matched Component Rule
 
@@ -23,4 +25,30 @@ Before replacing a shared component, verify:
 - affected pages are listed,
 - legacy/unaffected pages are identified.
 
-If a shared component visually breaks after hotfixes, invoke the Nuclear Option.
+## Global Change Rule
+
+When modifying shared assets such as:
+
+```text
+assets/components/header.js
+assets/components/footer.js
+assets/global.css
+assets/global.js
+```
+
+treat the release as a system-wide dependency change.
+
+The release must include:
+
+1. Affected pages.
+2. Unaffected or legacy pages.
+3. Cache-busting updates for every affected page.
+4. Verification that all affected page files are included.
+
+Shared component releases are infrastructure releases, not single-page releases.
+
+## Legacy Pages
+
+Do not assume legacy pages inherit shared components.
+
+Overtime and Time Off remain legacy/unmigrated until their own migration releases.

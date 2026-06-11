@@ -4,6 +4,6 @@ Useful tools without the noise.
 
 ## Current Release
 
-**Home v0.9.9.2 — Footer Style Recovery + Matched Components Rule**
+**Home v0.9.9.3 + Paycheck v1.0.3 — Global Footer Recovery**
 
-Restores styled shared footer behavior after the version-sync hotfix changed footer markup without matching CSS.
+Restores styled footer behavior across all currently migrated shared-footer pages and adds the Global Change Rule.

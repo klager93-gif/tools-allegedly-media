@@ -1,5 +1,3 @@
 # Restore
 
-Replace included files at matching paths.
-
-This package is focused and does not remove or replace Overtime/Time Off.
+Replace included files at matching paths. This focused package does not delete or replace Overtime/Time Off.
