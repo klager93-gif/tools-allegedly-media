@@ -1,0 +1,891 @@
+<!--
+Signal Labs
+Tool: Overtime Calculator
+File: index.html
+Version: v0.9.9.3
+Purpose: Main application page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0">
+
+<title>
+Overtime Calculator | Signal Labs
+</title>
+
+<meta
+  name="description"
+  content="Estimate overtime pay, gross pay, taxes, deductions, and take-home pay with the Signal Labs Overtime Calculator.">
+
+<meta
+  property="og:title"
+  content="Signal Labs Overtime Calculator">
+
+<meta
+  property="og:description"
+  content="Estimate overtime pay, gross earnings, taxes, deductions, and take-home pay.">
+
+<link rel="icon" href="/favicon.ico">
+
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/favicon-32x32.png">
+
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/favicon-16x16.png">
+
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/apple-touch-icon.png">
+
+<link
+  rel="manifest"
+  href="/site.webmanifest">
+
+<link
+  rel="stylesheet"
+  href="../assets/global.css?v=0.6.1">
+
+<link
+  rel="stylesheet"
+  href="style.css?v=0.9.9.2">
+
+</head>
+<body>
+
+<main class="page">
+
+<header class="hero">
+  <p class="eyebrow">Signal Labs</p>
+
+  <h1>Overtime Calculator</h1>
+
+  <p class="subtitle">
+    Estimate regular pay, overtime pay, gross pay, and simple take-home pay.
+  </p>
+</header>
+
+<div
+  class="ad-slot ad-slot-top is-disabled"
+  data-ad-slot="overtime-top"
+  data-ad-status="disabled"
+  aria-hidden="true">
+  <span class="ad-placeholder">Ad slot reserved</span>
+</div>
+
+<section class="dashboard-layout">
+
+<section class="left-stack">
+
+<section class="card step-card basic-card collapsible-card is-open" data-collapse-card>
+
+<div class="section-title">
+  <div class="step-badge green">1</div>
+  <div>
+    <h2>Overtime Details</h2>
+    <p>Enter your pay rate, overtime hours, and overtime policy.</p>
+  </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="true">
+    Hide
+  </button>
+</div>
+
+<div class="card-collapse-content">
+
+<div class="form-grid">
+
+<label>
+  <span>Hourly Rate</span>
+  <input id="rate" type="number" placeholder="25.00" step="0.01">
+</label>
+
+<label>
+  <span>Total Hours Worked</span>
+  <input id="hours" type="number" placeholder="48" step="0.01">
+</label>
+
+<label>
+  <span>Pay Period <span class="info-icon" tabindex="0" data-info="Weekly defaults to 40 hours. Biweekly defaults to 80 hours. Monthly and semimonthly vary by employer.">i</span></span>
+  <select id="payPeriod">
+    <option value="weekly">Weekly</option>
+    <option value="biweekly">Bi-Weekly</option>
+    <option value="semimonthly">Semi-Monthly</option>
+    <option value="monthly">Monthly</option>
+    <option value="custom">Custom</option>
+  </select>
+</label>
+
+<label>
+  <span>Currency <span class="info-icon" tabindex="0" data-info="Currency changes the symbol displayed. Exchange rates are not converted.">i</span></span>
+  <select id="currency">
+    <option value="USD">USD ($)</option>
+    <option value="EUR">EUR (€)</option>
+    <option value="GBP">GBP (£)</option>
+    <option value="CAD">CAD ($)</option>
+    <option value="AUD">AUD ($)</option>
+  </select>
+</label>
+
+<label>
+  <span>Overtime Multiplier <span class="info-icon" tabindex="0" data-info="1.5 means time-and-a-half. 2.0 means double time.">i</span></span>
+  <input id="multiplier" type="number" value="1.5" step="0.1">
+</label>
+
+</div>
+
+<div class="threshold-box">
+
+<div>
+  <strong>OT starts after:</strong>
+  <span id="thresholdDisplay">40 hours</span>
+</div>
+
+
+<div class="ot-threshold-pill-row" role="group" aria-label="Overtime threshold mode">
+  <button class="ot-threshold-pill is-selected" type="button" id="otThresholdModeAuto" data-threshold-mode="auto">Automatic</button>
+  <button class="ot-threshold-pill" type="button" id="otThresholdModeCustom" data-threshold-mode="custom">Custom</button>
+  <span class="info-icon" tabindex="0" data-info="Automatic uses the default overtime threshold for the selected pay period. Custom lets you enter a different threshold.">i</span>
+</div>
+
+<div class="hidden-by-ui-identity"><label class="override-row">
+  <input id="overrideThreshold" type="checkbox">
+  <span>Override OT threshold</span>
+</label></div>
+
+<div id="customThresholdWrap" class="custom-threshold hidden-threshold">
+  <label>
+    <span>Custom OT Threshold</span>
+    <input id="customThreshold" type="number" placeholder="40" step="0.01">
+  </label>
+</div>
+
+<p id="thresholdNote" class="threshold-note">
+  Weekly pay period selected. Overtime starts after 40 hours.
+</p>
+
+<p class="threshold-note currency-note">
+  
+</p>
+
+</div>
+
+
+
+<p id="message" class="message">
+  Enter values or load an example to begin.
+</p>
+
+<div class="profile-row">
+  <span>Settings and layout are saved locally on this device.</span>
+
+  <button
+    id="clearSavedProfile"
+    class="mini-button"
+    type="button">
+    Clear Saved Profile
+  </button>
+</div>
+
+</div>
+
+</section>
+<section class="card step-card adjustment-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="takeHome">
+
+<div class="section-title">
+  <div class="step-badge purple">2</div>
+  <div>
+    <h2>Deductions &amp; Adjustments <span class="info-icon" tabindex="0" data-info="Examples: federal tax, state tax, retirement contributions, insurance deductions, union dues, HSA, deferred comp, or other custom items.">i</span></h2>
+    <p>Add taxes, deductions, and other adjustments to estimate your take-home overtime pay.</p>
+  </div>
+
+      <div class="inline-optional-control">
+        <span class="optional-pill">Optional</span>
+        <span class="optional-state-label is-on" data-state-for="takeHomeEnabled">ON</span>
+        <label class="inline-toggle-switch" title="Include deductions and adjustments in results and reports.">
+          <input id="takeHomeEnabled" type="checkbox" checked>
+          <span class="toggle-slider" aria-hidden="true"></span>
+        </label>
+      </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="false">
+    Show
+  </button>
+</div>
+
+<div class="optional-section-body">
+
+<div class="card-collapse-content">
+
+<div class="add-row">
+
+<button
+  id="addTax"
+  class="add-button purple-button"
+  type="button">
+  Add Tax
+</button>
+
+<button
+  id="addDeduction"
+  class="add-button blue-button"
+  type="button">
+  Add Deduction
+</button>
+
+<button
+  id="addOther"
+  class="add-button orange-button"
+  type="button">
+  Add Other
+</button>
+
+</div>
+
+<div class="adjustment-group">
+
+<div class="adjustment-header purple-text">
+  <strong>Taxes</strong>
+  <span id="taxTotalLabel">Total: 0%</span>
+</div>
+
+<div id="taxList" class="adjustment-list">
+</div>
+
+<button
+  id="addTaxInline"
+  class="inline-add purple-outline"
+  type="button">
+  + Add Tax
+</button>
+
+</div>
+
+<div class="adjustment-group">
+
+<div class="adjustment-header blue-text">
+  <strong>Deductions</strong>
+  <span id="deductionTotalLabel">Total: $0.00</span>
+</div>
+
+<div id="deductionList" class="adjustment-list">
+</div>
+
+<button
+  id="addDeductionInline"
+  class="inline-add blue-outline"
+  type="button">
+  + Add Deduction
+</button>
+
+</div>
+
+<div class="adjustment-group">
+
+<div class="adjustment-header orange-text">
+  <strong>Other Adjustments</strong>
+  <span id="otherTotalLabel">Total: $0.00</span>
+</div>
+
+<div id="otherList" class="adjustment-list empty-list">
+  <p>No other adjustments added.</p>
+</div>
+
+<button
+  id="addOtherInline"
+  class="inline-add orange-outline"
+  type="button">
+  + Add Other Adjustment
+</button>
+
+</div>
+
+<div class="info-note">
+  <strong>Simple estimate only.</strong>
+  <span>
+    This uses values you provide and does not calculate official tax brackets.
+  </span>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<section class="card step-card advanced-pay-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="advancedPay">
+
+<div class="section-title">
+  <div class="step-badge blue">3</div>
+  <div>
+    <h2>Pay Details <span class="info-icon" tabindex="0" data-info="Examples: shift differential, hazard pay, bonus pay, incentive pay, holiday bonus, or other extra earnings.">i</span></h2>
+    <p>Include shift differentials, bonuses, and other earnings in your overtime estimate.</p>
+  </div>
+
+      <div class="inline-optional-control">
+        <span class="optional-pill">Optional</span>
+        <span class="optional-state-label is-on" data-state-for="advancedPayEnabled">ON</span>
+        <label class="inline-toggle-switch" title="Include pay details in results and reports.">
+          <input id="advancedPayEnabled" type="checkbox" checked>
+          <span class="toggle-slider" aria-hidden="true"></span>
+        </label>
+      </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="false">
+    Show
+  </button>
+</div>
+
+<div class="optional-section-body">
+
+<div class="card-collapse-content">
+
+<div class="advanced-subsection">
+  <h3>Shift Differential</h3>
+</div>
+
+<div class="form-grid advanced-form-grid">
+
+<label>
+  <span>Shift Differential Rate <span class="info-icon" tabindex="0" data-info="Additional pay for nights, weekends, or specialty shifts.">i</span></span>
+  <input id="differentialRate" type="number" placeholder="2.00" step="0.01">
+</label>
+
+<label>
+  <span>Differential Hours</span>
+  <input id="differentialHours" type="number" placeholder="8" step="0.01">
+</label>
+
+</div>
+
+<div class="advanced-subsection">
+  <h3>Double Time</h3>
+</div>
+
+<div class="form-grid advanced-form-grid single-field-grid">
+
+<label>
+  <span>Additional Double-Time Hours</span>
+  <input id="doubleTimeHours" type="number" placeholder="0" step="0.01">
+</label>
+
+</div>
+
+<div class="advanced-subsection">
+  <h3>Bonuses</h3>
+</div>
+
+<div class="form-grid advanced-form-grid">
+
+<label>
+  <span>Weekend Bonus</span>
+  <input id="weekendBonus" type="number" placeholder="0.00" step="0.01">
+</label>
+
+<label>
+  <span>Holiday Bonus</span>
+  <input id="holidayBonus" type="number" placeholder="0.00" step="0.01">
+</label>
+
+<label>
+  <span>Flat Bonus</span>
+  <input id="otherBonus" type="number" placeholder="0.00" step="0.01">
+</label>
+
+</div>
+
+<div class="info-note advanced-note">
+  <strong>Pay details are optional.</strong>
+  <span>
+    Differential pay, additional double-time hours, and flat bonuses are added to gross pay before taxes and deductions.
+  </span>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<section class="card step-card goal-card collapsible-card mobile-collapsed" data-collapse-card data-optional-section="goalMode">
+
+<div class="section-title">
+  <div class="step-badge orange">4</div>
+  <div>
+    <h2>Target Pay <span class="info-icon" tabindex="0" data-info="Example: How much overtime do I need to earn an extra $500?">i</span></h2>
+    <p>Find out how much overtime you need to earn a desired amount.</p>
+  </div>
+
+      <div class="inline-optional-control">
+        <span class="optional-pill">Optional</span>
+        <span class="optional-state-label is-on" data-state-for="goalModeEnabled">ON</span>
+        <label class="inline-toggle-switch" title="Include target pay in results and reports.">
+          <input id="goalModeEnabled" type="checkbox" checked>
+          <span class="toggle-slider" aria-hidden="true"></span>
+        </label>
+      </div>
+
+  <button
+    class="collapse-toggle"
+    type="button"
+    aria-expanded="false">
+    Show
+  </button>
+</div>
+
+<div class="optional-section-body">
+
+<div class="card-collapse-content">
+
+<div class="form-grid">
+
+<label>
+  <span>Goal Type</span>
+  <select id="goalType">
+    <option value="gross">Before Taxes (Gross) Goal</option>
+    <option value="takehome">Take-Home Pay (Net) Goal</option>
+  </select>
+</label>
+
+<label>
+  <span>Target Amount</span>
+  <input id="goalAmount" type="number" placeholder="2500.00" step="0.01">
+</label>
+
+<label>
+  <span>Typical Shift Length</span>
+  <input id="goalShiftLength" type="number" placeholder="8" step="1" min="1">
+</label>
+
+</div>
+
+<div class="info-note goal-note">
+  <strong>Target Pay uses your current settings.</strong>
+  <span>Rate, pay period, overtime threshold, taxes, deductions, and advanced pay values are used to estimate the hours needed.</span>
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+</section>
+
+
+<section class="card results-card results-compact-mobile">
+
+<div class="results-heading">
+  <div>
+    <h2>Estimated Pay</h2>
+  </div>
+
+  <button
+    id="clearAdjustments"
+    class="mini-button"
+    type="button">
+    Clear All
+  </button>
+</div>
+
+
+<div class="results-section mobile-result-section hours-result-section mobile-result-collapsed" data-result-section>
+
+<h3>Hours Breakdown
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button></h3>
+
+<div class="result-row">
+  <span>Total Hours</span>
+  <strong id="totalHours">0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Regular Hours</span>
+  <strong id="regularHours">0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Overtime Hours</span>
+  <strong id="overtimeHours">0.00</strong>
+</div>
+
+</div>
+
+<div class="results-section mobile-result-section rates-result-section mobile-result-collapsed" data-result-section>
+
+<h3>Rates
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button></h3>
+
+<div class="result-row">
+  <span>Hourly Rate</span>
+  <strong id="hourlyRate">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Overtime Rate</span>
+  <strong id="overtimeRate">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Before-Tax Effective Rate (Gross)</span>
+  <strong id="effectiveRate">$0.00</strong>
+</div>
+
+</div>
+
+<div class="results-section mobile-result-section pay-result-section" data-result-section>
+
+<h3>Pay Breakdown
+  <button class="result-collapse-toggle" type="button" aria-expanded="true">Hide</button></h3>
+
+<div class="result-row">
+  <span>Regular Pay</span>
+  <strong id="regularPay">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Overtime Pay</span>
+  <strong id="overtimePay">$0.00</strong>
+</div>
+
+<div class="result-row total">
+  <span>Before Taxes (Gross)</span>
+  <strong id="totalPay">$0.00</strong>
+</div>
+
+</div>
+
+<div
+  class="ad-slot ad-slot-inline is-disabled"
+  data-ad-slot="overtime-inline-results"
+  data-ad-status="disabled"
+  aria-hidden="true">
+  <span class="ad-placeholder">Ad slot reserved</span>
+</div>
+
+
+<div class="results-section mobile-result-section advanced-result-section mobile-result-collapsed" data-result-section>
+
+<h3 class="blue-text">
+  Pay Details
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+  <span id="advancedPayTotal">$0.00</span>
+</h3>
+
+<div class="result-row">
+  <span>Shift Differential Pay</span>
+  <strong id="differentialPay">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Additional Double-Time Pay</span>
+  <strong id="doubleTimePay">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Bonus Pay</span>
+  <strong id="bonusPay">$0.00</strong>
+</div>
+
+</div>
+
+<div class="results-section mobile-result-section taxes-result-section mobile-result-collapsed" data-result-section>
+
+<h3 class="purple-text">
+  Taxes
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+  <span id="taxResultsTotal">-$0.00</span>
+</h3>
+
+<div id="taxResultRows" class="result-detail-list">
+  <p>No taxes added.</p>
+</div>
+
+</div>
+
+<div class="results-section mobile-result-section deductions-result-section mobile-result-collapsed" data-result-section>
+
+<h3 class="blue-text">
+  Deductions
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+  <span id="deductionResultsTotal">-$0.00</span>
+</h3>
+
+<div id="deductionResultRows" class="result-detail-list">
+  <p>No deductions added.</p>
+</div>
+
+</div>
+
+<div class="result-row net-total">
+  <span>Take-Home Pay (Net)</span>
+  <strong id="takeHomePay">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Take-Home Effective Rate (Net)</span>
+  <strong id="netEffectiveRate">$0.00</strong>
+</div>
+
+<div class="results-section mobile-result-section goal-result-section mobile-result-collapsed" data-result-section>
+
+<h3 class="orange-text">
+  Target Pay
+  <button class="result-collapse-toggle" type="button" aria-expanded="false">Show</button>
+  <span id="goalTargetSummary">--</span>
+</h3>
+
+<div class="result-row">
+  <span>Target Amount</span>
+  <strong id="goalTargetAmount">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Hours Needed</span>
+  <strong id="goalHoursNeeded">--</strong>
+</div>
+
+<div class="result-row">
+  <span>Overtime Hours Needed</span>
+  <strong id="goalOvertimeNeeded">--</strong>
+</div>
+
+<div class="result-row">
+  <span>Estimated Shifts Needed</span>
+  <strong id="goalShiftsNeeded">--</strong>
+</div>
+
+<div class="result-row">
+  <span>Estimated Before Taxes (Gross)</span>
+  <strong id="goalGrossRequired">$0.00</strong>
+</div>
+
+<div class="result-row">
+  <span>Take-Home Pay (Net)</span>
+  <strong id="goalTakeHomeEstimate">$0.00</strong>
+</div>
+
+<p id="goalResultNote" class="message">Enter a goal amount to estimate hours needed.</p>
+
+</div>
+
+<div class="summary-card compact-summary">
+  <p>
+    Generated:
+    <span id="generatedTime">--</span>
+  </p>
+
+  <p>
+    Build:
+    v0.9.9.3
+  </p>
+
+  <p>
+    Theme:
+    Shared Report Format
+  </p>
+
+  <p>
+    Status:
+    Active Development
+  </p>
+</div>
+
+</section>
+
+</section>
+
+
+<div class="footer-notes overtime-notes">
+  <strong>ⓘ Notes</strong>
+  <ul>
+    <li>Weekly periods default to 40 overtime hours. Biweekly periods default to 80.</li>
+    <li>Currency changes display symbols only; exchange rates are not converted.</li>
+    <li>Estimates do not replace employer policy, payroll systems, contracts, or labor rules.</li>
+  </ul>
+</div>
+
+
+<nav class="shared-action-bar" data-shared-action-bar aria-label="Overtime actions">
+  <div class="shared-action-bar-inner">
+    <div class="shared-action-group shared-action-group-left">
+      <button id="saveSettings" class="secondary" type="button" data-action-target="saveSettings">Save Settings</button>
+      <button id="example" class="secondary" type="button" data-action-target="example">Example</button>
+      <button id="reset" class="secondary" type="button" data-action-target="reset">Reset</button>
+    </div>
+    <div class="shared-action-group shared-action-group-center">
+      <button id="calculate" class="primary-action calculate-main" type="button" data-action-target="calculate">Calculate Pay</button>
+    </div>
+    <div class="shared-action-group shared-action-group-right">
+      <button id="copyResults" class="secondary" type="button" data-action-target="copyResults">Copy Results</button>
+      <button id="printResults" class="secondary" type="button" data-action-target="printResults">Print Report</button>
+    </div>
+  </div>
+  <p class="shared-action-note">Actions stay available while you review or update your overtime estimate.</p>
+</nav>
+
+</main>
+
+<footer class="version">
+
+<div
+  class="ad-slot ad-slot-footer is-disabled"
+  data-ad-slot="overtime-footer"
+  data-ad-status="disabled"
+  aria-hidden="true">
+  <span class="ad-placeholder">Ad slot reserved</span>
+</div>
+
+<div class="footer-actions">
+
+<button id="openChangelog" type="button">
+  Changelog
+</button>
+
+<button id="openRoadmap" type="button">
+  Roadmap
+</button>
+
+</div>
+
+<div class="footer-copy">
+  Signal Labs · Overtime Calculator · v0.9.9.3
+  <br>
+  Estimates only. Actual pay may vary based on taxes, deductions,
+  employer policies, and applicable labor laws.
+</div>
+
+</footer>
+
+<div
+  id="modal"
+  class="modal hidden">
+
+<div class="modal-box">
+
+<button
+  id="closeModal"
+  class="modal-close"
+  type="button">
+
+×
+
+</button>
+
+<h2 id="modalTitle">
+Project Information
+</h2>
+
+<pre id="modalContent">
+Loading...
+</pre>
+
+</div>
+
+</div>
+
+
+<div
+  id="adjustmentModal"
+  class="modal hidden">
+
+<div class="modal-box adjustment-modal-box">
+
+<button
+  id="closeAdjustmentModal"
+  class="modal-close"
+  type="button">
+
+×
+
+</button>
+
+<h2 id="adjustmentModalTitle">
+Add Adjustment
+</h2>
+
+<p
+  id="adjustmentModalHelp"
+  class="adjustment-modal-help">
+Enter a name and value for this adjustment.
+</p>
+
+<div class="adjustment-modal-form">
+
+<label>
+  <span id="adjustmentNameLabel">Name</span>
+  <input
+    id="adjustmentName"
+    type="text"
+    autocomplete="off">
+</label>
+
+<label>
+  <span id="adjustmentValueLabel">Value</span>
+  <input
+    id="adjustmentValue"
+    type="number"
+    step="0.01">
+</label>
+
+</div>
+
+<p
+  id="adjustmentModalMessage"
+  class="message adjustment-modal-message">
+</p>
+
+<div class="modal-action-row">
+
+<button
+  id="saveAdjustment"
+  class="primary-action"
+  type="button">
+  Add Adjustment
+</button>
+
+<button
+  id="cancelAdjustment"
+  class="secondary"
+  type="button">
+  Cancel
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="../assets/global.js?v=0.6.1"></script>
+<script src="script.js?v=0.9.9.2"></script>
+
+</body>
+</html>

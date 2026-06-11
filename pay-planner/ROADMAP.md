@@ -1,14 +1,24 @@
-# Pay Planner Roadmap
+# Home Roadmap
 
-## v0.1.0
+## Completed / Recovery
 
-- Create unlinked incubator page.
-- Provide basic target amount/hour estimate foundation.
+### Home v0.9.5 — Restore Missing Tools
 
-## Future
+- Restore missing `/overtime/` and `/timeoff/` folders.
+- Add full replacement package safeguards.
 
-- Target net pay.
-- Target gross pay.
-- Weekly OT profiles.
-- Shift planning.
-- Timeline goals.
+## Upcoming
+
+### Home v0.9.6 — Shared Footer Strip Cleanup
+
+- Simplify footer bottom strip.
+- Remove duplicate theme/status/link information.
+
+### Home v1.0.0 — Shared Component Expansion
+
+- Header.
+- Footer.
+- Action bar.
+- Toasts.
+- Modals.
+- Reports.

@@ -1,5 +1,12 @@
-# Pay Planner Public Changelog
+# Signal Labs Public Changelog
 
-## v0.1.0 — Incubator
+## Home v0.9.5 — Restore Missing Tools
 
-- Created unlinked Pay Planner foundation.
+**Date:** 2026-06-10
+
+### Fixed
+
+- Restored the Overtime Calculator folder.
+- Restored the Time Off Calculator folder.
+- No calculator features changed.
+- No calculator logic changed.
