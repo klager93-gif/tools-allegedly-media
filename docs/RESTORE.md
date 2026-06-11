@@ -1,3 +1,3 @@
 # Restore
 
-Restore from the external backup made before this release if deployment fails.
+Restore this package by replacing the listed files in the same paths.

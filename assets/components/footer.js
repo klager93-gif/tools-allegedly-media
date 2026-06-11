@@ -1,65 +1,120 @@
 /*
-Signal Labs Component File: assets/components/footer.js
-Version: v0.9.4
-Purpose: Shared Signal Labs footer component for Home, public pages, and tools.
+|--------------------------------------------------------------------------
+| Signal Labs Shared Footer Component
+|--------------------------------------------------------------------------
+| Version: Home v0.9.6 / Paycheck v1.0.2
+| Theme: Shared Footer Strip Cleanup
+|--------------------------------------------------------------------------
+| Renders the shared Signal Labs footer on pages with #sl-footer.
+| Bottom strip is intentionally minimal:
+| © 2026 Signal Labs · vX.X.X
+|--------------------------------------------------------------------------
 */
+
 (function () {
-  function rootPath() {
-    var path = window.location.pathname;
-    if (path.includes('/paycheck/') || path.includes('/pay-planner/') || path.includes('/overtime/') || path.includes('/timeoff/')) return '../';
-    if (/^\/(changelog|roadmap|how-to|report-issue|request-feature|contact|about|privacy|terms|status)\//.test(path)) return '../';
-    return '';
-  }
-  function meta() {
-    var ds = document.body ? document.body.dataset : {};
-    return {
-      area: ds.signalArea || 'Home',
-      title: ds.signalTitle || 'Signal Labs',
-      version: ds.signalVersion || '',
-      theme: ds.signalTheme || '',
-      status: ds.signalStatus || 'Active Development',
-      description: ds.signalDescription || 'Useful tools without the noise. Lightweight calculators and planning tools built for real-life decisions.',
-      statusText: ds.signalStatusText || 'All systems operational. We are constantly improving and adding new tools.'
+    "use strict";
+
+    const DEFAULTS = {
+        page: "home",
+        label: "Signal Labs",
+        version: "v0.9.6",
+        status: "Active Development",
+        statusTitle: "Status",
+        statusBody: "All systems operational. We are constantly improving and adding new tools.",
+        statusLink: "/status/",
+        statusLinkText: "View Status",
     };
-  }
-  function markSvg() {
-    return '<svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="4" y="4" width="24" height="24" rx="5"></rect><path d="M9 22h14"></path><path d="M10 18l5-5 4 4 5-7"></path><path d="M20 10h4v4"></path></svg>';
-  }
-  function renderFooter() {
-    var mount = document.getElementById('sl-footer');
-    if (!mount || mount.dataset.signalRendered) return;
-    var root = rootPath();
-    var m = meta();
-    var statusTitle = m.area && m.area !== 'Home' ? m.area + ' Status' : 'Status';
-    mount.dataset.signalRendered = 'true';
-    mount.innerHTML = '<footer class="home-footer signal-footer" aria-label="Signal Labs footer">' +
-      '<div class="home-footer-main">' +
-      '<section class="home-footer-brand" aria-label="Signal Labs summary"><div class="home-footer-brandline"><span class="home-footer-mark" aria-hidden="true">' + markSvg() + '</span><strong>Signal Labs</strong></div><p>Useful tools without the noise. Lightweight calculators and planning tools built for real-life decisions.</p></section>' +
-      '<nav class="home-footer-links" aria-label="Footer resources">' +
-      '<details class="home-footer-group" open><summary><span>Resources</span></summary><a href="' + root + 'changelog/">Changelog</a><a href="' + root + 'roadmap/">Roadmap</a><a href="' + root + 'how-to/">How To</a></details>' +
-      '<details class="home-footer-group" open><summary><span>Support</span></summary><a href="' + root + 'report-issue/">Report an Issue</a><a href="' + root + 'request-feature/">Request a Feature</a><a href="' + root + 'contact/">Contact</a></details>' +
-      '<details class="home-footer-group" open><summary><span>About</span></summary><a href="' + root + 'about/">About Signal Labs</a><a href="' + root + 'privacy/">Privacy Policy</a><a href="' + root + 'terms/">Terms of Use</a></details>' +
-      '</nav>' +
-      '<section class="home-footer-status" aria-label="Project status"><h3>' + statusTitle + '</h3><span class="home-status-pill">● ' + m.status + '</span><p>' + m.statusText + '</p><a class="home-status-link" href="' + root + 'status/">View Status <span aria-hidden="true">→</span></a></section>' +
-      '</div>' +
-      '<div class="home-footer-bottom"><span>© 2026 Signal Labs' + (m.version ? ' · ' + m.version : '') + '</span></div>' +
-      '</footer>';
-    syncFooterAccordions(mount);
-  }
-  function syncFooterAccordions(scope) {
-    var groups = (scope || document).querySelectorAll('.home-footer-group');
-    if (!groups.length) return;
-    var sync = function () {
-      var collapse = window.matchMedia('(max-width: 700px)').matches;
-      groups.forEach(function (group) {
-        if (collapse) group.removeAttribute('open');
-        else group.setAttribute('open', '');
-      });
+
+    const TOOL_STATUS_TITLES = {
+        home: "Status",
+        paycheck: "Paycheck Status",
+        "pay-planner": "Pay Planner Status",
+        overtime: "Overtime Status",
+        timeoff: "Time Off Status",
     };
-    sync();
-    window.addEventListener('resize', sync);
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', renderFooter);
-  else renderFooter();
-  window.SignalLabsFooter = { render: renderFooter };
+
+    function readMeta() {
+        const body = document.body || {};
+        const dataset = body.dataset || {};
+
+        const page = dataset.slPage || DEFAULTS.page;
+        const title = dataset.slTitle || DEFAULTS.label;
+        const version = dataset.slVersion || DEFAULTS.version;
+        const status = dataset.slStatus || DEFAULTS.status;
+
+        return {
+            page,
+            title,
+            version,
+            status,
+            statusTitle: dataset.slStatusTitle || TOOL_STATUS_TITLES[page] || DEFAULTS.statusTitle,
+            statusBody: dataset.slStatusBody || DEFAULTS.statusBody,
+            statusLink: dataset.slStatusLink || DEFAULTS.statusLink,
+            statusLinkText: dataset.slStatusLinkText || DEFAULTS.statusLinkText,
+        };
+    }
+
+    function html(meta) {
+        const safeVersion = meta.version || DEFAULTS.version;
+
+        return `
+<footer class="sl-footer" aria-label="Signal Labs footer">
+    <div class="sl-footer-main">
+        <section class="sl-footer-brand" aria-label="Signal Labs">
+            <div class="sl-footer-brand-row">
+                <span class="sl-footer-logo" aria-hidden="true">▧</span>
+                <strong>Signal Labs</strong>
+            </div>
+            <p>Useful tools without the noise. Lightweight calculators and planning tools built for real-life decisions.</p>
+        </section>
+
+        <nav class="sl-footer-links" aria-label="Resources">
+            <h2>Resources</h2>
+            <a href="/changelog/">Changelog</a>
+            <a href="/roadmap/">Roadmap</a>
+            <a href="/how-to/">How To</a>
+        </nav>
+
+        <nav class="sl-footer-links" aria-label="Support">
+            <h2>Support</h2>
+            <a href="/report-issue/">Report an Issue</a>
+            <a href="/request-feature/">Request a Feature</a>
+            <a href="/contact/">Contact</a>
+        </nav>
+
+        <nav class="sl-footer-links" aria-label="About">
+            <h2>About</h2>
+            <a href="/about/">About Signal Labs</a>
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Use</a>
+        </nav>
+
+        <section class="sl-footer-status-card" aria-label="${meta.statusTitle}">
+            <h2>${meta.statusTitle}</h2>
+            <p class="sl-status-pill"><span aria-hidden="true"></span>${meta.status}</p>
+            <p>${meta.statusBody}</p>
+            <a class="sl-footer-status-link" href="${meta.statusLink}">${meta.statusLinkText} →</a>
+        </section>
+    </div>
+
+    <div class="sl-footer-bottom">
+        <p>© 2026 Signal Labs · ${safeVersion}</p>
+    </div>
+</footer>`;
+    }
+
+    function mountFooter() {
+        const mount = document.getElementById("sl-footer");
+        if (!mount) {
+            return;
+        }
+
+        mount.innerHTML = html(readMeta());
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", mountFooter);
+    } else {
+        mountFooter();
+    }
 })();

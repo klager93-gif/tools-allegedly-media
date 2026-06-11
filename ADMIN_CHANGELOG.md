@@ -1,31 +1,20 @@
 # Signal Labs Admin Changelog
 
-## Home v0.9.2 + Paycheck v1.0.0
-
-- Moved standards into `/standards/`.
-- Moved install/restore/backup docs into `/docs/`.
-- Moved root manifests/checksums into `/build/`.
-- Added `/assets/icons/` favicon kit.
-- Created unlinked `/pay-planner/` incubator.
-- Removed Target Pay from `/paycheck/`.
-
-## Home v0.9.3 — Footer Simplification
+## Home v0.9.6 + Paycheck v1.0.2 — Footer Strip Cleanup
 
 **Date:** 2026-06-10
 
-- Updated `assets/components/footer.js` to render a single simplified bottom strip.
-- Added global CSS override for the simplified footer bottom row.
-- Confirmed change applies to shared-footer pages using `#sl-footer`.
+### Changed
 
-## Paycheck v1.0.1 — Footer Simplification
+- Updated `assets/components/footer.js`.
+- Removed bottom-strip rendering of:
+  - Build label
+  - Theme label
+  - Status label
+  - duplicate Changelog / Roadmap / How To links
+- Bottom strip now renders:
+  - `© 2026 Signal Labs · vX.X.X`
 
-**Date:** 2026-06-10
+### Scope
 
-- Bumped Paycheck metadata to v1.0.1.
-- Paycheck inherits the shared footer simplification through `footer.js`.
-
-## Home v0.9.4 + Paycheck v1.0.2 — Footer Strip Cleanup
-
-- Updated assets/components/footer.js shared footer renderer.
-- Footer strip now omits theme, status, and duplicate links across shared-footer pages.
-
+Applies to pages using the shared footer component. Does not modify standalone legacy Overtime or Time Off pages yet.

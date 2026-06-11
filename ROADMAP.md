@@ -1,26 +1,29 @@
 # Signal Labs Roadmap
 
-## Current
+## Immediate
 
-- Home v0.9.3: repository cleanup and standards folder migration.
-- Paycheck v1.0.1: stable calculator release.
-- Pay Planner v0.1.0: unlinked incubator.
+### Home v0.9.6 + Paycheck v1.0.2 — Footer Strip Cleanup
+
+- Simplify the shared footer bottom strip.
+- Keep the footer clean and user-facing.
 
 ## Next
 
-- Overtime design system adoption.
-- Paycheck list/card density pass if needed after v1.0 QA.
-- Shared report system under `/assets/reports/`.
-- Shared toast system under `/assets/components/toast.js`.
+### Overtime Migration
+
+- Adopt shared header.
+- Adopt shared footer.
+- Standardize report output.
+- Begin design-system pass.
+
+### Time Off Migration
+
+- Adopt shared header/footer.
+- Rework UX around clearer planning goals.
+
+## Future Shared Systems
+
+- Shared report system.
+- Shared toast system.
 - Shared modal/dialog system.
-
-
-## Completed: Home v0.9.3 + Paycheck v1.0.1 — Footer Simplification
-
-- Simplified shared footer bottom strip across shared-layout pages.
-
-## Next
-
-- Continue shared component cleanup.
-- Migrate Overtime and Time Off to shared header/footer later.
-
+- Shared action bar component.
