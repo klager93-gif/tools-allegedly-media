@@ -1,5 +1,25 @@
 # Signal Labs Master Changelog
 
+## v0.9.9.6 / Signal Schedule v0.1.2 — Roadmap and Architecture Planning
+
+**Date:** 2026-06-11  
+**Type:** Documentation / planning release
+
+### Added
+
+- Expanded Signal Schedule roadmap around local sandbox cleanup, date-based scheduling, month view, schedule patterns, rotations, time off conflicts, publishing, and future backend work.
+- Expanded `schedule/DATABASE-PLAN.md` with pattern, override, schedule period, shift swap, notification, and audit log planning.
+- Added the architecture rule that future schedules should be generated from pattern + start date + overrides instead of storing every future day forever.
+
+### Changed
+
+- Reframed Signal Schedule as a small scheduling application rather than a single-page spreadsheet replacement.
+- Updated `schedule/README.md`, `schedule/ROADMAP.md`, `schedule/DATABASE-PLAN.md`, `schedule/HOWTO.md`, root `ROADMAP.md`, and Schedule changelog.
+
+### Fixed
+
+- Confirmed `/schedule/` already had documentation files and avoided creating duplicates.
+
 ## v0.9.9.5 / Signal Schedule v0.1.1 — Logic Sandbox
 
 **Date:** 2026-06-11  

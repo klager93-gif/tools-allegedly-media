@@ -1,10 +1,16 @@
 # Build Manifest
 
-Release: v0.9.9.5 / Signal Schedule v0.1.1 — Logic Sandbox
-Backup Title: v0.9.9.4 / Signal Schedule v0.1.0 — Schedule Tool MVP
+Build: v0.9.9.6 / Signal Schedule v0.1.2
 Date: 2026-06-11
-Package: signal-schedule-v0.1.1-logic-sandbox.zip
+Type: Documentation / planning release
 
-Notes:
-- Updates Schedule only plus required root/build documentation.
-- Does not modify home, shared navigation, footer, paycheck logic, pay planner logic, overtime, or timeoff.
+Changed files:
+- MASTER-CHANGELOG.md
+- ROADMAP.md
+- schedule/CHANGELOG.md
+- schedule/DATABASE-PLAN.md
+- schedule/HOWTO.md
+- schedule/README.md
+- schedule/ROADMAP.md
+
+No duplicate schedule documentation files were created.

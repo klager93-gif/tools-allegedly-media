@@ -1,5 +1,23 @@
 # Signal Schedule Changelog
 
+## v0.1.2 — Roadmap and Architecture Planning
+
+### Added
+
+- Expanded the Schedule roadmap around employees, shifts, schedule patterns, overrides, time off, month view, publishing, and backend planning.
+- Expanded the database plan with schedule patterns, employee pattern assignments, overrides, schedule periods, shift swap requests, notifications, and audit logging.
+- Added the architecture rule that future schedules should be generated from pattern + start date + overrides instead of storing every future day forever.
+
+### Changed
+
+- Reframed Signal Schedule as a small scheduling application rather than a single-page schedule builder.
+- Clarified that the next coding phase should continue testing local logic before committing to PHP/database tables.
+- Updated README direction to match the larger scheduling roadmap.
+
+### Fixed
+
+- Avoided creating duplicate roadmap files because `/schedule/` already had README, HOWTO, CHANGELOG, ROADMAP, and DATABASE-PLAN documents.
+
 ## v0.1.1 — Logic Sandbox
 
 ### Added

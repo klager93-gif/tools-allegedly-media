@@ -11,4 +11,19 @@
 9. Use Month Planning Notes to preview how the weekly pattern maps into a month.
 10. Print or copy output when needed.
 
+## Current Limitation
+
 Data is saved in the browser using local storage. This is not yet a shared, login-backed scheduling system.
+
+## Planning Notes
+
+The current tool is intentionally text-output-first. Use it to test schedule rules before building the full month view, PHP backend, database tables, login system, employee accounts, and publishing workflow.
+
+When planning future features, keep these concepts separate:
+
+- Employees who appear on schedules
+- Users who log in
+- Shifts people can work
+- Patterns that generate expected workdays
+- Overrides that change generated workdays
+- Time off that blocks or replaces workdays

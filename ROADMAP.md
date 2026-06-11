@@ -5,10 +5,13 @@
 - Verify Signal Schedule v0.1.1 logic sandbox after deployment.
 - Confirm Schedule card, navigation, and footer links still work from the previous build.
 - Review text output and warnings before expanding visual schedule UI.
+- Apply Signal Schedule v0.1.2 documentation updates before the next coding pass.
 
 ## Upcoming
 
-- Signal Schedule: assignment editing, duplicate warnings, copy day/week, and true date-based month view planning.
+- Signal Schedule: local sandbox cleanup, assignment editing, duplicate warnings, copy day/week, and notes.
+- Signal Schedule: true date-based model and month view planning.
+- Signal Schedule: schedule patterns, rotations, overrides, time off conflicts, and publishing concept.
 - Overtime design-system migration.
 - Time Off design-system migration.
 - Shared report system.
@@ -29,8 +32,17 @@
 - Month planning preview.
 - Database planning document.
 
+### v0.1.2
+
+- Roadmap and architecture planning.
+- Expanded schedule database plan.
+- Pattern + start date + overrides model.
+- No duplicate documentation files created.
+
 ### Planned
 
-- Assignment editing, copy week/day, notes, shift labels, time-off warnings.
+- Local sandbox cleanup.
+- Assignment editing, copy week/day, notes, shift labels, and time-off warnings.
 - True date-based month view.
+- Pattern/rotation support.
 - Later: PHP backend, login, admin roles, employee roles, permissions, publishing, cloud sync, CSV/PDF export.
