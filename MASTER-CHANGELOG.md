@@ -1,3 +1,18 @@
+# Master Changelog
+
+## 2026-06-11 — Signal Schedule v0.1.3 Rule Engine and Agency Policy Planning
+
+### Added
+
+- Added Schedule rule-engine planning so future schedule logic can support multiple agency types and explain why decisions were made.
+- Added `schedule/RULE-ENGINE.md`.
+- Expanded Schedule database planning for agency policies, benefit accrual, mandate rotation, mandate exceptions, bidding, fairness metrics, qualifications, and decision explanations.
+
+### Changed
+
+- Reframed Schedule as a policy-aware staffing engine with calendar views instead of a calendar-first or dispatch-only tool.
+- Updated root roadmap and Schedule docs to preserve the rule-engine direction before the next coding pass.
+
 # Signal Labs Master Changelog
 
 ## v0.9.9.6 / Signal Schedule v0.1.2 — Roadmap and Architecture Planning

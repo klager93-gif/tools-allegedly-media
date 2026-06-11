@@ -27,3 +27,10 @@ When planning future features, keep these concepts separate:
 - Patterns that generate expected workdays
 - Overrides that change generated workdays
 - Time off that blocks or replaces workdays
+
+
+## Planning References
+
+- Use `ROADMAP.md` for version direction.
+- Use `DATABASE-PLAN.md` for future backend structure.
+- Use `RULE-ENGINE.md` when adding or changing schedule logic so rules stay explainable and agency-flexible.

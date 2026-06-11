@@ -2,16 +2,17 @@
 
 ## Immediate
 
-- Verify Signal Schedule v0.1.1 logic sandbox after deployment.
+- Verify Signal Schedule v0.1.3 documentation after deployment.
 - Confirm Schedule card, navigation, and footer links still work from the previous build.
 - Review text output and warnings before expanding visual schedule UI.
-- Apply Signal Schedule v0.1.2 documentation updates before the next coding pass.
+- Keep schedule logic separated from UI display code wherever practical.
 
 ## Upcoming
 
 - Signal Schedule: local sandbox cleanup, assignment editing, duplicate warnings, copy day/week, and notes.
 - Signal Schedule: true date-based model and month view planning.
 - Signal Schedule: schedule patterns, rotations, overrides, time off conflicts, and publishing concept.
+- Signal Schedule: future rule-engine planning around agency policies, coverage, fairness, mandation, benefits, bidding, and explanations.
 - Overtime design-system migration.
 - Time Off design-system migration.
 - Shared report system.
@@ -39,10 +40,22 @@
 - Pattern + start date + overrides model.
 - No duplicate documentation files created.
 
+### v0.1.3
+
+- Rule engine planning.
+- Agency policy templates concept.
+- Mandation and mandate exception planning.
+- Benefit time accrual and ledger planning.
+- Bidding, fairness, qualifications, and decision explanation planning.
+- Expanded database plan for agency-flexible staffing systems.
+
 ### Planned
 
 - Local sandbox cleanup.
 - Assignment editing, copy week/day, notes, shift labels, and time-off warnings.
 - True date-based month view.
 - Pattern/rotation support.
+- Coverage engine.
+- Benefit time module.
+- Mandation module.
 - Later: PHP backend, login, admin roles, employee roles, permissions, publishing, cloud sync, CSV/PDF export.

@@ -1,16 +1,31 @@
 # Build Manifest
 
-Build: v0.9.9.6 / Signal Schedule v0.1.2
-Date: 2026-06-11
-Type: Documentation / planning release
+## Build
 
-Changed files:
-- MASTER-CHANGELOG.md
-- ROADMAP.md
-- schedule/CHANGELOG.md
-- schedule/DATABASE-PLAN.md
-- schedule/HOWTO.md
-- schedule/README.md
-- schedule/ROADMAP.md
+Signal Schedule v0.1.3 — Rule Engine and Agency Policy Planning
 
-No duplicate schedule documentation files were created.
+## Date
+
+2026-06-11
+
+## Source
+
+Built from `signal-schedule-v0.1.2-roadmap-docs.zip`.
+
+## Notes
+
+Documentation/planning update only. No production HTML, CSS, or JavaScript behavior was intentionally changed.
+
+## Changed / Added Files
+
+- `MASTER-CHANGELOG.md`
+- `ROADMAP.md`
+- `schedule/README.md`
+- `schedule/HOWTO.md`
+- `schedule/CHANGELOG.md`
+- `schedule/ROADMAP.md`
+- `schedule/DATABASE-PLAN.md`
+- `schedule/RULE-ENGINE.md`
+- `build/BUILDMANIFEST.md`
+- `build/FILEMANIFEST.md`
+- `build/SHA256SUMS.txt`

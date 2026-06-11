@@ -1,5 +1,27 @@
 # Signal Schedule Changelog
 
+## v0.1.3 — Rule Engine and Agency Policy Planning
+
+### Added
+
+- Added `RULE-ENGINE.md` as a standing architecture guide for future schedule logic.
+- Added rule-engine planning for coverage, overtime, mandation, benefit accrual, bidding, fairness, qualifications, availability, audit history, and explainable decisions.
+- Added mandate rotation planning with mandate counts, skip reasons, exceptions, and admin override notes.
+- Added benefit time planning with accrual rules, agency policy flexibility, and auditable ledger records.
+- Added future support concepts for agency types beyond dispatch, including police, fire, EMS, nursing, hospitals, manufacturing, retail, and general shift-based companies.
+- Expanded database planning with agencies, policy rules, schedule events, coverage requirements, qualifications, employee exceptions, benefit tables, mandate tables, bidding tables, fairness metrics, and decision explanations.
+
+### Changed
+
+- Reframed Signal Schedule as a policy-aware staffing engine with calendar views, not a calendar-first or dispatch-only app.
+- Moved fairness, transparency, and explainability into the core roadmap.
+- Bumped the next sandbox cleanup work to v0.1.4 so v0.1.3 can remain a documentation/planning release.
+
+### Fixed
+
+- Reduced the risk of hard-coding one agency's rules into future schedule logic.
+- Added a standing reminder that schedule UI should display rule results, not hide business logic inside page-specific UI code.
+
 ## v0.1.2 — Roadmap and Architecture Planning
 
 ### Added

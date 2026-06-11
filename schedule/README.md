@@ -1,16 +1,16 @@
 # Signal Schedule
 
-Signal Schedule is a scheduling tool for Signal Labs.
+Signal Schedule is a scheduling and staffing tool for Signal Labs.
 
 ## Version
 
-v0.1.2 planning docs on top of the v0.1.1 logic sandbox.
+v0.1.3 planning docs on top of the v0.1.1 logic sandbox.
 
 ## Current Purpose
 
-This release remains a logic sandbox, not the final scheduling system. It is meant to prove the schedule model before PHP, database tables, logins, admin roles, employee accounts, month publishing, and permissions are added.
+This release remains a logic sandbox, not the final scheduling system. It is meant to prove the schedule model before PHP, database tables, logins, admin roles, employee accounts, month publishing, permissions, benefit time, mandation, bidding, and agency rule templates are added.
 
-The current planning direction is to build Signal Schedule as a small scheduling application instead of a single-page spreadsheet replacement.
+The current planning direction is to build Signal Schedule as a policy-aware staffing application instead of a single-page spreadsheet replacement.
 
 ## What it does now
 
@@ -31,17 +31,42 @@ The current planning direction is to build Signal Schedule as a small scheduling
 
 Signal Schedule should eventually separate these concepts:
 
+- Agencies
+- Agency policy rules
 - Employees
 - Users
 - Roles and permissions
 - Shifts
 - Schedule patterns
 - Employee pattern assignments
+- Schedule events
 - Time off
+- Benefit time and accrual ledgers
 - Availability
+- Qualifications and certifications
+- Overtime
+- Mandation and mandate exceptions
+- Bidding
 - Manual overrides
+- Coverage requirements
+- Fairness metrics
+- Decision explanations
 - Published schedule periods
 - Audit logs
+
+## Rule Engine Direction
+
+The rule engine is a standing architecture concept for future development.
+
+Signal Schedule should eventually be able to answer:
+
+```text
+Why was this person scheduled, skipped, awarded, denied, mandated, or warned?
+```
+
+Rules should support different agency types such as dispatch, police, fire, EMS, nursing, hospitals, manufacturing, retail, and general shift-based companies.
+
+See `RULE-ENGINE.md` for the rule-engine planning guide.
 
 ## Important Limitation
 
