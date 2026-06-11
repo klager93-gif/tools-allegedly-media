@@ -1,20 +1,48 @@
-# Signal Labs Workflow Standards
+# Workflow Standards
 
-## Daily startup
+## Session Startup
 
-Review all standards in `/standards/` before planning work.
+When a Signal Labs work session starts, verify:
 
-## Before building files
+```text
+Chat title: YYYY-MM-DD
+```
 
-Always review `/standards/WORKFLOW_STANDARDS.md`.
+Then review:
 
-## Domain checks
+- current versions
+- roadmap
+- active issues
+- releases in progress
+- whether the next package is full replacement or partial update
 
-- Before UI/CSS work: `/standards/UX_STANDARDS.md`
-- Before script work: `/standards/SCRIPT_STANDARDS.md`
-- Before documentation work: `/standards/DOCUMENTATION_STANDARDS.md`
-- Before release/versioning work: `/standards/VERSIONING_STANDARDS.md`
+## Daily Work
 
-## Release response format
+Before script work, review Script/Development standards.
 
-Every release response must include backup reminder, backup folder name, download link, GitHub title, GitHub summary, source/validation, files changed, and build metadata.
+Before UI/CSS work, review UX standards.
+
+Before documentation work, review Documentation standards.
+
+Before releases or packaging, review Release and Workflow standards.
+
+## Nuclear Option
+
+Nickname: **Nuclear Option**
+
+Trigger:
+
+```text
+Two failed hotfixes for the same issue.
+```
+
+Procedure:
+
+1. Stop patching.
+2. Compare last backup.
+3. Compare latest ChatGPT ZIP.
+4. Compare GitHub.
+5. Compare live site behavior.
+6. Inspect affected files line-by-line if needed.
+7. Identify root cause.
+8. Build one corrective package.

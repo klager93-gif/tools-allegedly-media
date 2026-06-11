@@ -2,8 +2,8 @@
 
 Useful tools without the noise.
 
-## Current Hotfix
+## Current Release
 
-**Home v0.9.9 — Public Page Version Sync Hotfix**
+**Home v0.9.9.1 — Public Page Version Sync Resolution + Standards v2.0 Consolidation**
 
-Fixes Home/public shared footer version display while preserving independent tool versions.
+This release resolves the Home/public page footer version mismatch and consolidates Signal Labs standards into the current v2.0 structure.

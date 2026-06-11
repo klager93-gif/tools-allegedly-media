@@ -2,28 +2,14 @@
 
 ## Immediate
 
-### Home v0.9.6 + Paycheck v1.0.2 — Footer Strip Cleanup
+- Verify Home/public pages show the correct Home version.
+- Verify Paycheck retains independent tool version.
+- Prepare Overtime migration to shared design system.
+- Prepare Time Off migration to shared design system.
 
-- Simplify the shared footer bottom strip.
-- Keep the footer clean and user-facing.
+## Upcoming
 
-## Next
-
-### Overtime Migration
-
-- Adopt shared header.
-- Adopt shared footer.
-- Standardize report output.
-- Begin design-system pass.
-
-### Time Off Migration
-
-- Adopt shared header/footer.
-- Rework UX around clearer planning goals.
-
-## Future Shared Systems
-
+- Overtime design-system migration.
 - Shared report system.
 - Shared toast system.
 - Shared modal/dialog system.
-- Shared action bar component.

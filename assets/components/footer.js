@@ -2,29 +2,21 @@
 |--------------------------------------------------------------------------
 | Signal Labs Shared Footer Component
 |--------------------------------------------------------------------------
-| Hotfix: Home v0.9.9
+| Version: Home v0.9.9.1
+| Theme: Public Page Version Sync Resolution
+|--------------------------------------------------------------------------
 | Purpose:
-| - Force Home/public pages to the current Home version in the shared footer.
+| - Read existing page metadata using data-signal-* attributes.
+| - Keep Home/public pages synced to the current Home version.
 | - Preserve independent tool versions for Paycheck and Pay Planner.
-| - Do not modify legacy Overtime or Time Off until their migration releases.
+| - Leave Overtime and Time Off unchanged until migration.
 |--------------------------------------------------------------------------
 */
 
 (function () {
     "use strict";
 
-    const HOME_VERSION = "v0.9.9";
-
-    const DEFAULTS = {
-        page: "home",
-        title: "Signal Labs",
-        version: HOME_VERSION,
-        status: "Active Development",
-        statusTitle: "Status",
-        statusBody: "All systems operational. We are constantly improving and adding new tools.",
-        statusLink: "/status/",
-        statusLinkText: "View Status"
-    };
+    const HOME_VERSION = "v0.9.9.1";
 
     const HOME_PUBLIC_PAGES = new Set([
         "home",
@@ -58,36 +50,32 @@
         return cleanedPath.split("/")[0] || "home";
     }
 
-    function resolvePage(datasetPage) {
-        if (!datasetPage || datasetPage === "root") {
-            return getPathPage();
-        }
-
-        return datasetPage;
+    function readDataset() {
+        return document.body ? document.body.dataset : {};
     }
 
-    function resolveVersion(page, datasetVersion) {
+    function readPage(dataset) {
+        return dataset.signalPage || dataset.slPage || getPathPage();
+    }
+
+    function readVersion(dataset, page) {
         if (HOME_PUBLIC_PAGES.has(page)) {
             return HOME_VERSION;
         }
 
-        return datasetVersion || DEFAULTS.version;
+        return dataset.signalVersion || dataset.slVersion || HOME_VERSION;
     }
 
-    function readMeta() {
-        const dataset = document.body ? document.body.dataset : {};
-        const page = resolvePage(dataset.slPage);
+    function readStatus(dataset) {
+        return dataset.signalStatus || dataset.slStatus || "Active Development";
+    }
 
-        return {
-            page,
-            title: dataset.slTitle || DEFAULTS.title,
-            version: resolveVersion(page, dataset.slVersion),
-            status: dataset.slStatus || DEFAULTS.status,
-            statusTitle: dataset.slStatusTitle || STATUS_TITLES[page] || DEFAULTS.statusTitle,
-            statusBody: dataset.slStatusBody || DEFAULTS.statusBody,
-            statusLink: dataset.slStatusLink || DEFAULTS.statusLink,
-            statusLinkText: dataset.slStatusLinkText || DEFAULTS.statusLinkText
-        };
+    function readStatusBody(dataset) {
+        return dataset.signalStatusBody || dataset.slStatusBody || "All systems operational. We are constantly improving and adding new tools.";
+    }
+
+    function readStatusTitle(dataset, page) {
+        return dataset.signalStatusTitle || dataset.slStatusTitle || STATUS_TITLES[page] || "Status";
     }
 
     function renderFooter(meta) {
@@ -127,7 +115,7 @@
             <h2>${meta.statusTitle}</h2>
             <p class="sl-status-pill"><span aria-hidden="true"></span>${meta.status}</p>
             <p>${meta.statusBody}</p>
-            <a class="sl-footer-status-link" href="${meta.statusLink}">${meta.statusLinkText} →</a>
+            <a class="sl-footer-status-link" href="/status/">View Status →</a>
         </section>
     </div>
 
@@ -144,7 +132,16 @@
             return;
         }
 
-        footerMount.innerHTML = renderFooter(readMeta());
+        const dataset = readDataset();
+        const page = readPage(dataset);
+
+        footerMount.innerHTML = renderFooter({
+            page,
+            version: readVersion(dataset, page),
+            status: readStatus(dataset),
+            statusBody: readStatusBody(dataset),
+            statusTitle: readStatusTitle(dataset, page)
+        });
     }
 
     if (document.readyState === "loading") {
