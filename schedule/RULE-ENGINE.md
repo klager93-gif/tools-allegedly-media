@@ -1,3 +1,7 @@
+## v0.14.0 Bidding and Opportunity Rules
+
+Bidding rules should evaluate eligibility, effective seniority, coverage impact, fairness history, fatigue limits, exceptions, tie breakers, and admin overrides before awards are published. Voluntary OT requests and posted OT opportunities should remain auditable and explainable.
+
 ## v0.13.0 Mandation Foundation
 
 Mandation rules should evaluate in a clear order:

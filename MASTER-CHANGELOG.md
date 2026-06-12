@@ -1,3 +1,10 @@
+## Signal Schedule v0.14.0 — Bidding and Opportunity Foundation
+
+- Added Bidding and Opportunity Foundation planning.
+- Added shift bid, vacation bid, voluntary OT request, posted OT opportunity, bid award, and audit trail planning.
+- Updated Schedule visible version references to v0.14.0.
+- Source: Signal Schedule v0.13.0 Mandation Foundation.
+
 ## Signal Schedule v0.13.0 — Mandation Foundation
 
 - Added mandate rotation, skip reason, exception, and count planning.

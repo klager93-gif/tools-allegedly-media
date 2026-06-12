@@ -1,3 +1,7 @@
+## v0.14.0 Bidding and Opportunity Foundation
+
+Use the Bidding and Opportunity previews to review the difference between employee-initiated voluntary OT requests and management-posted OT opportunities. These are mock/planning objects only; they cannot be saved to a database or awarded automatically yet.
+
 ## v0.13.0 Mandation Foundation
 
 Use the Mandation Foundation preview to review how forced overtime should eventually be tracked separately from voluntary overtime.

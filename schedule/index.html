@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.13.0
-Purpose: Explainability foundation sandbox with why-layer previews for coverage, mandation, benefits, seniority, eligibility, and fairness outcomes
+Version: v0.14.0
+Purpose: Bidding and Opportunity Foundation sandbox with bid, volunteer OT, posted OT, and award planning
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.13.0">
+<link rel="stylesheet" href="style.css?v=0.14.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.13.0"
-  data-signal-theme="Mandation Foundation"
+  data-signal-version="v0.14.0"
+  data-signal-theme="Bidding and Opportunity Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define explainability planning for why-layer previews across coverage, mandation, benefits, seniority, eligibility, and fairness outcomes."
-  data-signal-status-text="Signal Schedule v0.13.0 adds Mandation Foundation planning while remaining browser-only and mock-data based."
+  data-signal-description="Define bidding and opportunity planning for shift bids, vacation bids, voluntary OT requests, posted OT, and awards."
+  data-signal-status-text="Signal Schedule v0.14.0 adds Bidding and Opportunity Foundation planning while remaining browser-only and mock-data based."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Preview how the staffing engine can explain why coverage, mandation, benefits, seniority, eligibility, and fairness outcomes happen before persistence or final UI exists.</p>
+      <p class="schedule-subtitle">Preview how the staffing engine can model bids, voluntary overtime requests, posted overtime opportunities, awards, and explanations before persistence or final UI exists.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.13.0 Mandation</strong>
+      <strong id="currentWeekLabel">v0.14.0 Bidding</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.13.0 is still browser-only. Mandation Foundation adds forced-overtime rotation, exception, count, and explanation planning without database persistence or true automation.</p>
+      <p>Signal Schedule v0.14.0 is still browser-only. Bidding and Opportunity Foundation adds shift bid, vacation bid, voluntary OT request, posted OT opportunity, award, and explanation planning without database persistence or true automation.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.12 keeps the agency, employee, pattern, event, benefit, rule, coverage, view, and fairness foundations and adds explanation previews for why outcomes happen.</p>
+        <p>v0.14 keeps the agency, employee, pattern, event, benefit, rule, coverage, view, fairness, explanation, and mandation foundations and adds bidding/opportunity previews.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -316,6 +316,47 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
     <div id="operationalTraitPreview" class="operational-trait-grid"></div>
   </section>
 
+
+  <section class="schedule-card bidding-card" aria-labelledby="biddingFoundationTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="biddingFoundationTitle">Bidding and Opportunity Foundation</h2>
+        <p>Bidding should support shift bids, vacation bids, overtime opportunity bids, rounds, eligibility, seniority, fairness, tie breakers, awards, and audit trails.</p>
+      </div>
+    </div>
+    <div id="biddingFoundationPreview" class="bidding-grid"></div>
+  </section>
+
+  <section class="schedule-card vot-card" aria-labelledby="voluntaryOvertimeTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="voluntaryOvertimeTitle">Voluntary OT Request Preview</h2>
+        <p>Voluntary OT requests are employee-initiated requests to work extra time, submitted for later management review.</p>
+      </div>
+    </div>
+    <div id="voluntaryOvertimePreview" class="vot-grid"></div>
+  </section>
+
+  <section class="schedule-card posted-ot-card" aria-labelledby="postedOvertimeTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="postedOvertimeTitle">Posted OT Opportunity Preview</h2>
+        <p>Posted OT opportunities are management-created openings that eligible employees can volunteer or bid for before awards are reviewed and published.</p>
+      </div>
+    </div>
+    <div id="postedOvertimePreview" class="posted-ot-grid"></div>
+  </section>
+
+  <section class="schedule-card bid-award-card" aria-labelledby="bidAwardTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="bidAwardTitle">Bid Award Preview</h2>
+        <p>Awards should preserve eligibility, seniority, fairness, coverage, tie-breaker, and audit explanations.</p>
+      </div>
+    </div>
+    <div id="bidAwardPreview" class="bid-award-grid"></div>
+  </section>
+
   <section class="schedule-card" aria-labelledby="modelTitle">
     <div class="schedule-card-heading">
       <div>
@@ -461,6 +502,6 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.13.0"></script>
+<script src="script.js?v=0.14.0"></script>
 </body>
 </html>

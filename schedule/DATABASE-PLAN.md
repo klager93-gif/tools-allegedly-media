@@ -1,3 +1,7 @@
+## v0.14.0 Bidding and Opportunity Planning
+
+Future persistence should support bid rounds, bid slots, employee bid submissions, voluntary OT requests, posted OT opportunities, bid awards, award explanations, and audit history. Requests are employee-initiated. Opportunities are management-posted openings. Awards should be calculated from eligibility, seniority, fairness, coverage, rule priority, and documented override reasons.
+
 ## v0.13.0 Mandation Planning
 
 Future tables may include:

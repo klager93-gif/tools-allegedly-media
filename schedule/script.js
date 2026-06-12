@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.13.0
-Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions, eligibility, and operational trait planning
+Version: v0.14.0
+Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bids, voluntary OT requests, and posted OT opportunities
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.13.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.14.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.14.0', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -36,6 +36,11 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
     mandationRules: [],
     mandateRotation: [],
     operationalTraits: [],
+    bidRules: [],
+    bidRounds: [],
+    voluntaryOvertimeRequests: [],
+    postedOvertimeOpportunities: [],
+    bidAwardExamples: [],
     agencyProfile: null,
     selectedEmployeeId: null
   };
@@ -56,6 +61,11 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
     if (!Array.isArray(state.mandationRules) || !state.mandationRules.length) state.mandationRules = defaultMandationRules();
     if (!Array.isArray(state.mandateRotation) || !state.mandateRotation.length) state.mandateRotation = defaultMandateRotation();
     if (!Array.isArray(state.operationalTraits) || !state.operationalTraits.length) state.operationalTraits = defaultOperationalTraits();
+    if (!Array.isArray(state.bidRules) || !state.bidRules.length) state.bidRules = defaultBidRules();
+    if (!Array.isArray(state.bidRounds) || !state.bidRounds.length) state.bidRounds = defaultBidRounds();
+    if (!Array.isArray(state.voluntaryOvertimeRequests) || !state.voluntaryOvertimeRequests.length) state.voluntaryOvertimeRequests = defaultVoluntaryOvertimeRequests();
+    if (!Array.isArray(state.postedOvertimeOpportunities) || !state.postedOvertimeOpportunities.length) state.postedOvertimeOpportunities = defaultPostedOvertimeOpportunities();
+    if (!Array.isArray(state.bidAwardExamples) || !state.bidAwardExamples.length) state.bidAwardExamples = defaultBidAwardExamples();
   }
 
   function defaultAgencyProfile() {
@@ -459,6 +469,141 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
     }];
   }
 
+
+  function defaultBidRules() {
+    return [{
+      id: 'bid-rule-eligibility',
+      name: 'Eligibility before award',
+      category: 'Bid priority',
+      summary: 'Employees must meet position, qualification, exception, fatigue, and agency eligibility rules before any bid or OT request can be awarded.',
+      example: 'A part-time or no-mandation employee may be eligible for voluntary OT but excluded from forced OT depending on agency rules.'
+    }, {
+      id: 'bid-rule-seniority',
+      name: 'Seniority / fairness order',
+      category: 'Award rules',
+      summary: 'Agency rules decide whether awards follow seniority, fairness equalization, first-come order, rotation, or manual review.',
+      example: 'Vacation bids may award by seniority, while posted OT may evaluate fairness and hours before seniority.'
+    }, {
+      id: 'bid-rule-audit',
+      name: 'Award explanations',
+      category: 'Audit trail',
+      summary: 'Every award, denial, skip, tie-breaker, and manual override should preserve the reason and visible explanation.',
+      example: 'Alex awarded posted OT because eligible, below fairness target, and first accepted before close time.'
+    }];
+  }
+
+  function defaultBidRounds() {
+    return [{
+      id: 'bid-round-shift',
+      name: 'Annual Shift Bid',
+      bidType: 'Shift bid',
+      status: 'planning',
+      opens: '2026-07-01 08:00',
+      closes: '2026-07-10 17:00',
+      selectionBasis: 'Effective seniority with admin-published awards',
+      availableSlots: 'A Days, A Nights, B Days, B Nights pattern seats',
+      explanation: 'Shift bids can create or modify future employee-pattern assignments.'
+    }, {
+      id: 'bid-round-vacation',
+      name: 'Vacation Pick Round 1',
+      bidType: 'Vacation bid',
+      status: 'future concept',
+      opens: '2026-11-01 08:00',
+      closes: '2026-11-15 17:00',
+      selectionBasis: 'Seniority, coverage locks, and available vacation slots',
+      availableSlots: 'Date blocks with minimum staffing protections',
+      explanation: 'Vacation bids reserve future benefit-use events but should not directly overwrite balances.'
+    }, {
+      id: 'bid-round-ot',
+      name: 'Posted OT Opportunity',
+      bidType: 'Overtime opportunity',
+      status: 'posted sample',
+      opens: '2026-06-18 09:00',
+      closes: '2026-06-18 15:00',
+      selectionBasis: 'Eligibility, fairness, rotation, and manager review',
+      availableSlots: 'Night dispatcher OT slot, 18:00-06:00',
+      explanation: 'Management can post open OT and employees can volunteer/bid for review.'
+    }];
+  }
+
+  function defaultVoluntaryOvertimeRequests() {
+    return [{
+      id: 'vot-req-alex',
+      employeeId: 'emp-alex',
+      requestType: 'Voluntary OT request',
+      status: 'pending review',
+      requestedWindow: '2026-06-24 18:00 → 2026-06-25 06:00',
+      preferredAssignment: 'Night dispatcher coverage',
+      reason: 'Employee is available and wants voluntary OT.',
+      reviewNote: 'Future workflow should check eligibility, fatigue, fairness, and coverage need before approval.'
+    }, {
+      id: 'vot-req-jordan',
+      employeeId: 'emp-jordan',
+      requestType: 'Voluntary OT request',
+      status: 'review later',
+      requestedWindow: '2026-06-22 06:00 → 2026-06-22 18:00',
+      preferredAssignment: 'Supervisor coverage',
+      reason: 'Employee submitted availability for an extra shift.',
+      reviewNote: 'Management can approve, deny, hold, or convert to a posted opportunity depending on policy.'
+    }];
+  }
+
+  function defaultPostedOvertimeOpportunities() {
+    return [{
+      id: 'posted-ot-night-1',
+      title: 'Night Dispatcher OT Slot',
+      postedBy: 'Management sample',
+      status: 'open for volunteers',
+      window: '2026-06-20 18:00 → 2026-06-21 06:00',
+      role: 'Dispatcher',
+      qualification: 'Radio',
+      slotsAvailable: 1,
+      volunteers: ['emp-alex', 'emp-casey'],
+      awardMethod: 'Eligibility + fairness + manager review',
+      explanation: 'Posted OT lets management advertise a need before mandation is considered.'
+    }, {
+      id: 'posted-ot-training',
+      title: 'Training Backfill Opportunity',
+      postedBy: 'Training sample',
+      status: 'future concept',
+      window: '2026-06-22 09:00 → 2026-06-22 13:00',
+      role: 'Dispatcher',
+      qualification: 'Calltaking',
+      slotsAvailable: 2,
+      volunteers: ['emp-taylor'],
+      awardMethod: 'Eligibility + availability + coverage impact',
+      explanation: 'Posted opportunities can fill coverage created by training, leave, sick calls, or open shifts.'
+    }];
+  }
+
+  function defaultBidAwardExamples() {
+    return [{
+      id: 'award-posted-ot-alex',
+      bidType: 'Posted OT',
+      employeeId: 'emp-alex',
+      status: 'award preview',
+      outcome: 'Awarded pending manager approval',
+      reason: 'Eligible for Radio dispatcher coverage, no active exception, and lower recent voluntary OT than other eligible sample candidates.',
+      auditTrail: 'Future award should preserve posted opportunity, volunteer timestamp, rule results, and approving manager.'
+    }, {
+      id: 'award-vacation-taylor',
+      bidType: 'Vacation bid',
+      employeeId: 'emp-taylor',
+      status: 'not final',
+      outcome: 'Hold for seniority/coverage review',
+      reason: 'Vacation bid awards need benefit availability, coverage minimums, effective seniority, and bid-round rules.',
+      auditTrail: 'Future award should link to a vacation event only after approval.'
+    }, {
+      id: 'award-shift-jordan',
+      bidType: 'Shift bid',
+      employeeId: 'emp-jordan',
+      status: 'planning',
+      outcome: 'Potential pattern assignment',
+      reason: 'Shift bid awards should create or modify employee-pattern assignments after bid publication.',
+      auditTrail: 'Future shift awards should preserve round, pick order, available slot, and rule explanation.'
+    }];
+  }
+
   function defaultEventTypeDefinitions() {
     return [{
       id: 'event-vacation',
@@ -682,6 +827,11 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
     next.mandationRules = Array.isArray(next.mandationRules) && next.mandationRules.length ? next.mandationRules : defaultMandationRules();
     next.mandateRotation = Array.isArray(next.mandateRotation) && next.mandateRotation.length ? next.mandateRotation : defaultMandateRotation();
     next.operationalTraits = Array.isArray(next.operationalTraits) && next.operationalTraits.length ? next.operationalTraits : defaultOperationalTraits();
+    next.bidRules = Array.isArray(next.bidRules) && next.bidRules.length ? next.bidRules : defaultBidRules();
+    next.bidRounds = Array.isArray(next.bidRounds) && next.bidRounds.length ? next.bidRounds : defaultBidRounds();
+    next.voluntaryOvertimeRequests = Array.isArray(next.voluntaryOvertimeRequests) && next.voluntaryOvertimeRequests.length ? next.voluntaryOvertimeRequests : defaultVoluntaryOvertimeRequests();
+    next.postedOvertimeOpportunities = Array.isArray(next.postedOvertimeOpportunities) && next.postedOvertimeOpportunities.length ? next.postedOvertimeOpportunities : defaultPostedOvertimeOpportunities();
+    next.bidAwardExamples = Array.isArray(next.bidAwardExamples) && next.bidAwardExamples.length ? next.bidAwardExamples : defaultBidAwardExamples();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
     next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
@@ -836,7 +986,7 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.13.0 Mandation Foundation';
+    if (label) label.textContent = 'v0.14.0 Bidding Foundation';
   }
 
   function syncRuleInputs() {
@@ -1262,6 +1412,73 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
     }).join('');
   }
 
+
+  function renderBiddingFoundationPreview() {
+    var target = $('#biddingFoundationPreview');
+    if (!target) return;
+    var items = Array.isArray(state.bidRounds) && state.bidRounds.length ? state.bidRounds : defaultBidRounds();
+    target.innerHTML = items.map(function (item) {
+      return '<article class="bidding-card-item">' +
+        '<span class="card-kicker">' + escapeHtml(item.bidType || 'Bid') + ' · ' + escapeHtml(item.status || 'planned') + '</span>' +
+        '<strong>' + escapeHtml(item.name || 'Bid round') + '</strong>' +
+        '<p>' + escapeHtml(item.opens || 'Open date TBD') + ' → ' + escapeHtml(item.closes || 'Close date TBD') + '</p>' +
+        '<small>' + escapeHtml(item.selectionBasis || '') + '<br>' + escapeHtml(item.availableSlots || '') + '</small>' +
+        '<em>' + escapeHtml(item.explanation || '') + '</em>' +
+        '</article>';
+    }).join('');
+  }
+
+  function renderVoluntaryOvertimePreview() {
+    var target = $('#voluntaryOvertimePreview');
+    if (!target) return;
+    var items = Array.isArray(state.voluntaryOvertimeRequests) && state.voluntaryOvertimeRequests.length ? state.voluntaryOvertimeRequests : defaultVoluntaryOvertimeRequests();
+    target.innerHTML = items.map(function (item) {
+      var employee = findEmployee(item.employeeId);
+      return '<article class="vot-card-item">' +
+        '<span class="card-kicker">' + escapeHtml(item.requestType || 'Voluntary OT request') + ' · ' + escapeHtml(item.status || 'pending') + '</span>' +
+        '<strong>' + escapeHtml(employee ? employee.name : 'Unknown employee') + '</strong>' +
+        '<p>' + escapeHtml(item.requestedWindow || 'Window TBD') + '</p>' +
+        '<small>' + escapeHtml(item.preferredAssignment || '') + '<br>' + escapeHtml(item.reason || '') + '</small>' +
+        '<em>' + escapeHtml(item.reviewNote || '') + '</em>' +
+        '</article>';
+    }).join('');
+  }
+
+  function renderPostedOvertimePreview() {
+    var target = $('#postedOvertimePreview');
+    if (!target) return;
+    var items = Array.isArray(state.postedOvertimeOpportunities) && state.postedOvertimeOpportunities.length ? state.postedOvertimeOpportunities : defaultPostedOvertimeOpportunities();
+    target.innerHTML = items.map(function (item) {
+      var volunteers = (item.volunteers || []).map(function (employeeId) {
+        var employee = findEmployee(employeeId);
+        return employee ? employee.name : employeeId;
+      });
+      return '<article class="posted-ot-card-item">' +
+        '<span class="card-kicker">' + escapeHtml(item.status || 'posted') + ' · ' + escapeHtml(item.role || 'Role') + '</span>' +
+        '<strong>' + escapeHtml(item.title || 'Posted opportunity') + '</strong>' +
+        '<p>' + escapeHtml(item.window || 'Window TBD') + '</p>' +
+        '<small>Slots: ' + escapeHtml(String(item.slotsAvailable || 0)) + ' · Volunteers: ' + escapeHtml(volunteers.join(', ') || 'None yet') + '<br>' + escapeHtml(item.awardMethod || '') + '</small>' +
+        '<em>' + escapeHtml(item.explanation || '') + '</em>' +
+        '</article>';
+    }).join('');
+  }
+
+  function renderBidAwardPreview() {
+    var target = $('#bidAwardPreview');
+    if (!target) return;
+    var items = Array.isArray(state.bidAwardExamples) && state.bidAwardExamples.length ? state.bidAwardExamples : defaultBidAwardExamples();
+    target.innerHTML = items.map(function (item) {
+      var employee = findEmployee(item.employeeId);
+      return '<article class="bid-award-card-item">' +
+        '<span class="card-kicker">' + escapeHtml(item.bidType || 'Bid') + ' · ' + escapeHtml(item.status || 'preview') + '</span>' +
+        '<strong>' + escapeHtml(item.outcome || 'Outcome pending') + '</strong>' +
+        '<p>' + escapeHtml(employee ? employee.name : 'Unknown employee') + '</p>' +
+        '<small>' + escapeHtml(item.reason || '') + '</small>' +
+        '<em>' + escapeHtml(item.auditTrail || '') + '</em>' +
+        '</article>';
+    }).join('');
+  }
+
   function renderDataModelPreview() {
     var target = $('#dataModelPreview');
     if (!target) return;
@@ -1282,6 +1499,7 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
       ['Fairness Metrics', String((state.fairnessMetrics || []).length), 'Fairness compares history, rules, seniority, mandates, overtime, weekends, holidays, and callbacks.'],
       ['Explainability', String((state.explanationExamples || []).length), 'Explains outcomes from facts, rules, history, audience, and audit context.'],
       ['Mandation', String((state.mandateRotation || []).length), 'Tracks forced OT rotation, counts, skips, exceptions, and mandate explanations.'],
+      ['Bidding / Opportunities', String((state.bidRounds || []).length + (state.voluntaryOvertimeRequests || []).length + (state.postedOvertimeOpportunities || []).length), 'Plans shift bids, vacation bids, voluntary OT requests, posted OT opportunities, awards, and explanations.'],
       ['Operational Traits', String((state.operationalTraits || []).length), 'Employee traits such as gender can be used only when tied to documented operational rules.']
     ];
     target.innerHTML = cards.map(function (card) {
@@ -1450,9 +1668,9 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — MANDATION FOUNDATION');
-    lines.push('Version: v0.13.0');
+    lines.push('Version: v0.14.0');
     lines.push('');
-    lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation');
+    lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);
@@ -1476,6 +1694,10 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
     lines.push('- Explanation examples: ' + ((state.explanationExamples || []).length));
     lines.push('- Seniority ledger entries: ' + ((state.seniorityLedger || []).length));
     lines.push('- Mandation rules: ' + ((state.mandationRules || []).length));
+    lines.push('- Bid / opportunity rules: ' + ((state.bidRules || []).length));
+    lines.push('- Bid rounds: ' + ((state.bidRounds || []).length));
+    lines.push('- Voluntary OT requests: ' + ((state.voluntaryOvertimeRequests || []).length));
+    lines.push('- Posted OT opportunities: ' + ((state.postedOvertimeOpportunities || []).length));
     lines.push('- Mandate rotation entries: ' + ((state.mandateRotation || []).length));
     lines.push('- Operational traits: ' + ((state.operationalTraits || []).length));
     lines.push('');
@@ -1527,9 +1749,10 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.13.0 Notes:');
-    lines.push('- Adds Mandation Foundation: forced overtime needs rotation, eligibility, exceptions, counts, and explanations.');
-    lines.push('- Mandation events add coverage and mandate history; they do not consume vacation or benefit time.');
+    lines.push('v0.14.0 Notes:');
+    lines.push('- Adds Bidding and Opportunity Foundation: shift bids, vacation bids, voluntary OT requests, and posted OT opportunities.');
+    lines.push('- Requests are employee-initiated; opportunities are management-posted needs that employees can volunteer or bid for.');
+    lines.push('- Awards should evaluate eligibility, seniority, fairness, coverage, and audit explanations before publication.');
     lines.push('- This is still local mock data, not a backend.');
     lines.push('- Events, rules, benefit entries, coverage rows, views, templates, fairness metrics, and explanations are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
@@ -1600,6 +1823,10 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
     safeRender('mandation foundation', renderMandationFoundationPreview);
     safeRender('mandate rotation', renderMandateRotationPreview);
     safeRender('operational traits', renderOperationalTraitPreview);
+    safeRender('bidding foundation', renderBiddingFoundationPreview);
+    safeRender('voluntary overtime', renderVoluntaryOvertimePreview);
+    safeRender('posted overtime', renderPostedOvertimePreview);
+    safeRender('bid awards', renderBidAwardPreview);
     safeRender('data model', renderDataModelPreview);
     safeRender('selects', renderSelects);
     safeRender('pills', renderPills);
@@ -1707,6 +1934,11 @@ Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions,
       mandationRules: defaultMandationRules(),
       mandateRotation: defaultMandateRotation(),
       operationalTraits: defaultOperationalTraits(),
+      bidRules: defaultBidRules(),
+      bidRounds: defaultBidRounds(),
+      voluntaryOvertimeRequests: defaultVoluntaryOvertimeRequests(),
+      postedOvertimeOpportunities: defaultPostedOvertimeOpportunities(),
+      bidAwardExamples: defaultBidAwardExamples(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
       selectedEmployeeId: 'emp-alex'

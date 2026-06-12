@@ -1,3 +1,7 @@
+## v0.14.0 Bidding and Opportunity Foundation
+
+Signal Schedule v0.14.0 adds the first visible planning model for bidding and overtime opportunity workflows. It distinguishes employee-initiated voluntary OT requests from management-posted OT opportunities, and models shift bids, vacation bids, awards, eligibility, seniority, fairness, tie breakers, publication, and audit trails as future rule-aware workflows.
+
 ## v0.13.0 Mandation Foundation
 
 Signal Schedule v0.13.0 adds the first visible planning model for mandation / forced overtime. Mandation is treated as its own module because it needs rotation lists, eligibility checks, skip reasons, exception handling, mandate counts, audit history, and explanations.

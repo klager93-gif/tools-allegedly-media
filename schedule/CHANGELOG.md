@@ -1,3 +1,11 @@
+## v0.14.0 — Bidding and Opportunity Foundation
+
+- Added Bidding Foundation planning for shift bids, vacation bids, overtime opportunities, eligibility, seniority, fairness, tie breakers, awards, and audit trails.
+- Added Voluntary OT Request planning for employee-initiated overtime requests submitted for later review.
+- Added Posted OT Opportunity planning for management-created openings employees can volunteer or bid for.
+- Added bid award examples and explanation/audit planning.
+- Updated Schedule version references and build manifests to v0.14.0.
+
 ## v0.13.0 — Mandation Foundation
 
 - Added Mandation Foundation planning for forced overtime rotation, counts, skips, exceptions, and audit history.

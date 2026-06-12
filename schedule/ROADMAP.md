@@ -1,3 +1,11 @@
+## Current: v0.14.0 — Bidding and Opportunity Foundation
+
+Bidding and opportunity planning now includes shift bids, vacation bids, voluntary OT requests, posted OT opportunities, eligibility, seniority, fairness, awards, explanations, and audit trails.
+
+## Next: v0.15.0 — Analytics Foundation
+
+Future analytics should summarize hours, benefits, overtime, mandation, coverage trends, fairness metrics, staffing forecasts, and historical reports.
+
 ## Current: v0.13.0 — Mandation Foundation
 
 Adds mandate rotation, mandate counts, eligibility/exception checks, skip handling, and operational trait planning.

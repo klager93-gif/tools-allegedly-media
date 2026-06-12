@@ -18,6 +18,9 @@
 - assets/icons/favicon.ico
 - assets/icons/favicon.svg
 - assets/icons/site.webmanifest
+- build/BUILDMANIFEST.md
+- build/FILEMANIFEST.md
+- build/SHA256SUMS.txt
 - changelog/index.html
 - contact/index.html
 - docs/BACKUP.md
