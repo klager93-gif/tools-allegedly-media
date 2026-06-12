@@ -2,7 +2,7 @@
 
 ## Current Version
 
-v0.2.0 — Core Engine Blueprint for people, rules, patterns, events, benefits, coverage, and generated schedule output.
+v0.2.1 — Pattern and Coverage Rule Planning.
 
 ## Development Rule: Rule 23 — Version Consistency
 
@@ -92,27 +92,26 @@ Goal: turn Signal Schedule from a schedule page into the beginning of a staffing
 - Keep local storage until the model is proven.
 - Do not add login, database storage, admin roles, publishing workflow, or final automated generation yet.
 
-## v0.2.1 — Date-Based Schedule Model
+## v0.2.1 — Pattern and Coverage Rule Planning
 
-Goal: move from weekday-only planning to actual dates.
+Goal: preserve newly discovered architecture rules before building more UI.
 
-- Build assignments around real calendar dates.
-- Add true week selection.
-- Add basic month planning view.
-- Add working/off indicators per employee per date.
-- Add conflict warnings for duplicate assignment, unavailable employee, and time-off overlap.
-- Keep local storage until the model is proven.
+- Add Rule 0: Store Facts, Not Assumptions.
+- Add company profile planning for work week starts on, pay period starts on, time format, date format, and time zone.
+- Add coverage requirement planning for needs by role, needs by time block, numbered coverage spots, and open/unfilled spots.
+- Add pattern planning for cycle-based short days, short weeks, day-specific shift types, paid minutes, and unpaid break rules.
+- Confirm that shift duration and paid hours should come from shift definitions and break rules, not from assumptions.
+- Keep this as a docs-only release before adding new UI or backend behavior.
 
-## v0.3.0 — Patterns and Rotations
+## v0.3.0 — Agency Profile Foundation
 
-Goal: support real scheduling systems without hand-entering every day.
+Goal: define the agency/company settings and vocabulary before employee profiles.
 
-- Add reusable schedule patterns.
-- Support common rotations such as 24/48, 48/96, 4-on/4-off, and 2-2-3 style patterns.
-- Assign a pattern to an employee with a start date.
-- Generate expected workdays from pattern logic.
-- Let manual overrides replace generated assignments.
-- Add pattern preview before applying.
+- Add planning for agency name, industry type, time zone, time format, date format, work week start day, and pay period settings.
+- Add user-defined departments, divisions, locations, positions, job titles, shift groups, qualifications, benefit types, and exception types.
+- Add shift definition planning for start time, end time, paid minutes, and break rules.
+- Add coverage requirement planning for minimum, target, and maximum staffing by role, qualification, location, and time block.
+- Keep industry templates as presets, not hard-coded modes.
 
 ## v0.4.0 — Event System, Time Off, and Availability Conflicts
 

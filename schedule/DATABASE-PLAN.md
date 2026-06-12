@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.2.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+Planning document for the future PHP/database version. Signal Schedule v0.2.1 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
 
 ## Core Rule
 
@@ -50,6 +50,72 @@ The browser sandbox now includes starter objects that should map cleanly to futu
 
 These are not database tables yet. They are shape tests so future PHP/database work does not start from a spreadsheet-style schedule page.
 
+## v0.2.1 Planning Additions
+
+Signal Schedule v0.2.1 is a docs-only architecture capture release. It preserves the model decisions below before more interface or backend work is added.
+
+### Rule 0: Store Facts, Not Assumptions
+
+The future database should store raw facts and let rules, calculations, and display preferences derive outcomes.
+
+Store facts such as:
+
+- start time
+- end time
+- paid minutes
+- unpaid break rules
+- time zone
+- date
+- event type
+- policy rule
+- reason / explanation
+
+Avoid storing only presentation or assumptions such as:
+
+- `7A-3:30P` as the only source of truth
+- `8 hours` without start/end/break facts
+- formatted dates without an underlying date value
+- schedule cells that hide whether something is work, overtime, vacation, mandate, or training
+
+### Company Profile Settings
+
+Future agency/company profile records should support:
+
+- work week starts on
+- pay period starts on
+- time format
+- date format
+- time zone
+- industry type / template
+
+These settings should drive display, overtime calculations, reporting, pay-period summaries, and future rule-engine decisions.
+
+### Coverage Requirements
+
+Coverage requirements should support:
+
+- needed by role or qualification
+- needed by time block
+- location, station, unit, department, or division scope
+- numbered coverage spots where useful
+- open / unfilled spot tracking
+
+Coverage should eventually compare required staffing to generated schedule events and explain shortages.
+
+### Pattern Enhancements
+
+Patterns should support:
+
+- cycle-based short days
+- short weeks
+- day-specific shift types
+- paid minutes
+- unpaid break rules
+- pattern-level exceptions
+- employee-specific pattern variations
+
+Short days should not be hard-coded to a weekday unless the agency rule actually works that way. Some organizations need short days based on rotation cycle or short-week position instead.
+
 ## Future Tables
 
 ### agencies
@@ -62,6 +128,11 @@ Suggested fields:
 - name
 - agency_type
 - timezone
+- date_format
+- time_format
+- work_week_starts_on
+- pay_period_type
+- pay_period_starts_on
 - active
 - created_at
 - updated_at

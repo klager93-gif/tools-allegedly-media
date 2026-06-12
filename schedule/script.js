@@ -1,10 +1,10 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.2.0
+Version: v0.2.1
 Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, benefits, coverage, and generated output
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.2.0';
+  var STORAGE_KEY = 'signalSchedule.v0.2.1';
   var OLD_STORAGE_KEYS = ['signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   var state = {
@@ -186,7 +186,7 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.2.0 Blueprint';
+    if (label) label.textContent = 'v0.2.1 Planning';
   }
 
   function syncRuleInputs() {
@@ -354,7 +354,7 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.2.0');
+    lines.push('Version: v0.2.1');
     lines.push('');
     lines.push('Core model: People + Rules + Patterns + Events + Coverage + Explanations');
     lines.push('');

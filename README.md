@@ -16,3 +16,8 @@ Adds Rule 25 and Rule 26 to standardize build handoffs and formalize release ZIP
 ## Project Notes
 
 Signal Labs is being maintained as a small software suite. Shared assets, navigation, footer behavior, cache versions, and root documentation should be reviewed whenever a new tool is added or a feature changes what the suite is becoming.
+
+
+## Current Schedule Planning
+
+**Signal Schedule v0.2.1 — Pattern and Coverage Rule Planning** preserves company profile, coverage, pattern, display-format, and break-rule planning before the next feature build.

@@ -4,7 +4,7 @@ Signal Schedule is a scheduling and staffing tool for Signal Labs.
 
 ## Version
 
-v0.2.0 — Core Engine Blueprint.
+v0.2.1 — Pattern and Coverage Rule Planning.
 
 ## Current Purpose
 
@@ -71,3 +71,15 @@ Signal Schedule should eventually separate these concepts:
 This version still uses browser local storage. It is temporary by design. Future versions should move to a PHP/database model after the schedule logic is clearer.
 
 See `ROADMAP.md` for version planning, `DATABASE-PLAN.md` for backend planning notes, and `RULE-ENGINE.md` for the rule-engine planning guide.
+
+
+## v0.2.1 Planning Focus
+
+Signal Schedule v0.2.1 is a docs-only planning release that preserves key architecture decisions before more UI or backend work is added.
+
+It adds planning for:
+
+- Rule 0: Store Facts, Not Assumptions.
+- Company profile settings such as work week start, pay period start, time format, date format, and time zone.
+- Coverage requirements by role, time block, numbered spots, and open/unfilled spots.
+- Pattern enhancements such as cycle-based short days, short weeks, day-specific shift types, paid minutes, and unpaid break rules.

@@ -1,3 +1,12 @@
+## 2026-06-11 — Signal Schedule v0.2.1 Pattern and Coverage Rule Planning
+
+- Rebuilt the lost v0.2.1 docs-only Schedule release from the current Signal Labs source.
+- Added Rule 0 planning: Store Facts, Not Assumptions.
+- Added company profile planning for work week starts on, pay period starts on, time format, date format, and time zone.
+- Added coverage planning for role-based needs, time-block needs, numbered spots, and open/unfilled spots.
+- Added pattern planning for cycle-based short days, short weeks, day-specific shift types, paid minutes, and unpaid break rules.
+- No new schedule UI, database, login, or backend behavior was added.
+
 # Master Changelog
 
 ## 2026-06-11 — Signal Labs Home v0.9.9.6 Release Archive Standard

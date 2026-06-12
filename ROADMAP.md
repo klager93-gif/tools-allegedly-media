@@ -1,3 +1,4 @@
+- Verify Signal Schedule v0.2.1 Pattern and Coverage Rule Planning after deployment.
 # Signal Labs Roadmap
 
 ## Immediate

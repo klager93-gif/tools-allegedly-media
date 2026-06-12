@@ -16,6 +16,58 @@ It should also answer:
 Why was this person scheduled, skipped, awarded, denied, mandated, or warned?
 ```
 
+## Rule 0: Store Facts, Not Assumptions
+
+Signal Schedule should store the facts that describe work, time, people, rules, and events. It should not store only a formatted schedule cell or a final outcome when the underlying facts matter.
+
+Examples:
+
+- Store `17:00`, not only `5 PM`.
+- Store `480 paid minutes`, not only `8 hours`.
+- Store `30-minute unpaid break`, not only `7A-3:30P`.
+- Store the event type and reason, not only a colored calendar block.
+- Store policy rules and explanations, not hidden one-off logic.
+
+Preferred flow:
+
+```text
+facts + rules + events = calculated outcome + explanation + display
+```
+
+### Company Profile Rules
+
+Agency/company profile settings should eventually include:
+
+- work week starts on
+- pay period starts on
+- time format
+- date format
+- time zone
+
+These profile settings should feed overtime, reporting, coverage, pattern generation, display formatting, and benefit accrual calculations.
+
+### Coverage Rule Planning
+
+Coverage rules should eventually define:
+
+- needed role / qualification
+- needed time block
+- numbered coverage spots where applicable
+- open or unfilled spots
+- shortage and surplus explanations
+
+### Pattern Rule Planning
+
+Pattern rules should eventually support:
+
+- cycle-based short days
+- short weeks
+- day-specific shift types
+- paid minutes
+- unpaid break rules
+- pattern-level exceptions
+- employee-specific pattern variations
+
 ## Core Rule
 
 Agency rules should be stored as configurable policy records whenever possible, not buried inside page-specific schedule code.

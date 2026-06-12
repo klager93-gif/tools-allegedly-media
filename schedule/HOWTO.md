@@ -34,3 +34,8 @@ When planning future features, keep these concepts separate:
 - Use `ROADMAP.md` for version direction.
 - Use `DATABASE-PLAN.md` for future backend structure.
 - Use `RULE-ENGINE.md` when adding or changing schedule logic so rules stay explainable and agency-flexible.
+
+
+## v0.2.1 Notes
+
+v0.2.1 does not add new user-facing scheduling controls. It documents future settings for agency profiles, coverage requirements, shift patterns, display formats, paid minutes, and unpaid breaks. Use the existing sandbox only as a visual planning reference until the next feature release.
