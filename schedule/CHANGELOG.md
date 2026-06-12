@@ -1,3 +1,10 @@
+## v1.3.1 — D1 Setup Guide
+
+- Added D1 setup documentation for Cloudflare preparation.
+- Documented recommended D1 database name and binding name.
+- Confirmed the app remains static/JSON-backed until D1 is intentionally connected.
+- No CRUD, credentials, live writes, authentication, or root infrastructure folders added.
+
 ## v1.3.0 — D1 Database Foundation
 
 - Added `/schedule/d1/schema.sql`.

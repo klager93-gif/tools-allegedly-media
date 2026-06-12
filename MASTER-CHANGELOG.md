@@ -1,3 +1,9 @@
+## Signal Schedule v1.3.1 — D1 Setup Guide
+
+- Added Schedule D1 setup guidance.
+- Preserved JSON adapter as the active data source.
+- No live backend behavior added.
+
 ## Signal Schedule v1.3.0 — D1 Database Foundation
 
 D1 foundation added for agencies, employees, and audit logs. Active app remains JSON-backed.

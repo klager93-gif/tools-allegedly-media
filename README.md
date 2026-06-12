@@ -1,3 +1,7 @@
+## Signal Schedule v1.3.1 — D1 Setup Guide
+
+Signal Schedule v1.3.1 adds D1 setup guidance while keeping the active application static and backend-portable.
+
 ## Signal Schedule v1.3.0 — D1 Database Foundation
 
 Signal Schedule now includes D1 schema/seed planning files while remaining static and backend-portable.

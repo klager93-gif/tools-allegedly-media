@@ -1,3 +1,7 @@
+## v1.3.1 — D1 Setup Guide
+
+Signal Schedule v1.3.1 adds Cloudflare D1 setup guidance. The active app still uses the static JSON adapter.
+
 ## v1.3.0 — D1 Database Foundation
 
 Signal Schedule now includes the first planned Cloudflare D1 foundation: schema, seed data, audit-log table planning, and a D1 adapter contract. The active app still uses static JSON and remains browser-only.

@@ -1,3 +1,9 @@
+## Signal Schedule v1.3.1 — D1 Setup Guide
+
+Current release: D1 setup documentation before Employee CRUD Foundation.
+
+Next: v1.4.0 — Employee CRUD Foundation.
+
 ## Signal Schedule v1.3.0 — D1 Database Foundation
 
 Next: v1.4.0 Employee CRUD Foundation after D1 deployment details are confirmed.

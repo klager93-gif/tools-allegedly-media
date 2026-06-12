@@ -1,107 +1,104 @@
-# File Manifest
-
-Version: v1.3.0
-Release: Signal Schedule v1.3.0 — D1 Database Foundation
-
-- .gitattributes
-- .gitignore
-- ADMIN_CHANGELOG.md
-- HOWTO.md
-- MASTER-CHANGELOG.md
-- MASTER-ROADMAP.md
-- PUBLIC_CHANGELOG.md
-- README.md
-- ROADMAP.md
-- about/index.html
-- assets/components/footer.js
-- assets/components/header.js
-- assets/global.css
-- assets/global.js
-- assets/icons/apple-touch-icon.png
-- assets/icons/favicon.ico
-- assets/icons/favicon.svg
-- assets/icons/site.webmanifest
-- build/BUILDMANIFEST.md
-- build/FILEMANIFEST.md
-- build/SHA256SUMS.txt
-- changelog/index.html
-- contact/index.html
-- docs/BACKUP.md
-- docs/RESTORE.md
-- how-to/index.html
-- index.html
-- overtime/BUILDMANIFEST.md
-- overtime/FILEMANIFEST.md
-- overtime/HOWTO.md
-- overtime/README.md
-- overtime/ROADMAP.md
-- overtime/index.html
-- overtime/script.js
-- overtime/style.css
-- pay-planner/index.html
-- paycheck/index.html
-- privacy/index.html
-- report-issue/index.html
-- request-feature/index.html
-- roadmap/index.html
-- schedule/API-PLAN.md
-- schedule/ARCHITECTURE-AUDIT.md
-- schedule/AUDIT-LOGGING-PLAN.md
-- schedule/BACKEND-PORTABILITY.md
-- schedule/CHANGELOG.md
-- schedule/CLOUDFLARE-ARCHITECTURE.md
-- schedule/D1-DATABASE-FOUNDATION.md
-- schedule/DATA-LAYER.md
-- schedule/DATABASE-PLAN.md
-- schedule/DATABASE-PLANNING.md
-- schedule/DEPRECATION-AUDIT.md
-- schedule/ENTITY-MAP.md
-- schedule/HOWTO.md
-- schedule/MIGRATION-PLAN.md
-- schedule/PHP-MYSQL-STARTER.md
-- schedule/PRE-DATABASE-SAFETY-AUDIT.md
-- schedule/README.md
-- schedule/RELEASE-v0.99.0.md
-- schedule/RELEASE-v0.99.1.md
-- schedule/RELEASE-v1.0.0.md
-- schedule/RELEASE-v1.1.0.md
-- schedule/RELEASE-v1.2.0.md
-- schedule/RELEASE-v1.2.1.md
-- schedule/RELEASE-v1.3.0.md
-- schedule/REPOSITORY-ADAPTER-LAYER.md
-- schedule/ROADMAP.md
-- schedule/RULE-ENGINE.md
-- schedule/SECURITY-PLAN.md
-- schedule/TABLE-PLAN.md
-- schedule/V1-READINESS.md
-- schedule/WORKER-API-FOUNDATION.md
-- schedule/WORKER-FOLDER-REPAIR.md
-- schedule/api/mock-functions/agencies.js
-- schedule/api/mock-functions/employees.js
-- schedule/api/mock-functions/health.js
-- schedule/d1/README.md
-- schedule/d1/schema.sql
-- schedule/d1/seed.sql
-- schedule/data/agencies.json
-- schedule/data/employees.json
-- schedule/index.html
-- schedule/script.js
-- schedule/style.css
-- standards/COMPONENT_STANDARDS.md
-- standards/DEVELOPMENT_STANDARDS.md
-- standards/DOCUMENTATION_STANDARDS.md
-- standards/RELEASE_STANDARDS.md
-- standards/REPOSITORY_STANDARDS.md
-- standards/STANDARDS.md
-- standards/UX_STANDARDS.md
-- standards/WORKFLOW_STANDARDS.md
-- status/index.html
-- terms/index.html
-- timeoff/BUILDMANIFEST.md
-- timeoff/FILEMANIFEST.md
-- timeoff/HOWTO.md
-- timeoff/README.md
-- timeoff/ROADMAP.md
-- timeoff/index.html
-- timeoff/script.js
-- timeoff/style.css
+.gitattributes
+.gitignore
+ADMIN_CHANGELOG.md
+HOWTO.md
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+PUBLIC_CHANGELOG.md
+README.md
+ROADMAP.md
+about/index.html
+assets/components/footer.js
+assets/components/header.js
+assets/global.css
+assets/global.js
+assets/icons/apple-touch-icon.png
+assets/icons/favicon.ico
+assets/icons/favicon.svg
+assets/icons/site.webmanifest
+build/BUILDMANIFEST.md
+build/FILEMANIFEST.md
+build/SHA256SUMS.txt
+changelog/index.html
+contact/index.html
+docs/BACKUP.md
+docs/RESTORE.md
+how-to/index.html
+index.html
+overtime/BUILDMANIFEST.md
+overtime/FILEMANIFEST.md
+overtime/HOWTO.md
+overtime/README.md
+overtime/ROADMAP.md
+overtime/index.html
+overtime/script.js
+overtime/style.css
+pay-planner/index.html
+paycheck/index.html
+privacy/index.html
+report-issue/index.html
+request-feature/index.html
+roadmap/index.html
+schedule/API-PLAN.md
+schedule/ARCHITECTURE-AUDIT.md
+schedule/AUDIT-LOGGING-PLAN.md
+schedule/BACKEND-PORTABILITY.md
+schedule/CHANGELOG.md
+schedule/CLOUDFLARE-ARCHITECTURE.md
+schedule/D1-DATABASE-FOUNDATION.md
+schedule/D1-SETUP-GUIDE.md
+schedule/DATA-LAYER.md
+schedule/DATABASE-PLAN.md
+schedule/DATABASE-PLANNING.md
+schedule/DEPRECATION-AUDIT.md
+schedule/ENTITY-MAP.md
+schedule/HOWTO.md
+schedule/MIGRATION-PLAN.md
+schedule/PHP-MYSQL-STARTER.md
+schedule/PRE-DATABASE-SAFETY-AUDIT.md
+schedule/README.md
+schedule/RELEASE-v0.99.0.md
+schedule/RELEASE-v0.99.1.md
+schedule/RELEASE-v1.0.0.md
+schedule/RELEASE-v1.1.0.md
+schedule/RELEASE-v1.2.0.md
+schedule/RELEASE-v1.2.1.md
+schedule/RELEASE-v1.3.0.md
+schedule/RELEASE-v1.3.1.md
+schedule/REPOSITORY-ADAPTER-LAYER.md
+schedule/ROADMAP.md
+schedule/RULE-ENGINE.md
+schedule/SECURITY-PLAN.md
+schedule/TABLE-PLAN.md
+schedule/V1-READINESS.md
+schedule/WORKER-API-FOUNDATION.md
+schedule/WORKER-FOLDER-REPAIR.md
+schedule/api/mock-functions/agencies.js
+schedule/api/mock-functions/employees.js
+schedule/api/mock-functions/health.js
+schedule/d1/README.md
+schedule/d1/schema.sql
+schedule/d1/seed.sql
+schedule/data/agencies.json
+schedule/data/employees.json
+schedule/index.html
+schedule/script.js
+schedule/style.css
+standards/COMPONENT_STANDARDS.md
+standards/DEVELOPMENT_STANDARDS.md
+standards/DOCUMENTATION_STANDARDS.md
+standards/RELEASE_STANDARDS.md
+standards/REPOSITORY_STANDARDS.md
+standards/STANDARDS.md
+standards/UX_STANDARDS.md
+standards/WORKFLOW_STANDARDS.md
+status/index.html
+terms/index.html
+timeoff/BUILDMANIFEST.md
+timeoff/FILEMANIFEST.md
+timeoff/HOWTO.md
+timeoff/README.md
+timeoff/ROADMAP.md
+timeoff/index.html
+timeoff/script.js
+timeoff/style.css

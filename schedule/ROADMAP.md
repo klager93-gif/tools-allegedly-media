@@ -1,3 +1,9 @@
+## Current: v1.3.1 — D1 Setup Guide
+
+D1 setup guidance has been added before Employee CRUD begins.
+
+Next: v1.4.0 — Employee CRUD Foundation.
+
 ## Current: v1.3.0 — D1 Database Foundation
 
 D1 schema and seed files now exist, but the active app still uses the JSON adapter.

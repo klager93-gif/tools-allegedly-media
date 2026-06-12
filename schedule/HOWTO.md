@@ -1,3 +1,7 @@
+## v1.3.1 HOWTO — D1 Setup Guide
+
+Use `/schedule/D1-SETUP-GUIDE.md` before attempting any D1 connection or Employee CRUD work.
+
 ## v1.3.0 HOWTO — D1 Database Foundation
 
 The Schedule tool still runs from static JSON. The new `/schedule/d1` files are planning/building blocks for the future Cloudflare D1 backend. Do not add live secrets or credentials to the repo.
