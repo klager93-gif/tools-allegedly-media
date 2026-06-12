@@ -1,29 +1,31 @@
 # Build Manifest
 
-## Schedule v2.1.0 — Calendar Foundation
+## Schedule v2.1.1 — Full Root Deployment Cleanup
 
 Backup title:
 
 ```text
-2026-06-12 Schedule Backup Before v2.1.0
+2026-06-12 Schedule Backup Before v2.1.1
 ```
 
-Built from:
+Built from uploaded current root package:
 
 ```text
-signal-labs-schedule-v2.0.0-minimum-staffing-foundation.zip
+tools-allegedly-media.zip
 ```
 
 Release package:
 
 ```text
-signal-labs-schedule-v2.1.0-calendar-foundation.zip
+signal-labs-tools-root-v2.1.1-schedule-calendar-cleanup.zip
 ```
 
 Scope:
 
-- Schedule only
-- Mandatory root release documentation
-- No Paycheck files
-- No unrelated tools
-- No junk/work folders
+- Full root replacement package
+- Schedule v2.1.1 cleanup patch
+- Preserves `/schedule/index.html` for `/schedule/`
+- Preserves `/schedule/schedule.html` for calendar preview
+- Removes deployment junk: `__MACOSX/`, `.git/`, `._*`, `.DS_Store`
+
+Files included: 115

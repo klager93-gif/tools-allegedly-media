@@ -623,3 +623,6 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 .minimum-staffing-item p { margin-top: 8px; }
 @media (max-width: 850px) { .minimum-staffing-stats, .minimum-staffing-grid { grid-template-columns: 1fr; } }
 @media print { .minimum-staffing-stat, .minimum-staffing-item { border-color: #ccc; background: #fff; color: #111; } }
+
+.schedule-link-button { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 10px 14px; border: 1px solid rgba(255,255,255,.16); border-radius: var(--radius-pill); background: rgba(255,255,255,.08); color: var(--text); font-weight: 950; text-decoration: none; }
+.schedule-link-button:hover, .schedule-link-button:focus-visible { border-color: rgba(96,165,250,.55); background: rgba(96,165,250,.14); }

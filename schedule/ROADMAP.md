@@ -1,5 +1,11 @@
 # Signal Schedule Roadmap
 
+## v2.1.1 — Full Root Deployment Cleanup
+
+- Clean full-root replacement package.
+- Calendar preview linked from foundation overview.
+
+
 ## Completed
 
 - v1.8.0 — Employee CRUD Foundation

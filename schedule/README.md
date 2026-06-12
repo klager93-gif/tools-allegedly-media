@@ -1,6 +1,6 @@
 # Signal Schedule
 
-**Current Version:** v2.1.0 — Calendar Foundation
+**Current Version:** v2.1.1 — Calendar Foundation Cleanup
 
 Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, and similar shift-based operations.
 
@@ -34,3 +34,10 @@ Signal Schedule is a staffing and schedule-planning tool being built for dispatc
 - No VOT bidding workflow
 - No employee portal
 - No production auth system
+
+## v2.1.1 Cleanup
+
+- Full-root replacement package cleanup.
+- `schedule/index.html` preserved for `/schedule/`.
+- `schedule/schedule.html` preserved for the user-facing calendar preview.
+- Added Calendar Preview link from the foundation overview.

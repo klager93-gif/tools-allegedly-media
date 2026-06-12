@@ -1,5 +1,13 @@
 # Signal Schedule Changelog
 
+## 2026-06-12 — Schedule v2.1.1 Full Root Deployment Cleanup
+
+- Rebuilt the release as a clean full-root replacement package.
+- Preserved `schedule/index.html` and `schedule/schedule.html` together to prevent directory index/403 deployment issues.
+- Added a Calendar Preview link from the Schedule foundation overview.
+- Removed macOS resource forks, Git internals, and deployment junk from the ZIP.
+
+
 ## v2.1.0 — Calendar Foundation
 
 - Added separate user-facing calendar page at `schedule/schedule.html`.

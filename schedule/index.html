@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v1.9.0
-Purpose: Employee CRUD Foundation with JSON adapter still active
+Version: v2.1.1
+Purpose: Foundation/admin overview with Calendar Foundation navigation
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +21,11 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v2.0.0"
-  data-signal-theme="Minimum Staffing Foundation"
+  data-signal-version="v2.1.1"
+  data-signal-theme="Calendar Foundation Cleanup"
   data-signal-status="Active Development"
-  data-signal-description="Define minimum staffing requirements by assignment, role, shift, location, and day before leave, VOT, mandation, and schedule generation."
-  data-signal-status-text="Signal Schedule v2.0.0 adds minimum staffing templates and read-only coverage requirement preview data while preserving the active JSON adapter."
+  data-signal-description="Foundation overview with employee, assignment, minimum staffing, and calendar preview access."
+  data-signal-status-text="Signal Schedule v2.1.1 keeps the foundation overview intact and links to the user-facing calendar preview."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v2.0.0 Minimum Staffing Foundation</strong>
+      <strong id="currentWeekLabel">v2.1.1 Calendar Foundation Cleanup</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,7 +46,20 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v1.9.0 remains browser-only for the main app. This release adds assignment templates, employee assignment records, assignment service/repository boundaries, and future Postgres schema planning. Writes remain disabled; no assignment editor or scheduling engine is active yet.</p>
+      <p>Signal Schedule remains browser-only for the main app. v2.1.1 keeps this foundation/admin overview intact, preserves the v2.1 calendar preview, and cleans the release package for full-root replacement deployment.</p>
+    </div>
+  </section>
+
+
+  <section class="schedule-card calendar-entry-card" aria-labelledby="calendarEntryTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="calendarEntryTitle">Calendar Preview</h2>
+        <p>Open the separate user-facing calendar foundation page to preview month view, daily coverage, short-staffing placeholders, open shifts, and event impacts.</p>
+      </div>
+      <div class="schedule-actions-inline">
+        <a class="schedule-link-button" href="schedule.html">Open Calendar Preview <span aria-hidden="true">→</span></a>
+      </div>
     </div>
   </section>
 

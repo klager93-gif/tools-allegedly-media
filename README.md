@@ -1,5 +1,7 @@
 # Signal Labs Tools
 
+**Current package:** Schedule v2.1.1 — Full Root Deployment Cleanup
+
 Current Schedule release included in this package:
 
 **Schedule v2.1.0 — Calendar Foundation**
