@@ -20,4 +20,4 @@ Signal Labs is being maintained as a small software suite. Shared assets, naviga
 
 ## Current Schedule Planning
 
-**Signal Schedule v0.8.2 — Preview Stabilization and Sample Data Repair** adds policy evaluation planning for overtime, mandation, benefits, coverage, fatigue, trades, bidding, priority, explanations, and audit history.
+**Signal Schedule v0.8.3 — Card Label Formatting Repair** improves Rule Engine preview readability by separating labels from headings in rule, evaluation, and agency template cards.

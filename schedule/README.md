@@ -1,5 +1,10 @@
 # Signal Schedule
 
+## v0.8.3 Card Label Formatting Repair
+
+Signal Schedule v0.8.3 repairs Rule Engine Foundation preview readability by separating generated labels from card headings in Rule Engine, Rule Evaluation, and Agency Template panels.
+
+
 Signal Schedule is a scheduling and staffing tool for Signal Labs.
 
 ## Version

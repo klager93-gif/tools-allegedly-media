@@ -19,6 +19,11 @@ Mandation correction: mandates add forced work/coverage and mandate history. The
 
 # Signal Schedule Rule Engine
 
+## v0.8.3 Card Label Formatting Repair
+
+Rule Engine preview labels should render as distinct metadata lines. Labels such as Rule priority, Input, Outcome, and Editable template should never run directly into the heading text.
+
+
 ## Purpose
 
 The rule engine exists so Signal Schedule can support different agencies without hard-coding one workplace, one union contract, or one scheduling culture.

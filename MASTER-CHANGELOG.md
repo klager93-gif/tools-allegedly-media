@@ -1,3 +1,9 @@
+## Signal Schedule v0.8.3 — Card Label Formatting Repair
+
+- Repaired Rule Engine, Rule Evaluation, and Agency Template preview card label formatting.
+- Prevented generated labels such as Rule priority, Input, and Editable template from running into card headings.
+- Updated Schedule version references and cache-busting to v0.8.3.
+
 ## Signal Schedule v0.8.2 — Preview Stabilization and Sample Data Repair
 
 - Repaired default sample loading after stale/empty local storage could hide sample employees and assignments.

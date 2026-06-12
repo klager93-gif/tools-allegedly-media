@@ -1,10 +1,10 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.8.2
+Version: v0.8.3
 Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impact labels, and warning display
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.8.2';
+  var STORAGE_KEY = 'signalSchedule.v0.8.3';
   var OLD_STORAGE_KEYS = ['signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
@@ -519,7 +519,7 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.8.2 Rules';
+    if (label) label.textContent = 'v0.8.3 Rules';
   }
 
   function syncRuleInputs() {
@@ -677,8 +677,8 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
     if (!target) return;
     var items = Array.isArray(state.ruleEnginePrinciples) && state.ruleEnginePrinciples.length ? state.ruleEnginePrinciples : defaultRuleEnginePrinciples();
     target.innerHTML = items.map(function (item) {
-      return '<article class="rule-engine-item">' +
-        '<span>' + escapeHtml(item.name || 'Rule principle') + '</span>' +
+      return '<article class="rule-engine-card-item">' +
+        '<span class="card-kicker">' + escapeHtml(item.name || 'Rule principle') + '</span>' +
         '<strong>' + escapeHtml(item.summary || '') + '</strong>' +
         '<p>' + escapeHtml(item.example || '') + '</p>' +
         '</article>';
@@ -690,11 +690,12 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
     if (!target) return;
     var items = Array.isArray(state.ruleEvaluationExamples) && state.ruleEvaluationExamples.length ? state.ruleEvaluationExamples : defaultRuleEvaluationExamples();
     target.innerHTML = items.map(function (item) {
-      return '<article class="rule-evaluation-item">' +
-        '<span>' + escapeHtml(item.ruleType || 'Rule') + ' · ' + escapeHtml(item.priority || 'priority not set') + '</span>' +
-        '<strong>Input</strong>' +
+      return '<article class="rule-evaluation-card-item">' +
+        '<span class="card-kicker">' + escapeHtml(item.ruleType || 'Rule') + '</span>' +
+        '<strong>' + escapeHtml(item.priority || 'Priority not set') + '</strong>' +
+        '<small class="rule-card-label">Input</small>' +
         '<p>' + escapeHtml(item.input || '') + '</p>' +
-        '<strong>Outcome</strong>' +
+        '<small class="rule-card-label">Outcome</small>' +
         '<p>' + escapeHtml(item.outcome || '') + '</p>' +
         '<em>' + escapeHtml(item.explanation || '') + '</em>' +
         '</article>';
@@ -706,8 +707,8 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
     if (!target) return;
     var items = Array.isArray(state.agencyRuleTemplates) && state.agencyRuleTemplates.length ? state.agencyRuleTemplates : defaultAgencyRuleTemplates();
     target.innerHTML = items.map(function (item) {
-      return '<article class="agency-template-item">' +
-        '<span>Editable template</span>' +
+      return '<article class="agency-template-card-item">' +
+        '<span class="card-kicker">Editable template</span>' +
         '<strong>' + escapeHtml(item.name || 'Agency template') + '</strong>' +
         '<p>' + escapeHtml(item.examples || '') + '</p>' +
         '</article>';
@@ -905,7 +906,7 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.8.2');
+    lines.push('Version: v0.8.3');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage + Explanations');
     lines.push('');

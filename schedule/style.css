@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.8.2
+Version: v0.8.3
 Purpose: Signal Schedule benefit ledger foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -171,3 +171,35 @@ Purpose: Signal Schedule benefit ledger foundation styles
 @media (max-width: 1100px) { .rule-engine-grid, .rule-evaluation-grid, .agency-template-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 650px) { .rule-engine-grid, .rule-evaluation-grid, .agency-template-grid { grid-template-columns: 1fr; } }
 @media print { .rule-engine-card-item, .rule-evaluation-card-item, .agency-template-card-item { border-color: #ccc; background: #fff; color: #111; } }
+
+/*
+Signal Schedule v0.8.3 Card Label Formatting Repair
+Keeps generated rule-engine labels from running into headings.
+*/
+.rule-engine-card-item .card-kicker,
+.rule-evaluation-card-item .card-kicker,
+.agency-template-card-item .card-kicker,
+.rule-card-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 950;
+  line-height: 1.2;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.rule-engine-card-item strong,
+.rule-evaluation-card-item strong,
+.agency-template-card-item strong {
+  display: block;
+  margin-top: 0;
+  line-height: 1.18;
+}
+
+.rule-evaluation-card-item .rule-card-label {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  color: var(--soft);
+}

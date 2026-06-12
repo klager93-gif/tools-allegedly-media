@@ -1,3 +1,11 @@
+## v0.8.3 — Card Label Formatting Repair
+
+- Repaired card label formatting in Rule Engine Foundation preview panels.
+- Updated Rule Engine, Rule Evaluation, and Agency Template cards so labels render as separate meta lines instead of running into headings.
+- Added CSS safeguards for card kickers and rule labels.
+- Updated Schedule version references and cache-busting to v0.8.3.
+- No new scheduling logic, database storage, CRUD workflow, approval workflow, or final automation was added.
+
 ## v0.8.2 — Preview Stabilization and Sample Data Repair
 
 - Restored default sample data when older empty local storage would otherwise render a blank sandbox.
