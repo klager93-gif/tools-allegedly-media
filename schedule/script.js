@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.7.0
-Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage, and adjustments
+Version: v0.8.0
+Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explanations, and audit planning
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.7.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.8.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -23,6 +23,9 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
     scheduleEvents: [],
     benefitLedger: [],
     benefitRules: [],
+    ruleEnginePrinciples: [],
+    ruleEvaluationExamples: [],
+    agencyRuleTemplates: [],
     coverageRequirements: [],
     agencyProfile: null,
     selectedEmployeeId: null
@@ -74,12 +77,83 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
     return [{
       id: 'rules-demo-agency',
       name: 'Demo Agency Rules',
-      industry: 'Public safety / shift operations',
-      overtime: 'Warn after weekly max hours.',
-      mandation: 'Track forced OT separately and skip employees with active exceptions.',
-      benefits: 'Use ledger entries for accrual, use, corrections, and payouts.',
-      coverage: 'Compare scheduled staffing against minimum requirements.',
-      explanation: 'Every warning should be explainable.'
+      industry: 'Industry-agnostic shift operations',
+      priority: 'Eligibility and safety rules evaluate before fairness and convenience rules.',
+      overtime: 'Evaluate overtime eligibility, pay-period rules, fatigue limits, and approval requirements.',
+      mandation: 'Track forced OT separately, skip employees with active exceptions, and explain rotation outcomes.',
+      benefits: 'Use ledger entries for accrual, use, corrections, carryovers, and payouts.',
+      coverage: 'Compare scheduled staffing against minimum, target, and maximum requirements by role/time block.',
+      bidding: 'Future shift, vacation, and overtime bids should use configurable seniority and award rules.',
+      explanation: 'Every warning, skip, denial, assignment, and override should be explainable.'
+    }];
+  }
+
+  function defaultRuleEnginePrinciples() {
+    return [{
+      id: 'rule-priority',
+      name: 'Rule priority',
+      summary: 'Rules need an order so safety, eligibility, exceptions, and law/policy are checked before preferences.',
+      example: 'A person with an active FMLA/no-mandation exception is skipped before fairness rotation is evaluated.'
+    }, {
+      id: 'rule-explainability',
+      name: 'Explainability',
+      summary: 'The system should tell users why a person was chosen, skipped, denied, warned, or awarded.',
+      example: 'Mandation skipped Taylor because FMLA is active; Alex was next eligible on the rotation.'
+    }, {
+      id: 'rule-audit',
+      name: 'Audit trail',
+      summary: 'Rule outcomes should preserve the facts, rule source, admin override, and reason.',
+      example: 'Vacation denial, mandate skip, manual benefit correction, and coverage override all need a reason.'
+    }, {
+      id: 'rule-template',
+      name: 'Templates, not modes',
+      summary: 'Industries should start from editable templates rather than hard-coded dispatch/fire/nursing modes.',
+      example: 'Dispatch and retail can both use coverage, breaks, benefits, fatigue, and eligibility rules differently.'
+    }];
+  }
+
+  function defaultRuleEvaluationExamples() {
+    return [{
+      id: 'rule-eval-mandate',
+      ruleType: 'Mandation',
+      priority: 'Eligibility before rotation',
+      input: 'Night coverage shortage; Taylor has active FMLA; Alex is next eligible.',
+      outcome: 'Skip Taylor, select Alex, create mandate history entry.',
+      explanation: 'Taylor was skipped because active FMLA blocks mandation. Alex was next eligible on the rotation.'
+    }, {
+      id: 'rule-eval-benefit',
+      ruleType: 'Benefit usage',
+      priority: 'Approval before ledger entry',
+      input: 'Approved vacation event for 720 paid minutes.',
+      outcome: 'Create -720 vacation ledger entry linked to the approved event.',
+      explanation: 'Vacation was approved, so the ledger records usage instead of overwriting the balance.'
+    }, {
+      id: 'rule-eval-coverage',
+      ruleType: 'Coverage',
+      priority: 'Minimum before target before maximum',
+      input: 'Dispatcher nights need min 6, target 8, max 10; scheduled count is 5.',
+      outcome: 'Flag shortage and suggest open coverage spot planning.',
+      explanation: 'Coverage is red because scheduled staffing is below the minimum for that time block.'
+    }];
+  }
+
+  function defaultAgencyRuleTemplates() {
+    return [{
+      id: 'template-dispatch',
+      name: 'Dispatch / Communications',
+      examples: '24-hour coverage, bid shifts, mandates, minimum staffing, benefit usage, and certification rules.'
+    }, {
+      id: 'template-fire-ems',
+      name: 'Fire / EMS',
+      examples: 'Stations, 24/48 or 48/96 patterns, apparatus staffing, paramedic requirements, and fatigue rules.'
+    }, {
+      id: 'template-nursing',
+      name: 'Nursing / Healthcare',
+      examples: 'Units, skill mix, charge nurse requirements, 12-hour shifts, break rules, and overtime thresholds.'
+    }, {
+      id: 'template-retail-manufacturing',
+      name: 'Retail / Manufacturing',
+      examples: 'Locations, lines, roles, unpaid breaks, availability, open shifts, and maximum staffing controls.'
     }];
   }
 
@@ -266,7 +340,7 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
         end: event.end || '',
         paidMinutes: Number(event.paidMinutes || 0),
         coverageImpact: event.coverageImpact || definition.coverageImpact || '',
-        benefitImpact: event.benefitImpact || definition.benefitImpact || '',
+        benefitImpact: (String(event.type || '').toLowerCase() === 'mandation' && /vacation|sick|personal|benefit time/i.test(String(event.benefitImpact || ''))) ? definition.benefitImpact : (event.benefitImpact || definition.benefitImpact || ''),
         behaviors: Array.isArray(event.behaviors) ? event.behaviors : (definition.behavior || []),
         reason: event.reason || '',
         source: event.source || 'manual mock data',
@@ -291,6 +365,9 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
       };
     });
     next.benefitRules = Array.isArray(next.benefitRules) && next.benefitRules.length ? next.benefitRules : defaultBenefitRules();
+    next.ruleEnginePrinciples = Array.isArray(next.ruleEnginePrinciples) && next.ruleEnginePrinciples.length ? next.ruleEnginePrinciples : defaultRuleEnginePrinciples();
+    next.ruleEvaluationExamples = Array.isArray(next.ruleEvaluationExamples) && next.ruleEvaluationExamples.length ? next.ruleEvaluationExamples : defaultRuleEvaluationExamples();
+    next.agencyRuleTemplates = Array.isArray(next.agencyRuleTemplates) && next.agencyRuleTemplates.length ? next.agencyRuleTemplates : defaultAgencyRuleTemplates();
     next.coverageRequirements = Array.isArray(next.coverageRequirements) && next.coverageRequirements.length ? next.coverageRequirements : defaultCoverageRequirements();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
@@ -437,7 +514,7 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.7.0 Benefits';
+    if (label) label.textContent = 'v0.8.0 Rules';
   }
 
   function syncRuleInputs() {
@@ -779,7 +856,7 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.7.0');
+    lines.push('Version: v0.8.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage + Explanations');
     lines.push('');
@@ -795,6 +872,9 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
     lines.push('- Schedule events: ' + state.scheduleEvents.length);
     lines.push('- Event type definitions: ' + ((state.eventTypeDefinitions || []).length));
     lines.push('- Benefit ledger entries: ' + state.benefitLedger.length);
+    lines.push('- Rule engine principles: ' + ((state.ruleEnginePrinciples || []).length));
+    lines.push('- Rule evaluation examples: ' + ((state.ruleEvaluationExamples || []).length));
+    lines.push('- Agency rule templates: ' + ((state.agencyRuleTemplates || []).length));
     lines.push('- Coverage requirements: ' + state.coverageRequirements.length);
     lines.push('');
     lines.push('Pattern Templates:');
@@ -804,7 +884,7 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
     });
 
     lines.push('');
-    lines.push('Benefit Ledger Foundation:');
+    lines.push('Event Samples:');
     if (state.scheduleEvents.length) {
       state.scheduleEvents.forEach(function (event) {
         var employee = findEmployee(event.employeeId);
@@ -885,6 +965,9 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
     renderEventBehaviorPreview();
     renderBenefitLedgerFoundation();
     renderBenefitRulePreview();
+    renderRuleEnginePreview();
+    renderRuleEvaluationPreview();
+    renderAgencyTemplatePreview();
     renderCoverageRequirementPreview();
     renderDataModelPreview();
     renderSelects();
@@ -980,6 +1063,9 @@ Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage
         { id: 'ben-4', employeeId: 'emp-alex', benefitType: 'Comp Time', date: '2026-06-21', amountMinutes: 120, action: 'Manual adjustment', reason: 'Example correction entry with audit reason', source: 'admin adjustment sample', balanceAfterMinutes: 480 }
       ],
       benefitRules: defaultBenefitRules(),
+      ruleEnginePrinciples: defaultRuleEnginePrinciples(),
+      ruleEvaluationExamples: defaultRuleEvaluationExamples(),
+      agencyRuleTemplates: defaultAgencyRuleTemplates(),
       coverageRequirements: defaultCoverageRequirements(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },

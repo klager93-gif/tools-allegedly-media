@@ -1,3 +1,11 @@
+## v0.8.0 — Rule Engine Foundation
+
+- Add visible Rule Engine Foundation panels.
+- Model rule priority, explainability, audit trail, and editable industry templates.
+- Add evaluation examples for mandation, benefit usage, and coverage.
+- Correct event impact wording so mandation adds coverage/mandate history instead of consuming vacation time.
+- Keep rules mock-only until persistence and admin CRUD exist.
+
 # Signal Schedule Roadmap
 
 ## Current Version
@@ -135,7 +143,7 @@ Goal: make the schedule react to real-world events.
 - Add coverage warnings after absences are applied.
 - Prepare for later Time Off and Benefit Time integration.
 
-## v0.7.0 — Coverage Engine
+## v0.8.0 — Coverage Engine
 
 Goal: make staffing requirements visible and explainable.
 

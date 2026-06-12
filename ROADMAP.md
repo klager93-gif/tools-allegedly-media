@@ -1,4 +1,4 @@
-- Verify Signal Schedule v0.7.0 Benefit Ledger Foundation after deployment.
+- Verify Signal Schedule v0.8.0 Rule Engine Foundation after deployment.
 # Signal Labs Roadmap
 
 ## Immediate
@@ -10,7 +10,7 @@
 
 ## Upcoming
 
-- Signal Schedule: event foundation using pattern-aware schedule events and behavior categories.
+- Signal Schedule: coverage engine foundation using rule-aware minimum, target, maximum, open spots, and explanations.
 - Signal Schedule: true date-based model and month view planning.
 - Signal Schedule: schedule patterns, rotations, overrides, time off conflicts, and publishing concept.
 - Signal Schedule: future rule-engine planning around agency policies, coverage, fairness, mandation, benefits, bidding, and explanations.
@@ -101,7 +101,7 @@
 
 - Pattern Foundation.
 
-### v0.7.0
+### v0.8.0
 
 - Benefit Ledger Foundation.
 - Model vacation, sick, overtime, mandation, training, trades, callbacks, and administrative changes as schedule events.

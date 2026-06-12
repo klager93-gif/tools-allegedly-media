@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.7.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+Planning document for the future PHP/database version. Signal Schedule v0.8.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
 
 ## Core Rule
 
@@ -996,7 +996,7 @@ Pattern days should store facts, not assumptions. A short day should be stored a
 
 ## v0.7.0 Benefit Ledger Foundation Tables
 
-v0.7.0 adds planning for event objects, but does not create database tables yet.
+v0.8.0 adds planning for event objects, but does not create database tables yet.
 
 Future event-related tables may include:
 
@@ -1036,3 +1036,16 @@ Future event-related tables may include:
 - updated_at
 
 Events should explain why the final schedule differs from expected pattern work. They should not be stored only as colored calendar text.
+
+
+## Rule Engine Foundation Tables
+
+Future persistence should separate rule configuration from rule outcomes. Planned tables include:
+
+- `rule_profiles` for agency-level policy sets.
+- `rule_definitions` for overtime, mandation, benefit, coverage, fatigue, trade, and bidding rules.
+- `rule_evaluations` for recorded outcomes and explanations.
+- `rule_overrides` for admin overrides with reasons.
+- `agency_rule_templates` for editable industry starting points.
+
+Mandation rule outcomes should link to mandate history and pay/coverage impact, not benefit usage. Vacation, sick, personal, and similar time-off events should link to benefit-ledger usage entries.

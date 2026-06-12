@@ -93,3 +93,20 @@ Review the preview for:
 - How events explain changes to expected pattern work.
 
 Use this release as a planning reference only. Event creation, approval, save/load, benefit ledger automation, mandation rotation, and trade workflows are planned for later releases.
+
+
+## v0.8.0 Rule Engine Preview
+
+The Rule Engine Foundation panels are planning previews. They do not save editable policies yet.
+
+Use the panels to review how future rules should evaluate:
+
+- Overtime eligibility and thresholds.
+- Mandation rotation, counts, skips, and exceptions.
+- Benefit use and accrual rules.
+- Coverage minimums, targets, and maximums.
+- Fatigue/rest limits.
+- Trades and bidding rules.
+- Explanation and audit trail requirements.
+
+Mandation events should add coverage and mandate history; they should not consume vacation minutes.

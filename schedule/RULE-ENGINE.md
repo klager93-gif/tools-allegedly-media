@@ -1,3 +1,22 @@
+## v0.8.0 Rule Engine Foundation
+
+Rule Engine Foundation introduces sample policy evaluation concepts for priority, explainability, audit trails, and editable templates.
+
+Core principle:
+
+```text
+Facts + Rules + Events = Outcome + Explanation + Audit Trail
+```
+
+The system should eventually explain:
+
+- why an employee was selected or skipped for mandation;
+- why benefit time was consumed;
+- why coverage is short or over maximum;
+- why a trade, bid, or override was approved or denied.
+
+Mandation correction: mandates add forced work/coverage and mandate history. They do not consume vacation minutes.
+
 # Signal Schedule Rule Engine
 
 ## Purpose
@@ -322,7 +341,7 @@ Key principles:
 - Patterns describe normal expectations; future events explain deviations.
 
 
-## v0.7.0 Event Rules
+## v0.8.0 Event Rules
 
 Events are rule-aware facts that change expected pattern work.
 
@@ -348,7 +367,7 @@ Future rule-engine behavior should evaluate events together with patterns, agenc
 
 ## v0.7.0 — Benefit Ledger Foundation
 
-Signal Schedule v0.7.0 adds benefit ledger planning. Benefit balances should be derived from auditable ledger entries rather than overwritten as silent totals.
+Signal Schedule v0.8.0 adds benefit ledger planning. Benefit balances should be derived from auditable ledger entries rather than overwritten as silent totals.
 
 Planned benefit ledger concepts include:
 
@@ -359,5 +378,5 @@ Planned benefit ledger concepts include:
 - Projected balance planning for future dates.
 - Audit history so every balance change can answer why it happened.
 
-v0.7.0 does not add database persistence, editable benefit records, payroll integration, approval workflow, automatic accrual processing, or final benefit calculations.
+v0.8.0 does not add database persistence, editable benefit records, payroll integration, approval workflow, automatic accrual processing, or final benefit calculations.
 

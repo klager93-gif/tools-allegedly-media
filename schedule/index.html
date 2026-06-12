@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.7.0
-Purpose: Benefit ledger foundation sandbox with text output and rule warnings
+Version: v0.8.0
+Purpose: Rule engine foundation sandbox with text output and rule warnings
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Benefit ledger foundation sandbox with text output and rule warnings
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.7.0">
+<link rel="stylesheet" href="style.css?v=0.8.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.7.0"
-  data-signal-theme="Benefit Ledger Foundation"
+  data-signal-version="v0.8.0"
+  data-signal-theme="Rule Engine Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define benefit ledger planning for accruals, usage, corrections, payouts, projected balances, and audit history."
-  data-signal-status-text="Signal Schedule v0.7.0 adds the Benefit Ledger Foundation: accruals, usage, adjustments, and projected balances should come from auditable ledger entries."
+  data-signal-description="Define rule engine planning for overtime, mandation, benefits, coverage, fatigue, trades, bidding, priority, explanations, and audit history."
+  data-signal-status-text="Signal Schedule v0.8.0 adds the Rule Engine Foundation: agency policies should evaluate people, patterns, events, benefits, coverage, exceptions, priority, explanations, and audit history."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Benefit ledger foundation sandbox with text output and rule warnings
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Define benefit ledger objects so future balances are calculated from accruals, usage, corrections, and audit history instead of overwritten totals.</p>
+      <p class="schedule-subtitle">Define how agency rules evaluate people, patterns, events, benefits, coverage, exceptions, and explanations before persistence or automation exists.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.7.0 Benefits</strong>
+      <strong id="currentWeekLabel">v0.8.0 Rules</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Benefit ledger foundation sandbox with text output and rule warnings
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.7.0 is still browser-only. This release adds the Benefit Ledger Foundation so vacation, sick, personal, comp time, holiday time, accruals, usage, corrections, and projected balances can be modeled before database persistence or final automation is added.</p>
+      <p>Signal Schedule v0.8.0 is still browser-only. This release adds the Rule Engine Foundation so agency policies can be modeled before database persistence, admin rule editing, or final automation is added.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.6 keeps the agency, employee, and pattern foundations and adds events as the first model for what changes the normal plan.</p>
+        <p>v0.8 keeps the agency, employee, pattern, event, and benefit foundations and adds rule profiles as the first model for policy evaluation.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -110,7 +110,7 @@ Purpose: Benefit ledger foundation sandbox with text output and rule warnings
   <section class="schedule-card benefit-ledger-foundation-card" aria-labelledby="eventFoundationTitle">
     <div class="schedule-card-heading">
       <div>
-        <h2 id="eventFoundationTitle">Benefit Ledger Foundation</h2>
+        <h2 id="eventFoundationTitle">Event Foundation</h2>
         <p>Events describe what changes the expected pattern: time off, sick calls, overtime, mandation, training, trades, callbacks, holidays, and administrative overrides.</p>
       </div>
     </div>
@@ -146,6 +146,38 @@ Purpose: Benefit ledger foundation sandbox with text output and rule warnings
       </div>
     </div>
     <div id="benefitRulePreview" class="benefit-rule-grid"></div>
+  </section>
+
+
+
+  <section class="schedule-card rule-engine-card" aria-labelledby="ruleEngineTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="ruleEngineTitle">Rule Engine Foundation</h2>
+        <p>Rules evaluate agency policy against employees, patterns, events, benefits, coverage needs, exceptions, and audit history. The goal is not just to decide what happens, but to explain why.</p>
+      </div>
+    </div>
+    <div id="ruleEnginePreview" class="rule-engine-grid"></div>
+  </section>
+
+  <section class="schedule-card rule-evaluation-card" aria-labelledby="ruleEvaluationTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="ruleEvaluationTitle">Rule Evaluation Preview</h2>
+        <p>Future rules should evaluate priority, exceptions, outcome, and explanation before changing a schedule, mandation list, benefit balance, coverage warning, or bid award.</p>
+      </div>
+    </div>
+    <div id="ruleEvaluationPreview" class="rule-evaluation-grid"></div>
+  </section>
+
+  <section class="schedule-card agency-template-card" aria-labelledby="agencyTemplateTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="agencyTemplateTitle">Agency Template Preview</h2>
+        <p>Industries should start from editable templates, not hard-coded modes. Dispatch, police, fire, EMS, nursing, retail, manufacturing, and office teams should all be rule-configurable.</p>
+      </div>
+    </div>
+    <div id="agencyTemplatePreview" class="agency-template-grid"></div>
   </section>
 
   <section class="schedule-card" aria-labelledby="coverageRulesTitle">
@@ -303,6 +335,6 @@ Purpose: Benefit ledger foundation sandbox with text output and rule warnings
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.7.0"></script>
+<script src="script.js?v=0.8.0"></script>
 </body>
 </html>

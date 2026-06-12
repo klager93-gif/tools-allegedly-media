@@ -4,11 +4,11 @@ Signal Schedule is a scheduling and staffing tool for Signal Labs.
 
 ## Version
 
-v0.7.0 — Benefit Ledger Foundation.
+v0.8.0 — Rule Engine Foundation.
 
 ## Current Purpose
 
-This release adds the Benefit Ledger Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now includes behavior-aware event definitions and schedule events that can remove, add, modify, or explain expected pattern work.
+This release adds the Rule Engine Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now includes rule profiles, rule principles, evaluation examples, and agency rule templates that explain how future automation should evaluate people, patterns, events, benefits, coverage, exceptions, and audits.
 
 ## What it does now
 
@@ -23,9 +23,10 @@ This release adds the Benefit Ledger Foundation. Signal Schedule remains browser
 - Show an Employee Profile Foundation panel
 - Show Pattern Foundation and Pattern Cycle Preview panels
 - Show Benefit Ledger Foundation and Event Behavior Preview panels
+- Show Rule Engine Foundation, Rule Evaluation Preview, and Agency Template Preview panels
 - Preview agency-defined settings, vocabulary, shift definitions, and coverage requirements
 - Preview employee identity, agency assignment, eligibility, exceptions, qualifications, and benefit snapshots
-- Preview sample rule, pattern, event type, schedule event, and benefit-ledger objects
+- Preview sample rule, pattern, event type, schedule event, benefit-ledger, and rule-engine objects
 - Calculate estimated scheduled hours
 - Show coverage warnings
 - Show max-hours warnings
@@ -143,7 +144,7 @@ v0.5.0 does not add database persistence, admin editing, final schedule generati
 
 ## v0.7.0 Benefit Ledger Foundation
 
-Signal Schedule v0.7.0 adds visible event planning before final schedule generation. Events are modeled as objects that modify expected pattern work.
+Signal Schedule v0.8.0 adds visible event planning before final schedule generation. Events are modeled as objects that modify expected pattern work.
 
 Sample event categories include:
 
@@ -166,4 +167,19 @@ Event behavior planning includes:
 - requires approval
 - requires audit trail
 
-v0.7.0 does not add database persistence, event CRUD, approval workflows, benefit automation, mandation rotation, trade workflow, or final schedule generation.
+v0.8.0 does not add database persistence, event CRUD, approval workflows, benefit automation, mandation rotation, trade workflow, or final schedule generation.
+
+
+## v0.8.0 Rule Engine Preview
+
+The Rule Engine Foundation panels show sample policy evaluation concepts. They are not editable database-backed rules yet.
+
+Review the preview for:
+
+- Rule priority and ordering.
+- Explainability for skips, selections, denials, warnings, and overrides.
+- Audit trail expectations.
+- Editable industry templates instead of hard-coded modes.
+- Mandation, benefit usage, and coverage rule examples.
+
+Important correction carried into v0.8.0: mandation events should not consume vacation time. A mandate adds forced work/coverage, may affect pay and mandate rotation history, and should explain any skips or exceptions.

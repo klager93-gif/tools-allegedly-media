@@ -1,13 +1,23 @@
+## v0.8.0 — Rule Engine Foundation
+
+- Added visible Rule Engine Foundation panels.
+- Added Rule Evaluation Preview for policy evaluation examples.
+- Added Agency Template Preview for editable industry templates instead of hard-coded modes.
+- Added sample rule-engine principles for priority, explainability, audit trail, and templates.
+- Added sample rule evaluation examples for mandation, benefit usage, and coverage.
+- Fixed event impact wording so mandation events do not incorrectly say they consume vacation minutes.
+- Updated Schedule version references to v0.8.0.
+- Updated Schedule roadmap, database plan, rule-engine notes, README, HOWTO, root roadmap, root README, master changelog, and build manifests.
+- No database storage, editable rule CRUD, real policy automation, approval workflow, mandation rotation automation, or final schedule generation was added.
+
 ## v0.7.0 — Benefit Ledger Foundation
 
 - Added visible Benefit Ledger Foundation panels.
-- Added Event Behavior Preview for behavior-aware event types.
-- Added sample event definitions for vacation, sick, overtime, mandation, training, and trade events.
-- Expanded schedule event mock objects with employee, type, category, status, start/end, paid minutes, coverage impact, benefit impact, behaviors, reason, source, and notes.
-- Updated text output to show event foundation samples and event type counts.
-- Updated Schedule version references to v0.7.0.
-- Updated Schedule roadmap, database plan, rule-engine notes, README, HOWTO, root roadmap, root README, master changelog, and build manifests.
-- No database storage, event CRUD, approval workflow, benefit ledger automation, mandation rotation, trade workflow, or final automated schedule generation was added.
+- Added Benefit Rule Preview panels.
+- Added sample benefit ledger entries for accruals, approved usage, annual banks, and manual adjustments.
+- Added sample benefit rules for monthly accrual, per-paycheck accrual, annual bank, and seniority-tier planning.
+- Reinforced that benefit balances should be calculated from auditable ledger entries instead of silently overwritten totals.
+- No database storage, editable benefit records, payroll integration, approval workflow, automatic accrual processing, or final benefit calculations were added.
 
 ## v0.5.0 — Pattern Foundation
 

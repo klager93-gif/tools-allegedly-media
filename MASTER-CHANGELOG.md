@@ -1,10 +1,19 @@
+## 2026-06-11 — Signal Schedule v0.8.0 Rule Engine Foundation
+
+- Added visible Rule Engine Foundation, Rule Evaluation Preview, and Agency Template Preview panels to the Schedule sandbox.
+- Added sample rule-engine principles for priority, explainability, audit trail, and editable industry templates.
+- Added sample evaluation examples for mandation, benefit usage, and coverage outcomes.
+- Fixed event impact wording so mandation events do not incorrectly show vacation-benefit consumption.
+- Updated text output, Schedule docs, root planning docs, changelog, database plan, rule-engine notes, and build manifests.
+- No database, editable rule CRUD, real policy automation, approval workflow, mandation rotation automation, or final schedule generation was added.
+
 ## 2026-06-11 — Signal Schedule v0.7.0 Benefit Ledger Foundation
 
-- Added visible Benefit Ledger Foundation and Event Behavior Preview panels to the Schedule sandbox.
-- Added sample behavior-aware event definitions for vacation, sick, overtime, mandation, training, and trades.
-- Expanded sample schedule event objects with coverage impact, benefit impact, paid minutes, source, reason, and behavior categories.
-- Updated text output, Schedule docs, root planning docs, changelog, database plan, rule-engine notes, and build manifests.
-- No database, event CRUD, approval workflow, benefit ledger automation, mandation rotation, trade workflow, or final schedule generation was added.
+- Added visible Benefit Ledger Foundation and Benefit Rule Preview panels to the Schedule sandbox.
+- Added sample benefit ledger entries for accruals, approved usage, annual banks, and manual adjustments.
+- Added sample benefit rules for monthly accrual, per-paycheck accrual, annual bank, and seniority-tier planning.
+- Reinforced that benefit balances should be calculated from auditable ledger entries instead of silently overwritten totals.
+- No database, editable benefit records, payroll integration, approval workflow, automatic accrual processing, or final benefit calculations were added.
 
 ## 2026-06-11 — Signal Schedule v0.5.0 Pattern Foundation
 

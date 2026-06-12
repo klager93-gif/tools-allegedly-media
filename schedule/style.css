@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.7.0
+Version: v0.8.0
 Purpose: Signal Schedule benefit ledger foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -156,3 +156,18 @@ Purpose: Signal Schedule benefit ledger foundation styles
 @media (max-width: 1100px) { .benefit-ledger-grid, .benefit-rule-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 650px) { .benefit-ledger-grid, .benefit-rule-grid { grid-template-columns: 1fr; } }
 @media print { .benefit-ledger-card, .benefit-rule-card-item { border-color: #ccc; background: #fff; color: #111; } }
+
+
+.rule-engine-card { border-color: rgba(168,85,247,.26); background: rgba(168,85,247,.06); }
+.rule-evaluation-card { border-color: rgba(34,197,94,.24); background: rgba(34,197,94,.055); }
+.agency-template-card { border-color: rgba(59,130,246,.24); background: rgba(59,130,246,.055); }
+.rule-engine-grid, .rule-evaluation-grid, .agency-template-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.rule-engine-card-item, .rule-evaluation-card-item, .agency-template-card-item { padding: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(0,0,0,.12); }
+.rule-engine-card-item span, .rule-evaluation-card-item span, .agency-template-card-item span { display: block; color: var(--muted); font-size: 12px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
+.rule-engine-card-item strong, .rule-evaluation-card-item strong, .agency-template-card-item strong { display: block; margin-top: 6px; font-size: 20px; letter-spacing: -.03em; }
+.rule-engine-card-item p, .rule-evaluation-card-item p, .agency-template-card-item p { margin-top: 8px; }
+.rule-engine-card-item small, .rule-evaluation-card-item small, .agency-template-card-item small { display: block; margin-top: 10px; color: var(--muted); line-height: 1.45; }
+.rule-evaluation-card-item b { color: var(--soft); }
+@media (max-width: 1100px) { .rule-engine-grid, .rule-evaluation-grid, .agency-template-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 650px) { .rule-engine-grid, .rule-evaluation-grid, .agency-template-grid { grid-template-columns: 1fr; } }
+@media print { .rule-engine-card-item, .rule-evaluation-card-item, .agency-template-card-item { border-color: #ccc; background: #fff; color: #111; } }
