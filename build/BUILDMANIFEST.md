@@ -1,34 +1,11 @@
 # Build Manifest
 
-Build: Signal Schedule v0.8.3 — Card Label Formatting Repair
-Source: signal-schedule-v0.8.2-preview-stabilization-and-sample-data-repair.zip
-Date: 2026-06-11
+Build: Signal Schedule v0.9.0 — Coverage Engine Foundation
+Source: signal-schedule-v0.8.3-card-label-formatting-repair.zip
+Created: 2026-06-11
 
-## Purpose
+## Scope
 
-Repair Rule Engine Foundation preview card label formatting so generated labels do not run into headings.
+Adds Coverage Engine Foundation previews for minimum, target, maximum, shortages, overstaffing, and numbered open coverage spots.
 
-## Files changed
-
-root/
-- README.md
-- ROADMAP.md
-- MASTER-CHANGELOG.md
-
-schedule/
-- index.html
-- script.js
-- style.css
-- README.md
-- DATABASE-PLAN.md
-- RULE-ENGINE.md
-- CHANGELOG.md
-
-build/
-- BUILDMANIFEST.md
-- FILEMANIFEST.md
-- SHA256SUMS.txt
-
-## Notes
-
-No scheduling logic, database storage, CRUD workflow, approval workflow, mandation automation, or final schedule generation was added.
+No database, coverage CRUD, approval workflow, mandation automation, or final schedule generation was added.

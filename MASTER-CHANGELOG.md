@@ -1,8 +1,10 @@
-## Signal Schedule v0.8.3 — Card Label Formatting Repair
+## Signal Schedule v0.9.0 — Coverage Engine Foundation
 
-- Repaired Rule Engine, Rule Evaluation, and Agency Template preview card label formatting.
-- Prevented generated labels such as Rule priority, Input, and Editable template from running into card headings.
-- Updated Schedule version references and cache-busting to v0.8.3.
+- Added Coverage Engine Foundation preview panels.
+- Added minimum, target, and maximum coverage evaluation by role, time block, location, qualification, and day.
+- Added open spot preview for numbered coverage slots.
+- Added shortage, below-target, and over-maximum status output.
+- Updated Schedule version references and cache-busting to v0.9.0.
 
 ## Signal Schedule v0.8.2 — Preview Stabilization and Sample Data Repair
 

@@ -162,7 +162,7 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 @media (max-width: 420px) { .signal-footer-links, .footer-actions { flex-direction: column; } .signal-footer-link, .footer-actions button { width: 100%; } }
 
 
-/* Home v0.8.3 — Homepage Density Pass */
+/* Home v0.9.0 — Homepage Density Pass */
 .home-redesign {
   padding: 26px 32px 0;
   background:
@@ -551,7 +551,7 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 }
 
 
-/* Home v0.8.3 — Homepage Density Pass */
+/* Home v0.9.0 — Homepage Density Pass */
 .home-hero { min-height: 390px; padding-bottom: 58px; }
 .home-hero-actions { margin-top: 30px; }
 .home-hero-actions .signal-button { min-height: 48px; padding: 12px 22px; font-size: 15px; }

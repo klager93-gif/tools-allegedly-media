@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.8.3
-Purpose: Rule engine foundation sandbox with text output and rule warnings
+Version: v0.9.0
+Purpose: Coverage engine foundation sandbox with minimum, target, maximum, and open spot previews
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Rule engine foundation sandbox with text output and rule warnings
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.8.3">
+<link rel="stylesheet" href="style.css?v=0.9.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.8.3"
-  data-signal-theme="Rule Engine Foundation"
+  data-signal-version="v0.9.0"
+  data-signal-theme="Coverage Engine Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define rule engine planning for overtime, mandation, benefits, coverage, fatigue, trades, bidding, priority, explanations, and audit history."
-  data-signal-status-text="Signal Schedule v0.8.3 repairs card label formatting in the Rule Engine Foundation preview while agency policy planning continues."
+  data-signal-description="Define coverage engine planning for minimums, targets, maximums, open spots, shortages, surplus warnings, and staffing requirements."
+  data-signal-status-text="Signal Schedule v0.9.0 adds Coverage Engine Foundation planning while remaining browser-only and mock-data based."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Rule engine foundation sandbox with text output and rule warnings
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Define how agency rules evaluate people, patterns, events, benefits, coverage, exceptions, and explanations before persistence or automation exists.</p>
+      <p class="schedule-subtitle">Preview how coverage requirements compare expected staffing against minimum, target, and maximum needs before persistence or automation exists.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.8.3 Rules</strong>
+      <strong id="currentWeekLabel">v0.9.0 Coverage</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Rule engine foundation sandbox with text output and rule warnings
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.8.3 is still browser-only. This repair keeps Rule Engine, Rule Evaluation, and Agency Template preview card labels readable while database persistence remains planned for later.</p>
+      <p>Signal Schedule v0.9.0 is still browser-only. Coverage Engine Foundation adds minimum, target, maximum, and open-spot planning without database persistence or final automation.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.8 keeps the agency, employee, pattern, event, and benefit foundations and adds rule profiles as the first model for policy evaluation.</p>
+        <p>v0.9 keeps the agency, employee, pattern, event, benefit, and rule foundations and adds coverage engine previews for staffing need versus staffing reality.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -188,6 +188,27 @@ Purpose: Rule engine foundation sandbox with text output and rule warnings
       </div>
     </div>
     <div id="coverageRequirementPreview" class="coverage-requirement-grid"></div>
+  </section>
+
+
+  <section class="schedule-card coverage-engine-card" aria-labelledby="coverageEngineTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="coverageEngineTitle">Coverage Engine Foundation</h2>
+        <p>Coverage compares scheduled staffing against minimum, target, and maximum requirements by role, qualification, location, day, and time block.</p>
+      </div>
+    </div>
+    <div id="coverageEnginePreview" class="coverage-engine-grid"></div>
+  </section>
+
+  <section class="schedule-card coverage-slot-card" aria-labelledby="coverageSlotTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="coverageSlotTitle">Open Spot Preview</h2>
+        <p>Numbered spots show how many seats are filled, open, below minimum, near target, or above maximum before a final scheduler exists.</p>
+      </div>
+    </div>
+    <div id="coverageSlotPreview" class="coverage-slot-grid"></div>
   </section>
 
   <section class="schedule-card" aria-labelledby="modelTitle">
@@ -335,6 +356,6 @@ Purpose: Rule engine foundation sandbox with text output and rule warnings
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.8.3"></script>
+<script src="script.js?v=0.9.0"></script>
 </body>
 </html>

@@ -20,4 +20,4 @@ Signal Labs is being maintained as a small software suite. Shared assets, naviga
 
 ## Current Schedule Planning
 
-**Signal Schedule v0.8.3 — Card Label Formatting Repair** improves Rule Engine preview readability by separating labels from headings in rule, evaluation, and agency template cards.
+**Signal Schedule v0.9.0 — Coverage Engine Foundation** adds coverage previews for minimum, target, maximum, open spots, shortages, and overstaffing warnings.

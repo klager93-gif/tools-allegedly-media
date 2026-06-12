@@ -1,16 +1,17 @@
-## v0.8.0 — Rule Engine Foundation
+## v0.9.0 — Coverage Engine Foundation
 
-- Add visible Rule Engine Foundation panels.
-- Model rule priority, explainability, audit trail, and editable industry templates.
-- Add evaluation examples for mandation, benefit usage, and coverage.
-- Correct event impact wording so mandation adds coverage/mandate history instead of consuming vacation time.
-- Keep rules mock-only until persistence and admin CRUD exist.
+- Add visible Coverage Engine Foundation panels.
+- Compare scheduled staffing against agency coverage requirements.
+- Model minimum, target, and maximum staffing by role, qualification, location, day, and time block.
+- Preview numbered open coverage spots.
+- Surface shortage, below-target, and above-maximum states.
+- Keep coverage mock-only until persistence and admin CRUD exist.
 
 # Signal Schedule Roadmap
 
 ## Current Version
 
-v0.7.0 — Benefit Ledger Foundation.
+v0.9.0 — Coverage Engine Foundation.
 
 ## Development Rule: Rule 23 — Version Consistency
 

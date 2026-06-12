@@ -6,7 +6,7 @@
 4. Set sandbox rules for max weekly hours and minimum rest gap.
 5. Use the Weekly Builder to choose a day, shift, and person.
 6. Review the weekly board.
-7. Review Coverage Summary and Rule Warnings.
+7. Review Coverage Summary, Coverage Engine Foundation, Open Spot Preview, and Rule Warnings.
 8. Use Text Output to inspect the schedule logic in plain English.
 9. Use Month Planning Notes to preview how the weekly pattern maps into a month.
 10. Print or copy output when needed.
@@ -110,3 +110,10 @@ Use the panels to review how future rules should evaluate:
 - Explanation and audit trail requirements.
 
 Mandation events should add coverage and mandate history; they should not consume vacation minutes.
+
+
+## v0.9.0 Coverage Engine Preview
+
+The Coverage Engine Foundation panels are planning previews. They compare current mock assignments against agency-defined minimum, target, and maximum coverage requirements.
+
+The preview is not a final scheduler. It does not save coverage edits to a database, but it demonstrates how future rules should identify shortages, below-target staffing, above-maximum staffing, and open numbered spots.

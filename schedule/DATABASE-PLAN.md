@@ -2,7 +2,28 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.8.3 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+Planning document for the future PHP/database version. Signal Schedule v0.9.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+
+
+## v0.9.0 Coverage Engine Foundation Notes
+
+Coverage requirements should eventually be stored as rule-aware records, not hard-coded schedule text.
+
+Future records should support:
+
+- agency or location;
+- role or position required;
+- qualification required;
+- start and end time;
+- applicable days;
+- minimum staffing;
+- target staffing;
+- maximum staffing;
+- numbered spots when the agency wants assignable coverage seats;
+- open/unfilled spot status;
+- explanation and audit trail for overrides.
+
+The v0.9.0 sandbox only previews these concepts with local mock data.
 
 ## Core Rule
 

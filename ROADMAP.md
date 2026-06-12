@@ -1,4 +1,4 @@
-- Verify Signal Schedule v0.8.3 Card Label Formatting Repair after deployment.
+- Verify Signal Schedule v0.9.0 Coverage Engine Foundation after deployment.
 # Signal Labs Roadmap
 
 ## Immediate
@@ -10,7 +10,7 @@
 
 ## Upcoming
 
-- Signal Schedule: coverage engine foundation using rule-aware minimum, target, maximum, open spots, and explanations.
+- Signal Schedule: review coverage engine foundation using rule-aware minimum, target, maximum, open spots, and explanations before schedule views.
 - Signal Schedule: true date-based model and month view planning.
 - Signal Schedule: schedule patterns, rotations, overrides, time off conflicts, and publishing concept.
 - Signal Schedule: future rule-engine planning around agency policies, coverage, fairness, mandation, benefits, bidding, and explanations.

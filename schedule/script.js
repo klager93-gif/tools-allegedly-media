@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.8.3
-Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impact labels, and warning display
+Version: v0.9.0
+Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and open spot previews
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.8.3';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.9.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -265,8 +265,11 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
   }
 
   function defaultCoverageRequirements() {
-    return [{ id: 'cov-days', label: 'Day coverage', start: '05:00', end: '17:00', minimum: 2, role: 'Any' },
-      { id: 'cov-nights', label: 'Night coverage', start: '17:00', end: '05:00', minimum: 1, role: 'Any' }];
+    return [
+      { id: 'cov-days', label: 'Day dispatcher coverage', role: 'Dispatcher', qualification: 'Radio', location: 'Main Center', days: 'All days', start: '06:00', end: '18:00', minimum: 8, target: 10, maximum: 12, numberedSpots: true },
+      { id: 'cov-nights', label: 'Night dispatcher coverage', role: 'Dispatcher', qualification: 'Radio', location: 'Main Center', days: 'All days', start: '18:00', end: '06:00', minimum: 6, target: 8, maximum: 10, numberedSpots: true },
+      { id: 'cov-supervisor', label: 'Supervisor coverage', role: 'Shift Supervisor', qualification: 'Supervisor', location: 'Main Center', days: 'All days', start: '00:00', end: '23:59', minimum: 1, target: 1, maximum: 2, numberedSpots: false }
+    ];
   }
 
 
@@ -519,7 +522,7 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.8.3 Rules';
+    if (label) label.textContent = 'v0.9.0 Coverage';
   }
 
   function syncRuleInputs() {
@@ -728,6 +731,113 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
     target.innerHTML = shiftCards.concat(coverageCards).join('');
   }
 
+
+  function timeRangeEndMinutes(start, end) {
+    var startMinutes = minutesFromTime(start);
+    var endMinutes = minutesFromTime(end);
+    if (endMinutes <= startMinutes) endMinutes += 24 * 60;
+    return { start: startMinutes, end: endMinutes };
+  }
+
+  function rangesOverlap(aStart, aEnd, bStart, bEnd) {
+    return Math.max(aStart, bStart) < Math.min(aEnd, bEnd);
+  }
+
+  function assignmentMatchesCoverage(assignment, requirement) {
+    var employee = findEmployee(assignment.employeeId);
+    var shift = findShift(assignment.shiftId);
+    if (!employee || !shift || !requirement) return false;
+    var role = requirement.role || 'Any';
+    if (role !== 'Any' && employee.position !== role && employee.role !== role) return false;
+    var req = timeRangeEndMinutes(requirement.start || '00:00', requirement.end || '23:59');
+    var shiftRange = timeRangeEndMinutes(shift.start, shift.end);
+    return rangesOverlap(shiftRange.start, shiftRange.end, req.start, req.end) || rangesOverlap(shiftRange.start + 1440, shiftRange.end + 1440, req.start, req.end);
+  }
+
+  function coverageRequirementList() {
+    var agency = state.agencyProfile || defaultAgencyProfile();
+    var agencyRequirements = Array.isArray(agency.coverageRequirements) && agency.coverageRequirements.length ? agency.coverageRequirements : [];
+    return agencyRequirements.length ? agencyRequirements : state.coverageRequirements;
+  }
+
+  function coverageEngineRows() {
+    var requirements = coverageRequirementList();
+    var rows = [];
+    orderedDays().forEach(function (day) {
+      requirements.forEach(function (requirement) {
+        var scheduled = state.assignments.filter(function (assignment) {
+          return assignment.day === day && assignmentMatchesCoverage(assignment, requirement);
+        }).length;
+        var minimum = Number(requirement.minimum || 0);
+        var target = Number(requirement.target || minimum);
+        var maximum = Number(requirement.maximum || target);
+        var status = 'on-target';
+        if (scheduled < minimum) status = 'short';
+        else if (scheduled > maximum) status = 'over';
+        else if (scheduled < target) status = 'below-target';
+        rows.push({
+          day: day,
+          requirement: requirement,
+          scheduled: scheduled,
+          minimum: minimum,
+          target: target,
+          maximum: maximum,
+          status: status,
+          openMinimum: Math.max(0, minimum - scheduled),
+          openTarget: Math.max(0, target - scheduled),
+          surplus: Math.max(0, scheduled - maximum)
+        });
+      });
+    });
+    return rows;
+  }
+
+  function coverageStatusLabel(status) {
+    if (status === 'short') return 'Below minimum';
+    if (status === 'below-target') return 'Below target';
+    if (status === 'over') return 'Above maximum';
+    return 'Within target range';
+  }
+
+  function renderCoverageEnginePreview() {
+    var target = $('#coverageEnginePreview');
+    if (!target) return;
+    var rows = coverageEngineRows();
+    var priority = rows.filter(function (row) { return row.status === 'short' || row.status === 'over' || row.status === 'below-target'; }).slice(0, 6);
+    if (!priority.length) priority = rows.slice(0, 6);
+    target.innerHTML = priority.map(function (row) {
+      var req = row.requirement;
+      return '<article class="coverage-engine-item status-' + row.status + '">' +
+        '<span class="card-kicker">' + escapeHtml(row.day) + ' · ' + escapeHtml(coverageStatusLabel(row.status)) + '</span>' +
+        '<strong>' + escapeHtml(req.role || 'Coverage') + ' · ' + displayTime(req.start) + '-' + displayTime(req.end) + '</strong>' +
+        '<p>Scheduled ' + row.scheduled + ' · Min ' + row.minimum + ' · Target ' + row.target + ' · Max ' + row.maximum + '</p>' +
+        '<small>' + escapeHtml(req.location || 'Any location') + ' · ' + escapeHtml(req.qualification || 'Any qualification') + '<br>' +
+        (row.openMinimum ? row.openMinimum + ' below minimum' : row.openTarget ? row.openTarget + ' below target' : row.surplus ? row.surplus + ' over maximum' : 'Coverage is inside the planned range.') + '</small>' +
+        '</article>';
+    }).join('');
+  }
+
+  function renderCoverageSlotPreview() {
+    var target = $('#coverageSlotPreview');
+    if (!target) return;
+    var requirement = coverageRequirementList().find(function (item) { return item.numberedSpots; }) || coverageRequirementList()[0];
+    if (!requirement) {
+      target.innerHTML = '<div class="signal-empty-state"><strong>No coverage requirements</strong><span>Add agency coverage requirements to preview open spots.</span></div>';
+      return;
+    }
+    var sampleDay = orderedDays()[0];
+    var scheduled = state.assignments.filter(function (assignment) { return assignment.day === sampleDay && assignmentMatchesCoverage(assignment, requirement); });
+    var maxSpots = Math.max(Number(requirement.maximum || requirement.target || requirement.minimum || 0), scheduled.length);
+    var cards = [];
+    for (var i = 0; i < maxSpots; i += 1) {
+      var assignment = scheduled[i];
+      var employee = assignment ? findEmployee(assignment.employeeId) : null;
+      var status = i < Number(requirement.minimum || 0) ? 'minimum' : i < Number(requirement.target || 0) ? 'target' : 'maximum';
+      cards.push('<article class="coverage-slot-item ' + (employee ? 'is-filled' : 'is-open') + '"><span>Spot ' + (i + 1) + ' · ' + status + '</span><strong>' + escapeHtml(employee ? employee.name : 'Open') + '</strong><small>' + escapeHtml(employee ? (employee.position + ' · ' + employee.shiftGroup) : 'Unfilled coverage spot') + '</small></article>');
+    }
+    target.innerHTML = '<div class="coverage-slot-summary"><strong>' + escapeHtml(sampleDay) + ' ' + escapeHtml(requirement.role || 'Coverage') + '</strong><span>' + displayTime(requirement.start) + '-' + displayTime(requirement.end) + ' · Min ' + requirement.minimum + ' · Target ' + requirement.target + ' · Max ' + requirement.maximum + '</span></div>' + cards.join('');
+  }
+
   function renderDataModelPreview() {
     var target = $('#dataModelPreview');
     if (!target) return;
@@ -742,7 +852,8 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
       ['Pattern Object', pattern.name, (pattern.cycleLength || 0) + ' day cycle · ' + (pattern.baseShift || 'custom shift') + ' · ' + ((pattern.cycleDays || []).filter(function (day) { return day.shiftType === 'short'; }).length) + ' short day(s)'],
       ['Schedule Event', eventSample.type + ' · ' + eventSample.status, eventSample.start + ' to ' + eventSample.end],
       ['Event Types', String((state.eventTypeDefinitions || []).length), 'Behavior-aware event definitions describe coverage, benefit, approval, and audit impact.'],
-      ['Benefit Ledger', benefitSample.benefitType + ' ' + benefitSample.amount, benefitSample.reason]
+      ['Benefit Ledger', benefitSample.benefitType + ' ' + benefitSample.amount, benefitSample.reason],
+      ['Coverage Engine', String(coverageEngineRows().length), 'Compares scheduled counts against min, target, and max by day and time block']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -841,6 +952,10 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
         }
       });
     });
+    coverageEngineRows().forEach(function (row) {
+      if (row.status === 'short') warnings.push(row.day + ' ' + (row.requirement.role || 'Coverage') + ' is below minimum by ' + row.openMinimum + ' for ' + row.requirement.start + '-' + row.requirement.end + '.');
+      if (row.status === 'over') warnings.push(row.day + ' ' + (row.requirement.role || 'Coverage') + ' is above maximum by ' + row.surplus + ' for ' + row.requirement.start + '-' + row.requirement.end + '.');
+    });
     var totals = employeeHours();
     Object.keys(totals).forEach(function (employeeId) {
       var employee = findEmployee(employeeId);
@@ -905,10 +1020,10 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
     var lines = [];
     var warnings = coverageWarnings();
     var totals = employeeHours();
-    lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.8.3');
+    lines.push('SIGNAL SCHEDULE — COVERAGE ENGINE FOUNDATION');
+    lines.push('Version: v0.9.0');
     lines.push('');
-    lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage + Explanations');
+    lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage Engine + Explanations');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);
@@ -925,7 +1040,8 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
     lines.push('- Rule engine principles: ' + ((state.ruleEnginePrinciples || []).length));
     lines.push('- Rule evaluation examples: ' + ((state.ruleEvaluationExamples || []).length));
     lines.push('- Agency rule templates: ' + ((state.agencyRuleTemplates || []).length));
-    lines.push('- Coverage requirements: ' + state.coverageRequirements.length);
+    lines.push('- Coverage requirements: ' + coverageRequirementList().length);
+    lines.push('- Coverage engine rows this week: ' + coverageEngineRows().length);
     lines.push('');
     lines.push('Pattern Templates:');
     state.patterns.forEach(function (pattern) {
@@ -975,9 +1091,9 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.8 Notes:');
+    lines.push('v0.9 Notes:');
     lines.push('- This is still local mock data, not a backend.');
-    lines.push('- Events, rules, benefit entries, and templates are sample objects, not editable database records or approval workflows yet.');
+    lines.push('- Events, rules, benefit entries, coverage rows, and templates are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
     lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
     lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides.');
@@ -1019,6 +1135,8 @@ Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impac
     renderRuleEvaluationPreview();
     renderAgencyTemplatePreview();
     renderCoverageRequirementPreview();
+    renderCoverageEnginePreview();
+    renderCoverageSlotPreview();
     renderDataModelPreview();
     renderSelects();
     renderPills();

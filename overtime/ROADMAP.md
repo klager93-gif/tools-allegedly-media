@@ -35,7 +35,7 @@
 | v0.9.1 | Professional Reports Print Fix |
 | v0.9 | Professional Reports |
 | v0.8.5 | Share & Export Prep |
-| v0.8.3.1 | Live Folder Resync / Standards Manifest Adoption |
+| v0.9.0.1 | Live Folder Resync / Standards Manifest Adoption |
 | v0.8.2 | Goal Mode |
 
 ---

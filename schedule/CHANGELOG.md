@@ -1,10 +1,12 @@
-## v0.8.3 — Card Label Formatting Repair
+## v0.9.0 — Coverage Engine Foundation
 
-- Repaired card label formatting in Rule Engine Foundation preview panels.
-- Updated Rule Engine, Rule Evaluation, and Agency Template cards so labels render as separate meta lines instead of running into headings.
-- Added CSS safeguards for card kickers and rule labels.
-- Updated Schedule version references and cache-busting to v0.8.3.
-- No new scheduling logic, database storage, CRUD workflow, approval workflow, or final automation was added.
+- Added visible Coverage Engine Foundation panels.
+- Added Coverage Engine Preview for minimum, target, maximum, shortage, below-target, and overstaffed states.
+- Added Open Spot Preview for numbered coverage slots.
+- Added coverage rows that compare scheduled staffing against agency coverage requirements by role, time block, location, and qualification.
+- Updated text output and warning generation to include coverage engine results.
+- Updated Schedule version references and cache-busting to v0.9.0.
+- No database storage, coverage CRUD workflow, approval workflow, mandation automation, or final schedule generation was added.
 
 ## v0.8.2 — Preview Stabilization and Sample Data Repair
 

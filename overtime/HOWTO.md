@@ -34,7 +34,7 @@ The Overtime Calculator estimates regular pay, overtime pay, pay details, taxes,
 
 ---
 
-# v0.8.3.1 Live Folder Resync Note
+# v0.9.0.1 Live Folder Resync Note
 
 If `/overtime/` ever displays Time Off content, replace the full `/overtime/` folder with this release package.
 

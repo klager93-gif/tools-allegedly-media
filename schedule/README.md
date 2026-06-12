@@ -1,19 +1,19 @@
 # Signal Schedule
 
-## v0.8.3 Card Label Formatting Repair
+## v0.9.0 Coverage Engine Foundation
 
-Signal Schedule v0.8.3 repairs Rule Engine Foundation preview readability by separating generated labels from card headings in Rule Engine, Rule Evaluation, and Agency Template panels.
+Signal Schedule v0.9.0 adds Coverage Engine Foundation previews for minimums, targets, maximums, shortages, overstaffing, and numbered open coverage spots.
 
 
 Signal Schedule is a scheduling and staffing tool for Signal Labs.
 
 ## Version
 
-v0.8.0 — Rule Engine Foundation.
+v0.9.0 — Coverage Engine Foundation.
 
 ## Current Purpose
 
-This release adds the Rule Engine Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now includes rule profiles, rule principles, evaluation examples, and agency rule templates that explain how future automation should evaluate people, patterns, events, benefits, coverage, exceptions, and audits.
+This release adds the Coverage Engine Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now compares scheduled staffing against agency-defined minimums, targets, maximums, role requirements, qualifications, locations, and time blocks.
 
 ## What it does now
 
@@ -29,7 +29,9 @@ This release adds the Rule Engine Foundation. Signal Schedule remains browser-on
 - Show Pattern Foundation and Pattern Cycle Preview panels
 - Show Benefit Ledger Foundation and Event Behavior Preview panels
 - Show Rule Engine Foundation, Rule Evaluation Preview, and Agency Template Preview panels
+- Show Coverage Engine Foundation and Open Spot Preview panels
 - Preview agency-defined settings, vocabulary, shift definitions, and coverage requirements
+- Preview minimum, target, maximum, shortage, surplus, and open-spot coverage states
 - Preview employee identity, agency assignment, eligibility, exceptions, qualifications, and benefit snapshots
 - Preview sample rule, pattern, event type, schedule event, benefit-ledger, and rule-engine objects
 - Calculate estimated scheduled hours
