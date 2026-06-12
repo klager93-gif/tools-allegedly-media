@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.5.0
-Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle days, short days, paid minutes, break rules, and week-start display
+Version: v0.6.0
+Purpose: Event Foundation sandbox for schedule events that modify expected pattern work
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.5.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.6.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -79,6 +79,54 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
       benefits: 'Use ledger entries for accrual, use, corrections, and payouts.',
       coverage: 'Compare scheduled staffing against minimum requirements.',
       explanation: 'Every warning should be explainable.'
+    }];
+  }
+
+
+
+  function defaultEventTypeDefinitions() {
+    return [{
+      id: 'event-vacation',
+      name: 'Vacation',
+      category: 'Time Off',
+      behavior: ['removes from coverage', 'uses benefit time', 'requires approval', 'requires audit trail'],
+      coverageImpact: 'Removes the employee from expected coverage during the event window.',
+      benefitImpact: 'Consumes vacation minutes after approval.'
+    }, {
+      id: 'event-sick',
+      name: 'Sick',
+      category: 'Time Off',
+      behavior: ['removes from coverage', 'uses benefit time', 'may require review', 'requires audit trail'],
+      coverageImpact: 'Removes the employee from expected coverage and may create a shortage.',
+      benefitImpact: 'Consumes sick minutes based on agency rules.'
+    }, {
+      id: 'event-overtime',
+      name: 'Overtime',
+      category: 'Added Work',
+      behavior: ['adds to coverage', 'changes pay', 'requires audit trail'],
+      coverageImpact: 'Adds the employee to coverage outside their expected pattern.',
+      benefitImpact: 'No benefit use; future payroll rules may classify minutes as OT.'
+    }, {
+      id: 'event-mandation',
+      name: 'Mandation',
+      category: 'Forced OT',
+      behavior: ['adds to coverage', 'changes pay', 'requires approval', 'requires audit trail'],
+      coverageImpact: 'Adds forced overtime coverage and should link to mandate rotation history.',
+      benefitImpact: 'No benefit use; future mandate rules decide counts, skips, and exceptions.'
+    }, {
+      id: 'event-training',
+      name: 'Training',
+      category: 'Assignment Change',
+      behavior: ['changes role', 'may remove from coverage', 'requires audit trail'],
+      coverageImpact: 'May remove the person from their normal role or change what spot they can fill.',
+      benefitImpact: 'No benefit use unless agency policy says otherwise.'
+    }, {
+      id: 'event-trade',
+      name: 'Trade',
+      category: 'Swap',
+      behavior: ['changes employee assignment', 'requires approval', 'requires audit trail'],
+      coverageImpact: 'Swaps who fills a planned shift while preserving coverage requirements.',
+      benefitImpact: 'No benefit use by default.'
     }];
   }
 
@@ -166,7 +214,27 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
       };
     });
     next.employeePatterns = Array.isArray(next.employeePatterns) ? next.employeePatterns : [];
+    next.eventTypeDefinitions = Array.isArray(next.eventTypeDefinitions) && next.eventTypeDefinitions.length ? next.eventTypeDefinitions : defaultEventTypeDefinitions();
     next.scheduleEvents = Array.isArray(next.scheduleEvents) ? next.scheduleEvents : [];
+    next.scheduleEvents = next.scheduleEvents.map(function (event) {
+      var definition = next.eventTypeDefinitions.find(function (item) { return item.name.toLowerCase() === String(event.type || '').toLowerCase(); }) || next.eventTypeDefinitions[0];
+      return {
+        id: event.id || id('evt'),
+        employeeId: event.employeeId || '',
+        type: event.type || definition.name,
+        category: event.category || definition.category || 'Event',
+        status: event.status || 'planned',
+        start: event.start || '',
+        end: event.end || '',
+        paidMinutes: Number(event.paidMinutes || 0),
+        coverageImpact: event.coverageImpact || definition.coverageImpact || '',
+        benefitImpact: event.benefitImpact || definition.benefitImpact || '',
+        behaviors: Array.isArray(event.behaviors) ? event.behaviors : (definition.behavior || []),
+        reason: event.reason || '',
+        source: event.source || 'manual mock data',
+        notes: event.notes || ''
+      };
+    });
     next.benefitLedger = Array.isArray(next.benefitLedger) ? next.benefitLedger : [];
     next.coverageRequirements = Array.isArray(next.coverageRequirements) && next.coverageRequirements.length ? next.coverageRequirements : defaultCoverageRequirements();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
@@ -314,7 +382,7 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.5.0 Patterns';
+    if (label) label.textContent = 'v0.6.0 Events';
   }
 
   function syncRuleInputs() {
@@ -331,7 +399,7 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
       ['People', state.employees.length, 'Employees are rule-aware profile objects and remain separate from future login users.'],
       ['Rules', state.ruleProfiles.length, 'Agency policies explain overtime, mandation, coverage, benefits, and fairness.'],
       ['Patterns', state.patterns.length, 'Rotations generate expected work instead of storing every day forever.'],
-      ['Events', state.scheduleEvents.length, 'Vacation, sick, OT, mandates, trades, training, and overrides become events.'],
+      ['Events', state.scheduleEvents.length, 'Events modify expected pattern work and explain why the final schedule differs from the normal plan.'],
       ['Benefits', state.benefitLedger.length, 'Balances should come from auditable ledger entries.'],
       ['Coverage', state.coverageRequirements.length, 'Requirements compare need vs. scheduled staffing.']
     ];
@@ -412,6 +480,32 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
     }).join('');
   }
 
+
+  function eventDateLabel(value) {
+    if (!value) return 'No time set';
+    return String(value).replace('T', ' ');
+  }
+
+  function renderEventFoundation() {
+    var target = $('#eventFoundationPreview');
+    if (!target) return;
+    var events = state.scheduleEvents.length ? state.scheduleEvents : [{ type: 'Vacation', status: 'planned', start: '2026-06-15T18:00', end: '2026-06-16T06:00', coverageImpact: 'Removes expected pattern coverage.', benefitImpact: 'Consumes vacation minutes after approval.', behaviors: ['removes from coverage', 'uses benefit time'] }];
+    target.innerHTML = events.map(function (event) {
+      var employee = findEmployee(event.employeeId);
+      var who = employee ? employee.name : 'Unassigned sample';
+      return '<article class="event-card"><span>' + escapeHtml(event.type) + ' · ' + escapeHtml(event.status) + '</span><strong>' + escapeHtml(who) + '</strong><p>' + escapeHtml(eventDateLabel(event.start)) + ' → ' + escapeHtml(eventDateLabel(event.end)) + '</p><small>' + escapeHtml(event.coverageImpact || 'Coverage impact planned.') + '<br>' + escapeHtml(event.benefitImpact || 'Benefit impact planned.') + '</small></article>';
+    }).join('');
+  }
+
+  function renderEventBehaviorPreview() {
+    var target = $('#eventBehaviorPreview');
+    if (!target) return;
+    var definitions = state.eventTypeDefinitions && state.eventTypeDefinitions.length ? state.eventTypeDefinitions : defaultEventTypeDefinitions();
+    target.innerHTML = definitions.map(function (item) {
+      return '<article class="event-behavior-card-item"><span>' + escapeHtml(item.category) + '</span><strong>' + escapeHtml(item.name) + '</strong><p>' + escapeHtml((item.behavior || []).join(' · ')) + '</p><small>' + escapeHtml(item.coverageImpact || '') + '</small></article>';
+    }).join('');
+  }
+
   function renderCoverageRequirementPreview() {
     var target = $('#coverageRequirementPreview');
     if (!target) return;
@@ -438,6 +532,7 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
       ['Rule Profile', rule.name, rule.coverage],
       ['Pattern Object', pattern.name, (pattern.cycleLength || 0) + ' day cycle · ' + (pattern.baseShift || 'custom shift') + ' · ' + ((pattern.cycleDays || []).filter(function (day) { return day.shiftType === 'short'; }).length) + ' short day(s)'],
       ['Schedule Event', eventSample.type + ' · ' + eventSample.status, eventSample.start + ' to ' + eventSample.end],
+      ['Event Types', String((state.eventTypeDefinitions || []).length), 'Behavior-aware event definitions describe coverage, benefit, approval, and audit impact.'],
       ['Benefit Ledger', benefitSample.benefitType + ' ' + benefitSample.amount, benefitSample.reason]
     ];
     target.innerHTML = cards.map(function (card) {
@@ -601,9 +696,9 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.5.0');
+    lines.push('Version: v0.6.0');
     lines.push('');
-    lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Pattern Days + Rules + Events + Coverage + Explanations');
+    lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage + Explanations');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);
@@ -615,6 +710,7 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
     lines.push('- Patterns: ' + state.patterns.length);
     lines.push('- Employee pattern links: ' + state.employeePatterns.length);
     lines.push('- Schedule events: ' + state.scheduleEvents.length);
+    lines.push('- Event type definitions: ' + ((state.eventTypeDefinitions || []).length));
     lines.push('- Benefit ledger entries: ' + state.benefitLedger.length);
     lines.push('- Coverage requirements: ' + state.coverageRequirements.length);
     lines.push('');
@@ -623,6 +719,18 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
       var shortDays = (pattern.cycleDays || []).filter(function (day) { return day.shiftType === 'short'; }).length;
       lines.push('- ' + pattern.name + ': ' + pattern.cycleLength + ' day cycle, ' + shortDays + ' short day' + (shortDays === 1 ? '' : 's') + ', base shift ' + (pattern.baseShift || 'custom'));
     });
+
+    lines.push('');
+    lines.push('Event Foundation:');
+    if (state.scheduleEvents.length) {
+      state.scheduleEvents.forEach(function (event) {
+        var employee = findEmployee(event.employeeId);
+        lines.push('- ' + event.type + ' / ' + event.status + ': ' + (employee ? employee.name : 'Unassigned') + ' from ' + eventDateLabel(event.start) + ' to ' + eventDateLabel(event.end) + ' — ' + (event.coverageImpact || 'coverage impact planned'));
+      });
+    } else {
+      lines.push('- No event samples loaded');
+    }
+
     lines.push('');
     lines.push('Employees:');
     if (state.employees.length) {
@@ -654,9 +762,10 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.5 Notes:');
+    lines.push('v0.6 Notes:');
     lines.push('- This is still local mock data, not a backend.');
-    lines.push('- Pattern templates and cycle days are sample objects, not editable database records yet.');
+    lines.push('- Events are sample objects, not editable database records or approval workflows yet.');
+    lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
     lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
     lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides.');
     return lines.join('\n');
@@ -689,6 +798,8 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
     renderEmployeeProfiles();
     renderPatternFoundation();
     renderPatternCyclePreview();
+    renderEventFoundation();
+    renderEventBehaviorPreview();
     renderCoverageRequirementPreview();
     renderDataModelPreview();
     renderSelects();
@@ -771,9 +882,11 @@ Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle da
         { employeeId: 'emp-alex', patternId: 'pattern-b-nights', startDate: '2026-06-01' },
         { employeeId: 'emp-jordan', patternId: 'pattern-2-2-3-days', startDate: '2026-06-01' }
       ],
+      eventTypeDefinitions: defaultEventTypeDefinitions(),
       scheduleEvents: [
-        { id: 'evt-vacation-sample', employeeId: 'emp-taylor', type: 'vacation', status: 'approved', start: '2026-06-18T05:00', end: '2026-06-18T17:00' },
-        { id: 'evt-mandate-sample', employeeId: 'emp-alex', type: 'mandate', status: 'planned', start: '2026-06-20T17:00', end: '2026-06-21T05:00' }
+        { id: 'evt-vacation-sample', employeeId: 'emp-taylor', type: 'Vacation', category: 'Time Off', status: 'approved', start: '2026-06-18T18:00', end: '2026-06-19T06:00', paidMinutes: 720, coverageImpact: 'Removes Taylor from expected B Nights dispatcher coverage.', benefitImpact: 'Consumes 720 vacation minutes after approval.', behaviors: ['removes from coverage', 'uses benefit time', 'requires approval'], reason: 'Approved vacation sample', source: 'mock approval' },
+        { id: 'evt-mandate-sample', employeeId: 'emp-alex', type: 'Mandation', category: 'Forced OT', status: 'planned', start: '2026-06-20T18:00', end: '2026-06-21T06:00', paidMinutes: 720, coverageImpact: 'Adds Alex to night coverage outside expected pattern.', benefitImpact: 'No benefit use; future mandate rules track count and rotation.', behaviors: ['adds to coverage', 'changes pay', 'requires audit trail'], reason: 'Coverage shortage sample', source: 'mock mandate list' },
+        { id: 'evt-training-sample', employeeId: 'emp-jordan', type: 'Training', category: 'Assignment Change', status: 'scheduled', start: '2026-06-22T09:00', end: '2026-06-22T13:00', paidMinutes: 240, coverageImpact: 'Changes Jordan from normal coverage to training assignment during event window.', benefitImpact: 'No benefit use.', behaviors: ['changes role', 'may remove from coverage', 'requires audit trail'], reason: 'CTO refresher sample', source: 'mock training schedule' }
       ],
       benefitLedger: [
         { id: 'ben-1', employeeId: 'emp-alex', benefitType: 'sick', date: '2026-06-01', amount: '+8', reason: 'Monthly sick accrual' },

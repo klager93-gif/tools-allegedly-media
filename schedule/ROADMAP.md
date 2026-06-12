@@ -2,7 +2,7 @@
 
 ## Current Version
 
-v0.5.0 — Pattern Foundation.
+v0.6.0 — Event Foundation.
 
 ## Development Rule: Rule 23 — Version Consistency
 
@@ -282,3 +282,15 @@ Still not included:
 - Automatic schedule generation.
 - Drag/drop assignment.
 - Time-off or overtime event overlays.
+
+## v0.6.0 — Event Foundation
+
+Goal: define the event layer that changes expected pattern work before final schedule generation exists.
+
+- Add event type definitions for vacation, sick, overtime, mandation, training, trades, callbacks, holidays, and administrative leave.
+- Group event types by behavior: removes from coverage, adds to coverage, changes role, changes pay, uses benefit time, requires approval, and requires audit trail.
+- Add sample schedule event objects with employee, start/end, paid minutes, coverage impact, benefit impact, reason, source, and notes.
+- Explain that pattern + events becomes the working schedule later.
+- Keep events as local mock objects only until the persistence phase.
+
+Not included: database storage, event CRUD, approval workflows, benefit ledger automation, mandation rotation, trade workflow, or final schedule generation.

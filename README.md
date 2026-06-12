@@ -20,4 +20,4 @@ Signal Labs is being maintained as a small software suite. Shared assets, naviga
 
 ## Current Schedule Planning
 
-**Signal Schedule v0.5.0 — Pattern Foundation** adds agency-aware pattern templates, cycle days, short days, paid minutes, break rules, and week-start display behavior.
+**Signal Schedule v0.6.0 — Event Foundation** adds event objects for vacation, sick time, overtime, mandation, training, trades, callbacks, and other changes that modify expected pattern work.

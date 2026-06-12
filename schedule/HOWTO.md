@@ -78,3 +78,18 @@ Review the preview for:
 The Pattern Foundation panels show sample pattern templates and cycle days. These are not editable database-backed pattern records yet.
 
 Use the panels to review how normal days, off days, short days, paid minutes, and break rules should be represented before final schedule generation is built.
+
+
+## v0.6.0 Event Foundation Preview
+
+The Event Foundation panels show sample event types and schedule events. These are not editable database-backed event records yet.
+
+Review the preview for:
+
+- Event type categories.
+- Coverage impact.
+- Benefit impact.
+- Approval and audit-trail needs.
+- How events explain changes to expected pattern work.
+
+Use this release as a planning reference only. Event creation, approval, save/load, benefit ledger automation, mandation rotation, and trade workflows are planned for later releases.

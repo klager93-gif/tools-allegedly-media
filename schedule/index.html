@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.5.0
+Version: v0.6.0
 Purpose: Logic-first schedule sandbox with text output and rule warnings
 -->
 <!DOCTYPE html>
@@ -15,17 +15,17 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.5.0">
+<link rel="stylesheet" href="style.css?v=0.6.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.5.0"
-  data-signal-theme="Pattern Foundation"
+  data-signal-version="v0.6.0"
+  data-signal-theme="Event Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define pattern templates, cycle days, short days, paid minutes, break rules, and week-start display behavior before schedule generation is added."
-  data-signal-status-text="Signal Schedule v0.5.0 adds the Pattern Foundation: agency-aware pattern templates, cycle days, short days, paid minutes, break rules, and week-start display behavior."
+  data-signal-description="Define schedule events that modify expected pattern work, including vacation, sick time, overtime, mandation, training, trades, callbacks, and administrative leave."
+  data-signal-status-text="Signal Schedule v0.6.0 adds the Event Foundation: schedule events that remove, add, modify, or explain work before final schedule generation exists."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Define agency-aware pattern templates so future schedules can be generated from people, patterns, cycle days, events, coverage, and rules instead of hard-coded calendar text.</p>
+      <p class="schedule-subtitle">Define event objects so future schedules can be generated from people, patterns, events, coverage, and rules instead of hard-coded calendar text.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.5.0 Patterns</strong>
+      <strong id="currentWeekLabel">v0.6.0 Events</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.5.0 is still browser-only. This release adds the Pattern Foundation so rotations can be modeled as cycle-based objects with normal days, short days, paid minutes, break rules, and agency week-start display before database persistence or schedule generation is added.</p>
+      <p>Signal Schedule v0.6.0 is still browser-only. This release adds the Event Foundation so vacation, sick, overtime, mandation, training, trades, callbacks, and other changes can be modeled as events before database persistence or final schedule generation is added.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.5 keeps the agency and employee foundations and adds pattern templates as the first model for where people should normally be.</p>
+        <p>v0.6 keeps the agency, employee, and pattern foundations and adds events as the first model for what changes the normal plan.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -105,6 +105,27 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
     <div id="patternCyclePreview" class="pattern-cycle-preview"></div>
   </section>
 
+
+
+  <section class="schedule-card event-foundation-card" aria-labelledby="eventFoundationTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="eventFoundationTitle">Event Foundation</h2>
+        <p>Events describe what changes the expected pattern: time off, sick calls, overtime, mandation, training, trades, callbacks, holidays, and administrative overrides.</p>
+      </div>
+    </div>
+    <div id="eventFoundationPreview" class="event-foundation-grid"></div>
+  </section>
+
+  <section class="schedule-card event-behavior-card" aria-labelledby="eventBehaviorTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="eventBehaviorTitle">Event Behavior Preview</h2>
+        <p>Event types should be grouped by behavior: removes from coverage, adds to coverage, changes role, changes pay, uses benefit time, requires approval, or requires an audit trail.</p>
+      </div>
+    </div>
+    <div id="eventBehaviorPreview" class="event-behavior-grid"></div>
+  </section>
 
   <section class="schedule-card" aria-labelledby="coverageRulesTitle">
     <div class="schedule-card-heading">
@@ -261,6 +282,6 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.5.0"></script>
+<script src="script.js?v=0.6.0"></script>
 </body>
 </html>

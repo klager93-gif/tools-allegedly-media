@@ -320,3 +320,28 @@ Key principles:
 - Paid hours come from paid minutes and break rules, not start/end assumptions.
 - Short days can be cycle-based and should not be assumed to occur on a fixed weekday.
 - Patterns describe normal expectations; future events explain deviations.
+
+
+## v0.6.0 Event Rules
+
+Events are rule-aware facts that change expected pattern work.
+
+An event should be able to describe whether it:
+
+- removes an employee from coverage
+- adds an employee to coverage
+- changes an employee role or assignment
+- changes pay classification
+- uses benefit time
+- requires approval
+- requires audit history
+
+Examples:
+
+- Vacation removes from coverage, uses benefit time, requires approval, and requires audit history.
+- Overtime adds to coverage, changes pay, and requires audit history.
+- Mandation adds forced overtime coverage and should link to mandate rotation history later.
+- Training may change role or remove someone from normal coverage.
+- Trades change who fills the assignment and require approval/audit history.
+
+Future rule-engine behavior should evaluate events together with patterns, agency policies, employee exceptions, coverage requirements, and benefit ledgers.

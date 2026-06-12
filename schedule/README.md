@@ -4,11 +4,11 @@ Signal Schedule is a scheduling and staffing tool for Signal Labs.
 
 ## Version
 
-v0.5.0 — Pattern Foundation.
+v0.6.0 — Event Foundation.
 
 ## Current Purpose
 
-This release adds the Pattern Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now includes agency-aware pattern templates, pattern cycle days, short days, paid minutes, break rules, and week-start display behavior.
+This release adds the Event Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now includes behavior-aware event definitions and schedule events that can remove, add, modify, or explain expected pattern work.
 
 ## What it does now
 
@@ -22,9 +22,10 @@ This release adds the Pattern Foundation. Signal Schedule remains browser-only a
 - Show an Agency Profile Foundation panel
 - Show an Employee Profile Foundation panel
 - Show Pattern Foundation and Pattern Cycle Preview panels
+- Show Event Foundation and Event Behavior Preview panels
 - Preview agency-defined settings, vocabulary, shift definitions, and coverage requirements
 - Preview employee identity, agency assignment, eligibility, exceptions, qualifications, and benefit snapshots
-- Preview sample rule, pattern, event, and benefit-ledger objects
+- Preview sample rule, pattern, event type, schedule event, and benefit-ledger objects
 - Calculate estimated scheduled hours
 - Show coverage warnings
 - Show max-hours warnings
@@ -138,3 +139,31 @@ Signal Schedule v0.5.0 adds visible pattern planning before schedule generation.
 This release also corrects the week display philosophy so previews should follow the agency profile work-week start setting instead of assuming Monday-first display.
 
 v0.5.0 does not add database persistence, admin editing, final schedule generation, or editable pattern CRUD.
+
+
+## v0.6.0 Event Foundation
+
+Signal Schedule v0.6.0 adds visible event planning before final schedule generation. Events are modeled as objects that modify expected pattern work.
+
+Sample event categories include:
+
+- Vacation
+- Sick
+- Overtime
+- Mandation
+- Training
+- Trades
+- Callback
+- Administrative leave
+
+Event behavior planning includes:
+
+- removes from coverage
+- adds to coverage
+- changes role
+- changes pay
+- uses benefit time
+- requires approval
+- requires audit trail
+
+v0.6.0 does not add database persistence, event CRUD, approval workflows, benefit automation, mandation rotation, trade workflow, or final schedule generation.

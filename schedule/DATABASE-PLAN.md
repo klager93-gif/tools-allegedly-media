@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.5.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+Planning document for the future PHP/database version. Signal Schedule v0.6.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
 
 ## Core Rule
 
@@ -992,3 +992,47 @@ employee_patterns
 ```
 
 Pattern days should store facts, not assumptions. A short day should be stored as a cycle-day fact with its own start time, end time, paid minutes, and break rule.
+
+
+## v0.6.0 Event Foundation Tables
+
+v0.6.0 adds planning for event objects, but does not create database tables yet.
+
+Future event-related tables may include:
+
+### event_types
+
+- id
+- agency_id
+- name
+- category
+- removes_from_coverage
+- adds_to_coverage
+- changes_role
+- changes_pay
+- uses_benefit_time
+- requires_approval
+- requires_audit_trail
+- active
+
+### schedule_events
+
+- id
+- agency_id
+- employee_id
+- event_type_id
+- start_datetime
+- end_datetime
+- paid_minutes
+- status
+- coverage_impact
+- benefit_impact
+- reason
+- source
+- notes
+- created_by_user_id
+- approved_by_user_id
+- created_at
+- updated_at
+
+Events should explain why the final schedule differs from expected pattern work. They should not be stored only as colored calendar text.

@@ -1,3 +1,11 @@
+## 2026-06-11 — Signal Schedule v0.6.0 Event Foundation
+
+- Added visible Event Foundation and Event Behavior Preview panels to the Schedule sandbox.
+- Added sample behavior-aware event definitions for vacation, sick, overtime, mandation, training, and trades.
+- Expanded sample schedule event objects with coverage impact, benefit impact, paid minutes, source, reason, and behavior categories.
+- Updated text output, Schedule docs, root planning docs, changelog, database plan, rule-engine notes, and build manifests.
+- No database, event CRUD, approval workflow, benefit ledger automation, mandation rotation, trade workflow, or final schedule generation was added.
+
 ## 2026-06-11 — Signal Schedule v0.5.0 Pattern Foundation
 
 - Added visible Pattern Foundation and Pattern Cycle Preview panels to the Schedule sandbox.

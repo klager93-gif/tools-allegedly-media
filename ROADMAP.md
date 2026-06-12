@@ -1,4 +1,4 @@
-- Verify Signal Schedule v0.5.0 Pattern Foundation after deployment.
+- Verify Signal Schedule v0.6.0 Event Foundation after deployment.
 # Signal Labs Roadmap
 
 ## Immediate
@@ -10,7 +10,7 @@
 
 ## Upcoming
 
-- Signal Schedule: pattern foundation using agency-defined shift definitions and employee profile assignments.
+- Signal Schedule: event foundation using pattern-aware schedule events and behavior categories.
 - Signal Schedule: true date-based model and month view planning.
 - Signal Schedule: schedule patterns, rotations, overrides, time off conflicts, and publishing concept.
 - Signal Schedule: future rule-engine planning around agency policies, coverage, fairness, mandation, benefits, bidding, and explanations.
@@ -100,5 +100,10 @@
 ### v0.5.0
 
 - Pattern Foundation.
+
+### v0.6.0
+
+- Event Foundation.
+- Model vacation, sick, overtime, mandation, training, trades, callbacks, and administrative changes as schedule events.
 - Added pattern templates and cycle-day preview.
 - Added short days, short weeks, paid minutes, break rules, and agency week-start display behavior.
