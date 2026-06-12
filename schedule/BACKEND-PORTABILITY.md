@@ -51,3 +51,8 @@ Service applies business meaning
 Repository owns data access contract
 Adapter handles backend-specific implementation
 ```
+
+
+## v1.1.0 implementation
+
+The first backend boundary is now present in script.js: static JSON is wrapped by an adapter, repositories, and services. Future D1 or Worker code should implement the same repository contract rather than bypassing it.

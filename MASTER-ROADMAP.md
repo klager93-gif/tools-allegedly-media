@@ -12,3 +12,10 @@
 - v1.4.0+: CRUD and persistent workflows after audit logging is ready.
 
 Rule 24 requires backend portability so D1 remains replaceable with MySQL, PostgreSQL, PHP, or another backend later.
+
+
+## Signal Schedule next
+
+- v1.2.0 — Worker API Foundation
+- v1.3.0 — D1 Database Foundation
+- v1.4.0 — Employee CRUD Foundation

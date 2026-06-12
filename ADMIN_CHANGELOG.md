@@ -9,3 +9,8 @@
 - Keeps app browser-only and static.
 - No D1, Workers, credentials, CRUD, or authentication added.
 - No new dashboard preview panels or render registry entries added.
+
+
+## Signal Schedule v1.1.0
+
+Implements the first backend-portability layer: JSON adapter, repositories, services, and data gateway. No live backend code added.

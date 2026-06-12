@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.0.0
-Purpose: Cloudflare Data Layer Foundation with static multi-agency JSON loading and backend portability
+Version: v1.1.0
+Purpose: Repository / Adapter Layer with static JSON adapter and backend portability
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.0.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v1.0.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v1.1.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -209,12 +209,80 @@ Purpose: Cloudflare Data Layer Foundation with static multi-agency JSON loading 
     }).catch(function () { return fallback; });
   }
 
+  /*
+  v1.1 Repository / Adapter Layer
+  --------------------------------
+  Rule 24 requires backend portability. The UI should not care whether data
+  comes from static JSON, Cloudflare D1, MySQL, Postgres, or another backend.
+  For now the active adapter is static JSON. Future releases can add Worker/D1
+  adapters behind the same repository/service contract.
+  */
+  var SignalScheduleJsonAdapter = {
+    sourceName: 'static-json',
+    getAgencies: function () { return loadJsonData('data/agencies.json', defaultAgencies()); },
+    getEmployees: function () { return loadJsonData('data/employees.json', defaultDataLayerEmployees()); }
+  };
+
+  function createAgencyRepository(adapter) {
+    return {
+      list: function () { return adapter.getAgencies(); },
+      getById: function (agencyId) {
+        return adapter.getAgencies().then(function (agencies) {
+          return (agencies || []).find(function (agency) { return (agency.agencyId || agency.id) === agencyId; }) || null;
+        });
+      }
+    };
+  }
+
+  function createEmployeeRepository(adapter) {
+    return {
+      list: function () { return adapter.getEmployees(); },
+      listByAgency: function (agencyId) {
+        return adapter.getEmployees().then(function (employees) {
+          return (employees || []).filter(function (employee) { return !agencyId || employee.agencyId === agencyId; });
+        });
+      },
+      getById: function (employeeId) {
+        return adapter.getEmployees().then(function (employees) {
+          return (employees || []).find(function (employee) { return employee.id === employeeId || employee.employeeId === employeeId; }) || null;
+        });
+      }
+    };
+  }
+
+  function createAgencyService(repository) {
+    return {
+      listAgencies: function () { return repository.list(); },
+      getAgency: function (agencyId) { return repository.getById(agencyId); }
+    };
+  }
+
+  function createEmployeeService(repository) {
+    return {
+      listEmployees: function () { return repository.list(); },
+      listEmployeesForAgency: function (agencyId) { return repository.listByAgency(agencyId); },
+      getEmployee: function (employeeId) { return repository.getById(employeeId); }
+    };
+  }
+
+  var SignalScheduleDataGateway = {
+    adapter: SignalScheduleJsonAdapter,
+    agencyRepository: createAgencyRepository(SignalScheduleJsonAdapter),
+    employeeRepository: createEmployeeRepository(SignalScheduleJsonAdapter),
+    agencyService: null,
+    employeeService: null
+  };
+  SignalScheduleDataGateway.agencyService = createAgencyService(SignalScheduleDataGateway.agencyRepository);
+  SignalScheduleDataGateway.employeeService = createEmployeeService(SignalScheduleDataGateway.employeeRepository);
+
   var SignalScheduleDataService = {
-    loadAgencies: function () { return loadJsonData('data/agencies.json', defaultAgencies()); },
-    loadEmployees: function () { return loadJsonData('data/employees.json', defaultDataLayerEmployees()); },
+    adapterName: SignalScheduleDataGateway.adapter.sourceName,
+    loadAgencies: function () { return SignalScheduleDataGateway.agencyService.listAgencies(); },
+    loadEmployees: function () { return SignalScheduleDataGateway.employeeService.listEmployees(); },
+    loadEmployeesForAgency: function (agencyId) { return SignalScheduleDataGateway.employeeService.listEmployeesForAgency(agencyId); },
     loadBundle: function () {
       return Promise.all([this.loadAgencies(), this.loadEmployees()]).then(function (parts) {
-        return { agencies: parts[0], employees: parts[1] };
+        return { agencies: parts[0], employees: parts[1], adapter: SignalScheduleDataService.adapterName };
       });
     }
   };
@@ -1255,7 +1323,7 @@ Purpose: Cloudflare Data Layer Foundation with static multi-agency JSON loading 
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.0.0 Cloudflare Data Layer Foundation';
+    if (label) label.textContent = 'v1.1.0 Repository / Adapter Layer';
   }
 
   function syncRuleInputs() {
@@ -1972,7 +2040,7 @@ Purpose: Cloudflare Data Layer Foundation with static multi-agency JSON loading 
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — GOAL MODE FOUNDATION');
-    lines.push('Version: v1.0.0');
+    lines.push('Version: v1.1.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2059,7 +2127,7 @@ Purpose: Cloudflare Data Layer Foundation with static multi-agency JSON loading 
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v1.0.0 Notes:');
+    lines.push('v1.1.0 Notes:');
     lines.push('- Adds database planning bridge before v1.0.');
     lines.push('- Removes dashboard-style foundation preview panels for analytics, notifications, and goal mode.');
     lines.push('- Confirms engines, entities, rules, explanations, audit records, notifications, goals, and agency profiles are ready to map into database tables.');
@@ -2330,7 +2398,7 @@ Purpose: Cloudflare Data Layer Foundation with static multi-agency JSON loading 
       }));
       save();
       render();
-      showToast('Multi-agency data layer loaded.', 'success');
+      showToast('Multi-agency data loaded through JSON adapter.', 'success');
     }).catch(function () {
       showToast('Unable to load multi-agency data layer.', 'error');
     });

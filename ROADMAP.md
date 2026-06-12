@@ -1,6 +1,6 @@
 ## Signal Schedule Current Path
 
-- Current: v1.0.0 — Cloudflare Data Layer Foundation
+- Current: v1.1.0 — Repository / Adapter Layer
 - Next: v1.1.0 — Repository / Adapter Layer
 
 # v1.x Direction
