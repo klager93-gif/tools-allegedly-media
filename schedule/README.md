@@ -1,44 +1,42 @@
 # Signal Schedule
 
-**Current Version:** v1.6.0 — Coolify API Skeleton
+**Current Version:** v1.7.0 — Postgres Connection + Employee Read Endpoint
 
-Signal Schedule is the scheduling and staffing foundation inside Signal Labs. The app remains static/browser-safe while a tool-owned Coolify API skeleton is introduced for future backend work.
+Signal Schedule is the scheduling and staffing foundation inside Signal Labs. The browser app remains static/browser-safe while the tool-owned Coolify API gains an optional read-only Postgres employee path.
 
 ## Current State
 
 - Active app source: static HTML/CSS/JS
 - Active frontend data source: `/schedule/data/*.json` through the static JSON adapter
 - Active frontend behavior: read-only planning/prototype behavior
-- New backend shape: Coolify API skeleton under `/schedule/api/coolify/`
+- Backend service path: `/schedule/api/coolify/`
+- Optional backend data source: Postgres through `DATABASE_URL`
+- Postgres employee reads are opt-in through `USE_POSTGRES_EMPLOYEES=true`
 - No live CRUD
 - No authentication
-- No Postgres connection
+- No production credentials committed
 - No production database writes
-- No credentials included
 
-## v1.6.0 Coolify API Skeleton
+## v1.7.0 Postgres Employee Read Endpoint
 
-This release defines the future API shape without switching the active frontend adapter.
+This release adds a read-only Postgres connection helper and employee read SQL while preserving the same API response wrapper:
 
 ```text
 GET /health
 GET /employees
-```
-
-The local skeleton also accepts:
-
-```text
 GET /api/health
 GET /api/employees
 ```
 
 See:
 
-- `COOLIFY-API-SKELETON.md`
-- `schedule/api/coolify/README.md`
+- `POSTGRES-EMPLOYEE-READ-ENDPOINT.md`
+- `schedule/api/coolify/db/postgres.js`
+- `schedule/api/coolify/sql/001_employee_read_schema.sql`
+- `schedule/api/coolify/.env.example`
 - `schedule/api/contracts/employees.read.schema.json`
 
-## Active Read Path
+## Active Frontend Read Path
 
 ```text
 UI
@@ -52,7 +50,7 @@ Static JSON Adapter
 /schedule/data/employees.json
 ```
 
-## Future Read Path
+## Optional Backend Read Path
 
 ```text
 UI
@@ -70,7 +68,7 @@ Postgres
 
 ## Backend Direction
 
-The selected future backend path is:
+The selected backend path is:
 
 ```text
 GitHub
@@ -110,6 +108,6 @@ Schedule-specific infrastructure belongs inside `/schedule/` unless it is intent
 
 ## Next Planned Release
 
-**v1.7.0 — Postgres Connection + Employee Read Endpoint**
+**v1.8.0 — Employee CRUD Foundation**
 
-The next release should connect the Coolify API skeleton to a Postgres read source while preserving the existing response contract and adapter boundaries.
+The next release should design and add controlled create/edit/delete boundaries only after the read path and Postgres configuration are reviewed.

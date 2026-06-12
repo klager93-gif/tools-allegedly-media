@@ -1,11 +1,14 @@
 {
   "name": "signal-schedule-api-skeleton",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "private": true,
-  "description": "Signal Schedule Coolify API skeleton. No database connection or writes in v1.6.0.",
+  "description": "Signal Schedule Coolify API skeleton with optional read-only Postgres employee endpoint.",
   "type": "module",
   "scripts": {
     "start": "node server.js"
+  },
+  "dependencies": {
+    "pg": "^8.16.0"
   },
   "engines": {
     "node": ">=20"

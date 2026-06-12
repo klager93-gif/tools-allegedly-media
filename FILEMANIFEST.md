@@ -1,8 +1,12 @@
 # File Manifest
 
-Generated for Signal Schedule v1.6.0 — Coolify API Skeleton.
+Generated for Signal Schedule v1.7.0 — Postgres Connection + Employee Read Endpoint.
+
+## Files
 
 - `ADMIN_CHANGELOG.md`
+- `BUILDMANIFEST.md`
+- `FILEMANIFEST.md`
 - `HOWTO.md`
 - `MASTER-CHANGELOG.md`
 - `MASTER-ROADMAP.md`
@@ -20,6 +24,9 @@ Generated for Signal Schedule v1.6.0 — Coolify API Skeleton.
 - `assets/icons/favicon.ico`
 - `assets/icons/favicon.svg`
 - `assets/icons/site.webmanifest`
+- `build/BUILDMANIFEST.md`
+- `build/FILEMANIFEST.md`
+- `build/SHA256SUMS.txt`
 - `changelog/index.html`
 - `contact/index.html`
 - `docs/BACKUP.md`
@@ -82,6 +89,7 @@ Generated for Signal Schedule v1.6.0 — Coolify API Skeleton.
 - `schedule/HOWTO.md`
 - `schedule/MIGRATION-PLAN.md`
 - `schedule/PHP-MYSQL-STARTER.md`
+- `schedule/POSTGRES-EMPLOYEE-READ-ENDPOINT.md`
 - `schedule/PRE-DATABASE-SAFETY-AUDIT.md`
 - `schedule/README.md`
 - `schedule/RELEASE-v0.99.0.md`
@@ -98,6 +106,7 @@ Generated for Signal Schedule v1.6.0 — Coolify API Skeleton.
 - `schedule/RELEASE-v1.5.0.md`
 - `schedule/RELEASE-v1.5.1.md`
 - `schedule/RELEASE-v1.6.0.md`
+- `schedule/RELEASE-v1.7.0.md`
 - `schedule/REPOSITORY-ADAPTER-LAYER.md`
 - `schedule/ROADMAP.md`
 - `schedule/RULE-ENGINE.md`
@@ -110,9 +119,13 @@ Generated for Signal Schedule v1.6.0 — Coolify API Skeleton.
 - `schedule/adapters/ApiEmployeeAdapter.js`
 - `schedule/adapters/JsonEmployeeAdapter.js`
 - `schedule/api/contracts/employees.read.schema.json`
+- `schedule/api/coolify/.env.example`
 - `schedule/api/coolify/README.md`
+- `schedule/api/coolify/db/postgres.js`
 - `schedule/api/coolify/package.json`
 - `schedule/api/coolify/server.js`
+- `schedule/api/coolify/sql/001_employee_read_schema.sql`
+- `schedule/api/coolify/sql/002_employee_seed_read_only.sql`
 - `schedule/api/mock-functions/agencies.js`
 - `schedule/api/mock-functions/employees.js`
 - `schedule/api/mock-functions/health.js`

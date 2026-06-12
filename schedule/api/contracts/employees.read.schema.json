@@ -1,11 +1,11 @@
 {
-  "version": "v1.6.0",
+  "version": "v1.7.0",
   "name": "Signal Schedule Employee Read Response",
-  "status": "contract-only",
+  "status": "read-endpoint-foundation",
   "method": "GET",
   "plannedPath": "/employees or /api/employees",
-  "activeAdapter": "static-json",
-  "futureAdapter": "coolify-api-postgres",
+  "activeFrontendAdapter": "static-json",
+  "backendAdapter": "coolify-api-postgres-read",
   "responseShape": {
     "ok": true,
     "data": [
@@ -13,7 +13,10 @@
         "id": "emp-example",
         "agencyId": "agency-example",
         "employeeCode": "EMP-001",
-        "name": "Example Employee",
+        "firstName": "Example",
+        "lastName": "Employee",
+        "displayName": "Example Employee",
+        "minimumStaffingRole": "Dispatcher",
         "status": "active",
         "department": "Operations",
         "position": "Dispatcher",
@@ -23,16 +26,19 @@
       }
     ],
     "meta": {
-      "source": "static-json-or-coolify-api-skeleton",
+      "source": "coolify-api-json-seed-or-coolify-api-postgres",
       "mode": "read-only",
-      "version": "v1.6.0"
+      "database": "json-seed-or-postgres",
+      "writesEnabled": false,
+      "version": "v1.7.0"
     },
     "errors": []
   },
   "rules": [
-    "No writes are allowed in v1.6.0.",
+    "No writes are allowed in v1.7.0.",
     "No UI code may call Postgres, MySQL, D1, Workers, or database-specific code directly.",
     "The browser app remains on the JSON adapter until the API adapter is intentionally enabled.",
+    "DATABASE_URL must be provided through Coolify environment variables, not committed files.",
     "Future Coolify API responses must preserve this wrapper shape unless intentionally versioned."
   ]
 }

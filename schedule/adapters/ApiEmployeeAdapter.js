@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/adapters/ApiEmployeeAdapter.js
-Version: v1.6.0
-Purpose: Browser-safe read-only API employee adapter skeleton for future Coolify API use.
+Version: v1.7.0
+Purpose: Browser-safe read-only API employee adapter for future Coolify/Postgres employee reads.
 */
 (function (global) {
   function normalizeBaseUrl(baseUrl) {
@@ -27,8 +27,8 @@ Purpose: Browser-safe read-only API employee adapter skeleton for future Coolify
     var config = options || {};
     var baseUrl = normalizeBaseUrl(config.baseUrl || '/api');
     return {
-      sourceName: 'coolify-api-skeleton',
-      mode: 'read-only-skeleton',
+      sourceName: 'coolify-api-postgres-read',
+      mode: 'read-only-api',
       activeByDefault: false,
       endpoints: {
         health: baseUrl + '/health',

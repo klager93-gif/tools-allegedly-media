@@ -1,5 +1,18 @@
 # Signal Schedule Changelog
 
+## v1.7.0 — Postgres Connection + Employee Read Endpoint
+
+- Added optional read-only Postgres connection helper for the Coolify API.
+- Added Postgres employee read schema SQL.
+- Added optional sample employee seed SQL for local/Coolify testing.
+- Added `.env.example` for Coolify environment configuration without committing credentials.
+- Updated `GET /health` and `GET /employees` to support JSON seed mode or Postgres read mode.
+- Updated `ApiEmployeeAdapter.js` to represent the future Coolify/Postgres read boundary.
+- Updated Employee API contract to v1.7.0.
+- Added Postgres employee read endpoint documentation and release notes.
+- Preserved static JSON as the active frontend adapter.
+- Added no CRUD, authentication, production credentials, database writes, or scheduling engine logic.
+
 ## v1.6.0 — Coolify API Skeleton
 
 - Added tool-owned Coolify API skeleton under `schedule/api/coolify/`.

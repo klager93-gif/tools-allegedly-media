@@ -1,54 +1,53 @@
-# Signal Schedule Coolify API Skeleton
+# Signal Schedule Coolify API
 
-**Version:** v1.6.0
+**Current Version:** v1.7.0 — Postgres Connection + Employee Read Endpoint
 
-This folder contains the tool-owned Coolify API skeleton for Signal Schedule.
+This folder contains the tool-owned Coolify API service for Signal Schedule.
 
-## Active Status
+## Current Scope
 
-- Skeleton only
-- Read-only routes only
-- No Postgres connection
-- No credentials
-- No CRUD
-- No authentication
-- No writes
+- `GET /health`
+- `GET /api/health`
+- `GET /employees`
+- `GET /api/employees`
+- Optional read-only Postgres employee source
+- JSON seed fallback when Postgres is not enabled
 
-## Routes
+## Not Included
 
-```text
-GET /health
-GET /employees
-```
-
-The server also accepts `/api/health` and `/api/employees` so deployment routing can be adjusted later without changing the response contract.
+- CRUD
+- Authentication
+- Production credentials
+- Database writes
+- Scheduling engine logic
 
 ## Local Test
 
 ```bash
-cd schedule/api/coolify
+npm install
 npm start
 ```
 
-Then open:
+## Environment
+
+Copy `.env.example` into your Coolify environment settings. Do not commit real credentials.
 
 ```text
-http://localhost:3000/health
-http://localhost:3000/employees
+DATABASE_URL=postgres://user:password@host:5432/database
+USE_POSTGRES_EMPLOYEES=false
 ```
 
-## Coolify Direction
+`USE_POSTGRES_EMPLOYEES=false` keeps the API on JSON seed reads.
 
-The preferred future backend path remains:
+Set `USE_POSTGRES_EMPLOYEES=true` only after the Postgres schema and seed are ready.
+
+## SQL
 
 ```text
-GitHub
-  ↓
-Coolify
-  ↓
-Schedule API service
-  ↓
-Postgres
+sql/001_employee_read_schema.sql
+sql/002_employee_seed_read_only.sql
 ```
 
-Postgres begins later after the API skeleton and response contract are stable.
+## Rule 24
+
+The frontend must not directly depend on Postgres. Postgres access belongs inside this API/adapter boundary.

@@ -2,28 +2,26 @@
 
 ## Current
 
-**v1.6.0 — Coolify API Skeleton**
+**v1.7.0 — Postgres Connection + Employee Read Endpoint**
 
-Signal Schedule now has a tool-owned Coolify API skeleton for read-only `/health` and `/employees` routes. The active browser app still uses the static JSON adapter until the API adapter is intentionally enabled.
+Signal Schedule now has an optional read-only Postgres path for the Coolify API employee endpoint. The active browser app still uses the static JSON adapter until the API adapter is intentionally enabled.
 
-No CRUD, authentication, production API deployment, Postgres connection, credentials, database writes, or scheduling engine logic are active in this release.
+No CRUD, authentication, production credentials, database writes, or scheduling engine logic are active in this release.
 
 ## Next
 
-**v1.7.0 — Postgres Connection + Employee Read Endpoint**
+**v1.8.0 — Employee CRUD Foundation**
 
 Planned focus:
 
-- Add Postgres connection configuration for the Coolify API service.
-- Keep credentials out of the repository.
-- Preserve the `/employees` response wrapper.
-- Keep frontend access behind EmployeeService, EmployeeRepository, and ApiEmployeeAdapter.
-- Add no employee create/edit/delete until CRUD is intentionally scheduled.
+- Define create/edit/delete employee boundaries.
+- Keep write operations behind service, repository, and adapter layers.
+- Add validation and error response rules before writes go live.
+- Keep authentication and roles as a separate planned release unless intentionally included.
 
 ## Planned Path
 
 ```text
-v1.7.0 — Postgres Connection + Employee Read Endpoint
 v1.8.0 — Employee CRUD Foundation
 v1.9.0 — Assignments Foundation
 v2.0.0 — Events / Requests / VOT Foundation
@@ -45,6 +43,7 @@ v1.4.0 — Backend Adapter Selection
 v1.5.0 — Employee Read API Foundation
 v1.5.1 — Employee Data Model Design
 v1.6.0 — Coolify API Skeleton
+v1.7.0 — Postgres Connection + Employee Read Endpoint
 ```
 
 ## Rule 24

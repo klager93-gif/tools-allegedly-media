@@ -7,8 +7,8 @@ Revised backend order:
 ```text
 v1.3.3 — Coolify Backend Setup Guide
 v1.4.0 — Backend Adapter Selection
-v1.6.0 — Coolify API Skeleton
-v1.6.0 — Coolify API Skeleton
+v1.7.0 — Postgres Connection + Employee Read Endpoint
+v1.7.0 — Postgres Connection + Employee Read Endpoint
 v1.6.0 — Employee CRUD Foundation
 ```
 
@@ -16,7 +16,7 @@ v1.6.0 — Employee CRUD Foundation
 
 Current Schedule release: D1 setup documentation before Employee CRUD Foundation.
 
-Next: v1.6.0 — Coolify API Skeleton.
+Next: v1.8.0 — Employee CRUD Foundation.
 
 ## Signal Schedule v1.3.0 — D1 Database Foundation
 
@@ -42,7 +42,7 @@ Rule 24 requires backend portability so D1 remains replaceable with MySQL, Postg
 
 - v1.3.0 — D1 Database Foundation
 - v1.3.0 — D1 Database Foundation
-- v1.6.0 — Coolify API Skeleton
+- v1.7.0 — Postgres Connection + Employee Read Endpoint
 
 ## Signal Schedule v1.3.0 — D1 Database Foundation
 

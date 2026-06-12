@@ -1,21 +1,22 @@
 # Build Manifest
 
-Build: Signal Schedule v1.6.0 — Coolify API Skeleton
+Build: Signal Schedule v1.7.0 — Postgres Connection + Employee Read Endpoint
 Date: 2026-06-12
-Package Type: Tool release with root manifest/checksum refresh
+Package Type: Tool release
 
-## Included
+## Included Scope
 
-- All valid project files from the prior clean baseline
-- Schedule v1.6.0 Coolify API skeleton files
-- Updated Schedule documentation
-- Updated root/build manifests and checksums
+- Schedule v1.7.0 optional Postgres read endpoint files
+- Coolify API read-only employee route updates
+- Postgres schema and optional seed SQL
+- Environment example with no real credentials
+- Schedule documentation updates
+- Root manifest/checksum updates
 
-## Not Included
+## Excluded Scope
 
 - No CRUD
 - No authentication
-- No production API deployment
-- No Postgres connection
-- No credentials
+- No production credentials
 - No database writes
+- No scheduling engine changes
