@@ -1,6 +1,6 @@
-## v0.14.0 Bidding and Opportunity Foundation
+## v0.14.1 Render Registry Repair
 
-Signal Schedule v0.14.0 adds the first visible planning model for bidding and overtime opportunity workflows. It distinguishes employee-initiated voluntary OT requests from management-posted OT opportunities, and models shift bids, vacation bids, awards, eligibility, seniority, fairness, tie breakers, publication, and audit trails as future rule-aware workflows.
+Signal Schedule v0.14.1 adds the first visible planning model for bidding and overtime opportunity workflows. It distinguishes employee-initiated voluntary OT requests from management-posted OT opportunities, and models shift bids, vacation bids, awards, eligibility, seniority, fairness, tie breakers, publication, and audit trails as future rule-aware workflows.
 
 ## v0.13.0 Mandation Foundation
 
@@ -33,3 +33,8 @@ Facts + Rules + History = Explanation
 ```
 
 The current page remains a browser-only system inspector with mock data. No database, live automation, approval workflow, CRUD workflow, mandation automation, or final schedule generation exists yet.
+
+
+### v0.14.1 Repair Note
+
+This repair keeps the v0.14 Bidding and Opportunity Foundation intact while fixing the render registry and missing mandation preview functions that could prevent sample employees and add-employee behavior from loading.

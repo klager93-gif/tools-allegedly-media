@@ -1,4 +1,4 @@
-## Current: v0.14.0 — Bidding and Opportunity Foundation
+## Current: v0.14.1 — Render Registry Repair
 
 Bidding and opportunity planning now includes shift bids, vacation bids, voluntary OT requests, posted OT opportunities, eligibility, seniority, fairness, awards, explanations, and audit trails.
 
@@ -12,7 +12,7 @@ Adds mandate rotation, mandate counts, eligibility/exception checks, skip handli
 
 Upcoming architecture items:
 
-- v0.14.0 — Bidding Foundation
+- v0.14.1 — Bidding Foundation
 - v0.15.0 — Analytics Foundation
 - v0.16.0 — Notifications Foundation
 - v0.17.0 — Goal Mode Foundation
@@ -38,3 +38,8 @@ Upcoming architecture items:
 ## Phase 0 continues
 
 v0.14 Bidding, v0.15 Analytics, v0.16 Notifications, v0.17 Goal Mode, v0.18 Multi-Agency, v0.19 Architecture Complete.
+
+
+### v0.14.1 Repair Note
+
+The v0.14.1 maintenance release keeps the Bidding and Opportunity Foundation scope but repairs missing mandation render functions and hardens the render registry so future missing optional preview panels cannot stop the whole app.

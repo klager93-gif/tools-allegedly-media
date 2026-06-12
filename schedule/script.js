@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.14.0
+Version: v0.14.1
 Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bids, voluntary OT requests, and posted OT opportunities
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.14.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.14.0', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.14.1';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -986,7 +986,7 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.14.0 Bidding Foundation';
+    if (label) label.textContent = 'v0.14.1 Bidding Foundation';
   }
 
   function syncRuleInputs() {
@@ -1413,6 +1413,33 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
   }
 
 
+  function renderMandationFoundationPreview() {
+    var target = $('#mandationFoundationPreview');
+    if (!target) return;
+    target.innerHTML = state.mandationRules.map(function (rule) {
+      return '<article class="mandation-rule-item"><span class="card-kicker">' + escapeHtml(rule.category || 'Mandation rule') + '</span><strong>' + escapeHtml(rule.name || 'Rule') + '</strong><p>' + escapeHtml(rule.summary || '') + '</p><small>' + escapeHtml(rule.example || '') + '</small></article>';
+    }).join('');
+  }
+
+  function renderMandateRotationPreview() {
+    var target = $('#mandateRotationPreview');
+    if (!target) return;
+    target.innerHTML = state.mandateRotation.map(function (row) {
+      var employee = findEmployee(row.employeeId);
+      var name = employee ? employee.name : row.employeeId;
+      var skip = row.skipReason ? '<small>Skip reason: ' + escapeHtml(row.skipReason) + '</small>' : '<small>' + escapeHtml(row.rotationAction || '') + '</small>';
+      return '<article class="mandate-rotation-item"><span class="card-kicker">Order ' + escapeHtml(row.order) + ' · ' + escapeHtml(row.status || '') + '</span><strong>' + escapeHtml(name) + '</strong><p>Mandates ' + escapeHtml(row.mandateCount || 0) + ' · Forced OT ' + minutesLabel(row.forcedMinutes || 0) + '</p>' + skip + '</article>';
+    }).join('');
+  }
+
+  function renderOperationalTraitPreview() {
+    var target = $('#operationalTraitPreview');
+    if (!target) return;
+    target.innerHTML = state.operationalTraits.map(function (trait) {
+      return '<article class="operational-trait-item"><span class="card-kicker">' + escapeHtml(trait.category || 'Operational trait') + '</span><strong>' + escapeHtml(trait.name || 'Trait') + '</strong><p>' + escapeHtml(trait.purpose || '') + '</p><small>' + escapeHtml(trait.guardrail || '') + '</small></article>';
+    }).join('');
+  }
+
   function renderBiddingFoundationPreview() {
     var target = $('#biddingFoundationPreview');
     if (!target) return;
@@ -1668,7 +1695,7 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — MANDATION FOUNDATION');
-    lines.push('Version: v0.14.0');
+    lines.push('Version: v0.14.1');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -1749,7 +1776,7 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.14.0 Notes:');
+    lines.push('v0.14.1 Notes:');
     lines.push('- Adds Bidding and Opportunity Foundation: shift bids, vacation bids, voluntary OT requests, and posted OT opportunities.');
     lines.push('- Requests are employee-initiated; opportunities are management-posted needs that employees can volunteer or bid for.');
     lines.push('- Awards should evaluate eligibility, seniority, fairness, coverage, and audit explanations before publication.');
@@ -1782,6 +1809,11 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
 
   function safeRender(label, callback) {
     try {
+      if (typeof callback === 'string') callback = window.SignalScheduleRenderRegistry && window.SignalScheduleRenderRegistry[callback];
+      if (typeof callback !== 'function') {
+        if (window.console && window.console.warn) window.console.warn('Signal Schedule missing renderer: ' + label);
+        return;
+      }
       callback();
     } catch (error) {
       if (window.console && window.console.error) window.console.error('Signal Schedule render error in ' + label + ':', error);
@@ -1795,45 +1827,86 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     if (element) element.addEventListener(eventName, callback);
   }
 
+  window.SignalScheduleRenderRegistry = {
+    renderWeekLabel: renderWeekLabel,
+    syncRuleInputs: syncRuleInputs,
+    renderEngineBlueprint: renderEngineBlueprint,
+    renderAgencyProfile: renderAgencyProfile,
+    renderEmployeeProfiles: renderEmployeeProfiles,
+    renderPatternFoundation: renderPatternFoundation,
+    renderPatternCyclePreview: renderPatternCyclePreview,
+    renderEventFoundation: renderEventFoundation,
+    renderEventBehaviorPreview: renderEventBehaviorPreview,
+    renderBenefitLedgerFoundation: renderBenefitLedgerFoundation,
+    renderBenefitRulePreview: renderBenefitRulePreview,
+    renderRuleEnginePreview: renderRuleEnginePreview,
+    renderRuleEvaluationPreview: renderRuleEvaluationPreview,
+    renderAgencyTemplatePreview: renderAgencyTemplatePreview,
+    renderCoverageRequirementPreview: renderCoverageRequirementPreview,
+    renderCoverageEnginePreview: renderCoverageEnginePreview,
+    renderCoverageSlotPreview: renderCoverageSlotPreview,
+    renderScheduleViewsPreview: renderScheduleViewsPreview,
+    renderSystemInspectorPreview: renderSystemInspectorPreview,
+    renderFairnessEnginePreview: renderFairnessEnginePreview,
+    renderFairnessSnapshotPreview: renderFairnessSnapshotPreview,
+    renderSeniorityLedgerPreview: renderSeniorityLedgerPreview,
+    renderExplainabilityPreview: renderExplainabilityPreview,
+    renderExplanationLevelsPreview: renderExplanationLevelsPreview,
+    renderMandationFoundationPreview: renderMandationFoundationPreview,
+    renderMandateRotationPreview: renderMandateRotationPreview,
+    renderOperationalTraitPreview: renderOperationalTraitPreview,
+    renderBiddingFoundationPreview: renderBiddingFoundationPreview,
+    renderVoluntaryOvertimePreview: renderVoluntaryOvertimePreview,
+    renderPostedOvertimePreview: renderPostedOvertimePreview,
+    renderBidAwardPreview: renderBidAwardPreview,
+    renderDataModelPreview: renderDataModelPreview,
+    renderSelects: renderSelects,
+    renderPills: renderPills,
+    renderBoard: renderBoard,
+    renderSummary: renderSummary,
+    renderOutput: renderOutput,
+    renderMonthPreview: renderMonthPreview
+  };
+
   function render() {
-    safeRender('week label', renderWeekLabel);
-    safeRender('rule inputs', syncRuleInputs);
-    safeRender('engine blueprint', renderEngineBlueprint);
-    safeRender('agency profile', renderAgencyProfile);
-    safeRender('employee profiles', renderEmployeeProfiles);
-    safeRender('pattern foundation', renderPatternFoundation);
-    safeRender('pattern cycle preview', renderPatternCyclePreview);
-    safeRender('event foundation', renderEventFoundation);
-    safeRender('event behavior preview', renderEventBehaviorPreview);
-    safeRender('benefit ledger', renderBenefitLedgerFoundation);
-    safeRender('benefit rules', renderBenefitRulePreview);
-    safeRender('rule engine', renderRuleEnginePreview);
-    safeRender('rule evaluation', renderRuleEvaluationPreview);
-    safeRender('agency templates', renderAgencyTemplatePreview);
-    safeRender('coverage requirements', renderCoverageRequirementPreview);
-    safeRender('coverage engine', renderCoverageEnginePreview);
-    safeRender('coverage slots', renderCoverageSlotPreview);
-    safeRender('schedule views', renderScheduleViewsPreview);
-    safeRender('system inspector', renderSystemInspectorPreview);
-    safeRender('fairness engine', renderFairnessEnginePreview);
-    safeRender('fairness snapshot', renderFairnessSnapshotPreview);
-    safeRender('seniority ledger', renderSeniorityLedgerPreview);
-    safeRender('explainability', renderExplainabilityPreview);
-    safeRender('explanation levels', renderExplanationLevelsPreview);
-    safeRender('mandation foundation', renderMandationFoundationPreview);
-    safeRender('mandate rotation', renderMandateRotationPreview);
-    safeRender('operational traits', renderOperationalTraitPreview);
-    safeRender('bidding foundation', renderBiddingFoundationPreview);
-    safeRender('voluntary overtime', renderVoluntaryOvertimePreview);
-    safeRender('posted overtime', renderPostedOvertimePreview);
-    safeRender('bid awards', renderBidAwardPreview);
-    safeRender('data model', renderDataModelPreview);
-    safeRender('selects', renderSelects);
-    safeRender('pills', renderPills);
-    safeRender('board', renderBoard);
-    safeRender('summary', renderSummary);
-    safeRender('output', renderOutput);
-    safeRender('month preview', renderMonthPreview);
+    safeRender('week label', 'renderWeekLabel');
+    safeRender('rule inputs', 'syncRuleInputs');
+    safeRender('engine blueprint', 'renderEngineBlueprint');
+    safeRender('agency profile', 'renderAgencyProfile');
+    safeRender('employee profiles', 'renderEmployeeProfiles');
+    safeRender('pattern foundation', 'renderPatternFoundation');
+    safeRender('pattern cycle preview', 'renderPatternCyclePreview');
+    safeRender('event foundation', 'renderEventFoundation');
+    safeRender('event behavior preview', 'renderEventBehaviorPreview');
+    safeRender('benefit ledger', 'renderBenefitLedgerFoundation');
+    safeRender('benefit rules', 'renderBenefitRulePreview');
+    safeRender('rule engine', 'renderRuleEnginePreview');
+    safeRender('rule evaluation', 'renderRuleEvaluationPreview');
+    safeRender('agency templates', 'renderAgencyTemplatePreview');
+    safeRender('coverage requirements', 'renderCoverageRequirementPreview');
+    safeRender('coverage engine', 'renderCoverageEnginePreview');
+    safeRender('coverage slots', 'renderCoverageSlotPreview');
+    safeRender('schedule views', 'renderScheduleViewsPreview');
+    safeRender('system inspector', 'renderSystemInspectorPreview');
+    safeRender('fairness engine', 'renderFairnessEnginePreview');
+    safeRender('fairness snapshot', 'renderFairnessSnapshotPreview');
+    safeRender('seniority ledger', 'renderSeniorityLedgerPreview');
+    safeRender('explainability', 'renderExplainabilityPreview');
+    safeRender('explanation levels', 'renderExplanationLevelsPreview');
+    safeRender('mandation foundation', 'renderMandationFoundationPreview');
+    safeRender('mandate rotation', 'renderMandateRotationPreview');
+    safeRender('operational traits', 'renderOperationalTraitPreview');
+    safeRender('bidding foundation', 'renderBiddingFoundationPreview');
+    safeRender('voluntary overtime', 'renderVoluntaryOvertimePreview');
+    safeRender('posted overtime', 'renderPostedOvertimePreview');
+    safeRender('bid awards', 'renderBidAwardPreview');
+    safeRender('data model', 'renderDataModelPreview');
+    safeRender('selects', 'renderSelects');
+    safeRender('pills', 'renderPills');
+    safeRender('board', 'renderBoard');
+    safeRender('summary', 'renderSummary');
+    safeRender('output', 'renderOutput');
+    safeRender('month preview', 'renderMonthPreview');
   }
 
   function addEmployee(name, role) {

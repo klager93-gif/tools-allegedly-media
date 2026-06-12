@@ -1,14 +1,14 @@
 # Build Manifest
 
-Build: Signal Schedule v0.14.0 — Bidding and Opportunity Foundation
-Source: signal-schedule-v0.13.0-mandation-foundation.zip
+Build: Signal Schedule v0.14.1 — Render Registry Repair
+Source: signal-schedule-v0.14.0-bidding-and-opportunity-foundation.zip
 
 ## Changes
-- Added bidding and opportunity planning.
-- Added voluntary OT request previews.
-- Added posted OT opportunity previews.
-- Added bid award planning and explanations.
-- Updated Schedule version references to v0.14.0.
+- Added missing mandation-related preview render functions.
+- Added guarded render registry calls so missing optional preview panels cannot stop the page from loading.
+- Verified all render functions referenced by the registry exist.
+- Verified Schedule script syntax and required DOM IDs.
+- Preserved v0.14.0 Bidding and Opportunity Foundation behavior and scope.
 
 ## Not Changed
 - No database storage.

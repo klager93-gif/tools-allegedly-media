@@ -1,4 +1,4 @@
-## v0.14.0 Bidding and Opportunity Rules
+## v0.14.1 Repair and Opportunity Rules
 
 Bidding rules should evaluate eligibility, effective seniority, coverage impact, fairness history, fatigue limits, exceptions, tie breakers, and admin overrides before awards are published. Voluntary OT requests and posted OT opportunities should remain auditable and explainable.
 
@@ -33,3 +33,8 @@ Explanation levels should vary by audience:
 - Admin/audit: rule source, override reason, timestamps, linked events, and ledger references.
 
 Current examples cover mandation, coverage, benefit usage, seniority adjustments, eligibility, and fairness snapshots.
+
+
+### Render Stability Rule
+
+Preview renderers should be registered and called through a guarded render registry. Missing optional panels should create a console warning, not stop sample data, employee cards, or add-employee behavior from loading.

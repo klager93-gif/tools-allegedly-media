@@ -1,3 +1,12 @@
+## v0.14.1 — Render Registry Repair
+
+- Added missing Mandation Foundation, Mandate Rotation, and Operational Trait preview render functions.
+- Changed preview rendering to use a guarded render registry so missing optional renderers cannot stop the entire page from loading.
+- Verified all render functions referenced by the render registry exist.
+- Verified Schedule script syntax and required DOM IDs.
+- Preserved v0.14.0 Bidding and Opportunity Foundation scope.
+- No database storage, CRUD workflow, approval workflow, mandation automation, or final schedule generation was added.
+
 ## v0.14.0 — Bidding and Opportunity Foundation
 
 - Added Bidding Foundation planning for shift bids, vacation bids, overtime opportunities, eligibility, seniority, fairness, tie breakers, awards, and audit trails.

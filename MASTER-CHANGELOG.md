@@ -1,3 +1,9 @@
+## Signal Schedule v0.14.1 — Render Registry Repair
+
+- Repaired missing mandation-related preview renderers from the v0.14 line.
+- Hardened Schedule preview rendering so missing optional panels cannot break sample data or add-employee behavior.
+- Preserved the v0.14.0 Bidding and Opportunity Foundation feature scope.
+
 ## Signal Schedule v0.14.0 — Bidding and Opportunity Foundation
 
 - Added Bidding and Opportunity Foundation planning.

@@ -1,4 +1,4 @@
-## v0.14.0 Bidding and Opportunity Foundation
+## v0.14.1 Render Registry Repair
 
 Use the Bidding and Opportunity previews to review the difference between employee-initiated voluntary OT requests and management-posted OT opportunities. These are mock/planning objects only; they cannot be saved to a database or awarded automatically yet.
 
@@ -15,3 +15,8 @@ Current data is mock-only. You cannot create real mandate rotations, save mandat
 Use the page as a system inspector. The Explainability Foundation panels show sample reasons for outcomes across mandation, coverage, benefits, seniority, eligibility, and fairness.
 
 The employee add form and sample data controls are still local browser mock-data tools only. They are not a persistent admin workflow.
+
+
+### If samples do not load
+
+Use the page controls to load sample data. In v0.14.1, missing optional preview renderers should no longer stop the main page from loading.
