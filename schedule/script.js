@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.3.3
-Purpose: Coolify Backend Setup Guide with static JSON adapter and backend portability
+Version: v1.4.0
+Purpose: Backend Adapter Selection with static JSON adapter and backend portability
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.3.3';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v1.4.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -236,7 +236,7 @@ Purpose: Coolify Backend Setup Guide with static JSON adapter and backend portab
     responseShape: {
       ok: true,
       data: [],
-      meta: { source: 'worker-api', version: 'v1.3.3' },
+      meta: { source: 'worker-api', version: 'v1.4.0' },
       errors: []
     }
   };
@@ -1353,7 +1353,7 @@ Purpose: Coolify Backend Setup Guide with static JSON adapter and backend portab
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.3.3 Coolify Backend Setup Guide';
+    if (label) label.textContent = 'v1.4.0 Backend Adapter Selection';
   }
 
   function syncRuleInputs() {
@@ -2069,8 +2069,8 @@ Purpose: Coolify Backend Setup Guide with static JSON adapter and backend portab
     var lines = [];
     var warnings = coverageWarnings();
     var totals = employeeHours();
-    lines.push('SIGNAL SCHEDULE — COOLIFY BACKEND PIVOT');
-    lines.push('Version: v1.3.3');
+    lines.push('SIGNAL SCHEDULE — BACKEND ADAPTER SELECTION');
+    lines.push('Version: v1.4.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2157,14 +2157,14 @@ Purpose: Coolify Backend Setup Guide with static JSON adapter and backend portab
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v1.3.3 Notes:');
-    lines.push('- Corrects the backend planning assumption after confirming the live deployment uses GitHub to Coolify.');
-    lines.push('- Pauses Cloudflare D1 as the default implementation path while preserving D1 as a possible future adapter.');
+    lines.push('v1.4.0 Notes:');
+    lines.push('- Selects Coolify-hosted Schedule API service with Postgres as the preferred future backend path.');
     lines.push('- Keeps the active app on local/static mock data through the JSON adapter.');
-    lines.push('- Reframes future backend work around Coolify-hosted services and database options such as Postgres or MySQL.');
+    lines.push('- Preserves MySQL and Cloudflare D1 as possible future adapters under Rule 24.');
+    lines.push('- Confirms the required path: UI → Services → Repositories → Adapters → Backend.');
     lines.push('- Rule 24 still applies: UI and business logic must use services, repositories, and adapters, not direct backend calls.');
     lines.push('- Rule 25 still applies: Schedule-owned infrastructure belongs inside /schedule/ unless shared intentionally.');
-    lines.push('- No live backend, credentials, CRUD, authentication, or writes are active in this release.');
+    lines.push('- No live backend, credentials, CRUD, authentication, API deployment, or writes are active in this release.');
     lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides, then displayed through audience-specific views and explanations.');
     return lines.join('\n');
   }

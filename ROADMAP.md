@@ -7,7 +7,7 @@ This recovery package restores documentation integrity after backup-install drif
 Included scope:
 
 - Paycheck v0.9.9 documentation cleanup
-- Signal Schedule v1.3.3 documentation cleanup
+- Signal Schedule v1.4.0 backend adapter selection
 - Root README recovery
 - Rule 26 asset validation repair
 - Pay Planner incubator asset restoration
@@ -23,14 +23,14 @@ No Schedule CRUD, authentication, live API, database writes, or backend deployme
 | Paycheck | v0.9.9 | Preserve Weekly OT and prepare for later v1.0 validation. |
 | Overtime | Frozen | Critical fixes/shared-pattern sync only. |
 | Time Off | Active | Future planning work after Paycheck/Schedule stabilization. |
-| Schedule | v1.3.3 | v1.4.0 Backend Adapter Selection. |
+| Schedule | v1.4.0 | v1.5.0 Employee Read API Foundation. |
 | Pay Planner | v0.1.x | Incubator only; keep structurally valid while unlisted. |
 
 ## Signal Schedule Path
 
 ```text
-Current: v1.3.3 — Coolify Backend Setup Guide
-Next:    v1.4.0 — Backend Adapter Selection
+Current: v1.4.0 — Backend Adapter Selection
+Next:    v1.5.0 — Employee Read API Foundation
 Future:  v1.5.0 — Employee Read API Foundation
 Future:  v1.6.0 — Employee CRUD Foundation
 Future:  v1.7.0 — Assignments Foundation

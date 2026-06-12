@@ -1,16 +1,18 @@
-## v1.3.3 Backend Portability Update
-
-The live deployment path is GitHub to Coolify, so D1 is no longer assumed as the default backend. The same portability rule still applies: services and repositories must remain adapter-based so Coolify/Postgres, Coolify/MySQL, Cloudflare D1, or another backend can be swapped without rewriting UI or scheduling logic.
-
-## v1.3.0 Portability Check
-
-The D1 schema must remain behind adapter boundaries. Do not place D1-specific behavior in UI or business logic.
-
 # Backend Portability — Rule 24
+
+## v1.4.0 Backend Adapter Selection
+
+The selected preferred future backend path is:
+
+```text
+GitHub → Coolify → Schedule API service → Postgres
+```
+
+This selection does not remove portability. Postgres must remain an adapter implementation, not a direct dependency inside UI or scheduling logic.
 
 ## Rule 24
 
-Backend portability is required. No UI or business logic may depend directly on D1, Workers, MySQL, PHP, or any other backend-specific storage implementation.
+Backend portability is required. No UI or business logic may depend directly on D1, Workers, MySQL, PHP, Postgres, Coolify, or any other backend-specific storage implementation.
 
 All persistence must flow through services, repositories, and adapters.
 
@@ -26,28 +28,47 @@ Adapter
 Backend
 ```
 
-## Initial adapter path
+## Current adapter path
 
 ```text
 EmployeeService
 ↓
 EmployeeRepository
 ↓
-JsonAdapter in v1.0
+JsonAdapter
 ↓
-D1Adapter later
+/schedule/data/*.json
 ```
 
-## Future migration path
+## Preferred future adapter path
 
-If Signal Schedule later needs MySQL, PostgreSQL, or another backend, the adapter changes. The UI and scheduling engines should not need to be rewritten.
+```text
+EmployeeService
+↓
+EmployeeRepository
+↓
+PostgresAdapter
+↓
+Coolify-hosted API service
+↓
+Postgres
+```
+
+## Future alternate adapters
+
+```text
+MySQLAdapter
+D1Adapter
+ImportFileAdapter
+MockAdapter
+```
 
 ## Forbidden pattern
 
 ```text
-UI directly queries D1
+UI directly queries Postgres/D1/MySQL
 UI directly calls backend-specific SQL
-Business rules live inside Worker route handlers
+Business rules live inside API route handlers
 SQL is scattered across unrelated files
 ```
 
@@ -59,8 +80,3 @@ Service applies business meaning
 Repository owns data access contract
 Adapter handles backend-specific implementation
 ```
-
-
-## v1.1.0 implementation
-
-The first backend boundary is now present in script.js: static JSON is wrapped by an adapter, repositories, and services. Future D1 or Worker code should implement the same repository contract rather than bypassing it.

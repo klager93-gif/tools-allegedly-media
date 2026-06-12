@@ -1,5 +1,16 @@
 # Signal Schedule Changelog
 
+## v1.4.0 — Backend Adapter Selection
+
+- Selected Coolify-hosted Schedule API service with Postgres as the preferred future backend path.
+- Preserved static JSON as the active browser-safe adapter.
+- Preserved MySQL and Cloudflare D1 as possible future adapters under Rule 24.
+- Documented service, repository, adapter, and backend boundaries before Employee API work begins.
+- Added backend adapter selection documentation.
+- Updated Schedule app copy and release metadata to v1.4.0.
+- Added no live CRUD, authentication, credentials, database writes, or production API deployment.
+
+
 ## v1.3.3 — Coolify Backend Setup Guide
 
 - Documented the actual live deployment path as GitHub to Coolify.

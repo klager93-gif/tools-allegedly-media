@@ -1,36 +1,36 @@
 # Signal Schedule
 
-**Current Version:** v1.3.3 — Coolify Backend Setup Guide
+**Current Version:** v1.4.0 — Backend Adapter Selection
 
-Signal Schedule is the scheduling and staffing foundation inside Signal Labs. The current app remains static/browser-safe and uses JSON-backed data while backend architecture is planned.
+Signal Schedule is the scheduling and staffing foundation inside Signal Labs. The app remains static/browser-safe while the backend architecture is selected and documented before any live Employee API, CRUD, authentication, or database writes are added.
 
 ## Current State
 
 - Active app source: static HTML/CSS/JS
-- Active data source: `/schedule/data/*.json`
+- Active data source: `/schedule/data/*.json` through the static JSON adapter
 - Active behavior: read-only planning/prototype behavior
 - No live CRUD
 - No authentication
 - No production database writes
 - No credentials included
 
-## Backend Direction
+## v1.4.0 Decision
 
-The actual deployment path is GitHub to Coolify. Cloudflare D1 is paused as the default backend assumption and remains a possible future adapter only.
-
-Preferred future path:
+The selected default future backend path is:
 
 ```text
 GitHub
   ↓
 Coolify
   ↓
-API service
+Schedule API service
   ↓
 Postgres
 ```
 
-Required architecture boundary:
+This does **not** connect a backend yet. It establishes the adapter target so future work can begin cleanly.
+
+## Required Architecture Boundary
 
 ```text
 UI
@@ -44,16 +44,18 @@ Adapters
 Backend
 ```
 
-Supported adapter targets:
+The UI and scheduling logic must talk to services and repositories only. Backend-specific code belongs inside adapters.
 
-- Static JSON
-- Postgres
-- MySQL
-- Cloudflare D1
+## Adapter Priority
+
+1. Static JSON adapter — current browser-safe implementation
+2. Postgres adapter — selected future default for Coolify
+3. MySQL adapter — future alternate backend
+4. Cloudflare D1 adapter — future alternate backend
 
 ## Rule 24
 
-Backend portability remains required. UI and business logic should not depend directly on D1, Workers, MySQL, PHP, Postgres, or any single backend implementation.
+Backend portability remains required. UI and business logic must not depend directly on D1, Workers, MySQL, PHP, Postgres, Coolify, or any single backend implementation.
 
 ## Rule 25
 
@@ -61,6 +63,6 @@ Schedule-specific infrastructure belongs inside `/schedule/` unless it is intent
 
 ## Next Planned Release
 
-**v1.4.0 — Backend Adapter Selection**
+**v1.5.0 — Employee Read API Foundation**
 
-This should document the selected adapter path before Employee API work begins.
+The next release should begin the read-only Employee API contract while preserving the existing static JSON adapter and browser-safe fallback.

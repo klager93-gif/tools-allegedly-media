@@ -1,10 +1,18 @@
 # Signal Schedule Repository / Adapter Layer
 
-Version: v1.1.0
+Version: v1.4.0
 
 ## Purpose
 
 Signal Schedule must remain backend-portable. The app should not be written directly around Cloudflare D1, Workers, PHP, MySQL, Postgres, static JSON, or any other single backend.
+
+## Selected future default
+
+```text
+Coolify-hosted Schedule API service + Postgres
+```
+
+Postgres is the preferred future backend target, but it must remain behind adapter boundaries.
 
 ## Current adapter
 
@@ -12,14 +20,14 @@ Signal Schedule must remain backend-portable. The app should not be written dire
 Static JSON Adapter
 ```
 
-The v1.1.0 app still reads browser-safe sample data from:
+The current app still reads browser-safe sample data from:
 
 ```text
 /schedule/data/agencies.json
 /schedule/data/employees.json
 ```
 
-but those reads now move through:
+Those reads move through:
 
 ```text
 UI
@@ -38,9 +46,9 @@ Static JSON files
 ## Future adapter examples
 
 ```text
-D1Adapter
-MySQLAdapter
 PostgresAdapter
+MySQLAdapter
+D1Adapter
 MockAdapter
 ImportFileAdapter
 ```
@@ -49,4 +57,4 @@ The UI should not need to know which adapter is active.
 
 ## Rule 24 application
 
-No UI or business logic should directly depend on D1, Workers, MySQL, PHP, or static JSON. Persistence must remain behind repositories, services, and adapters.
+No UI or business logic should directly depend on D1, Workers, MySQL, PHP, Postgres, or static JSON. Persistence must remain behind repositories, services, and adapters.

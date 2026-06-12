@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v1.3.3
-Purpose: Coolify Backend Setup Guide and backend portability correction
+Version: v1.4.0
+Purpose: Backend Adapter Selection and backend portability confirmation
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Coolify Backend Setup Guide and backend portability correction
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=1.3.3">
+<link rel="stylesheet" href="style.css?v=1.4.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v1.3.3"
-  data-signal-theme="Coolify Backend Setup Guide"
+  data-signal-version="v1.4.0"
+  data-signal-theme="Backend Adapter Selection"
   data-signal-status="Active Development"
-  data-signal-description="Document the actual hosting path as GitHub to Coolify and pause Cloudflare D1 assumptions while preserving backend portability."
-  data-signal-status-text="Signal Schedule v1.3.3 documents the Coolify backend setup path and recommends a future portable API service with Postgres while keeping D1/MySQL as possible adapters."
+  data-signal-description="Select Coolify + API service + Postgres as the preferred future backend path while preserving static JSON, MySQL, and D1 adapters."
+  data-signal-status-text="Signal Schedule v1.4.0 selects the preferred future backend adapter path: Coolify-hosted API service with Postgres, while keeping static JSON active and preserving MySQL/D1 adapter portability."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Coolify Backend Setup Guide and backend portability correction
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v1.3.3 Coolify Backend Setup Guide</strong>
+      <strong id="currentWeekLabel">v1.4.0 Backend Adapter Selection</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Coolify Backend Setup Guide and backend portability correction
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v1.3.3 is still browser-only for the main app. This release documents the backend setup direction after confirming the live deployment path is GitHub to Coolify. The active app remains static while the future backend path moves toward a Coolify-hosted API service and Postgres.</p>
+      <p>Signal Schedule v1.4.0 is still browser-only for the main app. This release selects the preferred future backend adapter path: Coolify-hosted API service with Postgres. Static JSON remains the active adapter until Employee API work begins intentionally.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v1.3.3 keeps pretend agency and employee records in /schedule/data as the active adapter while documenting the Coolify setup path and preserving Postgres/MySQL/D1 portability.</p>
+        <p>v1.4.0 keeps pretend agency and employee records in /schedule/data as the active adapter while selecting Postgres as the preferred future Coolify backend and preserving MySQL/D1 portability.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>

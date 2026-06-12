@@ -1,5 +1,12 @@
 # Signal Labs Admin Changelog
 
+## Signal Schedule v1.4.0 — Backend Adapter Selection
+
+- Selected Coolify-hosted Schedule API service with Postgres as the preferred future backend path.
+- Preserved static JSON as the active adapter and kept MySQL/D1 as possible future adapters.
+- Added no CRUD, authentication, credentials, live API deployment, or database writes.
+
+
 ## Coordinated Recovery Release — Paycheck v0.9.9 / Schedule v1.3.3
 
 - Cleaned root documentation surfaces after backup-install drift.

@@ -1,63 +1,48 @@
-## Signal Schedule v1.3.3 — Coolify Backend Setup Guide
+# Signal Schedule v1.4.0 — Backend Adapter Selection HOWTO
 
-Adds Coolify backend setup documentation after confirming the live deployment path is GitHub to Coolify. Recommends a future Coolify-hosted API service with Postgres while preserving D1/MySQL as possible adapters under Rule 24. No app behavior, credentials, CRUD, authentication, root infrastructure folders, or dashboard preview panels were added.
+## What this release does
 
-## v1.3.3 HOWTO — Coolify Backend Setup Guide
+v1.4.0 selects the preferred future backend path for Signal Schedule:
 
-Before building Employee CRUD, use `COOLIFY-BACKEND-PIVOT.md` to understand the corrected backend direction. Do not create D1 bindings, CRUD, authentication, or live write behavior until the Coolify backend setup has been planned and confirmed.
+```text
+GitHub → Coolify → Schedule API service → Postgres
+```
 
-## v1.3.1 HOWTO — D1 Setup Guide
+The release does not connect the live app to that backend yet. The current app remains static and reads browser-safe sample data from `/schedule/data/*.json`.
 
-Use `/schedule/D1-SETUP-GUIDE.md` before attempting any D1 connection or Employee CRUD work.
+## How to use the current app
 
-## v1.3.0 HOWTO — D1 Database Foundation
+1. Open `/schedule/index.html`.
+2. Review agency, employee, rule, coverage, request, and schedule-planning preview sections.
+3. Treat the output as a planning sandbox only.
+4. Do not enter real employee data, credentials, or production staffing records.
 
-The Schedule tool still runs from static JSON. The new `/schedule/d1` files are planning/building blocks for the future Cloudflare D1 backend. Do not add live secrets or credentials to the repo.
+## How future backend work should be added
 
-## v1.3.0 HOWTO — D1 Database Foundation
-
-Signal Schedule still runs as a static browser app. Use the multi-agency demo data exactly as before.
-
-### What changed
-
-The project now includes the planned Cloudflare API shape and mock Pages Function endpoint files. These are for backend transition planning only.
-
-### Current app path
+Use this boundary:
 
 ```text
 UI
-↓
+  ↓
 Service Layer
-↓
+  ↓
 Repository Layer
-↓
-JSON Adapter
-↓
-/schedule/data/agencies.json and employees.json
+  ↓
+Adapter
+  ↓
+Backend
 ```
 
-### Future app path
+Rules:
 
-```text
-UI
-↓
-Service Layer
-↓
-Repository Layer
-↓
-API Adapter
-↓
-Cloudflare Worker / Pages Function
-↓
-D1
-```
+- UI code should call services, not database-specific functions.
+- Business logic should not live inside route handlers.
+- SQL should not be scattered through UI files.
+- Postgres-specific code belongs in a Postgres adapter.
+- D1-specific code belongs in a D1 adapter.
+- MySQL-specific code belongs in a MySQL adapter.
+- Static JSON remains the local/browser fallback adapter.
 
-### Do not add yet
+## Next release
 
-```text
-D1 credentials
-CRUD forms
-Authentication
-Approval workflows
-Live writes
-```
+v1.5.0 should begin the Employee Read API foundation with no writes, no authentication, and no credentials.

@@ -12,7 +12,7 @@ Signal Labs is a lightweight tool ecosystem for real-life work, money, planning,
 | Paycheck Calculator | v0.9.9 | Active calculator. Report and metadata cleanup with Weekly OT behavior preserved. |
 | Overtime Calculator | Active | Frozen for feature work unless critical fixes or shared-pattern syncs are needed. |
 | Time Off Calculator | Active | Leave/time-off planning tool. |
-| Signal Schedule | v1.3.3 | Static JSON-backed scheduling foundation with backend planning docs. Coolify + Postgres is the preferred future backend path; D1/MySQL remain possible adapters under Rule 24. |
+| Signal Schedule | v1.4.0 | Static JSON-backed scheduling foundation with backend adapter selection complete. Coolify + Postgres is the preferred future backend path; static JSON, MySQL, and D1 remain possible adapters under Rule 24. |
 | Pay Planner | v0.1.x | Unlisted incubator page for future pay goal planning. |
 
 ## Ecosystem Direction
@@ -103,7 +103,7 @@ Supported adapter targets remain:
 This repository state includes cleanup for:
 
 - Paycheck v0.9.9 documentation integrity
-- Signal Schedule v1.3.3 documentation integrity
+- Signal Schedule v1.4.0 backend adapter selection
 - Root README recovery
 - Rule 26 asset validation repair
 - Pay Planner incubator asset restoration

@@ -2,25 +2,26 @@
 
 ## Current
 
-**v1.3.3 — Coolify Backend Setup Guide**
+**v1.4.0 — Backend Adapter Selection**
 
-Signal Schedule documents the actual GitHub to Coolify deployment path. Cloudflare D1 is paused as the default backend path and remains a possible future adapter only. The active app still uses the static JSON adapter.
+Signal Schedule has selected the preferred future backend path: Coolify-hosted Schedule API service with Postgres, while preserving static JSON, MySQL, and Cloudflare D1 as replaceable adapters under Rule 24.
+
+The active app remains static and JSON-backed. No CRUD, authentication, live database writes, or production API deployment is active in this release.
 
 ## Next
 
-**v1.4.0 — Backend Adapter Selection**
+**v1.5.0 — Employee Read API Foundation**
 
 Planned focus:
 
-- Formally select the default backend adapter path.
-- Confirm Coolify + API service + Postgres as the preferred future direction unless changed.
-- Preserve D1, MySQL, and static JSON as replaceable adapters.
-- Document service/repository/adapter boundaries before Employee API work begins.
+- Define read-only Employee API response shape.
+- Add API-facing repository contract without bypassing the service layer.
+- Keep static JSON as the browser-safe fallback adapter.
+- Add no writes, no auth, and no production credentials.
 
 ## Planned Path
 
 ```text
-v1.4.0 — Backend Adapter Selection
 v1.5.0 — Employee Read API Foundation
 v1.6.0 — Employee CRUD Foundation
 v1.7.0 — Assignments Foundation
@@ -40,6 +41,7 @@ v1.3.0 — D1 Database Foundation
 v1.3.1 — D1 Setup Guide
 v1.3.2 — Backend planning refinements
 v1.3.3 — Coolify Backend Setup Guide
+v1.4.0 — Backend Adapter Selection
 ```
 
 ## Rule 24

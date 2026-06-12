@@ -1,24 +1,15 @@
-# Signal Labs Build Manifest
+# Build Manifest
 
-## Package
+## Build
 
-Full fresh-install rebuild with repository integrity audit and repo/tool boundary rules.
+Signal Labs full fresh-install package with Signal Schedule v1.4.0.
 
-## Included
+## Included Release
 
-- All valid project/site files copied from the provided source ZIP
-- `.git/`, `__MACOSX/`, and AppleDouble `._*` artifacts excluded
-- `STANDARDS.md` updated to Signal Labs Standards v2.1
-- Tool boundary and repo-ready module rules added
-- Pay Planner documentation placeholders added
-- Overtime and Time Off changelog placeholders added for repo-ready structure
-- Root and build file manifests regenerated
-- SHA256 checksums regenerated
-- Rule 26 asset validation completed
+- Signal Schedule v1.4.0 — Backend Adapter Selection
 
-## Not Included
+## Notes
 
-- No Paycheck math changes
-- No Schedule CRUD/auth/API/database changes
-- No backend deployment or credentials
-- No root-level icon duplication
+- Full site package.
+- No `.git/`, `__MACOSX/`, `.DS_Store`, or `._*` artifacts.
+- Rule 26 asset validation required before upload.
