@@ -1,24 +1,34 @@
-# Build Manifest
+# Build Manifest — Schedule v2.1.3
 
-## Release
-
-- Tool: Schedule
-- Version: v2.1.2
-- Release: Admin Navigation Foundation
-- Date: 2026-06-12
-- Backup Title: 2026-06-12 Full Root Backup Before v2.1.2
-
-## Deployment Type
-
-Full-root replacement package.
+**Release:** Employee Identity Cleanup  
+**Date:** 2026-06-12  
+**Backup Title:** `2026-06-12 Full Root Backup Before v2.1.3`  
+**Deployment Type:** Full-root replacement
 
 ## Scope
 
-Adds Schedule-specific admin navigation and placeholder pages while preserving the existing Schedule overview and Calendar Foundation pages.
+- Employee identity cleanup and future table planning.
+- No live authentication added.
+- No production migration automatically applied.
+- No Paycheck, Overtime, or Timeoff functionality changed.
 
-## Exclusions
+## Files Changed
 
-- No .git folder
-- No __MACOSX folder
-- No .DS_Store files
-- No AppleDouble ._* files
+- `ADMIN_CHANGELOG.md`
+- `BUILDMANIFEST.md`
+- `FILEMANIFEST.md`
+- `HOWTO.md`
+- `MASTER-CHANGELOG.md`
+- `MASTER-ROADMAP.md`
+- `PUBLIC_CHANGELOG.md`
+- `README.md`
+- `ROADMAP.md`
+- `schedule/CHANGELOG.md`
+- `schedule/EMPLOYEE-IDENTITY-FOUNDATION.md`
+- `schedule/HOWTO.md`
+- `schedule/README.md`
+- `schedule/RELEASE-v2.1.3.md`
+- `schedule/ROADMAP.md`
+- `schedule/api/coolify/README.md`
+- `schedule/api/coolify/sql/007_employee_identity_cleanup_schema.sql`
+- `schedule/employees.html`

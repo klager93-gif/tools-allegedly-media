@@ -1,4 +1,4 @@
-# File Manifest
+# File Manifest — Schedule v2.1.3 Full Root
 
 - `.gitattributes`
 - `.gitignore`
@@ -67,6 +67,7 @@
 - `roadmap/index.html`
 - `schedule/CALENDAR-FOUNDATION.md`
 - `schedule/CHANGELOG.md`
+- `schedule/EMPLOYEE-IDENTITY-FOUNDATION.md`
 - `schedule/HOWTO.md`
 - `schedule/MINIMUM-STAFFING-FOUNDATION.md`
 - `schedule/README.md`
@@ -74,6 +75,7 @@
 - `schedule/RELEASE-v2.1.0.md`
 - `schedule/RELEASE-v2.1.1.md`
 - `schedule/RELEASE-v2.1.2.md`
+- `schedule/RELEASE-v2.1.3.md`
 - `schedule/ROADMAP.md`
 - `schedule/adapters/JsonCalendarAdapter.js`
 - `schedule/adapters/JsonMinimumStaffingAdapter.js`
@@ -83,6 +85,7 @@
 - `schedule/api/coolify/server.js`
 - `schedule/api/coolify/sql/005_minimum_staffing_foundation_schema.sql`
 - `schedule/api/coolify/sql/006_calendar_foundation_schema.sql`
+- `schedule/api/coolify/sql/007_employee_identity_cleanup_schema.sql`
 - `schedule/assignments.html`
 - `schedule/data/calendar-events-preview.json`
 - `schedule/data/calendar-preview.json`

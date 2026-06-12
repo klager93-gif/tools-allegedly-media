@@ -26,3 +26,7 @@ This version is still local-browser only. PHP, database tables, logins, admin ro
 5. Push the updated files to GitHub.
 
 Do not create a duplicate normal backup folder unless the work is experimental, risky, manual, or outside the normal release process.
+
+## Schedule v2.1.3 — Employee Identity Cleanup
+
+Employee identity is now standardized for future production use. Employee records should use a hidden system key, an admin-entered agency employee ID, and an optional badge number. Future login accounts should live in a separate users table and support login by username or email. Roles should be assigned through separate role tables rather than embedded directly on employee records.

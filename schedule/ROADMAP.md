@@ -36,3 +36,15 @@ Planned focus:
 
 Schedule now includes admin-first navigation placeholders for Overview, Calendar, Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings. Future role-based views should filter this shared interface instead of duplicating separate apps.
 
+## v2.1.3 — Employee Identity Cleanup
+
+Completed identity cleanup before leave, open shifts, authentication, and role-based views:
+
+- Hidden system IDs remain internal.
+- Agency employee IDs are admin-entered.
+- Badge numbers are optional and separate.
+- Future login users stay separate from employees.
+- Username or email may be used for login.
+- Roles remain separate from employee records.
+
+Next: **v2.2.0 — Leave Requests Foundation**.

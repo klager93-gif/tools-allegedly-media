@@ -75,3 +75,16 @@ Next:    v1.0.0 — Validation / Production Readiness
 
 - Current Schedule: v1.8.0 — Employee CRUD Foundation
 - Next Schedule: v1.8.0 — Employee CRUD Foundation
+
+## v2.1.3 — Employee Identity Cleanup
+
+Completed identity cleanup before leave, open shifts, authentication, and role-based views:
+
+- Hidden system IDs remain internal.
+- Agency employee IDs are admin-entered.
+- Badge numbers are optional and separate.
+- Future login users stay separate from employees.
+- Username or email may be used for login.
+- Roles remain separate from employee records.
+
+Next: **v2.2.0 — Leave Requests Foundation**.
