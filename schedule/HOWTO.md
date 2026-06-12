@@ -1,12 +1,5 @@
-## v0.17.0 Goal Mode Foundation
+## v0.17.1 UI Debt Audit
 
-Open `/schedule/` and review the Goal Mode sections:
+Use the Schedule page as a logic sandbox, not a full dashboard.
 
-- Goal Mode Foundation
-- Goal Tradeoff Preview
-- Recommendation Preview
-- Goal Mode Audit Preview
-
-Press **Load Sample** if local browser storage still contains older v0.16.0 data.
-
-This build does not auto-generate schedules or apply recommendations. It defines the logic/data shape future decision-support features will need.
+Analytics, Notifications, and Goal Mode remain planned architecture foundations, but their explanatory preview panels were removed to keep the app stable and reduce render-registry risk.

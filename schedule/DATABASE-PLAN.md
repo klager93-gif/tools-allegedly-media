@@ -1,13 +1,9 @@
-## v0.17.0 Goal Mode Data Planning
+## v0.17.1 UI Debt Audit Data Planning
 
-Future database work should preserve Goal Mode as auditable records, not temporary calculations.
+Analytics, Notifications, and Goal Mode concepts remain planned future database areas, but v0.17.1 moves explanatory foundation previews out of the active UI.
 
-Planned entities:
+Future persistence should still account for:
 
-- goal_profiles
-- goal_tradeoffs
-- goal_recommendations
-- goal_audit_events
-- goal_override_records
-
-Each recommendation should link to the facts that caused it, including coverage rows, schedule events, benefit ledger entries, voluntary OT requests, posted OT responses, mandate rotation entries, fairness metrics, analytics forecasts, notifications, and rule outcomes.
+- analytics metrics and report definitions
+- notification triggers, channels, subscriptions, and audit history
+- goal profiles, tradeoffs, recommendations, overrides, and explanation chains

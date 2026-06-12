@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.17.0
+Version: v0.17.1
 Purpose: Signal Schedule benefit ledger foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -173,7 +173,7 @@ Purpose: Signal Schedule benefit ledger foundation styles
 @media print { .rule-engine-card-item, .rule-evaluation-card-item, .agency-template-card-item { border-color: #ccc; background: #fff; color: #111; } }
 
 /*
-Signal Schedule v0.17.0 Goal Mode Foundation
+Signal Schedule v0.17.1 UI Debt Audit
 Keeps generated rule-engine labels from running into headings.
 */
 .rule-engine-card-item .card-kicker,
@@ -206,7 +206,7 @@ Keeps generated rule-engine labels from running into headings.
 
 
 /*
-Signal Schedule v0.17.0 Goal Mode Foundation
+Signal Schedule v0.17.1 UI Debt Audit
 Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 */
 .coverage-engine-card { border-color: rgba(250,204,21,.26); background: rgba(250,204,21,.055); }
@@ -230,7 +230,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 @media (max-width: 650px) { .coverage-engine-grid, .coverage-slot-grid { grid-template-columns: 1fr; } }
 
 
-/* Signal Schedule v0.17.0 Goal Mode Foundation */
+/* Signal Schedule v0.17.1 UI Debt Audit */
 .schedule-views-grid,
 .system-inspector-grid {
   display: grid;
@@ -265,7 +265,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* Signal Schedule v0.17.0 Goal Mode Foundation */
+/* Signal Schedule v0.17.1 UI Debt Audit */
 .fairness-engine-grid,
 .fairness-snapshot-grid,
 .seniority-ledger-grid {
@@ -298,7 +298,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
   line-height: 1.45;
 }
 
-/* Signal Schedule v0.17.0 Goal Mode Foundation */
+/* Signal Schedule v0.17.1 UI Debt Audit */
 .explainability-grid,
 .explanation-level-grid {
   display: grid;
@@ -329,7 +329,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* Signal Schedule v0.17.0 Goal Mode Foundation */
+/* Signal Schedule v0.17.1 UI Debt Audit */
 .mandation-grid,
 .mandate-rotation-grid,
 .operational-trait-grid {
@@ -364,7 +364,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* v0.17.0 Goal Mode Foundation */
+/* v0.17.1 UI Debt Audit */
 .bidding-grid,
 .vot-grid,
 .posted-ot-grid,
@@ -397,7 +397,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* v0.17.0 Goal Mode Foundation */
+/* v0.17.1 UI Debt Audit */
 .analytics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -426,7 +426,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* v0.17.0 Goal Mode Foundation */
+/* v0.17.1 UI Debt Audit */
 .notification-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -453,7 +453,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
   color: var(--signal-muted, #64748b);
 }
 
-/* v0.17.0 Goal Mode Foundation */
+/* v0.17.1 UI Debt Audit */
 .goal-mode-grid {
   display: grid;
   gap: 14px;
@@ -481,4 +481,50 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 .goal-mode-item small {
   color: var(--sl-muted, #5b6575);
   line-height: 1.45;
+}
+
+/* v0.17.1 UI Debt Audit */
+.audit-note-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.audit-note-list article {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--muted, #94a3b8);
+  padding: 14px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 820px) {
+  .audit-note-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* v0.17.1 UI Debt Audit */
+.audit-note-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.audit-note-list article {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.72);
+  color: var(--muted, #94a3b8);
+  padding: 14px;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 820px) {
+  .audit-note-list {
+    grid-template-columns: 1fr;
+  }
 }

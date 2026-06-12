@@ -1,18 +1,13 @@
-## v0.17.0 Goal Mode Foundation
+## v0.17.1 UI Debt Audit
 
-Signal Schedule v0.17.0 adds Goal Mode Foundation while preserving v0.16 Notifications, v0.15 Analytics, v0.14 Bidding/Opportunity, and v0.14.1 render registry protections.
+Signal Schedule v0.17.1 cleans up UI debt introduced during the foundation releases.
 
-This release remains browser-only and architecture-first. Goal Mode defines what the engine is trying to accomplish before it recommends schedule actions.
+This release removes nonessential dashboard-style preview panels for Analytics, Notifications, and Goal Mode. Those concepts remain part of the architecture, but they now live primarily in documentation, text output, and future data-model planning instead of requiring separate render functions.
 
-Goal Mode planning includes:
+### Why this release exists
 
-- Goal profiles such as reduce mandates, improve fairness, maximize leave approvals, and stabilize coverage.
-- Tradeoff rules that explain which goal wins when goals conflict.
-- Recommendation examples that connect goals to source facts and possible actions.
-- Audit examples for losing goals, human overrides, and no-safe-action outcomes.
+The same failure kept recurring: a section would be registered for rendering, but the matching render function would be missing or undefined. v0.17.1 reduces that risk by shrinking the render registry and adding explicit validation before packaging.
 
-Important repair included in this release:
+### Rule 23
 
-- v0.16.0 had notification preview renderers registered but not defined. v0.17.0 restores those notification render functions and adds a validation check to prevent this class of breakage.
-
-Goal Mode must use stored facts, rule outcomes, analytics, notifications, coverage, fairness, bidding, mandation, and explainability. It should never make hidden recommendations from assumptions.
+Foundation releases should not create new preview panels unless the UI itself is the purpose of the release. Prefer documentation, data-model notes, workflow standards, manifests, and small conceptual changes.

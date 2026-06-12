@@ -1,15 +1,17 @@
-## Current: v0.17.0 — Goal Mode Foundation
+## Current: v0.17.1 — UI Debt Audit
 
-Goal Mode defines what the engine is trying to optimize before it recommends leave, overtime, schedule changes, mandation, bidding, staffing, or coverage actions.
+The current release reduces UI debt before continuing the architecture roadmap.
 
-## Next: v0.18.0 — Multi-Agency Foundation
+## Next
 
-Multi-Agency Foundation should support agency-specific terminology and workflows for police, fire, EMS, corrections, dispatch, security, public works, and other shift operations without changing the core engines.
+### v0.18.0 — Multi-Agency Foundation
 
-## Then: v0.19.0 — Architecture Complete
+Plan agency-specific terminology and requirements for police, fire, EMS, corrections, dispatch, security, and public works without changing the core engines.
 
-Architecture Complete should audit the full 0.x architecture before v1.0 database work begins.
+### v0.19.0 — Architecture Complete
 
-## v1.0.0 — Database Foundation
+Audit the full 0.x architecture before database work begins.
 
-Begin PHP/MySQL persistence, CRUD, users, roles, approvals, audit logs, and real stored schedules.
+### v1.0.0 — Database Foundation
+
+Begin persistence, PHP/MySQL structure, users, roles, CRUD, approvals, and audit logs.

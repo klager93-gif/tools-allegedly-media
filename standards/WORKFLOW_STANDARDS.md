@@ -38,3 +38,9 @@ If a shared asset changes, update and verify every page that depends on it.
 ## Release Archive Workflow
 
 Normal releases should be saved as ZIP archives in dated `Releases/` folders. These release archives are the project backups. Do not duplicate the same release by also copying the current folder into a separate `Backups/` folder unless the work is experimental or outside the normal Git/release process.
+
+## Rule 23 — Foundation UI Restraint
+
+Do not create new preview panels for every foundation release. Foundation releases should usually update documentation, data-model notes, workflow standards, manifests, and small conceptual code changes. Add a new render function or registry entry only when the UI itself is the purpose of the release.
+
+Before packaging, validate that every render registry entry and every safeRender call points to a defined render function. Fail the build if any renderer is missing.

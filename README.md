@@ -1,1 +1,1 @@
-**Signal Schedule v0.17.0 — Goal Mode Foundation** adds optimization goals, tradeoffs, recommendations, and audit examples while preserving notifications, analytics, bidding/opportunity workflows, and render registry protections. Release ZIPs remain the official restore points.
+**Signal Schedule v0.17.1 — UI Debt Audit** removes nonessential foundation-preview UI panels while preserving analytics, notification, and goal-mode architecture in documentation and data-model planning. Release ZIPs remain the official restore points.

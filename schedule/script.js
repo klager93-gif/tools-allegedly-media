@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.17.0
-Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoff rules, decision signals, and explainable recommendations
+Version: v0.17.1
+Purpose: UI Debt Audit cleanup that keeps foundation concepts in docs/data planning and reduces render-registry risk
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.17.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.17.0', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.17.1';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -1101,7 +1101,7 @@ Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoff rules, d
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.17.0 Goal Mode Foundation';
+    if (label) label.textContent = 'v0.17.1 UI Debt Audit';
   }
 
   function syncRuleInputs() {
@@ -1622,91 +1622,6 @@ Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoff rules, d
   }
 
 
-  function renderAnalyticsMetricPreview() {
-    var target = $('#analyticsMetricPreview');
-    if (!target) return;
-    var items = Array.isArray(state.analyticsMetrics) && state.analyticsMetrics.length ? state.analyticsMetrics : defaultAnalyticsMetrics();
-    target.innerHTML = items.map(function (item) { return '<article class="analytics-metric-item"><span class="card-kicker">' + escapeHtml(item.family || 'Metric') + '</span><strong>' + escapeHtml(item.name || 'Analytics metric') + '</strong><p>' + escapeHtml(item.purpose || '') + '</p><small><b>Facts:</b> ' + escapeHtml(item.sourceFacts || '') + '<br><b>Why:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
-  }
-
-  function renderAnalyticsReportPreview() {
-    var target = $('#analyticsReportPreview');
-    if (!target) return;
-    var items = Array.isArray(state.analyticsReports) && state.analyticsReports.length ? state.analyticsReports : defaultAnalyticsReports();
-    target.innerHTML = items.map(function (item) { var includes = Array.isArray(item.includes) ? item.includes.join(' · ') : ''; return '<article class="analytics-report-item"><span class="card-kicker">' + escapeHtml(item.audience || 'Report') + ' · ' + escapeHtml(item.status || 'planned') + '</span><strong>' + escapeHtml(item.name || 'Analytics report') + '</strong><p>' + escapeHtml(includes || 'Report contents TBD') + '</p><small>' + escapeHtml(item.guardrail || '') + '</small></article>'; }).join('');
-  }
-
-  function renderAnalyticsTrendPreview() {
-    var target = $('#analyticsTrendPreview');
-    if (!target) return;
-    var items = Array.isArray(state.analyticsTrendSignals) && state.analyticsTrendSignals.length ? state.analyticsTrendSignals : defaultAnalyticsTrendSignals();
-    target.innerHTML = items.map(function (item) { return '<article class="analytics-trend-item"><span class="card-kicker">' + escapeHtml(item.category || 'Trend') + '</span><strong>' + escapeHtml(item.signal || 'Trend signal') + '</strong><p>' + escapeHtml(item.observation || '') + '</p><small>' + escapeHtml(item.action || '') + '</small></article>'; }).join('');
-  }
-
-  function renderAnalyticsForecastPreview() {
-    var target = $('#analyticsForecastPreview');
-    if (!target) return;
-    var items = Array.isArray(state.analyticsForecasts) && state.analyticsForecasts.length ? state.analyticsForecasts : defaultAnalyticsForecasts();
-    target.innerHTML = items.map(function (item) { return '<article class="analytics-forecast-item"><span class="card-kicker">Forecast model</span><strong>' + escapeHtml(item.name || 'Forecast') + '</strong><p>' + escapeHtml(item.forecast || '') + '</p><small><b>Inputs:</b> ' + escapeHtml(item.inputFacts || '') + '<br><b>Explanation:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
-  }
-
-  function renderNotificationTriggerPreview() {
-    var target = $('#notificationTriggerPreview');
-    if (!target) return;
-    var items = Array.isArray(state.notificationTriggers) && state.notificationTriggers.length ? state.notificationTriggers : defaultNotificationTriggers();
-    target.innerHTML = items.map(function (item) { return '<article class="notification-item"><span class="card-kicker">' + escapeHtml(item.source || 'Trigger') + '</span><strong>' + escapeHtml(item.name || 'Notification trigger') + '</strong><p>' + escapeHtml(item.trigger || '') + '</p><small><b>Audience:</b> ' + escapeHtml(item.audience || '') + '<br><b>Why:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
-  }
-
-  function renderNotificationChannelPreview() {
-    var target = $('#notificationChannelPreview');
-    if (!target) return;
-    var items = Array.isArray(state.notificationChannels) && state.notificationChannels.length ? state.notificationChannels : defaultNotificationChannels();
-    target.innerHTML = items.map(function (item) { return '<article class="notification-item"><span class="card-kicker">' + escapeHtml(item.status || 'planned') + '</span><strong>' + escapeHtml(item.name || 'Notification channel') + '</strong><p>' + escapeHtml(item.purpose || '') + '</p><small>' + escapeHtml(item.guardrail || '') + '</small></article>'; }).join('');
-  }
-
-  function renderNotificationSubscriptionPreview() {
-    var target = $('#notificationSubscriptionPreview');
-    if (!target) return;
-    var items = Array.isArray(state.notificationSubscriptions) && state.notificationSubscriptions.length ? state.notificationSubscriptions : defaultNotificationSubscriptions();
-    target.innerHTML = items.map(function (item) { var receives = Array.isArray(item.receives) ? item.receives.join(' · ') : ''; return '<article class="notification-item"><span class="card-kicker">' + escapeHtml(item.audience || 'Audience') + '</span><strong>' + escapeHtml(item.preference || 'Subscription rule') + '</strong><p>' + escapeHtml(receives || 'Notice scope TBD') + '</p><small>' + escapeHtml(item.rule || '') + '</small></article>'; }).join('');
-  }
-
-  function renderNotificationAuditPreview() {
-    var target = $('#notificationAuditPreview');
-    if (!target) return;
-    var items = Array.isArray(state.notificationAuditExamples) && state.notificationAuditExamples.length ? state.notificationAuditExamples : defaultNotificationAuditExamples();
-    target.innerHTML = items.map(function (item) { return '<article class="notification-item"><span class="card-kicker">' + escapeHtml(item.outcome || 'Audit outcome') + '</span><strong>' + escapeHtml(item.event || 'Notification audit event') + '</strong><p>' + escapeHtml(item.reason || '') + '</p><small>' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
-  }
-
-  function renderGoalModeProfilePreview() {
-    var target = $('#goalModeProfilePreview');
-    if (!target) return;
-    var items = Array.isArray(state.goalModeProfiles) && state.goalModeProfiles.length ? state.goalModeProfiles : defaultGoalModeProfiles();
-    target.innerHTML = items.map(function (item) { return '<article class="goal-mode-item"><span class="card-kicker">Priority: ' + escapeHtml(item.priority || 'Normal') + '</span><strong>' + escapeHtml(item.name || 'Goal') + '</strong><p>' + escapeHtml(item.optimizes || '') + '</p><small><b>Facts:</b> ' + escapeHtml(item.sourceFacts || '') + '<br><b>Why:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
-  }
-
-  function renderGoalModeTradeoffPreview() {
-    var target = $('#goalModeTradeoffPreview');
-    if (!target) return;
-    var items = Array.isArray(state.goalModeTradeoffs) && state.goalModeTradeoffs.length ? state.goalModeTradeoffs : defaultGoalModeTradeoffs();
-    target.innerHTML = items.map(function (item) { return '<article class="goal-mode-item"><span class="card-kicker">Tradeoff</span><strong>' + escapeHtml(item.conflict || 'Goal conflict') + '</strong><p>' + escapeHtml(item.winningRule || '') + '</p><small><b>Consequence:</b> ' + escapeHtml(item.consequence || '') + '<br><b>Explain:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
-  }
-
-  function renderGoalModeRecommendationPreview() {
-    var target = $('#goalModeRecommendationPreview');
-    if (!target) return;
-    var items = Array.isArray(state.goalModeRecommendations) && state.goalModeRecommendations.length ? state.goalModeRecommendations : defaultGoalModeRecommendations();
-    target.innerHTML = items.map(function (item) { return '<article class="goal-mode-item"><span class="card-kicker">' + escapeHtml(item.goal || 'Goal') + '</span><strong>' + escapeHtml(item.recommendation || 'Recommendation') + '</strong><p>' + escapeHtml(item.action || '') + '</p><small>' + escapeHtml(item.why || '') + '</small></article>'; }).join('');
-  }
-
-  function renderGoalModeAuditPreview() {
-    var target = $('#goalModeAuditPreview');
-    if (!target) return;
-    var items = Array.isArray(state.goalModeAuditExamples) && state.goalModeAuditExamples.length ? state.goalModeAuditExamples : defaultGoalModeAuditExamples();
-    target.innerHTML = items.map(function (item) { return '<article class="goal-mode-item"><span class="card-kicker">' + escapeHtml(item.outcome || 'Goal audit') + '</span><strong>' + escapeHtml(item.event || 'Goal event') + '</strong><p>' + escapeHtml(item.reason || '') + '</p><small>' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
-  }
-
-
   function renderDataModelPreview() {
     var target = $('#dataModelPreview');
     if (!target) return;
@@ -1731,7 +1646,7 @@ Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoff rules, d
       ['Operational Traits', String((state.operationalTraits || []).length), 'Employee traits such as gender can be used only when tied to documented operational rules.'],
       ['Analytics Foundation', String((state.analyticsMetrics || []).length + (state.analyticsReports || []).length + (state.analyticsTrendSignals || []).length + (state.analyticsForecasts || []).length), 'Plans hours, benefits, overtime, mandation, coverage, fairness, trends, forecasts, and audit-ready reports.'],
       ['Notifications Foundation', String((state.notificationTriggers || []).length + (state.notificationChannels || []).length + (state.notificationSubscriptions || []).length + (state.notificationAuditExamples || []).length), 'Plans alert triggers, delivery channels, audience subscriptions, suppression, escalation, and audit-ready notification history.'],
-      ['Goal Mode Foundation', String((state.goalModeProfiles || []).length + (state.goalModeTradeoffs || []).length + (state.goalModeRecommendations || []).length + (state.goalModeAuditExamples || []).length), 'Plans optimization goals, tradeoffs, recommendations, override behavior, and audit explanations.']
+      ['UI Debt Audit', String((state.goalModeProfiles || []).length + (state.goalModeTradeoffs || []).length + (state.goalModeRecommendations || []).length + (state.goalModeAuditExamples || []).length), 'Plans optimization goals, tradeoffs, recommendations, override behavior, and audit explanations.']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -1899,7 +1814,7 @@ Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoff rules, d
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — GOAL MODE FOUNDATION');
-    lines.push('Version: v0.17.0');
+    lines.push('Version: v0.17.1');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -1986,9 +1901,10 @@ Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoff rules, d
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.17.0 Notes:');
-    lines.push('- Adds Goal Mode Foundation planning for optimization goals, tradeoffs, recommendations, and audit explanations.');
-    lines.push('- Goal Mode answers what the system is trying to accomplish before recommending schedule actions.');
+    lines.push('v0.17.1 Notes:');
+    lines.push('- Adds UI Debt Audit cleanup after v0.17.1.');
+    lines.push('- Removes dashboard-style foundation preview panels for analytics, notifications, and goal mode.');
+    lines.push('- Keeps foundation concepts in documentation, text output, and data-model planning while reducing render-registry risk.');
     lines.push('- Recommendations must explain winning goals, losing goals, source facts, and human overrides.');
     lines.push('- This is still local mock data, not a backend.');
     lines.push('- Events, rules, benefit entries, coverage rows, views, templates, fairness metrics, and explanations are sample objects, not editable database records or approval workflows yet.');
@@ -2069,18 +1985,6 @@ Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoff rules, d
     renderVoluntaryOvertimePreview: renderVoluntaryOvertimePreview,
     renderPostedOvertimePreview: renderPostedOvertimePreview,
     renderBidAwardPreview: renderBidAwardPreview,
-    renderAnalyticsMetricPreview: renderAnalyticsMetricPreview,
-    renderAnalyticsReportPreview: renderAnalyticsReportPreview,
-    renderAnalyticsTrendPreview: renderAnalyticsTrendPreview,
-    renderAnalyticsForecastPreview: renderAnalyticsForecastPreview,
-    renderNotificationTriggerPreview: renderNotificationTriggerPreview,
-    renderNotificationChannelPreview: renderNotificationChannelPreview,
-    renderNotificationSubscriptionPreview: renderNotificationSubscriptionPreview,
-    renderNotificationAuditPreview: renderNotificationAuditPreview,
-    renderGoalModeProfilePreview: renderGoalModeProfilePreview,
-    renderGoalModeTradeoffPreview: renderGoalModeTradeoffPreview,
-    renderGoalModeRecommendationPreview: renderGoalModeRecommendationPreview,
-    renderGoalModeAuditPreview: renderGoalModeAuditPreview,
     renderDataModelPreview: renderDataModelPreview,
     renderSelects: renderSelects,
     renderPills: renderPills,
@@ -2122,18 +2026,6 @@ Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoff rules, d
     safeRender('voluntary overtime', 'renderVoluntaryOvertimePreview');
     safeRender('posted overtime', 'renderPostedOvertimePreview');
     safeRender('bid awards', 'renderBidAwardPreview');
-    safeRender('analytics metrics', 'renderAnalyticsMetricPreview');
-    safeRender('analytics reports', 'renderAnalyticsReportPreview');
-    safeRender('analytics trends', 'renderAnalyticsTrendPreview');
-    safeRender('analytics forecasts', 'renderAnalyticsForecastPreview');
-    safeRender('notification triggers', 'renderNotificationTriggerPreview');
-    safeRender('notification channels', 'renderNotificationChannelPreview');
-    safeRender('notification subscriptions', 'renderNotificationSubscriptionPreview');
-    safeRender('notification audit', 'renderNotificationAuditPreview');
-    safeRender('goal profiles', 'renderGoalModeProfilePreview');
-    safeRender('goal tradeoffs', 'renderGoalModeTradeoffPreview');
-    safeRender('goal recommendations', 'renderGoalModeRecommendationPreview');
-    safeRender('goal audit', 'renderGoalModeAuditPreview');
     safeRender('data model', 'renderDataModelPreview');
     safeRender('selects', 'renderSelects');
     safeRender('pills', 'renderPills');

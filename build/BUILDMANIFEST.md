@@ -1,25 +1,19 @@
-# Build Manifest — Signal Schedule v0.17.0 Goal Mode Foundation
+# Build Manifest — Signal Schedule v0.17.1 UI Debt Audit
 
 ## Source
 
-- Source ZIP: `signal-schedule-v0.16.0-notifications-foundation.zip`
-- Build type: Architecture foundation release + repair release
+- Source ZIP: `signal-schedule-v0.17.0-goal-mode-foundation.zip`
+- New ZIP: `signal-schedule-v0.17.1-ui-debt-audit.zip`
 
-## Output
+## Purpose
 
-- Output ZIP: `signal-schedule-v0.17.0-goal-mode-foundation.zip`
-
-## Changes
-
-- Added Goal Mode Foundation data arrays, defaults, renderers, registry entries, and preview sections.
-- Added goal profiles, goal tradeoffs, recommendations, and audit examples.
-- Repaired missing v0.16.0 notification renderer functions.
-- Updated Schedule visible version references and cache-busting to v0.17.0.
-- Updated README, HOWTO, ROADMAP, RULE-ENGINE, DATABASE-PLAN, public changelog, admin changelog, and master roadmap.
+This build performs a UI Debt Audit after v0.17.0. It removes foundation-preview dashboard panels that were increasing render registry risk while preserving analytics, notification, and goal-mode concepts in documentation, text output, and data-model planning.
 
 ## Validation
 
-- `node --check schedule/script.js` passed.
-- Render registry validation passed: every safeRender string has a function and registry entry.
-- ZIP integrity check passed.
+- JavaScript syntax checked with `node --check`.
+- Render registry validation passed.
+- All `safeRender()` calls resolve to defined render functions.
+- Removed preview panel IDs are no longer present in `schedule/index.html`.
+- ZIP integrity checked.
 - SHA256 sums regenerated.

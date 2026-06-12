@@ -1,7 +1,13 @@
+## Signal Schedule v0.17.1 — UI Debt Audit
+
+- Performed UI Debt Audit after v0.17.0.
+- Removed foundation-preview dashboard panels that were increasing render-registry risk.
+- Added Rule 23: foundation releases should avoid creating preview panels unless UI is the actual release purpose.
+
 ## Signal Schedule v0.16.0 — Notifications Foundation
 
 - Added Notifications Foundation planning for trigger facts, delivery channels, audience subscriptions, suppression/escalation, and audit-ready notification history.
-- Advanced Schedule roadmap toward v0.17 Goal Mode Foundation.
+- Advanced Schedule roadmap toward v0.17 UI Debt Audit.
 - Preserved analytics, bidding/opportunity, mandation, explainability, fairness, coverage, and render registry foundations.
 
 ## Signal Schedule v0.15.0 — Analytics Foundation
