@@ -1,66 +1,139 @@
 # Signal Labs File Manifest
 
-## Root
+Generated for full fresh-install repository integrity rebuild.
 
-- `index.html` — Home landing page
-- `README.md` — Signal Labs ecosystem README
-- `ROADMAP.md` — Signal Labs root roadmap
-- `PUBLIC_CHANGELOG.md` — Public project changelog
-- `ADMIN_CHANGELOG.md` — Admin/project changelog
-- `MASTER-CHANGELOG.md` — Master project changelog
-- `HOWTO.md` — General project usage notes
-- `STANDARDS.md` — Authoritative Signal Labs standards, when present
-
-## Shared Assets
-
-- `assets/global.css`
-- `assets/global.js`
-- `assets/components/header.js`
-- `assets/components/footer.js`
-- `assets/icons/favicon.ico`
-- `assets/icons/favicon.svg`
-- `assets/icons/apple-touch-icon.png`
-- `assets/icons/site.webmanifest`
-
-## Tools
-
-### Paycheck
-
-- `paycheck/index.html`
-- `paycheck/style.css`
-- `paycheck/script.js`
-- `paycheck/README.md`
-- `paycheck/ROADMAP.md`
-- `paycheck/PUBLIC_CHANGELOG.md`
-- `paycheck/ADMIN_CHANGELOG.md`
-- `paycheck/HOWTO.md`
-
-### Overtime
-
-- `overtime/`
-
-### Time Off
-
-- `timeoff/`
-
-### Signal Schedule
-
-- `schedule/index.html`
-- `schedule/style.css`
-- `schedule/script.js`
-- `schedule/data/agencies.json`
-- `schedule/data/employees.json`
-- `schedule/api/mock-functions/`
-- `schedule/d1/`
-- `schedule/README.md`
-- `schedule/ROADMAP.md`
-- `schedule/CHANGELOG.md`
-- Schedule planning documents in `/schedule/`
-
-### Pay Planner
-
-- `pay-planner/index.html`
-- `pay-planner/style.css`
-- `pay-planner/script.js`
-
-Pay Planner remains unlisted/incubator but structurally valid.
+```text
+.gitattributes
+.gitignore
+ADMIN_CHANGELOG.md
+BUILDMANIFEST.md
+FILEMANIFEST.md
+HOWTO.md
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+PUBLIC_CHANGELOG.md
+README.md
+REPOSITORY-AUDIT-2026-06-12.md
+ROADMAP.md
+STANDARDS.md
+about/index.html
+assets/components/footer.js
+assets/components/header.js
+assets/global.css
+assets/global.js
+assets/icons/apple-touch-icon.png
+assets/icons/favicon.ico
+assets/icons/favicon.svg
+assets/icons/site.webmanifest
+build/BUILDMANIFEST.md
+build/FILEMANIFEST.md
+build/SHA256SUMS.txt
+changelog/index.html
+contact/index.html
+docs/BACKUP.md
+docs/RESTORE.md
+how-to/index.html
+index.html
+overtime/BUILDMANIFEST.md
+overtime/CHANGELOG.md
+overtime/FILEMANIFEST.md
+overtime/HOWTO.md
+overtime/README.md
+overtime/ROADMAP.md
+overtime/index.html
+overtime/script.js
+overtime/style.css
+pay-planner/CHANGELOG.md
+pay-planner/HOWTO.md
+pay-planner/README.md
+pay-planner/ROADMAP.md
+pay-planner/index.html
+pay-planner/script.js
+pay-planner/style.css
+paycheck/ADMIN_CHANGELOG.md
+paycheck/BACKUP.md
+paycheck/BUILDMANIFEST.md
+paycheck/CHANGELOG.md
+paycheck/FILEMANIFEST.md
+paycheck/HOWTO.md
+paycheck/PUBLIC_CHANGELOG.md
+paycheck/README.md
+paycheck/RESTORE.md
+paycheck/ROADMAP.md
+paycheck/SHA256SUMS.txt
+paycheck/index.html
+paycheck/script.js
+paycheck/style.css
+privacy/index.html
+report-issue/index.html
+request-feature/index.html
+roadmap/index.html
+schedule/API-PLAN.md
+schedule/ARCHITECTURE-AUDIT.md
+schedule/AUDIT-LOGGING-PLAN.md
+schedule/BACKEND-PORTABILITY.md
+schedule/CHANGELOG.md
+schedule/CLOUDFLARE-ARCHITECTURE.md
+schedule/COOLIFY-BACKEND-PIVOT.md
+schedule/COOLIFY-BACKEND-SETUP.md
+schedule/D1-DATABASE-FOUNDATION.md
+schedule/D1-SETUP-GUIDE.md
+schedule/DATA-LAYER.md
+schedule/DATABASE-PLAN.md
+schedule/DATABASE-PLANNING.md
+schedule/DEPRECATION-AUDIT.md
+schedule/ENTITY-MAP.md
+schedule/HOWTO.md
+schedule/MIGRATION-PLAN.md
+schedule/PHP-MYSQL-STARTER.md
+schedule/PRE-DATABASE-SAFETY-AUDIT.md
+schedule/README.md
+schedule/RELEASE-v0.99.0.md
+schedule/RELEASE-v0.99.1.md
+schedule/RELEASE-v1.0.0.md
+schedule/RELEASE-v1.1.0.md
+schedule/RELEASE-v1.2.0.md
+schedule/RELEASE-v1.2.1.md
+schedule/RELEASE-v1.3.0.md
+schedule/RELEASE-v1.3.1.md
+schedule/RELEASE-v1.3.2.md
+schedule/RELEASE-v1.3.3.md
+schedule/REPOSITORY-ADAPTER-LAYER.md
+schedule/ROADMAP.md
+schedule/RULE-ENGINE.md
+schedule/SECURITY-PLAN.md
+schedule/TABLE-PLAN.md
+schedule/V1-READINESS.md
+schedule/WORKER-API-FOUNDATION.md
+schedule/WORKER-FOLDER-REPAIR.md
+schedule/api/mock-functions/agencies.js
+schedule/api/mock-functions/employees.js
+schedule/api/mock-functions/health.js
+schedule/d1/README.md
+schedule/d1/schema.sql
+schedule/d1/seed.sql
+schedule/data/agencies.json
+schedule/data/employees.json
+schedule/index.html
+schedule/script.js
+schedule/style.css
+standards/COMPONENT_STANDARDS.md
+standards/DEVELOPMENT_STANDARDS.md
+standards/DOCUMENTATION_STANDARDS.md
+standards/RELEASE_STANDARDS.md
+standards/REPOSITORY_STANDARDS.md
+standards/STANDARDS.md
+standards/UX_STANDARDS.md
+standards/WORKFLOW_STANDARDS.md
+status/index.html
+terms/index.html
+timeoff/BUILDMANIFEST.md
+timeoff/CHANGELOG.md
+timeoff/FILEMANIFEST.md
+timeoff/HOWTO.md
+timeoff/README.md
+timeoff/ROADMAP.md
+timeoff/index.html
+timeoff/script.js
+timeoff/style.css
+```
