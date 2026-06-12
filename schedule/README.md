@@ -1,3 +1,9 @@
+## v1.3.2 — Coolify Backend Pivot
+
+Signal Schedule now documents the actual live deployment path as GitHub to Coolify. Cloudflare D1 is paused as the default backend assumption and remains only a possible future adapter. The active app still uses the static JSON adapter.
+
+See `COOLIFY-BACKEND-PIVOT.md`.
+
 ## v1.3.1 — D1 Setup Guide
 
 Signal Schedule v1.3.1 adds Cloudflare D1 setup guidance. The active app still uses the static JSON adapter.

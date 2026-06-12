@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v1.3.0
-Purpose: D1 Database Foundation for Cloudflare-native persistence planning
+Version: v1.3.2
+Purpose: Coolify Backend Pivot and backend portability correction
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: D1 Database Foundation for Cloudflare-native persistence planning
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=1.3.0">
+<link rel="stylesheet" href="style.css?v=1.3.2">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v1.3.0"
-  data-signal-theme="D1 Database Foundation"
+  data-signal-version="v1.3.2"
+  data-signal-theme="Coolify Backend Pivot"
   data-signal-status="Active Development"
-  data-signal-description="Define the first D1 schema and read-only database boundary while keeping the active app static and backend-portable."
-  data-signal-status-text="Signal Schedule v1.3.0 adds the first D1 schema, seed plan, and database adapter contract while keeping the active app static/read-only."
+  data-signal-description="Document the actual hosting path as GitHub to Coolify and pause Cloudflare D1 assumptions while preserving backend portability."
+  data-signal-status-text="Signal Schedule v1.3.2 pivots backend planning around the actual GitHub to Coolify deployment path and keeps D1 as a possible adapter, not the default path."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: D1 Database Foundation for Cloudflare-native persistence planning
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v1.3.0 D1 Database Foundation</strong>
+      <strong id="currentWeekLabel">v1.3.2 Coolify Backend Pivot</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: D1 Database Foundation for Cloudflare-native persistence planning
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v1.3.0 is still browser-only for the main app. This release adds the D1 Database Foundation: schema, seed data, binding notes, and adapter boundaries without enabling live writes, credentials, CRUD, or authentication.</p>
+      <p>Signal Schedule v1.3.2 is still browser-only for the main app. This release corrects the backend direction after confirming the live deployment path is GitHub to Coolify, not Cloudflare Pages. D1 remains a possible future adapter, but Coolify-hosted backends become the primary planning path.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v1.3.0 keeps pretend agency and employee records in /schedule/data as the active adapter, while adding /schedule/d1 schema and seed files for the future Cloudflare D1 adapter.</p>
+        <p>v1.3.2 keeps pretend agency and employee records in /schedule/data as the active adapter while documenting the Coolify backend path and preserving D1/Postgres/MySQL portability.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -518,6 +518,6 @@ Purpose: D1 Database Foundation for Cloudflare-native persistence planning
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=1.3.0"></script>
+<script src="script.js?v=1.3.2"></script>
 </body>
 </html>

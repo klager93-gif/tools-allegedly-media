@@ -1,3 +1,11 @@
+## v1.3.2 — Coolify Backend Pivot
+
+- Documented the actual live deployment path as GitHub to Coolify.
+- Paused Cloudflare D1 as the default backend assumption.
+- Preserved D1 as a possible future adapter under Rule 24.
+- Reframed future backend planning around Coolify-hosted services and database options.
+- Added no live backend, credentials, CRUD, authentication, writes, or dashboard preview panels.
+
 ## v1.3.1 — D1 Setup Guide
 
 - Added D1 setup documentation for Cloudflare preparation.

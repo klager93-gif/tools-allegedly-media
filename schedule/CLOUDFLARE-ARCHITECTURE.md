@@ -1,3 +1,7 @@
+## v1.3.2 Cloudflare Status Update
+
+Cloudflare is not currently the app host for Signal Labs. The live deployment uses GitHub to Coolify. Cloudflare D1 setup work is paused and should not be treated as the default backend path.
+
 ## v1.3.0 D1 Foundation
 
 Cloudflare D1 is the first planned persistent database for Signal Schedule. D1 is introduced as an adapter target only; the live app still uses static JSON.

@@ -1,3 +1,9 @@
+## Signal Schedule v1.3.2 — Coolify Backend Pivot
+
+- Paused Cloudflare D1-first assumptions.
+- Reframed future backend work around Coolify-hosted services and databases.
+- Preserved backend portability and tool-owned infrastructure rules.
+
 ## Signal Schedule v1.3.0 — D1 Database Foundation
 
 Added schedule/d1/schema.sql, seed.sql, D1 planning docs, and planned D1 adapter contract. No live D1 binding or credentials.

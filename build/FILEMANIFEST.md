@@ -45,6 +45,7 @@ schedule/AUDIT-LOGGING-PLAN.md
 schedule/BACKEND-PORTABILITY.md
 schedule/CHANGELOG.md
 schedule/CLOUDFLARE-ARCHITECTURE.md
+schedule/COOLIFY-BACKEND-PIVOT.md
 schedule/D1-DATABASE-FOUNDATION.md
 schedule/D1-SETUP-GUIDE.md
 schedule/DATA-LAYER.md
@@ -65,6 +66,7 @@ schedule/RELEASE-v1.2.0.md
 schedule/RELEASE-v1.2.1.md
 schedule/RELEASE-v1.3.0.md
 schedule/RELEASE-v1.3.1.md
+schedule/RELEASE-v1.3.2.md
 schedule/REPOSITORY-ADAPTER-LAYER.md
 schedule/ROADMAP.md
 schedule/RULE-ENGINE.md

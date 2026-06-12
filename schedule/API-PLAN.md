@@ -1,3 +1,7 @@
+## v1.3.2 API Plan Update
+
+API planning now targets a Coolify-hosted backend first, with Cloudflare D1/Workers remaining a possible adapter path only. Endpoint shapes remain useful, but implementation should wait until the Coolify backend plan is confirmed.
+
 ## v1.3.0 D1 API Direction
 
 Worker/Pages Function endpoints should eventually read from the D1 adapter using the repository/service boundary. The active app remains JSON-backed until the D1 deployment is intentionally enabled.

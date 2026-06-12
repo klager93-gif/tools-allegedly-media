@@ -1,3 +1,10 @@
+## Signal Schedule v1.3.2 — Coolify Backend Pivot
+
+- Corrected backend planning after confirming GitHub to Coolify deployment.
+- Paused Cloudflare D1 as the default path.
+- Preserved D1 as a possible future adapter under Rule 24.
+- Added Schedule Coolify backend pivot documentation.
+
 ## Signal Schedule v1.3.1 — D1 Setup Guide
 
 - Added Schedule D1 setup guidance.

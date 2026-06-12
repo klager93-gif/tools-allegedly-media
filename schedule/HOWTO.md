@@ -1,3 +1,7 @@
+## v1.3.2 HOWTO — Coolify Backend Pivot
+
+Before building Employee CRUD, use `COOLIFY-BACKEND-PIVOT.md` to understand the corrected backend direction. Do not create D1 bindings, CRUD, authentication, or live write behavior until the Coolify backend setup has been planned and confirmed.
+
 ## v1.3.1 HOWTO — D1 Setup Guide
 
 Use `/schedule/D1-SETUP-GUIDE.md` before attempting any D1 connection or Employee CRUD work.

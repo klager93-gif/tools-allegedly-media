@@ -1,3 +1,8 @@
+## Signal Schedule v1.3.2 — Coolify Backend Pivot
+
+- Updated backend planning to reflect the actual GitHub to Coolify deployment path.
+- No public app behavior changed.
+
 ## Signal Schedule v1.3.1 — D1 Setup Guide
 
 - Added setup guidance for preparing Cloudflare D1 before live database work begins.

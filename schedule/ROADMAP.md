@@ -1,3 +1,18 @@
+## Current: v1.3.2 — Coolify Backend Pivot
+
+The actual deployment path is GitHub to Coolify. Cloudflare D1 is paused as the default backend path and remains a possible future adapter only.
+
+Next recommended release: v1.3.3 — Coolify Backend Setup Guide.
+
+## Revised Next Steps
+
+```text
+v1.3.3 — Coolify Backend Setup Guide
+v1.4.0 — Backend Adapter Selection
+v1.5.0 — Employee Read API Foundation
+v1.6.0 — Employee CRUD Foundation
+```
+
 ## Current: v1.3.1 — D1 Setup Guide
 
 D1 setup guidance has been added before Employee CRUD begins.
