@@ -1,3 +1,3 @@
-- Verify Signal Schedule v0.18.0 Multi-Agency Foundation after deployment.
-- Next planned build: Signal Schedule v0.19.0 — Architecture Complete.
-- v1.0.0 remains Database Foundation after the architecture audit.
+- Verify Signal Schedule v0.19.0 Architecture Complete after deployment.
+- Next release: v1.0.0 — Database Foundation.
+- v1.0 should begin PHP/MySQL persistence, users, roles, CRUD, approvals, and audit logs.

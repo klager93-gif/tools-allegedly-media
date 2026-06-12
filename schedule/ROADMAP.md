@@ -1,13 +1,24 @@
-## Current: v0.18.0 — Multi-Agency Foundation
+## Current: v0.19.0 — Architecture Complete
 
-The current release plans agency profiles, terminology, ranks, qualifications, and operational trait mapping without adding new dashboard preview panels.
+This release completes the 0.x architecture audit and prepares Signal Schedule for v1.0 database foundation work.
 
 ## Next
 
-### v0.19.0 — Architecture Complete
-
-Audit the full 0.x architecture before database work begins. Confirm that agency profiles, employees, patterns, events, benefits, rules, coverage, views, fairness, explanations, mandation, bidding, analytics, notifications, and goal mode connect cleanly.
-
 ### v1.0.0 — Database Foundation
 
-Begin persistence, PHP/MySQL structure, users, roles, CRUD, approvals, and audit logs.
+Begin persistence and backend structure:
+
+- PHP/MySQL foundation
+- Database tables
+- Users and roles
+- CRUD workflows
+- Approval workflows
+- Audit logs
+- Stored agency settings
+- Stored employees, patterns, events, requests, opportunities, awards, goals, notifications, and explanations
+
+## Later
+
+### v1.1+
+
+Move from architecture into real product workflows: production month views, drag-and-drop planning, dashboards, exports, email/SMS/in-app notifications, and admin management screens.

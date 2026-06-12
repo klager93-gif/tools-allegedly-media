@@ -1,21 +1,29 @@
-## v0.18.0 Multi-Agency Data Planning
+## v0.19.0 Database Planning
 
-Future database work should support agency-independent engines through configurable agency facts.
+v0.19.0 does not create database tables yet. It prepares the concepts that v1.0 should persist.
 
-### Planned tables / concepts
+### Minimum table families for v1.0
 
-- agencies
-- agency_profiles
-- agency_vocabulary
-- agency_rank_structures
-- agency_units
-- agency_assignment_types
-- agency_qualification_types
-- agency_operational_trait_types
-- employee_qualifications
-- employee_operational_traits
+- agencies and agency_settings
+- users and roles
+- employees
+- employee_assignments
+- ranks and qualifications
+- shifts and patterns
+- pattern_cycle_days
+- schedule_events
+- requests
+- opportunities
+- bids
+- awards
+- benefit_ledger_entries
 - coverage_requirements
+- rule_evaluations
+- explanations
+- notifications
+- goals
+- audit_records
 
 ### Design rule
 
-Avoid agency-specific engine branches such as `if agency is fire`. Store terms and requirements as data, then let the common engines evaluate facts.
+Do not create tables that hide assumptions. Store the fact explicitly, then let engines evaluate it.

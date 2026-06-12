@@ -1,6 +1,7 @@
-## Signal Schedule v0.18.0 — Multi-Agency Foundation
+## Signal Schedule v0.19.0 — Architecture Complete
 
-- Added multi-agency architecture documentation and data-model planning.
-- Preserved v0.17.1 UI Debt Audit constraints and Rule 23.
-- No new render functions or render registry entries were added for this foundation release.
-- Render registry validation passed before packaging.
+- Adds architecture audit documentation.
+- Adds entity map and v1.0 database readiness checklist.
+- Preserves Rule 23 foundation UI restraint.
+- Confirms no new render registry entries were added.
+- Keeps render registry validation as a required build gate.

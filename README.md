@@ -1,1 +1,1 @@
-**Signal Schedule v0.18.0 — Multi-Agency Foundation** adds architecture planning for police, fire, EMS, corrections, dispatch, security, public works, and custom agency profiles while preserving the v0.17.1 UI Debt Audit. Release ZIPs remain the official restore points.
+**Signal Schedule v0.19.0 — Architecture Complete** closes the 0.x architecture phase before v1.0 database foundation work begins. This release audits the major scheduling engines, entity relationships, Rule 0 compliance, Rule 23 UI restraint, and render registry safety.

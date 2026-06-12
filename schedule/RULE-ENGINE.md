@@ -1,13 +1,18 @@
-## v0.18.0 Multi-Agency Rule Planning
+## v0.19.0 Rule Engine Audit
 
-Rules should evaluate generic facts and display agency-specific language only at the explanation/output layer.
+The rule engine must remain fact-driven.
 
-### Examples
+Rules should evaluate stored facts such as agency profile, employee eligibility, operational traits, benefit balances, coverage requirements, seniority, fairness snapshots, bids, goals, and exceptions.
 
-- Coverage may require one supervisor. Police output may call that person a Sergeant; fire output may call that person a Captain.
-- A qualification may be required for a slot. Police may call it K9 or FTO; fire may call it Paramedic or Driver; dispatch may call it NCIC or TAC.
-- Operational traits such as gender, restrictions, language, or certifications should only be evaluated when a documented rule requires them.
+Rules should not assume agency type, work week start, pay period start, gender requirements, rank meaning, mandate eligibility, trade eligibility, or overtime eligibility.
 
-### Guardrail
+Future rule evaluations should store:
 
-Multi-agency support must not weaken Rule 0. Store facts, not assumptions.
+- Input facts
+- Rule tested
+- Result
+- Winning rule
+- Skipped rules
+- Override reason, if any
+- Explanation level
+- Audit record

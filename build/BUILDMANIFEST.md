@@ -1,19 +1,24 @@
-# Build Manifest — Signal Schedule v0.18.0 Multi-Agency Foundation
+# Build Manifest — Signal Schedule v0.19.0 Architecture Complete
 
-## Source
+- Source ZIP: `signal-schedule-v0.18.0-multi-agency-foundation.zip`
+- New ZIP: `signal-schedule-v0.19.0-architecture-complete.zip`
+- Release type: architecture audit / database readiness
+- Build date: 2026-06-12
 
-- Source ZIP: `signal-schedule-v0.17.1-ui-debt-audit.zip`
-- New ZIP: `signal-schedule-v0.18.0-multi-agency-foundation.zip`
+## Build notes
 
-## Purpose
-
-This build adds Multi-Agency Foundation planning for police, fire, EMS, corrections, dispatch, security, public works, and custom agency profiles. It keeps the release documentation/architecture-focused under Rule 23 and avoids new dashboard preview panels or render registry entries.
+- Added 0.x architecture audit documentation.
+- Added entity map and v1.0 readiness checklist.
+- Updated schedule docs and release-level changelogs.
+- Updated schedule version references to v0.19.0.
+- Added no new dashboard preview panels.
+- Added no new render registry entries.
 
 ## Validation
 
 - JavaScript syntax checked with `node --check`.
-- Render registry validation passed: every registry entry resolves to a defined function.
-- All `safeRender()` calls resolve to defined and registered functions.
-- Confirmed no new `renderMultiAgency*` functions or `multiAgencyPreview` panels were added.
-- ZIP integrity checked.
-- SHA256 sums regenerated.
+- Render registry validation passed.
+- Every registered renderer resolves to a defined function.
+- Every safeRender call resolves to a registered function.
+- Confirmed no new render registry entries compared with v0.18.0.
+- ZIP integrity checked after packaging.

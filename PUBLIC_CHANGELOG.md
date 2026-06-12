@@ -1,5 +1,5 @@
-## Signal Schedule v0.18.0 — Multi-Agency Foundation
+## Signal Schedule v0.19.0 — Architecture Complete
 
-- Added planning for police, fire, EMS, corrections, dispatch, security, public works, and custom agency profiles.
-- Preserved the UI Debt Audit approach: no new foundation dashboard preview panels were added.
-- Prepared the roadmap for v0.19.0 Architecture Complete.
+- Completes the architecture planning phase before database work begins.
+- Documents how employees, events, requests, opportunities, rules, coverage, fairness, explanations, notifications, goals, and audit records connect.
+- Adds no new dashboard preview panels.
