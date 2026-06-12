@@ -4,9 +4,9 @@ Useful tools without the noise.
 
 ## Current Release
 
-**Signal Schedule v0.1.4 — Version Consistency Update**
+**Signal Schedule v0.2.0 — Core Engine Blueprint**
 
-Updates visible Signal Schedule version references and formalizes Rule 23 so user-facing versions, status cards, footer versions, and release documentation stay synchronized after each release.
+Moves Signal Schedule from a simple schedule-page sandbox toward a staffing-engine model with people, rules, patterns, events, benefit ledgers, coverage requirements, and generated schedule output.
 
 ## Current Tools
 

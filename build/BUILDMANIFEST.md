@@ -2,7 +2,7 @@
 
 ## Build
 
-Signal Schedule v0.1.4 — Version Consistency Update
+Signal Schedule v0.2.0 — Core Engine Blueprint
 
 ## Date
 
@@ -10,27 +10,12 @@ Signal Schedule v0.1.4 — Version Consistency Update
 
 ## Source
 
-Built from `signal-schedule-v0.1.3-rule-engine-roadmap.zip`.
+Built from `signal-schedule-v0.1.4-version-consistency-update.zip`.
+
+## Purpose
+
+Move Signal Schedule from a basic local schedule sandbox toward a core staffing-engine blueprint with people, rules, patterns, events, benefit ledgers, coverage requirements, and generated output.
 
 ## Notes
 
-Maintenance release focused on visible Schedule version alignment and release standards. No new scheduling features were added.
-
-## Changed / Added Files
-
-- `README.md`
-- `HOWTO.md`
-- `MASTER-CHANGELOG.md`
-- `ROADMAP.md`
-- `schedule/README.md`
-- `schedule/HOWTO.md`
-- `schedule/CHANGELOG.md`
-- `schedule/ROADMAP.md`
-- `schedule/DATABASE-PLAN.md`
-- `schedule/index.html`
-- `schedule/script.js`
-- `schedule/style.css`
-- `standards/RELEASE_STANDARDS.md`
-- `build/BUILDMANIFEST.md`
-- `build/FILEMANIFEST.md`
-- `build/SHA256SUMS.txt`
+This release does not add login, database storage, admin roles, publishing workflow, or final automated schedule generation. It updates local mock data, UI planning panels, text output, and documentation so future coding remains aligned with the staffing-engine architecture.

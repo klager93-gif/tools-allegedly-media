@@ -1,5 +1,16 @@
 # Signal Schedule Changelog
 
+## v0.2.0 — Core Engine Blueprint
+
+- Advanced Signal Schedule from a version-consistency maintenance release to a Core Engine Blueprint.
+- Updated visible Schedule references, metadata, cache-busting, status text, and text output to v0.2.0.
+- Added Core Engine Blueprint UI panels for people, rules, patterns, events, benefits, and coverage.
+- Expanded local mock data to include rule profiles, schedule patterns, employee-pattern links, schedule events, benefit ledger entries, coverage requirements, mandate eligibility, and mandate exceptions.
+- Updated sample data to demonstrate benefit accrual, vacation events, mandates, and mandate exceptions.
+- Updated warnings and text output to reinforce explainability, rule-engine planning, and future PHP/database boundaries.
+- Updated home page Schedule card copy so the root page reflects the broader staffing-engine direction.
+- No login, database storage, admin roles, publishing workflow, or real automated schedule generation was added.
+
 ## v0.1.4 — Version Consistency Update
 
 ### Added

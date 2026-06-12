@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.1.4 remains local-first and does not create database tables yet.
+Planning document for the future PHP/database version. Signal Schedule v0.2.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
 
 ## Core Rule
 
@@ -35,6 +35,20 @@ agency policy + employees + patterns + events + exceptions + coverage requiremen
 ```
 
 See `RULE-ENGINE.md` for the standing rule-engine planning document.
+
+## v0.2.0 Local Mock Objects
+
+The browser sandbox now includes starter objects that should map cleanly to future tables:
+
+- `employees`
+- `ruleProfiles`
+- `patterns`
+- `employeePatterns`
+- `scheduleEvents`
+- `benefitLedger`
+- `coverageRequirements`
+
+These are not database tables yet. They are shape tests so future PHP/database work does not start from a spreadsheet-style schedule page.
 
 ## Future Tables
 

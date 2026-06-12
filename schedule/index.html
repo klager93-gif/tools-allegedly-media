@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.1.4
+Version: v0.2.0
 Purpose: Logic-first schedule sandbox with text output and rule warnings
 -->
 <!DOCTYPE html>
@@ -15,17 +15,17 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.4">
-<link rel="stylesheet" href="style.css?v=0.1.4">
+<link rel="stylesheet" href="style.css?v=0.2.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.1.4"
-  data-signal-theme="Version Consistency Update"
+  data-signal-version="v0.2.0"
+  data-signal-theme="Core Engine Blueprint"
   data-signal-status="Active Development"
-  data-signal-description="Test staffing rules, schedule output, coverage gaps, and month-view logic before backend work."
-  data-signal-status-text="Signal Schedule v0.1.4 is focused on architecture, roadmap, rule-engine planning, and version consistency. Login, database storage, admin roles, and publishing controls remain planned for later releases."
+  data-signal-description="Model people, rules, patterns, events, coverage, benefits, and generated schedule output before backend work."
+  data-signal-status-text="Signal Schedule v0.2.0 introduces the Core Engine Blueprint: people, rules, patterns, events, benefits, coverage, and generated schedule output before backend work begins."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Build a rough weekly schedule, test staffing rules, and generate plain-text output before the app becomes a full PHP-backed scheduling system.</p>
+      <p class="schedule-subtitle">Model the first version of the staffing engine: people, rules, patterns, events, benefits, coverage, and generated schedule output before PHP/database work begins.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
-      <span>Current Week</span>
-      <strong id="currentWeekLabel">This week</strong>
+      <span>Core Engine</span>
+      <strong id="currentWeekLabel">v0.2.0 Blueprint</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,8 +46,27 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.1.4 is still not the final scheduling system. It remains a local logic sandbox while the roadmap, rule engine, agency policies, version consistency, and future backend structure are planned before database-backed scheduling work begins.</p>
+      <p>Signal Schedule v0.2.0 is still browser-only, but the sandbox now mirrors the future staffing engine: people feed rules, patterns, events, benefits, coverage, and explanations. No login, database storage, admin roles, or publishing controls are included yet.</p>
     </div>
+  </section>
+  <section class="schedule-card engine-card" aria-labelledby="engineTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="engineTitle">Core Engine Blueprint</h2>
+        <p>v0.2 turns the sandbox from a schedule page into a model of the future staffing engine.</p>
+      </div>
+    </div>
+    <div id="engineBlueprint" class="engine-blueprint-grid"></div>
+  </section>
+
+  <section class="schedule-card" aria-labelledby="modelTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="modelTitle">Sample Data Model</h2>
+        <p>These objects are still local mock data, but they match the tables and modules planned for later PHP/database work.</p>
+      </div>
+    </div>
+    <div id="dataModelPreview" class="model-preview-grid"></div>
   </section>
 
   <section class="schedule-card schedule-controls" aria-labelledby="setupTitle">
@@ -185,6 +204,6 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <script src="../assets/components/header.js?v=0.9.9.4"></script>
 <script src="../assets/components/footer.js?v=0.9.9.4"></script>
 <script src="../assets/global.js?v=0.9.9.4"></script>
-<script src="script.js?v=0.1.4"></script>
+<script src="script.js?v=0.2.0"></script>
 </body>
 </html>

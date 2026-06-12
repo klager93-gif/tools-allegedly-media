@@ -1,5 +1,14 @@
 # Master Changelog
 
+## 2026-06-11 — Signal Schedule v0.2.0 Core Engine Blueprint
+
+- Advanced Signal Schedule from a local schedule sandbox toward a core staffing-engine blueprint.
+- Added visible blueprint panels for people, rules, patterns, events, benefits, and coverage.
+- Expanded local mock data to include future database-shaped objects without adding backend storage.
+- Updated Schedule page status, cache-busting, text output, home page card copy, and documentation to v0.2.0.
+- Preserved the architecture rule that schedules should be generated from pattern + start date + events + overrides rather than hard-coded forever.
+- No login, PHP/database storage, publishing workflow, or final automation was added.
+
 ## 2026-06-11 — Signal Schedule v0.1.4 Version Consistency Update
 
 ### Added

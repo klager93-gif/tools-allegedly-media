@@ -2,7 +2,7 @@
 
 ## Immediate
 
-- Verify Signal Schedule v0.1.4 version consistency after deployment.
+- Verify Signal Schedule v0.2.0 Core Engine Blueprint after deployment.
 - Confirm Schedule card, navigation, footer links, and visible version references are aligned.
 - Review text output and warnings before expanding visual schedule UI.
 - Keep schedule logic separated from UI display code wherever practical.

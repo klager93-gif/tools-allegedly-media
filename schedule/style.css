@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.1.4
-Purpose: Signal Schedule logic sandbox styles
+Version: v0.2.0
+Purpose: Signal Schedule core engine blueprint styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
 .schedule-hero { display: grid; grid-template-columns: 1fr minmax(220px, 320px); gap: 18px; align-items: stretch; margin: 18px 0; padding: 28px; border: 1px solid var(--border); border-radius: 30px; background: linear-gradient(135deg, rgba(34,197,94,.14), rgba(86,166,255,.08)); box-shadow: var(--shadow-toolbar); }
@@ -71,3 +71,14 @@ Purpose: Signal Schedule logic sandbox styles
 @media (max-width: 850px) { .schedule-rule-form { grid-template-columns: 1fr; } .month-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 520px) { .month-grid { grid-template-columns: 1fr; } }
 @media print { .schedule-warning-card, #copyOutputBtn, .schedule-rule-form { display: none !important; } .schedule-output { border-color: #ccc; background: #fff; color: #111; } .warning-item, .success-item, .month-cell { border-color: #ccc; background: #fff; color: #111; } }
+
+
+.engine-blueprint-grid, .model-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.engine-step, .model-card { padding: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(0,0,0,.12); }
+.engine-step span, .model-card span { display: block; color: var(--muted); font-size: 12px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
+.engine-step strong, .model-card strong { display: block; margin-top: 6px; font-size: 28px; letter-spacing: -.04em; }
+.model-card strong { font-size: 18px; }
+.engine-step p, .model-card p { margin-top: 8px; }
+.engine-card { border-color: rgba(86,166,255,.22); background: rgba(86,166,255,.055); }
+@media (max-width: 850px) { .engine-blueprint-grid, .model-preview-grid { grid-template-columns: 1fr; } }
+@media print { .engine-step, .model-card { border-color: #ccc; background: #fff; color: #111; } }

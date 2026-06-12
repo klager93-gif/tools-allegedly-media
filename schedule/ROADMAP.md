@@ -2,7 +2,7 @@
 
 ## Current Version
 
-v0.1.4 — Version consistency maintenance on top of the local logic sandbox, rule engine planning, and agency-flexible roadmap.
+v0.2.0 — Core Engine Blueprint for people, rules, patterns, events, benefits, coverage, and generated schedule output.
 
 ## Development Rule: Rule 23 — Version Consistency
 
@@ -80,7 +80,19 @@ Goal: make the current browser-only tool easier to test before backend work.
 - Add better sample data for dispatch-style coverage testing.
 - Keep rule warnings separated from display code where practical.
 
-## v0.2.0 — Date-Based Schedule Model
+## v0.2.0 — Core Engine Blueprint
+
+Goal: turn Signal Schedule from a schedule page into the beginning of a staffing engine.
+
+- Add visible Core Engine Blueprint panel.
+- Expand local mock data around people, rules, patterns, events, benefits, and coverage.
+- Add starter employee model fields for status, mandate eligibility, exceptions, and benefit balances.
+- Add starter rule profiles, schedule patterns, employee-pattern assignments, schedule events, benefit ledger entries, and coverage requirements.
+- Update text output so it explains the model and future backend boundary.
+- Keep local storage until the model is proven.
+- Do not add login, database storage, admin roles, publishing workflow, or final automated generation yet.
+
+## v0.2.1 — Date-Based Schedule Model
 
 Goal: move from weekday-only planning to actual dates.
 

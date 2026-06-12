@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.1.4
-Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
+Version: v0.2.0
+Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, benefits, coverage, and generated output
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.1.4';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.2.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   var state = {
     employees: [],
@@ -15,7 +15,13 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
       maxHoursPerWeek: 40,
       minGapHours: 8,
       monthStart: ''
-    }
+    },
+    ruleProfiles: [],
+    patterns: [],
+    employeePatterns: [],
+    scheduleEvents: [],
+    benefitLedger: [],
+    coverageRequirements: []
   };
 
   function id(prefix) {
@@ -24,11 +30,58 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
 
   function $(selector) { return document.querySelector(selector); }
 
+  function defaultMonthValue() {
+    var now = new Date();
+    return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+  }
+
+  function defaultRuleProfiles() {
+    return [{
+      id: 'rules-demo-agency',
+      name: 'Demo Agency Rules',
+      industry: 'Public safety / shift operations',
+      overtime: 'Warn after weekly max hours.',
+      mandation: 'Track forced OT separately and skip employees with active exceptions.',
+      benefits: 'Use ledger entries for accrual, use, corrections, and payouts.',
+      coverage: 'Compare scheduled staffing against minimum requirements.',
+      explanation: 'Every warning should be explainable.'
+    }];
+  }
+
+  function defaultPatterns() {
+    return [{
+      id: 'pattern-2-2-3-days',
+      name: '2-2-3 Days Sample',
+      sequence: ['work', 'work', 'off', 'off', 'work', 'work', 'work'],
+      shiftStart: '05:00',
+      shiftEnd: '17:00',
+      notes: 'Sample rotation shape only. Not a final agency policy.'
+    }, {
+      id: 'pattern-24-48',
+      name: '24/48 Sample',
+      sequence: ['work', 'off', 'off'],
+      shiftStart: '07:00',
+      shiftEnd: '07:00',
+      notes: 'Common fire/EMS-style rotation example.'
+    }];
+  }
+
+  function defaultCoverageRequirements() {
+    return [{ id: 'cov-days', label: 'Day coverage', start: '05:00', end: '17:00', minimum: 2, role: 'Any' },
+      { id: 'cov-nights', label: 'Night coverage', start: '17:00', end: '05:00', minimum: 1, role: 'Any' }];
+  }
+
   function normalizeState(input) {
     var next = input || {};
     next.employees = Array.isArray(next.employees) ? next.employees : [];
     next.shifts = Array.isArray(next.shifts) ? next.shifts : [];
     next.assignments = Array.isArray(next.assignments) ? next.assignments : [];
+    next.ruleProfiles = Array.isArray(next.ruleProfiles) && next.ruleProfiles.length ? next.ruleProfiles : defaultRuleProfiles();
+    next.patterns = Array.isArray(next.patterns) && next.patterns.length ? next.patterns : defaultPatterns();
+    next.employeePatterns = Array.isArray(next.employeePatterns) ? next.employeePatterns : [];
+    next.scheduleEvents = Array.isArray(next.scheduleEvents) ? next.scheduleEvents : [];
+    next.benefitLedger = Array.isArray(next.benefitLedger) ? next.benefitLedger : [];
+    next.coverageRequirements = Array.isArray(next.coverageRequirements) && next.coverageRequirements.length ? next.coverageRequirements : defaultCoverageRequirements();
     next.rules = next.rules || {};
     next.rules.maxHoursPerWeek = Number(next.rules.maxHoursPerWeek || 40);
     next.rules.minGapHours = Number(next.rules.minGapHours || 8);
@@ -37,7 +90,11 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
       return {
         id: employee.id || id('emp'),
         name: employee.name || 'Unnamed',
-        role: employee.role || 'Dispatcher'
+        role: employee.role || 'Dispatcher',
+        status: employee.status || 'active',
+        mandateEligible: employee.mandateEligible !== false,
+        exceptions: Array.isArray(employee.exceptions) ? employee.exceptions : [],
+        benefitBalances: employee.benefitBalances || { vacation: 0, sick: 0, personal: 0, comp: 0 }
       };
     });
     next.shifts = next.shifts.map(function (shift) {
@@ -85,11 +142,6 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
     });
   }
 
-  function defaultMonthValue() {
-    var now = new Date();
-    return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
-  }
-
   function formatTime(time) {
     if (!time) return '';
     var parts = time.split(':');
@@ -133,14 +185,8 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
   }
 
   function renderWeekLabel() {
-    var now = new Date();
-    var day = now.getDay() || 7;
-    var monday = new Date(now);
-    monday.setDate(now.getDate() - day + 1);
-    var sunday = new Date(monday);
-    sunday.setDate(monday.getDate() + 6);
-    var opts = { month: 'short', day: 'numeric' };
-    $('#currentWeekLabel').textContent = monday.toLocaleDateString(undefined, opts) + ' – ' + sunday.toLocaleDateString(undefined, opts);
+    var label = $('#currentWeekLabel');
+    if (label) label.textContent = 'v0.2.0 Blueprint';
   }
 
   function syncRuleInputs() {
@@ -149,11 +195,44 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
     $('#monthStart').value = state.rules.monthStart || defaultMonthValue();
   }
 
+  function renderEngineBlueprint() {
+    var target = $('#engineBlueprint');
+    if (!target) return;
+    var items = [
+      ['People', state.employees.length, 'Employees remain separate from future login users.'],
+      ['Rules', state.ruleProfiles.length, 'Agency policies explain overtime, mandation, coverage, benefits, and fairness.'],
+      ['Patterns', state.patterns.length, 'Rotations generate expected work instead of storing every day forever.'],
+      ['Events', state.scheduleEvents.length, 'Vacation, sick, OT, mandates, trades, training, and overrides become events.'],
+      ['Benefits', state.benefitLedger.length, 'Balances should come from auditable ledger entries.'],
+      ['Coverage', state.coverageRequirements.length, 'Requirements compare need vs. scheduled staffing.']
+    ];
+    target.innerHTML = items.map(function (item) {
+      return '<article class="engine-step"><span>' + escapeHtml(item[0]) + '</span><strong>' + item[1] + '</strong><p>' + escapeHtml(item[2]) + '</p></article>';
+    }).join('');
+  }
+
+  function renderDataModelPreview() {
+    var target = $('#dataModelPreview');
+    if (!target) return;
+    var pattern = state.patterns[0] || defaultPatterns()[0];
+    var rule = state.ruleProfiles[0] || defaultRuleProfiles()[0];
+    var eventSample = state.scheduleEvents[0] || { type: 'vacation', status: 'planned', start: '2026-06-15T05:00', end: '2026-06-15T17:00' };
+    var benefitSample = state.benefitLedger[0] || { benefitType: 'sick', amount: '+8', reason: 'Monthly accrual' };
+    var cards = [
+      ['Rule Profile', rule.name, rule.coverage],
+      ['Pattern Object', pattern.name, pattern.sequence.join(' / ') + ' · ' + pattern.shiftStart + '-' + pattern.shiftEnd],
+      ['Schedule Event', eventSample.type + ' · ' + eventSample.status, eventSample.start + ' to ' + eventSample.end],
+      ['Benefit Ledger', benefitSample.benefitType + ' ' + benefitSample.amount, benefitSample.reason]
+    ];
+    target.innerHTML = cards.map(function (card) {
+      return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
+    }).join('');
+  }
+
   function renderSelects() {
     var daySelect = $('#assignmentDay');
     var shiftSelect = $('#assignmentShift');
     var employeeSelect = $('#assignmentEmployee');
-
     daySelect.innerHTML = days.map(function (day) { return '<option value="' + day + '">' + day + '</option>'; }).join('');
     shiftSelect.innerHTML = state.shifts.length ? state.shifts.map(function (shift) {
       return '<option value="' + shift.id + '">' + escapeHtml(shiftLabel(shift)) + '</option>';
@@ -166,11 +245,10 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
   function renderPills() {
     var employeeList = $('#employeeList');
     var shiftList = $('#shiftList');
-
     employeeList.innerHTML = state.employees.length ? state.employees.map(function (employee) {
-      return '<span class="schedule-pill"><strong>' + escapeHtml(employee.name) + '</strong><small>' + escapeHtml(employee.role) + '</small><button class="icon-button" type="button" data-remove-employee="' + employee.id + '" aria-label="Remove ' + escapeHtml(employee.name) + '">×</button></span>';
+      var exceptionText = employee.exceptions.length ? ' · exception: ' + employee.exceptions.join(', ') : '';
+      return '<span class="schedule-pill"><strong>' + escapeHtml(employee.name) + '</strong><small>' + escapeHtml(employee.role + exceptionText) + '</small><button class="icon-button" type="button" data-remove-employee="' + employee.id + '" aria-label="Remove ' + escapeHtml(employee.name) + '">×</button></span>';
     }).join('') : '<div class="signal-empty-state"><strong>No people yet</strong><span>Add employees to start testing schedule logic.</span></div>';
-
     shiftList.innerHTML = state.shifts.length ? state.shifts.map(function (shift) {
       return '<span class="schedule-pill"><strong>' + escapeHtml(shift.name) + '</strong><small>' + formatTime(shift.start) + '–' + formatTime(shift.end) + ' · need ' + shift.minStaff + '</small><button class="icon-button" type="button" data-remove-shift="' + shift.id + '" aria-label="Remove ' + escapeHtml(shift.name) + '">×</button></span>';
     }).join('') : '<div class="signal-empty-state"><strong>No shifts yet</strong><span>Add shift blocks like Days, Evenings, or Nights.</span></div>';
@@ -212,7 +290,6 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
         }
       });
     });
-
     var totals = employeeHours();
     Object.keys(totals).forEach(function (employeeId) {
       var employee = findEmployee(employeeId);
@@ -220,7 +297,6 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
         warnings.push(employee.name + ' is over ' + state.rules.maxHoursPerWeek + ' hours/week at ' + totals[employeeId].toFixed(1) + ' hours.');
       }
     });
-
     state.employees.forEach(function (employee) {
       var employeeAssignments = state.assignments.filter(function (assignment) {
         return assignment.employeeId === employee.id;
@@ -243,7 +319,11 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
         }
       }
     });
-
+    state.employees.forEach(function (employee) {
+      if (!employee.mandateEligible || employee.exceptions.length) {
+        warnings.push(employee.name + ' has mandate exception data in the employee model. Future mandation rules must explain whether they are skipped, held in place, or moved in rotation.');
+      }
+    });
     return warnings;
   }
 
@@ -251,24 +331,19 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
     var summary = $('#coverageSummary');
     var totals = employeeHours();
     var peopleScheduled = new Set(state.assignments.map(function (item) { return item.employeeId; })).size;
-    var openDays = days.filter(function (day) {
-      return !state.assignments.some(function (item) { return item.day === day; });
-    });
     var busiest = days.reduce(function (best, day) {
       var count = state.assignments.filter(function (item) { return item.day === day; }).length;
       return count > best.count ? { day: day, count: count } : best;
     }, { day: 'None', count: 0 });
     var totalHours = Object.keys(totals).reduce(function (sum, key) { return sum + totals[key]; }, 0);
     var warnings = coverageWarnings();
-
     summary.innerHTML = '' +
       '<div class="coverage-card"><span>Total Assignments</span><strong>' + state.assignments.length + '</strong><p>Scheduled shift blocks this week.</p></div>' +
       '<div class="coverage-card"><span>Total Hours</span><strong>' + totalHours.toFixed(1) + '</strong><p>Estimated scheduled staff hours.</p></div>' +
       '<div class="coverage-card"><span>People Scheduled</span><strong>' + peopleScheduled + '/' + state.employees.length + '</strong><p>Employees with at least one assignment.</p></div>' +
-      '<div class="coverage-card"><span>Rule Warnings</span><strong>' + warnings.length + '</strong><p>Coverage, overtime, and rest-gap warnings.</p></div>' +
+      '<div class="coverage-card"><span>Rule Warnings</span><strong>' + warnings.length + '</strong><p>Coverage, overtime, rest-gap, and model warnings.</p></div>' +
       '<div class="coverage-card"><span>Busiest Day</span><strong>' + busiest.day + '</strong><p>' + busiest.count + ' assignment' + (busiest.count === 1 ? '' : 's') + ' scheduled.</p></div>' +
       '<div class="coverage-card"><span>Storage</span><strong>Local</strong><p>Temporary only. PHP/database storage is planned later.</p></div>';
-
     $('#ruleWarnings').innerHTML = warnings.length ? warnings.map(function (warning) {
       return '<div class="warning-item">' + escapeHtml(warning) + '</div>';
     }).join('') : '<div class="success-item">No rule warnings with the current sandbox rules.</div>';
@@ -278,18 +353,29 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
     var lines = [];
     var warnings = coverageWarnings();
     var totals = employeeHours();
-    lines.push('SIGNAL SCHEDULE — LOGIC SANDBOX');
-    lines.push('Version: v0.1.4');
+    lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
+    lines.push('Version: v0.2.0');
+    lines.push('');
+    lines.push('Core model: People + Rules + Patterns + Events + Coverage + Explanations');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);
     lines.push('- Minimum gap between shifts: ' + state.rules.minGapHours + ' hours');
     lines.push('- Month planning start: ' + (state.rules.monthStart || defaultMonthValue()));
     lines.push('');
+    lines.push('Engine Objects:');
+    lines.push('- Rule profiles: ' + state.ruleProfiles.length);
+    lines.push('- Patterns: ' + state.patterns.length);
+    lines.push('- Employee pattern links: ' + state.employeePatterns.length);
+    lines.push('- Schedule events: ' + state.scheduleEvents.length);
+    lines.push('- Benefit ledger entries: ' + state.benefitLedger.length);
+    lines.push('- Coverage requirements: ' + state.coverageRequirements.length);
+    lines.push('');
     lines.push('Employees:');
     if (state.employees.length) {
       state.employees.forEach(function (employee) {
-        lines.push('- ' + employee.name + ' (' + employee.role + ') — ' + (totals[employee.id] || 0).toFixed(1) + ' hrs');
+        var mandate = employee.mandateEligible ? 'mandate eligible' : 'not mandate eligible';
+        lines.push('- ' + employee.name + ' (' + employee.role + ') — ' + (totals[employee.id] || 0).toFixed(1) + ' hrs, ' + mandate);
       });
     } else {
       lines.push('- None added');
@@ -311,19 +397,18 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
       });
     });
     lines.push('');
-    lines.push('Warnings:');
+    lines.push('Warnings / Explanations:');
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('Next Build Notes:');
-    lines.push('- Month view should reuse these same assignment objects with actual dates.');
-    lines.push('- PHP should not start until employees, users, roles, shifts, assignments, availability, time off, and templates are mapped.');
+    lines.push('v0.2 Notes:');
+    lines.push('- This is still local mock data, not a backend.');
+    lines.push('- PHP should wait until people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
+    lines.push('- Future schedules should be generated from pattern + start date + events + overrides.');
     return lines.join('\n');
   }
 
-  function renderOutput() {
-    $('#scheduleOutput').value = textOutput();
-  }
+  function renderOutput() { $('#scheduleOutput').value = textOutput(); }
 
   function renderMonthPreview() {
     var target = state.rules.monthStart || defaultMonthValue();
@@ -345,6 +430,8 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
   function render() {
     renderWeekLabel();
     syncRuleInputs();
+    renderEngineBlueprint();
+    renderDataModelPreview();
     renderSelects();
     renderPills();
     renderBoard();
@@ -356,89 +443,87 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
   function addEmployee(name, role) {
     var clean = name.trim();
     if (!clean) return showToast('Enter an employee name first.', 'error');
-    state.employees.push({ id: id('emp'), name: clean, role: role || 'Dispatcher' });
-    save();
-    render();
-    showToast('Person added.', 'success');
+    state.employees.push({ id: id('emp'), name: clean, role: role || 'Dispatcher', status: 'active', mandateEligible: true, exceptions: [], benefitBalances: { vacation: 0, sick: 0, personal: 0, comp: 0 } });
+    save(); render(); showToast('Person added.', 'success');
   }
 
   function addShift(name, start, end, minStaff) {
     var clean = name.trim();
     if (!clean) return showToast('Enter a shift name first.', 'error');
     state.shifts.push({ id: id('shift'), name: clean, start: start || '07:00', end: end || '15:00', minStaff: Number(minStaff || 1) });
-    save();
-    render();
-    showToast('Shift added.', 'success');
+    save(); render(); showToast('Shift added.', 'success');
   }
 
   function addAssignment(day, shiftId, employeeId) {
     if (!shiftId || !employeeId) return showToast('Add at least one person and one shift first.', 'error');
     state.assignments.push({ id: id('asg'), day: day, shiftId: shiftId, employeeId: employeeId });
-    save();
-    render();
-    showToast('Assignment added.', 'success');
+    save(); render(); showToast('Assignment added.', 'success');
   }
 
   function saveRules() {
     state.rules.maxHoursPerWeek = Number($('#maxHoursPerWeek').value || 40);
     state.rules.minGapHours = Number($('#minGapHours').value || 8);
     state.rules.monthStart = $('#monthStart').value || defaultMonthValue();
-    save();
-    render();
-    showToast('Rules saved.', 'success');
+    save(); render(); showToast('Rules saved.', 'success');
   }
 
   function removeEmployee(employeeId) {
     state.employees = state.employees.filter(function (item) { return item.id !== employeeId; });
     state.assignments = state.assignments.filter(function (item) { return item.employeeId !== employeeId; });
-    save();
-    render();
+    save(); render();
   }
 
   function removeShift(shiftId) {
     state.shifts = state.shifts.filter(function (item) { return item.id !== shiftId; });
     state.assignments = state.assignments.filter(function (item) { return item.shiftId !== shiftId; });
-    save();
-    render();
+    save(); render();
   }
 
   function removeAssignment(assignmentId) {
     state.assignments = state.assignments.filter(function (item) { return item.id !== assignmentId; });
-    save();
-    render();
+    save(); render();
   }
 
   function loadSample() {
     state = normalizeState({
       employees: [
-        { id: 'emp-alex', name: 'Alex', role: 'Dispatcher' },
-        { id: 'emp-jordan', name: 'Jordan', role: 'Supervisor' },
-        { id: 'emp-taylor', name: 'Taylor', role: 'Dispatcher' },
-        { id: 'emp-casey', name: 'Casey', role: 'Part-Time' }
+        { id: 'emp-alex', name: 'Alex', role: 'Dispatcher', mandateEligible: true, exceptions: [], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6 } },
+        { id: 'emp-jordan', name: 'Jordan', role: 'Supervisor', mandateEligible: true, exceptions: [], benefitBalances: { vacation: 120, sick: 80, personal: 16, comp: 0 } },
+        { id: 'emp-taylor', name: 'Taylor', role: 'Dispatcher', mandateEligible: false, exceptions: ['FMLA'], benefitBalances: { vacation: 40, sick: 96, personal: 8, comp: 0 } },
+        { id: 'emp-casey', name: 'Casey', role: 'Part-Time', mandateEligible: false, exceptions: ['Part-time'], benefitBalances: { vacation: 12, sick: 16, personal: 0, comp: 0 } }
       ],
       shifts: [
-        { id: 'shift-days', name: 'Days', start: '07:00', end: '15:00', minStaff: 2 },
-        { id: 'shift-evenings', name: 'Evenings', start: '15:00', end: '23:00', minStaff: 2 },
-        { id: 'shift-nights', name: 'Nights', start: '23:00', end: '07:00', minStaff: 1 }
+        { id: 'shift-days', name: 'Days', start: '05:00', end: '17:00', minStaff: 2 },
+        { id: 'shift-nights', name: 'Nights', start: '17:00', end: '05:00', minStaff: 1 },
+        { id: 'shift-ot', name: 'OT Holdover', start: '13:00', end: '17:00', minStaff: 1 }
       ],
       assignments: [
         { id: 'asg-1', day: 'Monday', shiftId: 'shift-days', employeeId: 'emp-alex' },
         { id: 'asg-2', day: 'Monday', shiftId: 'shift-days', employeeId: 'emp-jordan' },
-        { id: 'asg-3', day: 'Monday', shiftId: 'shift-evenings', employeeId: 'emp-taylor' },
+        { id: 'asg-3', day: 'Monday', shiftId: 'shift-nights', employeeId: 'emp-taylor' },
         { id: 'asg-4', day: 'Tuesday', shiftId: 'shift-nights', employeeId: 'emp-casey' },
         { id: 'asg-5', day: 'Wednesday', shiftId: 'shift-days', employeeId: 'emp-alex' },
         { id: 'asg-6', day: 'Thursday', shiftId: 'shift-days', employeeId: 'emp-alex' },
         { id: 'asg-7', day: 'Friday', shiftId: 'shift-days', employeeId: 'emp-alex' }
       ],
-      rules: {
-        maxHoursPerWeek: 32,
-        minGapHours: 8,
-        monthStart: defaultMonthValue()
-      }
+      ruleProfiles: defaultRuleProfiles(),
+      patterns: defaultPatterns(),
+      employeePatterns: [
+        { employeeId: 'emp-alex', patternId: 'pattern-2-2-3-days', startDate: '2026-06-01' },
+        { employeeId: 'emp-jordan', patternId: 'pattern-2-2-3-days', startDate: '2026-06-01' }
+      ],
+      scheduleEvents: [
+        { id: 'evt-vacation-sample', employeeId: 'emp-taylor', type: 'vacation', status: 'approved', start: '2026-06-18T05:00', end: '2026-06-18T17:00' },
+        { id: 'evt-mandate-sample', employeeId: 'emp-alex', type: 'mandate', status: 'planned', start: '2026-06-20T17:00', end: '2026-06-21T05:00' }
+      ],
+      benefitLedger: [
+        { id: 'ben-1', employeeId: 'emp-alex', benefitType: 'sick', date: '2026-06-01', amount: '+8', reason: 'Monthly sick accrual' },
+        { id: 'ben-2', employeeId: 'emp-taylor', benefitType: 'vacation', date: '2026-06-18', amount: '-12', reason: 'Approved vacation event' }
+      ],
+      coverageRequirements: defaultCoverageRequirements(),
+      rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() }
     });
-    save();
-    render();
-    showToast('Sample logic schedule loaded.', 'success');
+    save(); render(); showToast('Core engine sample data loaded.', 'success');
   }
 
   function bindEvents() {
@@ -448,7 +533,6 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
       $('#employeeName').value = '';
       $('#employeeName').focus();
     });
-
     $('#shiftForm').addEventListener('submit', function (event) {
       event.preventDefault();
       addShift($('#shiftName').value, $('#shiftStart').value, $('#shiftEnd').value, $('#shiftMinStaff').value);
@@ -456,17 +540,11 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
       $('#shiftMinStaff').value = '1';
       $('#shiftName').focus();
     });
-
-    $('#ruleForm').addEventListener('submit', function (event) {
-      event.preventDefault();
-      saveRules();
-    });
-
+    $('#ruleForm').addEventListener('submit', function (event) { event.preventDefault(); saveRules(); });
     $('#assignmentForm').addEventListener('submit', function (event) {
       event.preventDefault();
       addAssignment($('#assignmentDay').value, $('#assignmentShift').value, $('#assignmentEmployee').value);
     });
-
     document.addEventListener('click', function (event) {
       var employeeId = event.target.getAttribute('data-remove-employee');
       var shiftId = event.target.getAttribute('data-remove-shift');
@@ -475,13 +553,10 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
       if (shiftId) removeShift(shiftId);
       if (assignmentId) removeAssignment(assignmentId);
     });
-
     $('#sampleDataBtn').addEventListener('click', loadSample);
     $('#clearDataBtn').addEventListener('click', function () {
       state = normalizeState({ employees: [], shifts: [], assignments: [], rules: state.rules });
-      save();
-      render();
-      showToast('Schedule cleared.', 'info');
+      save(); render(); showToast('Schedule cleared.', 'info');
     });
     $('#printBtn').addEventListener('click', function () { window.print(); });
     $('#copyOutputBtn').addEventListener('click', function () {
@@ -492,8 +567,6 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    load();
-    bindEvents();
-    render();
+    load(); bindEvents(); render();
   });
 })();

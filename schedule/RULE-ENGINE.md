@@ -213,3 +213,8 @@ Likely future records:
 - decision_explanations
 
 These names may change during implementation, but the concept should remain.
+
+
+## v0.2.0 Implementation Note
+
+The Core Engine Blueprint adds local mock objects for rule profiles, patterns, employee-pattern links, events, benefit ledger entries, coverage requirements, mandate eligibility, and mandate exceptions. These objects exist to keep future coding aligned with the rule-engine direction before database work begins.
