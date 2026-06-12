@@ -1,12 +1,12 @@
 # File Manifest
 
-Generated for Signal Labs full package.
-
-## Files
+Generated for Signal Schedule v1.5.0.
 
 - `.gitattributes`
 - `.gitignore`
 - `ADMIN_CHANGELOG.md`
+- `BUILDMANIFEST.md`
+- `FILEMANIFEST.md`
 - `HOWTO.md`
 - `MASTER-CHANGELOG.md`
 - `MASTER-ROADMAP.md`
@@ -24,6 +24,9 @@ Generated for Signal Labs full package.
 - `assets/icons/favicon.ico`
 - `assets/icons/favicon.svg`
 - `assets/icons/site.webmanifest`
+- `build/BUILDMANIFEST.md`
+- `build/FILEMANIFEST.md`
+- `build/SHA256SUMS.txt`
 - `changelog/index.html`
 - `contact/index.html`
 - `docs/BACKUP.md`
@@ -79,6 +82,7 @@ Generated for Signal Labs full package.
 - `schedule/DATABASE-PLAN.md`
 - `schedule/DATABASE-PLANNING.md`
 - `schedule/DEPRECATION-AUDIT.md`
+- `schedule/EMPLOYEE-READ-API-FOUNDATION.md`
 - `schedule/ENTITY-MAP.md`
 - `schedule/HOWTO.md`
 - `schedule/MIGRATION-PLAN.md`
@@ -96,6 +100,7 @@ Generated for Signal Labs full package.
 - `schedule/RELEASE-v1.3.2.md`
 - `schedule/RELEASE-v1.3.3.md`
 - `schedule/RELEASE-v1.4.0.md`
+- `schedule/RELEASE-v1.5.0.md`
 - `schedule/REPOSITORY-ADAPTER-LAYER.md`
 - `schedule/ROADMAP.md`
 - `schedule/RULE-ENGINE.md`
@@ -104,6 +109,8 @@ Generated for Signal Labs full package.
 - `schedule/V1-READINESS.md`
 - `schedule/WORKER-API-FOUNDATION.md`
 - `schedule/WORKER-FOLDER-REPAIR.md`
+- `schedule/adapters/JsonEmployeeAdapter.js`
+- `schedule/api/contracts/employees.read.schema.json`
 - `schedule/api/mock-functions/agencies.js`
 - `schedule/api/mock-functions/employees.js`
 - `schedule/api/mock-functions/health.js`
@@ -113,7 +120,9 @@ Generated for Signal Labs full package.
 - `schedule/data/agencies.json`
 - `schedule/data/employees.json`
 - `schedule/index.html`
+- `schedule/repositories/EmployeeRepository.js`
 - `schedule/script.js`
+- `schedule/services/EmployeeService.js`
 - `schedule/style.css`
 - `standards/COMPONENT_STANDARDS.md`
 - `standards/DEVELOPMENT_STANDARDS.md`

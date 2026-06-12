@@ -1,0 +1,37 @@
+{
+  "version": "v1.5.0",
+  "name": "Signal Schedule Employee Read Response",
+  "status": "contract-only",
+  "method": "GET",
+  "plannedPath": "/api/employees",
+  "activeAdapter": "static-json",
+  "futureAdapter": "coolify-api-postgres",
+  "responseShape": {
+    "ok": true,
+    "data": [
+      {
+        "id": "emp-example",
+        "agencyId": "agency-example",
+        "employeeCode": "EMP-001",
+        "name": "Example Employee",
+        "status": "active",
+        "department": "Operations",
+        "position": "Dispatcher",
+        "shiftGroup": "A Days",
+        "assignedPattern": "2-2-3 days",
+        "qualifications": []
+      }
+    ],
+    "meta": {
+      "source": "static-json-or-coolify-api",
+      "mode": "read-only",
+      "version": "v1.5.0"
+    },
+    "errors": []
+  },
+  "rules": [
+    "No writes are allowed in v1.5.0.",
+    "No UI code may call Postgres, MySQL, D1, or database-specific code directly.",
+    "Future Coolify API responses must preserve this wrapper shape unless intentionally versioned."
+  ]
+}

@@ -70,3 +70,8 @@ Next:    v1.0.0 — Validation / Production Readiness
 - Kelly Day
 - Shift Schedules
 - Pension
+
+## Schedule Next
+
+- Current Schedule: v1.5.0 — Employee Read API Foundation
+- Next Schedule: v1.6.0 — Coolify API Skeleton

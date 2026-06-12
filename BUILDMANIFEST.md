@@ -1,15 +1,17 @@
 # Build Manifest
 
-## Build
+## Current Build
 
-Signal Labs full fresh-install package with Signal Schedule v1.4.0.
+Signal Schedule v1.5.0 — Employee Read API Foundation
 
-## Included Release
+## Included
 
-- Signal Schedule v1.4.0 — Backend Adapter Selection
+- Full site package from current baseline.
+- Schedule v1.5.0 read-only employee service/repository/adapter foundation.
+- Rule 26 asset validation.
 
-## Notes
+## Excluded
 
-- Full site package.
-- No `.git/`, `__MACOSX/`, `.DS_Store`, or `._*` artifacts.
-- Rule 26 asset validation required before upload.
+- `.git/`
+- `__MACOSX/`
+- macOS metadata files

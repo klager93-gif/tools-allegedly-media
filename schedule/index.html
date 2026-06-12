@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v1.4.0
-Purpose: Backend Adapter Selection and backend portability confirmation
+Version: v1.5.0
+Purpose: Employee Read API Foundation with service/repository/adapter boundary
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Backend Adapter Selection and backend portability confirmation
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=1.4.0">
+<link rel="stylesheet" href="style.css?v=1.5.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v1.4.0"
-  data-signal-theme="Backend Adapter Selection"
+  data-signal-version="v1.5.0"
+  data-signal-theme="Employee Read API Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Select Coolify + API service + Postgres as the preferred future backend path while preserving static JSON, MySQL, and D1 adapters."
-  data-signal-status-text="Signal Schedule v1.4.0 selects the preferred future backend adapter path: Coolify-hosted API service with Postgres, while keeping static JSON active and preserving MySQL/D1 adapter portability."
+  data-signal-description="Add a read-only employee data flow through service, repository, and JSON adapter boundaries before CRUD or live database work."
+  data-signal-status-text="Signal Schedule v1.5.0 adds the Employee Read Foundation using a JSON adapter today and preserving the future Coolify API + Postgres path."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Backend Adapter Selection and backend portability confirmation
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v1.4.0 Backend Adapter Selection</strong>
+      <strong id="currentWeekLabel">v1.5.0 Employee Read Foundation</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,27 @@ Purpose: Backend Adapter Selection and backend portability confirmation
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v1.4.0 is still browser-only for the main app. This release selects the preferred future backend adapter path: Coolify-hosted API service with Postgres. Static JSON remains the active adapter until Employee API work begins intentionally.</p>
+      <p>Signal Schedule v1.5.0 is still browser-only for the main app. This release adds the read-only Employee data path through service, repository, and adapter boundaries using static JSON today. Coolify API + Postgres remains the preferred future backend path, but no live backend, CRUD, auth, credentials, or database writes are added.</p>
     </div>
   </section>
+
+
+  <section class="schedule-card employee-read-foundation-card" aria-labelledby="employeeReadFoundationTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="employeeReadFoundationTitle">Employee Read Foundation</h2>
+        <p>Read-only employee records now flow through a service, repository, and JSON adapter boundary. This prepares the app for a future Coolify API + Postgres adapter without tying the UI to a database.</p>
+      </div>
+    </div>
+    <div id="employeeReadFoundationStats" class="employee-read-stats"></div>
+    <div id="employeeReadFoundationList" class="employee-read-grid"></div>
+  </section>
+
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v1.4.0 keeps pretend agency and employee records in /schedule/data as the active adapter while selecting Postgres as the preferred future Coolify backend and preserving MySQL/D1 portability.</p>
+        <p>v1.5.0 reads agency and employee records through the Employee Service and repository boundary while static JSON remains the active adapter and Coolify + Postgres remains the future backend direction.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -518,6 +531,9 @@ Purpose: Backend Adapter Selection and backend portability confirmation
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=1.3.3"></script>
+<script src="adapters/JsonEmployeeAdapter.js?v=1.5.0"></script>
+<script src="repositories/EmployeeRepository.js?v=1.5.0"></script>
+<script src="services/EmployeeService.js?v=1.5.0"></script>
+<script src="script.js?v=1.5.0"></script>
 </body>
 </html>

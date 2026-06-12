@@ -1,8 +1,8 @@
 # Signal Schedule
 
-**Current Version:** v1.4.0 — Backend Adapter Selection
+**Current Version:** v1.5.0 — Employee Read API Foundation
 
-Signal Schedule is the scheduling and staffing foundation inside Signal Labs. The app remains static/browser-safe while the backend architecture is selected and documented before any live Employee API, CRUD, authentication, or database writes are added.
+Signal Schedule is the scheduling and staffing foundation inside Signal Labs. The app remains static/browser-safe while the Employee Read Foundation is added through service, repository, and adapter boundaries before CRUD, authentication, or database writes.
 
 ## Current State
 
@@ -14,9 +14,23 @@ Signal Schedule is the scheduling and staffing foundation inside Signal Labs. Th
 - No production database writes
 - No credentials included
 
-## v1.4.0 Decision
+## v1.5.0 Employee Read Foundation
 
-The selected default future backend path is:
+The active read path is:
+
+```text
+UI
+  ↓
+Employee Service
+  ↓
+Employee Repository
+  ↓
+Static JSON Adapter
+  ↓
+/schedule/data/employees.json
+```
+
+The selected default future backend path remains:
 
 ```text
 GitHub
@@ -63,6 +77,6 @@ Schedule-specific infrastructure belongs inside `/schedule/` unless it is intent
 
 ## Next Planned Release
 
-**v1.5.0 — Employee Read API Foundation**
+**v1.6.0 — Coolify API Skeleton**
 
-The next release should begin the read-only Employee API contract while preserving the existing static JSON adapter and browser-safe fallback.
+The next release should prepare the Coolify-hosted API service skeleton while preserving the existing Employee service/repository boundary and static JSON fallback.

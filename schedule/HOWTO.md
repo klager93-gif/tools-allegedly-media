@@ -46,3 +46,10 @@ Rules:
 ## Next release
 
 v1.5.0 should begin the Employee Read API foundation with no writes, no authentication, and no credentials.
+
+
+## v1.5.0 Employee Read Foundation
+
+Use **Load Multi-Agency Data** to read agency and employee records through the static JSON adapter. The app routes employee records through the Employee Service and Repository boundary before rendering them.
+
+This release is read-only. Do not add live credentials, database writes, CRUD, or authentication to v1.5.0.

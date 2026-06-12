@@ -1,5 +1,16 @@
 # Signal Schedule Changelog
 
+## v1.5.0 — Employee Read API Foundation
+
+- Added read-only Employee API foundation before CRUD or live backend work.
+- Added Employee service, repository, and JSON adapter boundary files.
+- Added `schedule/api/contracts/employees.read.schema.json` for the future `/api/employees` response shape.
+- Added `schedule/EMPLOYEE-READ-API-FOUNDATION.md`.
+- Added an Employee Read Foundation preview section to the Schedule UI.
+- Preserved static JSON as the active adapter.
+- Preserved Coolify-hosted API service with Postgres as the preferred future backend path.
+- Added no employee create/edit/delete, auth, credentials, live API deployment, Postgres connection, or database writes.
+
 ## v1.4.0 — Backend Adapter Selection
 
 - Selected Coolify-hosted Schedule API service with Postgres as the preferred future backend path.

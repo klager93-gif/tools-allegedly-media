@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.4.0
-Purpose: Backend Adapter Selection with static JSON adapter and backend portability
+Version: v1.5.0
+Purpose: Employee Read API Foundation with service/repository/adapter boundary
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.4.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v1.5.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v1.4.0', 'signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -226,17 +226,17 @@ Purpose: Backend Adapter Selection with static JSON adapter and backend portabil
 
 
   var SignalScheduleApiAdapter = {
-    sourceName: 'cloudflare-worker-api-planned',
+    sourceName: 'coolify-api-planned',
     status: 'planned-not-active',
     endpoints: {
-      health: '/schedule/api/health',
-      agencies: '/schedule/api/agencies',
-      employees: '/schedule/api/employees'
+      health: '/api/health',
+      agencies: '/api/agencies',
+      employees: '/api/employees'
     },
     responseShape: {
       ok: true,
       data: [],
-      meta: { source: 'worker-api', version: 'v1.4.0' },
+      meta: { source: 'coolify-api-planned', version: 'v1.5.0' },
       errors: []
     }
   };
@@ -244,13 +244,13 @@ Purpose: Backend Adapter Selection with static JSON adapter and backend portabil
 
 
   var SignalScheduleD1Adapter = {
-    sourceName: 'cloudflare-d1-planned',
+    sourceName: 'postgres-planned',
     status: 'schema-ready-not-active',
-    bindingName: 'DB',
-    schemaFiles: ['schedule/d1/schema.sql', 'schedule/d1/seed.sql'],
+    connectionMode: 'coolify-managed-postgres-planned',
+    schemaFiles: ['schedule/api/contracts/employees.read.schema.json'],
     tables: ['agencies', 'employees', 'audit_logs'],
     mode: 'read-only-foundation',
-    notes: 'D1 is the first planned backend adapter. The active app still uses SignalScheduleJsonAdapter until the Worker/D1 deployment is intentionally enabled.'
+    notes: 'Postgres is the preferred future Coolify backend adapter. The active app still uses SignalScheduleJsonAdapter until the API service is intentionally enabled.'
   };
 
   function createAgencyRepository(adapter) {
@@ -1353,13 +1353,58 @@ Purpose: Backend Adapter Selection with static JSON adapter and backend portabil
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.4.0 Backend Adapter Selection';
+    if (label) label.textContent = 'v1.5.0 Employee Read Foundation';
   }
 
   function syncRuleInputs() {
     $('#maxHoursPerWeek').value = state.rules.maxHoursPerWeek;
     $('#minGapHours').value = state.rules.minGapHours;
     $('#monthStart').value = state.rules.monthStart || defaultMonthValue();
+  }
+
+
+  function summarizeEmployeeReadFoundation() {
+    var employees = Array.isArray(state.employees) ? state.employees : [];
+    var visible = employeesForCurrentAgency();
+    var active = visible.filter(function (employee) { return String(employee.status || '').toLowerCase() === 'active'; }).length;
+    var departments = Array.from(new Set(visible.map(function (employee) { return employee.department || 'Unassigned'; })));
+    return {
+      adapter: SignalScheduleDataService.adapterName || 'static-json',
+      total: employees.length,
+      visible: visible.length,
+      active: active,
+      departments: departments.length
+    };
+  }
+
+  function renderEmployeeReadFoundation() {
+    var statsTarget = $('#employeeReadFoundationStats');
+    var listTarget = $('#employeeReadFoundationList');
+    if (!statsTarget || !listTarget) return;
+    var summary = summarizeEmployeeReadFoundation();
+    statsTarget.innerHTML = [
+      ['Adapter', summary.adapter, 'Current read source'],
+      ['All Records', String(summary.total), 'Loaded through EmployeeService'],
+      ['Agency View', String(summary.visible), 'Filtered through repository'],
+      ['Active', String(summary.active), 'Read-only status count'],
+      ['Departments', String(summary.departments), 'Derived from employee records']
+    ].map(function (item) {
+      return '<article class="employee-read-stat"><span>' + escapeHtml(item[0]) + '</span><strong>' + escapeHtml(item[1]) + '</strong><small>' + escapeHtml(item[2]) + '</small></article>';
+    }).join('');
+
+    var visibleEmployees = employeesForCurrentAgency().slice(0, 8);
+    if (!visibleEmployees.length) {
+      listTarget.innerHTML = '<p class="schedule-empty">No employee records loaded. Use Load Multi-Agency Data to read from the JSON adapter.</p>';
+      return;
+    }
+    listTarget.innerHTML = visibleEmployees.map(function (employee) {
+      return '<article class="employee-read-card">'
+        + '<span>' + escapeHtml(employee.employeeCode || employee.id || 'Employee') + '</span>'
+        + '<strong>' + escapeHtml(employee.name || 'Unnamed employee') + '</strong>'
+        + '<p>' + escapeHtml(employee.position || employee.role || 'Unassigned') + ' · ' + escapeHtml(employee.department || 'No department') + '</p>'
+        + '<small>' + escapeHtml(employee.shiftGroup || 'No shift group') + ' / ' + escapeHtml(employee.assignedPattern || 'No pattern') + '</small>'
+        + '</article>';
+    }).join('');
   }
 
   function renderEngineBlueprint() {
@@ -2069,8 +2114,8 @@ Purpose: Backend Adapter Selection with static JSON adapter and backend portabil
     var lines = [];
     var warnings = coverageWarnings();
     var totals = employeeHours();
-    lines.push('SIGNAL SCHEDULE — BACKEND ADAPTER SELECTION');
-    lines.push('Version: v1.4.0');
+    lines.push('SIGNAL SCHEDULE — EMPLOYEE READ API FOUNDATION');
+    lines.push('Version: v1.5.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2157,10 +2202,10 @@ Purpose: Backend Adapter Selection with static JSON adapter and backend portabil
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v1.4.0 Notes:');
-    lines.push('- Selects Coolify-hosted Schedule API service with Postgres as the preferred future backend path.');
-    lines.push('- Keeps the active app on local/static mock data through the JSON adapter.');
-    lines.push('- Preserves MySQL and Cloudflare D1 as possible future adapters under Rule 24.');
+    lines.push('v1.5.0 Notes:');
+    lines.push('- Adds a read-only Employee Read Foundation through service, repository, and JSON adapter boundaries.');
+    lines.push('- Keeps the active app on local/static JSON data.');
+    lines.push('- Preserves Coolify-hosted API service with Postgres as the preferred future backend path.');
     lines.push('- Confirms the required path: UI → Services → Repositories → Adapters → Backend.');
     lines.push('- Rule 24 still applies: UI and business logic must use services, repositories, and adapters, not direct backend calls.');
     lines.push('- Rule 25 still applies: Schedule-owned infrastructure belongs inside /schedule/ unless shared intentionally.');
@@ -2211,6 +2256,7 @@ Purpose: Backend Adapter Selection with static JSON adapter and backend portabil
   window.SignalScheduleRenderRegistry = {
     renderWeekLabel: renderWeekLabel,
     syncRuleInputs: syncRuleInputs,
+    renderEmployeeReadFoundation: renderEmployeeReadFoundation,
     renderEngineBlueprint: renderEngineBlueprint,
     renderAgencyProfile: renderAgencyProfile,
     renderEmployeeProfiles: renderEmployeeProfiles,
@@ -2252,6 +2298,7 @@ Purpose: Backend Adapter Selection with static JSON adapter and backend portabil
   function render() {
     safeRender('week label', 'renderWeekLabel');
     safeRender('rule inputs', 'syncRuleInputs');
+    safeRender('employee read foundation', 'renderEmployeeReadFoundation');
     safeRender('engine blueprint', 'renderEngineBlueprint');
     safeRender('agency profile', 'renderAgencyProfile');
     safeRender('employee profiles', 'renderEmployeeProfiles');
@@ -2427,7 +2474,7 @@ Purpose: Backend Adapter Selection with static JSON adapter and backend portabil
       }));
       save();
       render();
-      showToast('Multi-agency data loaded through JSON adapter.', 'success');
+      showToast('Employee records read through JSON adapter.', 'success');
     }).catch(function () {
       showToast('Unable to load multi-agency data layer.', 'error');
     });
