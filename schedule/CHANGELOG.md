@@ -1,4 +1,4 @@
-## v0.19.0 — Architecture Complete
+## v0.19.1 — Pre-Database Safety Audit
 
 - Completes the 0.x architecture audit before database foundation work.
 - Adds architecture, entity, relationship, Rule 0, Rule 23, render registry, and v1.0 readiness documentation.

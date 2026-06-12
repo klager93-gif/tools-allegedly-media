@@ -1,4 +1,4 @@
-## Current: v0.19.0 — Architecture Complete
+## Current: v0.19.1 — Pre-Database Safety Audit
 
 This release completes the 0.x architecture audit and prepares Signal Schedule for v1.0 database foundation work.
 

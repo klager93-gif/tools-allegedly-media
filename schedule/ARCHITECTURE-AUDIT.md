@@ -1,8 +1,8 @@
-# Signal Schedule v0.19.0 Architecture Audit
+# Signal Schedule v0.19.1 Architecture Audit
 
 ## Purpose
 
-v0.19.0 proves the 0.x foundations are coherent before v1.0 introduces persistence.
+v0.19.1 proves the 0.x foundations are coherent before v1.0 introduces persistence.
 
 ## Engine chain
 

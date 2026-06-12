@@ -1,4 +1,4 @@
-## v0.19.0 Architecture Complete HOWTO
+## v0.19.1 Pre-Database Safety Audit HOWTO
 
 Use this build as the final 0.x architecture reference before database work.
 

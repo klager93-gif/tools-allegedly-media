@@ -1,6 +1,6 @@
-## v0.19.0 Database Planning
+## v0.19.1 Database Planning
 
-v0.19.0 does not create database tables yet. It prepares the concepts that v1.0 should persist.
+v0.19.1 does not create database tables yet. It prepares the concepts that v1.0 should persist.
 
 ### Minimum table families for v1.0
 

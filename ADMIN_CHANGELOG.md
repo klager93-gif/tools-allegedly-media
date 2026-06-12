@@ -1,4 +1,4 @@
-## Signal Schedule v0.19.0 — Architecture Complete
+## Signal Schedule v0.19.1 — Pre-Database Safety Audit
 
 - Adds architecture audit documentation.
 - Adds entity map and v1.0 database readiness checklist.

@@ -1,3 +1,3 @@
-- Verify Signal Schedule v0.19.0 Architecture Complete after deployment.
+- Verify Signal Schedule v0.19.1 Pre-Database Safety Audit after deployment.
 - Next release: v1.0.0 — Database Foundation.
 - v1.0 should begin PHP/MySQL persistence, users, roles, CRUD, approvals, and audit logs.

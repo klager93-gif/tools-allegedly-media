@@ -1,1 +1,1 @@
-**Signal Schedule v0.19.0 — Architecture Complete** closes the 0.x architecture phase before v1.0 database foundation work begins. This release audits the major scheduling engines, entity relationships, Rule 0 compliance, Rule 23 UI restraint, and render registry safety.
+**Signal Schedule v0.19.1 — Pre-Database Safety Audit** closes the 0.x architecture phase before v1.0 database foundation work begins. This release audits the major scheduling engines, entity relationships, Rule 0 compliance, Rule 23 UI restraint, and render registry safety.
