@@ -1,25 +1,6 @@
-# Master Roadmap
+## Signal Labs Master Roadmap
 
-## Signal Labs Home v0.9.9.6 — Release Archive Standard
-
-- Standardize build response handoffs.
-- Treat release ZIP archives as normal backups and restore points.
-- Retire duplicate backup-folder workflow in favor of dated `Releases/` folders.
-
-# Signal Labs Master Roadmap
-
-## Near term
-
-- Overtime design system adoption.
-- Time Off overhaul.
-- Shared reports.
-- Toasts and modal/dialog components.
-
-## Incubators
-
-- Pay Planner.
-
-## Shared Component Roadmap
-
-- Continue expanding shared components after footer strip cleanup.
-
+- Current Schedule release: v0.15.0 — Analytics Foundation.
+- Next Schedule release: v0.16.0 — Notifications Foundation.
+- Later Schedule architecture releases: v0.17.0 Goal Mode, v0.18.0 Multi-Agency, v0.19.0 Architecture Complete.
+- v1.0.0 begins database-backed persistence after architecture is stable.

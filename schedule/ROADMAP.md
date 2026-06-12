@@ -1,45 +1,29 @@
-## Current: v0.14.1 — Render Registry Repair
+## Current: v0.15.0 — Analytics Foundation
 
-Bidding and opportunity planning now includes shift bids, vacation bids, voluntary OT requests, posted OT opportunities, eligibility, seniority, fairness, awards, explanations, and audit trails.
+Completed planning layer for analytics metrics, report families, trend signals, and forecast models.
 
-## Next: v0.15.0 — Analytics Foundation
+## Next: v0.16.0 — Notifications Foundation
 
-Future analytics should summarize hours, benefits, overtime, mandation, coverage trends, fairness metrics, staffing forecasts, and historical reports.
+Planned concepts:
 
-## Current: v0.13.0 — Mandation Foundation
+- Employee notifications.
+- Supervisor notifications.
+- Approval reminders.
+- Schedule change notices.
+- OT posting notices.
+- Bid result notices.
+- Mandation notices.
+- Coverage risk alerts.
+- Audience-specific message wording.
+- Audit trail for sent/acknowledged notices.
 
-Adds mandate rotation, mandate counts, eligibility/exception checks, skip handling, and operational trait planning.
+## Later
 
-Upcoming architecture items:
+- v0.17.0 — Goal Mode Foundation.
+- v0.18.0 — Multi-Agency Foundation.
+- v0.19.0 — Architecture Complete.
+- v1.0.0 — Database Foundation.
 
-- v0.14.1 — Bidding Foundation
-- v0.15.0 — Analytics Foundation
-- v0.16.0 — Notifications Foundation
-- v0.17.0 — Goal Mode Foundation
-- v0.18.0 — Multi-Agency Foundation
-- v0.19.0 — Architecture Complete
-- v1.0.0 — Database Foundation
+## Standing Rule
 
-# Signal Schedule Roadmap
-
-## Current: v0.13.0 — Explainability Foundation
-
-- Add why-layer planning across coverage, mandation, benefits, seniority, eligibility, and fairness.
-- Separate employee-facing, supervisor-facing, and admin/audit explanations.
-- Preserve render stability so one preview panel should not break the whole page.
-
-## Next: v0.13.0 — Mandation Foundation
-
-- Mandation rotation list planning.
-- Mandation counts and skip reasons.
-- Mandation exceptions such as FMLA, part-time, light duty, and no-mandation flags.
-- Equalization and audit-trail planning.
-
-## Phase 0 continues
-
-v0.14 Bidding, v0.15 Analytics, v0.16 Notifications, v0.17 Goal Mode, v0.18 Multi-Agency, v0.19 Architecture Complete.
-
-
-### v0.14.1 Repair Note
-
-The v0.14.1 maintenance release keeps the Bidding and Opportunity Foundation scope but repairs missing mandation render functions and hardens the render registry so future missing optional preview panels cannot stop the whole app.
+Do not build dashboards before the analytics facts are stable. Storage and UI can change later; the metric definitions and explanations are harder to fix once wrong.

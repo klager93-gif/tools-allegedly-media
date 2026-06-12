@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.14.1
-Purpose: Bidding and Opportunity Foundation sandbox with bid, volunteer OT, posted OT, and award planning
+Version: v0.15.0
+Purpose: Analytics Foundation sandbox with report, metric, trend, and forecast planning
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Bidding and Opportunity Foundation sandbox with bid, volunteer OT, post
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.14.1">
+<link rel="stylesheet" href="style.css?v=0.15.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.14.1"
-  data-signal-theme="Bidding and Opportunity Foundation"
+  data-signal-version="v0.15.0"
+  data-signal-theme="Analytics Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define bidding and opportunity planning for shift bids, vacation bids, voluntary OT requests, posted OT, and awards."
-  data-signal-status-text="Signal Schedule v0.14.1 repairs render registry stability while preserving Bidding and Opportunity Foundation planning."
+  data-signal-description="Define analytics planning for hours, benefits, overtime, mandation, coverage, fairness, trends, forecasts, and reports."
+  data-signal-status-text="Signal Schedule v0.15.0 adds Analytics Foundation planning while preserving v0.14 bidding and opportunity workflows."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Bidding and Opportunity Foundation sandbox with bid, volunteer OT, post
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Preview how the staffing engine can model bids, voluntary overtime requests, posted overtime opportunities, awards, and explanations before persistence or final UI exists.</p>
+      <p class="schedule-subtitle">Preview how the staffing engine can model analytics, reports, trends, forecasts, and explanations before persistence or final UI exists.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.14.1 Repair</strong>
+      <strong id="currentWeekLabel">v0.15.0 Analytics</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Bidding and Opportunity Foundation sandbox with bid, volunteer OT, post
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.14.1 is still browser-only. This repair keeps v0.14 bidding/opportunity planning and fixes missing mandation preview renderers so the page can finish loading.</p>
+      <p>Signal Schedule v0.15.0 is still browser-only. This release adds analytics planning for hours, benefits, overtime, mandation, coverage, fairness, trends, forecasts, and reports.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.14 keeps the agency, employee, pattern, event, benefit, rule, coverage, view, fairness, explanation, and mandation foundations and adds bidding/opportunity previews.</p>
+        <p>v0.15 keeps the agency, employee, pattern, event, benefit, rule, coverage, view, fairness, explanation, mandation, and bidding foundations and adds analytics previews.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -357,6 +357,47 @@ Purpose: Bidding and Opportunity Foundation sandbox with bid, volunteer OT, post
     <div id="bidAwardPreview" class="bid-award-grid"></div>
   </section>
 
+
+  <section class="schedule-card analytics-metric-card" aria-labelledby="analyticsMetricTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="analyticsMetricTitle">Analytics Foundation</h2>
+        <p>Analytics should be built from facts: assignments, events, benefit ledgers, coverage requirements, bid history, mandation history, fairness history, and audit trails.</p>
+      </div>
+    </div>
+    <div id="analyticsMetricPreview" class="analytics-grid"></div>
+  </section>
+
+  <section class="schedule-card analytics-report-card" aria-labelledby="analyticsReportTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="analyticsReportTitle">Report Family Preview</h2>
+        <p>Reports should explain where totals came from instead of becoming disconnected dashboard numbers.</p>
+      </div>
+    </div>
+    <div id="analyticsReportPreview" class="analytics-grid"></div>
+  </section>
+
+  <section class="schedule-card analytics-trend-card" aria-labelledby="analyticsTrendTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="analyticsTrendTitle">Trend Signal Preview</h2>
+        <p>Trend signals identify repeated patterns such as coverage shortages, weekend load concentration, benefit burn rate, and mandate risk.</p>
+      </div>
+    </div>
+    <div id="analyticsTrendPreview" class="analytics-grid"></div>
+  </section>
+
+  <section class="schedule-card analytics-forecast-card" aria-labelledby="analyticsForecastTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="analyticsForecastTitle">Forecast Planning Preview</h2>
+        <p>Forecasts should show future risk and the exact facts driving that risk before recommending schedule, OT, leave, or mandate decisions.</p>
+      </div>
+    </div>
+    <div id="analyticsForecastPreview" class="analytics-grid"></div>
+  </section>
+
   <section class="schedule-card" aria-labelledby="modelTitle">
     <div class="schedule-card-heading">
       <div>
@@ -502,6 +543,6 @@ Purpose: Bidding and Opportunity Foundation sandbox with bid, volunteer OT, post
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.14.1"></script>
+<script src="script.js?v=0.15.0"></script>
 </body>
 </html>

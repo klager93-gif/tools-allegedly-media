@@ -1,40 +1,17 @@
-## v0.14.1 Repair and Opportunity Rules
+## v0.15.0 Analytics Rules
 
-Bidding rules should evaluate eligibility, effective seniority, coverage impact, fairness history, fatigue limits, exceptions, tie breakers, and admin overrides before awards are published. Voluntary OT requests and posted OT opportunities should remain auditable and explainable.
+Analytics must consume facts from the same engine used by schedules, events, benefits, coverage, fairness, bidding, mandation, and explanations.
 
-## v0.13.0 Mandation Foundation
+### Rules
 
-Mandation rules should evaluate in a clear order:
+- Do not calculate report totals from display text.
+- Do not silently mix voluntary OT, posted OT awards, and mandation.
+- Do not overwrite benefit balances; explain balances through ledger entries.
+- Coverage analytics must use agency-defined requirements.
+- Fairness analytics must distinguish opportunity, acceptance, award, denial, skip, and mandate.
+- Forecasts must list the facts driving the risk.
+- Employee, supervisor, and admin/audit report explanations may expose different levels of detail.
 
-1. Coverage need exists.
-2. Employee is eligible.
-3. Exceptions are checked.
-4. Fatigue/rest limits are checked.
-5. Rotation order is evaluated.
-6. Skip/selection reason is recorded.
-7. Mandate history and fairness metrics are updated.
+### Guardrail
 
-Every mandate, skip, and override should be explainable and auditable.
-
-# Signal Schedule Rule Engine
-
-## v0.13.0 Mandation Foundation
-
-The rule engine should eventually produce an outcome and an explanation.
-
-```text
-Facts + Rules + History = Outcome + Explanation + Audit Trail
-```
-
-Explanation levels should vary by audience:
-
-- Employee-facing: plain-language, privacy-aware reason.
-- Supervisor-facing: operational reason with coverage and eligibility context.
-- Admin/audit: rule source, override reason, timestamps, linked events, and ledger references.
-
-Current examples cover mandation, coverage, benefit usage, seniority adjustments, eligibility, and fairness snapshots.
-
-
-### Render Stability Rule
-
-Preview renderers should be registered and called through a guarded render registry. Missing optional panels should create a console warning, not stop sample data, employee cards, or add-employee behavior from loading.
+Analytics should not become decorative charts. They must remain traceable, explainable, and auditable.

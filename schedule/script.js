@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.14.1
-Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bids, voluntary OT requests, and posted OT opportunities
+Version: v0.15.0
+Purpose: Analytics Foundation sandbox with metrics, report families, trend signals, forecasts, and audit-ready explanations
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.14.1';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.15.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -41,6 +41,10 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     voluntaryOvertimeRequests: [],
     postedOvertimeOpportunities: [],
     bidAwardExamples: [],
+    analyticsMetrics: [],
+    analyticsReports: [],
+    analyticsTrendSignals: [],
+    analyticsForecasts: [],
     agencyProfile: null,
     selectedEmployeeId: null
   };
@@ -66,6 +70,10 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     if (!Array.isArray(state.voluntaryOvertimeRequests) || !state.voluntaryOvertimeRequests.length) state.voluntaryOvertimeRequests = defaultVoluntaryOvertimeRequests();
     if (!Array.isArray(state.postedOvertimeOpportunities) || !state.postedOvertimeOpportunities.length) state.postedOvertimeOpportunities = defaultPostedOvertimeOpportunities();
     if (!Array.isArray(state.bidAwardExamples) || !state.bidAwardExamples.length) state.bidAwardExamples = defaultBidAwardExamples();
+    if (!Array.isArray(state.analyticsMetrics) || !state.analyticsMetrics.length) state.analyticsMetrics = defaultAnalyticsMetrics();
+    if (!Array.isArray(state.analyticsReports) || !state.analyticsReports.length) state.analyticsReports = defaultAnalyticsReports();
+    if (!Array.isArray(state.analyticsTrendSignals) || !state.analyticsTrendSignals.length) state.analyticsTrendSignals = defaultAnalyticsTrendSignals();
+    if (!Array.isArray(state.analyticsForecasts) || !state.analyticsForecasts.length) state.analyticsForecasts = defaultAnalyticsForecasts();
   }
 
   function defaultAgencyProfile() {
@@ -604,6 +612,33 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     }];
   }
 
+
+  function defaultAnalyticsMetrics() {
+    return [{ id: 'metric-hours-worked', family: 'Hours', name: 'Worked hours', sourceFacts: 'Assignments + work events + paid minutes', purpose: 'Compare scheduled, worked, overtime, callback, training, and forced OT hours without mixing categories.', explanation: 'Hours reports should show which events counted and why.' },
+      { id: 'metric-benefit-usage', family: 'Benefits', name: 'Benefit usage and balances', sourceFacts: 'Benefit ledger entries + approved time-off events', purpose: 'Track vacation, sick, personal, holiday, and comp activity from ledger movement instead of overwritten totals.', explanation: 'Benefit analytics should explain every balance through accruals, use, corrections, payouts, and carryovers.' },
+      { id: 'metric-ot-fairness', family: 'Overtime / Fairness', name: 'OT equalization', sourceFacts: 'Voluntary OT requests + posted OT awards + schedule events + fairness history', purpose: 'Compare opportunity, acceptance, award, denial, and forced OT history separately.', explanation: 'Fairness analytics should distinguish who wanted OT, who was offered OT, who received OT, and who was mandated.' },
+      { id: 'metric-coverage-trends', family: 'Coverage', name: 'Coverage shortage trends', sourceFacts: 'Coverage requirements + assignments + events + open spots', purpose: 'Show repeated shortages by role, qualification, location, time block, and shift group.', explanation: 'Coverage reports should identify whether the shortage came from staffing level, leave, training, or unfilled openings.' }];
+  }
+
+  function defaultAnalyticsReports() {
+    return [{ id: 'report-pay-period-summary', name: 'Pay Period Summary', audience: 'Admin / payroll prep', includes: ['regular hours', 'overtime', 'mandation', 'callbacks', 'benefit usage'], status: 'planned model', guardrail: 'Report totals should be traceable back to events and assignments.' },
+      { id: 'report-mandation-history', name: 'Mandation History', audience: 'Supervisor / union audit', includes: ['forced OT counts', 'skip reasons', 'rotation position', 'exceptions', 'override notes'], status: 'planned model', guardrail: 'Mandation analytics must stay separate from voluntary OT analytics.' },
+      { id: 'report-benefit-ledger', name: 'Benefit Ledger Report', audience: 'Employee / admin', includes: ['starting balance', 'accruals', 'usage', 'corrections', 'ending balance'], status: 'planned model', guardrail: 'Balances should never be explained by a silent overwrite.' },
+      { id: 'report-coverage-review', name: 'Coverage Review', audience: 'Planner / command staff', includes: ['minimum misses', 'target misses', 'open spots', 'overstaffing', 'time-block trends'], status: 'planned model', guardrail: 'Coverage analytics must use agency-defined requirements, not hard-coded assumptions.' }];
+  }
+
+  function defaultAnalyticsTrendSignals() {
+    return [{ id: 'trend-weekend-load', signal: 'Weekend load concentration', category: 'Fairness', observation: 'Compare weekend assignments across employees and shift groups before calling a schedule balanced.', action: 'Flag repeated concentration and explain whether seniority, bid awards, coverage, or overrides caused it.' },
+      { id: 'trend-shortage-repeat', signal: 'Repeated night shortage', category: 'Coverage', observation: 'Track shortages by role and time block so recurring open spots are visible.', action: 'Support future recommendations such as posted OT, training, hiring, pattern changes, or mandate risk warnings.' },
+      { id: 'trend-benefit-burn', signal: 'Benefit burn rate', category: 'Benefits', observation: 'Compare benefit usage against accrual and projected balance windows.', action: 'Warn when approvals could create future coverage or balance problems.' }];
+  }
+
+  function defaultAnalyticsForecasts() {
+    return [{ id: 'forecast-coverage-risk', name: 'Coverage Risk Forecast', inputFacts: 'Known assignments, approved leave, training events, open spots, and coverage requirements', forecast: 'Identify future dates likely to miss minimum or target staffing.', explanation: 'Forecast should list the exact events and requirements driving the risk.' },
+      { id: 'forecast-mandate-risk', name: 'Mandate Risk Forecast', inputFacts: 'Open coverage, voluntary OT interest, posted OT responses, exceptions, fatigue, and rotation history', forecast: 'Estimate whether voluntary options may be exhausted before coverage is filled.', explanation: 'Forecast should explain why mandation risk exists before anyone is forced.' },
+      { id: 'forecast-benefit-liability', name: 'Benefit Liability Forecast', inputFacts: 'Ledger balances, accrual rules, carryover rules, approved future leave, and payout policy', forecast: 'Project balances and potential payout/carryover exposure.', explanation: 'Forecast should distinguish earned time, used time, projected accrual, and policy limits.' }];
+  }
+
   function defaultEventTypeDefinitions() {
     return [{
       id: 'event-vacation',
@@ -832,6 +867,10 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     next.voluntaryOvertimeRequests = Array.isArray(next.voluntaryOvertimeRequests) && next.voluntaryOvertimeRequests.length ? next.voluntaryOvertimeRequests : defaultVoluntaryOvertimeRequests();
     next.postedOvertimeOpportunities = Array.isArray(next.postedOvertimeOpportunities) && next.postedOvertimeOpportunities.length ? next.postedOvertimeOpportunities : defaultPostedOvertimeOpportunities();
     next.bidAwardExamples = Array.isArray(next.bidAwardExamples) && next.bidAwardExamples.length ? next.bidAwardExamples : defaultBidAwardExamples();
+    next.analyticsMetrics = Array.isArray(next.analyticsMetrics) && next.analyticsMetrics.length ? next.analyticsMetrics : defaultAnalyticsMetrics();
+    next.analyticsReports = Array.isArray(next.analyticsReports) && next.analyticsReports.length ? next.analyticsReports : defaultAnalyticsReports();
+    next.analyticsTrendSignals = Array.isArray(next.analyticsTrendSignals) && next.analyticsTrendSignals.length ? next.analyticsTrendSignals : defaultAnalyticsTrendSignals();
+    next.analyticsForecasts = Array.isArray(next.analyticsForecasts) && next.analyticsForecasts.length ? next.analyticsForecasts : defaultAnalyticsForecasts();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
     next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
@@ -986,7 +1025,7 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.14.1 Bidding Foundation';
+    if (label) label.textContent = 'v0.15.0 Analytics Foundation';
   }
 
   function syncRuleInputs() {
@@ -1506,6 +1545,35 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     }).join('');
   }
 
+
+  function renderAnalyticsMetricPreview() {
+    var target = $('#analyticsMetricPreview');
+    if (!target) return;
+    var items = Array.isArray(state.analyticsMetrics) && state.analyticsMetrics.length ? state.analyticsMetrics : defaultAnalyticsMetrics();
+    target.innerHTML = items.map(function (item) { return '<article class="analytics-metric-item"><span class="card-kicker">' + escapeHtml(item.family || 'Metric') + '</span><strong>' + escapeHtml(item.name || 'Analytics metric') + '</strong><p>' + escapeHtml(item.purpose || '') + '</p><small><b>Facts:</b> ' + escapeHtml(item.sourceFacts || '') + '<br><b>Why:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
+  }
+
+  function renderAnalyticsReportPreview() {
+    var target = $('#analyticsReportPreview');
+    if (!target) return;
+    var items = Array.isArray(state.analyticsReports) && state.analyticsReports.length ? state.analyticsReports : defaultAnalyticsReports();
+    target.innerHTML = items.map(function (item) { var includes = Array.isArray(item.includes) ? item.includes.join(' · ') : ''; return '<article class="analytics-report-item"><span class="card-kicker">' + escapeHtml(item.audience || 'Report') + ' · ' + escapeHtml(item.status || 'planned') + '</span><strong>' + escapeHtml(item.name || 'Analytics report') + '</strong><p>' + escapeHtml(includes || 'Report contents TBD') + '</p><small>' + escapeHtml(item.guardrail || '') + '</small></article>'; }).join('');
+  }
+
+  function renderAnalyticsTrendPreview() {
+    var target = $('#analyticsTrendPreview');
+    if (!target) return;
+    var items = Array.isArray(state.analyticsTrendSignals) && state.analyticsTrendSignals.length ? state.analyticsTrendSignals : defaultAnalyticsTrendSignals();
+    target.innerHTML = items.map(function (item) { return '<article class="analytics-trend-item"><span class="card-kicker">' + escapeHtml(item.category || 'Trend') + '</span><strong>' + escapeHtml(item.signal || 'Trend signal') + '</strong><p>' + escapeHtml(item.observation || '') + '</p><small>' + escapeHtml(item.action || '') + '</small></article>'; }).join('');
+  }
+
+  function renderAnalyticsForecastPreview() {
+    var target = $('#analyticsForecastPreview');
+    if (!target) return;
+    var items = Array.isArray(state.analyticsForecasts) && state.analyticsForecasts.length ? state.analyticsForecasts : defaultAnalyticsForecasts();
+    target.innerHTML = items.map(function (item) { return '<article class="analytics-forecast-item"><span class="card-kicker">Forecast model</span><strong>' + escapeHtml(item.name || 'Forecast') + '</strong><p>' + escapeHtml(item.forecast || '') + '</p><small><b>Inputs:</b> ' + escapeHtml(item.inputFacts || '') + '<br><b>Explanation:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
+  }
+
   function renderDataModelPreview() {
     var target = $('#dataModelPreview');
     if (!target) return;
@@ -1527,7 +1595,8 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
       ['Explainability', String((state.explanationExamples || []).length), 'Explains outcomes from facts, rules, history, audience, and audit context.'],
       ['Mandation', String((state.mandateRotation || []).length), 'Tracks forced OT rotation, counts, skips, exceptions, and mandate explanations.'],
       ['Bidding / Opportunities', String((state.bidRounds || []).length + (state.voluntaryOvertimeRequests || []).length + (state.postedOvertimeOpportunities || []).length), 'Plans shift bids, vacation bids, voluntary OT requests, posted OT opportunities, awards, and explanations.'],
-      ['Operational Traits', String((state.operationalTraits || []).length), 'Employee traits such as gender can be used only when tied to documented operational rules.']
+      ['Operational Traits', String((state.operationalTraits || []).length), 'Employee traits such as gender can be used only when tied to documented operational rules.'],
+      ['Analytics Foundation', String((state.analyticsMetrics || []).length + (state.analyticsReports || []).length + (state.analyticsTrendSignals || []).length + (state.analyticsForecasts || []).length), 'Plans hours, benefits, overtime, mandation, coverage, fairness, trends, forecasts, and audit-ready reports.']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -1695,7 +1764,7 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — MANDATION FOUNDATION');
-    lines.push('Version: v0.14.1');
+    lines.push('Version: v0.15.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -1776,7 +1845,7 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.14.1 Notes:');
+    lines.push('v0.15.0 Notes:');
     lines.push('- Adds Bidding and Opportunity Foundation: shift bids, vacation bids, voluntary OT requests, and posted OT opportunities.');
     lines.push('- Requests are employee-initiated; opportunities are management-posted needs that employees can volunteer or bid for.');
     lines.push('- Awards should evaluate eligibility, seniority, fairness, coverage, and audit explanations before publication.');
@@ -1859,6 +1928,10 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     renderVoluntaryOvertimePreview: renderVoluntaryOvertimePreview,
     renderPostedOvertimePreview: renderPostedOvertimePreview,
     renderBidAwardPreview: renderBidAwardPreview,
+    renderAnalyticsMetricPreview: renderAnalyticsMetricPreview,
+    renderAnalyticsReportPreview: renderAnalyticsReportPreview,
+    renderAnalyticsTrendPreview: renderAnalyticsTrendPreview,
+    renderAnalyticsForecastPreview: renderAnalyticsForecastPreview,
     renderDataModelPreview: renderDataModelPreview,
     renderSelects: renderSelects,
     renderPills: renderPills,
@@ -1900,6 +1973,10 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
     safeRender('voluntary overtime', 'renderVoluntaryOvertimePreview');
     safeRender('posted overtime', 'renderPostedOvertimePreview');
     safeRender('bid awards', 'renderBidAwardPreview');
+    safeRender('analytics metrics', 'renderAnalyticsMetricPreview');
+    safeRender('analytics reports', 'renderAnalyticsReportPreview');
+    safeRender('analytics trends', 'renderAnalyticsTrendPreview');
+    safeRender('analytics forecasts', 'renderAnalyticsForecastPreview');
     safeRender('data model', 'renderDataModelPreview');
     safeRender('selects', 'renderSelects');
     safeRender('pills', 'renderPills');
@@ -2012,6 +2089,10 @@ Purpose: Bidding and Opportunity Foundation sandbox with shift bids, vacation bi
       voluntaryOvertimeRequests: defaultVoluntaryOvertimeRequests(),
       postedOvertimeOpportunities: defaultPostedOvertimeOpportunities(),
       bidAwardExamples: defaultBidAwardExamples(),
+      analyticsMetrics: defaultAnalyticsMetrics(),
+      analyticsReports: defaultAnalyticsReports(),
+      analyticsTrendSignals: defaultAnalyticsTrendSignals(),
+      analyticsForecasts: defaultAnalyticsForecasts(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
       selectedEmployeeId: 'emp-alex'

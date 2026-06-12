@@ -1,22 +1,16 @@
-## v0.14.1 Render Registry Repair
+## v0.15.0 Analytics Foundation
 
-Use the Bidding and Opportunity previews to review the difference between employee-initiated voluntary OT requests and management-posted OT opportunities. These are mock/planning objects only; they cannot be saved to a database or awarded automatically yet.
+Open `schedule/index.html` in a browser.
 
-## v0.13.0 Mandation Foundation
+Use **Load Sample** if the sandbox appears empty or if older local storage is still active.
 
-Use the Mandation Foundation preview to review how forced overtime should eventually be tracked separately from voluntary overtime.
+Review the Analytics Foundation sections:
 
-Current data is mock-only. You cannot create real mandate rotations, save mandate rules, or automate forced overtime yet.
+- Analytics Foundation.
+- Report Family Preview.
+- Trend Signal Preview.
+- Forecast Planning Preview.
 
-# Signal Schedule HOWTO
+These are not finished charts or dashboards. They are planning cards that define what future analytics should measure, what facts those metrics should use, and how reports should explain totals.
 
-## v0.13.0 Mandation Foundation
-
-Use the page as a system inspector. The Explainability Foundation panels show sample reasons for outcomes across mandation, coverage, benefits, seniority, eligibility, and fairness.
-
-The employee add form and sample data controls are still local browser mock-data tools only. They are not a persistent admin workflow.
-
-
-### If samples do not load
-
-Use the page controls to load sample data. In v0.14.1, missing optional preview renderers should no longer stop the main page from loading.
+If the page does not reflect v0.15.0, clear local storage or press **Load Sample**.

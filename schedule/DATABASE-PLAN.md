@@ -1,36 +1,33 @@
-## v0.14.1 Repair and Opportunity Planning
+## v0.15.0 Analytics Data Planning
 
-Future persistence should support bid rounds, bid slots, employee bid submissions, voluntary OT requests, posted OT opportunities, bid awards, award explanations, and audit history. Requests are employee-initiated. Opportunities are management-posted openings. Awards should be calculated from eligibility, seniority, fairness, coverage, rule priority, and documented override reasons.
+No database is introduced in this release.
 
-## v0.13.0 Mandation Planning
+Future database planning should support analytics without recalculating everything from screen text.
 
-Future tables may include:
+Likely future tables/modules:
 
-- mandate_rotation
-- mandate_history
-- mandate_exceptions
-- mandate_skip_reasons
-- employee_operational_traits
-- operational_trait_rules
+- analytics_metric_definitions
+- analytics_report_definitions
+- analytics_report_runs
+- analytics_trend_signals
+- analytics_forecasts
+- analytics_forecast_inputs
+- analytics_audit_links
 
-Mandation must remain separate from voluntary overtime and benefit usage. A mandate event may affect pay, coverage, mandate count, rotation order, and audit history, but it should not consume vacation minutes.
+Source tables will likely include:
 
-Operational traits such as gender should only be evaluated through documented coverage, safety, legal, or operational rules.
-
-# Signal Schedule Database Plan
-
-## v0.13.0 Mandation Planning
-
-Future persistence should include explanation/audit concepts that can connect an outcome back to facts, rules, events, and history.
-
-Potential future tables:
-
-- explanation_events
-- rule_evaluations
-- audit_log
-- seniority_ledger
-- mandate_history
+- employees
+- employee_traits
+- assignments
+- schedule_events
 - benefit_ledger
-- coverage_evaluations
+- coverage_requirements
+- bid_rounds
+- bid_awards
+- voluntary_overtime_requests
+- posted_overtime_opportunities
+- mandation_history
+- fairness_history
+- explanation_logs
 
-Explanations should not replace underlying facts. They should reference facts and rules so users can understand how an outcome was reached.
+The goal is traceable reporting: every number should link back to the facts that produced it.

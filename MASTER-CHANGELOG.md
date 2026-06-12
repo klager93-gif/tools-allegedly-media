@@ -1,3 +1,9 @@
+## Signal Schedule v0.15.0 — Analytics Foundation
+
+- Added Analytics Foundation planning for reportable facts, metrics, reports, trends, and forecasts.
+- Preserved Bidding and Opportunity Foundation and v0.14.1 render registry protections.
+- Advanced Schedule roadmap toward v0.16 Notifications Foundation.
+
 ## Signal Schedule v0.14.1 — Render Registry Repair
 
 - Repaired missing mandation-related preview renderers from the v0.14 line.

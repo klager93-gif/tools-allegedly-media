@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.14.1
+Version: v0.15.0
 Purpose: Signal Schedule benefit ledger foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -173,7 +173,7 @@ Purpose: Signal Schedule benefit ledger foundation styles
 @media print { .rule-engine-card-item, .rule-evaluation-card-item, .agency-template-card-item { border-color: #ccc; background: #fff; color: #111; } }
 
 /*
-Signal Schedule v0.14.1 Render Registry Repair
+Signal Schedule v0.15.0 Analytics Foundation
 Keeps generated rule-engine labels from running into headings.
 */
 .rule-engine-card-item .card-kicker,
@@ -206,7 +206,7 @@ Keeps generated rule-engine labels from running into headings.
 
 
 /*
-Signal Schedule v0.14.1 Render Registry Repair
+Signal Schedule v0.15.0 Analytics Foundation
 Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 */
 .coverage-engine-card { border-color: rgba(250,204,21,.26); background: rgba(250,204,21,.055); }
@@ -230,7 +230,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 @media (max-width: 650px) { .coverage-engine-grid, .coverage-slot-grid { grid-template-columns: 1fr; } }
 
 
-/* Signal Schedule v0.14.1 Render Registry Repair */
+/* Signal Schedule v0.15.0 Analytics Foundation */
 .schedule-views-grid,
 .system-inspector-grid {
   display: grid;
@@ -265,7 +265,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* Signal Schedule v0.14.1 Render Registry Repair */
+/* Signal Schedule v0.15.0 Analytics Foundation */
 .fairness-engine-grid,
 .fairness-snapshot-grid,
 .seniority-ledger-grid {
@@ -298,7 +298,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
   line-height: 1.45;
 }
 
-/* Signal Schedule v0.14.1 Render Registry Repair */
+/* Signal Schedule v0.15.0 Analytics Foundation */
 .explainability-grid,
 .explanation-level-grid {
   display: grid;
@@ -329,7 +329,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* Signal Schedule v0.14.1 Render Registry Repair */
+/* Signal Schedule v0.15.0 Analytics Foundation */
 .mandation-grid,
 .mandate-rotation-grid,
 .operational-trait-grid {
@@ -364,7 +364,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* v0.14.1 Render Registry Repair */
+/* v0.15.0 Analytics Foundation */
 .bidding-grid,
 .vot-grid,
 .posted-ot-grid,
@@ -394,4 +394,33 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
   color: var(--sl-muted, #94a3b8);
   font-size: 0.86rem;
   font-style: normal;
+}
+
+
+/* v0.15.0 Analytics Foundation */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.analytics-metric-item,
+.analytics-report-item,
+.analytics-trend-item,
+.analytics-forecast-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.48);
+}
+
+.analytics-metric-item small,
+.analytics-report-item small,
+.analytics-trend-item small,
+.analytics-forecast-item small {
+  color: var(--sl-muted, #94a3b8);
+  line-height: 1.45;
 }

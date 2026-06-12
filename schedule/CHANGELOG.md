@@ -1,3 +1,12 @@
+## v0.15.0 — Analytics Foundation
+
+- Added Analytics Foundation previews for metric definitions, report families, trend signals, and forecast planning.
+- Added analytics data objects for hours, benefits, overtime/fairness, coverage trends, pay-period summaries, mandation history, benefit ledger reporting, coverage review, weekend load, repeated shortages, benefit burn rate, coverage risk, mandate risk, and benefit liability.
+- Updated the guarded render registry with analytics renderers so missing optional analytics panels should not stop the whole page.
+- Updated the data-model preview to include Analytics Foundation counts.
+- Preserved v0.14.0 Bidding and Opportunity Foundation scope.
+- Preserved v0.14.1 render registry repair protections.
+
 ## v0.14.1 — Render Registry Repair
 
 - Added missing Mandation Foundation, Mandate Rotation, and Operational Trait preview render functions.

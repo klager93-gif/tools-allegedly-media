@@ -1,3 +1,11 @@
+## Signal Schedule v0.15.0 — Analytics Foundation
+
+- Added analytics arrays to Schedule state and sample data.
+- Added default analytics metric, report, trend, and forecast models.
+- Added analytics preview renderers and registered them in the guarded render registry.
+- Updated Schedule UI copy, version references, documentation, and roadmap.
+- No persistence/database layer added.
+
 # Signal Labs Admin Changelog
 
 ## v0.9.9.5 / Signal Schedule v0.1.1 — Logic Sandbox
