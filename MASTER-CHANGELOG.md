@@ -1,5 +1,23 @@
 # Master Changelog
 
+## 2026-06-11 — Signal Schedule v0.1.4 Version Consistency Update
+
+### Added
+
+- Added Rule 23: Version Consistency to release standards.
+- Added a formal requirement that user-facing version references must be updated during each release.
+
+### Changed
+
+- Updated Signal Schedule page metadata, footer version, status text, cache-busting, and text output version to v0.1.4.
+- Updated root and Schedule documentation to identify v0.1.4 as the current release.
+- Moved the previously planned local sandbox cleanup milestone to v0.1.5.
+
+### Fixed
+
+- Fixed stale visible Schedule version references that still showed v0.1.1 after later documentation releases.
+- Preserved older local sandbox data by adding old localStorage key fallback support.
+
 ## 2026-06-11 — Signal Schedule v0.1.3 Rule Engine and Agency Policy Planning
 
 ### Added

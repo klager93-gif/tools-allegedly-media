@@ -4,9 +4,9 @@ Useful tools without the noise.
 
 ## Current Release
 
-**v0.9.9.5 / Signal Schedule v0.1.1 — Logic Sandbox**
+**Signal Schedule v0.1.4 — Version Consistency Update**
 
-Refines Signal Schedule from a simple local weekly schedule builder into a logic-first sandbox for testing employees, shifts, coverage rules, warnings, text output, and month-planning structure before PHP/database work begins.
+Updates visible Signal Schedule version references and formalizes Rule 23 so user-facing versions, status cards, footer versions, and release documentation stay synchronized after each release.
 
 ## Current Tools
 

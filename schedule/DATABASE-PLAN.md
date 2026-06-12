@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.1.1 remains local-first and does not create database tables yet.
+Planning document for the future PHP/database version. Signal Schedule v0.1.4 remains local-first and does not create database tables yet.
 
 ## Core Rule
 

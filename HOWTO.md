@@ -12,6 +12,6 @@ When changing shared assets:
 
 ## Signal Schedule
 
-Use Signal Schedule v0.1.1 as a logic sandbox before treating it like a finished scheduling app. Add employees, roles, shifts, minimum staffing rules, max weekly hours, and rest-gap rules. Then review the warnings and plain-text output to decide whether the schedule model makes sense.
+Use the current Signal Schedule sandbox before treating it like a finished scheduling app. Add employees, roles, shifts, minimum staffing rules, max weekly hours, and rest-gap rules. Then review the warnings and plain-text output to decide whether the schedule model makes sense.
 
 This version is still local-browser only. PHP, database tables, logins, admin roles, employee accounts, permissions, publishing, and shared schedules should come later after the logic is proven.

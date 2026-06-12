@@ -2,8 +2,8 @@
 
 ## Immediate
 
-- Verify Signal Schedule v0.1.3 documentation after deployment.
-- Confirm Schedule card, navigation, and footer links still work from the previous build.
+- Verify Signal Schedule v0.1.4 version consistency after deployment.
+- Confirm Schedule card, navigation, footer links, and visible version references are aligned.
 - Review text output and warnings before expanding visual schedule UI.
 - Keep schedule logic separated from UI display code wherever practical.
 
@@ -48,6 +48,13 @@
 - Benefit time accrual and ledger planning.
 - Bidding, fairness, qualifications, and decision explanation planning.
 - Expanded database plan for agency-flexible staffing systems.
+
+### v0.1.4
+
+- Version consistency update.
+- Rule 23 added to release standards.
+- Visible Schedule version references updated to the current release.
+- Status card and footer version alignment.
 
 ### Planned
 

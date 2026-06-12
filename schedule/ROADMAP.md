@@ -2,7 +2,20 @@
 
 ## Current Version
 
-v0.1.3 — Rule engine and agency-flexible roadmap planning on top of the v0.1.1 logic sandbox.
+v0.1.4 — Version consistency maintenance on top of the local logic sandbox, rule engine planning, and agency-flexible roadmap.
+
+## Development Rule: Rule 23 — Version Consistency
+
+Whenever a tool version changes:
+
+- Update all visible version references.
+- Update status cards.
+- Update footer versions.
+- Update hero text where applicable.
+- Update cache-busting query strings for changed tool files.
+- Search the entire tool for stale version references.
+- No page should display an older version than the current release.
+- If a global component or shared status area affects multiple pages, update all affected pages together.
 
 ## Direction
 
@@ -44,7 +57,17 @@ Goal: add the planning layer that explains why scheduling decisions happen.
 - Add benefit time accrual and benefit ledger planning.
 - Add fairness and audit-trail requirements.
 
-## v0.1.4 — Local Sandbox Cleanup
+## v0.1.4 — Version Consistency Update
+
+Goal: keep visible release information aligned after every Schedule release.
+
+- Add Rule 23: Version Consistency.
+- Update visible Schedule version references to v0.1.4.
+- Update Schedule page metadata, status text, footer version, cache-busting, and text output version.
+- Preserve local sandbox data while moving the active storage key forward.
+- Reinforce the rule that no page should advertise an outdated version after a release.
+
+## v0.1.5 — Local Sandbox Cleanup
 
 Goal: make the current browser-only tool easier to test before backend work.
 

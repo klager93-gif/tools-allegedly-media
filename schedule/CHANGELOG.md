@@ -1,5 +1,27 @@
 # Signal Schedule Changelog
 
+## v0.1.4 — Version Consistency Update
+
+### Added
+
+- Added Rule 23: Version Consistency to the Signal Labs release standards.
+- Added a standing requirement to update user-facing version references whenever a tool version changes.
+
+### Changed
+
+- Updated the Signal Schedule page metadata from v0.1.1 to v0.1.4.
+- Updated Schedule CSS and JavaScript cache-busting from v0.1.1 to v0.1.4.
+- Updated the Schedule footer version through the shared footer metadata.
+- Updated the Schedule status card text to match the current planning and architecture stage.
+- Updated plain-text schedule output to show v0.1.4.
+- Updated root and Schedule documentation to identify v0.1.4 as the current release.
+- Moved the local sandbox cleanup milestone to v0.1.5 so v0.1.4 can remain a maintenance/version alignment release.
+
+### Fixed
+
+- Fixed stale visible Schedule version references that still displayed v0.1.1 after later roadmap releases.
+- Preserved local sandbox data by reading older localStorage keys when the new v0.1.4 key is empty.
+
 ## v0.1.3 — Rule Engine and Agency Policy Planning
 
 ### Added

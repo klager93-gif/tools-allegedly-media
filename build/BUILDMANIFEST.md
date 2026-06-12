@@ -2,7 +2,7 @@
 
 ## Build
 
-Signal Schedule v0.1.3 — Rule Engine and Agency Policy Planning
+Signal Schedule v0.1.4 — Version Consistency Update
 
 ## Date
 
@@ -10,14 +10,16 @@ Signal Schedule v0.1.3 — Rule Engine and Agency Policy Planning
 
 ## Source
 
-Built from `signal-schedule-v0.1.2-roadmap-docs.zip`.
+Built from `signal-schedule-v0.1.3-rule-engine-roadmap.zip`.
 
 ## Notes
 
-Documentation/planning update only. No production HTML, CSS, or JavaScript behavior was intentionally changed.
+Maintenance release focused on visible Schedule version alignment and release standards. No new scheduling features were added.
 
 ## Changed / Added Files
 
+- `README.md`
+- `HOWTO.md`
 - `MASTER-CHANGELOG.md`
 - `ROADMAP.md`
 - `schedule/README.md`
@@ -25,7 +27,10 @@ Documentation/planning update only. No production HTML, CSS, or JavaScript behav
 - `schedule/CHANGELOG.md`
 - `schedule/ROADMAP.md`
 - `schedule/DATABASE-PLAN.md`
-- `schedule/RULE-ENGINE.md`
+- `schedule/index.html`
+- `schedule/script.js`
+- `schedule/style.css`
+- `standards/RELEASE_STANDARDS.md`
 - `build/BUILDMANIFEST.md`
 - `build/FILEMANIFEST.md`
 - `build/SHA256SUMS.txt`

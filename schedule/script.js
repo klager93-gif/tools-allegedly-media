@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.1.1
+Version: v0.1.4
 Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.1.1';
-  var OLD_STORAGE_KEY = 'signalSchedule.v0.1.0';
+  var STORAGE_KEY = 'signalSchedule.v0.1.4';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   var state = {
     employees: [],
@@ -61,7 +61,13 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
 
   function load() {
     try {
-      var raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(OLD_STORAGE_KEY);
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) {
+        for (var i = 0; i < OLD_STORAGE_KEYS.length; i += 1) {
+          raw = localStorage.getItem(OLD_STORAGE_KEYS[i]);
+          if (raw) break;
+        }
+      }
       if (raw) state = normalizeState(JSON.parse(raw));
       else state = normalizeState(state);
     } catch (error) {
@@ -273,7 +279,7 @@ Purpose: Logic-first Signal Schedule sandbox with text output and rule warnings
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — LOGIC SANDBOX');
-    lines.push('Version: v0.1.1');
+    lines.push('Version: v0.1.4');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);

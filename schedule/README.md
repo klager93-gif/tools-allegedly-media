@@ -4,7 +4,7 @@ Signal Schedule is a scheduling and staffing tool for Signal Labs.
 
 ## Version
 
-v0.1.3 planning docs on top of the v0.1.1 logic sandbox.
+v0.1.4 maintenance update on top of the local logic sandbox and planning documentation.
 
 ## Current Purpose
 
