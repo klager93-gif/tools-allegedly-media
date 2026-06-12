@@ -20,4 +20,4 @@ Signal Labs is being maintained as a small software suite. Shared assets, naviga
 
 ## Current Schedule Planning
 
-**Signal Schedule v0.3.0 — Agency Profile Foundation** adds agency/company settings, custom vocabulary, shift definitions, and coverage minimum/target/maximum planning before employee profiles.
+**Signal Schedule v0.4.0 — Employee Profile Foundation** adds rule-aware employee profile planning using agency-defined vocabulary, eligibility, exceptions, qualifications, and benefit snapshots.

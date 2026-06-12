@@ -292,3 +292,18 @@ Agency profile rule inputs include:
 - Coverage minimums, targets, and maximums.
 
 Industry templates may prefill these values, but agencies must be able to edit them. Templates are shortcuts, not hard-coded modes.
+
+
+## v0.4.0 Employee Rule Source
+
+Employee profiles become a primary input to future rule decisions. Rules should evaluate employee facts instead of relying on schedule-row text.
+
+Examples:
+
+- Mandation rules should evaluate mandate eligibility and active exceptions.
+- Coverage rules should evaluate qualifications and position assignment.
+- Bidding rules should evaluate seniority date and bid eligibility.
+- Benefit rules should evaluate benefit eligibility and ledger history.
+- Fatigue rules should evaluate scheduled events and employee assignment history.
+
+Employee profiles should use agency-defined vocabulary from the Agency Profile Foundation. Titles, departments, qualifications, benefit types, and exception types should be configurable values, not hard-coded public safety assumptions.

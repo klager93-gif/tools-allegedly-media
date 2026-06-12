@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.3.0
-Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary, shifts, coverage, and generated output
+Version: v0.4.0
+Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibility, exceptions, qualifications, benefits, and generated output
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.3.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.4.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   var state = {
     employees: [],
@@ -22,7 +22,8 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
     scheduleEvents: [],
     benefitLedger: [],
     coverageRequirements: [],
-    agencyProfile: null
+    agencyProfile: null,
+    selectedEmployeeId: null
   };
 
   function id(prefix) {
@@ -121,15 +122,33 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
     next.rules.maxHoursPerWeek = Number(next.rules.maxHoursPerWeek || 40);
     next.rules.minGapHours = Number(next.rules.minGapHours || 8);
     next.rules.monthStart = next.rules.monthStart || defaultMonthValue();
+    next.selectedEmployeeId = next.selectedEmployeeId || (next.employees[0] ? next.employees[0].id : null);
     next.employees = next.employees.map(function (employee) {
       return {
         id: employee.id || id('emp'),
         name: employee.name || 'Unnamed',
-        role: employee.role || 'Dispatcher',
+        employeeCode: employee.employeeCode || employee.badge || '',
+        role: employee.role || employee.position || 'Dispatcher',
+        position: employee.position || employee.role || 'Dispatcher',
         status: employee.status || 'active',
+        hireDate: employee.hireDate || '',
+        seniorityDate: employee.seniorityDate || employee.hireDate || '',
+        department: employee.department || 'Communications',
+        division: employee.division || 'Operations',
+        location: employee.location || 'Main Center',
+        shiftGroup: employee.shiftGroup || '',
+        assignedPattern: employee.assignedPattern || '',
+        supervisor: employee.supervisor || '',
+        colorLabel: employee.colorLabel || 'Default',
+        overtimeEligible: employee.overtimeEligible !== false,
         mandateEligible: employee.mandateEligible !== false,
+        tradeEligible: employee.tradeEligible !== false,
+        shiftBidEligible: employee.shiftBidEligible !== false,
+        vacationBidEligible: employee.vacationBidEligible !== false,
+        benefitEligible: employee.benefitEligible !== false,
         exceptions: Array.isArray(employee.exceptions) ? employee.exceptions : [],
-        benefitBalances: employee.benefitBalances || { vacation: 0, sick: 0, personal: 0, comp: 0 }
+        qualifications: Array.isArray(employee.qualifications) ? employee.qualifications : [],
+        benefitBalances: employee.benefitBalances || { vacation: 0, sick: 0, personal: 0, comp: 0, holiday: 0 }
       };
     });
     next.shifts = next.shifts.map(function (shift) {
@@ -221,7 +240,7 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.3.0 Agency';
+    if (label) label.textContent = 'v0.4.0 Employees';
   }
 
   function syncRuleInputs() {
@@ -235,7 +254,7 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
     if (!target) return;
     var items = [
       ['Agency', state.agencyProfile ? 1 : 0, 'The organization defines settings, vocabulary, shift definitions, coverage rules, and future policy defaults.'],
-      ['People', state.employees.length, 'Employees remain separate from future login users.'],
+      ['People', state.employees.length, 'Employees are rule-aware profile objects and remain separate from future login users.'],
       ['Rules', state.ruleProfiles.length, 'Agency policies explain overtime, mandation, coverage, benefits, and fairness.'],
       ['Patterns', state.patterns.length, 'Rotations generate expected work instead of storing every day forever.'],
       ['Events', state.scheduleEvents.length, 'Vacation, sick, OT, mandates, trades, training, and overrides become events.'],
@@ -249,6 +268,54 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
 
   function listText(items) {
     return (items || []).map(function (item) { return escapeHtml(item); }).join(', ');
+  }
+
+  function benefitText(balances) {
+    var b = balances || {};
+    return 'Vacation ' + (b.vacation || 0) + 'h · Sick ' + (b.sick || 0) + 'h · Personal ' + (b.personal || 0) + 'h · Comp ' + (b.comp || 0) + 'h';
+  }
+
+  function eligibilityText(employee) {
+    var flags = [];
+    if (employee.overtimeEligible) flags.push('OT');
+    if (employee.mandateEligible) flags.push('Mandate');
+    if (employee.tradeEligible) flags.push('Trade');
+    if (employee.shiftBidEligible) flags.push('Shift bid');
+    if (employee.vacationBidEligible) flags.push('Vacation bid');
+    if (employee.benefitEligible) flags.push('Benefits');
+    return flags.join(' · ') || 'No eligibility enabled';
+  }
+
+  function renderEmployeeProfiles() {
+    var cards = $('#employeeProfileCards');
+    var detail = $('#employeeProfileDetail');
+    if (!cards || !detail) return;
+    if (!state.employees.length) {
+      cards.innerHTML = '<div class="signal-empty-state"><strong>No employee profiles yet</strong><span>Load sample data or add people to preview rule-aware profiles.</span></div>';
+      detail.innerHTML = '<strong>Employee detail preview</strong><p>Select an employee card to see assignment, eligibility, exceptions, qualifications, and benefit snapshot notes.</p>';
+      return;
+    }
+    if (!state.selectedEmployeeId || !findEmployee(state.selectedEmployeeId)) state.selectedEmployeeId = state.employees[0].id;
+    cards.innerHTML = state.employees.map(function (employee) {
+      var active = employee.id === state.selectedEmployeeId ? ' is-active' : '';
+      var exception = employee.exceptions.length ? employee.exceptions.join(', ') : 'None';
+      return '<button type="button" class="employee-profile-card-button' + active + '" data-select-employee="' + employee.id + '"><span>' + escapeHtml(employee.status) + '</span><strong>' + escapeHtml(employee.name) + '</strong><small>' + escapeHtml(employee.position) + ' · ' + escapeHtml(employee.shiftGroup || 'No shift group') + '</small><em>Exceptions: ' + escapeHtml(exception) + '</em></button>';
+    }).join('');
+    var selected = findEmployee(state.selectedEmployeeId) || state.employees[0];
+    var exceptions = selected.exceptions.length ? selected.exceptions.join(', ') : 'None';
+    var qualifications = selected.qualifications.length ? selected.qualifications.join(', ') : 'None assigned';
+    var mandateNote = selected.mandateEligible && !selected.exceptions.length ? 'Can be evaluated for future mandate rotation rules.' : 'Future mandation rules must explain skip/exception handling.';
+    detail.innerHTML = '' +
+      '<span>Selected Employee</span>' +
+      '<strong>' + escapeHtml(selected.name) + '</strong>' +
+      '<p><b>Identity:</b> ' + escapeHtml(selected.employeeCode || 'No employee ID') + ' · hired ' + escapeHtml(selected.hireDate || 'not set') + ' · seniority ' + escapeHtml(selected.seniorityDate || 'not set') + '</p>' +
+      '<p><b>Agency assignment:</b> ' + escapeHtml(selected.department) + ' / ' + escapeHtml(selected.division) + ' / ' + escapeHtml(selected.location) + '</p>' +
+      '<p><b>Position:</b> ' + escapeHtml(selected.position) + ' · <b>Shift group:</b> ' + escapeHtml(selected.shiftGroup || 'not assigned') + ' · <b>Pattern:</b> ' + escapeHtml(selected.assignedPattern || 'placeholder') + '</p>' +
+      '<p><b>Eligibility:</b> ' + escapeHtml(eligibilityText(selected)) + '</p>' +
+      '<p><b>Exceptions:</b> ' + escapeHtml(exceptions) + '</p>' +
+      '<p><b>Qualifications:</b> ' + escapeHtml(qualifications) + '</p>' +
+      '<p><b>Benefit snapshot:</b> ' + escapeHtml(benefitText(selected.benefitBalances)) + '</p>' +
+      '<p><b>Rule impact:</b> ' + escapeHtml(mandateNote) + '</p>';
   }
 
   function renderAgencyProfile() {
@@ -429,9 +496,9 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.3.0');
+    lines.push('Version: v0.4.0');
     lines.push('');
-    lines.push('Core model: People + Rules + Patterns + Events + Coverage + Explanations');
+    lines.push('Core model: Agency Profile + Employee Profiles + Rules + Patterns + Events + Coverage + Explanations');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);
@@ -450,7 +517,7 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
     if (state.employees.length) {
       state.employees.forEach(function (employee) {
         var mandate = employee.mandateEligible ? 'mandate eligible' : 'not mandate eligible';
-        lines.push('- ' + employee.name + ' (' + employee.role + ') — ' + (totals[employee.id] || 0).toFixed(1) + ' hrs, ' + mandate);
+        lines.push('- ' + employee.name + ' (' + employee.position + ' / ' + (employee.shiftGroup || 'No group') + ') — ' + (totals[employee.id] || 0).toFixed(1) + ' hrs, ' + mandate + ', qualifications: ' + (employee.qualifications.length ? employee.qualifications.join(', ') : 'none'));
       });
     } else {
       lines.push('- None added');
@@ -476,8 +543,9 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.3 Notes:');
+    lines.push('v0.4 Notes:');
     lines.push('- This is still local mock data, not a backend.');
+    lines.push('- Employee profiles are sample objects, not editable database records yet.');
     lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
     lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides.');
     return lines.join('\n');
@@ -507,6 +575,7 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
     syncRuleInputs();
     renderEngineBlueprint();
     renderAgencyProfile();
+    renderEmployeeProfiles();
     renderCoverageRequirementPreview();
     renderDataModelPreview();
     renderSelects();
@@ -520,7 +589,7 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
   function addEmployee(name, role) {
     var clean = name.trim();
     if (!clean) return showToast('Enter an employee name first.', 'error');
-    state.employees.push({ id: id('emp'), name: clean, role: role || 'Dispatcher', status: 'active', mandateEligible: true, exceptions: [], benefitBalances: { vacation: 0, sick: 0, personal: 0, comp: 0 } });
+    state.employees.push({ id: id('emp'), name: clean, employeeCode: '', role: role || 'Dispatcher', position: role || 'Dispatcher', status: 'active', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: '', assignedPattern: '', hireDate: '', seniorityDate: '', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: [], benefitBalances: { vacation: 0, sick: 0, personal: 0, comp: 0, holiday: 0 } });
     save(); render(); showToast('Person added.', 'success');
   }
 
@@ -564,10 +633,10 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
   function loadSample() {
     state = normalizeState({
       employees: [
-        { id: 'emp-alex', name: 'Alex', role: 'Dispatcher', mandateEligible: true, exceptions: [], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6 } },
-        { id: 'emp-jordan', name: 'Jordan', role: 'Supervisor', mandateEligible: true, exceptions: [], benefitBalances: { vacation: 120, sick: 80, personal: 16, comp: 0 } },
-        { id: 'emp-taylor', name: 'Taylor', role: 'Dispatcher', mandateEligible: false, exceptions: ['FMLA'], benefitBalances: { vacation: 40, sick: 96, personal: 8, comp: 0 } },
-        { id: 'emp-casey', name: 'Casey', role: 'Part-Time', mandateEligible: false, exceptions: ['Part-time'], benefitBalances: { vacation: 12, sick: 16, personal: 0, comp: 0 } }
+        { id: 'emp-alex', name: 'Alex Rivera', employeeCode: 'E-1001', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2021-03-15', seniorityDate: '2021-03-15', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: '2-2-3 Nights Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6, holiday: 12 } },
+        { id: 'emp-jordan', name: 'Jordan Smith', employeeCode: 'E-1002', role: 'Supervisor', position: 'Shift Supervisor', status: 'active', hireDate: '2017-08-01', seniorityDate: '2017-08-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'A Days', assignedPattern: '2-2-3 Days Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Radio', 'Supervisor', 'Trainer'], benefitBalances: { vacation: 120, sick: 80, personal: 16, comp: 0, holiday: 24 } },
+        { id: 'emp-taylor', name: 'Taylor Morgan', employeeCode: 'E-1003', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2020-02-10', seniorityDate: '2020-02-10', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: '2-2-3 Nights Sample', overtimeEligible: true, mandateEligible: false, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: ['FMLA'], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 40, sick: 96, personal: 8, comp: 0, holiday: 8 } },
+        { id: 'emp-casey', name: 'Casey Lee', employeeCode: 'PT-204', role: 'Part-Time', position: 'Dispatcher', status: 'part-time', hireDate: '2024-11-01', seniorityDate: '2024-11-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'Float', assignedPattern: 'No fixed pattern', overtimeEligible: false, mandateEligible: false, tradeEligible: true, shiftBidEligible: false, vacationBidEligible: false, benefitEligible: false, exceptions: ['Part-time', 'No mandation'], qualifications: ['Calltaking'], benefitBalances: { vacation: 12, sick: 16, personal: 0, comp: 0, holiday: 0 } }
       ],
       shifts: [
         { id: 'shift-days', name: 'Days', start: '05:00', end: '17:00', minStaff: 2 },
@@ -599,7 +668,8 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
       ],
       coverageRequirements: defaultCoverageRequirements(),
       agencyProfile: defaultAgencyProfile(),
-      rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() }
+      rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
+      selectedEmployeeId: 'emp-alex'
     });
     save(); render(); showToast('Core engine sample data loaded.', 'success');
   }
@@ -627,13 +697,15 @@ Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary
       var employeeId = event.target.getAttribute('data-remove-employee');
       var shiftId = event.target.getAttribute('data-remove-shift');
       var assignmentId = event.target.getAttribute('data-remove-assignment');
+      var selectEmployeeId = event.target.closest('[data-select-employee]') ? event.target.closest('[data-select-employee]').getAttribute('data-select-employee') : '';
       if (employeeId) removeEmployee(employeeId);
       if (shiftId) removeShift(shiftId);
       if (assignmentId) removeAssignment(assignmentId);
+      if (selectEmployeeId) { state.selectedEmployeeId = selectEmployeeId; save(); render(); }
     });
     $('#sampleDataBtn').addEventListener('click', loadSample);
     $('#clearDataBtn').addEventListener('click', function () {
-      state = normalizeState({ employees: [], shifts: [], assignments: [], rules: state.rules, agencyProfile: state.agencyProfile });
+      state = normalizeState({ employees: [], shifts: [], assignments: [], rules: state.rules, agencyProfile: state.agencyProfile, selectedEmployeeId: null });
       save(); render(); showToast('Schedule cleared.', 'info');
     });
     $('#printBtn').addEventListener('click', function () { window.print(); });

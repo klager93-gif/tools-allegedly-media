@@ -1,12 +1,12 @@
 # Build Manifest
 
-Build: Signal Schedule v0.3.0 — Agency Profile Foundation
-Source: signal-schedule-v0.2.1-pattern-and-coverage-rule-planning.zip
+Build: Signal Schedule v0.4.0 — Employee Profile Foundation
+Source: signal-schedule-v0.3.0-agency-profile-foundation.zip
 Date: 2026-06-11
 
 ## Purpose
 
-Adds Agency Profile Foundation UI and planning data for organization settings, user-defined vocabulary, shift definitions, and coverage minimum/target/maximum requirements.
+Adds Employee Profile Foundation UI and planning data for rule-aware employee objects using agency-defined vocabulary, eligibility flags, exceptions, qualifications, and benefit snapshots.
 
 ## Files Changed
 

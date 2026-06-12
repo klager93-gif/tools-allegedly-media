@@ -4,11 +4,11 @@ Signal Schedule is a scheduling and staffing tool for Signal Labs.
 
 ## Version
 
-v0.3.0 — Agency Profile Foundation.
+v0.4.0 — Employee Profile Foundation.
 
 ## Current Purpose
 
-This release adds the Agency Profile Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now includes an agency/company profile with configurable settings, custom vocabulary, shift definitions, and coverage requirement examples.
+This release adds the Employee Profile Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now includes rule-aware employee profiles using agency-defined vocabulary for assignment, eligibility, exceptions, qualifications, and benefit snapshots.
 
 ## What it does now
 
@@ -20,7 +20,9 @@ This release adds the Agency Profile Foundation. Signal Schedule remains browser
 - Show a weekly schedule board
 - Show a Core Engine Blueprint panel
 - Show an Agency Profile Foundation panel
+- Show an Employee Profile Foundation panel
 - Preview agency-defined settings, vocabulary, shift definitions, and coverage requirements
+- Preview employee identity, agency assignment, eligibility, exceptions, qualifications, and benefit snapshots
 - Preview sample rule, pattern, event, and benefit-ledger objects
 - Calculate estimated scheduled hours
 - Show coverage warnings
@@ -36,7 +38,7 @@ This release adds the Agency Profile Foundation. Signal Schedule remains browser
 Signal Schedule should continue to be built around this model:
 
 ```text
-People + Rules + Patterns + Events + Coverage + Explanations
+Agency Profile + Employee Profiles + Rules + Patterns + Events + Coverage + Explanations
 ```
 
 The schedule is a view into the staffing engine. It should not become the entire system.
@@ -110,3 +112,19 @@ Agency profile planning includes:
 - Coverage requirements with minimum, target, maximum, role, qualification, location, time block, and optional numbered spots.
 
 The goal is to avoid hard-coded dispatch-only assumptions. Public safety, nursing, manufacturing, retail, office, and custom organizations should be supported through templates and agency-defined vocabulary, not separate hard-coded modes.
+
+
+## v0.4.0 Employee Profile Foundation
+
+Signal Schedule v0.4.0 adds the first visible employee profile model. Employees are treated as rule-aware objects, not just rows on a schedule.
+
+Employee profile planning includes:
+
+- Identity fields such as name, employee ID, hire date, seniority date, status, and color/label.
+- Agency assignment fields such as department, division, location, position/title, shift group, assigned pattern placeholder, and supervisor.
+- Eligibility flags for overtime, mandation, trades, shift bids, vacation bids, and benefits.
+- Rule-impacting exceptions such as FMLA, part-time, light duty, no mandation, training-only, and temporary restrictions.
+- Qualifications and capabilities such as calltaking, radio, trainer, supervisor, forklift, paramedic, RN, cashier, manager, or agency-defined custom values.
+- Benefit snapshots for display only. Future benefit balances should come from the benefit ledger.
+
+v0.4.0 does not add employee database storage, admin editing, login accounts, or employee CRUD.

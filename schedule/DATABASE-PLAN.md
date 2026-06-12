@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.3.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+Planning document for the future PHP/database version. Signal Schedule v0.4.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
 
 ## Core Rule
 
@@ -882,3 +882,75 @@ required
 ```
 
 Rule 0 applies: store facts such as times, minutes, requirements, and vocabulary records. Display labels, calculations, warnings, and reports should be derived later.
+
+
+## v0.4.0 Employee Profile Tables
+
+v0.4.0 adds planning for employee profiles, but does not create database tables yet. Future database work should keep employees separate from users.
+
+Potential employee-related tables:
+
+```text
+employees
+- id
+- agency_id
+- employee_code
+- display_name
+- status
+- hire_date
+- seniority_date
+- color_label
+- created_at
+- updated_at
+```
+
+```text
+employee_assignments
+- id
+- employee_id
+- department_id
+- division_id
+- location_id
+- position_id
+- shift_group_id
+- assigned_pattern_id
+- supervisor_employee_id
+- effective_start
+- effective_end
+```
+
+```text
+employee_eligibility
+- employee_id
+- overtime_eligible
+- mandate_eligible
+- trade_eligible
+- shift_bid_eligible
+- vacation_bid_eligible
+- benefit_eligible
+```
+
+```text
+employee_exceptions
+- id
+- employee_id
+- exception_type_id
+- affects_rule
+- start_date
+- end_date
+- reason
+- notes
+- active
+```
+
+```text
+employee_qualifications
+- id
+- employee_id
+- qualification_id
+- issued_date
+- expiration_date
+- active
+```
+
+Benefit balances should not become silent overwritten columns. They should be calculated from future benefit ledger entries. v0.4 may show snapshots for planning, but the ledger remains the planned source of truth.

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.3.0
+Version: v0.4.0
 Purpose: Logic-first schedule sandbox with text output and rule warnings
 -->
 <!DOCTYPE html>
@@ -15,17 +15,17 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.3.0">
+<link rel="stylesheet" href="style.css?v=0.4.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.3.0"
-  data-signal-theme="Agency Profile Foundation"
+  data-signal-version="v0.4.0"
+  data-signal-theme="Employee Profile Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define agency/company settings, custom vocabulary, shift definitions, and coverage minimums before employee profile work."
-  data-signal-status-text="Signal Schedule v0.3.0 adds the Agency Profile Foundation: configurable settings, custom vocabulary, shift definitions, and coverage minimum/target/maximum planning."
+  data-signal-description="Define rule-aware employee profiles that use agency-defined vocabulary, eligibility, exceptions, qualifications, and benefit snapshots."
+  data-signal-status-text="Signal Schedule v0.4.0 adds the Employee Profile Foundation: rule-aware people profiles connected to agency vocabulary, eligibility, exceptions, qualifications, and benefit snapshots."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.3.0 Agency</strong>
+      <strong id="currentWeekLabel">v0.4.0 Employees</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.3.0 is still browser-only. This release adds an Agency Profile Foundation so organizations can define their own settings, departments, positions, shift groups, qualifications, benefit types, exception types, shift definitions, and coverage requirements before employee profiles are added.</p>
+      <p>Signal Schedule v0.4.0 is still browser-only. This release adds the Employee Profile Foundation so people can be modeled as rule-aware objects with identity, agency assignment, eligibility, exceptions, qualifications, and benefit snapshots before database persistence is added.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.3 defines the organization first: agency settings, vocabulary, shift definitions, and coverage requirements.</p>
+        <p>v0.4 keeps the agency foundation and adds employee profiles as the first major rule-aware object in the system.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -68,6 +68,21 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
       </div>
     </div>
     <div id="agencyProfilePreview" class="agency-profile-grid"></div>
+  </section>
+
+
+
+  <section class="schedule-card employee-profile-card" aria-labelledby="employeeProfileTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="employeeProfileTitle">Employee Profile Foundation</h2>
+        <p>Employee profiles use agency-defined departments, positions, shift groups, qualifications, exception types, and benefit types instead of hard-coded assumptions.</p>
+      </div>
+    </div>
+    <div class="employee-profile-layout">
+      <div id="employeeProfileCards" class="employee-profile-grid"></div>
+      <aside id="employeeProfileDetail" class="employee-profile-detail" aria-live="polite"></aside>
+    </div>
   </section>
 
   <section class="schedule-card" aria-labelledby="coverageRulesTitle">
@@ -225,6 +240,6 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.3.0"></script>
+<script src="script.js?v=0.4.0"></script>
 </body>
 </html>

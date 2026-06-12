@@ -1,4 +1,4 @@
-- Verify Signal Schedule v0.3.0 Agency Profile Foundation after deployment.
+- Verify Signal Schedule v0.4.0 Employee Profile Foundation after deployment.
 # Signal Labs Roadmap
 
 ## Immediate
@@ -10,7 +10,7 @@
 
 ## Upcoming
 
-- Signal Schedule: employee profile system using agency-defined vocabulary.
+- Signal Schedule: pattern foundation using agency-defined shift definitions and employee profile assignments.
 - Signal Schedule: true date-based model and month view planning.
 - Signal Schedule: schedule patterns, rotations, overrides, time off conflicts, and publishing concept.
 - Signal Schedule: future rule-engine planning around agency policies, coverage, fairness, mandation, benefits, bidding, and explanations.
@@ -64,6 +64,15 @@
 - Added configurable agency/company settings.
 - Added custom vocabulary planning for departments, locations, positions, shift groups, qualifications, benefit types, and exception types.
 - Added shift definitions and coverage minimum/target/maximum planning.
+
+
+### v0.4.0
+
+- Employee Profile Foundation.
+- Added rule-aware employee profile model using agency-defined vocabulary.
+- Added sample identity, agency assignment, eligibility, exceptions, qualifications, and benefit snapshots.
+- Added employee profile cards and detail preview.
+- No employee database, login, admin save workflow, or CRUD was added.
 
 ### Planned
 

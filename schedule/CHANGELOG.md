@@ -1,5 +1,26 @@
 # Signal Schedule Changelog
 
+## v0.4.0 — Employee Profile Foundation
+
+### Added
+
+- Added visible Employee Profile Foundation section.
+- Added rule-aware employee profile cards and selected employee detail preview.
+- Expanded employee mock objects with identity, employee code, hire date, seniority date, department, division, location, position, shift group, assigned pattern placeholder, supervisor placeholder, eligibility flags, exceptions, qualifications, and benefit snapshots.
+- Added sample employee profiles that use agency-defined positions, shift groups, qualifications, benefit types, and exception types.
+
+### Changed
+
+- Updated Schedule version references to v0.4.0.
+- Updated text output to include Employee Profile Foundation notes.
+- Updated docs and planning notes so employee profiles follow agency profile/vocabulary instead of hard-coded assumptions.
+
+### Not Changed
+
+- No employee database was added.
+- No login, admin save workflow, employee CRUD, or final schedule automation was added.
+
+
 ## v0.3.0 — Agency Profile Foundation
 
 - Added visible Agency Profile Foundation panels.

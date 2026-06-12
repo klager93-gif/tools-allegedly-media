@@ -1,3 +1,11 @@
+## 2026-06-11 — Signal Schedule v0.4.0 Employee Profile Foundation
+
+- Added visible Employee Profile Foundation panels to the Schedule sandbox.
+- Added rule-aware employee mock objects using agency-defined vocabulary from v0.3.
+- Added sample identity, agency assignment, eligibility flags, exceptions, qualifications, and benefit snapshots.
+- Added employee profile cards and selected employee detail preview.
+- No employee database, login, admin save workflow, CRUD, or final schedule automation was added.
+
 ## 2026-06-11 — Signal Schedule v0.3.0 Agency Profile Foundation
 
 - Added visible Agency Profile Foundation panels to the Schedule sandbox.

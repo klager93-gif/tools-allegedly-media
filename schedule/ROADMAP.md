@@ -2,7 +2,7 @@
 
 ## Current Version
 
-v0.3.0 — Agency Profile Foundation.
+v0.4.0 — Employee Profile Foundation.
 
 ## Development Rule: Rule 23 — Version Consistency
 
@@ -239,3 +239,23 @@ People + Patterns + Events + Rules + Coverage + Explanations
 ```
 
 with day, week, month, personal, and supervisor views as windows into the same staffing engine.
+
+## v0.4.0 — Employee Profile Foundation
+
+Status: built.
+
+Goals:
+
+- Add employee profiles as the first major rule-aware object after agency profile.
+- Use agency-defined vocabulary for departments, locations, positions, shift groups, qualifications, benefit types, and exception types.
+- Preview identity, agency assignment, eligibility, exceptions, qualifications, benefit snapshots, and rule-impact summaries.
+- Keep employee profiles separate from future login users.
+
+Not included:
+
+- No employee database.
+- No add/edit/save admin workflow beyond existing local sandbox people.
+- No login accounts.
+- No employee CRUD.
+- No automated schedule generation.
+

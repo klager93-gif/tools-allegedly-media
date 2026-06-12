@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.3.0
+Version: v0.4.0
 Purpose: Signal Schedule agency profile foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -93,3 +93,17 @@ Purpose: Signal Schedule agency profile foundation styles
 .coverage-rule-card small { display: block; margin-top: 8px; color: var(--muted); line-height: 1.4; }
 @media (max-width: 850px) { .agency-profile-grid, .coverage-requirement-grid { grid-template-columns: 1fr; } }
 @media print { .agency-profile-item, .coverage-rule-card { border-color: #ccc; background: #fff; color: #111; } }
+
+.employee-profile-card { border-color: rgba(168,85,247,.22); background: rgba(168,85,247,.055); }
+.employee-profile-layout { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 14px; align-items: start; }
+.employee-profile-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.employee-profile-card-button { width: 100%; min-height: 132px; padding: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(0,0,0,.12); color: var(--text); text-align: left; cursor: pointer; }
+.employee-profile-card-button.is-active { border-color: rgba(168,85,247,.5); background: rgba(168,85,247,.13); }
+.employee-profile-card-button span, .employee-profile-detail span { display: block; color: var(--muted); font-size: 12px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
+.employee-profile-card-button strong, .employee-profile-detail strong { display: block; margin-top: 6px; font-size: 20px; letter-spacing: -.03em; }
+.employee-profile-card-button small, .employee-profile-card-button em { display: block; margin-top: 8px; color: var(--muted); font-style: normal; line-height: 1.4; }
+.employee-profile-detail { position: sticky; top: 16px; padding: 18px; border: 1px solid rgba(255,255,255,.1); border-radius: 20px; background: rgba(0,0,0,.16); }
+.employee-profile-detail p { margin-top: 10px; }
+.employee-profile-detail b { color: var(--soft); }
+@media (max-width: 950px) { .employee-profile-layout { grid-template-columns: 1fr; } .employee-profile-grid { grid-template-columns: 1fr; } .employee-profile-detail { position: static; } }
+@media print { .employee-profile-card-button, .employee-profile-detail { border-color: #ccc; background: #fff; color: #111; } }

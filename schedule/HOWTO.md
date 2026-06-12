@@ -56,3 +56,18 @@ Review the preview for:
 - Benefit and exception types.
 - Shift definitions.
 - Coverage minimums, targets, maximums, and optional numbered spots.
+
+
+## v0.4.0 Employee Profile Preview
+
+The Employee Profile Foundation panels show sample people as rule-aware objects. These are not database-backed employee records yet.
+
+Review the preview for:
+
+- Identity and seniority fields.
+- Agency assignment fields.
+- Eligibility flags.
+- Exceptions that affect rules.
+- Qualifications and capabilities.
+- Benefit snapshots.
+- Rule impact notes explaining why a person may be eligible, skipped, or restricted in future modules.
