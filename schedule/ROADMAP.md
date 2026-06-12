@@ -1,3 +1,19 @@
+## v0.11.0 — Fairness Engine Foundation
+
+Fairness should compare history and rules before users feel the system is arbitrary.
+
+Planned fairness concepts:
+
+- Overtime hour tracking.
+- Mandation count tracking.
+- Weekend and holiday distribution.
+- Callback distribution.
+- Skipped/exception history.
+- Seniority ledger and effective seniority planning.
+- Equalization concepts for OT, mandates, bids, and unpopular assignments.
+
+Next: v0.12.0 — Explainability Foundation.
+
 ## v0.10.0 — Schedule Views Foundation
 
 - Add day, week, month, personal, coverage, and system-inspector view planning.

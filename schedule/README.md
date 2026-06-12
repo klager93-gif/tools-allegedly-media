@@ -1,5 +1,13 @@
 # Signal Schedule
 
+## v0.11.0 Fairness Engine Foundation
+
+Signal Schedule v0.11.0 adds fairness planning on top of the existing agency, employee, pattern, event, benefit, rule, coverage, and view foundations. Fairness compares history, rules, and exceptions so overtime, mandates, weekends, holidays, callbacks, and seniority outcomes can eventually be explained.
+
+Current panels are still engine/debug previews, not final user-facing UI.
+
+# Signal Schedule
+
 ## v0.10.0 Schedule Views Foundation
 
 Signal Schedule v0.10.0 adds view planning on top of the existing agency, employee, pattern, event, benefit, rule, and coverage foundations. The same engine should eventually feed day, week, month, personal, coverage, and system-inspector views.

@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.10.0
+Version: v0.11.0
 Purpose: Signal Schedule benefit ledger foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -173,7 +173,7 @@ Purpose: Signal Schedule benefit ledger foundation styles
 @media print { .rule-engine-card-item, .rule-evaluation-card-item, .agency-template-card-item { border-color: #ccc; background: #fff; color: #111; } }
 
 /*
-Signal Schedule v0.10.0 Schedule Views Foundation
+Signal Schedule v0.11.0 Fairness Engine Foundation
 Keeps generated rule-engine labels from running into headings.
 */
 .rule-engine-card-item .card-kicker,
@@ -206,7 +206,7 @@ Keeps generated rule-engine labels from running into headings.
 
 
 /*
-Signal Schedule v0.10.0 Schedule Views Foundation
+Signal Schedule v0.11.0 Fairness Engine Foundation
 Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 */
 .coverage-engine-card { border-color: rgba(250,204,21,.26); background: rgba(250,204,21,.055); }
@@ -230,7 +230,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 @media (max-width: 650px) { .coverage-engine-grid, .coverage-slot-grid { grid-template-columns: 1fr; } }
 
 
-/* Signal Schedule v0.10.0 Schedule Views Foundation */
+/* Signal Schedule v0.11.0 Fairness Engine Foundation */
 .schedule-views-grid,
 .system-inspector-grid {
   display: grid;
@@ -262,4 +262,38 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 .schedule-view-card em {
   font-style: normal;
   font-weight: 700;
+}
+
+
+/* Signal Schedule v0.11.0 Fairness Engine Foundation */
+.fairness-engine-grid,
+.fairness-snapshot-grid,
+.seniority-ledger-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.fairness-engine-item,
+.fairness-snapshot-item,
+.seniority-ledger-item {
+  border: 1px solid var(--sl-border, rgba(148, 163, 184, 0.28));
+  border-radius: 1rem;
+  padding: 1rem;
+  background: var(--sl-card-soft, rgba(255, 255, 255, 0.04));
+}
+
+.fairness-engine-item strong,
+.fairness-snapshot-item strong,
+.seniority-ledger-item strong {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.fairness-engine-item small,
+.fairness-snapshot-item small,
+.seniority-ledger-item small {
+  display: block;
+  margin-top: 0.5rem;
+  line-height: 1.45;
 }

@@ -1,5 +1,21 @@
 # Signal Schedule Database Plan
 
+## v0.11.0 Fairness Engine Notes
+
+Future persistence should support fairness as history, not manually edited totals. Potential tables include:
+
+- fairness_snapshots
+- overtime_history
+- mandate_history
+- callback_history
+- weekend_holiday_counts
+- seniority_ledger
+- fairness_explanations
+
+Hire date, seniority date, and effective seniority should remain separate concepts. Effective seniority should be calculated from auditable ledger entries when agency policy requires it.
+
+# Signal Schedule Database Plan
+
 ## v0.10.0 Schedule Views Foundation Notes
 
 Schedule views should not own schedule data. Day, week, month, personal, coverage, and system-inspector views should all read from the same underlying facts: agency settings, employees, patterns, events, benefits, rules, and coverage requirements.

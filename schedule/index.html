@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.10.0
-Purpose: Schedule views foundation sandbox with day, week, month, personal, coverage, and system inspector preview planning
+Version: v0.11.0
+Purpose: Fairness engine foundation sandbox with overtime, mandate, weekend, holiday, callback, and seniority fairness preview planning
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Schedule views foundation sandbox with day, week, month, personal, cove
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.10.0">
+<link rel="stylesheet" href="style.css?v=0.11.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.10.0"
-  data-signal-theme="Schedule Views Foundation"
+  data-signal-version="v0.11.0"
+  data-signal-theme="Fairness Engine Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define schedule view planning for day, week, month, personal, coverage, and system-inspector views powered by the same engine."
-  data-signal-status-text="Signal Schedule v0.10.0 adds Schedule Views Foundation planning while remaining browser-only and mock-data based."
+  data-signal-description="Define fairness-engine planning for overtime, mandation, weekends, holidays, callbacks, seniority adjustments, and explainable distribution rules."
+  data-signal-status-text="Signal Schedule v0.11.0 adds Fairness Engine Foundation planning while remaining browser-only and mock-data based."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Schedule views foundation sandbox with day, week, month, personal, cove
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Preview how the same staffing engine can feed day, week, month, personal, coverage, and system-inspector views before persistence or final UI exists.</p>
+      <p class="schedule-subtitle">Preview how the staffing engine can compare overtime, mandation, weekend, holiday, callback, and seniority history before persistence or final UI exists.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.10.0 Views</strong>
+      <strong id="currentWeekLabel">v0.11.0 Fairness</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Schedule views foundation sandbox with day, week, month, personal, cove
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.10.0 is still browser-only. Schedule Views Foundation organizes the engine into planned views without database persistence, final UI, or true automation.</p>
+      <p>Signal Schedule v0.11.0 is still browser-only. Fairness Engine Foundation adds history and distribution planning without database persistence, final UI, or true automation.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.10 keeps the agency, employee, pattern, event, benefit, rule, and coverage foundations and adds schedule-view previews for how the same engine should be displayed later.</p>
+        <p>v0.11 keeps the agency, employee, pattern, event, benefit, rule, coverage, and view foundations and adds fairness previews for how history should be compared and explained later.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -233,6 +233,36 @@ Purpose: Schedule views foundation sandbox with day, week, month, personal, cove
     <div id="systemInspectorPreview" class="system-inspector-grid"></div>
   </section>
 
+  <section class="schedule-card fairness-engine-card" aria-labelledby="fairnessEngineTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="fairnessEngineTitle">Fairness Engine Foundation</h2>
+        <p>Fairness compares history, rules, and exceptions so overtime, mandates, weekends, holidays, callbacks, and seniority outcomes can be explained instead of guessed.</p>
+      </div>
+    </div>
+    <div id="fairnessEnginePreview" class="fairness-engine-grid"></div>
+  </section>
+
+  <section class="schedule-card fairness-snapshot-card" aria-labelledby="fairnessSnapshotTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="fairnessSnapshotTitle">Fairness Snapshot Preview</h2>
+        <p>Sample employees show how future reports could compare OT minutes, mandate counts, weekend load, active exceptions, and seniority adjustments.</p>
+      </div>
+    </div>
+    <div id="fairnessSnapshotPreview" class="fairness-snapshot-grid"></div>
+  </section>
+
+  <section class="schedule-card seniority-ledger-card" aria-labelledby="seniorityLedgerTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="seniorityLedgerTitle">Seniority Ledger Preview</h2>
+        <p>Hire date, seniority date, and effective seniority can differ. Future rules should calculate effective seniority from auditable adjustments, not silent edits.</p>
+      </div>
+    </div>
+    <div id="seniorityLedgerPreview" class="seniority-ledger-grid"></div>
+  </section>
+
   <section class="schedule-card" aria-labelledby="modelTitle">
     <div class="schedule-card-heading">
       <div>
@@ -378,6 +408,6 @@ Purpose: Schedule views foundation sandbox with day, week, month, personal, cove
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.10.0"></script>
+<script src="script.js?v=0.11.0"></script>
 </body>
 </html>

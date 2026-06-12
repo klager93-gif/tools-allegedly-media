@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.10.0
-Purpose: Schedule Views Foundation sandbox with day, week, month, personal, coverage, and system inspector previews
+Version: v0.11.0
+Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, holiday, callback, and seniority fairness previews
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.10.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.11.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -29,6 +29,8 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
     coverageRequirements: [],
     scheduleViews: [],
     systemInspectorNotes: [],
+    fairnessMetrics: [],
+    seniorityLedger: [],
     agencyProfile: null,
     selectedEmployeeId: null
   };
@@ -222,6 +224,67 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
       id: 'inspector-same-engine',
       name: 'Same data, different views',
       detail: 'Day, week, month, personal, coverage, and admin views should all read from the same facts and rules.'
+    }];
+  }
+
+
+  function defaultFairnessMetrics() {
+    return [{
+      id: 'fair-ot-hours',
+      name: 'Overtime Hours',
+      category: 'Workload',
+      metric: 'OT minutes in current fairness window',
+      purpose: 'Help show whether voluntary and assigned overtime are being distributed evenly.',
+      example: 'Alex has 720 OT minutes; Taylor has 0 because an active exception blocked mandation.'
+    }, {
+      id: 'fair-mandates',
+      name: 'Mandation Count',
+      category: 'Forced OT',
+      metric: 'Mandates counted against rotation',
+      purpose: 'Track who has been forced and who was skipped with a reason.',
+      example: 'Alex has 1 mandate; Taylor was skipped because FMLA/no-mandation is active.'
+    }, {
+      id: 'fair-weekends',
+      name: 'Weekend / Holiday Load',
+      category: 'Premium Days',
+      metric: 'Weekend, holiday, and callback assignments by employee',
+      purpose: 'Expose repeated unpopular assignments before employees feel the process is arbitrary.',
+      example: 'Jordan has 2 holiday assignments; Casey has 0 and may be ineligible for some bids.'
+    }, {
+      id: 'fair-seniority',
+      name: 'Effective Seniority',
+      category: 'Seniority',
+      metric: 'Hire date plus seniority ledger adjustments',
+      purpose: 'Separate hire date from effective seniority for bidding, vacation awards, and tie breakers.',
+      example: 'Taylor has a non-accrual leave adjustment, so effective seniority can differ from hire date.'
+    }];
+  }
+
+  function defaultSeniorityLedger() {
+    return [{
+      id: 'seniority-base-alex',
+      employeeId: 'emp-alex',
+      date: '2021-03-15',
+      action: 'Base seniority established',
+      adjustmentDays: 0,
+      reason: 'Hire/seniority date sample',
+      effectiveImpact: 'No adjustment'
+    }, {
+      id: 'seniority-leave-taylor',
+      employeeId: 'emp-taylor',
+      date: '2025-04-01',
+      action: 'Non-accrual leave period',
+      adjustmentDays: 61,
+      reason: 'Example unpaid leave where seniority does not accrue',
+      effectiveImpact: 'Moves effective seniority back by 61 days'
+    }, {
+      id: 'seniority-base-jordan',
+      employeeId: 'emp-jordan',
+      date: '2017-08-01',
+      action: 'Base seniority established',
+      adjustmentDays: 0,
+      reason: 'Hire/seniority date sample',
+      effectiveImpact: 'No adjustment'
     }];
   }
 
@@ -441,6 +504,8 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
     next.coverageRequirements = Array.isArray(next.coverageRequirements) && next.coverageRequirements.length ? next.coverageRequirements : defaultCoverageRequirements();
     next.scheduleViews = Array.isArray(next.scheduleViews) && next.scheduleViews.length ? next.scheduleViews : defaultScheduleViews();
     next.systemInspectorNotes = Array.isArray(next.systemInspectorNotes) && next.systemInspectorNotes.length ? next.systemInspectorNotes : defaultSystemInspectorNotes();
+    next.fairnessMetrics = Array.isArray(next.fairnessMetrics) && next.fairnessMetrics.length ? next.fairnessMetrics : defaultFairnessMetrics();
+    next.seniorityLedger = Array.isArray(next.seniorityLedger) && next.seniorityLedger.length ? next.seniorityLedger : defaultSeniorityLedger();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
     next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
@@ -591,7 +656,7 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.10.0 Views';
+    if (label) label.textContent = 'v0.11.0 Fairness';
   }
 
   function syncRuleInputs() {
@@ -941,6 +1006,48 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
     }).join('');
   }
 
+
+  function renderFairnessEnginePreview() {
+    var target = $('#fairnessEnginePreview');
+    if (!target) return;
+    var items = Array.isArray(state.fairnessMetrics) && state.fairnessMetrics.length ? state.fairnessMetrics : defaultFairnessMetrics();
+    target.innerHTML = items.map(function (item) {
+      return '<article class="fairness-engine-item"><span class="card-kicker">' + escapeHtml(item.category) + '</span><strong>' + escapeHtml(item.name) + '</strong><p>' + escapeHtml(item.metric) + '</p><small>' + escapeHtml(item.purpose) + '<br>' + escapeHtml(item.example) + '</small></article>';
+    }).join('');
+  }
+
+  function fairnessEmployeeRows() {
+    return state.employees.map(function (employee) {
+      var assignments = state.assignments.filter(function (assignment) { return assignment.employeeId === employee.id; });
+      var events = state.scheduleEvents.filter(function (event) { return event.employeeId === employee.id; });
+      var otMinutes = events.filter(function (event) { return /overtime|mandation|callback/i.test(event.type); }).reduce(function (sum, event) { return sum + Number(event.paidMinutes || 0); }, 0);
+      var mandates = events.filter(function (event) { return /mandation/i.test(event.type); }).length;
+      var weekendAssignments = assignments.filter(function (assignment) { return assignment.day === 'Saturday' || assignment.day === 'Sunday'; }).length;
+      var skippedReason = (employee.exceptions || []).length ? 'Active exception: ' + employee.exceptions.join(', ') : 'No active skip exception in sample data';
+      var seniorityAdjustments = (employee.seniorityAdjustments || []).length;
+      return { employee: employee, otMinutes: otMinutes, mandates: mandates, weekendAssignments: weekendAssignments, skippedReason: skippedReason, seniorityAdjustments: seniorityAdjustments };
+    });
+  }
+
+  function renderFairnessSnapshotPreview() {
+    var target = $('#fairnessSnapshotPreview');
+    if (!target) return;
+    var rows = fairnessEmployeeRows();
+    target.innerHTML = rows.map(function (row) {
+      return '<article class="fairness-snapshot-item"><span class="card-kicker">' + escapeHtml(row.employee.position || row.employee.role) + '</span><strong>' + escapeHtml(row.employee.name) + '</strong><p>OT ' + minutesLabel(row.otMinutes) + ' · Mandates ' + row.mandates + ' · Weekends ' + row.weekendAssignments + '</p><small>' + escapeHtml(row.skippedReason) + '<br>Seniority adjustments: ' + row.seniorityAdjustments + '</small></article>';
+    }).join('');
+  }
+
+  function renderSeniorityLedgerPreview() {
+    var target = $('#seniorityLedgerPreview');
+    if (!target) return;
+    var items = Array.isArray(state.seniorityLedger) && state.seniorityLedger.length ? state.seniorityLedger : defaultSeniorityLedger();
+    target.innerHTML = items.map(function (entry) {
+      var employee = findEmployee(entry.employeeId);
+      return '<article class="seniority-ledger-item"><span class="card-kicker">' + escapeHtml(entry.action) + '</span><strong>' + escapeHtml(employee ? employee.name : 'Employee') + '</strong><p>' + escapeHtml(entry.date) + ' · ' + Number(entry.adjustmentDays || 0) + ' adjustment day(s)</p><small>' + escapeHtml(entry.reason) + '<br>' + escapeHtml(entry.effectiveImpact) + '</small></article>';
+    }).join('');
+  }
+
   function renderDataModelPreview() {
     var target = $('#dataModelPreview');
     if (!target) return;
@@ -957,7 +1064,8 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
       ['Event Types', String((state.eventTypeDefinitions || []).length), 'Behavior-aware event definitions describe coverage, benefit, approval, and audit impact.'],
       ['Benefit Ledger', benefitSample.benefitType + ' ' + benefitSample.amount, benefitSample.reason],
       ['Coverage Engine', String(coverageEngineRows().length), 'Compares scheduled counts against min, target, and max by day and time block'],
-      ['Schedule Views', String((state.scheduleViews || []).length), 'Day, week, month, personal, coverage, and inspector views should use the same engine.']
+      ['Schedule Views', String((state.scheduleViews || []).length), 'Day, week, month, personal, coverage, and inspector views should use the same engine.'],
+      ['Fairness Metrics', String((state.fairnessMetrics || []).length), 'Fairness compares history, rules, seniority, mandates, overtime, weekends, holidays, and callbacks.']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -1125,7 +1233,7 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — SCHEDULE VIEWS FOUNDATION');
-    lines.push('Version: v0.10.0');
+    lines.push('Version: v0.11.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage Engine + Schedule Views + Explanations');
     lines.push('');
@@ -1147,6 +1255,8 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
     lines.push('- Coverage requirements: ' + coverageRequirementList().length);
     lines.push('- Coverage engine rows this week: ' + coverageEngineRows().length);
     lines.push('- Schedule view previews: ' + ((state.scheduleViews || []).length));
+    lines.push('- Fairness metrics: ' + ((state.fairnessMetrics || []).length));
+    lines.push('- Seniority ledger entries: ' + ((state.seniorityLedger || []).length));
     lines.push('');
     lines.push('Pattern Templates:');
     state.patterns.forEach(function (pattern) {
@@ -1200,7 +1310,7 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
     lines.push('- This is still local mock data, not a backend.');
     lines.push('- Events, rules, benefit entries, coverage rows, views, and templates are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
-    lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
+    lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, fairness, and coverage are mapped.');
     lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides, then displayed through audience-specific views.');
     return lines.join('\n');
   }
@@ -1244,6 +1354,9 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
     renderCoverageSlotPreview();
     renderScheduleViewsPreview();
     renderSystemInspectorPreview();
+    renderFairnessEnginePreview();
+    renderFairnessSnapshotPreview();
+    renderSeniorityLedgerPreview();
     renderDataModelPreview();
     renderSelects();
     renderPills();
@@ -1344,6 +1457,8 @@ Purpose: Schedule Views Foundation sandbox with day, week, month, personal, cove
       coverageRequirements: defaultCoverageRequirements(),
       scheduleViews: defaultScheduleViews(),
       systemInspectorNotes: defaultSystemInspectorNotes(),
+      fairnessMetrics: defaultFairnessMetrics(),
+      seniorityLedger: defaultSeniorityLedger(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
       selectedEmployeeId: 'emp-alex'

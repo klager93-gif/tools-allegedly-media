@@ -1,3 +1,5 @@
+**Signal Schedule v0.11.0 — Fairness Engine Foundation** adds planning for overtime, mandation, weekend, holiday, callback, and seniority fairness snapshots. Release ZIPs remain the official restore points.
+
 **Signal Schedule v0.10.0 — Schedule Views Foundation** adds planning for day, week, month, personal, coverage, and system-inspector views, plus seniority-adjustment planning for future fairness and bidding rules.
 
 # Signal Labs

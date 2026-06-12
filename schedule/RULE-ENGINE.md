@@ -1,5 +1,16 @@
 # Signal Schedule Rule Engine
 
+## v0.11.0 Fairness Engine Notes
+
+Fairness rules should evaluate history, eligibility, exceptions, seniority, and policy before ranking people for overtime, mandation, bids, callbacks, weekends, holidays, and other unpopular or valuable assignments.
+
+Fairness should answer both:
+
+- Who is next?
+- Why are they next?
+
+# Signal Schedule Rule Engine
+
 ## v0.10.0 Schedule Views Foundation Notes
 
 The rule engine should produce outcomes and explanations that can be displayed in multiple views. A coverage warning, mandate skip, vacation impact, or seniority adjustment should not belong to one screen only.

@@ -1,5 +1,19 @@
 # Signal Schedule HOWTO
 
+## v0.11.0 Fairness Engine Foundation
+
+Use the fairness panels to review sample fairness concepts. They are not editable database records yet.
+
+Look for:
+
+- Overtime minutes by employee.
+- Mandation counts.
+- Weekend load.
+- Active exception/skip reasons.
+- Seniority adjustments.
+
+# Signal Schedule HOWTO
+
 ## v0.10.0 Schedule Views Foundation
 
 Use the Schedule Views Foundation panels to review how the same engine could feed different screens later. These are not final layouts and are not editable database records.
