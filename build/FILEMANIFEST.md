@@ -1,7 +1,5 @@
 # File Manifest
 
-Build: Signal Schedule v0.11.0 — Fairness Engine Foundation
-
 - `.gitattributes`
 - `.gitignore`
 - `ADMIN_CHANGELOG.md`
@@ -21,6 +19,8 @@ Build: Signal Schedule v0.11.0 — Fairness Engine Foundation
 - `assets/icons/favicon.svg`
 - `assets/icons/site.webmanifest`
 - `build/BUILDMANIFEST.md`
+- `build/FILEMANIFEST.md`
+- `build/SHA256SUMS.txt`
 - `changelog/index.html`
 - `contact/index.html`
 - `docs/BACKUP.md`

@@ -1,6 +1,6 @@
 # Signal Schedule Rule Engine
 
-## v0.11.0 Fairness Engine Notes
+## v0.11.1 Fairness Engine Notes
 
 Fairness rules should evaluate history, eligibility, exceptions, seniority, and policy before ranking people for overtime, mandation, bids, callbacks, weekends, holidays, and other unpopular or valuable assignments.
 

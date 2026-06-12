@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.11.0
+Version: v0.11.1
 Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, holiday, callback, and seniority fairness previews
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.11.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.11.1';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.11.1', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -656,7 +656,7 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.11.0 Fairness';
+    if (label) label.textContent = 'v0.11.1 Fairness Repair';
   }
 
   function syncRuleInputs() {
@@ -789,6 +789,12 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     var sign = value > 0 ? '+' : '';
     var hours = Math.round((value / 60) * 100) / 100;
     return sign + hours + ' hr' + (Math.abs(hours) === 1 ? '' : 's');
+  }
+
+  function minutesLabel(minutes) {
+    var value = Number(minutes || 0);
+    var hours = Math.round((value / 60) * 100) / 100;
+    return hours + ' hr' + (Math.abs(hours) === 1 ? '' : 's');
   }
 
   function renderBenefitLedgerFoundation() {
@@ -1233,7 +1239,7 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — SCHEDULE VIEWS FOUNDATION');
-    lines.push('Version: v0.11.0');
+    lines.push('Version: v0.11.1');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage Engine + Schedule Views + Explanations');
     lines.push('');

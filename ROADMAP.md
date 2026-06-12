@@ -1,9 +1,9 @@
-- Verify Signal Schedule v0.11.0 Fairness Engine Foundation after deployment.
+- Verify Signal Schedule v0.11.1 Fairness Engine Foundation after deployment.
 - Next planned architecture release: Signal Schedule v0.12.0 — Explainability Foundation.
 - v0.11 adds fairness metrics, seniority-ledger planning, mandate/OT equalization concepts, and history-based distribution previews.
 
 - Verify Signal Schedule v0.10.0 Schedule Views Foundation after deployment.
-- Next planned release: Signal Schedule v0.11.0 — Fairness Engine Foundation.
+- Next planned release: Signal Schedule v0.11.1 — Fairness Engine Foundation.
 
 - Verify Signal Schedule v0.9.0 Coverage Engine Foundation after deployment.
 # Signal Labs Roadmap

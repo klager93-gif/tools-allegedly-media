@@ -1,11 +1,19 @@
-## v0.11.0 — Fairness Engine Foundation
+## v0.11.1 — Fairness Engine Foundation
 
 - Added Fairness Engine Foundation panels.
 - Added Fairness Snapshot Preview using sample employees.
 - Added Seniority Ledger Preview for non-accrual leave and seniority adjustment planning.
 - Added planning for OT equalization, mandate counts, weekend/holiday/callback distribution, skipped reasons, and exception history.
-- Updated Schedule version references and cache-busting to v0.11.0.
+- Updated Schedule version references and cache-busting to v0.11.1.
 - No database storage, final fairness automation, CRUD workflow, approval workflow, mandation rotation automation, or final schedule generation was added.
+
+
+## v0.11.1 — Fairness Render Repair
+
+- Fixed a missing `minutesLabel()` helper introduced in v0.11.0.
+- Restored page rendering, sample employee loading, and add-employee behavior after the Fairness Snapshot preview stopped the script.
+- Updated Schedule version references and cache-busting to v0.11.1.
+- No new scheduling logic, database storage, CRUD workflow, approval workflow, mandation automation, or final schedule generation was added.
 
 ## v0.10.0 — Schedule Views Foundation
 

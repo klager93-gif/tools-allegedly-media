@@ -1,4 +1,4 @@
-## v0.11.0 — Fairness Engine Foundation
+## v0.11.1 — Fairness Engine Foundation
 
 Fairness should compare history and rules before users feel the system is arbitrary.
 
@@ -23,7 +23,7 @@ Next: v0.12.0 — Explainability Foundation.
 
 ## Next Architecture Releases
 
-- v0.11.0 — Fairness Engine Foundation
+- v0.11.1 — Fairness Engine Foundation
 - v0.12.0 — Explainability Foundation
 - v0.13.0 — Mandation Foundation
 - v0.14.0 — Bidding Foundation
