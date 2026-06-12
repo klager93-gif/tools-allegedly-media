@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.6.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+Planning document for the future PHP/database version. Signal Schedule v0.7.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
 
 ## Core Rule
 
@@ -994,9 +994,9 @@ employee_patterns
 Pattern days should store facts, not assumptions. A short day should be stored as a cycle-day fact with its own start time, end time, paid minutes, and break rule.
 
 
-## v0.6.0 Event Foundation Tables
+## v0.7.0 Benefit Ledger Foundation Tables
 
-v0.6.0 adds planning for event objects, but does not create database tables yet.
+v0.7.0 adds planning for event objects, but does not create database tables yet.
 
 Future event-related tables may include:
 

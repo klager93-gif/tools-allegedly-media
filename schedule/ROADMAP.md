@@ -2,7 +2,7 @@
 
 ## Current Version
 
-v0.6.0 — Event Foundation.
+v0.7.0 — Benefit Ledger Foundation.
 
 ## Development Rule: Rule 23 — Version Consistency
 
@@ -135,7 +135,7 @@ Goal: make the schedule react to real-world events.
 - Add coverage warnings after absences are applied.
 - Prepare for later Time Off and Benefit Time integration.
 
-## v0.6.0 — Coverage Engine
+## v0.7.0 — Coverage Engine
 
 Goal: make staffing requirements visible and explainable.
 
@@ -283,7 +283,7 @@ Still not included:
 - Drag/drop assignment.
 - Time-off or overtime event overlays.
 
-## v0.6.0 — Event Foundation
+## v0.7.0 — Benefit Ledger Foundation
 
 Goal: define the event layer that changes expected pattern work before final schedule generation exists.
 
@@ -294,3 +294,7 @@ Goal: define the event layer that changes expected pattern work before final sch
 - Keep events as local mock objects only until the persistence phase.
 
 Not included: database storage, event CRUD, approval workflows, benefit ledger automation, mandation rotation, trade workflow, or final schedule generation.
+
+## v0.8.0 — Rule Engine Foundation
+
+Planned next: organize agency rules for overtime, benefits, coverage, fatigue, mandation, bidding, fairness, and explainability.

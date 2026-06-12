@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.6.0
-Purpose: Logic-first schedule sandbox with text output and rule warnings
+Version: v0.7.0
+Purpose: Benefit ledger foundation sandbox with text output and rule warnings
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.6.0">
+<link rel="stylesheet" href="style.css?v=0.7.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.6.0"
-  data-signal-theme="Event Foundation"
+  data-signal-version="v0.7.0"
+  data-signal-theme="Benefit Ledger Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define schedule events that modify expected pattern work, including vacation, sick time, overtime, mandation, training, trades, callbacks, and administrative leave."
-  data-signal-status-text="Signal Schedule v0.6.0 adds the Event Foundation: schedule events that remove, add, modify, or explain work before final schedule generation exists."
+  data-signal-description="Define benefit ledger planning for accruals, usage, corrections, payouts, projected balances, and audit history."
+  data-signal-status-text="Signal Schedule v0.7.0 adds the Benefit Ledger Foundation: accruals, usage, adjustments, and projected balances should come from auditable ledger entries."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Define event objects so future schedules can be generated from people, patterns, events, coverage, and rules instead of hard-coded calendar text.</p>
+      <p class="schedule-subtitle">Define benefit ledger objects so future balances are calculated from accruals, usage, corrections, and audit history instead of overwritten totals.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.6.0 Events</strong>
+      <strong id="currentWeekLabel">v0.7.0 Benefits</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,7 +46,7 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.6.0 is still browser-only. This release adds the Event Foundation so vacation, sick, overtime, mandation, training, trades, callbacks, and other changes can be modeled as events before database persistence or final schedule generation is added.</p>
+      <p>Signal Schedule v0.7.0 is still browser-only. This release adds the Benefit Ledger Foundation so vacation, sick, personal, comp time, holiday time, accruals, usage, corrections, and projected balances can be modeled before database persistence or final automation is added.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
@@ -107,14 +107,14 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 
 
 
-  <section class="schedule-card event-foundation-card" aria-labelledby="eventFoundationTitle">
+  <section class="schedule-card benefit-ledger-foundation-card" aria-labelledby="eventFoundationTitle">
     <div class="schedule-card-heading">
       <div>
-        <h2 id="eventFoundationTitle">Event Foundation</h2>
+        <h2 id="eventFoundationTitle">Benefit Ledger Foundation</h2>
         <p>Events describe what changes the expected pattern: time off, sick calls, overtime, mandation, training, trades, callbacks, holidays, and administrative overrides.</p>
       </div>
     </div>
-    <div id="eventFoundationPreview" class="event-foundation-grid"></div>
+    <div id="eventFoundationPreview" class="benefit-ledger-foundation-grid"></div>
   </section>
 
   <section class="schedule-card event-behavior-card" aria-labelledby="eventBehaviorTitle">
@@ -125,6 +125,27 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
       </div>
     </div>
     <div id="eventBehaviorPreview" class="event-behavior-grid"></div>
+  </section>
+
+
+  <section class="schedule-card benefit-ledger-card-section" aria-labelledby="benefitLedgerTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="benefitLedgerTitle">Benefit Ledger Foundation</h2>
+        <p>Benefit balances should be calculated from ledger entries. Accruals, usage, corrections, payouts, carryovers, and manual adjustments should never silently overwrite a balance.</p>
+      </div>
+    </div>
+    <div id="benefitLedgerPreview" class="benefit-ledger-grid"></div>
+  </section>
+
+  <section class="schedule-card benefit-rule-card" aria-labelledby="benefitRuleTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="benefitRuleTitle">Benefit Rule Preview</h2>
+        <p>Agency rules should support monthly accruals, per-paycheck accruals, annual banks, seniority tiers, manual adjustments, and projected balances.</p>
+      </div>
+    </div>
+    <div id="benefitRulePreview" class="benefit-rule-grid"></div>
   </section>
 
   <section class="schedule-card" aria-labelledby="coverageRulesTitle">
@@ -282,6 +303,6 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.6.0"></script>
+<script src="script.js?v=0.7.0"></script>
 </body>
 </html>

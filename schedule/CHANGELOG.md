@@ -1,11 +1,11 @@
-## v0.6.0 — Event Foundation
+## v0.7.0 — Benefit Ledger Foundation
 
-- Added visible Event Foundation panels.
+- Added visible Benefit Ledger Foundation panels.
 - Added Event Behavior Preview for behavior-aware event types.
 - Added sample event definitions for vacation, sick, overtime, mandation, training, and trade events.
 - Expanded schedule event mock objects with employee, type, category, status, start/end, paid minutes, coverage impact, benefit impact, behaviors, reason, source, and notes.
 - Updated text output to show event foundation samples and event type counts.
-- Updated Schedule version references to v0.6.0.
+- Updated Schedule version references to v0.7.0.
 - Updated Schedule roadmap, database plan, rule-engine notes, README, HOWTO, root roadmap, root README, master changelog, and build manifests.
 - No database storage, event CRUD, approval workflow, benefit ledger automation, mandation rotation, trade workflow, or final automated schedule generation was added.
 

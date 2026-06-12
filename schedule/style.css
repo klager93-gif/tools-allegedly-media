@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.6.0
-Purpose: Signal Schedule agency profile foundation styles
+Version: v0.7.0
+Purpose: Signal Schedule benefit ledger foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
 .schedule-hero { display: grid; grid-template-columns: 1fr minmax(220px, 320px); gap: 18px; align-items: stretch; margin: 18px 0; padding: 28px; border: 1px solid var(--border); border-radius: 30px; background: linear-gradient(135deg, rgba(34,197,94,.14), rgba(86,166,255,.08)); box-shadow: var(--shadow-toolbar); }
@@ -133,13 +133,26 @@ Purpose: Signal Schedule agency profile foundation styles
 @media print { .pattern-card, .pattern-day { border-color: #ccc; background: #fff; color: #111; } }
 
 
-.event-foundation-card { border-color: rgba(244,114,182,.24); background: rgba(244,114,182,.055); }
+.benefit-ledger-foundation-card { border-color: rgba(244,114,182,.24); background: rgba(244,114,182,.055); }
 .event-behavior-card { border-color: rgba(251,146,60,.24); background: rgba(251,146,60,.055); }
-.event-foundation-grid, .event-behavior-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.benefit-ledger-foundation-grid, .event-behavior-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .event-card, .event-behavior-card-item { padding: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(0,0,0,.12); }
 .event-card span, .event-behavior-card-item span { display: block; color: var(--muted); font-size: 12px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
 .event-card strong, .event-behavior-card-item strong { display: block; margin-top: 6px; font-size: 20px; letter-spacing: -.03em; }
 .event-card p, .event-behavior-card-item p { margin-top: 8px; }
 .event-card small, .event-behavior-card-item small { display: block; margin-top: 10px; color: var(--muted); line-height: 1.45; }
-@media (max-width: 950px) { .event-foundation-grid, .event-behavior-grid { grid-template-columns: 1fr; } }
+@media (max-width: 950px) { .benefit-ledger-foundation-grid, .event-behavior-grid { grid-template-columns: 1fr; } }
 @media print { .event-card, .event-behavior-card-item { border-color: #ccc; background: #fff; color: #111; } }
+
+
+.benefit-ledger-card-section { border-color: rgba(45,212,191,.24); background: rgba(45,212,191,.055); }
+.benefit-rule-card { border-color: rgba(129,140,248,.24); background: rgba(129,140,248,.055); }
+.benefit-ledger-grid, .benefit-rule-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.benefit-ledger-card, .benefit-rule-card-item { padding: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(0,0,0,.12); }
+.benefit-ledger-card span, .benefit-rule-card-item span { display: block; color: var(--muted); font-size: 12px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
+.benefit-ledger-card strong, .benefit-rule-card-item strong { display: block; margin-top: 6px; font-size: 20px; letter-spacing: -.03em; }
+.benefit-ledger-card p, .benefit-rule-card-item p { margin-top: 8px; }
+.benefit-ledger-card small, .benefit-rule-card-item small { display: block; margin-top: 10px; color: var(--muted); line-height: 1.45; }
+@media (max-width: 1100px) { .benefit-ledger-grid, .benefit-rule-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 650px) { .benefit-ledger-grid, .benefit-rule-grid { grid-template-columns: 1fr; } }
+@media print { .benefit-ledger-card, .benefit-rule-card-item { border-color: #ccc; background: #fff; color: #111; } }

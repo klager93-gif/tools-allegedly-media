@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.6.0
-Purpose: Event Foundation sandbox for schedule events that modify expected pattern work
+Version: v0.7.0
+Purpose: Benefit Ledger Foundation sandbox for auditable benefit accruals, usage, and adjustments
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.6.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.7.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -22,6 +22,7 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
     employeePatterns: [],
     scheduleEvents: [],
     benefitLedger: [],
+    benefitRules: [],
     coverageRequirements: [],
     agencyProfile: null,
     selectedEmployeeId: null
@@ -194,6 +195,43 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
       { id: 'cov-nights', label: 'Night coverage', start: '17:00', end: '05:00', minimum: 1, role: 'Any' }];
   }
 
+
+  function defaultBenefitRules() {
+    return [{
+      id: 'benefit-rule-sick-monthly',
+      benefitType: 'Sick',
+      method: 'Monthly accrual',
+      amountMinutes: 480,
+      cadence: 'First day of each month',
+      appliesTo: 'Benefit-eligible employees',
+      notes: 'Example: add 8 sick hours on the first of the month.'
+    }, {
+      id: 'benefit-rule-vacation-paycheck',
+      benefitType: 'Vacation',
+      method: 'Per paycheck accrual',
+      amountMinutes: 240,
+      cadence: 'Each biweekly pay period',
+      appliesTo: 'Full-time employees',
+      notes: 'Example: add 4 vacation hours per paycheck.'
+    }, {
+      id: 'benefit-rule-personal-annual',
+      benefitType: 'Personal',
+      method: 'Annual bank',
+      amountMinutes: 1440,
+      cadence: 'January 1',
+      appliesTo: 'Eligible active employees',
+      notes: 'Example: add 24 personal hours at the start of the year.'
+    }, {
+      id: 'benefit-rule-seniority-tier',
+      benefitType: 'Vacation',
+      method: 'Seniority tier',
+      amountMinutes: 0,
+      cadence: 'Policy-defined tier review',
+      appliesTo: 'Employees by seniority date',
+      notes: 'Future rules can calculate vacation banks from hire/seniority dates.'
+    }];
+  }
+
   function normalizeState(input) {
     var next = input || {};
     next.employees = Array.isArray(next.employees) ? next.employees : [];
@@ -236,6 +274,23 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
       };
     });
     next.benefitLedger = Array.isArray(next.benefitLedger) ? next.benefitLedger : [];
+    next.benefitLedger = next.benefitLedger.map(function (entry) {
+      return {
+        id: entry.id || id('ben'),
+        employeeId: entry.employeeId || '',
+        benefitType: entry.benefitType || 'Vacation',
+        date: entry.date || '',
+        amountMinutes: Number(entry.amountMinutes || (entry.amountHours ? entry.amountHours * 60 : 0) || 0),
+        amount: entry.amount || '',
+        action: entry.action || 'ledger entry',
+        reason: entry.reason || '',
+        source: entry.source || 'mock ledger',
+        relatedEventId: entry.relatedEventId || '',
+        balanceAfterMinutes: Number(entry.balanceAfterMinutes || 0),
+        notes: entry.notes || ''
+      };
+    });
+    next.benefitRules = Array.isArray(next.benefitRules) && next.benefitRules.length ? next.benefitRules : defaultBenefitRules();
     next.coverageRequirements = Array.isArray(next.coverageRequirements) && next.coverageRequirements.length ? next.coverageRequirements : defaultCoverageRequirements();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
@@ -382,7 +437,7 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.6.0 Events';
+    if (label) label.textContent = 'v0.7.0 Benefits';
   }
 
   function syncRuleInputs() {
@@ -400,7 +455,7 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
       ['Rules', state.ruleProfiles.length, 'Agency policies explain overtime, mandation, coverage, benefits, and fairness.'],
       ['Patterns', state.patterns.length, 'Rotations generate expected work instead of storing every day forever.'],
       ['Events', state.scheduleEvents.length, 'Events modify expected pattern work and explain why the final schedule differs from the normal plan.'],
-      ['Benefits', state.benefitLedger.length, 'Balances should come from auditable ledger entries.'],
+      ['Benefits', state.benefitLedger.length, 'Ledger entries preserve accruals, usage, corrections, payouts, and projected balances.'],
       ['Coverage', state.coverageRequirements.length, 'Requirements compare need vs. scheduled staffing.']
     ];
     target.innerHTML = items.map(function (item) {
@@ -503,6 +558,34 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
     var definitions = state.eventTypeDefinitions && state.eventTypeDefinitions.length ? state.eventTypeDefinitions : defaultEventTypeDefinitions();
     target.innerHTML = definitions.map(function (item) {
       return '<article class="event-behavior-card-item"><span>' + escapeHtml(item.category) + '</span><strong>' + escapeHtml(item.name) + '</strong><p>' + escapeHtml((item.behavior || []).join(' · ')) + '</p><small>' + escapeHtml(item.coverageImpact || '') + '</small></article>';
+    }).join('');
+  }
+
+
+  function formatMinutes(minutes) {
+    var value = Number(minutes || 0);
+    var sign = value > 0 ? '+' : '';
+    var hours = Math.round((value / 60) * 100) / 100;
+    return sign + hours + ' hr' + (Math.abs(hours) === 1 ? '' : 's');
+  }
+
+  function renderBenefitLedgerFoundation() {
+    var target = $('#benefitLedgerPreview');
+    if (!target) return;
+    var entries = state.benefitLedger.length ? state.benefitLedger : [{ benefitType: 'Sick', date: '2026-06-01', amountMinutes: 480, action: 'Monthly accrual', reason: 'Monthly sick accrual', source: 'sample policy' }];
+    target.innerHTML = entries.map(function (entry) {
+      var employee = findEmployee(entry.employeeId);
+      var who = employee ? employee.name : 'Agency sample';
+      return '<article class="benefit-ledger-card"><span>' + escapeHtml(entry.benefitType) + ' · ' + escapeHtml(entry.action || 'Ledger entry') + '</span><strong>' + escapeHtml(formatMinutes(entry.amountMinutes)) + '</strong><p>' + escapeHtml(who) + ' · ' + escapeHtml(entry.date || 'No date') + '</p><small>' + escapeHtml(entry.reason || 'Benefit ledger entry') + '<br>Source: ' + escapeHtml(entry.source || 'mock ledger') + '</small></article>';
+    }).join('');
+  }
+
+  function renderBenefitRulePreview() {
+    var target = $('#benefitRulePreview');
+    if (!target) return;
+    var rules = state.benefitRules && state.benefitRules.length ? state.benefitRules : defaultBenefitRules();
+    target.innerHTML = rules.map(function (rule) {
+      return '<article class="benefit-rule-card-item"><span>' + escapeHtml(rule.benefitType) + '</span><strong>' + escapeHtml(rule.method) + '</strong><p>' + escapeHtml(formatMinutes(rule.amountMinutes)) + ' · ' + escapeHtml(rule.cadence) + '</p><small>' + escapeHtml(rule.appliesTo) + '<br>' + escapeHtml(rule.notes) + '</small></article>';
     }).join('');
   }
 
@@ -696,7 +779,7 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.6.0');
+    lines.push('Version: v0.7.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage + Explanations');
     lines.push('');
@@ -721,7 +804,7 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
     });
 
     lines.push('');
-    lines.push('Event Foundation:');
+    lines.push('Benefit Ledger Foundation:');
     if (state.scheduleEvents.length) {
       state.scheduleEvents.forEach(function (event) {
         var employee = findEmployee(event.employeeId);
@@ -800,6 +883,8 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
     renderPatternCyclePreview();
     renderEventFoundation();
     renderEventBehaviorPreview();
+    renderBenefitLedgerFoundation();
+    renderBenefitRulePreview();
     renderCoverageRequirementPreview();
     renderDataModelPreview();
     renderSelects();
@@ -889,9 +974,12 @@ Purpose: Event Foundation sandbox for schedule events that modify expected patte
         { id: 'evt-training-sample', employeeId: 'emp-jordan', type: 'Training', category: 'Assignment Change', status: 'scheduled', start: '2026-06-22T09:00', end: '2026-06-22T13:00', paidMinutes: 240, coverageImpact: 'Changes Jordan from normal coverage to training assignment during event window.', benefitImpact: 'No benefit use.', behaviors: ['changes role', 'may remove from coverage', 'requires audit trail'], reason: 'CTO refresher sample', source: 'mock training schedule' }
       ],
       benefitLedger: [
-        { id: 'ben-1', employeeId: 'emp-alex', benefitType: 'sick', date: '2026-06-01', amount: '+8', reason: 'Monthly sick accrual' },
-        { id: 'ben-2', employeeId: 'emp-taylor', benefitType: 'vacation', date: '2026-06-18', amount: '-12', reason: 'Approved vacation event' }
+        { id: 'ben-1', employeeId: 'emp-alex', benefitType: 'Sick', date: '2026-06-01', amountMinutes: 480, action: 'Monthly accrual', reason: 'Monthly sick accrual', source: 'mock accrual rule', balanceAfterMinutes: 3360 },
+        { id: 'ben-2', employeeId: 'emp-taylor', benefitType: 'Vacation', date: '2026-06-18', amountMinutes: -720, action: 'Approved use', reason: 'Approved vacation event', source: 'evt-vacation-sample', relatedEventId: 'evt-vacation-sample', balanceAfterMinutes: 1680 },
+        { id: 'ben-3', employeeId: 'emp-jordan', benefitType: 'Personal', date: '2026-01-01', amountMinutes: 1440, action: 'Annual bank', reason: 'Annual personal time bank', source: 'mock annual rule', balanceAfterMinutes: 2400 },
+        { id: 'ben-4', employeeId: 'emp-alex', benefitType: 'Comp Time', date: '2026-06-21', amountMinutes: 120, action: 'Manual adjustment', reason: 'Example correction entry with audit reason', source: 'admin adjustment sample', balanceAfterMinutes: 480 }
       ],
+      benefitRules: defaultBenefitRules(),
       coverageRequirements: defaultCoverageRequirements(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },

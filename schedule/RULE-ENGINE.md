@@ -322,7 +322,7 @@ Key principles:
 - Patterns describe normal expectations; future events explain deviations.
 
 
-## v0.6.0 Event Rules
+## v0.7.0 Event Rules
 
 Events are rule-aware facts that change expected pattern work.
 
@@ -345,3 +345,19 @@ Examples:
 - Trades change who fills the assignment and require approval/audit history.
 
 Future rule-engine behavior should evaluate events together with patterns, agency policies, employee exceptions, coverage requirements, and benefit ledgers.
+
+## v0.7.0 — Benefit Ledger Foundation
+
+Signal Schedule v0.7.0 adds benefit ledger planning. Benefit balances should be derived from auditable ledger entries rather than overwritten as silent totals.
+
+Planned benefit ledger concepts include:
+
+- Benefit types such as vacation, sick, personal, comp time, holiday, and custom agency-defined banks.
+- Accrual entries such as monthly accruals, per-paycheck accruals, annual banks, and seniority-tier accruals.
+- Usage entries created from approved time-off events.
+- Manual adjustment entries with reasons and sources.
+- Projected balance planning for future dates.
+- Audit history so every balance change can answer why it happened.
+
+v0.7.0 does not add database persistence, editable benefit records, payroll integration, approval workflow, automatic accrual processing, or final benefit calculations.
+

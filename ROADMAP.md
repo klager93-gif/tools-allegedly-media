@@ -1,4 +1,4 @@
-- Verify Signal Schedule v0.6.0 Event Foundation after deployment.
+- Verify Signal Schedule v0.7.0 Benefit Ledger Foundation after deployment.
 # Signal Labs Roadmap
 
 ## Immediate
@@ -101,9 +101,9 @@
 
 - Pattern Foundation.
 
-### v0.6.0
+### v0.7.0
 
-- Event Foundation.
+- Benefit Ledger Foundation.
 - Model vacation, sick, overtime, mandation, training, trades, callbacks, and administrative changes as schedule events.
 - Added pattern templates and cycle-day preview.
 - Added short days, short weeks, paid minutes, break rules, and agency week-start display behavior.

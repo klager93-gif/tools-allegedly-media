@@ -80,9 +80,9 @@ The Pattern Foundation panels show sample pattern templates and cycle days. Thes
 Use the panels to review how normal days, off days, short days, paid minutes, and break rules should be represented before final schedule generation is built.
 
 
-## v0.6.0 Event Foundation Preview
+## v0.7.0 Benefit Ledger Foundation Preview
 
-The Event Foundation panels show sample event types and schedule events. These are not editable database-backed event records yet.
+The Benefit Ledger Foundation panels show sample event types and schedule events. These are not editable database-backed event records yet.
 
 Review the preview for:
 
