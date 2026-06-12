@@ -1,20 +1,24 @@
 # Signal Schedule Coolify API
 
-Current version: v2.0.0 — Minimum Staffing Foundation
+Current release: **v2.1.0 — Calendar Foundation**
 
-Read routes:
+## Read Routes
 
-```text
-GET /health
-GET /employees
-GET /assignments
-GET /minimum-staffing
-GET /api/health
-GET /api/employees
-GET /api/assignments
-GET /api/minimum-staffing
-```
+- `GET /health`
+- `GET /api/health`
+- `GET /employees`
+- `GET /api/employees`
+- `GET /assignments`
+- `GET /api/assignments`
+- `GET /minimum-staffing`
+- `GET /api/minimum-staffing`
+- `GET /calendar`
+- `GET /api/calendar`
 
-Employee write routes remain protected and require `EMPLOYEE_WRITES_ENABLED=true`, `DATA_MODE=postgres`, `DATABASE_URL`, and `ADMIN_API_KEY`.
+## Write Routes
 
-Minimum staffing routes are read-only JSON seed routes in v2.0.0.
+Employee write routes remain protected and require configured environment settings. Calendar, assignment, and minimum staffing routes are read-only foundation routes in this release.
+
+## v2.1.0 Notes
+
+The Calendar Foundation route returns preview rows and event placeholders from JSON seed data. It does not generate schedules, approve leave, post VOT, or apply mandation rules yet.

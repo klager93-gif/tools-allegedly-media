@@ -1,0 +1,93 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/schedule.html
+Version: v2.1.0
+Purpose: User-facing Calendar Foundation preview page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Calendar Foundation</title>
+<meta name="description" content="Calendar-first Schedule preview showing daily coverage, short staffing placeholders, and event impact before the scheduling engine is active.">
+<link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
+<link rel="stylesheet" href="style.css?v=2.0.0">
+<link rel="stylesheet" href="schedule-calendar.css?v=2.1.0">
+</head>
+<body
+  data-signal-global-layout="true"
+  data-signal-area="Signal Schedule"
+  data-signal-title="Schedule Calendar"
+  data-signal-version="v2.1.0"
+  data-signal-theme="Calendar Foundation"
+  data-signal-status="Active Development"
+  data-signal-description="Calendar-first preview of coverage, open shifts, and event impacts before the production scheduling engine exists."
+  data-signal-status-text="Signal Schedule v2.1.0 adds a separate user-facing calendar preview page while keeping the foundation index intact."
+>
+<div id="sl-header"></div>
+
+<main class="calendar-shell">
+  <section class="calendar-hero" aria-labelledby="calendarTitle">
+    <div>
+      <p class="schedule-kicker">Signal Schedule</p>
+      <h1 id="calendarTitle">Calendar Foundation</h1>
+      <p class="calendar-subtitle">A month-style schedule preview that shows coverage, short staffing, events, and open shift placeholders before the full scheduling engine is active.</p>
+    </div>
+    <div class="calendar-status-card">
+      <span>Preview Month</span>
+      <strong>June 2026</strong>
+      <small>Read-only foundation</small>
+    </div>
+  </section>
+
+  <section class="calendar-summary-grid" id="calendarSummary" aria-label="Calendar summary"></section>
+
+  <section class="calendar-layout">
+    <section class="calendar-card" aria-labelledby="monthViewTitle">
+      <div class="calendar-section-heading">
+        <div>
+          <h2 id="monthViewTitle">Month View</h2>
+          <p>Click a day to preview assignments, coverage status, and event impact.</p>
+        </div>
+      </div>
+      <div class="calendar-weekdays" aria-hidden="true">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+      <div id="calendarGrid" class="calendar-grid"></div>
+    </section>
+
+    <aside class="calendar-card calendar-detail-card" aria-labelledby="dayDetailTitle">
+      <div class="calendar-section-heading">
+        <div>
+          <h2 id="dayDetailTitle">Day Detail</h2>
+          <p id="selectedDayLabel">Select a day with coverage data.</p>
+        </div>
+      </div>
+      <div id="dayCoverageList" class="day-coverage-list"></div>
+      <div id="dayEventList" class="day-event-list"></div>
+    </aside>
+  </section>
+
+  <section class="calendar-card calendar-next-card" aria-labelledby="calendarNextTitle">
+    <div class="calendar-section-heading">
+      <div>
+        <h2 id="calendarNextTitle">What This Unlocks Next</h2>
+        <p>The calendar now gives future leave, VOT, mandation, and schedule generation workflows somewhere visible to land.</p>
+      </div>
+    </div>
+    <div class="calendar-next-grid">
+      <article><strong>Leave Requests</strong><span>Show approved and pending time off on the day it affects coverage.</span></article>
+      <article><strong>Open Shifts / VOT</strong><span>Turn short days into bid opportunities.</span></article>
+      <article><strong>Mandation</strong><span>Escalate unresolved coverage gaps using eligibility and rules.</span></article>
+      <article><strong>Publishing</strong><span>Convert previews into a schedule employees can actually read.</span></article>
+    </div>
+  </section>
+</main>
+
+<div id="sl-footer"></div>
+<script src="../assets/global.js?v=0.9.9.6"></script>
+<script type="module" src="schedule-calendar.js?v=2.1.0"></script>
+</body>
+</html>

@@ -1,24 +1,17 @@
-# Signal Labs Roadmap
+# Signal Labs Master Roadmap
 
-## Current
+## Schedule
 
-Schedule v2.0.0 — Minimum Staffing Foundation is complete.
+Completed:
 
-## Next
+- v1.8.0 — Employee CRUD Foundation
+- v1.9.0 — Assignments Foundation
+- v2.0.0 — Minimum Staffing Foundation
+- v2.1.0 — Calendar Foundation
 
-Schedule v2.1.0 — Leave Requests Foundation
+Next:
 
-Planned after v2.0.0:
-
-- Leave request model
-- Request review states
-- Staffing impact preview
-- Request API foundation
-- Request UI foundation
-
-## Later
-
-- v2.2.0 Voluntary OT / Open Shift Bidding
-- v2.3.0 Mandation Engine Foundation
-- v2.4.0 Schedule Generation Engine
-- v2.5.0 Publishing & Notifications
+- v2.2.0 — Leave Requests Foundation
+- v2.3.0 — Open Shift / VOT Foundation
+- v2.4.0 — Mandation Foundation
+- v2.5.0 — Schedule Generation Foundation

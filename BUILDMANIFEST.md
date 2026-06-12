@@ -1,18 +1,29 @@
-# Schedule v2.0.0 Build Manifest
+# Build Manifest
 
-Build: Schedule v2.0.0 — Minimum Staffing Foundation
-Date: 2026-06-12
-Backup: 2026-06-12 Schedule Backup Before v2.0.0
+## Schedule v2.1.0 — Calendar Foundation
+
+Backup title:
+
+```text
+2026-06-12 Schedule Backup Before v2.1.0
+```
+
+Built from:
+
+```text
+signal-labs-schedule-v2.0.0-minimum-staffing-foundation.zip
+```
+
+Release package:
+
+```text
+signal-labs-schedule-v2.1.0-calendar-foundation.zip
+```
 
 Scope:
+
 - Schedule only
-- No Paycheck changes
+- Mandatory root release documentation
+- No Paycheck files
 - No unrelated tools
 - No junk/work folders
-
-Primary additions:
-- Minimum staffing data
-- Minimum staffing adapter/repository/service
-- Minimum staffing API contract
-- Minimum staffing API route
-- Minimum staffing UI preview

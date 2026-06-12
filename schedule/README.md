@@ -1,9 +1,36 @@
-# Signal Labs / Signal Schedule
+# Signal Schedule
 
-Current Schedule release: v2.0.0 — Minimum Staffing Foundation
+**Current Version:** v2.1.0 — Calendar Foundation
 
-This release adds minimum staffing templates, preview data, service/repository boundaries, read-only API routes, and a frontend preview section.
+Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, and similar shift-based operations.
 
-Minimum staffing defines how many people are required for each assignment, role, shift, day, and location before leave approval, VOT bidding, mandation, and schedule generation are implemented.
+## Pages
 
-No Paycheck files or unrelated tools were modified.
+- `schedule/index.html` — foundation/admin overview page
+- `schedule/schedule.html` — user-facing calendar preview page
+
+## Current Foundations
+
+- Employee foundation
+- Employee CRUD foundation
+- Assignments foundation
+- Minimum staffing foundation
+- Calendar foundation
+
+## v2.1.0 Adds
+
+- Month-style calendar preview
+- Coverage status indicators
+- Day detail panel
+- Event placeholders
+- Open shift placeholders
+- Calendar data/service/repository boundaries
+- Calendar API contract and read-only API route planning
+
+## Not Production Ready Yet
+
+- No active schedule generation engine
+- No leave approval workflow
+- No VOT bidding workflow
+- No employee portal
+- No production auth system

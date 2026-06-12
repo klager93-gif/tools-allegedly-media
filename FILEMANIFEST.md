@@ -1,18 +1,31 @@
-# Schedule v2.0.0 Build Manifest
+# File Manifest
 
-Build: Schedule v2.0.0 — Minimum Staffing Foundation
-Date: 2026-06-12
-Backup: 2026-06-12 Schedule Backup Before v2.0.0
+## Schedule v2.1.0 — Calendar Foundation
 
-Scope:
-- Schedule only
-- No Paycheck changes
-- No unrelated tools
-- No junk/work folders
+Files included in this scoped release package:
 
-Primary additions:
-- Minimum staffing data
-- Minimum staffing adapter/repository/service
-- Minimum staffing API contract
-- Minimum staffing API route
-- Minimum staffing UI preview
+- `ADMIN_CHANGELOG.md`
+- `BUILDMANIFEST.md`
+- `FILEMANIFEST.md`
+- `MASTER-CHANGELOG.md`
+- `MASTER-ROADMAP.md`
+- `PUBLIC_CHANGELOG.md`
+- `README.md`
+- `schedule/CALENDAR-FOUNDATION.md`
+- `schedule/CHANGELOG.md`
+- `schedule/HOWTO.md`
+- `schedule/README.md`
+- `schedule/RELEASE-v2.1.0.md`
+- `schedule/ROADMAP.md`
+- `schedule/adapters/JsonCalendarAdapter.js`
+- `schedule/api/contracts/calendar.read.schema.json`
+- `schedule/api/coolify/README.md`
+- `schedule/api/coolify/server.js`
+- `schedule/api/coolify/sql/006_calendar_foundation_schema.sql`
+- `schedule/data/calendar-events-preview.json`
+- `schedule/data/calendar-preview.json`
+- `schedule/repositories/CalendarRepository.js`
+- `schedule/schedule-calendar.css`
+- `schedule/schedule-calendar.js`
+- `schedule/schedule.html`
+- `schedule/services/CalendarService.js`

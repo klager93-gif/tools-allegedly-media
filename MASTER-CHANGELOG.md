@@ -1,15 +1,14 @@
-# Signal Labs Changelog
+# Signal Labs Master Changelog
 
-## Schedule v2.0.0 — Minimum Staffing Foundation
+## 2026-06-12 — Schedule v2.1.0 Calendar Foundation
 
-- Added minimum staffing template seed data.
-- Added minimum staffing preview data.
-- Added minimum staffing adapter, repository, and service boundaries.
-- Added read-only `/minimum-staffing` and `/api/minimum-staffing` Coolify API routes.
-- Added frontend Minimum Staffing Foundation preview section.
-- Added future Postgres schema planning for minimum staffing templates.
-- Updated Schedule documentation and release manifests.
+- Added user-facing Schedule calendar preview page.
+- Added calendar preview and event placeholder data.
+- Added calendar adapter, repository, and service boundaries.
+- Added calendar API contract and Coolify read route planning.
+- Added future Postgres calendar schema planning.
+- Preserved Schedule index as the foundation/admin overview.
 
-## Schedule v1.9.0 — Assignments Foundation
+## 2026-06-12 — Schedule v2.0.0 Minimum Staffing Foundation
 
-- Added assignment foundation architecture and seed data.
+- Added minimum staffing foundation.

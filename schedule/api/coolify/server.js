@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.0.0
-Purpose: Coolify API with employee CRUD, assignments foundation, and read-only minimum staffing foundation.
+Version: v2.1.0
+Purpose: Coolify API with employee CRUD, assignments, minimum staffing, and read-only calendar foundation.
 
 This release intentionally has:
 - no committed credentials
@@ -33,6 +33,8 @@ const ASSIGNMENT_TEMPLATES_PATH = resolve(__dirname, '../../data/assignment-temp
 const EMPLOYEE_ASSIGNMENTS_PATH = resolve(__dirname, '../../data/employee-assignments.json');
 const MINIMUM_STAFFING_TEMPLATES_PATH = resolve(__dirname, '../../data/minimum-staffing-templates.json');
 const MINIMUM_STAFFING_PREVIEW_PATH = resolve(__dirname, '../../data/minimum-staffing-preview.json');
+const CALENDAR_PREVIEW_PATH = resolve(__dirname, '../../data/calendar-preview.json');
+const CALENDAR_EVENTS_PREVIEW_PATH = resolve(__dirname, '../../data/calendar-events-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -44,7 +46,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.0.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.1.0', ...overrides };
 }
 
 function notFound(res) {
@@ -173,6 +175,17 @@ async function listMinimumStaffingFromJsonSeed() {
   };
 }
 
+async function listCalendarFromJsonSeed() {
+  const [previewRaw, eventsRaw] = await Promise.all([
+    readFile(CALENDAR_PREVIEW_PATH, 'utf8'),
+    readFile(CALENDAR_EVENTS_PREVIEW_PATH, 'utf8')
+  ]);
+  return {
+    preview: JSON.parse(previewRaw),
+    events: JSON.parse(eventsRaw)
+  };
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -279,6 +292,25 @@ const server = createServer(async (req, res) => {
         data: { templates: [], preview: [] },
         meta: apiMeta(),
         errors: [{ code: 'MINIMUM_STAFFING_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+  if (req.method === 'GET' && (url.pathname === '/calendar' || url.pathname === '/api/calendar')) {
+    try {
+      const data = await listCalendarFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-calendar-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { preview: [], events: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'CALENDAR_READ_FAILED', message: error.message }]
       });
     }
   }

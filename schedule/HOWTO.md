@@ -1,21 +1,32 @@
-# Signal Schedule HOWTO
+# How To Use Signal Schedule v2.1.0
 
-## Minimum Staffing Foundation
+## Open the Foundation Overview
 
-Use v2.0.0 data files to define staffing requirements by assignment, role, shift, location, and day.
-
-Files:
+Use:
 
 ```text
-schedule/data/minimum-staffing-templates.json
-schedule/data/minimum-staffing-preview.json
+schedule/index.html
 ```
 
-API preview routes:
+This page remains the foundation/admin overview.
+
+## Open the Calendar Preview
+
+Use:
 
 ```text
-GET /minimum-staffing
-GET /api/minimum-staffing
+schedule/schedule.html
 ```
 
-This release is read-only. Editing and production writes come later.
+The calendar page shows a read-only June 2026 preview.
+
+## Read the Calendar
+
+- Green/covered rows meet minimum staffing.
+- Short rows show open slots.
+- Event placeholders show future leave, training, and open-shift impacts.
+- Click a day to view coverage details.
+
+## Current Limitation
+
+The page is read-only. It does not generate, publish, or save schedules yet.
