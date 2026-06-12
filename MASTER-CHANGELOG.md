@@ -1,3 +1,9 @@
+## Paycheck Calculator v1.0.4 — Regression Repair
+
+- Restored missing Paycheck tool-specific CSS and JavaScript files.
+- Repaired broken Paycheck styling and calculator controls.
+- Schedule versioning was not changed.
+
 ## Signal Schedule v1.3.3 — Coolify Backend Setup Guide
 
 - Corrected backend planning after confirming GitHub to Coolify deployment.

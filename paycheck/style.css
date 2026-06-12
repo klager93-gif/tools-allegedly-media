@@ -1,0 +1,478 @@
+/*
+Signal Labs
+Tool: Paycheck Calculator
+File: style.css
+Version: v1.0.4
+Purpose: Restores Paycheck Calculator tool-specific layout and controls after missing asset regression.
+*/
+
+.paycheck-page {
+  color: var(--sl-text, #f8fafc);
+}
+
+.paycheck-page .page,
+.paycheck-page .tool-page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 28px 0 88px;
+}
+
+.paycheck-hero,
+.tool-hero {
+  margin: 16px 0 18px;
+}
+
+.paycheck-hero .eyebrow,
+.tool-hero .eyebrow {
+  color: var(--sl-accent, #77ff99);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+}
+
+.paycheck-hero h1,
+.tool-hero h1 {
+  font-size: clamp(3rem, 7vw, 5.9rem);
+  line-height: 0.9;
+  letter-spacing: -0.075em;
+  margin: 0 0 14px;
+}
+
+.paycheck-hero .subtitle,
+.tool-hero .subtitle {
+  max-width: 840px;
+  color: var(--sl-muted, #b8bcc5);
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 22px;
+  align-items: start;
+}
+
+.left-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.075);
+  border: 1px solid rgba(255, 255, 255, 0.105);
+  border-radius: 24px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.step-card {
+  display: grid;
+  gap: 14px;
+}
+
+.step-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  color: var(--sl-text, #fff);
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.section-title,
+.section-title-collapsible {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.section-title h2,
+.section-title-collapsible h2,
+.results-heading h2 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  letter-spacing: -0.045em;
+  line-height: 1;
+  margin: 0;
+}
+
+.section-title p,
+.section-title-collapsible p,
+.results-heading p,
+.field-help,
+.info-note,
+.message {
+  color: var(--sl-muted, #a8adb7);
+  line-height: 1.45;
+  margin: 8px 0 0;
+}
+
+.section-collapse-toggle {
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  color: var(--sl-text, #fff);
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.section-collapse-toggle:hover,
+.pay-pill:hover,
+.primary-action:hover,
+.secondary:hover,
+.amount-type-pill:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.26);
+}
+
+.section-body {
+  display: grid;
+  gap: 16px;
+}
+
+.step-card.is-collapsed .section-body {
+  display: none;
+}
+
+.form-grid,
+.advanced-settings-grid,
+.pay-detail-input-grid,
+.multiplier-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.one-column-mobile {
+  grid-template-columns: 1fr;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: var(--sl-text, #fff);
+  font-weight: 700;
+}
+
+label span {
+  font-size: 0.95rem;
+}
+
+input,
+select {
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(255,255,255,0.075);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 13px;
+  color: var(--sl-text, #fff);
+  padding: 12px 13px;
+  font: inherit;
+}
+
+input::placeholder {
+  color: rgba(255,255,255,0.42);
+}
+
+select option {
+  background: #111318;
+  color: #fff;
+}
+
+.pay-pill-row,
+.profile-pill-row,
+.hour-pill-row,
+.earning-pill-row,
+.suggestion-pill-row,
+.amount-type-row,
+.button-row,
+.nested-action-row,
+.adjustment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.pay-pill,
+.amount-type-pill,
+.secondary,
+.primary-action {
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  color: var(--sl-text, #fff);
+  background: rgba(255,255,255,0.08);
+  padding: 11px 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.pay-pill.is-selected,
+.amount-type-pill.is-selected {
+  background: rgba(119, 255, 153, 0.16);
+  border-color: rgba(119, 255, 153, 0.54);
+}
+
+.primary-action {
+  background: linear-gradient(135deg, rgba(119,255,153,0.95), rgba(80,205,255,0.92));
+  border-color: transparent;
+  color: #051007;
+}
+
+.secondary {
+  background: rgba(255,255,255,0.08);
+}
+
+.profile-summary,
+.empty-state,
+.weekly-overtime-summary {
+  background: rgba(255,255,255,0.055);
+  border: 1px dashed rgba(255,255,255,0.14);
+  border-radius: 18px;
+  padding: 14px 16px;
+  color: var(--sl-muted, #b8bcc5);
+}
+
+.profile-summary strong,
+.weekly-overtime-summary strong {
+  display: block;
+  color: var(--sl-text, #fff);
+}
+
+.progressive-disclosure {
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  background: rgba(0,0,0,0.12);
+  padding: 12px 14px;
+}
+
+.progressive-disclosure summary {
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.hours-panel,
+.pay-detail-panel,
+.other-earnings-panel,
+.specialty-pay-panel,
+.overtime-rule-panel,
+.weekly-overtime-panel,
+.benefit-hours-panel,
+.profile-panel,
+.pay-period-panel,
+.advanced-pay-settings,
+.advanced-adjustment-settings {
+  display: grid;
+  gap: 12px;
+}
+
+.hour-entry-list,
+.earning-entry-list,
+.adjustment-list {
+  display: grid;
+  gap: 10px;
+}
+
+.reduction-row,
+.adjustment-section,
+.earning-row,
+.hour-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 1.2fr) repeat(2, minmax(90px, 0.7fr)) auto;
+  gap: 10px;
+  align-items: end;
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(255,255,255,0.105);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.earning-row {
+  grid-template-columns: minmax(150px, 1.4fr) minmax(110px, .8fr) auto;
+}
+
+.adjustment-section {
+  grid-template-columns: minmax(150px, 1.4fr) minmax(110px, .7fr) minmax(110px, .7fr) auto;
+}
+
+.remove-row {
+  align-self: stretch;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.13);
+  background: rgba(255,255,255,0.08);
+  color: var(--sl-text, #fff);
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.results-card {
+  position: sticky;
+  top: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.result-detail-group {
+  display: grid;
+  gap: 8px;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(255,255,255,0.09);
+  padding: 10px 0;
+}
+
+.result-row span {
+  color: var(--sl-muted, #b8bcc5);
+}
+
+.result-row strong {
+  font-size: 1.05rem;
+}
+
+.result-row.total strong,
+.net-total strong {
+  font-size: 1.45rem;
+}
+
+.net-total {
+  margin-top: 8px;
+  border: 0;
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(119,255,153,0.12);
+}
+
+.is-hidden,
+.hidden,
+.is-disabled {
+  display: none !important;
+}
+
+.shared-action-bar {
+  position: sticky;
+  bottom: 16px;
+  z-index: 20;
+  margin-top: 22px;
+}
+
+.shared-action-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 22px;
+  background: rgba(15,17,22,0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+}
+
+.shared-action-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.paycheck-notes,
+.footer-notes {
+  margin-top: 22px;
+  color: var(--sl-muted, #b8bcc5);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  z-index: 100;
+}
+
+.modal-box {
+  width: min(560px, 100%);
+  border-radius: 24px;
+  background: #15171d;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+  padding: 24px;
+  position: relative;
+  display: grid;
+  gap: 14px;
+}
+
+.modal-close {
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.modal-box h2 {
+  margin: 0;
+  font-size: 1.9rem;
+}
+
+@media (max-width: 900px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .results-card {
+    position: static;
+  }
+
+  .shared-action-bar {
+    position: static;
+  }
+
+  .shared-action-bar-inner {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 640px) {
+  .paycheck-page .page,
+  .paycheck-page .tool-page {
+    width: min(100% - 22px, 1120px);
+    padding-top: 18px;
+  }
+
+  .form-grid,
+  .advanced-settings-grid,
+  .pay-detail-input-grid,
+  .multiplier-grid,
+  .reduction-row,
+  .earning-row,
+  .adjustment-section {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title-collapsible {
+    flex-direction: column;
+  }
+
+  .paycheck-hero h1,
+  .tool-hero h1 {
+    font-size: clamp(2.4rem, 14vw, 4rem);
+  }
+}
