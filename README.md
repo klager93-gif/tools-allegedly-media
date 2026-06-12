@@ -1,3 +1,5 @@
-**Signal Schedule v0.99.1 — Cloudflare Architecture Pivot** updates the post-0.99 backend direction. Signal Schedule should move toward Cloudflare Pages, Workers/Pages Functions, and D1 first, while preserving backend portability through services, repositories, and adapters.
+**Signal Schedule v1.0.0 — Cloudflare Data Layer Foundation** starts the v1.x data architecture.
 
-No live database, Worker API, credentials, CRUD, or new dashboard preview panels are included in this release.
+This release keeps the app static/browser-only while adding multi-agency JSON data files and data loading functions. It supports pretend agencies for Corrections, Fire, Dispatch, and Police without adding D1, Workers, credentials, CRUD, or authentication.
+
+Rule 24 remains active: backend portability is required.

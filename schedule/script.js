@@ -1,14 +1,16 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.99.1
-Purpose: Architecture Complete audit that keeps foundation concepts in docs/data planning and reduces render-registry risk
+Version: v1.0.0
+Purpose: Cloudflare Data Layer Foundation with static multi-agency JSON loading and backend portability
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.99.1';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.99.1', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v1.0.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v1.0.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
+    agencies: [],
+    currentAgencyId: '',
     employees: [],
     shifts: [],
     assignments: [],
@@ -67,6 +69,155 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     var now = new Date();
     return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
   }
+
+
+  function defaultAgencies() {
+    return [
+      {
+        agencyId: 'agency-kcso-corrections',
+        name: "Kankakee County Sheriff's Office",
+        type: 'Corrections',
+        industryType: 'Corrections / Public Safety',
+        timeZone: 'America/Chicago',
+        dateFormat: 'MM/DD/YYYY',
+        timeFormat: '24-hour',
+        workWeekStartsOn: 'Sunday',
+        payPeriodType: 'Biweekly',
+        payPeriodStartsOn: 'Sunday',
+        vocabulary: { unit: 'Pod', supervisor: 'Sergeant', assignment: 'Housing Unit', employee: 'Officer' },
+        departments: ['Corrections', 'Administration'],
+        divisions: ['Operations', 'Transport', 'Training'],
+        locations: ['Main Jail', 'Court Holding'],
+        positions: ['Correctional Officer', 'Corporal', 'Sergeant', 'Lieutenant'],
+        shiftGroups: ['A Days', 'B Days', 'A Nights', 'B Nights'],
+        qualifications: ['Transport', 'Booking', 'Classification', 'ERT'],
+        benefitTypes: ['Vacation', 'Sick', 'Personal', 'Comp Time', 'Holiday'],
+        exceptionTypes: ['FMLA', 'Light duty', 'No mandation', 'Training only']
+      },
+      {
+        agencyId: 'agency-metro-fire',
+        name: 'Metro Fire District',
+        type: 'Fire',
+        industryType: 'Fire / EMS',
+        timeZone: 'America/Chicago',
+        dateFormat: 'MM/DD/YYYY',
+        timeFormat: '24-hour',
+        workWeekStartsOn: 'Sunday',
+        payPeriodType: 'Biweekly',
+        payPeriodStartsOn: 'Sunday',
+        vocabulary: { unit: 'Apparatus', supervisor: 'Captain', assignment: 'Station', employee: 'Firefighter' },
+        departments: ['Suppression', 'EMS', 'Administration'],
+        divisions: ['Operations', 'Training'],
+        locations: ['Station 1', 'Station 2'],
+        positions: ['Firefighter', 'Engineer', 'Lieutenant', 'Captain', 'Battalion Chief'],
+        shiftGroups: ['Gold', 'Black', 'Red'],
+        qualifications: ['Paramedic', 'Driver', 'Hazmat', 'Rescue'],
+        benefitTypes: ['Vacation', 'Sick', 'Comp Time', 'Holiday'],
+        exceptionTypes: ['Light duty', 'No callback', 'Training only']
+      },
+      {
+        agencyId: 'agency-central-dispatch',
+        name: 'Central Dispatch Center',
+        type: 'Dispatch',
+        industryType: '911 Dispatch',
+        timeZone: 'America/Chicago',
+        dateFormat: 'MM/DD/YYYY',
+        timeFormat: '24-hour',
+        workWeekStartsOn: 'Sunday',
+        payPeriodType: 'Biweekly',
+        payPeriodStartsOn: 'Sunday',
+        vocabulary: { unit: 'Console', supervisor: 'Shift Supervisor', assignment: 'Radio Channel', employee: 'Dispatcher' },
+        departments: ['Communications', 'Administration'],
+        divisions: ['Operations', 'Training', 'QA'],
+        locations: ['Main Center'],
+        positions: ['Telecommunicator', 'Dispatcher', 'CTO', 'Shift Supervisor'],
+        shiftGroups: ['A Days', 'A Nights', 'B Days', 'B Nights'],
+        qualifications: ['Calltaking', 'Police Radio', 'Fire Radio', 'NCIC', 'CTO'],
+        benefitTypes: ['Vacation', 'Sick', 'Personal', 'Comp Time', 'Holiday'],
+        exceptionTypes: ['FMLA', 'No mandation', 'Temporary restriction']
+      },
+      {
+        agencyId: 'agency-north-park-police',
+        name: 'North Park Police Department',
+        type: 'Police',
+        industryType: 'Police / Patrol',
+        timeZone: 'America/Chicago',
+        dateFormat: 'MM/DD/YYYY',
+        timeFormat: '24-hour',
+        workWeekStartsOn: 'Sunday',
+        payPeriodType: 'Biweekly',
+        payPeriodStartsOn: 'Sunday',
+        vocabulary: { unit: 'Squad', supervisor: 'Sergeant', assignment: 'Beat', employee: 'Officer' },
+        departments: ['Patrol', 'Investigations', 'Administration'],
+        divisions: ['Days', 'Afternoons', 'Midnights'],
+        locations: ['Station', 'District 1'],
+        positions: ['Officer', 'Corporal', 'Sergeant', 'Lieutenant', 'Commander'],
+        shiftGroups: ['Days', 'Afternoons', 'Midnights'],
+        qualifications: ['FTO', 'K9', 'SWAT', 'Detective'],
+        benefitTypes: ['Vacation', 'Sick', 'Comp Time', 'Holiday'],
+        exceptionTypes: ['FMLA', 'Light duty', 'No mandation', 'Court only']
+      }
+    ];
+  }
+
+  function defaultDataLayerEmployees() {
+    return [
+      { id: 'emp-kcso-001', agencyId: 'agency-kcso-corrections', name: 'Alex Rivera', employeeCode: 'KCSO-1001', role: 'Officer', position: 'Correctional Officer', status: 'active', hireDate: '2021-03-15', seniorityDate: '2021-03-15', department: 'Corrections', division: 'Operations', location: 'Main Jail', shiftGroup: 'A Nights', assignedPattern: '12-hour nights', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Booking', 'Transport'], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6, holiday: 12 }, seniorityAdjustments: [] },
+      { id: 'emp-kcso-002', agencyId: 'agency-kcso-corrections', name: 'Taylor Morgan', employeeCode: 'KCSO-1002', role: 'Sergeant', position: 'Sergeant', status: 'active', hireDate: '2018-07-01', seniorityDate: '2018-07-01', department: 'Corrections', division: 'Operations', location: 'Main Jail', shiftGroup: 'B Days', assignedPattern: '12-hour days', overtimeEligible: true, mandateEligible: false, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: ['FMLA'], qualifications: ['Classification', 'ERT'], benefitBalances: { vacation: 100, sick: 96, personal: 8, comp: 0, holiday: 8 }, seniorityAdjustments: [] },
+      { id: 'emp-fire-001', agencyId: 'agency-metro-fire', name: 'Jordan Smith', employeeCode: 'MFD-201', role: 'Firefighter', position: 'Firefighter / Paramedic', status: 'active', hireDate: '2019-05-20', seniorityDate: '2019-05-20', department: 'Suppression', division: 'Operations', location: 'Station 1', shiftGroup: 'Gold', assignedPattern: '24/48', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Paramedic', 'Driver'], benefitBalances: { vacation: 120, sick: 80, personal: 0, comp: 12, holiday: 24 }, seniorityAdjustments: [] },
+      { id: 'emp-fire-002', agencyId: 'agency-metro-fire', name: 'Casey Lee', employeeCode: 'MFD-202', role: 'Captain', position: 'Captain', status: 'active', hireDate: '2014-02-10', seniorityDate: '2014-02-10', department: 'Suppression', division: 'Operations', location: 'Station 2', shiftGroup: 'Black', assignedPattern: '24/48', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Rescue', 'Hazmat'], benefitBalances: { vacation: 160, sick: 120, personal: 0, comp: 4, holiday: 24 }, seniorityAdjustments: [] },
+      { id: 'emp-dispatch-001', agencyId: 'agency-central-dispatch', name: 'Morgan Price', employeeCode: 'CCD-301', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2020-11-01', seniorityDate: '2020-11-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'A Days', assignedPattern: '2-2-3 days', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Calltaking', 'Police Radio', 'NCIC'], benefitBalances: { vacation: 80, sick: 48, personal: 16, comp: 0, holiday: 12 }, seniorityAdjustments: [] },
+      { id: 'emp-dispatch-002', agencyId: 'agency-central-dispatch', name: 'Riley Brooks', employeeCode: 'CCD-302', role: 'CTO', position: 'Communications Training Officer', status: 'active', hireDate: '2017-09-18', seniorityDate: '2017-09-18', department: 'Communications', division: 'Training', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: '2-2-3 nights', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Calltaking', 'Fire Radio', 'CTO'], benefitBalances: { vacation: 140, sick: 100, personal: 24, comp: 8, holiday: 24 }, seniorityAdjustments: [] },
+      { id: 'emp-police-001', agencyId: 'agency-north-park-police', name: 'Sam Carter', employeeCode: 'NPPD-401', role: 'Officer', position: 'Patrol Officer', status: 'active', hireDate: '2022-01-03', seniorityDate: '2022-01-03', department: 'Patrol', division: 'Afternoons', location: 'District 1', shiftGroup: 'Afternoons', assignedPattern: '5-2', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['FTO'], benefitBalances: { vacation: 72, sick: 44, personal: 16, comp: 10, holiday: 8 }, seniorityAdjustments: [] },
+      { id: 'emp-police-002', agencyId: 'agency-north-park-police', name: 'Jamie Novak', employeeCode: 'NPPD-402', role: 'Sergeant', position: 'Patrol Sergeant', status: 'active', hireDate: '2015-06-15', seniorityDate: '2015-06-15', department: 'Patrol', division: 'Midnights', location: 'Station', shiftGroup: 'Midnights', assignedPattern: '4-2', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['SWAT', 'FTO'], benefitBalances: { vacation: 180, sick: 140, personal: 24, comp: 2, holiday: 24 }, seniorityAdjustments: [] }
+    ];
+  }
+
+  function agencyProfileFromAgency(agency) {
+    var fallback = defaultAgencyProfile();
+    if (!agency) return fallback;
+    return Object.assign({}, fallback, agency, {
+      name: agency.name || fallback.name,
+      industryType: agency.industryType || agency.type || fallback.industryType,
+      departments: agency.departments || fallback.departments,
+      divisions: agency.divisions || fallback.divisions,
+      locations: agency.locations || fallback.locations,
+      positions: agency.positions || fallback.positions,
+      shiftGroups: agency.shiftGroups || fallback.shiftGroups,
+      qualifications: agency.qualifications || fallback.qualifications,
+      benefitTypes: agency.benefitTypes || fallback.benefitTypes,
+      exceptionTypes: agency.exceptionTypes || fallback.exceptionTypes,
+      shiftDefinitions: agency.shiftDefinitions || fallback.shiftDefinitions,
+      coverageRequirements: agency.coverageRequirements || fallback.coverageRequirements
+    });
+  }
+
+  function findAgency(agencyId) {
+    return (state.agencies || []).find(function (agency) { return agency.agencyId === agencyId || agency.id === agencyId; });
+  }
+
+  function employeesForCurrentAgency() {
+    if (!state.currentAgencyId) return state.employees || [];
+    return (state.employees || []).filter(function (employee) { return !employee.agencyId || employee.agencyId === state.currentAgencyId; });
+  }
+
+  function loadJsonData(url, fallback) {
+    if (!window.fetch) return Promise.resolve(fallback);
+    return fetch(url, { cache: 'no-store' }).then(function (response) {
+      if (!response.ok) throw new Error('Unable to load ' + url);
+      return response.json();
+    }).catch(function () { return fallback; });
+  }
+
+  var SignalScheduleDataService = {
+    loadAgencies: function () { return loadJsonData('data/agencies.json', defaultAgencies()); },
+    loadEmployees: function () { return loadJsonData('data/employees.json', defaultDataLayerEmployees()); },
+    loadBundle: function () {
+      return Promise.all([this.loadAgencies(), this.loadEmployees()]).then(function (parts) {
+        return { agencies: parts[0], employees: parts[1] };
+      });
+    }
+  };
 
 
   function ensureFoundationDefaults() {
@@ -860,6 +1011,8 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
   function normalizeState(input) {
     var next = input || {};
     next.sampleCleared = next.sampleCleared === true;
+    next.agencies = Array.isArray(next.agencies) && next.agencies.length ? next.agencies : defaultAgencies();
+    next.currentAgencyId = next.currentAgencyId || (next.agencies[0] ? (next.agencies[0].agencyId || next.agencies[0].id) : '');
     next.employees = Array.isArray(next.employees) ? next.employees : [];
     next.shifts = Array.isArray(next.shifts) ? next.shifts : [];
     next.assignments = Array.isArray(next.assignments) ? next.assignments : [];
@@ -947,7 +1100,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     next.goalModeTradeoffs = Array.isArray(next.goalModeTradeoffs) && next.goalModeTradeoffs.length ? next.goalModeTradeoffs : defaultGoalModeTradeoffs();
     next.goalModeRecommendations = Array.isArray(next.goalModeRecommendations) && next.goalModeRecommendations.length ? next.goalModeRecommendations : defaultGoalModeRecommendations();
     next.goalModeAuditExamples = Array.isArray(next.goalModeAuditExamples) && next.goalModeAuditExamples.length ? next.goalModeAuditExamples : defaultGoalModeAuditExamples();
-    next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
+    next.agencyProfile = agencyProfileFromAgency((next.agencies || []).find(function (agency) { return (agency.agencyId || agency.id) === next.currentAgencyId; })) || next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
     next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
     next.rules = next.rules || {};
@@ -958,6 +1111,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     next.employees = next.employees.map(function (employee) {
       return {
         id: employee.id || id('emp'),
+        agencyId: employee.agencyId || next.currentAgencyId || '',
         name: employee.name || 'Unnamed',
         employeeCode: employee.employeeCode || employee.badge || '',
         role: employee.role || employee.position || 'Dispatcher',
@@ -1101,7 +1255,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.99.1 Cloudflare Architecture Pivot';
+    if (label) label.textContent = 'v1.0.0 Cloudflare Data Layer Foundation';
   }
 
   function syncRuleInputs() {
@@ -1114,8 +1268,8 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     var target = $('#engineBlueprint');
     if (!target) return;
     var items = [
-      ['Agency', state.agencyProfile ? 1 : 0, 'The organization defines settings, vocabulary, shift definitions, coverage rules, and future policy defaults.'],
-      ['People', state.employees.length, 'Employees are rule-aware profile objects and remain separate from future login users.'],
+      ['Agencies', (state.agencies || []).length, 'Multi-agency records are loaded through the static data layer now and can later come from D1, MySQL, or another adapter.'],
+      ['People', state.employees.length, 'Employees carry agencyId from day one so pretend agencies and future tenants can share the same engines.'],
       ['Rules', state.ruleProfiles.length, 'Agency policies explain overtime, mandation, coverage, benefits, and fairness.'],
       ['Patterns', state.patterns.length, 'Rotations generate expected work instead of storing every day forever.'],
       ['Events', state.scheduleEvents.length, 'Events modify expected pattern work and explain why the final schedule differs from the normal plan.'],
@@ -1152,18 +1306,19 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     var cards = $('#employeeProfileCards');
     var detail = $('#employeeProfileDetail');
     if (!cards || !detail) return;
-    if (!state.employees.length) {
+    var visibleEmployees = employeesForCurrentAgency();
+    if (!visibleEmployees.length) {
       cards.innerHTML = '<div class="signal-empty-state"><strong>No employee profiles yet</strong><span>Load sample data or add people to preview rule-aware profiles.</span></div>';
       detail.innerHTML = '<strong>Employee detail preview</strong><p>Select an employee card to see assignment, eligibility, exceptions, qualifications, and benefit snapshot notes.</p>';
       return;
     }
-    if (!state.selectedEmployeeId || !findEmployee(state.selectedEmployeeId)) state.selectedEmployeeId = state.employees[0].id;
-    cards.innerHTML = state.employees.map(function (employee) {
+    if (!state.selectedEmployeeId || !visibleEmployees.some(function (employee) { return employee.id === state.selectedEmployeeId; })) state.selectedEmployeeId = visibleEmployees[0].id;
+    cards.innerHTML = visibleEmployees.map(function (employee) {
       var active = employee.id === state.selectedEmployeeId ? ' is-active' : '';
       var exception = employee.exceptions.length ? employee.exceptions.join(', ') : 'None';
       return '<button type="button" class="employee-profile-card-button' + active + '" data-select-employee="' + employee.id + '"><span>' + escapeHtml(employee.status) + '</span><strong>' + escapeHtml(employee.name) + '</strong><small>' + escapeHtml(employee.position) + ' · ' + escapeHtml(employee.shiftGroup || 'No shift group') + '</small><em>Exceptions: ' + escapeHtml(exception) + '</em></button>';
     }).join('');
-    var selected = findEmployee(state.selectedEmployeeId) || state.employees[0];
+    var selected = findEmployee(state.selectedEmployeeId) || visibleEmployees[0];
     var exceptions = selected.exceptions.length ? selected.exceptions.join(', ') : 'None';
     var qualifications = selected.qualifications.length ? selected.qualifications.join(', ') : 'None assigned';
     var mandateNote = selected.mandateEligible && !selected.exceptions.length ? 'Can be evaluated for future mandate rotation rules.' : 'Future mandation rules must explain skip/exception handling.';
@@ -1186,7 +1341,10 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     var target = $('#agencyProfilePreview');
     if (!target) return;
     var agency = state.agencyProfile || defaultAgencyProfile();
+    var agencies = state.agencies || [];
+    var selector = agencies.length ? '<label class="agency-data-selector"><span>Current pretend agency</span><select id="agencyDataSelect">' + agencies.map(function (item) { var agencyId = item.agencyId || item.id; return '<option value="' + escapeHtml(agencyId) + '"' + (agencyId === state.currentAgencyId ? ' selected' : '') + '>' + escapeHtml(item.name) + ' · ' + escapeHtml(item.type || item.industryType || 'Agency') + '</option>'; }).join('') + '</select></label>' : '';
     var cards = [
+      ['Data Layer', 'Static JSON', selector || 'Using default in-memory data until a data file is loaded.'],
       ['Agency', agency.name, agency.industryType],
       ['Display', agency.timeZone, agency.timeFormat + ' · ' + agency.dateFormat],
       ['Work Rules', 'Week starts ' + agency.workWeekStartsOn, agency.payPeriodType + ' pay period starts ' + agency.payPeriodStartsOn],
@@ -1814,7 +1972,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — GOAL MODE FOUNDATION');
-    lines.push('Version: v0.99.1');
+    lines.push('Version: v1.0.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -1901,7 +2059,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.99.1 Notes:');
+    lines.push('v1.0.0 Notes:');
     lines.push('- Adds database planning bridge before v1.0.');
     lines.push('- Removes dashboard-style foundation preview panels for analytics, notifications, and goal mode.');
     lines.push('- Confirms engines, entities, rules, explanations, audit records, notifications, goals, and agency profiles are ready to map into database tables.');
@@ -2081,6 +2239,8 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
 
   function buildSampleState() {
     return {
+      agencies: defaultAgencies(),
+      currentAgencyId: 'agency-central-dispatch',
       employees: [
         { id: 'emp-alex', name: 'Alex Rivera', employeeCode: 'E-1001', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2021-03-15', seniorityDate: '2021-03-15', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: 'B Nights Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6, holiday: 12 }, seniorityAdjustments: [] },
         { id: 'emp-jordan', name: 'Jordan Smith', employeeCode: 'E-1002', role: 'Supervisor', position: 'Shift Supervisor', status: 'active', hireDate: '2017-08-01', seniorityDate: '2017-08-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'A Days', assignedPattern: '2-2-3 Days Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Radio', 'Supervisor', 'Trainer'], benefitBalances: { vacation: 120, sick: 80, personal: 16, comp: 0, holiday: 24 }, seniorityAdjustments: [] },
@@ -2156,6 +2316,26 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     };
   }
 
+
+  function loadMultiAgencyData() {
+    SignalScheduleDataService.loadBundle().then(function (bundle) {
+      var agencies = Array.isArray(bundle.agencies) && bundle.agencies.length ? bundle.agencies : defaultAgencies();
+      var employees = Array.isArray(bundle.employees) && bundle.employees.length ? bundle.employees : defaultDataLayerEmployees();
+      var firstAgencyId = agencies[0] ? (agencies[0].agencyId || agencies[0].id) : '';
+      state = normalizeState(Object.assign({}, buildSampleState(), {
+        agencies: agencies,
+        currentAgencyId: firstAgencyId,
+        employees: employees,
+        selectedEmployeeId: employees.find(function (employee) { return employee.agencyId === firstAgencyId; }) ? employees.find(function (employee) { return employee.agencyId === firstAgencyId; }).id : (employees[0] ? employees[0].id : null)
+      }));
+      save();
+      render();
+      showToast('Multi-agency data layer loaded.', 'success');
+    }).catch(function () {
+      showToast('Unable to load multi-agency data layer.', 'error');
+    });
+  }
+
   function loadSample() {
     state = normalizeState(buildSampleState());
     save(); render(); showToast('Core engine sample data loaded.', 'success');
@@ -2192,9 +2372,21 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
       if (assignmentId) removeAssignment(assignmentId);
       if (selectEmployeeId) { state.selectedEmployeeId = selectEmployeeId; save(); render(); }
     });
+    document.addEventListener('change', function (event) {
+      var target = event.target;
+      if (target && target.id === 'agencyDataSelect') {
+        state.currentAgencyId = target.value;
+        state.agencyProfile = agencyProfileFromAgency(findAgency(state.currentAgencyId));
+        var visibleEmployees = employeesForCurrentAgency();
+        state.selectedEmployeeId = visibleEmployees[0] ? visibleEmployees[0].id : null;
+        save();
+        render();
+      }
+    });
     bindIfFound('#sampleDataBtn', 'click', loadSample);
+    bindIfFound('#multiAgencyDataBtn', 'click', loadMultiAgencyData);
     bindIfFound('#clearDataBtn', 'click', function () {
-      state = normalizeState({ employees: [], shifts: [], assignments: [], rules: state.rules, agencyProfile: state.agencyProfile, selectedEmployeeId: null, sampleCleared: true });
+      state = normalizeState({ agencies: state.agencies, currentAgencyId: state.currentAgencyId, employees: [], shifts: [], assignments: [], rules: state.rules, agencyProfile: state.agencyProfile, selectedEmployeeId: null, sampleCleared: true });
       save(); render(); showToast('Schedule cleared.', 'info');
     });
     bindIfFound('#printBtn', 'click', function () { window.print(); });

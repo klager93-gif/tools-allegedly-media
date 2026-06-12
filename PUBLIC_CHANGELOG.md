@@ -1,5 +1,7 @@
 # Public Changelog
 
-## Signal Schedule v0.99.1 — Cloudflare Architecture Pivot
+## Signal Schedule v1.0.0 — Cloudflare Data Layer Foundation
 
-Updates the future backend direction for Signal Schedule. The app remains browser-only, but the roadmap now targets a Cloudflare-native data layer instead of traditional PHP/MySQL hosting.
+Adds a static multi-agency data layer so the schedule prototype can load and switch between pretend agencies such as Corrections, Fire, Dispatch, and Police.
+
+No live database, login system, CRUD, or server-side code is included yet.

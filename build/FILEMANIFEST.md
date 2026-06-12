@@ -1,4 +1,4 @@
-# File Manifest — Signal Schedule v0.99.1
+# File Manifest — Signal Schedule v1.0.0
 
 - `.gitattributes`
 - `.gitignore`
@@ -18,6 +18,9 @@
 - `assets/icons/favicon.ico`
 - `assets/icons/favicon.svg`
 - `assets/icons/site.webmanifest`
+- `build/BUILDMANIFEST.md`
+- `build/FILEMANIFEST.md`
+- `build/SHA256SUMS.txt`
 - `changelog/index.html`
 - `contact/index.html`
 - `docs/BACKUP.md`
@@ -44,6 +47,7 @@
 - `schedule/BACKEND-PORTABILITY.md`
 - `schedule/CHANGELOG.md`
 - `schedule/CLOUDFLARE-ARCHITECTURE.md`
+- `schedule/DATA-LAYER.md`
 - `schedule/DATABASE-PLAN.md`
 - `schedule/DATABASE-PLANNING.md`
 - `schedule/DEPRECATION-AUDIT.md`
@@ -55,11 +59,14 @@
 - `schedule/README.md`
 - `schedule/RELEASE-v0.99.0.md`
 - `schedule/RELEASE-v0.99.1.md`
+- `schedule/RELEASE-v1.0.0.md`
 - `schedule/ROADMAP.md`
 - `schedule/RULE-ENGINE.md`
 - `schedule/SECURITY-PLAN.md`
 - `schedule/TABLE-PLAN.md`
 - `schedule/V1-READINESS.md`
+- `schedule/data/agencies.json`
+- `schedule/data/employees.json`
 - `schedule/index.html`
 - `schedule/script.js`
 - `schedule/style.css`

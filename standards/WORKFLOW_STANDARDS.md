@@ -1,4 +1,4 @@
-# Workflow Standards — Signal Schedule v0.99.1 Update
+# Workflow Standards — Signal Schedule v1.0.0 Update
 
 - Before packaging, validate every render registry entry against an actual defined function. Fail the build if any registered renderer is missing.
 - Foundation releases should not add new dashboard-style preview panels unless the UI itself is the purpose of the release.

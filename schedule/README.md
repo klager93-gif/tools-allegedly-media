@@ -1,32 +1,20 @@
-## v0.99.1 — Cloudflare Architecture Pivot
+## v1.0.0 — Cloudflare Data Layer Foundation
 
-Signal Schedule v0.99.1 pivots the post-0.99 backend plan from traditional PHP/MySQL hosting to a Cloudflare-native path because the live site already deploys from GitHub to Cloudflare.
+Signal Schedule v1.0.0 begins the v1.x data architecture while keeping the app static and browser-only.
 
-This release does **not** create live D1 tables, Workers, API endpoints, CRUD workflows, authentication, approvals, or production data storage. It documents the architecture pivot before implementation.
+This release adds multi-agency JSON data files and data loading functions so pretend agencies and employee records are no longer only hardcoded UI examples.
 
-## Direction
-
-Initial backend target:
+### Data files
 
 ```text
-Cloudflare Pages
-Cloudflare Workers / Pages Functions
-Cloudflare D1
-Cloudflare Secrets
-Cloudflare KV / R2 when appropriate
+/schedule/data/agencies.json
+/schedule/data/employees.json
 ```
 
-## Rule 24
+### Current backend target
 
-Backend portability is required. D1 is the first likely backend adapter, not a permanent lock-in. UI and business logic must go through services, repositories, and adapters.
+Cloudflare-native first: Pages, Workers/Pages Functions, D1, KV, R2, and Secrets.
 
-## Guardrails
+### Portability rule
 
-- No secrets in GitHub.
-- No direct UI dependency on D1 or Workers.
-- No new foundation preview panels unless the UI itself is the release purpose.
-- Render registry validation remains required before packaging.
-
-## Next
-
-`v1.0.0 — Cloudflare Data Layer Foundation` should add browser-safe JSON data files and service/repository boundaries before any live database or Worker API exists.
+Rule 24 remains active: data access must move through service/repository/adapter layers so D1 can be replaced later by MySQL, PostgreSQL, PHP, or another backend with minimal UI changes.

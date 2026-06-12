@@ -1,8 +1,11 @@
 # Admin Changelog
 
-## Signal Schedule v0.99.1 — Cloudflare Architecture Pivot
+## Signal Schedule v1.0.0 — Cloudflare Data Layer Foundation
 
-- Documents Cloudflare Pages / Workers / D1 as the first backend path.
-- Adds Rule 24 backend portability to project standards.
-- Preserves PHP/MySQL as a future adapter option only.
+- Adds `/schedule/data/agencies.json`.
+- Adds `/schedule/data/employees.json`.
+- Adds static data service functions in Schedule.
+- Adds multi-agency selector behavior.
+- Keeps app browser-only and static.
+- No D1, Workers, credentials, CRUD, or authentication added.
 - No new dashboard preview panels or render registry entries added.

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.99.1
+Version: v1.0.0
 Purpose: Cloudflare Architecture Pivot before data layer foundation
 -->
 <!DOCTYPE html>
@@ -15,17 +15,17 @@ Purpose: Cloudflare Architecture Pivot before data layer foundation
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.99.1">
+<link rel="stylesheet" href="style.css?v=1.0.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.99.1"
+  data-signal-version="v1.0.0"
   data-signal-theme="Cloudflare Architecture Pivot"
   data-signal-status="Active Development"
   data-signal-description="Pivot the post-0.99 roadmap from PHP/MySQL to a portable Cloudflare-native data architecture."
-  data-signal-status-text="Signal Schedule v0.99.1 documents the Cloudflare-native backend pivot while preserving backend portability."
+  data-signal-status-text="Signal Schedule v1.0.0 introduces a static multi-agency JSON data layer while preserving backend portability."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Cloudflare Architecture Pivot before data layer foundation
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.99.1 Cloudflare Architecture Pivot</strong>
+      <strong id="currentWeekLabel">v1.0.0 Cloudflare Data Layer Foundation</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Cloudflare Architecture Pivot before data layer foundation
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.99.1 is still browser-only. This bridge release pivots the post-0.99 roadmap toward Cloudflare Pages, Workers, D1, KV, R2, and Secrets while preserving backend portability.</p>
+      <p>Signal Schedule v1.0.0 is still browser-only. This release adds a static multi-agency data layer using JSON files and service functions so future D1, Worker, MySQL, or other backends can be swapped in through adapters.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.99.1 keeps the agency, employee, pattern, event, benefit, rule, coverage, fairness, explanation, mandation, bidding, analytics, notification, goal, and multi-agency foundations mapped while changing the first backend target from PHP/MySQL to Cloudflare-native data layers.</p>
+        <p>v1.0.0 separates pretend agency and employee records from hardcoded UI behavior. Multi-agency sample data now lives in /schedule/data and is loaded through a portable data service instead of tying the app directly to a backend.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -390,6 +390,7 @@ Purpose: Cloudflare Architecture Pivot before data layer foundation
       </div>
       <div class="schedule-actions-inline">
         <button type="button" id="sampleDataBtn">Load Sample</button>
+        <button type="button" id="multiAgencyDataBtn">Load Multi-Agency Data</button>
         <button type="button" id="clearDataBtn" class="danger-button">Clear</button>
       </div>
     </div>
@@ -517,6 +518,6 @@ Purpose: Cloudflare Architecture Pivot before data layer foundation
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.99.1"></script>
+<script src="script.js?v=1.0.0"></script>
 </body>
 </html>

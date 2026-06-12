@@ -1,34 +1,5 @@
-# Signal Schedule API Plan — v0.99.1
+# Signal Schedule API Plan — v1.0.0
 
-Future APIs should be grouped by domain rather than by UI screen. The first API implementation target is Cloudflare Workers or Pages Functions, not PHP endpoints.
+Future APIs should expose agencies and employees first, then assignments, events, requests, opportunities, bids, awards, notifications, and audit logs.
 
-## Initial read-only endpoints
-
-```text
-/api/health
-/api/agencies
-/api/employees
-```
-
-## Future endpoint families
-
-```text
-/api/assignments
-/api/shifts
-/api/events
-/api/requests
-/api/opportunities
-/api/bids
-/api/awards
-/api/benefits
-/api/rules
-/api/coverage
-/api/explanations
-/api/notifications
-/api/goals
-/api/audit
-```
-
-## Rule 24
-
-API handlers should not contain scheduling business logic. They should call services, which call repositories, which call adapters.
+v1.0.0 keeps these as static JSON reads only.

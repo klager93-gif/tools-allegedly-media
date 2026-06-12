@@ -1,5 +1,5 @@
 # Master Changelog
 
-## Signal Schedule v0.99.1 — Cloudflare Architecture Pivot
+## Signal Schedule v1.0.0 — Cloudflare Data Layer Foundation
 
-Pivots Signal Schedule from PHP/MySQL-first planning to Cloudflare-native-first planning while preserving backend portability. Adds Cloudflare architecture and backend portability docs.
+Adds browser-safe multi-agency JSON data files and data service functions. This starts the v1.x Cloudflare-native data path while preserving backend portability through Rule 24.
