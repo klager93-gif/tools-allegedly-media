@@ -2,11 +2,13 @@
 
 Version: Paycheck v0.9.9
 Theme: Report & Metadata Cleanup
-Build type: Full replacement Paycheck release
-Source baseline: Paycheck v0.9.7 Weekly OT Profiles + shared layout component state
+Build type: Coordinated recovery release component
+Source baseline: Paycheck v0.9.9 / Weekly OT preserved
 
-Validation:
-- script.js syntax check passed.
-- Shared header/footer mount points present.
-- Weekly OT profile preserved.
-- Stale metadata corrected.
+## Validation
+
+- Paycheck app files present.
+- Shared header/footer mount points preserved.
+- Weekly OT profile intended to remain preserved.
+- Documentation drift cleaned.
+- No intentional calculator math changes.

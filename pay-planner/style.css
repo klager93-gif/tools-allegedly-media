@@ -1,0 +1,54 @@
+/*
+Signal Labs
+Tool: Pay Planner
+File: style.css
+Version: v0.1.0
+Purpose: Minimal incubator styling so Pay Planner remains structurally valid while unlisted.
+*/
+.pay-planner-shell {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 56px;
+}
+
+.pay-planner-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.pay-planner-page .form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.pay-planner-page label {
+  display: grid;
+  gap: 6px;
+}
+
+.pay-planner-page input {
+  width: 100%;
+}
+
+.pay-planner-page .info-note {
+  margin-top: 16px;
+}
+
+.pay-planner-page .results-card {
+  position: sticky;
+  top: 88px;
+}
+
+@media (max-width: 860px) {
+  .pay-planner-layout,
+  .pay-planner-page .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pay-planner-page .results-card {
+    position: static;
+  }
+}

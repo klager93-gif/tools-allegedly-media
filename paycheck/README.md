@@ -1,29 +1,36 @@
 # Paycheck Calculator
 
-**v0.9.9 — Report & Metadata Cleanup**
+**Current Version:** v0.9.9 — Report & Metadata Cleanup
 
-Preserves Weekly OT profile support while syncing Paycheck back to the shared Signal Labs header/footer layout. Overtime logic is preserved and footer/header metadata references are updated.
+The Paycheck Calculator estimates take-home pay using regular hours, premium hours, paid leave, taxes, deductions, adjustments, and optional pay-planning inputs.
 
-# Paycheck Calculator
+## Current Release
 
-## Current Version
+Paycheck v0.9.9 is a documentation and metadata cleanup release that preserves the Weekly OT work already present in the app.
 
-**v0.9.3 — Footer Inheritance**
+### Preserved Behavior
 
-The Paycheck Calculator estimates take-home pay with regular hours, premium hours, paid leave, taxes, deductions, adjustments, and optional target pay planning.
+- 36/44 Weekly OT profile support
+- Weekly overtime calculation behavior from v0.9.7
+- Existing Paycheck inputs, report output, print behavior, and copy behavior
+- Shared Signal Labs header/footer layout
 
-## This Release
+### Cleanup Scope
 
-- Removes release metadata from the hero/header area.
-- Adds the Home-style Signal Labs footer structure.
-- Keeps the footer changelog link pointed at `PUBLIC_CHANGELOG.md`.
-- Makes no calculator math changes.
+- Re-synced Paycheck documentation after backup-install drift.
+- Removed duplicate README/roadmap/changelog current-version blocks.
+- Kept v0.9.9 as the current Paycheck version.
 
-## Signal Labs Direction
+## No Math Changes
 
-Tool pages should share global navigation and footer patterns while keeping calculator-specific actions near the tool.
+This recovery release does not intentionally change Paycheck calculation logic.
 
+## Related Files
 
-## v0.9.7 — Weekly OT Profiles
-
-Adds automatic overtime splitting for weekly overtime rules, including a short **36/44 Weekly OT** profile for biweekly paychecks where each week is tested separately against a 40-hour threshold.
+- `index.html`
+- `style.css`
+- `script.js`
+- `PUBLIC_CHANGELOG.md`
+- `ADMIN_CHANGELOG.md`
+- `ROADMAP.md`
+- `HOWTO.md`

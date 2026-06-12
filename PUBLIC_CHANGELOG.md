@@ -1,12 +1,17 @@
-## Paycheck Calculator v1.0.4 — Regression Repair
+# Signal Labs Public Changelog
 
-- Restored missing Paycheck tool-specific CSS and JavaScript files.
-- Repaired broken Paycheck styling and calculator controls.
-- Schedule versioning was not changed.
+## Coordinated Recovery Release — Paycheck v0.9.9 / Schedule v1.3.3
+
+- Cleaned public project documentation after backup-install drift.
+- Restored the root README to describe the full Signal Labs tool ecosystem.
+- Preserved Paycheck v0.9.9 behavior, including Weekly OT support.
+- Preserved Signal Schedule v1.3.3 as a static JSON-backed planning tool.
+- Repaired missing icon and Pay Planner incubator asset references.
+- No calculator math, live account features, database writes, or backend connections changed.
 
 ## Signal Schedule v1.3.3 — Coolify Backend Setup Guide
 
-- Updated backend planning to reflect the actual GitHub to Coolify deployment path.
+- Updated backend planning to reflect the GitHub to Coolify deployment path.
 - No public app behavior changed.
 
 ## Signal Schedule v1.3.1 — D1 Setup Guide
@@ -16,28 +21,13 @@
 
 ## Signal Schedule v1.3.0 — D1 Database Foundation
 
-Adds first D1 schema and seed planning files while keeping the live app static/read-only.
+- Added first D1 schema and seed planning files while keeping the live app static/read-only.
 
-## Signal Schedule v1.3.0 — D1 Database Foundation
+## Signal Schedule v1.1.0 — Repository / Adapter Layer
 
-- Removed root-level `/functions/` from the release package.
-- Moved Schedule API mock planning files into `/schedule/api/mock-functions/`.
-- Added Rule 25: Tools own their infrastructure.
-- Confirmed no D1, credentials, CRUD, authentication, or live writes were added.
-
-# Public Changelog
+- Added repository and adapter boundaries around the static multi-agency JSON data layer.
 
 ## Signal Schedule v1.0.0 — Cloudflare Data Layer Foundation
 
-Adds a static multi-agency data layer so the schedule prototype can load and switch between pretend agencies such as Corrections, Fire, Dispatch, and Police.
-
-No live database, login system, CRUD, or server-side code is included yet.
-
-
-## Signal Schedule v1.1.0
-
-Adds repository and adapter boundaries around the static multi-agency JSON data layer.
-
-## Signal Schedule v1.3.0 — D1 Database Foundation
-
-Adds the planned Cloudflare Worker / Pages Function API shape while keeping the active app static and backend-portable. No D1, credentials, CRUD, authentication, or live writes added.
+- Added a static multi-agency data layer so the schedule prototype can load and switch between pretend agencies.
+- No live database, login system, CRUD, or server-side code was included.

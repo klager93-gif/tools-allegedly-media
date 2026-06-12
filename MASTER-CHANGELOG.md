@@ -1,8 +1,15 @@
-## Paycheck Calculator v1.0.4 — Regression Repair
+# Signal Labs Master Changelog
 
-- Restored missing Paycheck tool-specific CSS and JavaScript files.
-- Repaired broken Paycheck styling and calculator controls.
-- Schedule versioning was not changed.
+## Coordinated Recovery Release — Paycheck v0.9.9 / Schedule v1.3.3
+
+- Restored root README from Schedule-specific changelog drift back to Signal Labs ecosystem documentation.
+- Cleaned root roadmap to reflect current tool versions and next planned work.
+- Preserved Paycheck v0.9.9 as the active Paycheck version.
+- Preserved Signal Schedule v1.3.3 as the active Schedule version.
+- Repaired Rule 26 asset validation issues for root favicon references and Pay Planner incubator assets.
+- Removed backup-install documentation drift from current roadmap/changelog surfaces.
+- No Paycheck calculator math changes added.
+- No Schedule CRUD, authentication, live API, credentials, database writes, or production backend connections added.
 
 ## Signal Schedule v1.3.3 — Coolify Backend Setup Guide
 
@@ -19,26 +26,17 @@
 
 ## Signal Schedule v1.3.0 — D1 Database Foundation
 
-D1 foundation added for agencies, employees, and audit logs. Active app remains JSON-backed.
-
-## Signal Schedule v1.3.0 — D1 Database Foundation
-
-- Removed root-level `/functions/` from the release package.
-- Moved Schedule API mock planning files into `/schedule/api/mock-functions/`.
-- Added Rule 25: Tools own their infrastructure.
-- Confirmed no D1, credentials, CRUD, authentication, or live writes were added.
-
-# Master Changelog
-
-## Signal Schedule v1.0.0 — Cloudflare Data Layer Foundation
-
-Adds browser-safe multi-agency JSON data files and data service functions. This starts the v1.x Cloudflare-native data path while preserving backend portability through Rule 24.
-
+- Added D1 foundation planning for agencies, employees, and audit logs.
+- Moved Schedule-owned API mock planning files into `/schedule/api/mock-functions/`.
+- Preserved static JSON adapter behavior.
+- Added no live D1 binding, credentials, CRUD, authentication, or live writes.
 
 ## Signal Schedule v1.1.0 — Repository / Adapter Layer
 
-Static JSON data access now routes through portable service/repository/adapter boundaries.
+- Added repository/service/adapter boundaries around static JSON data.
+- Preserved static app behavior.
 
-## Signal Schedule v1.3.0 — D1 Database Foundation
+## Signal Schedule v1.0.0 — Cloudflare Data Layer Foundation
 
-Adds the planned Cloudflare Worker / Pages Function API shape while keeping the active app static and backend-portable. No D1, credentials, CRUD, authentication, or live writes added.
+- Added browser-safe multi-agency JSON data files and data service functions.
+- Started the v1.x data path while preserving backend portability.

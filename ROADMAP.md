@@ -1,28 +1,72 @@
-## Signal Schedule v1.3.1 — D1 Setup Guide
+# Signal Labs Roadmap
 
-Current release: D1 setup documentation before Employee CRUD Foundation.
+## Current Coordinated Recovery
 
-Next: v1.4.0 — Employee CRUD Foundation.
+This recovery package restores documentation integrity after backup-install drift.
 
-## Signal Schedule v1.3.0 — D1 Database Foundation
+Included scope:
 
-Next: v1.4.0 Employee CRUD Foundation after D1 deployment details are confirmed.
+- Paycheck v0.9.9 documentation cleanup
+- Signal Schedule v1.3.3 documentation cleanup
+- Root README recovery
+- Rule 26 asset validation repair
+- Pay Planner incubator asset restoration
 
-## Signal Schedule Current Path
+No Paycheck calculator logic changes are included.
+No Schedule CRUD, authentication, live API, database writes, or backend deployment is included.
 
-- Current: v1.1.0 — Repository / Adapter Layer
-- Next: v1.1.0 — Repository / Adapter Layer
+## Active Tool Status
 
-# v1.x Direction
+| Area | Current | Next Focus |
+|---|---:|---|
+| Home | v0.9.9.6 | Keep root pages aligned with active tools. |
+| Paycheck | v0.9.9 | Preserve Weekly OT and prepare for later v1.0 validation. |
+| Overtime | Frozen | Critical fixes/shared-pattern sync only. |
+| Time Off | Active | Future planning work after Paycheck/Schedule stabilization. |
+| Schedule | v1.3.3 | v1.4.0 Backend Adapter Selection. |
+| Pay Planner | v0.1.x | Incubator only; keep structurally valid while unlisted. |
 
-- v1.0.0: Static multi-agency JSON data layer.
-- v1.1.0: Repository / adapter layer.
-- v1.3.0: Worker folder repair and tool-owned infrastructure rule.
-- v1.3.0: D1 Database Foundation.
-- v1.4.0+: CRUD and persistent workflows after audit logging is ready.
+## Signal Schedule Path
 
-Cloudflare-native first, backend-portable always.
+```text
+Current: v1.3.3 — Coolify Backend Setup Guide
+Next:    v1.4.0 — Backend Adapter Selection
+Future:  v1.5.0 — Employee Read API Foundation
+Future:  v1.6.0 — Employee CRUD Foundation
+Future:  v1.7.0 — Assignments Foundation
+Future:  v1.8.0 — Events Foundation
+Future:  v1.9.0 — Requests / VOT Foundation
+Future:  v2.0.0 — Scheduling Engine Foundation
+```
 
-## Signal Schedule v1.3.0 — D1 Database Foundation
+## Paycheck Path
 
-Adds the planned Cloudflare Worker / Pages Function API shape while keeping the active app static and backend-portable. No D1, credentials, CRUD, authentication, or live writes added.
+```text
+Current: v0.9.9 — Report & Metadata Cleanup
+Next:    v1.0.0 — Validation / Production Readiness
+```
+
+## Long-Term Ecosystem
+
+### Work
+- Paycheck Calculator
+- Overtime Calculator
+- Time Off Calculator
+- Signal Schedule
+
+### Career
+- Raise Calculator
+- Job Offer Comparison
+- Salary ↔ Hourly
+
+### Money
+- Emergency Fund
+- Debt Payoff
+- Retirement Contribution
+- Compound Interest
+
+### Public Safety
+- Comp Time
+- Kelly Day
+- Shift Schedules
+- Pension

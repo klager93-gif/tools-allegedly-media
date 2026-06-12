@@ -1,10 +1,12 @@
 # Signal Labs File Manifest
 
-Release: Paycheck Calculator v1.0.4 — Regression Repair
+Release: Coordinated Recovery Release — Paycheck v0.9.9 / Schedule v1.3.3 / Root Docs Cleanup
 
 - `.gitattributes`
 - `.gitignore`
 - `ADMIN_CHANGELOG.md`
+- `BUILDMANIFEST.md`
+- `FILEMANIFEST.md`
 - `HOWTO.md`
 - `MASTER-CHANGELOG.md`
 - `MASTER-ROADMAP.md`
@@ -21,7 +23,6 @@ Release: Paycheck Calculator v1.0.4 — Regression Repair
 - `assets/icons/favicon.svg`
 - `assets/icons/site.webmanifest`
 - `build/BUILDMANIFEST.md`
-- `build/FILEMANIFEST.md`
 - `build/SHA256SUMS.txt`
 - `changelog/index.html`
 - `contact/index.html`
@@ -38,7 +39,18 @@ Release: Paycheck Calculator v1.0.4 — Regression Repair
 - `overtime/script.js`
 - `overtime/style.css`
 - `pay-planner/index.html`
-- `paycheck/CHANGELOG.md`
+- `pay-planner/script.js`
+- `pay-planner/style.css`
+- `paycheck/ADMIN_CHANGELOG.md`
+- `paycheck/BACKUP.md`
+- `paycheck/BUILDMANIFEST.md`
+- `paycheck/FILEMANIFEST.md`
+- `paycheck/HOWTO.md`
+- `paycheck/PUBLIC_CHANGELOG.md`
+- `paycheck/README.md`
+- `paycheck/RESTORE.md`
+- `paycheck/ROADMAP.md`
+- `paycheck/SHA256SUMS.txt`
 - `paycheck/index.html`
 - `paycheck/script.js`
 - `paycheck/style.css`
@@ -113,3 +125,4 @@ Release: Paycheck Calculator v1.0.4 — Regression Repair
 - `timeoff/index.html`
 - `timeoff/script.js`
 - `timeoff/style.css`
+- `build/FILEMANIFEST.md`

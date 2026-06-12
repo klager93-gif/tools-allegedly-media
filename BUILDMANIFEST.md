@@ -1,16 +1,14 @@
-# Build Manifest
+# Signal Labs Build Manifest
 
-Release: Coordinated Recovery Release — Paycheck v0.9.9 / Schedule v1.3.3 / Root Docs Cleanup
-Built: 2026-06-12
+## Coordinated Recovery Release
 
-## Purpose
+Package purpose:
 
 - Restore documentation integrity after backup-install drift.
 - Preserve Paycheck v0.9.9 behavior.
 - Preserve Signal Schedule v1.3.3 behavior.
 - Repair Rule 26 asset validation failures.
 - Restore root documentation to Signal Labs ecosystem scope.
-- Standardize icon references to /assets/icons/ without root-level icon duplicates.
 
 ## Included Version Scopes
 
@@ -23,14 +21,14 @@ Built: 2026-06-12
 
 ## Explicit Non-Scope
 
-- No Paycheck calculator math changes.
-- No Schedule v1.4 backend adapter selection implementation.
-- No Employee CRUD.
-- No authentication.
-- No live API deployment.
-- No production database writes.
-- No credentials.
+- No Paycheck calculator math changes
+- No Schedule v1.4 backend adapter selection implementation
+- No Employee CRUD
+- No authentication
+- No live API deployment
+- No production database writes
+- No credentials
 
 ## Rule 26 Validation
 
-Passed: 0 missing local asset/page references.
+Before release, validate that referenced CSS, JavaScript, image, icon, manifest, and local page references resolve to actual files.

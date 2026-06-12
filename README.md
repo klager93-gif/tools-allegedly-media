@@ -1,21 +1,111 @@
-## Signal Schedule v1.3.3 — Coolify Backend Setup Guide
+# Signal Labs
 
-Signal Schedule backend planning has been corrected after confirming the live deployment path is GitHub to Coolify. Cloudflare D1 remains a possible future adapter, but it is no longer the default backend assumption.
+**Useful tools without the noise.**
 
-## Signal Schedule v1.3.1 — D1 Setup Guide
+Signal Labs is a lightweight tool ecosystem for real-life work, money, planning, and public-safety-adjacent calculations. The project favors practical tools, clear outputs, portable architecture, and release discipline.
 
-Signal Schedule v1.3.1 adds D1 setup guidance while keeping the active application static and backend-portable.
+## Active Tools
 
-## Signal Schedule v1.3.0 — D1 Database Foundation
+| Tool | Current Status | Notes |
+|---|---:|---|
+| Home | v0.9.9.6 | Public landing page and shared navigation entry point. |
+| Paycheck Calculator | v0.9.9 | Active calculator. Report and metadata cleanup with Weekly OT behavior preserved. |
+| Overtime Calculator | Active | Frozen for feature work unless critical fixes or shared-pattern syncs are needed. |
+| Time Off Calculator | Active | Leave/time-off planning tool. |
+| Signal Schedule | v1.3.3 | Static JSON-backed scheduling foundation with backend planning docs. Coolify + Postgres is the preferred future backend path; D1/MySQL remain possible adapters under Rule 24. |
+| Pay Planner | v0.1.x | Unlisted incubator page for future pay goal planning. |
 
-Signal Schedule now includes D1 schema/seed planning files while remaining static and backend-portable.
+## Ecosystem Direction
 
-**Signal Schedule v1.1.0 — Repository / Adapter Layer** continues the v1.x data architecture with portable repositories and adapters.
+### Work
+- Paycheck Calculator
+- Overtime Calculator
+- Time Off Calculator
+- Signal Schedule
 
-This release keeps the app static/browser-only while adding multi-agency JSON data files and data loading functions. It supports pretend agencies for Corrections, Fire, Dispatch, and Police without adding D1, Workers, credentials, CRUD, or authentication.
+### Career
+- Raise Calculator
+- Job Offer Comparison
+- Salary ↔ Hourly
 
-Rule 24 remains active: backend portability is required.
+### Money
+- Emergency Fund
+- Debt Payoff
+- Retirement Contribution
+- Compound Interest
 
-## Signal Schedule v1.3.0 — D1 Database Foundation
+### Public Safety
+- Comp Time
+- Kelly Day
+- Shift Schedules
+- Pension
 
-Adds the planned Cloudflare Worker / Pages Function API shape while keeping the active app static and backend-portable. No D1, credentials, CRUD, authentication, or live writes added.
+## Project Standards
+
+Signal Labs follows the project standards stored in `STANDARDS.md`.
+
+Key rules include:
+
+- Files do not lie.
+- Foundation before features.
+- Build complete systems, not demos.
+- Shared component changes are system-wide dependency changes.
+- Backend portability is required.
+- Tools own their infrastructure.
+- Whole-site or multi-tool releases must validate referenced assets before packaging.
+
+## Backend Direction
+
+Signal Schedule is the current backend-planning driver.
+
+Preferred future path:
+
+```text
+GitHub
+  ↓
+Coolify
+  ↓
+API service
+  ↓
+Postgres
+```
+
+Required architecture boundary:
+
+```text
+UI
+  ↓
+Services
+  ↓
+Repositories
+  ↓
+Adapters
+  ↓
+Backend
+```
+
+Supported adapter targets remain:
+
+- Static JSON
+- Postgres
+- MySQL
+- Cloudflare D1
+
+## Repository Notes
+
+- Root-level documentation describes the whole Signal Labs ecosystem.
+- Tool-specific documentation belongs inside each tool folder.
+- Schedule-specific backend/API planning belongs inside `/schedule/`.
+- Root-level infrastructure additions require explicit justification.
+
+## Current Coordinated Recovery Scope
+
+This repository state includes cleanup for:
+
+- Paycheck v0.9.9 documentation integrity
+- Signal Schedule v1.3.3 documentation integrity
+- Root README recovery
+- Rule 26 asset validation repair
+- Pay Planner incubator asset restoration
+
+No calculator math changes, live database writes, CRUD, authentication, or production backend connections are included in this recovery scope.

@@ -1,43 +1,66 @@
-## Signal Schedule v1.3.3 — Coolify Backend Setup Guide
+# Signal Schedule
 
-Adds Coolify backend setup documentation after confirming the live deployment path is GitHub to Coolify. Recommends a future Coolify-hosted API service with Postgres while preserving D1/MySQL as possible adapters under Rule 24. No app behavior, credentials, CRUD, authentication, root infrastructure folders, or dashboard preview panels were added.
+**Current Version:** v1.3.3 — Coolify Backend Setup Guide
 
-## v1.3.3 — Coolify Backend Setup Guide
+Signal Schedule is the scheduling and staffing foundation inside Signal Labs. The current app remains static/browser-safe and uses JSON-backed data while backend architecture is planned.
 
-Signal Schedule now documents the actual live deployment path as GitHub to Coolify. Cloudflare D1 is paused as the default backend assumption and remains only a possible future adapter. The active app still uses the static JSON adapter.
+## Current State
 
-See `COOLIFY-BACKEND-PIVOT.md`.
+- Active app source: static HTML/CSS/JS
+- Active data source: `/schedule/data/*.json`
+- Active behavior: read-only planning/prototype behavior
+- No live CRUD
+- No authentication
+- No production database writes
+- No credentials included
 
-## v1.3.1 — D1 Setup Guide
+## Backend Direction
 
-Signal Schedule v1.3.1 adds Cloudflare D1 setup guidance. The active app still uses the static JSON adapter.
+The actual deployment path is GitHub to Coolify. Cloudflare D1 is paused as the default backend assumption and remains a possible future adapter only.
 
-## v1.3.0 — D1 Database Foundation
-
-Signal Schedule now includes the first planned Cloudflare D1 foundation: schema, seed data, audit-log table planning, and a D1 adapter contract. The active app still uses static JSON and remains browser-only.
-
-## v1.3.0 — D1 Database Foundation
-
-Signal Schedule keeps the future API plan, but Schedule-owned mock API files now live inside the Schedule tool instead of the repository root.
-
-Active data source: `/schedule/data/*.json` through the JSON adapter.
-
-Schedule-owned mock API planning files:
+Preferred future path:
 
 ```text
-/schedule/api/mock-functions/health.js
-/schedule/api/mock-functions/agencies.js
-/schedule/api/mock-functions/employees.js
+GitHub
+  ↓
+Coolify
+  ↓
+API service
+  ↓
+Postgres
 ```
 
-Planned future API shape:
+Required architecture boundary:
 
 ```text
-GET /schedule/api/health
-GET /schedule/api/agencies
-GET /schedule/api/employees
+UI
+  ↓
+Services
+  ↓
+Repositories
+  ↓
+Adapters
+  ↓
+Backend
 ```
 
-No D1 database, credentials, CRUD, authentication, or live writes are active in this release.
+Supported adapter targets:
 
-See `WORKER-FOLDER-REPAIR.md`, `WORKER-API-FOUNDATION.md`, and `BACKEND-PORTABILITY.md`.
+- Static JSON
+- Postgres
+- MySQL
+- Cloudflare D1
+
+## Rule 24
+
+Backend portability remains required. UI and business logic should not depend directly on D1, Workers, MySQL, PHP, Postgres, or any single backend implementation.
+
+## Rule 25
+
+Schedule-specific infrastructure belongs inside `/schedule/` unless it is intentionally shared by multiple tools.
+
+## Next Planned Release
+
+**v1.4.0 — Backend Adapter Selection**
+
+This should document the selected adapter path before Employee API work begins.

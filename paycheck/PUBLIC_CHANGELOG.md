@@ -1,149 +1,53 @@
-## Paycheck v0.9.9 — Report & Metadata Cleanup
-
-- Preserved the **36/44 Weekly OT** profile and weekly overtime calculation behavior.
-- Synced Paycheck footer/header metadata to the current shared layout system.
-- Updated visible Paycheck version/theme references to v0.9.9.
-- No calculator math changes beyond preserving the Weekly OT behavior already added in v0.9.7.
-
-
-## Paycheck v0.9.6 — Shared Layout Components
-
-**Date:** 2026-06-10
-
-### Changes
-
-- Updated Paycheck to use shared Signal Labs header and footer components.
-- Footer links now match the Home public pages.
-- Reduced duplicated layout markup.
-- No calculator math changes.
-
----
-
-# Paycheck Calculator Public Changelog
-
-## v0.9.3 — Footer Inheritance
-
-**Date:** 2026-06-10
-
-- Cleaned up the Paycheck header by removing release metadata from the hero area.
-- Added the Home-style Signal Labs footer to the Paycheck page.
-- Footer links now use the public changelog.
-- Calculator behavior and math are unchanged.
-
----
-## v0.9.2 — Mobile Menu Fix
-
-**Date:** 2026-06-10
-
-- Fixed the mobile Menu button so navigation links open correctly on Paycheck.
-- No calculator math changes.
-
-
-## v0.9.2 — Mobile Menu Fix
-
-**Date:** 2026-06-10
-
-- Updated the Paycheck header and navigation to better match the Signal Labs Home design.
-- Added the richer Signal Labs footer layout to the Paycheck page.
-- Improved page spacing and readability while keeping calculator behavior the same.
-
----
-
 # Paycheck Public Changelog
 
-## v0.9.0 — Design System Adoption
+## v0.9.9 — Report & Metadata Cleanup
 
-**Date:** 2026-06-10
-
-### Public Changes
-
-- Adopted the Signal Labs design-system direction for the Paycheck Calculator.
-- Added the shared-style Signal Labs navigation bar with Paycheck marked active.
-- Refined the local tool action bar to better match the global rounded-toolbar design language.
-- Updated modal styling for adjustment popups so they better match the rest of the calculator.
-- Added toast-style feedback support for saved settings, loaded examples, copied results, and validation messages.
-- Updated visible Paycheck metadata, footer version, and cache-busting references to v0.9.0.
-
-### Technical Notes
-
-- No calculator math changes.
-- No payroll logic changes.
-- Shared global assets are referenced at the current Home design-system version; no shared asset content changes are included in this package.
-
----
-
-
-## v0.8.5 — Tool Action Bar Foundation
-
-**Date:** 2026-06-10
-
-### Changes
-
-- Reworked the Paycheck action area into a cleaner tool action bar.
-- Removed the awkward `⋮ Actions` button and mobile action sheet from the visible workflow.
-- Kept primary action focus on `Calculate Paycheck`.
-- Grouped setup actions (`Save Settings`, `Load Example`, `Reset`) separately from output actions (`Copy Results`, `Print Report`).
-- Improved mobile action layout so the primary calculate action appears first and secondary actions stack cleanly.
-- No calculator logic changes.
-- No shared asset content changes.
-
----
-
-User-facing Paycheck Calculator changes. Entries are append-only and should never be deleted, collapsed, or replaced.
-
----
-
-## v0.8.4 — Result Density Cleanup
-
-**Date:** 2026-06-10
-
-### User-Facing Changes
-
-- Made the Paycheck page feel lighter and less bulky after visual review.
-- Made Premium Hours, Paid Leave, and Other Earnings section headings quieter.
-- Made pills smaller and easier to scan on desktop and mobile.
-- Reduced empty-state height and result-row spacing.
-- Kept the result metadata block unchanged for now.
-- Updated Paycheck version display to v0.8.4.
-
----
-
-## v0.8.3 — Progressive Details & Compact Density
-
-**Date:** 2026-06-10
-
-### User-Facing Changes
-
-- Fixed the results breakdown so empty or zero-value rows no longer clutter the Estimated Paycheck card.
-- Result details now appear progressively only when that part of the estimate has a value.
-- Made premium, paid leave, tax, deduction, and adjustment pills smaller and easier to scan.
-- Reduced oversized spacing in empty states, result rows, cards, and mobile layouts.
-- Improved mobile usability by reducing unnecessary vertical scrolling.
-- Updated Paycheck version display to v0.8.3.
-
----
-
-## v0.8.2 — Inline Result Details
-
-**Date:** 2026-06-10
-
-### User-Facing Changes
-
-- Removed the hidden Details box from the Estimated Paycheck results area.
-- Made paycheck result details visible as individual rows instead of hiding them behind a click.
-- Kept Gross Pay and Take-Home Pay visually emphasized.
-- Updated Paycheck version display to v0.8.2.
-
----
-
-## Earlier Versions
-
-Earlier Paycheck history should be backfilled from the existing `CHANGELOG.md` during a future documentation cleanup release. Do not delete existing history.
-
+- Preserved the 36/44 Weekly OT profile and weekly overtime calculation behavior.
+- Synced Paycheck footer/header metadata to the current shared layout system.
+- Updated visible Paycheck version/theme references to v0.9.9 where applicable.
+- Cleaned documentation after backup-install drift.
+- No calculator math changes were intentionally added.
 
 ## v0.9.7 — Weekly OT Profiles
 
-- Added a **36/44 Weekly OT** pay profile for biweekly checks where overtime is calculated separately by week.
-- Added Week 1 and Week 2 hour fields for weekly overtime mode.
-- Fixed overtime threshold controls so After 40, After 80, Weekly OT, and Custom affect calculations instead of only acting as labels.
-- Preserved manual premium hour rows for special cases.
+- Added automatic overtime splitting for weekly overtime rules.
+- Added 36/44 Weekly OT profile support for biweekly paychecks where each week is tested separately against a 40-hour threshold.
+
+## v0.9.6 — Shared Layout Components
+
+- Updated Paycheck to use shared Signal Labs header and footer components.
+- Footer links now match the Home public pages.
+- Reduced local duplicated layout markup.
+
+## v0.9.3 — Footer Inheritance
+
+- Removed release metadata from the hero/header area.
+- Added the Home-style Signal Labs footer structure.
+- Kept footer changelog links pointed at the public changelog.
+- Made no calculator math changes.
+
+## v0.9.2 — Mobile Menu Fix
+
+- Fixed missing mobile-open behavior for the Home-aligned navigation implementation.
+- Strengthened local navigation fallback behavior.
+- Made no calculator math changes.
+
+## v0.9.0 — Design System Adoption
+
+- Began migration into the Signal Labs design-system direction.
+- Aligned shell, navigation, action bar, modal styling, and feedback patterns.
+
+## v0.8.5 — Tool Action Bar Foundation
+
+- Added local Paycheck implementation of the future shared tool action bar pattern.
+- Preserved existing button IDs and calculator behavior.
+
+## v0.8.4 — Result Density Cleanup
+
+- Reduced result-card spacing and improved readability.
+- Kept calculation behavior unchanged.
+
+## v0.8.3 — Progressive Details & Compact Density
+
+- Hid empty or zero-value detail rows from the Estimated Paycheck card.
+- Made result details appear progressively only when meaningful values exist.
