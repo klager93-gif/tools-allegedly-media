@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.11.2
-Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, holiday, callback, and seniority fairness previews
+Version: v0.12.0
+Purpose: Explainability Foundation sandbox with why-layer previews for coverage, mandation, benefits, seniority, eligibility, and fairness outcomes
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.11.2';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.12.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -31,6 +31,8 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     systemInspectorNotes: [],
     fairnessMetrics: [],
     seniorityLedger: [],
+    explanationExamples: [],
+    explanationLevels: [],
     agencyProfile: null,
     selectedEmployeeId: null
   };
@@ -288,6 +290,74 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     }];
   }
 
+  function defaultExplanationExamples() {
+    return [{
+      id: 'explain-mandation',
+      category: 'Mandation',
+      question: 'Why was Alex mandated?',
+      facts: 'Night dispatcher coverage is below minimum. Taylor has an active FMLA/no-mandation exception. Alex is next eligible in the sample rotation.',
+      rules: 'Eligibility exceptions evaluate before rotation order. Mandation creates history and may affect pay/rotation, but does not consume benefit time.',
+      outcome: 'Alex is selected for the mandate and Taylor is skipped with a recorded reason.',
+      audience: 'Employee and admin'
+    }, {
+      id: 'explain-coverage',
+      category: 'Coverage',
+      question: 'Why is night coverage red?',
+      facts: 'The night dispatcher requirement needs a minimum of 6, target of 8, and maximum of 10. The sample count is below minimum.',
+      rules: 'Coverage evaluates minimum first, then target, then maximum.',
+      outcome: 'The system flags a shortage and identifies open coverage spots before any final scheduler exists.',
+      audience: 'Supervisor'
+    }, {
+      id: 'explain-benefit',
+      category: 'Benefits',
+      question: 'Why did vacation reduce the balance?',
+      facts: 'Taylor has an approved vacation event for 720 paid minutes linked to a benefit ledger entry.',
+      rules: 'Approved benefit-use events create ledger entries. Balances are calculated from history instead of overwritten totals.',
+      outcome: 'Vacation usage is recorded as -720 minutes with an audit source tied to the approved event.',
+      audience: 'Employee and admin'
+    }, {
+      id: 'explain-seniority',
+      category: 'Seniority',
+      question: 'Why can effective seniority differ from hire date?',
+      facts: 'Taylor has an example non-accrual leave period in the seniority ledger.',
+      rules: 'Hire date remains factual history; seniority adjustments modify the effective seniority calculation without rewriting the hire date.',
+      outcome: 'Effective seniority may move behind another employee depending on agency policy.',
+      audience: 'Admin'
+    }, {
+      id: 'explain-eligibility',
+      category: 'Eligibility',
+      question: 'Why is Casey not available for a mandate?',
+      facts: 'Casey is part-time and has a no-mandation exception in the employee profile.',
+      rules: 'Employee exceptions and eligibility flags must be evaluated before assigning forced overtime.',
+      outcome: 'Casey is skipped and the skip reason is preserved for audit/history.',
+      audience: 'Supervisor and admin'
+    }, {
+      id: 'explain-fairness',
+      category: 'Fairness',
+      question: 'Why is the fairness snapshot uneven?',
+      facts: 'Overtime, mandates, weekends, holidays, callbacks, skipped exceptions, and seniority history are uneven in sample data.',
+      rules: 'Fairness compares facts and history inside the agency-defined window; it does not manually edit totals.',
+      outcome: 'The system should show the imbalance and explain which facts created it.',
+      audience: 'Admin and employee-safe summary'
+    }];
+  }
+
+  function defaultExplanationLevels() {
+    return [{
+      id: 'explain-level-employee',
+      name: 'Employee-facing explanation',
+      detail: 'Plain-language reason without exposing private employee details that are not needed.'
+    }, {
+      id: 'explain-level-supervisor',
+      name: 'Supervisor explanation',
+      detail: 'Shows operational facts such as coverage shortage, eligibility, and staffing impact.'
+    }, {
+      id: 'explain-level-admin',
+      name: 'Admin / audit explanation',
+      detail: 'Shows rule source, override reason, timestamps, related events, and ledger/audit references.'
+    }];
+  }
+
   function defaultEventTypeDefinitions() {
     return [{
       id: 'event-vacation',
@@ -506,6 +576,8 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     next.systemInspectorNotes = Array.isArray(next.systemInspectorNotes) && next.systemInspectorNotes.length ? next.systemInspectorNotes : defaultSystemInspectorNotes();
     next.fairnessMetrics = Array.isArray(next.fairnessMetrics) && next.fairnessMetrics.length ? next.fairnessMetrics : defaultFairnessMetrics();
     next.seniorityLedger = Array.isArray(next.seniorityLedger) && next.seniorityLedger.length ? next.seniorityLedger : defaultSeniorityLedger();
+    next.explanationExamples = Array.isArray(next.explanationExamples) && next.explanationExamples.length ? next.explanationExamples : defaultExplanationExamples();
+    next.explanationLevels = Array.isArray(next.explanationLevels) && next.explanationLevels.length ? next.explanationLevels : defaultExplanationLevels();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
     next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
@@ -660,7 +732,7 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.11.2 Stability Repair';
+    if (label) label.textContent = 'v0.12.0 Explainability Foundation';
   }
 
   function syncRuleInputs() {
@@ -1058,6 +1130,34 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     }).join('');
   }
 
+  function renderExplainabilityPreview() {
+    var target = $('#explainabilityPreview');
+    if (!target) return;
+    var items = Array.isArray(state.explanationExamples) && state.explanationExamples.length ? state.explanationExamples : defaultExplanationExamples();
+    target.innerHTML = items.map(function (item) {
+      return '<article class="explainability-item">' +
+        '<span class="card-kicker">' + escapeHtml(item.category || 'Explanation') + '</span>' +
+        '<strong>' + escapeHtml(item.question || 'Why?') + '</strong>' +
+        '<p><b>Facts:</b> ' + escapeHtml(item.facts || '') + '</p>' +
+        '<p><b>Rules:</b> ' + escapeHtml(item.rules || '') + '</p>' +
+        '<small><b>Outcome:</b> ' + escapeHtml(item.outcome || '') + '<br><b>Audience:</b> ' + escapeHtml(item.audience || 'Admin') + '</small>' +
+        '</article>';
+    }).join('');
+  }
+
+  function renderExplanationLevelsPreview() {
+    var target = $('#explanationLevelsPreview');
+    if (!target) return;
+    var items = Array.isArray(state.explanationLevels) && state.explanationLevels.length ? state.explanationLevels : defaultExplanationLevels();
+    target.innerHTML = items.map(function (item) {
+      return '<article class="explanation-level-item">' +
+        '<span class="card-kicker">Why-layer</span>' +
+        '<strong>' + escapeHtml(item.name || 'Explanation level') + '</strong>' +
+        '<p>' + escapeHtml(item.detail || '') + '</p>' +
+        '</article>';
+    }).join('');
+  }
+
   function renderDataModelPreview() {
     var target = $('#dataModelPreview');
     if (!target) return;
@@ -1075,7 +1175,8 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
       ['Benefit Ledger', benefitSample.benefitType + ' ' + benefitSample.amount, benefitSample.reason],
       ['Coverage Engine', String(coverageEngineRows().length), 'Compares scheduled counts against min, target, and max by day and time block'],
       ['Schedule Views', String((state.scheduleViews || []).length), 'Day, week, month, personal, coverage, and inspector views should use the same engine.'],
-      ['Fairness Metrics', String((state.fairnessMetrics || []).length), 'Fairness compares history, rules, seniority, mandates, overtime, weekends, holidays, and callbacks.']
+      ['Fairness Metrics', String((state.fairnessMetrics || []).length), 'Fairness compares history, rules, seniority, mandates, overtime, weekends, holidays, and callbacks.'],
+      ['Explainability', String((state.explanationExamples || []).length), 'Explains outcomes from facts, rules, history, audience, and audit context.']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -1243,9 +1344,9 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — SCHEDULE VIEWS FOUNDATION');
-    lines.push('Version: v0.11.2');
+    lines.push('Version: v0.12.0');
     lines.push('');
-    lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage Engine + Schedule Views + Explanations');
+    lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);
@@ -1266,6 +1367,7 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     lines.push('- Coverage engine rows this week: ' + coverageEngineRows().length);
     lines.push('- Schedule view previews: ' + ((state.scheduleViews || []).length));
     lines.push('- Fairness metrics: ' + ((state.fairnessMetrics || []).length));
+    lines.push('- Explanation examples: ' + ((state.explanationExamples || []).length));
     lines.push('- Seniority ledger entries: ' + ((state.seniorityLedger || []).length));
     lines.push('');
     lines.push('Pattern Templates:');
@@ -1316,12 +1418,14 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.11.2 Notes:');
+    lines.push('v0.12.0 Notes:');
+    lines.push('- Adds Explainability Foundation: facts + rules + history = reasoned outcomes.');
+    lines.push('- Explanation levels separate employee-facing, supervisor-facing, and admin/audit detail.');
     lines.push('- This is still local mock data, not a backend.');
-    lines.push('- Events, rules, benefit entries, coverage rows, views, and templates are sample objects, not editable database records or approval workflows yet.');
+    lines.push('- Events, rules, benefit entries, coverage rows, views, templates, fairness metrics, and explanations are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
-    lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, fairness, and coverage are mapped.');
-    lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides, then displayed through audience-specific views.');
+    lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, fairness, explainability, and coverage are mapped.');
+    lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides, then displayed through audience-specific views and explanations.');
     return lines.join('\n');
   }
 
@@ -1382,6 +1486,8 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     safeRender('fairness engine', renderFairnessEnginePreview);
     safeRender('fairness snapshot', renderFairnessSnapshotPreview);
     safeRender('seniority ledger', renderSeniorityLedgerPreview);
+    safeRender('explainability', renderExplainabilityPreview);
+    safeRender('explanation levels', renderExplanationLevelsPreview);
     safeRender('data model', renderDataModelPreview);
     safeRender('selects', renderSelects);
     safeRender('pills', renderPills);
@@ -1484,6 +1590,8 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
       systemInspectorNotes: defaultSystemInspectorNotes(),
       fairnessMetrics: defaultFairnessMetrics(),
       seniorityLedger: defaultSeniorityLedger(),
+      explanationExamples: defaultExplanationExamples(),
+      explanationLevels: defaultExplanationLevels(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
       selectedEmployeeId: 'emp-alex'

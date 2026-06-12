@@ -1,7 +1,7 @@
 # Build Manifest
 
-Build: Signal Schedule v0.11.2 — Render Stability and Storage Migration Repair
-Source: signal-schedule-v0.11.1-fairness-render-repair.zip
+Build: Signal Schedule v0.12.0 — Explainability Foundation
+Source: signal-schedule-v0.11.2-render-stability-and-storage-migration-repair.zip
 Generated: 2026-06-11
 
-Purpose: repair remaining render/sample loading failures by guarding preview rendering and migrating stale local storage safely.
+Changed focus: Explainability Foundation with why-layer previews, explanation levels, mock explanation examples, docs, version refs, and manifests.

@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.11.2
+Version: v0.12.0
 Purpose: Signal Schedule benefit ledger foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -173,7 +173,7 @@ Purpose: Signal Schedule benefit ledger foundation styles
 @media print { .rule-engine-card-item, .rule-evaluation-card-item, .agency-template-card-item { border-color: #ccc; background: #fff; color: #111; } }
 
 /*
-Signal Schedule v0.11.2 Fairness Engine Foundation
+Signal Schedule v0.12.0 Explainability Foundation
 Keeps generated rule-engine labels from running into headings.
 */
 .rule-engine-card-item .card-kicker,
@@ -206,7 +206,7 @@ Keeps generated rule-engine labels from running into headings.
 
 
 /*
-Signal Schedule v0.11.2 Fairness Engine Foundation
+Signal Schedule v0.12.0 Explainability Foundation
 Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 */
 .coverage-engine-card { border-color: rgba(250,204,21,.26); background: rgba(250,204,21,.055); }
@@ -230,7 +230,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 @media (max-width: 650px) { .coverage-engine-grid, .coverage-slot-grid { grid-template-columns: 1fr; } }
 
 
-/* Signal Schedule v0.11.2 Fairness Engine Foundation */
+/* Signal Schedule v0.12.0 Explainability Foundation */
 .schedule-views-grid,
 .system-inspector-grid {
   display: grid;
@@ -265,7 +265,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* Signal Schedule v0.11.2 Fairness Engine Foundation */
+/* Signal Schedule v0.12.0 Explainability Foundation */
 .fairness-engine-grid,
 .fairness-snapshot-grid,
 .seniority-ledger-grid {
@@ -293,6 +293,36 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 .fairness-engine-item small,
 .fairness-snapshot-item small,
 .seniority-ledger-item small {
+  display: block;
+  margin-top: 0.5rem;
+  line-height: 1.45;
+}
+
+/* Signal Schedule v0.12.0 Explainability Foundation */
+.explainability-grid,
+.explanation-level-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.explainability-item,
+.explanation-level-item {
+  border: 1px solid var(--sl-border, rgba(148, 163, 184, 0.28));
+  border-radius: 1rem;
+  padding: 1rem;
+  background: var(--sl-card-soft, rgba(255, 255, 255, 0.04));
+}
+
+.explainability-item strong,
+.explanation-level-item strong {
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.explainability-item p,
+.explainability-item small,
+.explanation-level-item p {
   display: block;
   margin-top: 0.5rem;
   line-height: 1.45;

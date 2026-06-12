@@ -1,5 +1,15 @@
 # Signal Schedule Changelog
 
+## v0.12.0 — Explainability Foundation
+
+- Added Explainability Foundation panels.
+- Added Explanation Level Preview for employee-facing, supervisor-facing, and admin/audit explanation detail.
+- Added sample explanation examples for mandation, coverage, benefits, seniority, eligibility, and fairness outcomes.
+- Added explanation objects to the mock data model and text output.
+- Kept v0.11.2 render stability protections so one preview failure should not stop the entire page.
+- Updated Schedule version references and cache-busting to v0.12.0.
+- No database storage, live automation, approval workflow, CRUD workflow, mandation automation, or final schedule generation was added.
+
 ## v0.11.2 — Render Stability and Storage Migration Repair
 
 - Added guarded render calls so one preview panel cannot stop the whole page from loading.
