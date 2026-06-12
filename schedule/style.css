@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.9.0
+Version: v0.10.0
 Purpose: Signal Schedule benefit ledger foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -173,7 +173,7 @@ Purpose: Signal Schedule benefit ledger foundation styles
 @media print { .rule-engine-card-item, .rule-evaluation-card-item, .agency-template-card-item { border-color: #ccc; background: #fff; color: #111; } }
 
 /*
-Signal Schedule v0.9.0 Coverage Engine Foundation
+Signal Schedule v0.10.0 Schedule Views Foundation
 Keeps generated rule-engine labels from running into headings.
 */
 .rule-engine-card-item .card-kicker,
@@ -206,7 +206,7 @@ Keeps generated rule-engine labels from running into headings.
 
 
 /*
-Signal Schedule v0.9.0 Coverage Engine Foundation
+Signal Schedule v0.10.0 Schedule Views Foundation
 Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 */
 .coverage-engine-card { border-color: rgba(250,204,21,.26); background: rgba(250,204,21,.055); }
@@ -228,3 +228,38 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 .coverage-slot-item.is-filled { border-color: rgba(34,197,94,.28); }
 @media (max-width: 1100px) { .coverage-engine-grid { grid-template-columns: repeat(2, 1fr); } .coverage-slot-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 650px) { .coverage-engine-grid, .coverage-slot-grid { grid-template-columns: 1fr; } }
+
+
+/* Signal Schedule v0.10.0 Schedule Views Foundation */
+.schedule-views-grid,
+.system-inspector-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.schedule-view-card,
+.system-inspector-item {
+  display: grid;
+  gap: 0.55rem;
+  padding: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 1rem;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.schedule-view-card strong,
+.system-inspector-item strong {
+  font-size: 1rem;
+}
+
+.schedule-view-card small,
+.schedule-view-card em,
+.system-inspector-item p {
+  color: var(--signal-muted, #94a3b8);
+}
+
+.schedule-view-card em {
+  font-style: normal;
+  font-weight: 700;
+}

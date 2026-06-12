@@ -1,3 +1,9 @@
+## Signal Schedule v0.10.0 — Schedule Views Foundation
+
+- Added schedule view planning for day, week, month, personal, coverage, and system-inspector views.
+- Added seniority-adjustment planning to employee data.
+- Reframed current card panels as temporary engine/debug previews.
+
 ## Signal Schedule v0.9.0 — Coverage Engine Foundation
 
 - Added Coverage Engine Foundation preview panels.

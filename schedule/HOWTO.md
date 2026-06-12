@@ -1,3 +1,12 @@
+# Signal Schedule HOWTO
+
+## v0.10.0 Schedule Views Foundation
+
+Use the Schedule Views Foundation panels to review how the same engine could feed different screens later. These are not final layouts and are not editable database records.
+
+The current card-heavy layout should be treated as a system inspector while the engine is being designed.
+
+
 # How to Use Signal Schedule
 
 1. Open `/schedule/`.

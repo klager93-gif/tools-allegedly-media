@@ -1,3 +1,5 @@
+**Signal Schedule v0.10.0 — Schedule Views Foundation** adds planning for day, week, month, personal, coverage, and system-inspector views, plus seniority-adjustment planning for future fairness and bidding rules.
+
 # Signal Labs
 
 Useful tools without the noise.

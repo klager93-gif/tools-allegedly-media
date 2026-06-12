@@ -1,3 +1,6 @@
+- Verify Signal Schedule v0.10.0 Schedule Views Foundation after deployment.
+- Next planned release: Signal Schedule v0.11.0 — Fairness Engine Foundation.
+
 - Verify Signal Schedule v0.9.0 Coverage Engine Foundation after deployment.
 # Signal Labs Roadmap
 

@@ -1,3 +1,19 @@
+## v0.10.0 — Schedule Views Foundation
+
+- Add day, week, month, personal, coverage, and system-inspector view planning.
+- Make clear that the current card wall is a temporary engine/debug display, not final UX.
+- Ensure view planning respects agency profile settings such as work-week start, date format, time format, and time zone.
+- Add seniority-adjustment planning for employee records so effective seniority can differ from hire date and base seniority date.
+
+## Next Architecture Releases
+
+- v0.11.0 — Fairness Engine Foundation
+- v0.12.0 — Explainability Foundation
+- v0.13.0 — Mandation Foundation
+- v0.14.0 — Bidding Foundation
+- v0.15.0 — Analytics Foundation
+
+
 ## v0.9.0 — Coverage Engine Foundation
 
 - Add visible Coverage Engine Foundation panels.

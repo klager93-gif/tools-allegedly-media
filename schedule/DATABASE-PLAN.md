@@ -1,5 +1,18 @@
 # Signal Schedule Database Plan
 
+## v0.10.0 Schedule Views Foundation Notes
+
+Schedule views should not own schedule data. Day, week, month, personal, coverage, and system-inspector views should all read from the same underlying facts: agency settings, employees, patterns, events, benefits, rules, and coverage requirements.
+
+Future data objects should include view preferences, but the database should store facts separately from presentation.
+
+### Seniority adjustment planning
+
+Employee data should eventually separate hire date, base seniority date, and effective seniority. A future `seniority_ledger` or `seniority_adjustments` table should preserve leave periods, break-in-service records, suspensions, or other non-accrual periods instead of silently overwriting seniority dates.
+
+
+# Signal Schedule Database Plan
+
 ## Status
 
 Planning document for the future PHP/database version. Signal Schedule v0.9.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.

@@ -1,3 +1,12 @@
+## v0.10.0 — Schedule Views Foundation
+
+- Added Schedule Views Foundation panels for day, week, month, personal, coverage, and system-inspector views.
+- Reframed the current wall of cards as engine-facing/debug-style inspector panels, not the final user experience.
+- Added view planning that respects agency settings such as work-week start, time format, date format, events, and coverage rules.
+- Added seniority-adjustment planning to employee data so hire date, seniority date, and effective seniority can differ.
+- Updated Schedule version references and cache-busting to v0.10.0.
+
+
 ## v0.9.0 — Coverage Engine Foundation
 
 - Added visible Coverage Engine Foundation panels.

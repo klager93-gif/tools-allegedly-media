@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.9.0
-Purpose: Coverage engine foundation sandbox with minimum, target, maximum, and open spot previews
+Version: v0.10.0
+Purpose: Schedule views foundation sandbox with day, week, month, personal, coverage, and system inspector preview planning
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Coverage engine foundation sandbox with minimum, target, maximum, and o
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.9.0">
+<link rel="stylesheet" href="style.css?v=0.10.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.9.0"
-  data-signal-theme="Coverage Engine Foundation"
+  data-signal-version="v0.10.0"
+  data-signal-theme="Schedule Views Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define coverage engine planning for minimums, targets, maximums, open spots, shortages, surplus warnings, and staffing requirements."
-  data-signal-status-text="Signal Schedule v0.9.0 adds Coverage Engine Foundation planning while remaining browser-only and mock-data based."
+  data-signal-description="Define schedule view planning for day, week, month, personal, coverage, and system-inspector views powered by the same engine."
+  data-signal-status-text="Signal Schedule v0.10.0 adds Schedule Views Foundation planning while remaining browser-only and mock-data based."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Coverage engine foundation sandbox with minimum, target, maximum, and o
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Preview how coverage requirements compare expected staffing against minimum, target, and maximum needs before persistence or automation exists.</p>
+      <p class="schedule-subtitle">Preview how the same staffing engine can feed day, week, month, personal, coverage, and system-inspector views before persistence or final UI exists.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.9.0 Coverage</strong>
+      <strong id="currentWeekLabel">v0.10.0 Views</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Coverage engine foundation sandbox with minimum, target, maximum, and o
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.9.0 is still browser-only. Coverage Engine Foundation adds minimum, target, maximum, and open-spot planning without database persistence or final automation.</p>
+      <p>Signal Schedule v0.10.0 is still browser-only. Schedule Views Foundation organizes the engine into planned views without database persistence, final UI, or true automation.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.9 keeps the agency, employee, pattern, event, benefit, and rule foundations and adds coverage engine previews for staffing need versus staffing reality.</p>
+        <p>v0.10 keeps the agency, employee, pattern, event, benefit, rule, and coverage foundations and adds schedule-view previews for how the same engine should be displayed later.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -211,6 +211,28 @@ Purpose: Coverage engine foundation sandbox with minimum, target, maximum, and o
     <div id="coverageSlotPreview" class="coverage-slot-grid"></div>
   </section>
 
+
+
+  <section class="schedule-card schedule-views-card" aria-labelledby="scheduleViewsTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="scheduleViewsTitle">Schedule Views Foundation</h2>
+        <p>The same engine should power different views: day, week, month, personal, coverage, and system inspector. These are previews, not final layouts.</p>
+      </div>
+    </div>
+    <div id="scheduleViewsPreview" class="schedule-views-grid"></div>
+  </section>
+
+  <section class="schedule-card system-inspector-card" aria-labelledby="systemInspectorTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="systemInspectorTitle">System Inspector Note</h2>
+        <p>The current wall of cards is intentionally engine-facing. Later releases should turn these debug panels into admin screens, employee views, and supervisor dashboards.</p>
+      </div>
+    </div>
+    <div id="systemInspectorPreview" class="system-inspector-grid"></div>
+  </section>
+
   <section class="schedule-card" aria-labelledby="modelTitle">
     <div class="schedule-card-heading">
       <div>
@@ -356,6 +378,6 @@ Purpose: Coverage engine foundation sandbox with minimum, target, maximum, and o
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.9.0"></script>
+<script src="script.js?v=0.10.0"></script>
 </body>
 </html>

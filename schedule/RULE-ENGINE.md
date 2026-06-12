@@ -1,3 +1,21 @@
+# Signal Schedule Rule Engine
+
+## v0.10.0 Schedule Views Foundation Notes
+
+The rule engine should produce outcomes and explanations that can be displayed in multiple views. A coverage warning, mandate skip, vacation impact, or seniority adjustment should not belong to one screen only.
+
+Views should answer different questions using the same facts:
+
+- Day View: who is working right now?
+- Week View: what does the agency-defined week look like?
+- Month View: what is the planning picture?
+- Personal View: what affects me?
+- Coverage View: where are we short or overstaffed?
+- System Inspector: why did the engine produce this result?
+
+Seniority rules should account for seniority adjustments so hire date does not become an incorrect proxy for effective seniority.
+
+
 ## v0.8.0 Rule Engine Foundation
 
 Rule Engine Foundation introduces sample policy evaluation concepts for priority, explainability, audit trails, and editable templates.

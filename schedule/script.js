@@ -1,10 +1,10 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.9.0
-Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and open spot previews
+Version: v0.10.0
+Purpose: Schedule Views Foundation sandbox with day, week, month, personal, coverage, and system inspector previews
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.9.0';
+  var STORAGE_KEY = 'signalSchedule.v0.10.0';
   var OLD_STORAGE_KEYS = ['signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
@@ -27,6 +27,8 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
     ruleEvaluationExamples: [],
     agencyRuleTemplates: [],
     coverageRequirements: [],
+    scheduleViews: [],
+    systemInspectorNotes: [],
     agencyProfile: null,
     selectedEmployeeId: null
   };
@@ -158,6 +160,70 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
   }
 
 
+
+
+  function defaultScheduleViews() {
+    var agency = state.agencyProfile || defaultAgencyProfile();
+    return [{
+      id: 'view-day',
+      name: 'Day View',
+      audience: 'Supervisor / staffing desk',
+      purpose: 'Show who is working by hour and whether coverage is below minimum, below target, in range, or over maximum.',
+      respects: ['time format: ' + agency.timeFormat, 'coverage minimums', 'events'],
+      status: 'Preview only'
+    }, {
+      id: 'view-week',
+      name: 'Week View',
+      audience: 'Planner / admin',
+      purpose: 'Show the week in the agency-defined order instead of assuming Monday first.',
+      respects: ['week starts: ' + agency.workWeekStartsOn, 'time format: ' + agency.timeFormat, 'patterns'],
+      status: 'Preview only'
+    }, {
+      id: 'view-month',
+      name: 'Month View',
+      audience: 'Planning / employee reference',
+      purpose: 'Show high-level shifts, time off, holidays, and coverage warnings without becoming a spreadsheet wall.',
+      respects: ['date format: ' + agency.dateFormat, 'events', 'benefit usage'],
+      status: 'Preview only'
+    }, {
+      id: 'view-personal',
+      name: 'Personal View',
+      audience: 'Employee',
+      purpose: 'Show my schedule, my time off, my benefits, my bids, my trades, and my approvals.',
+      respects: ['employee profile', 'benefit ledger', 'events'],
+      status: 'Future portal concept'
+    }, {
+      id: 'view-coverage',
+      name: 'Coverage View',
+      audience: 'Supervisor / command staff',
+      purpose: 'Start with staffing need, open spots, shortages, and overstaffing instead of starting with a calendar.',
+      respects: ['minimum / target / maximum', 'qualifications', 'locations'],
+      status: 'Preview only'
+    }, {
+      id: 'view-inspector',
+      name: 'System Inspector',
+      audience: 'Developer / admin troubleshooting',
+      purpose: 'Keep the current engine cards as a diagnostic mode rather than the final user interface.',
+      respects: ['facts', 'rules', 'events', 'audit explanations'],
+      status: 'Internal/debug concept'
+    }];
+  }
+
+  function defaultSystemInspectorNotes() {
+    return [{
+      id: 'inspector-debug',
+      name: 'Current cards are debug panels',
+      detail: 'Agency, employee, pattern, event, benefit, rule, and coverage cards expose the engine while architecture is still being designed.'
+    }, {
+      id: 'inspector-future-ui',
+      name: 'Future UI should hide complexity',
+      detail: 'Most users should see views and actions, not every underlying object on one page.'
+    }, {
+      id: 'inspector-same-engine',
+      name: 'Same data, different views',
+      detail: 'Day, week, month, personal, coverage, and admin views should all read from the same facts and rules.'
+    }];
+  }
 
   function defaultEventTypeDefinitions() {
     return [{
@@ -373,6 +439,8 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
     next.ruleEvaluationExamples = Array.isArray(next.ruleEvaluationExamples) && next.ruleEvaluationExamples.length ? next.ruleEvaluationExamples : defaultRuleEvaluationExamples();
     next.agencyRuleTemplates = Array.isArray(next.agencyRuleTemplates) && next.agencyRuleTemplates.length ? next.agencyRuleTemplates : defaultAgencyRuleTemplates();
     next.coverageRequirements = Array.isArray(next.coverageRequirements) && next.coverageRequirements.length ? next.coverageRequirements : defaultCoverageRequirements();
+    next.scheduleViews = Array.isArray(next.scheduleViews) && next.scheduleViews.length ? next.scheduleViews : defaultScheduleViews();
+    next.systemInspectorNotes = Array.isArray(next.systemInspectorNotes) && next.systemInspectorNotes.length ? next.systemInspectorNotes : defaultSystemInspectorNotes();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
     next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
@@ -391,6 +459,7 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
         status: employee.status || 'active',
         hireDate: employee.hireDate || '',
         seniorityDate: employee.seniorityDate || employee.hireDate || '',
+        seniorityAdjustments: Array.isArray(employee.seniorityAdjustments) ? employee.seniorityAdjustments : [],
         department: employee.department || 'Communications',
         division: employee.division || 'Operations',
         location: employee.location || 'Main Center',
@@ -522,7 +591,7 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.9.0 Coverage';
+    if (label) label.textContent = 'v0.10.0 Views';
   }
 
   function syncRuleInputs() {
@@ -541,7 +610,8 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
       ['Patterns', state.patterns.length, 'Rotations generate expected work instead of storing every day forever.'],
       ['Events', state.scheduleEvents.length, 'Events modify expected pattern work and explain why the final schedule differs from the normal plan.'],
       ['Benefits', state.benefitLedger.length, 'Ledger entries preserve accruals, usage, corrections, payouts, and projected balances.'],
-      ['Coverage', state.coverageRequirements.length, 'Requirements compare need vs. scheduled staffing.']
+      ['Coverage', state.coverageRequirements.length, 'Requirements compare need vs. scheduled staffing.'],
+      ['Views', (state.scheduleViews || []).length, 'Different screens should show the same engine data for different audiences.']
     ];
     target.innerHTML = items.map(function (item) {
       return '<article class="engine-step"><span>' + escapeHtml(item[0]) + '</span><strong>' + item[1] + '</strong><p>' + escapeHtml(item[2]) + '</p></article>';
@@ -587,6 +657,7 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
     var exceptions = selected.exceptions.length ? selected.exceptions.join(', ') : 'None';
     var qualifications = selected.qualifications.length ? selected.qualifications.join(', ') : 'None assigned';
     var mandateNote = selected.mandateEligible && !selected.exceptions.length ? 'Can be evaluated for future mandate rotation rules.' : 'Future mandation rules must explain skip/exception handling.';
+    var seniorityAdjustments = Array.isArray(selected.seniorityAdjustments) && selected.seniorityAdjustments.length ? selected.seniorityAdjustments.map(function (item) { return (item.effect || '') + ' for ' + (item.reason || 'seniority adjustment'); }).join(', ') : 'None';
     detail.innerHTML = '' +
       '<span>Selected Employee</span>' +
       '<strong>' + escapeHtml(selected.name) + '</strong>' +
@@ -597,7 +668,8 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
       '<p><b>Exceptions:</b> ' + escapeHtml(exceptions) + '</p>' +
       '<p><b>Qualifications:</b> ' + escapeHtml(qualifications) + '</p>' +
       '<p><b>Benefit snapshot:</b> ' + escapeHtml(benefitText(selected.benefitBalances)) + '</p>' +
-      '<p><b>Rule impact:</b> ' + escapeHtml(mandateNote) + '</p>';
+      '<p><b>Rule impact:</b> ' + escapeHtml(mandateNote) + '</p>' +
+      '<p><b>Seniority adjustments:</b> ' + escapeHtml(seniorityAdjustments) + '</p>';
   }
 
   function renderAgencyProfile() {
@@ -838,6 +910,37 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
     target.innerHTML = '<div class="coverage-slot-summary"><strong>' + escapeHtml(sampleDay) + ' ' + escapeHtml(requirement.role || 'Coverage') + '</strong><span>' + displayTime(requirement.start) + '-' + displayTime(requirement.end) + ' · Min ' + requirement.minimum + ' · Target ' + requirement.target + ' · Max ' + requirement.maximum + '</span></div>' + cards.join('');
   }
 
+
+  function renderScheduleViewsPreview() {
+    var target = $('#scheduleViewsPreview');
+    if (!target) return;
+    var agency = state.agencyProfile || defaultAgencyProfile();
+    var items = Array.isArray(state.scheduleViews) && state.scheduleViews.length ? state.scheduleViews : defaultScheduleViews();
+    target.innerHTML = items.map(function (item) {
+      var respects = Array.isArray(item.respects) ? item.respects.join(' · ') : '';
+      return '<article class="schedule-view-card">' +
+        '<span class="card-kicker">' + escapeHtml(item.audience || 'View') + '</span>' +
+        '<strong>' + escapeHtml(item.name || 'Schedule view') + '</strong>' +
+        '<p>' + escapeHtml(item.purpose || '') + '</p>' +
+        '<small>' + escapeHtml(respects || ('Week starts ' + agency.workWeekStartsOn)) + '</small>' +
+        '<em>' + escapeHtml(item.status || 'Preview only') + '</em>' +
+        '</article>';
+    }).join('');
+  }
+
+  function renderSystemInspectorPreview() {
+    var target = $('#systemInspectorPreview');
+    if (!target) return;
+    var notes = Array.isArray(state.systemInspectorNotes) && state.systemInspectorNotes.length ? state.systemInspectorNotes : defaultSystemInspectorNotes();
+    target.innerHTML = notes.map(function (note) {
+      return '<article class="system-inspector-item">' +
+        '<span class="card-kicker">Engine-facing</span>' +
+        '<strong>' + escapeHtml(note.name || 'Inspector note') + '</strong>' +
+        '<p>' + escapeHtml(note.detail || '') + '</p>' +
+        '</article>';
+    }).join('');
+  }
+
   function renderDataModelPreview() {
     var target = $('#dataModelPreview');
     if (!target) return;
@@ -853,7 +956,8 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
       ['Schedule Event', eventSample.type + ' · ' + eventSample.status, eventSample.start + ' to ' + eventSample.end],
       ['Event Types', String((state.eventTypeDefinitions || []).length), 'Behavior-aware event definitions describe coverage, benefit, approval, and audit impact.'],
       ['Benefit Ledger', benefitSample.benefitType + ' ' + benefitSample.amount, benefitSample.reason],
-      ['Coverage Engine', String(coverageEngineRows().length), 'Compares scheduled counts against min, target, and max by day and time block']
+      ['Coverage Engine', String(coverageEngineRows().length), 'Compares scheduled counts against min, target, and max by day and time block'],
+      ['Schedule Views', String((state.scheduleViews || []).length), 'Day, week, month, personal, coverage, and inspector views should use the same engine.']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -1020,10 +1124,10 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
     var lines = [];
     var warnings = coverageWarnings();
     var totals = employeeHours();
-    lines.push('SIGNAL SCHEDULE — COVERAGE ENGINE FOUNDATION');
-    lines.push('Version: v0.9.0');
+    lines.push('SIGNAL SCHEDULE — SCHEDULE VIEWS FOUNDATION');
+    lines.push('Version: v0.10.0');
     lines.push('');
-    lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage Engine + Explanations');
+    lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage Engine + Schedule Views + Explanations');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);
@@ -1042,6 +1146,7 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
     lines.push('- Agency rule templates: ' + ((state.agencyRuleTemplates || []).length));
     lines.push('- Coverage requirements: ' + coverageRequirementList().length);
     lines.push('- Coverage engine rows this week: ' + coverageEngineRows().length);
+    lines.push('- Schedule view previews: ' + ((state.scheduleViews || []).length));
     lines.push('');
     lines.push('Pattern Templates:');
     state.patterns.forEach(function (pattern) {
@@ -1091,12 +1196,12 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.9 Notes:');
+    lines.push('v0.10 Notes:');
     lines.push('- This is still local mock data, not a backend.');
-    lines.push('- Events, rules, benefit entries, coverage rows, and templates are sample objects, not editable database records or approval workflows yet.');
+    lines.push('- Events, rules, benefit entries, coverage rows, views, and templates are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
     lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
-    lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides.');
+    lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides, then displayed through audience-specific views.');
     return lines.join('\n');
   }
 
@@ -1137,6 +1242,8 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
     renderCoverageRequirementPreview();
     renderCoverageEnginePreview();
     renderCoverageSlotPreview();
+    renderScheduleViewsPreview();
+    renderSystemInspectorPreview();
     renderDataModelPreview();
     renderSelects();
     renderPills();
@@ -1149,7 +1256,7 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
   function addEmployee(name, role) {
     var clean = name.trim();
     if (!clean) return showToast('Enter an employee name first.', 'error');
-    state.employees.push({ id: id('emp'), name: clean, employeeCode: '', role: role || 'Dispatcher', position: role || 'Dispatcher', status: 'active', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: '', assignedPattern: '', hireDate: '', seniorityDate: '', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: [], benefitBalances: { vacation: 0, sick: 0, personal: 0, comp: 0, holiday: 0 } });
+    state.employees.push({ id: id('emp'), name: clean, employeeCode: '', role: role || 'Dispatcher', position: role || 'Dispatcher', status: 'active', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: '', assignedPattern: '', hireDate: '', seniorityDate: '', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: [], benefitBalances: { vacation: 0, sick: 0, personal: 0, comp: 0, holiday: 0 }, seniorityAdjustments: [] });
     save(); render(); showToast('Person added.', 'success');
   }
 
@@ -1193,10 +1300,10 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
   function buildSampleState() {
     return {
       employees: [
-        { id: 'emp-alex', name: 'Alex Rivera', employeeCode: 'E-1001', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2021-03-15', seniorityDate: '2021-03-15', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: 'B Nights Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6, holiday: 12 } },
-        { id: 'emp-jordan', name: 'Jordan Smith', employeeCode: 'E-1002', role: 'Supervisor', position: 'Shift Supervisor', status: 'active', hireDate: '2017-08-01', seniorityDate: '2017-08-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'A Days', assignedPattern: '2-2-3 Days Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Radio', 'Supervisor', 'Trainer'], benefitBalances: { vacation: 120, sick: 80, personal: 16, comp: 0, holiday: 24 } },
-        { id: 'emp-taylor', name: 'Taylor Morgan', employeeCode: 'E-1003', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2020-02-10', seniorityDate: '2020-02-10', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: 'B Nights Sample', overtimeEligible: true, mandateEligible: false, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: ['FMLA'], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 40, sick: 96, personal: 8, comp: 0, holiday: 8 } },
-        { id: 'emp-casey', name: 'Casey Lee', employeeCode: 'PT-204', role: 'Part-Time', position: 'Dispatcher', status: 'part-time', hireDate: '2024-11-01', seniorityDate: '2024-11-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'Float', assignedPattern: 'No fixed pattern', overtimeEligible: false, mandateEligible: false, tradeEligible: true, shiftBidEligible: false, vacationBidEligible: false, benefitEligible: false, exceptions: ['Part-time', 'No mandation'], qualifications: ['Calltaking'], benefitBalances: { vacation: 12, sick: 16, personal: 0, comp: 0, holiday: 0 } }
+        { id: 'emp-alex', name: 'Alex Rivera', employeeCode: 'E-1001', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2021-03-15', seniorityDate: '2021-03-15', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: 'B Nights Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6, holiday: 12 }, seniorityAdjustments: [] },
+        { id: 'emp-jordan', name: 'Jordan Smith', employeeCode: 'E-1002', role: 'Supervisor', position: 'Shift Supervisor', status: 'active', hireDate: '2017-08-01', seniorityDate: '2017-08-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'A Days', assignedPattern: '2-2-3 Days Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Radio', 'Supervisor', 'Trainer'], benefitBalances: { vacation: 120, sick: 80, personal: 16, comp: 0, holiday: 24 }, seniorityAdjustments: [] },
+        { id: 'emp-taylor', name: 'Taylor Morgan', employeeCode: 'E-1003', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2020-02-10', seniorityDate: '2020-02-10', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: 'B Nights Sample', overtimeEligible: true, mandateEligible: false, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: ['FMLA'], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 40, sick: 96, personal: 8, comp: 0, holiday: 8 }, seniorityAdjustments: [{ type: 'Unpaid leave', reason: 'Example non-accrual leave period', start: '2025-04-01', end: '2025-05-31', effect: '-61 seniority days' }] },
+        { id: 'emp-casey', name: 'Casey Lee', employeeCode: 'PT-204', role: 'Part-Time', position: 'Dispatcher', status: 'part-time', hireDate: '2024-11-01', seniorityDate: '2024-11-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'Float', assignedPattern: 'No fixed pattern', overtimeEligible: false, mandateEligible: false, tradeEligible: true, shiftBidEligible: false, vacationBidEligible: false, benefitEligible: false, exceptions: ['Part-time', 'No mandation'], qualifications: ['Calltaking'], benefitBalances: { vacation: 12, sick: 16, personal: 0, comp: 0, holiday: 0 }, seniorityAdjustments: [] }
       ],
       shifts: [
         { id: 'shift-days', name: 'Days', start: '05:00', end: '17:00', minStaff: 2 },
@@ -1235,6 +1342,8 @@ Purpose: Coverage Engine Foundation sandbox with minimum, target, maximum, and o
       ruleEvaluationExamples: defaultRuleEvaluationExamples(),
       agencyRuleTemplates: defaultAgencyRuleTemplates(),
       coverageRequirements: defaultCoverageRequirements(),
+      scheduleViews: defaultScheduleViews(),
+      systemInspectorNotes: defaultSystemInspectorNotes(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
       selectedEmployeeId: 'emp-alex'

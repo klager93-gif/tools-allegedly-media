@@ -1,5 +1,14 @@
 # Signal Schedule
 
+## v0.10.0 Schedule Views Foundation
+
+Signal Schedule v0.10.0 adds view planning on top of the existing agency, employee, pattern, event, benefit, rule, and coverage foundations. The same engine should eventually feed day, week, month, personal, coverage, and system-inspector views.
+
+The current card-heavy page is intentionally engine-facing. It is not the final user interface. Later releases should move these panels into focused admin, employee, supervisor, and developer views.
+
+
+# Signal Schedule
+
 ## v0.9.0 Coverage Engine Foundation
 
 Signal Schedule v0.9.0 adds Coverage Engine Foundation previews for minimums, targets, maximums, shortages, overstaffing, and numbered open coverage spots.
