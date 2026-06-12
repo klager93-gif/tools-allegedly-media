@@ -1,5 +1,14 @@
 # Signal Schedule Changelog
 
+## v1.5.1 — Employee Data Model Design
+
+- Added employee data model design documentation before Coolify API skeleton work.
+- Added scheduling entity model draft for future assignments, requests, overtime, coverage, and audit events.
+- Defined Employee model groups: Core Identity, Employment, Organization, Schedule Assignment, Minimum Staffing Role, Certifications / Skills, Overtime Eligibility, Leave Configuration, Contact, Gender / Assignment Constraints, and Notes / Metadata.
+- Clarified that Minimum Staffing Role is separate from HR position because future coverage logic will depend on role eligibility.
+- Preserved static JSON as the active adapter and Coolify + Postgres as the preferred future backend direction.
+- Added no CRUD, authentication, credentials, production API deployment, Postgres connection, database writes, or scheduling engine logic.
+
 ## v1.5.0 — Employee Read API Foundation
 
 - Added read-only Employee API foundation before CRUD or live backend work.

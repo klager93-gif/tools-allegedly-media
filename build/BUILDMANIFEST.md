@@ -1,15 +1,16 @@
-# Build Manifest
+# Signal Labs Build Manifest
 
-## Build
+## Current Build
 
-Signal Labs full fresh-install package with Signal Schedule v1.4.0.
+Signal Schedule v1.5.1 — Employee Data Model Design
 
-## Included Release
+## Package Type
 
-- Signal Schedule v1.4.0 — Backend Adapter Selection
+Tool release with root manifest/checksum updates.
 
 ## Notes
 
-- Full site package.
-- No `.git/`, `__MACOSX/`, `.DS_Store`, or `._*` artifacts.
-- Rule 26 asset validation required before upload.
+- Documentation/modeling release.
+- No CRUD, authentication, production API deployment, Postgres connection, or database writes.
+- Static JSON adapter remains active.
+- Coolify + Postgres remains the preferred future backend path.

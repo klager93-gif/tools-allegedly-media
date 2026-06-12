@@ -1,17 +1,16 @@
-# Build Manifest
+# Signal Labs Build Manifest
 
 ## Current Build
 
-Signal Schedule v1.5.0 — Employee Read API Foundation
+Signal Schedule v1.5.1 — Employee Data Model Design
 
-## Included
+## Package Type
 
-- Full site package from current baseline.
-- Schedule v1.5.0 read-only employee service/repository/adapter foundation.
-- Rule 26 asset validation.
+Tool release with root manifest/checksum updates.
 
-## Excluded
+## Notes
 
-- `.git/`
-- `__MACOSX/`
-- macOS metadata files
+- Documentation/modeling release.
+- No CRUD, authentication, production API deployment, Postgres connection, or database writes.
+- Static JSON adapter remains active.
+- Coolify + Postgres remains the preferred future backend path.

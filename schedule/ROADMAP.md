@@ -2,11 +2,11 @@
 
 ## Current
 
-**v1.5.0 — Employee Read API Foundation**
+**v1.5.1 — Employee Data Model Design**
 
-Signal Schedule now reads employee records through an Employee Service, Employee Repository, and static JSON adapter boundary. Coolify-hosted API service with Postgres remains the preferred future backend path.
+Signal Schedule now has a documented employee model direction before Coolify API skeleton work begins. This release defines the employee, minimum staffing role, schedule assignment, certifications, overtime eligibility, leave configuration, and scheduling entity groups.
 
-The active app remains static and JSON-backed. No CRUD, authentication, live database writes, or production API deployment is active in this release.
+The active app remains static and JSON-backed. No CRUD, authentication, live database writes, production API deployment, or Postgres connection is active in this release.
 
 ## Next
 
@@ -17,7 +17,7 @@ Planned focus:
 - Define the Coolify-hosted API service skeleton.
 - Preserve the Employee service/repository boundary.
 - Keep static JSON active until the API adapter is intentionally switched.
-- Add no production credentials and no database writes unless intentionally scoped.
+- Add health/read route shape without production credentials or database writes.
 
 ## Planned Path
 
@@ -43,6 +43,7 @@ v1.3.2 — Backend planning refinements
 v1.3.3 — Coolify Backend Setup Guide
 v1.4.0 — Backend Adapter Selection
 v1.5.0 — Employee Read API Foundation
+v1.5.1 — Employee Data Model Design
 ```
 
 ## Rule 24

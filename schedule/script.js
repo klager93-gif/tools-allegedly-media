@@ -1,10 +1,10 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.5.0
-Purpose: Employee Read API Foundation with service/repository/adapter boundary
+Version: v1.5.1
+Purpose: Employee Data Model Design with service/repository/adapter boundary preserved
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.5.0';
+  var STORAGE_KEY = 'signalSchedule.v1.5.1';
   var OLD_STORAGE_KEYS = ['signalSchedule.v1.4.0', 'signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
@@ -236,7 +236,7 @@ Purpose: Employee Read API Foundation with service/repository/adapter boundary
     responseShape: {
       ok: true,
       data: [],
-      meta: { source: 'coolify-api-planned', version: 'v1.5.0' },
+      meta: { source: 'coolify-api-planned', version: 'v1.5.1' },
       errors: []
     }
   };
@@ -1353,7 +1353,7 @@ Purpose: Employee Read API Foundation with service/repository/adapter boundary
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.5.0 Employee Read Foundation';
+    if (label) label.textContent = 'v1.5.1 Employee Data Model Design';
   }
 
   function syncRuleInputs() {
@@ -2115,7 +2115,7 @@ Purpose: Employee Read API Foundation with service/repository/adapter boundary
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — EMPLOYEE READ API FOUNDATION');
-    lines.push('Version: v1.5.0');
+    lines.push('Version: v1.5.1');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2202,8 +2202,8 @@ Purpose: Employee Read API Foundation with service/repository/adapter boundary
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v1.5.0 Notes:');
-    lines.push('- Adds a read-only Employee Read Foundation through service, repository, and JSON adapter boundaries.');
+    lines.push('v1.5.1 Notes:');
+    lines.push('- Defines the employee data model direction while preserving service, repository, and JSON adapter boundaries.');
     lines.push('- Keeps the active app on local/static JSON data.');
     lines.push('- Preserves Coolify-hosted API service with Postgres as the preferred future backend path.');
     lines.push('- Confirms the required path: UI → Services → Repositories → Adapters → Backend.');

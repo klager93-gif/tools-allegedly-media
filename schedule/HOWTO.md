@@ -1,55 +1,94 @@
-# Signal Schedule v1.4.0 — Backend Adapter Selection HOWTO
+# Signal Schedule HOWTO
 
-## What this release does
+## Current Version
 
-v1.4.0 selects the preferred future backend path for Signal Schedule:
+**v1.5.1 — Employee Data Model Design**
 
-```text
-GitHub → Coolify → Schedule API service → Postgres
-```
+This release is a model-design release. It defines what employee and scheduling entities need to look like before Coolify API skeleton work begins.
 
-The release does not connect the live app to that backend yet. The current app remains static and reads browser-safe sample data from `/schedule/data/*.json`.
-
-## How to use the current app
+## How to Use the Current App
 
 1. Open `/schedule/index.html`.
-2. Review agency, employee, rule, coverage, request, and schedule-planning preview sections.
-3. Treat the output as a planning sandbox only.
-4. Do not enter real employee data, credentials, or production staffing records.
+2. Use the current browser-based prototype normally.
+3. Employee data is still read from static JSON through the Employee service/repository/adapter boundary.
+4. Do not expect create/edit/delete, authentication, production API calls, or database writes yet.
 
-## How future backend work should be added
+## How to Read the New Model Docs
 
-Use this boundary:
+Start with:
+
+```text
+schedule/EMPLOYEE-DATA-MODEL.md
+```
+
+Then review:
+
+```text
+schedule/SCHEDULE-DATA-MODEL.md
+```
+
+The key idea is:
+
+```text
+HR Position ≠ Minimum Staffing Role
+```
+
+Example:
+
+```text
+Position: Telecommunicator
+Minimum Staffing Role: Dispatcher
+Secondary Role: Lead Dispatcher
+```
+
+Future coverage logic should use minimum staffing roles instead of relying only on HR job titles.
+
+## Architecture Boundary
+
+The app should continue to follow:
 
 ```text
 UI
   ↓
-Service Layer
+Services
   ↓
-Repository Layer
+Repositories
   ↓
-Adapter
+Adapters
   ↓
 Backend
 ```
 
-Rules:
+Do not connect UI or scheduling logic directly to Postgres, MySQL, D1, Workers, PHP, Coolify, or a raw JSON file.
 
-- UI code should call services, not database-specific functions.
-- Business logic should not live inside route handlers.
-- SQL should not be scattered through UI files.
-- Postgres-specific code belongs in a Postgres adapter.
-- D1-specific code belongs in a D1 adapter.
-- MySQL-specific code belongs in a MySQL adapter.
-- Static JSON remains the local/browser fallback adapter.
+## Backend Direction
 
-## Next release
+Preferred future direction:
 
-v1.5.0 should begin the Employee Read API foundation with no writes, no authentication, and no credentials.
+```text
+GitHub
+  ↓
+Coolify
+  ↓
+Schedule API service
+  ↓
+Postgres
+```
 
+v1.5.1 does not install or connect Postgres.
 
-## v1.5.0 Employee Read Foundation
+## Do Not Add Yet
 
-Use **Load Multi-Agency Data** to read agency and employee records through the static JSON adapter. The app routes employee records through the Employee Service and Repository boundary before rendering them.
+- CRUD
+- Authentication
+- Production credentials
+- Database writes
+- Postgres connection
+- Scheduling engine logic
+- Payroll/benefits/medical/discipline records
 
-This release is read-only. Do not add live credentials, database writes, CRUD, or authentication to v1.5.0.
+## Next Planned Release
+
+**v1.6.0 — Coolify API Skeleton**
+
+The next release should define the API skeleton around the model direction without adding production database writes.

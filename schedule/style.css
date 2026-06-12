@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v1.5.0
+Version: v1.5.1
 Purpose: Signal Schedule D1 Database Foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -548,7 +548,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* v1.5.0 Employee Read Foundation */
+/* v1.5.1 Employee Data Model Design */
 .employee-read-stats,
 .employee-read-grid {
   display: grid;

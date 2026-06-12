@@ -1,9 +1,9 @@
-# File Manifest
+# Signal Labs File Manifest
 
-Generated for Signal Schedule v1.5.0.
+Generated for Signal Schedule v1.5.1 — Employee Data Model Design.
 
-- `.gitattributes`
-- `.gitignore`
+## Files
+
 - `ADMIN_CHANGELOG.md`
 - `BUILDMANIFEST.md`
 - `FILEMANIFEST.md`
@@ -82,6 +82,7 @@ Generated for Signal Schedule v1.5.0.
 - `schedule/DATABASE-PLAN.md`
 - `schedule/DATABASE-PLANNING.md`
 - `schedule/DEPRECATION-AUDIT.md`
+- `schedule/EMPLOYEE-DATA-MODEL.md`
 - `schedule/EMPLOYEE-READ-API-FOUNDATION.md`
 - `schedule/ENTITY-MAP.md`
 - `schedule/HOWTO.md`
@@ -101,9 +102,11 @@ Generated for Signal Schedule v1.5.0.
 - `schedule/RELEASE-v1.3.3.md`
 - `schedule/RELEASE-v1.4.0.md`
 - `schedule/RELEASE-v1.5.0.md`
+- `schedule/RELEASE-v1.5.1.md`
 - `schedule/REPOSITORY-ADAPTER-LAYER.md`
 - `schedule/ROADMAP.md`
 - `schedule/RULE-ENGINE.md`
+- `schedule/SCHEDULE-DATA-MODEL.md`
 - `schedule/SECURITY-PLAN.md`
 - `schedule/TABLE-PLAN.md`
 - `schedule/V1-READINESS.md`
