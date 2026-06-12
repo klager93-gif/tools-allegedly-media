@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v1.7.0
+Version: v1.7.1
 Purpose: Minimal Coolify API with read-only health and employee routes plus optional Postgres reads.
 
 This release intentionally has:
@@ -32,7 +32,7 @@ function notFound(res) {
   sendJson(res, 404, {
     ok: false,
     data: null,
-    meta: { source: 'coolify-api', version: 'v1.7.0' },
+    meta: { source: 'coolify-api', version: 'v1.7.1' },
     errors: [{ code: 'NOT_FOUND', message: 'Route not found.' }]
   });
 }
@@ -81,7 +81,7 @@ const server = createServer(async (req, res) => {
         postgres,
         liveWrites: false
       },
-      meta: { source: 'coolify-api', version: 'v1.7.0' },
+      meta: { source: 'coolify-api', version: 'v1.7.1' },
       errors: []
     });
   }
@@ -94,7 +94,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v1.7.0',
+          version: 'v1.7.1',
           mode: 'read-only',
           database: result.database,
           writesEnabled: false
@@ -105,7 +105,7 @@ const server = createServer(async (req, res) => {
       return sendJson(res, 500, {
         ok: false,
         data: [],
-        meta: { source: 'coolify-api', version: 'v1.7.0' },
+        meta: { source: 'coolify-api', version: 'v1.7.1' },
         errors: [{ code: 'EMPLOYEE_READ_FAILED', message: error.message }]
       });
     }
@@ -114,6 +114,6 @@ const server = createServer(async (req, res) => {
   return notFound(res);
 });
 
-server.listen(PORT, () => {
-  console.log(`Signal Schedule API listening on port ${PORT}`);
+server.listen(PORT, '0.0.0.0', () => {
+  console.log(`Signal Schedule API listening on 0.0.0.0:${PORT}`);
 });

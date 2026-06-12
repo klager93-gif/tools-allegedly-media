@@ -1,8 +1,8 @@
 # Signal Schedule
 
-**Current Version:** v1.7.0 — Postgres Connection + Employee Read Endpoint
+**Current Version:** v1.7.1 — Coolify Dockerfile Deployment Fix
 
-Signal Schedule is the scheduling and staffing foundation inside Signal Labs. The browser app remains static/browser-safe while the tool-owned Coolify API gains an optional read-only Postgres employee path.
+Signal Schedule is the scheduling and staffing foundation inside Signal Labs. The browser app remains static/browser-safe while the tool-owned Coolify API gains a predictable Dockerfile deployment path and optional read-only Postgres employee path.
 
 ## Current State
 
@@ -16,6 +16,17 @@ Signal Schedule is the scheduling and staffing foundation inside Signal Labs. Th
 - No authentication
 - No production credentials committed
 - No production database writes
+
+## v1.7.1 Coolify Dockerfile Deployment Fix
+
+This release adds an explicit Dockerfile deployment path for the Coolify API after the Nixpacks deployment path proved slow or unreliable during initial setup.
+
+See:
+
+- `COOLIFY-DOCKERFILE-DEPLOYMENT.md`
+- `schedule/api/coolify/Dockerfile`
+- `schedule/api/coolify/.dockerignore`
+- `RELEASE-v1.7.1.md`
 
 ## v1.7.0 Postgres Employee Read Endpoint
 

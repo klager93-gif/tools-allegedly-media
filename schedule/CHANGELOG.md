@@ -1,5 +1,14 @@
 # Signal Schedule Changelog
 
+## v1.7.1 — Coolify Dockerfile Deployment Fix
+
+- Added `schedule/api/coolify/Dockerfile` for predictable Coolify deployment.
+- Added `schedule/api/coolify/.dockerignore`.
+- Updated the API server to listen on `0.0.0.0` for container compatibility.
+- Updated Postgres mode detection to support `DATA_MODE=postgres` as well as `USE_POSTGRES_EMPLOYEES=true`.
+- Updated Coolify deployment documentation to recommend Dockerfile deployment instead of Nixpacks.
+- Added no CRUD, authentication, new database tables, database writes, or scheduling engine logic.
+
 ## v1.7.0 — Postgres Connection + Employee Read Endpoint
 
 - Added optional read-only Postgres connection helper for the Coolify API.

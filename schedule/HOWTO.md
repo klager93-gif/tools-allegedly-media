@@ -2,9 +2,9 @@
 
 ## Current Version
 
-**v1.7.0 — Postgres Connection + Employee Read Endpoint**
+**v1.7.1 — Coolify Dockerfile Deployment Fix**
 
-This release adds an optional read-only Postgres employee path to the Coolify API while keeping the active browser app on static JSON.
+This release adds a Dockerfile deployment path for the Coolify API while preserving the optional read-only Postgres employee path and keeping the active browser app on static JSON.
 
 ## How to Use the Current App
 
@@ -33,6 +33,34 @@ GET /health
 GET /employees
 GET /api/health
 GET /api/employees
+```
+
+
+## How to Deploy the API on Coolify
+
+Use Dockerfile deployment instead of Nixpacks:
+
+```text
+Build Pack: Dockerfile
+Base Directory: /schedule/api/coolify
+Dockerfile Location: /schedule/api/coolify/Dockerfile
+Port: 3000
+```
+
+Set runtime environment variables:
+
+```text
+NODE_ENV=production
+PORT=3000
+DATA_MODE=postgres
+DATABASE_URL=<internal Coolify Postgres URL>
+```
+
+Then test:
+
+```text
+/health
+/employees
 ```
 
 ## Optional Local API Test Without Postgres
@@ -66,7 +94,7 @@ schedule/api/coolify/sql/002_employee_seed_read_only.sql
 
 ```text
 DATABASE_URL=postgres://user:password@host:5432/database
-USE_POSTGRES_EMPLOYEES=true
+DATA_MODE=postgres
 ```
 
 4. Start the API and test:

@@ -2,9 +2,11 @@
 
 ## Current
 
-**v1.7.0 — Postgres Connection + Employee Read Endpoint**
+**v1.7.1 — Coolify Dockerfile Deployment Fix**
 
-Signal Schedule now has an optional read-only Postgres path for the Coolify API employee endpoint. The active browser app still uses the static JSON adapter until the API adapter is intentionally enabled.
+Signal Schedule now has a Dockerfile deployment path for the Coolify API. This is a deployment fix for v1.7.0 after the Nixpacks build path proved too slow or unreliable during initial Coolify setup.
+
+The active browser app still uses the static JSON adapter until the API adapter is intentionally enabled. The Coolify API remains read-only.
 
 No CRUD, authentication, production credentials, database writes, or scheduling engine logic are active in this release.
 
@@ -44,6 +46,7 @@ v1.5.0 — Employee Read API Foundation
 v1.5.1 — Employee Data Model Design
 v1.6.0 — Coolify API Skeleton
 v1.7.0 — Postgres Connection + Employee Read Endpoint
+v1.7.1 — Coolify Dockerfile Deployment Fix
 ```
 
 ## Rule 24

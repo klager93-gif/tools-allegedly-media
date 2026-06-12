@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/db/postgres.js
-Version: v1.7.0
+Version: v1.7.1
 Purpose: Read-only Postgres connection helper for the Coolify API.
 
 Rules:
@@ -19,7 +19,9 @@ export function isPostgresConfigured() {
 }
 
 export function shouldUsePostgresEmployees() {
-  return String(process.env.USE_POSTGRES_EMPLOYEES || '').toLowerCase() === 'true' && isPostgresConfigured();
+  const explicitFlag = String(process.env.USE_POSTGRES_EMPLOYEES || '').toLowerCase() === 'true';
+  const dataModePostgres = String(process.env.DATA_MODE || '').toLowerCase() === 'postgres';
+  return (explicitFlag || dataModePostgres) && isPostgresConfigured();
 }
 
 export function getPool() {

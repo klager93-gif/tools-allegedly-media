@@ -1,6 +1,6 @@
 # Signal Schedule Coolify API
 
-**Current Version:** v1.7.0 — Postgres Connection + Employee Read Endpoint
+**Current Version:** v1.7.1 — Postgres Connection + Employee Read Endpoint
 
 This folder contains the tool-owned Coolify API service for Signal Schedule.
 
@@ -51,3 +51,26 @@ sql/002_employee_seed_read_only.sql
 ## Rule 24
 
 The frontend must not directly depend on Postgres. Postgres access belongs inside this API/adapter boundary.
+
+
+## v1.7.1 Dockerfile Deployment
+
+For Coolify, use Dockerfile deployment instead of Nixpacks:
+
+```text
+Build Pack: Dockerfile
+Base Directory: /schedule/api/coolify
+Dockerfile Location: /schedule/api/coolify/Dockerfile
+Port: 3000
+```
+
+The server listens on `0.0.0.0:3000` for container compatibility.
+
+Preferred runtime variables:
+
+```text
+NODE_ENV=production
+PORT=3000
+DATA_MODE=postgres
+DATABASE_URL=<internal Coolify Postgres URL>
+```

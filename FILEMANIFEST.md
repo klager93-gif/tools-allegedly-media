@@ -1,6 +1,6 @@
 # File Manifest
 
-Generated for Signal Schedule v1.7.0 — Postgres Connection + Employee Read Endpoint.
+Generated for Signal Schedule v1.7.1 — Coolify Dockerfile Deployment Fix.
 
 ## Files
 
@@ -77,6 +77,7 @@ Generated for Signal Schedule v1.7.0 — Postgres Connection + Employee Read End
 - `schedule/COOLIFY-API-SKELETON.md`
 - `schedule/COOLIFY-BACKEND-PIVOT.md`
 - `schedule/COOLIFY-BACKEND-SETUP.md`
+- `schedule/COOLIFY-DOCKERFILE-DEPLOYMENT.md`
 - `schedule/D1-DATABASE-FOUNDATION.md`
 - `schedule/D1-SETUP-GUIDE.md`
 - `schedule/DATA-LAYER.md`
@@ -107,6 +108,7 @@ Generated for Signal Schedule v1.7.0 — Postgres Connection + Employee Read End
 - `schedule/RELEASE-v1.5.1.md`
 - `schedule/RELEASE-v1.6.0.md`
 - `schedule/RELEASE-v1.7.0.md`
+- `schedule/RELEASE-v1.7.1.md`
 - `schedule/REPOSITORY-ADAPTER-LAYER.md`
 - `schedule/ROADMAP.md`
 - `schedule/RULE-ENGINE.md`
@@ -119,7 +121,9 @@ Generated for Signal Schedule v1.7.0 — Postgres Connection + Employee Read End
 - `schedule/adapters/ApiEmployeeAdapter.js`
 - `schedule/adapters/JsonEmployeeAdapter.js`
 - `schedule/api/contracts/employees.read.schema.json`
+- `schedule/api/coolify/.dockerignore`
 - `schedule/api/coolify/.env.example`
+- `schedule/api/coolify/Dockerfile`
 - `schedule/api/coolify/README.md`
 - `schedule/api/coolify/db/postgres.js`
 - `schedule/api/coolify/package.json`
