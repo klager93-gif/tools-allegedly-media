@@ -270,3 +270,25 @@ These names may change during implementation, but the concept should remain.
 ## v0.2.0 Implementation Note
 
 The Core Engine Blueprint adds local mock objects for rule profiles, patterns, employee-pattern links, events, benefit ledger entries, coverage requirements, mandate eligibility, and mandate exceptions. These objects exist to keep future coding aligned with the rule-engine direction before database work begins.
+
+
+## v0.3.0 Agency Profile Rule Source
+
+Agency Profile becomes the source of organization-specific vocabulary and default rule inputs. Future rules should read from agency settings instead of assuming a dispatch, police, fire, nursing, manufacturing, retail, or office workflow.
+
+Agency profile rule inputs include:
+
+- Time zone.
+- Date format.
+- Time format.
+- Work week start day.
+- Pay period type and start day.
+- User-defined positions/job titles.
+- User-defined qualifications.
+- User-defined benefit types.
+- User-defined exception types.
+- Shift definitions and paid minutes.
+- Break rules.
+- Coverage minimums, targets, and maximums.
+
+Industry templates may prefill these values, but agencies must be able to edit them. Templates are shortcuts, not hard-coded modes.

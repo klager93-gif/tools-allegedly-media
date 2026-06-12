@@ -1,4 +1,4 @@
-- Verify Signal Schedule v0.2.1 Pattern and Coverage Rule Planning after deployment.
+- Verify Signal Schedule v0.3.0 Agency Profile Foundation after deployment.
 # Signal Labs Roadmap
 
 ## Immediate
@@ -10,7 +10,7 @@
 
 ## Upcoming
 
-- Signal Schedule: local sandbox cleanup, assignment editing, duplicate warnings, copy day/week, and notes.
+- Signal Schedule: employee profile system using agency-defined vocabulary.
 - Signal Schedule: true date-based model and month view planning.
 - Signal Schedule: schedule patterns, rotations, overrides, time off conflicts, and publishing concept.
 - Signal Schedule: future rule-engine planning around agency policies, coverage, fairness, mandation, benefits, bidding, and explanations.
@@ -56,6 +56,14 @@
 - Rule 23 added to release standards.
 - Visible Schedule version references updated to the current release.
 - Status card and footer version alignment.
+
+
+### v0.3.0
+
+- Agency Profile Foundation.
+- Added configurable agency/company settings.
+- Added custom vocabulary planning for departments, locations, positions, shift groups, qualifications, benefit types, and exception types.
+- Added shift definitions and coverage minimum/target/maximum planning.
 
 ### Planned
 

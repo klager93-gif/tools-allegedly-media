@@ -65,3 +65,6 @@
 - timeoff/index.html
 - timeoff/script.js
 - timeoff/style.css
+- build/BUILDMANIFEST.md
+- build/FILEMANIFEST.md
+- build/SHA256SUMS.txt

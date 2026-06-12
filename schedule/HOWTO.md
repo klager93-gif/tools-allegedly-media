@@ -39,3 +39,20 @@ When planning future features, keep these concepts separate:
 ## v0.2.1 Notes
 
 v0.2.1 does not add new user-facing scheduling controls. It documents future settings for agency profiles, coverage requirements, shift patterns, display formats, paid minutes, and unpaid breaks. Use the existing sandbox only as a visual planning reference until the next feature release.
+
+
+## v0.3.0 Agency Profile Preview
+
+The Agency Profile Foundation panels show sample organization settings and vocabulary. They are not saved through an admin form yet. Use them as a planning preview for what will later become editable company/agency settings.
+
+Review the preview for:
+
+- Agency/company identity.
+- Work week and pay period assumptions.
+- Time/date display preferences.
+- Positions and job titles.
+- Shift groups.
+- Qualifications.
+- Benefit and exception types.
+- Shift definitions.
+- Coverage minimums, targets, maximums, and optional numbered spots.

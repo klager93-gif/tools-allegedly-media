@@ -1,3 +1,11 @@
+## 2026-06-11 — Signal Schedule v0.3.0 Agency Profile Foundation
+
+- Added visible Agency Profile Foundation panels to the Schedule sandbox.
+- Added agency/company profile sample data for settings, vocabulary, shift definitions, and coverage requirements.
+- Added coverage minimum, target, maximum, and numbered spot planning.
+- Updated Schedule docs and root planning docs to make Agency Profile the source for future employee profiles and rule-engine behavior.
+- No database, login, employee profile CRUD, or final schedule automation was added.
+
 ## 2026-06-11 — Signal Schedule v0.2.1 Pattern and Coverage Rule Planning
 
 - Rebuilt the lost v0.2.1 docs-only Schedule release from the current Signal Labs source.

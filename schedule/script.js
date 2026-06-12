@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.2.1
-Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, benefits, coverage, and generated output
+Version: v0.3.0
+Purpose: Agency Profile Foundation sandbox for organization settings, vocabulary, shifts, coverage, and generated output
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.2.1';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.3.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   var state = {
     employees: [],
@@ -21,7 +21,8 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     employeePatterns: [],
     scheduleEvents: [],
     benefitLedger: [],
-    coverageRequirements: []
+    coverageRequirements: [],
+    agencyProfile: null
   };
 
   function id(prefix) {
@@ -33,6 +34,37 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
   function defaultMonthValue() {
     var now = new Date();
     return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+  }
+
+  function defaultAgencyProfile() {
+    return {
+      name: 'Demo Communications Center',
+      industryType: 'Custom / Public Safety',
+      timeZone: 'America/Chicago',
+      dateFormat: 'MM/DD/YYYY',
+      timeFormat: '24-hour',
+      workWeekStartsOn: 'Sunday',
+      payPeriodType: 'Biweekly',
+      payPeriodStartsOn: 'Sunday',
+      departments: ['Communications', 'Administration'],
+      divisions: ['Operations', 'Training'],
+      locations: ['Main Center'],
+      positions: ['Dispatcher', 'CTO', 'Shift Supervisor'],
+      shiftGroups: ['A Days', 'A Nights', 'B Days', 'B Nights'],
+      qualifications: ['Calltaking', 'Radio', 'Trainer', 'Supervisor'],
+      benefitTypes: ['Vacation', 'Sick', 'Personal', 'Comp Time', 'Holiday'],
+      exceptionTypes: ['FMLA', 'Part-time', 'Light duty', 'No mandation', 'Temporary restriction'],
+      shiftDefinitions: [
+        { id: 'agency-day', name: 'Day Shift', start: '06:00', end: '18:00', paidMinutes: 720, breakRule: 'No automatic unpaid break', displayLabel: '0600-1800' },
+        { id: 'agency-night', name: 'Night Shift', start: '18:00', end: '06:00', paidMinutes: 720, breakRule: 'No automatic unpaid break', displayLabel: '1800-0600' },
+        { id: 'agency-office', name: 'Office Shift', start: '07:00', end: '15:30', paidMinutes: 480, breakRule: '30-minute unpaid meal', displayLabel: '7A-3:30P' }
+      ],
+      coverageRequirements: [
+        { id: 'agency-cov-days', role: 'Dispatcher', qualification: 'Radio', location: 'Main Center', days: 'All days', start: '06:00', end: '18:00', minimum: 8, target: 10, maximum: 12, numberedSpots: true },
+        { id: 'agency-cov-nights', role: 'Dispatcher', qualification: 'Radio', location: 'Main Center', days: 'All days', start: '18:00', end: '06:00', minimum: 6, target: 8, maximum: 10, numberedSpots: true },
+        { id: 'agency-cov-supervisor', role: 'Shift Supervisor', qualification: 'Supervisor', location: 'Main Center', days: 'All days', start: '00:00', end: '23:59', minimum: 1, target: 1, maximum: 2, numberedSpots: false }
+      ]
+    };
   }
 
   function defaultRuleProfiles() {
@@ -82,6 +114,9 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     next.scheduleEvents = Array.isArray(next.scheduleEvents) ? next.scheduleEvents : [];
     next.benefitLedger = Array.isArray(next.benefitLedger) ? next.benefitLedger : [];
     next.coverageRequirements = Array.isArray(next.coverageRequirements) && next.coverageRequirements.length ? next.coverageRequirements : defaultCoverageRequirements();
+    next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
+    next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
+    next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
     next.rules = next.rules || {};
     next.rules.maxHoursPerWeek = Number(next.rules.maxHoursPerWeek || 40);
     next.rules.minGapHours = Number(next.rules.minGapHours || 8);
@@ -186,7 +221,7 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.2.1 Planning';
+    if (label) label.textContent = 'v0.3.0 Agency';
   }
 
   function syncRuleInputs() {
@@ -199,6 +234,7 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     var target = $('#engineBlueprint');
     if (!target) return;
     var items = [
+      ['Agency', state.agencyProfile ? 1 : 0, 'The organization defines settings, vocabulary, shift definitions, coverage rules, and future policy defaults.'],
       ['People', state.employees.length, 'Employees remain separate from future login users.'],
       ['Rules', state.ruleProfiles.length, 'Agency policies explain overtime, mandation, coverage, benefits, and fairness.'],
       ['Patterns', state.patterns.length, 'Rotations generate expected work instead of storing every day forever.'],
@@ -211,6 +247,43 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     }).join('');
   }
 
+  function listText(items) {
+    return (items || []).map(function (item) { return escapeHtml(item); }).join(', ');
+  }
+
+  function renderAgencyProfile() {
+    var target = $('#agencyProfilePreview');
+    if (!target) return;
+    var agency = state.agencyProfile || defaultAgencyProfile();
+    var cards = [
+      ['Agency', agency.name, agency.industryType],
+      ['Display', agency.timeZone, agency.timeFormat + ' · ' + agency.dateFormat],
+      ['Work Rules', 'Week starts ' + agency.workWeekStartsOn, agency.payPeriodType + ' pay period starts ' + agency.payPeriodStartsOn],
+      ['Departments', String((agency.departments || []).length), listText(agency.departments)],
+      ['Positions / Titles', String((agency.positions || []).length), listText(agency.positions)],
+      ['Shift Groups', String((agency.shiftGroups || []).length), listText(agency.shiftGroups)],
+      ['Qualifications', String((agency.qualifications || []).length), listText(agency.qualifications)],
+      ['Benefit Types', String((agency.benefitTypes || []).length), listText(agency.benefitTypes)],
+      ['Exception Types', String((agency.exceptionTypes || []).length), listText(agency.exceptionTypes)]
+    ];
+    target.innerHTML = cards.map(function (card) {
+      return '<article class="agency-profile-item"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + card[2] + '</p></article>';
+    }).join('');
+  }
+
+  function renderCoverageRequirementPreview() {
+    var target = $('#coverageRequirementPreview');
+    if (!target) return;
+    var agency = state.agencyProfile || defaultAgencyProfile();
+    var shiftCards = (agency.shiftDefinitions || []).map(function (shift) {
+      return '<article class="coverage-rule-card"><span>Shift Definition</span><strong>' + escapeHtml(shift.name) + '</strong><p>' + escapeHtml(shift.displayLabel || (shift.start + '-' + shift.end)) + ' · ' + Math.round(Number(shift.paidMinutes || 0) / 60 * 100) / 100 + ' paid hrs</p><small>' + escapeHtml(shift.breakRule) + '</small></article>';
+    });
+    var coverageCards = (agency.coverageRequirements || []).map(function (item) {
+      return '<article class="coverage-rule-card"><span>Coverage Requirement</span><strong>' + escapeHtml(item.role) + ' · ' + escapeHtml(item.start) + '-' + escapeHtml(item.end) + '</strong><p>Min ' + item.minimum + ' · Target ' + item.target + ' · Max ' + item.maximum + '</p><small>' + escapeHtml(item.location) + ' · ' + escapeHtml(item.qualification) + ' · ' + (item.numberedSpots ? 'Numbered spots planned' : 'Count-only rule') + '</small></article>';
+    });
+    target.innerHTML = shiftCards.concat(coverageCards).join('');
+  }
+
   function renderDataModelPreview() {
     var target = $('#dataModelPreview');
     if (!target) return;
@@ -218,7 +291,9 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     var rule = state.ruleProfiles[0] || defaultRuleProfiles()[0];
     var eventSample = state.scheduleEvents[0] || { type: 'vacation', status: 'planned', start: '2026-06-15T05:00', end: '2026-06-15T17:00' };
     var benefitSample = state.benefitLedger[0] || { benefitType: 'sick', amount: '+8', reason: 'Monthly accrual' };
+    var agency = state.agencyProfile || defaultAgencyProfile();
     var cards = [
+      ['Agency Profile', agency.name, agency.industryType + ' · ' + agency.timeFormat + ' · week starts ' + agency.workWeekStartsOn],
       ['Rule Profile', rule.name, rule.coverage],
       ['Pattern Object', pattern.name, pattern.sequence.join(' / ') + ' · ' + pattern.shiftStart + '-' + pattern.shiftEnd],
       ['Schedule Event', eventSample.type + ' · ' + eventSample.status, eventSample.start + ' to ' + eventSample.end],
@@ -354,7 +429,7 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.2.1');
+    lines.push('Version: v0.3.0');
     lines.push('');
     lines.push('Core model: People + Rules + Patterns + Events + Coverage + Explanations');
     lines.push('');
@@ -401,10 +476,10 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.2 Notes:');
+    lines.push('v0.3 Notes:');
     lines.push('- This is still local mock data, not a backend.');
-    lines.push('- PHP should wait until people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
-    lines.push('- Future schedules should be generated from pattern + start date + events + overrides.');
+    lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
+    lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides.');
     return lines.join('\n');
   }
 
@@ -431,6 +506,8 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     renderWeekLabel();
     syncRuleInputs();
     renderEngineBlueprint();
+    renderAgencyProfile();
+    renderCoverageRequirementPreview();
     renderDataModelPreview();
     renderSelects();
     renderPills();
@@ -521,6 +598,7 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
         { id: 'ben-2', employeeId: 'emp-taylor', benefitType: 'vacation', date: '2026-06-18', amount: '-12', reason: 'Approved vacation event' }
       ],
       coverageRequirements: defaultCoverageRequirements(),
+      agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() }
     });
     save(); render(); showToast('Core engine sample data loaded.', 'success');
@@ -555,7 +633,7 @@ Purpose: Core Engine Blueprint sandbox for people, rules, patterns, events, bene
     });
     $('#sampleDataBtn').addEventListener('click', loadSample);
     $('#clearDataBtn').addEventListener('click', function () {
-      state = normalizeState({ employees: [], shifts: [], assignments: [], rules: state.rules });
+      state = normalizeState({ employees: [], shifts: [], assignments: [], rules: state.rules, agencyProfile: state.agencyProfile });
       save(); render(); showToast('Schedule cleared.', 'info');
     });
     $('#printBtn').addEventListener('click', function () { window.print(); });

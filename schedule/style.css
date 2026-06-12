@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.2.1
-Purpose: Signal Schedule core engine blueprint styles
+Version: v0.3.0
+Purpose: Signal Schedule agency profile foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
 .schedule-hero { display: grid; grid-template-columns: 1fr minmax(220px, 320px); gap: 18px; align-items: stretch; margin: 18px 0; padding: 28px; border: 1px solid var(--border); border-radius: 30px; background: linear-gradient(135deg, rgba(34,197,94,.14), rgba(86,166,255,.08)); box-shadow: var(--shadow-toolbar); }
@@ -82,3 +82,14 @@ Purpose: Signal Schedule core engine blueprint styles
 .engine-card { border-color: rgba(86,166,255,.22); background: rgba(86,166,255,.055); }
 @media (max-width: 850px) { .engine-blueprint-grid, .model-preview-grid { grid-template-columns: 1fr; } }
 @media print { .engine-step, .model-card { border-color: #ccc; background: #fff; color: #111; } }
+
+
+.agency-profile-card { border-color: rgba(34,197,94,.22); background: rgba(34,197,94,.055); }
+.agency-profile-grid, .coverage-requirement-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.agency-profile-item, .coverage-rule-card { padding: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(0,0,0,.12); }
+.agency-profile-item span, .coverage-rule-card span { display: block; color: var(--muted); font-size: 12px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
+.agency-profile-item strong, .coverage-rule-card strong { display: block; margin-top: 6px; font-size: 18px; letter-spacing: -.03em; }
+.agency-profile-item p, .coverage-rule-card p { margin-top: 8px; }
+.coverage-rule-card small { display: block; margin-top: 8px; color: var(--muted); line-height: 1.4; }
+@media (max-width: 850px) { .agency-profile-grid, .coverage-requirement-grid { grid-template-columns: 1fr; } }
+@media print { .agency-profile-item, .coverage-rule-card { border-color: #ccc; background: #fff; color: #111; } }

@@ -2,7 +2,7 @@
 
 ## Current Version
 
-v0.2.1 — Pattern and Coverage Rule Planning.
+v0.3.0 — Agency Profile Foundation.
 
 ## Development Rule: Rule 23 — Version Consistency
 
@@ -107,13 +107,24 @@ Goal: preserve newly discovered architecture rules before building more UI.
 
 Goal: define the agency/company settings and vocabulary before employee profiles.
 
-- Add planning for agency name, industry type, time zone, time format, date format, work week start day, and pay period settings.
-- Add user-defined departments, divisions, locations, positions, job titles, shift groups, qualifications, benefit types, and exception types.
-- Add shift definition planning for start time, end time, paid minutes, and break rules.
-- Add coverage requirement planning for minimum, target, and maximum staffing by role, qualification, location, and time block.
+- Add visible Agency Profile Foundation panels to the Schedule sandbox.
+- Add agency/company settings for name, industry type, time zone, time format, date format, work week start day, and pay period settings.
+- Add user-defined departments, divisions, locations, positions/job titles, shift groups, qualifications, benefit types, and exception types.
+- Add shift definition examples for start time, end time, paid minutes, display labels, and unpaid/paid break rules.
+- Add coverage requirement examples for minimum, target, and maximum staffing by role, qualification, location, day scope, and time block.
+- Add optional numbered coverage spot planning so a requirement can become fillable positions instead of just a headcount.
 - Keep industry templates as presets, not hard-coded modes.
+- Continue to store facts and let presentation, rules, and calculations be derived later.
 
-## v0.4.0 — Event System, Time Off, and Availability Conflicts
+## v0.4.0 — Employee Profile System
+
+Goal: model people using agency-defined vocabulary.
+
+- Add employee identity, status, hire date, seniority date, department, position, shift group, eligibility, exceptions, qualifications, and benefit snapshot planning.
+- Keep employees separate from login users.
+- Use agency-defined titles, qualifications, benefit types, and exception types from v0.3.
+
+## v0.5.0 — Event System, Time Off, and Availability Conflicts
 
 Goal: make the schedule react to real-world events.
 
@@ -124,7 +135,7 @@ Goal: make the schedule react to real-world events.
 - Add coverage warnings after absences are applied.
 - Prepare for later Time Off and Benefit Time integration.
 
-## v0.5.0 — Coverage Engine
+## v0.6.0 — Coverage Engine
 
 Goal: make staffing requirements visible and explainable.
 
@@ -134,7 +145,7 @@ Goal: make staffing requirements visible and explainable.
 - Explain why a coverage block is red, yellow, or green.
 - Prepare for day-view coverage heatmaps.
 
-## v0.6.0 — Benefit Time and Accrual Planning
+## v0.7.0 — Benefit Time and Accrual Planning
 
 Goal: track balances with auditable history.
 
@@ -144,7 +155,7 @@ Goal: track balances with auditable history.
 - Add projected balances.
 - Use a ledger approach instead of silently overwriting balances.
 
-## v0.7.0 — Overtime and Mandation Planning
+## v0.8.0 — Overtime and Mandation Planning
 
 Goal: separate voluntary overtime from forced overtime.
 

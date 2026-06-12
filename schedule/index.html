@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.2.1
+Version: v0.3.0
 Purpose: Logic-first schedule sandbox with text output and rule warnings
 -->
 <!DOCTYPE html>
@@ -15,17 +15,17 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.2.1">
+<link rel="stylesheet" href="style.css?v=0.3.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.2.1"
-  data-signal-theme="Core Engine Blueprint"
+  data-signal-version="v0.3.0"
+  data-signal-theme="Agency Profile Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Model people, rules, patterns, events, coverage, benefits, and generated schedule output before backend work."
-  data-signal-status-text="Signal Schedule v0.2.1 preserves pattern, coverage, company profile, display-format, and break-rule planning before additional UI or backend work begins."
+  data-signal-description="Define agency/company settings, custom vocabulary, shift definitions, and coverage minimums before employee profile work."
+  data-signal-status-text="Signal Schedule v0.3.0 adds the Agency Profile Foundation: configurable settings, custom vocabulary, shift definitions, and coverage minimum/target/maximum planning."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Model the first version of the staffing engine: people, rules, patterns, events, benefits, coverage, and generated schedule output before PHP/database work begins.</p>
+      <p class="schedule-subtitle">Define the agency/company profile first so future employee profiles, patterns, events, benefits, coverage, and rules use agency-defined vocabulary instead of hard-coded assumptions.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.2.1 Planning</strong>
+      <strong id="currentWeekLabel">v0.3.0 Agency</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,17 +46,38 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.2.1 is still browser-only. This release preserves new planning rules for company profiles, cycle-based patterns, coverage requirements, display formats, paid minutes, and unpaid breaks before new UI or backend work begins.</p>
+      <p>Signal Schedule v0.3.0 is still browser-only. This release adds an Agency Profile Foundation so organizations can define their own settings, departments, positions, shift groups, qualifications, benefit types, exception types, shift definitions, and coverage requirements before employee profiles are added.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
-        <h2 id="engineTitle">Core Engine Blueprint</h2>
-        <p>v0.2 turns the sandbox from a schedule page into a model of the future staffing engine.</p>
+        <h2 id="engineTitle">Agency Profile Foundation</h2>
+        <p>v0.3 defines the organization first: agency settings, vocabulary, shift definitions, and coverage requirements.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
+  </section>
+
+
+  <section class="schedule-card agency-profile-card" aria-labelledby="agencyProfileTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="agencyProfileTitle">Agency Profile Foundation</h2>
+        <p>Agency-defined settings and vocabulary become the source for employee profiles, shift patterns, coverage rules, benefits, exceptions, and future rule-engine behavior.</p>
+      </div>
+    </div>
+    <div id="agencyProfilePreview" class="agency-profile-grid"></div>
+  </section>
+
+  <section class="schedule-card" aria-labelledby="coverageRulesTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="coverageRulesTitle">Coverage Requirement Model</h2>
+        <p>Coverage should support minimum, target, and maximum staffing by role, qualification, location, unit, day, and time block.</p>
+      </div>
+    </div>
+    <div id="coverageRequirementPreview" class="coverage-requirement-grid"></div>
   </section>
 
   <section class="schedule-card" aria-labelledby="modelTitle">
@@ -204,6 +225,6 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.2.1"></script>
+<script src="script.js?v=0.3.0"></script>
 </body>
 </html>

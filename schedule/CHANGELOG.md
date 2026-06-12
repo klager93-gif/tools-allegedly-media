@@ -1,5 +1,16 @@
 # Signal Schedule Changelog
 
+## v0.3.0 — Agency Profile Foundation
+
+- Added visible Agency Profile Foundation panels.
+- Added sample agency/company settings for industry type, time zone, date format, time format, work week start, pay period type, and pay period start.
+- Added sample agency-defined vocabulary for departments, divisions, locations, positions/job titles, shift groups, qualifications, benefit types, and exception types.
+- Added sample shift definitions with start time, end time, paid minutes, display label, and break rule.
+- Added sample coverage requirement previews with minimum, target, maximum, role, qualification, location, time block, and numbered spot planning.
+- Updated Schedule version references to v0.3.0.
+- Updated roadmap, database plan, rule-engine notes, README, HOWTO, root roadmap, root README, and master changelog.
+- No login, database, admin save workflow, employee profile system, or final schedule automation was added.
+
 ## v0.2.1 — Pattern and Coverage Rule Planning
 
 - Rebuilt the lost v0.2.1 docs-only release from the current Signal Labs source.

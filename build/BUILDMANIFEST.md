@@ -1,75 +1,28 @@
 # Build Manifest
 
-Build: Signal Schedule v0.2.1 — Pattern and Coverage Rule Planning
+Build: Signal Schedule v0.3.0 — Agency Profile Foundation
+Source: signal-schedule-v0.2.1-pattern-and-coverage-rule-planning.zip
+Date: 2026-06-11
 
-Source: signal-labs-home-v0.9.9.6-release-archive-standard.zip / Signal Schedule v0.2.0 state
+## Purpose
 
-Changed release focus: docs-only schedule planning update.
+Adds Agency Profile Foundation UI and planning data for organization settings, user-defined vocabulary, shift definitions, and coverage minimum/target/maximum requirements.
 
-## Files Included
+## Files Changed
 
-- .gitattributes
-- .gitignore
-- ADMIN_CHANGELOG.md
-- HOWTO.md
-- MASTER-CHANGELOG.md
-- MASTER-ROADMAP.md
-- PUBLIC_CHANGELOG.md
+- index.html
 - README.md
 - ROADMAP.md
-- about/index.html
-- assets/components/footer.js
-- assets/components/header.js
-- assets/global.css
-- assets/global.js
-- assets/icons/apple-touch-icon.png
-- assets/icons/favicon.ico
-- assets/icons/favicon.svg
-- assets/icons/site.webmanifest
-- changelog/index.html
-- contact/index.html
-- docs/BACKUP.md
-- docs/RESTORE.md
-- how-to/index.html
-- index.html
-- overtime/BUILDMANIFEST.md
-- overtime/FILEMANIFEST.md
-- overtime/HOWTO.md
-- overtime/README.md
-- overtime/ROADMAP.md
-- overtime/index.html
-- overtime/script.js
-- overtime/style.css
-- pay-planner/index.html
-- paycheck/index.html
-- privacy/index.html
-- report-issue/index.html
-- request-feature/index.html
-- roadmap/index.html
-- schedule/CHANGELOG.md
-- schedule/DATABASE-PLAN.md
-- schedule/HOWTO.md
-- schedule/README.md
-- schedule/ROADMAP.md
-- schedule/RULE-ENGINE.md
+- MASTER-CHANGELOG.md
 - schedule/index.html
 - schedule/script.js
 - schedule/style.css
-- standards/COMPONENT_STANDARDS.md
-- standards/DEVELOPMENT_STANDARDS.md
-- standards/DOCUMENTATION_STANDARDS.md
-- standards/RELEASE_STANDARDS.md
-- standards/REPOSITORY_STANDARDS.md
-- standards/STANDARDS.md
-- standards/UX_STANDARDS.md
-- standards/WORKFLOW_STANDARDS.md
-- status/index.html
-- terms/index.html
-- timeoff/BUILDMANIFEST.md
-- timeoff/FILEMANIFEST.md
-- timeoff/HOWTO.md
-- timeoff/README.md
-- timeoff/ROADMAP.md
-- timeoff/index.html
-- timeoff/script.js
-- timeoff/style.css
+- schedule/README.md
+- schedule/ROADMAP.md
+- schedule/DATABASE-PLAN.md
+- schedule/RULE-ENGINE.md
+- schedule/HOWTO.md
+- schedule/CHANGELOG.md
+- build/BUILDMANIFEST.md
+- build/FILEMANIFEST.md
+- build/SHA256SUMS.txt

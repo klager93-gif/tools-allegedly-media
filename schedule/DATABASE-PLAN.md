@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.2.1 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+Planning document for the future PHP/database version. Signal Schedule v0.3.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
 
 ## Core Rule
 
@@ -789,3 +789,96 @@ Suggested fields:
 11. Add mandation rotation and mandate event tracking.
 12. Add bidding tables and award explanations.
 13. Add audit logging.
+
+
+## v0.3.0 Agency Profile Tables
+
+v0.3.0 adds planning for agency/company settings and vocabulary before employee profiles. Future database work should avoid hard-coded industry assumptions.
+
+### agencies
+
+```text
+id
+name
+industry_type
+time_zone
+date_format
+time_format
+work_week_starts_on
+pay_period_type
+pay_period_starts_on
+active
+created_at
+updated_at
+```
+
+### agency_vocabularies
+
+Stores agency-defined values such as departments, divisions, locations, positions, shift groups, qualifications, benefit types, and exception types.
+
+```text
+id
+agency_id
+type
+label
+code
+active
+sort_order
+```
+
+### shift_definitions
+
+```text
+id
+agency_id
+name
+start_time
+end_time
+paid_minutes
+break_rule_id
+display_label
+active
+```
+
+### break_rules
+
+```text
+id
+agency_id
+name
+paid_break_minutes
+unpaid_break_minutes
+description
+```
+
+### coverage_requirements
+
+```text
+id
+agency_id
+role_or_position_id
+qualification_id
+location_id
+day_scope
+start_time
+end_time
+minimum_required
+target_staffing
+maximum_allowed
+uses_numbered_spots
+active
+```
+
+### coverage_spots
+
+Optional future table for agencies that want fillable positions rather than headcount-only coverage.
+
+```text
+id
+coverage_requirement_id
+spot_label
+sort_order
+required
+```
+
+Rule 0 applies: store facts such as times, minutes, requirements, and vocabulary records. Display labels, calculations, warnings, and reports should be derived later.

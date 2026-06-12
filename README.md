@@ -20,4 +20,4 @@ Signal Labs is being maintained as a small software suite. Shared assets, naviga
 
 ## Current Schedule Planning
 
-**Signal Schedule v0.2.1 — Pattern and Coverage Rule Planning** preserves company profile, coverage, pattern, display-format, and break-rule planning before the next feature build.
+**Signal Schedule v0.3.0 — Agency Profile Foundation** adds agency/company settings, custom vocabulary, shift definitions, and coverage minimum/target/maximum planning before employee profiles.
