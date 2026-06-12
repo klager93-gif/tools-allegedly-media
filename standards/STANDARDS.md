@@ -15,3 +15,8 @@
 - COMPONENT_STANDARDS.md
 - UX_STANDARDS.md
 - WORKFLOW_STANDARDS.md
+
+
+## Current Release Workflow
+
+Release archives are backups. Signal Labs stores complete release ZIPs in dated `Releases/` folders and does not require duplicate backup folders for normal releases.

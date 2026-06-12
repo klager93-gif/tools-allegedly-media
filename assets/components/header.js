@@ -1,6 +1,6 @@
 /*
 Signal Labs Component File: assets/components/header.js
-Version: v0.9.9.4
+Version: v0.9.9.6
 Purpose: Shared Signal Labs header/navigation component.
 */
 (function () {

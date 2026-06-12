@@ -1,10 +1,14 @@
 # File Manifest
 
-Signal Schedule v0.2.0 — Core Engine Blueprint
+Signal Labs Home v0.9.9.6 — Release Archive Standard
 
+- .gitattributes
+- .gitignore
 - ADMIN_CHANGELOG.md
 - HOWTO.md
 - MASTER-CHANGELOG.md
+- MASTER-ROADMAP.md
+- PUBLIC_CHANGELOG.md
 - README.md
 - ROADMAP.md
 - about/index.html
@@ -25,6 +29,14 @@ Signal Schedule v0.2.0 — Core Engine Blueprint
 - docs/RESTORE.md
 - how-to/index.html
 - index.html
+- overtime/BUILDMANIFEST.md
+- overtime/FILEMANIFEST.md
+- overtime/HOWTO.md
+- overtime/README.md
+- overtime/ROADMAP.md
+- overtime/index.html
+- overtime/script.js
+- overtime/style.css
 - pay-planner/index.html
 - paycheck/index.html
 - privacy/index.html
@@ -50,3 +62,11 @@ Signal Schedule v0.2.0 — Core Engine Blueprint
 - standards/WORKFLOW_STANDARDS.md
 - status/index.html
 - terms/index.html
+- timeoff/BUILDMANIFEST.md
+- timeoff/FILEMANIFEST.md
+- timeoff/HOWTO.md
+- timeoff/README.md
+- timeoff/ROADMAP.md
+- timeoff/index.html
+- timeoff/script.js
+- timeoff/style.css

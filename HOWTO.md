@@ -15,3 +15,14 @@ When changing shared assets:
 Use the current Signal Schedule sandbox before treating it like a finished scheduling app. Add employees, roles, shifts, minimum staffing rules, max weekly hours, and rest-gap rules. Then review the warnings and plain-text output to decide whether the schedule model makes sense.
 
 This version is still local-browser only. PHP, database tables, logins, admin roles, employee accounts, permissions, publishing, and shared schedules should come later after the logic is proven.
+
+
+## Release Archive Workflow
+
+1. Download the release ZIP from the build response.
+2. Save the ZIP in a dated local folder such as `Releases/YYYY-MM-DD/`.
+3. Treat that ZIP as the backup and restore point for the release.
+4. Replace or upload the current project files as needed.
+5. Push the updated files to GitHub.
+
+Do not create a duplicate normal backup folder unless the work is experimental, risky, manual, or outside the normal release process.

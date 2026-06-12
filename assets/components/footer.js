@@ -1,6 +1,6 @@
 /*
 Signal Labs Component File: assets/components/footer.js
-Version: v0.9.9.4
+Version: v0.9.9.6
 Purpose: Shared Signal Labs footer component. Compatible with existing home-footer CSS.
 */
 (function () {
@@ -29,7 +29,7 @@ Purpose: Shared Signal Labs footer component. Compatible with existing home-foot
       'status': true,
       'terms': true
     };
-    var version = ds.signalVersion || (homePages[page] ? 'v0.9.9.4' : '');
+    var version = ds.signalVersion || (homePages[page] ? 'v0.9.9.6' : '');
     return {
       area: area,
       title: ds.signalTitle || 'Signal Labs',

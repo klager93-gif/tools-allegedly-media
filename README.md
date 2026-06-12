@@ -4,10 +4,9 @@ Useful tools without the noise.
 
 ## Current Release
 
-**Signal Schedule v0.2.0 — Core Engine Blueprint**
+**Signal Labs Home v0.9.9.6 — Release Archive Standard**
 
-Moves Signal Schedule from a simple schedule-page sandbox toward a staffing-engine model with people, rules, patterns, events, benefit ledgers, coverage requirements, and generated schedule output.
-
+Adds Rule 25 and Rule 26 to standardize build handoffs and formalize release ZIP archives as the normal backup and restore mechanism for Signal Labs.
 ## Current Tools
 
 - Paycheck

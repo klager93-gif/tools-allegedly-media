@@ -1,5 +1,25 @@
 # Master Changelog
 
+## 2026-06-11 — Signal Labs Home v0.9.9.6 Release Archive Standard
+
+### Added
+
+- Added Rule 25: Build Response Standard.
+- Added Rule 26: Release Archives Are Backups.
+- Added release archive restore guidance to `docs/BACKUP.md` and `docs/RESTORE.md`.
+
+### Changed
+
+- Retired duplicate normal backup-folder workflow in favor of complete release ZIP archives stored in dated `Releases/` folders.
+- Updated Home/public page visible version references and shared asset cache references to v0.9.9.6.
+- Updated workflow standards so Nuclear Option comparisons use the last release ZIP instead of a duplicate backup folder.
+
+### Not Changed
+
+- No calculator or scheduling functionality changed.
+- No database, login, admin, or publishing system was added.
+
+
 ## 2026-06-11 — Signal Schedule v0.2.0 Core Engine Blueprint
 
 - Advanced Signal Schedule from a local schedule sandbox toward a core staffing-engine blueprint.

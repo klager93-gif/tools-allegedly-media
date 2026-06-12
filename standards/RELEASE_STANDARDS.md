@@ -26,3 +26,43 @@ Whenever a tool version changes:
 - No page should display an older version than the current release.
 - If a global component affects multiple pages, all affected pages must be updated together.
 
+
+
+## Rule 25 — Build Response Standard
+
+Every build response must include a concise release handoff with:
+
+- Download link.
+- Source release used.
+- Files changed, grouped by directory when practical.
+- GitHub title in copyable form.
+- GitHub description in copyable form.
+- What changed.
+- What did not change.
+
+Long architectural explanations are optional unless the user asks for them.
+
+
+## Rule 26 — Release Archives Are Backups
+
+Released ZIP files are complete snapshots and are considered the authoritative backup and restore point for each release.
+
+Use dated release folders instead of duplicate backup folders:
+
+```text
+Releases/
+  YYYY-MM-DD/
+    release-zip-files
+```
+
+Do not require a separate `Backups/` folder for normal releases. Manual folder backups are reserved for risky experiments, large manual edits outside Git, temporary sandboxes, or unreleased testing.
+
+Preferred workflow:
+
+```text
+Current
+↓
+Release ZIP
+↓
+GitHub
+```

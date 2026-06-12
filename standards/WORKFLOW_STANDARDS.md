@@ -20,7 +20,7 @@ Trigger: two failed hotfixes for the same issue.
 Procedure:
 
 1. Stop patching.
-2. Compare last backup.
+2. Compare the last release ZIP from the dated `Releases/` folder.
 3. Compare latest ZIP.
 4. Compare GitHub.
 5. Compare live site.
@@ -33,3 +33,8 @@ For shared visual components, inspect both component JavaScript and matching CSS
 ## Global Change Workflow
 
 If a shared asset changes, update and verify every page that depends on it.
+
+
+## Release Archive Workflow
+
+Normal releases should be saved as ZIP archives in dated `Releases/` folders. These release archives are the project backups. Do not duplicate the same release by also copying the current folder into a separate `Backups/` folder unless the work is experimental or outside the normal Git/release process.

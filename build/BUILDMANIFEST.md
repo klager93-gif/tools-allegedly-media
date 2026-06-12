@@ -2,7 +2,7 @@
 
 ## Build
 
-Signal Schedule v0.2.0 — Core Engine Blueprint
+Signal Labs Home v0.9.9.6 — Release Archive Standard
 
 ## Date
 
@@ -10,12 +10,12 @@ Signal Schedule v0.2.0 — Core Engine Blueprint
 
 ## Source
 
-Built from `signal-schedule-v0.1.4-version-consistency-update.zip`.
+Built from `signal-labs.zip` uploaded by the user as the current Signal Labs folder.
 
 ## Purpose
 
-Move Signal Schedule from a basic local schedule sandbox toward a core staffing-engine blueprint with people, rules, patterns, events, benefit ledgers, coverage requirements, and generated output.
+Add Rule 25 and Rule 26 to standardize build handoffs and formalize release ZIP archives as the normal backup and restore mechanism for Signal Labs.
 
 ## Notes
 
-This release does not add login, database storage, admin roles, publishing workflow, or final automated schedule generation. It updates local mock data, UI planning panels, text output, and documentation so future coding remains aligned with the staffing-engine architecture.
+This is a Home/global standards release. It updates release workflow documentation, restore guidance, Home/public version references, and shared asset cache references. It does not add calculator or scheduling functionality.
