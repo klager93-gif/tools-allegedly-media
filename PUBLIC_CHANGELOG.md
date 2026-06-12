@@ -1,4 +1,4 @@
-## Signal Schedule v1.3.2 — Coolify Backend Pivot
+## Signal Schedule v1.3.3 — Coolify Backend Setup Guide
 
 - Updated backend planning to reflect the actual GitHub to Coolify deployment path.
 - No public app behavior changed.

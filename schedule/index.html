@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v1.3.2
-Purpose: Coolify Backend Pivot and backend portability correction
+Version: v1.3.3
+Purpose: Coolify Backend Setup Guide and backend portability correction
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Coolify Backend Pivot and backend portability correction
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=1.3.2">
+<link rel="stylesheet" href="style.css?v=1.3.3">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v1.3.2"
-  data-signal-theme="Coolify Backend Pivot"
+  data-signal-version="v1.3.3"
+  data-signal-theme="Coolify Backend Setup Guide"
   data-signal-status="Active Development"
   data-signal-description="Document the actual hosting path as GitHub to Coolify and pause Cloudflare D1 assumptions while preserving backend portability."
-  data-signal-status-text="Signal Schedule v1.3.2 pivots backend planning around the actual GitHub to Coolify deployment path and keeps D1 as a possible adapter, not the default path."
+  data-signal-status-text="Signal Schedule v1.3.3 documents the Coolify backend setup path and recommends a future portable API service with Postgres while keeping D1/MySQL as possible adapters."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Coolify Backend Pivot and backend portability correction
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v1.3.2 Coolify Backend Pivot</strong>
+      <strong id="currentWeekLabel">v1.3.3 Coolify Backend Setup Guide</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Coolify Backend Pivot and backend portability correction
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v1.3.2 is still browser-only for the main app. This release corrects the backend direction after confirming the live deployment path is GitHub to Coolify, not Cloudflare Pages. D1 remains a possible future adapter, but Coolify-hosted backends become the primary planning path.</p>
+      <p>Signal Schedule v1.3.3 is still browser-only for the main app. This release documents the backend setup direction after confirming the live deployment path is GitHub to Coolify. The active app remains static while the future backend path moves toward a Coolify-hosted API service and Postgres.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v1.3.2 keeps pretend agency and employee records in /schedule/data as the active adapter while documenting the Coolify backend path and preserving D1/Postgres/MySQL portability.</p>
+        <p>v1.3.3 keeps pretend agency and employee records in /schedule/data as the active adapter while documenting the Coolify setup path and preserving Postgres/MySQL/D1 portability.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -518,6 +518,6 @@ Purpose: Coolify Backend Pivot and backend portability correction
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=1.3.2"></script>
+<script src="script.js?v=1.3.3"></script>
 </body>
 </html>

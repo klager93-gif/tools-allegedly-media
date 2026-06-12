@@ -1,4 +1,4 @@
-## Signal Schedule v1.3.2 — Coolify Backend Pivot
+## Signal Schedule v1.3.3 — Coolify Backend Setup Guide
 
 Current path: GitHub → Coolify → live site. Next recommended step is v1.3.3 Coolify Backend Setup Guide before any CRUD or live writes.
 

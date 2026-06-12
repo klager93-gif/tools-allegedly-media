@@ -1,4 +1,8 @@
-## v1.3.2 — Coolify Backend Pivot
+## Signal Schedule v1.3.3 — Coolify Backend Setup Guide
+
+Adds Coolify backend setup documentation after confirming the live deployment path is GitHub to Coolify. Recommends a future Coolify-hosted API service with Postgres while preserving D1/MySQL as possible adapters under Rule 24. No app behavior, credentials, CRUD, authentication, root infrastructure folders, or dashboard preview panels were added.
+
+## v1.3.3 — Coolify Backend Setup Guide
 
 Signal Schedule now documents the actual live deployment path as GitHub to Coolify. Cloudflare D1 is paused as the default backend assumption and remains only a possible future adapter. The active app still uses the static JSON adapter.
 

@@ -1,4 +1,4 @@
-## v1.3.2 Cloudflare Status Update
+## v1.3.3 Cloudflare Status Update
 
 Cloudflare is not currently the app host for Signal Labs. The live deployment uses GitHub to Coolify. Cloudflare D1 setup work is paused and should not be treated as the default backend path.
 

@@ -1,10 +1,10 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.3.2
-Purpose: Coolify Backend Pivot with static JSON adapter and backend portability
+Version: v1.3.3
+Purpose: Coolify Backend Setup Guide with static JSON adapter and backend portability
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.3.2';
+  var STORAGE_KEY = 'signalSchedule.v1.3.3';
   var OLD_STORAGE_KEYS = ['signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
@@ -236,7 +236,7 @@ Purpose: Coolify Backend Pivot with static JSON adapter and backend portability
     responseShape: {
       ok: true,
       data: [],
-      meta: { source: 'worker-api', version: 'v1.3.2' },
+      meta: { source: 'worker-api', version: 'v1.3.3' },
       errors: []
     }
   };
@@ -1353,7 +1353,7 @@ Purpose: Coolify Backend Pivot with static JSON adapter and backend portability
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.3.2 Coolify Backend Pivot';
+    if (label) label.textContent = 'v1.3.3 Coolify Backend Setup Guide';
   }
 
   function syncRuleInputs() {
@@ -2070,7 +2070,7 @@ Purpose: Coolify Backend Pivot with static JSON adapter and backend portability
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — COOLIFY BACKEND PIVOT');
-    lines.push('Version: v1.3.2');
+    lines.push('Version: v1.3.3');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2157,7 +2157,7 @@ Purpose: Coolify Backend Pivot with static JSON adapter and backend portability
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v1.3.2 Notes:');
+    lines.push('v1.3.3 Notes:');
     lines.push('- Corrects the backend planning assumption after confirming the live deployment uses GitHub to Coolify.');
     lines.push('- Pauses Cloudflare D1 as the default implementation path while preserving D1 as a possible future adapter.');
     lines.push('- Keeps the active app on local/static mock data through the JSON adapter.');

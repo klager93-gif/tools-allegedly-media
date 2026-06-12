@@ -1,4 +1,4 @@
-## v1.3.2 Migration Plan Update
+## v1.3.3 Migration Plan Update
 
 The migration path is corrected from Cloudflare D1-first to Coolify-first. Future backend work should evaluate Coolify-hosted Postgres/MySQL before any live write operations are added. D1 remains a possible adapter, not the default.
 

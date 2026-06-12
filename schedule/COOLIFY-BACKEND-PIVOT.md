@@ -1,4 +1,4 @@
-# Signal Schedule v1.3.2 — Coolify Backend Pivot
+# Signal Schedule v1.3.3 — Coolify Backend Setup Guide
 
 ## What changed
 
@@ -67,7 +67,7 @@ A D1 database may exist in Cloudflare from setup testing, but it is not connecte
 
 Do not build new D1-specific behavior unless we explicitly choose Cloudflare Workers/D1 as an adapter path.
 
-## v1.3.2 scope
+## v1.3.3 scope
 
 This release only documents and corrects the backend plan.
 

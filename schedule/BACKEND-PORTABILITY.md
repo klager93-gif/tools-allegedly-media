@@ -1,4 +1,4 @@
-## v1.3.2 Backend Portability Update
+## v1.3.3 Backend Portability Update
 
 The live deployment path is GitHub to Coolify, so D1 is no longer assumed as the default backend. The same portability rule still applies: services and repositories must remain adapter-based so Coolify/Postgres, Coolify/MySQL, Cloudflare D1, or another backend can be swapped without rewriting UI or scheduling logic.
 

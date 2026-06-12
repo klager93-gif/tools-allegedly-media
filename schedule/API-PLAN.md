@@ -1,4 +1,4 @@
-## v1.3.2 API Plan Update
+## v1.3.3 API Plan Update
 
 API planning now targets a Coolify-hosted backend first, with Cloudflare D1/Workers remaining a possible adapter path only. Endpoint shapes remain useful, but implementation should wait until the Coolify backend plan is confirmed.
 
