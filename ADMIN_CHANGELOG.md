@@ -1,3 +1,11 @@
+## Signal Schedule v0.17.0 — Goal Mode Foundation
+
+- Built from `signal-schedule-v0.16.0-notifications-foundation.zip`.
+- Added Goal Mode state arrays, sample defaults, render functions, registry entries, and HTML preview sections.
+- Repaired v0.16.0 missing notification render functions: renderNotificationTriggerPreview, renderNotificationChannelPreview, renderNotificationSubscriptionPreview, and renderNotificationAuditPreview.
+- Added validation for node syntax, safeRender-to-function coverage, safeRender-to-registry coverage, and registry-to-function coverage.
+- Updated Schedule docs, root docs, roadmap, public changelog, admin changelog, manifests, and SHA256 sums.
+
 ## Signal Schedule v0.16.0 — Notifications Foundation
 
 - Built from `signal-schedule-v0.15.0-analytics-foundation.zip`.

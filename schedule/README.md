@@ -1,25 +1,18 @@
-## v0.16.0 Notifications Foundation
+## v0.17.0 Goal Mode Foundation
 
-Signal Schedule v0.16.0 adds the Notifications Foundation while preserving the v0.15 Analytics Foundation, v0.14 Bidding and Opportunity Foundation, and v0.14.1 render registry repair.
+Signal Schedule v0.17.0 adds Goal Mode Foundation while preserving v0.16 Notifications, v0.15 Analytics, v0.14 Bidding/Opportunity, and v0.14.1 render registry protections.
 
-This release is still browser-only and architecture-first. Notifications are modeled as trigger facts, channels, audience subscriptions, suppression/escalation examples, and audit history rather than live email, SMS, or push delivery.
+This release remains browser-only and architecture-first. Goal Mode defines what the engine is trying to accomplish before it recommends schedule actions.
 
-### Added
+Goal Mode planning includes:
 
-- Notification trigger planning for coverage shortages, bid awards, mandate risk, and benefit warnings.
-- Channel planning for in-app notices, email, SMS/text, and export/audit logs.
-- Audience subscription planning for employees, supervisors, admins, and audit roles.
-- Notification audit examples for suppressed duplicates, escalations, and read/acknowledgement states.
-- Render registry entries and safe render calls for all notification previews.
-- Data-model preview now includes Notifications Foundation object counts.
+- Goal profiles such as reduce mandates, improve fairness, maximize leave approvals, and stabilize coverage.
+- Tradeoff rules that explain which goal wins when goals conflict.
+- Recommendation examples that connect goals to source facts and possible actions.
+- Audit examples for losing goals, human overrides, and no-safe-action outcomes.
 
-### Preserved
+Important repair included in this release:
 
-- v0.15 Analytics Foundation: metrics, report families, trend signals, and forecasts.
-- v0.14 Bidding and Opportunity Foundation.
-- v0.14.1 registry protections that prevent optional panels from crashing the page.
-- Local-only mock data and sample loading workflow.
+- v0.16.0 had notification preview renderers registered but not defined. v0.17.0 restores those notification render functions and adds a validation check to prevent this class of breakage.
 
-### Rule
-
-Notifications must be generated from stored facts and rule outcomes, not loose one-off messages. Every notice should explain what happened, who needs to know, what source fact caused it, whether action is required, and what audit trail exists.
+Goal Mode must use stored facts, rule outcomes, analytics, notifications, coverage, fairness, bidding, mandation, and explainability. It should never make hidden recommendations from assumptions.

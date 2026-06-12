@@ -1,14 +1,13 @@
-## v0.16.0 Notifications Data Planning
+## v0.17.0 Goal Mode Data Planning
 
-Future persistence should eventually support notification-related tables or models such as:
+Future database work should preserve Goal Mode as auditable records, not temporary calculations.
 
-- notification_triggers
-- notification_channels
-- notification_subscriptions
-- notification_events
-- notification_delivery_log
-- notification_read_receipts
-- notification_suppression_log
-- notification_escalation_log
+Planned entities:
 
-Each notification should link back to the source fact that caused it, such as a coverage shortage, schedule change, leave request, bid award, mandate event, benefit warning, analytics forecast, or override.
+- goal_profiles
+- goal_tradeoffs
+- goal_recommendations
+- goal_audit_events
+- goal_override_records
+
+Each recommendation should link to the facts that caused it, including coverage rows, schedule events, benefit ledger entries, voluntary OT requests, posted OT responses, mandate rotation entries, fairness metrics, analytics forecasts, notifications, and rule outcomes.

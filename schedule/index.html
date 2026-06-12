@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.16.0
-Purpose: Notifications Foundation sandbox with alert triggers, delivery channels, subscriptions, and notification audit planning
+Version: v0.17.0
+Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoffs, recommendations, and audit planning
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.16.0">
+<link rel="stylesheet" href="style.css?v=0.17.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.16.0"
-  data-signal-theme="Notifications Foundation"
+  data-signal-version="v0.17.0"
+  data-signal-theme="Goal Mode Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define notifications planning for alert triggers, channels, audience subscriptions, suppression, escalation, and audit history."
-  data-signal-status-text="Signal Schedule v0.16.0 adds Notifications Foundation planning while preserving v0.15 analytics and v0.14 bidding/opportunity workflows."
+  data-signal-description="Define Goal Mode planning for optimization goals, tradeoffs, recommendations, human overrides, and audit explanations."
+  data-signal-status-text="Signal Schedule v0.17.0 adds Goal Mode Foundation planning while preserving v0.16 notifications, v0.15 analytics, and v0.14 bidding/opportunity workflows."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.16.0 Notifications</strong>
+      <strong id="currentWeekLabel">v0.17.0 Goal Mode</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.16.0 is still browser-only. This release adds notifications planning for alerts, channels, audience subscriptions, suppression, escalation, and audit history.</p>
+      <p>Signal Schedule v0.17.0 is still browser-only. This release adds Goal Mode planning for optimization goals, tradeoffs, recommendations, and audit explanations.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.16 keeps the agency, employee, pattern, event, benefit, rule, coverage, view, fairness, explanation, mandation, bidding, and analytics foundations and adds notification previews.</p>
+        <p>v0.17 keeps the agency, employee, pattern, event, benefit, rule, coverage, view, fairness, explanation, mandation, bidding, analytics, and notification foundations and adds Goal Mode previews.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -440,6 +440,47 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     <div id="notificationAuditPreview" class="notification-grid"></div>
   </section>
 
+
+  <section class="schedule-card goal-mode-profile-card" aria-labelledby="goalModeProfileTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="goalModeProfileTitle">Goal Mode Foundation</h2>
+        <p>Goal Mode defines what the schedule engine is trying to accomplish before recommending leave, overtime, coverage, bidding, mandation, or staffing actions.</p>
+      </div>
+    </div>
+    <div id="goalModeProfilePreview" class="goal-mode-grid"></div>
+  </section>
+
+  <section class="schedule-card goal-mode-tradeoff-card" aria-labelledby="goalModeTradeoffTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="goalModeTradeoffTitle">Goal Tradeoff Preview</h2>
+        <p>Goals can conflict. The system should explain the winning goal, the losing goal, and the rule or fact that decided the outcome.</p>
+      </div>
+    </div>
+    <div id="goalModeTradeoffPreview" class="goal-mode-grid"></div>
+  </section>
+
+  <section class="schedule-card goal-mode-recommendation-card" aria-labelledby="goalModeRecommendationTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="goalModeRecommendationTitle">Recommendation Preview</h2>
+        <p>Recommendations should come from source facts, selected goals, rule outcomes, and explainability—not from hidden assumptions.</p>
+      </div>
+    </div>
+    <div id="goalModeRecommendationPreview" class="goal-mode-grid"></div>
+  </section>
+
+  <section class="schedule-card goal-mode-audit-card" aria-labelledby="goalModeAuditTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="goalModeAuditTitle">Goal Mode Audit Preview</h2>
+        <p>Goal Mode must preserve original recommendations, human overrides, losing goals, winning goals, and the facts that supported the final action.</p>
+      </div>
+    </div>
+    <div id="goalModeAuditPreview" class="goal-mode-grid"></div>
+  </section>
+
   <section class="schedule-card" aria-labelledby="modelTitle">
     <div class="schedule-card-heading">
       <div>
@@ -585,6 +626,6 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.16.0"></script>
+<script src="script.js?v=0.17.0"></script>
 </body>
 </html>

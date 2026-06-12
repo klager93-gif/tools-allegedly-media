@@ -1,16 +1,12 @@
-## v0.16.0 Notifications Foundation
+## v0.17.0 Goal Mode Foundation
 
-Open `/schedule/` in a browser.
+Open `/schedule/` and review the Goal Mode sections:
 
-Use **Load Sample** if the page does not populate automatically.
+- Goal Mode Foundation
+- Goal Tradeoff Preview
+- Recommendation Preview
+- Goal Mode Audit Preview
 
-Review the Notifications Foundation sections:
+Press **Load Sample** if local browser storage still contains older v0.16.0 data.
 
-- Notification Trigger Preview.
-- Notification Channel Preview.
-- Audience Subscription Preview.
-- Notification Audit Preview.
-
-This build does not send real notifications. It defines the planning objects future PHP/database work will need before in-app notices, email, SMS, push, read receipts, escalation queues, or delivery logs exist.
-
-If the page does not reflect v0.16.0, clear local storage or press **Load Sample**.
+This build does not auto-generate schedules or apply recommendations. It defines the logic/data shape future decision-support features will need.

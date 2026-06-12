@@ -1,23 +1,25 @@
-# Build Manifest — Signal Schedule v0.16.0 Notifications Foundation
+# Build Manifest — Signal Schedule v0.17.0 Goal Mode Foundation
 
 ## Source
 
-- Built from: `signal-schedule-v0.15.0-analytics-foundation.zip`
+- Source ZIP: `signal-schedule-v0.16.0-notifications-foundation.zip`
+- Build type: Architecture foundation release + repair release
 
-## Release
+## Output
 
-- Output: `signal-schedule-v0.16.0-notifications-foundation.zip`
-- Theme: Notifications Foundation
-- Date: 2026-06-12
+- Output ZIP: `signal-schedule-v0.17.0-goal-mode-foundation.zip`
+
+## Changes
+
+- Added Goal Mode Foundation data arrays, defaults, renderers, registry entries, and preview sections.
+- Added goal profiles, goal tradeoffs, recommendations, and audit examples.
+- Repaired missing v0.16.0 notification renderer functions.
+- Updated Schedule visible version references and cache-busting to v0.17.0.
+- Updated README, HOWTO, ROADMAP, RULE-ENGINE, DATABASE-PLAN, public changelog, admin changelog, and master roadmap.
 
 ## Validation
 
-- JavaScript syntax checked with `node --check schedule/script.js`.
-- Schedule visible version references updated to v0.16.0.
-- Cache-busting references updated for Schedule CSS/JS.
-- Notification render functions added to render registry and safe render flow.
-- Build SHA256 manifest regenerated.
-
-## Notes
-
-This remains a browser-only architecture sandbox. Notification planning does not send real emails, SMS, push notifications, or in-app messages yet.
+- `node --check schedule/script.js` passed.
+- Render registry validation passed: every safeRender string has a function and registry entry.
+- ZIP integrity check passed.
+- SHA256 sums regenerated.

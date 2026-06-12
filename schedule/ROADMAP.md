@@ -1,10 +1,15 @@
-## Current: v0.16.0 — Notifications Foundation
+## Current: v0.17.0 — Goal Mode Foundation
 
-- Model notification triggers from facts and rule outcomes.
-- Model delivery channels without sending real notices yet.
-- Model audience subscriptions by employee, supervisor, admin, and audit roles.
-- Model notification audit states such as delivered, read, suppressed, escalated, expired, and acted on.
+Goal Mode defines what the engine is trying to optimize before it recommends leave, overtime, schedule changes, mandation, bidding, staffing, or coverage actions.
 
-## Next: v0.17.0 — Goal Mode Foundation
+## Next: v0.18.0 — Multi-Agency Foundation
 
-Goal Mode should define what the engine is trying to optimize before it recommends schedule changes, overtime, leave approvals, mandation, bids, or staffing actions.
+Multi-Agency Foundation should support agency-specific terminology and workflows for police, fire, EMS, corrections, dispatch, security, public works, and other shift operations without changing the core engines.
+
+## Then: v0.19.0 — Architecture Complete
+
+Architecture Complete should audit the full 0.x architecture before v1.0 database work begins.
+
+## v1.0.0 — Database Foundation
+
+Begin PHP/MySQL persistence, CRUD, users, roles, approvals, audit logs, and real stored schedules.

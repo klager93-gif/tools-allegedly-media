@@ -1,3 +1,14 @@
+## v0.17.0 — Goal Mode Foundation
+
+- Added Goal Mode Foundation previews for optimization goals, tradeoffs, recommendations, and audit examples.
+- Added goalModeProfiles, goalModeTradeoffs, goalModeRecommendations, and goalModeAuditExamples state arrays.
+- Added default Goal Mode sample objects for reducing mandates, improving fairness, maximizing leave approvals, and stabilizing coverage.
+- Added Goal Mode renderers and registered them in the guarded render registry.
+- Updated the data-model preview to include Goal Mode object counts.
+- Fixed the v0.16.0 notification renderer break by adding the missing notification trigger, channel, subscription, and audit render functions.
+- Added release validation for safeRender references, registry entries, and function definitions.
+- Updated visible Schedule version references and cache-busting to v0.17.0.
+
 ## v0.16.0 — Notifications Foundation
 
 - Added Notifications Foundation previews for trigger definitions, delivery channels, audience subscriptions, and audit examples.

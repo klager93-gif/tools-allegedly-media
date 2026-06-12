@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.16.0
-Purpose: Notifications Foundation sandbox with alert triggers, delivery channels, subscription rules, and audit-ready notification explanations
+Version: v0.17.0
+Purpose: Goal Mode Foundation sandbox with optimization goals, tradeoff rules, decision signals, and explainable recommendations
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.16.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.17.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.17.0', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -49,6 +49,10 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     notificationChannels: [],
     notificationSubscriptions: [],
     notificationAuditExamples: [],
+    goalModeProfiles: [],
+    goalModeTradeoffs: [],
+    goalModeRecommendations: [],
+    goalModeAuditExamples: [],
     agencyProfile: null,
     selectedEmployeeId: null
   };
@@ -82,6 +86,10 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     if (!Array.isArray(state.notificationChannels) || !state.notificationChannels.length) state.notificationChannels = defaultNotificationChannels();
     if (!Array.isArray(state.notificationSubscriptions) || !state.notificationSubscriptions.length) state.notificationSubscriptions = defaultNotificationSubscriptions();
     if (!Array.isArray(state.notificationAuditExamples) || !state.notificationAuditExamples.length) state.notificationAuditExamples = defaultNotificationAuditExamples();
+    if (!Array.isArray(state.goalModeProfiles) || !state.goalModeProfiles.length) state.goalModeProfiles = defaultGoalModeProfiles();
+    if (!Array.isArray(state.goalModeTradeoffs) || !state.goalModeTradeoffs.length) state.goalModeTradeoffs = defaultGoalModeTradeoffs();
+    if (!Array.isArray(state.goalModeRecommendations) || !state.goalModeRecommendations.length) state.goalModeRecommendations = defaultGoalModeRecommendations();
+    if (!Array.isArray(state.goalModeAuditExamples) || !state.goalModeAuditExamples.length) state.goalModeAuditExamples = defaultGoalModeAuditExamples();
   }
 
   function defaultAgencyProfile() {
@@ -673,6 +681,32 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
       { id: 'audit-employee-award-read', event: 'Award notice acknowledged', outcome: 'Employee read receipt recorded', reason: 'Employee opened the in-app bid award notice.', explanation: 'Read state should be stored separately from whether the employee accepts, declines, or contests the award.' }];
   }
 
+
+  function defaultGoalModeProfiles() {
+    return [{ id: 'goal-reduce-mandates', name: 'Reduce Mandates', priority: 'High', optimizes: 'Fill open coverage with voluntary options before forced overtime.', sourceFacts: 'Coverage shortages, voluntary OT requests, posted OT responses, mandate rotation, fatigue limits, and exceptions.', explanation: 'The engine should recommend voluntary or posted OT paths first and explain when mandation risk remains.' },
+      { id: 'goal-improve-fairness', name: 'Improve Fairness', priority: 'Medium', optimizes: 'Balance overtime, weekends, holidays, undesirable shifts, mandates, and opportunities over time.', sourceFacts: 'Fairness metrics, seniority ledger, award history, mandate counts, and schedule assignments.', explanation: 'Fairness should not replace eligibility or safety; it should explain how distribution was considered after hard rules.' },
+      { id: 'goal-max-leave', name: 'Maximize Leave Approvals', priority: 'Medium', optimizes: 'Approve more leave when coverage, benefit balance, and rules allow it.', sourceFacts: 'Leave requests, benefit ledger, coverage requirements, posted OT availability, and forecast windows.', explanation: 'The engine should show what would need to change for a denial to become approvable.' },
+      { id: 'goal-stabilize-coverage', name: 'Stabilize Coverage', priority: 'High', optimizes: 'Reduce recurring shortages and last-minute schedule instability.', sourceFacts: 'Coverage trends, forecast risks, schedule views, training events, and shortage history.', explanation: 'The engine should distinguish chronic staffing issues from isolated schedule conflicts.' }];
+  }
+
+  function defaultGoalModeTradeoffs() {
+    return [{ id: 'tradeoff-cost-coverage', conflict: 'Reduce OT Cost vs Maintain Coverage', winningRule: 'Coverage minimums win over cost controls.', consequence: 'The recommendation may create overtime if no straight-time option can meet minimum staffing.', explanation: 'Goal Mode should name the losing goal and why it lost.' },
+      { id: 'tradeoff-seniority-fairness', conflict: 'Seniority Preference vs Fairness Equalization', winningRule: 'Configured bid/contract rule decides which factor applies first.', consequence: 'The recommendation may favor a senior employee even when fairness distribution is uneven, or vice versa if agency rules allow.', explanation: 'The system must show whether seniority, fairness, or eligibility determined the outcome.' },
+      { id: 'tradeoff-leave-mandate', conflict: 'Approve Leave vs Avoid Mandation', winningRule: 'Agency policy controls whether leave can be approved if it creates forced OT risk.', consequence: 'The system may suggest posted OT before denying leave.', explanation: 'A denial should include the exact coverage gap and possible path to approval.' }];
+  }
+
+  function defaultGoalModeRecommendations() {
+    return [{ id: 'recommend-post-ot', goal: 'Reduce Mandates', recommendation: 'Post voluntary overtime before using the mandate list.', action: 'Create posted OT opportunity for the projected open spot.', why: 'Coverage forecast shows a future shortage, but voluntary OT interest exists and fatigue checks have not failed.' },
+      { id: 'recommend-adjust-training', goal: 'Stabilize Coverage', recommendation: 'Move non-critical training away from a known shortage block.', action: 'Review training event timing before approving additional leave.', why: 'Coverage engine shows minimum staffing miss caused by training plus approved leave overlap.' },
+      { id: 'recommend-conditional-leave', goal: 'Maximize Leave Approvals', recommendation: 'Conditionally approve leave if posted OT fills one slot.', action: 'Hold request as pending coverage action instead of immediate denial.', why: 'Benefit balance is valid and rule checks pass, but coverage target is short by one qualified employee.' }];
+  }
+
+  function defaultGoalModeAuditExamples() {
+    return [{ id: 'goal-audit-losing-goal', event: 'Coverage goal overrode cost goal', outcome: 'Overtime recommendation kept', reason: 'Minimum staffing would otherwise fail.', explanation: 'Audit should preserve the losing cost goal, the winning coverage goal, and the facts used.' },
+      { id: 'goal-audit-supervisor-override', event: 'Supervisor changed recommendation', outcome: 'Override recorded', reason: 'Supervisor chose mandate instead of posted OT because of time sensitivity.', explanation: 'Goal Mode should record human overrides without rewriting the original recommendation.' },
+      { id: 'goal-audit-no-action', event: 'No safe recommendation available', outcome: 'Escalated to supervisor review', reason: 'All eligible voluntary options failed coverage, fatigue, or exception checks.', explanation: 'Sometimes the correct recommendation is to explain why automation should stop.' }];
+  }
+
   function defaultEventTypeDefinitions() {
     return [{
       id: 'event-vacation',
@@ -909,6 +943,10 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     next.notificationChannels = Array.isArray(next.notificationChannels) && next.notificationChannels.length ? next.notificationChannels : defaultNotificationChannels();
     next.notificationSubscriptions = Array.isArray(next.notificationSubscriptions) && next.notificationSubscriptions.length ? next.notificationSubscriptions : defaultNotificationSubscriptions();
     next.notificationAuditExamples = Array.isArray(next.notificationAuditExamples) && next.notificationAuditExamples.length ? next.notificationAuditExamples : defaultNotificationAuditExamples();
+    next.goalModeProfiles = Array.isArray(next.goalModeProfiles) && next.goalModeProfiles.length ? next.goalModeProfiles : defaultGoalModeProfiles();
+    next.goalModeTradeoffs = Array.isArray(next.goalModeTradeoffs) && next.goalModeTradeoffs.length ? next.goalModeTradeoffs : defaultGoalModeTradeoffs();
+    next.goalModeRecommendations = Array.isArray(next.goalModeRecommendations) && next.goalModeRecommendations.length ? next.goalModeRecommendations : defaultGoalModeRecommendations();
+    next.goalModeAuditExamples = Array.isArray(next.goalModeAuditExamples) && next.goalModeAuditExamples.length ? next.goalModeAuditExamples : defaultGoalModeAuditExamples();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
     next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
@@ -1063,7 +1101,7 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.16.0 Notifications Foundation';
+    if (label) label.textContent = 'v0.17.0 Goal Mode Foundation';
   }
 
   function syncRuleInputs() {
@@ -1612,6 +1650,63 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     target.innerHTML = items.map(function (item) { return '<article class="analytics-forecast-item"><span class="card-kicker">Forecast model</span><strong>' + escapeHtml(item.name || 'Forecast') + '</strong><p>' + escapeHtml(item.forecast || '') + '</p><small><b>Inputs:</b> ' + escapeHtml(item.inputFacts || '') + '<br><b>Explanation:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
   }
 
+  function renderNotificationTriggerPreview() {
+    var target = $('#notificationTriggerPreview');
+    if (!target) return;
+    var items = Array.isArray(state.notificationTriggers) && state.notificationTriggers.length ? state.notificationTriggers : defaultNotificationTriggers();
+    target.innerHTML = items.map(function (item) { return '<article class="notification-item"><span class="card-kicker">' + escapeHtml(item.source || 'Trigger') + '</span><strong>' + escapeHtml(item.name || 'Notification trigger') + '</strong><p>' + escapeHtml(item.trigger || '') + '</p><small><b>Audience:</b> ' + escapeHtml(item.audience || '') + '<br><b>Why:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
+  }
+
+  function renderNotificationChannelPreview() {
+    var target = $('#notificationChannelPreview');
+    if (!target) return;
+    var items = Array.isArray(state.notificationChannels) && state.notificationChannels.length ? state.notificationChannels : defaultNotificationChannels();
+    target.innerHTML = items.map(function (item) { return '<article class="notification-item"><span class="card-kicker">' + escapeHtml(item.status || 'planned') + '</span><strong>' + escapeHtml(item.name || 'Notification channel') + '</strong><p>' + escapeHtml(item.purpose || '') + '</p><small>' + escapeHtml(item.guardrail || '') + '</small></article>'; }).join('');
+  }
+
+  function renderNotificationSubscriptionPreview() {
+    var target = $('#notificationSubscriptionPreview');
+    if (!target) return;
+    var items = Array.isArray(state.notificationSubscriptions) && state.notificationSubscriptions.length ? state.notificationSubscriptions : defaultNotificationSubscriptions();
+    target.innerHTML = items.map(function (item) { var receives = Array.isArray(item.receives) ? item.receives.join(' · ') : ''; return '<article class="notification-item"><span class="card-kicker">' + escapeHtml(item.audience || 'Audience') + '</span><strong>' + escapeHtml(item.preference || 'Subscription rule') + '</strong><p>' + escapeHtml(receives || 'Notice scope TBD') + '</p><small>' + escapeHtml(item.rule || '') + '</small></article>'; }).join('');
+  }
+
+  function renderNotificationAuditPreview() {
+    var target = $('#notificationAuditPreview');
+    if (!target) return;
+    var items = Array.isArray(state.notificationAuditExamples) && state.notificationAuditExamples.length ? state.notificationAuditExamples : defaultNotificationAuditExamples();
+    target.innerHTML = items.map(function (item) { return '<article class="notification-item"><span class="card-kicker">' + escapeHtml(item.outcome || 'Audit outcome') + '</span><strong>' + escapeHtml(item.event || 'Notification audit event') + '</strong><p>' + escapeHtml(item.reason || '') + '</p><small>' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
+  }
+
+  function renderGoalModeProfilePreview() {
+    var target = $('#goalModeProfilePreview');
+    if (!target) return;
+    var items = Array.isArray(state.goalModeProfiles) && state.goalModeProfiles.length ? state.goalModeProfiles : defaultGoalModeProfiles();
+    target.innerHTML = items.map(function (item) { return '<article class="goal-mode-item"><span class="card-kicker">Priority: ' + escapeHtml(item.priority || 'Normal') + '</span><strong>' + escapeHtml(item.name || 'Goal') + '</strong><p>' + escapeHtml(item.optimizes || '') + '</p><small><b>Facts:</b> ' + escapeHtml(item.sourceFacts || '') + '<br><b>Why:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
+  }
+
+  function renderGoalModeTradeoffPreview() {
+    var target = $('#goalModeTradeoffPreview');
+    if (!target) return;
+    var items = Array.isArray(state.goalModeTradeoffs) && state.goalModeTradeoffs.length ? state.goalModeTradeoffs : defaultGoalModeTradeoffs();
+    target.innerHTML = items.map(function (item) { return '<article class="goal-mode-item"><span class="card-kicker">Tradeoff</span><strong>' + escapeHtml(item.conflict || 'Goal conflict') + '</strong><p>' + escapeHtml(item.winningRule || '') + '</p><small><b>Consequence:</b> ' + escapeHtml(item.consequence || '') + '<br><b>Explain:</b> ' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
+  }
+
+  function renderGoalModeRecommendationPreview() {
+    var target = $('#goalModeRecommendationPreview');
+    if (!target) return;
+    var items = Array.isArray(state.goalModeRecommendations) && state.goalModeRecommendations.length ? state.goalModeRecommendations : defaultGoalModeRecommendations();
+    target.innerHTML = items.map(function (item) { return '<article class="goal-mode-item"><span class="card-kicker">' + escapeHtml(item.goal || 'Goal') + '</span><strong>' + escapeHtml(item.recommendation || 'Recommendation') + '</strong><p>' + escapeHtml(item.action || '') + '</p><small>' + escapeHtml(item.why || '') + '</small></article>'; }).join('');
+  }
+
+  function renderGoalModeAuditPreview() {
+    var target = $('#goalModeAuditPreview');
+    if (!target) return;
+    var items = Array.isArray(state.goalModeAuditExamples) && state.goalModeAuditExamples.length ? state.goalModeAuditExamples : defaultGoalModeAuditExamples();
+    target.innerHTML = items.map(function (item) { return '<article class="goal-mode-item"><span class="card-kicker">' + escapeHtml(item.outcome || 'Goal audit') + '</span><strong>' + escapeHtml(item.event || 'Goal event') + '</strong><p>' + escapeHtml(item.reason || '') + '</p><small>' + escapeHtml(item.explanation || '') + '</small></article>'; }).join('');
+  }
+
+
   function renderDataModelPreview() {
     var target = $('#dataModelPreview');
     if (!target) return;
@@ -1635,7 +1730,8 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
       ['Bidding / Opportunities', String((state.bidRounds || []).length + (state.voluntaryOvertimeRequests || []).length + (state.postedOvertimeOpportunities || []).length), 'Plans shift bids, vacation bids, voluntary OT requests, posted OT opportunities, awards, and explanations.'],
       ['Operational Traits', String((state.operationalTraits || []).length), 'Employee traits such as gender can be used only when tied to documented operational rules.'],
       ['Analytics Foundation', String((state.analyticsMetrics || []).length + (state.analyticsReports || []).length + (state.analyticsTrendSignals || []).length + (state.analyticsForecasts || []).length), 'Plans hours, benefits, overtime, mandation, coverage, fairness, trends, forecasts, and audit-ready reports.'],
-      ['Notifications Foundation', String((state.notificationTriggers || []).length + (state.notificationChannels || []).length + (state.notificationSubscriptions || []).length + (state.notificationAuditExamples || []).length), 'Plans alert triggers, delivery channels, audience subscriptions, suppression, escalation, and audit-ready notification history.']
+      ['Notifications Foundation', String((state.notificationTriggers || []).length + (state.notificationChannels || []).length + (state.notificationSubscriptions || []).length + (state.notificationAuditExamples || []).length), 'Plans alert triggers, delivery channels, audience subscriptions, suppression, escalation, and audit-ready notification history.'],
+      ['Goal Mode Foundation', String((state.goalModeProfiles || []).length + (state.goalModeTradeoffs || []).length + (state.goalModeRecommendations || []).length + (state.goalModeAuditExamples || []).length), 'Plans optimization goals, tradeoffs, recommendations, override behavior, and audit explanations.']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -1802,8 +1898,8 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     var lines = [];
     var warnings = coverageWarnings();
     var totals = employeeHours();
-    lines.push('SIGNAL SCHEDULE — NOTIFICATIONS FOUNDATION');
-    lines.push('Version: v0.16.0');
+    lines.push('SIGNAL SCHEDULE — GOAL MODE FOUNDATION');
+    lines.push('Version: v0.17.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -1839,6 +1935,7 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     lines.push('- Notification triggers: ' + ((state.notificationTriggers || []).length));
     lines.push('- Notification channels: ' + ((state.notificationChannels || []).length));
     lines.push('- Notification subscriptions: ' + ((state.notificationSubscriptions || []).length));
+    lines.push('- Goal Mode objects: ' + ((state.goalModeProfiles || []).length + (state.goalModeTradeoffs || []).length + (state.goalModeRecommendations || []).length + (state.goalModeAuditExamples || []).length));
     lines.push('- Notification audit examples: ' + ((state.notificationAuditExamples || []).length));
     lines.push('');
     lines.push('Pattern Templates:');
@@ -1889,10 +1986,10 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.16.0 Notes:');
-    lines.push('- Adds Notifications Foundation planning for triggers, channels, subscriptions, suppression, escalation, and audit history.');
-    lines.push('- Notifications must be generated from facts and rule outcomes, not loose one-off messages.');
-    lines.push('- Alerts should explain what happened, who should know, what source fact caused it, and whether action is required.');
+    lines.push('v0.17.0 Notes:');
+    lines.push('- Adds Goal Mode Foundation planning for optimization goals, tradeoffs, recommendations, and audit explanations.');
+    lines.push('- Goal Mode answers what the system is trying to accomplish before recommending schedule actions.');
+    lines.push('- Recommendations must explain winning goals, losing goals, source facts, and human overrides.');
     lines.push('- This is still local mock data, not a backend.');
     lines.push('- Events, rules, benefit entries, coverage rows, views, templates, fairness metrics, and explanations are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
@@ -1980,6 +2077,10 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     renderNotificationChannelPreview: renderNotificationChannelPreview,
     renderNotificationSubscriptionPreview: renderNotificationSubscriptionPreview,
     renderNotificationAuditPreview: renderNotificationAuditPreview,
+    renderGoalModeProfilePreview: renderGoalModeProfilePreview,
+    renderGoalModeTradeoffPreview: renderGoalModeTradeoffPreview,
+    renderGoalModeRecommendationPreview: renderGoalModeRecommendationPreview,
+    renderGoalModeAuditPreview: renderGoalModeAuditPreview,
     renderDataModelPreview: renderDataModelPreview,
     renderSelects: renderSelects,
     renderPills: renderPills,
@@ -2029,6 +2130,10 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
     safeRender('notification channels', 'renderNotificationChannelPreview');
     safeRender('notification subscriptions', 'renderNotificationSubscriptionPreview');
     safeRender('notification audit', 'renderNotificationAuditPreview');
+    safeRender('goal profiles', 'renderGoalModeProfilePreview');
+    safeRender('goal tradeoffs', 'renderGoalModeTradeoffPreview');
+    safeRender('goal recommendations', 'renderGoalModeRecommendationPreview');
+    safeRender('goal audit', 'renderGoalModeAuditPreview');
     safeRender('data model', 'renderDataModelPreview');
     safeRender('selects', 'renderSelects');
     safeRender('pills', 'renderPills');
@@ -2149,6 +2254,10 @@ Purpose: Notifications Foundation sandbox with alert triggers, delivery channels
       notificationChannels: defaultNotificationChannels(),
       notificationSubscriptions: defaultNotificationSubscriptions(),
       notificationAuditExamples: defaultNotificationAuditExamples(),
+      goalModeProfiles: defaultGoalModeProfiles(),
+      goalModeTradeoffs: defaultGoalModeTradeoffs(),
+      goalModeRecommendations: defaultGoalModeRecommendations(),
+      goalModeAuditExamples: defaultGoalModeAuditExamples(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
       selectedEmployeeId: 'emp-alex'
