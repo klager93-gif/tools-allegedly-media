@@ -1,6 +1,6 @@
 # Signal Schedule Database Plan
 
-## v0.11.1 Fairness Engine Notes
+## v0.11.2 Fairness Engine Notes
 
 Future persistence should support fairness as history, not manually edited totals. Potential tables include:
 

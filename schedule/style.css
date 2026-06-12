@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v0.11.1
+Version: v0.11.2
 Purpose: Signal Schedule benefit ledger foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -173,7 +173,7 @@ Purpose: Signal Schedule benefit ledger foundation styles
 @media print { .rule-engine-card-item, .rule-evaluation-card-item, .agency-template-card-item { border-color: #ccc; background: #fff; color: #111; } }
 
 /*
-Signal Schedule v0.11.1 Fairness Engine Foundation
+Signal Schedule v0.11.2 Fairness Engine Foundation
 Keeps generated rule-engine labels from running into headings.
 */
 .rule-engine-card-item .card-kicker,
@@ -206,7 +206,7 @@ Keeps generated rule-engine labels from running into headings.
 
 
 /*
-Signal Schedule v0.11.1 Fairness Engine Foundation
+Signal Schedule v0.11.2 Fairness Engine Foundation
 Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 */
 .coverage-engine-card { border-color: rgba(250,204,21,.26); background: rgba(250,204,21,.055); }
@@ -230,7 +230,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 @media (max-width: 650px) { .coverage-engine-grid, .coverage-slot-grid { grid-template-columns: 1fr; } }
 
 
-/* Signal Schedule v0.11.1 Fairness Engine Foundation */
+/* Signal Schedule v0.11.2 Fairness Engine Foundation */
 .schedule-views-grid,
 .system-inspector-grid {
   display: grid;
@@ -265,7 +265,7 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 }
 
 
-/* Signal Schedule v0.11.1 Fairness Engine Foundation */
+/* Signal Schedule v0.11.2 Fairness Engine Foundation */
 .fairness-engine-grid,
 .fairness-snapshot-grid,
 .seniority-ledger-grid {

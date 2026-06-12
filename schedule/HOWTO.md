@@ -1,6 +1,6 @@
 # Signal Schedule HOWTO
 
-## v0.11.1 Fairness Engine Foundation
+## v0.11.2 Fairness Engine Foundation
 
 Use the fairness panels to review sample fairness concepts. They are not editable database records yet.
 

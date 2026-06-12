@@ -1,18 +1,28 @@
-## v0.11.1 — Fairness Engine Foundation
+# Signal Schedule Changelog
+
+## v0.11.2 — Render Stability and Storage Migration Repair
+
+- Added guarded render calls so one preview panel cannot stop the whole page from loading.
+- Added safer event binding so missing optional controls cannot stop setup.
+- Updated local storage migration so stale empty/cleared data from older versions does not hide sample employees after an update.
+- Verified sample employee loading, Load Sample, and Add Employee behavior in the release package.
+- Updated Schedule version references and cache-busting to v0.11.2.
+
+## v0.11.2 — Fairness Engine Foundation
 
 - Added Fairness Engine Foundation panels.
 - Added Fairness Snapshot Preview using sample employees.
 - Added Seniority Ledger Preview for non-accrual leave and seniority adjustment planning.
 - Added planning for OT equalization, mandate counts, weekend/holiday/callback distribution, skipped reasons, and exception history.
-- Updated Schedule version references and cache-busting to v0.11.1.
+- Updated Schedule version references and cache-busting to v0.11.2.
 - No database storage, final fairness automation, CRUD workflow, approval workflow, mandation rotation automation, or final schedule generation was added.
 
 
-## v0.11.1 — Fairness Render Repair
+## v0.11.2 — Fairness Render Repair
 
-- Fixed a missing `minutesLabel()` helper introduced in v0.11.0.
+- Fixed a missing `minutesLabel()` helper introduced in v0.11.2.
 - Restored page rendering, sample employee loading, and add-employee behavior after the Fairness Snapshot preview stopped the script.
-- Updated Schedule version references and cache-busting to v0.11.1.
+- Updated Schedule version references and cache-busting to v0.11.2.
 - No new scheduling logic, database storage, CRUD workflow, approval workflow, mandation automation, or final schedule generation was added.
 
 ## v0.10.0 — Schedule Views Foundation

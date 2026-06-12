@@ -1,9 +1,9 @@
-## Signal Schedule v0.11.1 — Fairness Engine Foundation
+## Signal Schedule v0.11.2 — Fairness Engine Foundation
 
 - Added Fairness Engine Foundation planning.
 - Added fairness metric previews for overtime, mandates, weekends, holidays, callbacks, and seniority.
 - Added seniority-ledger planning so hire date, seniority date, and effective seniority can differ.
-- Updated Schedule visible version references to v0.11.1.
+- Updated Schedule visible version references to v0.11.2.
 
 ## Signal Schedule v0.10.0 — Schedule Views Foundation
 
@@ -240,6 +240,6 @@
 No calculator logic changes.
 
 
-## Signal Schedule v0.11.1 — Fairness Render Repair
+## Signal Schedule v0.11.2 — Fairness Render Repair
 
 Fixed a missing fairness preview helper that stopped Schedule rendering and restored sample employee/add employee behavior.

@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.11.1
+Version: v0.11.2
 Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, holiday, callback, and seniority fairness previews
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.11.1';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.11.1', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.11.2';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -571,9 +571,13 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
           if (raw) break;
         }
       }
-      if (raw) state = normalizeState(JSON.parse(raw));
-      else state = normalizeState(state);
-      if (!state.sampleCleared && !state.employees.length && !state.shifts.length && !state.assignments.length) {
+      if (raw) {
+        state = normalizeState(JSON.parse(raw));
+        if (!localStorage.getItem(STORAGE_KEY)) state.sampleCleared = false;
+      } else {
+        state = normalizeState(state);
+      }
+      if (!state.employees.length && !state.shifts.length && !state.assignments.length && !state.sampleCleared) {
         state = normalizeState(buildSampleState());
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
       }
@@ -656,7 +660,7 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.11.1 Fairness Repair';
+    if (label) label.textContent = 'v0.11.2 Stability Repair';
   }
 
   function syncRuleInputs() {
@@ -1239,7 +1243,7 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — SCHEDULE VIEWS FOUNDATION');
-    lines.push('Version: v0.11.1');
+    lines.push('Version: v0.11.2');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage Engine + Schedule Views + Explanations');
     lines.push('');
@@ -1312,7 +1316,7 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.10 Notes:');
+    lines.push('v0.11.2 Notes:');
     lines.push('- This is still local mock data, not a backend.');
     lines.push('- Events, rules, benefit entries, coverage rows, views, and templates are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
@@ -1340,36 +1344,51 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
     $('#monthPreview').innerHTML = '<div class="month-heading">' + first.toLocaleDateString(undefined, { month: 'long', year: 'numeric' }) + '</div><div class="month-grid">' + cells.join('') + '</div>';
   }
 
+  function safeRender(label, callback) {
+    try {
+      callback();
+    } catch (error) {
+      if (window.console && window.console.error) window.console.error('Signal Schedule render error in ' + label + ':', error);
+      var status = $('#scheduleSaveStatus');
+      if (status) status.textContent = 'Preview warning: ' + label + ' failed';
+    }
+  }
+
+  function bindIfFound(selector, eventName, callback) {
+    var element = $(selector);
+    if (element) element.addEventListener(eventName, callback);
+  }
+
   function render() {
-    renderWeekLabel();
-    syncRuleInputs();
-    renderEngineBlueprint();
-    renderAgencyProfile();
-    renderEmployeeProfiles();
-    renderPatternFoundation();
-    renderPatternCyclePreview();
-    renderEventFoundation();
-    renderEventBehaviorPreview();
-    renderBenefitLedgerFoundation();
-    renderBenefitRulePreview();
-    renderRuleEnginePreview();
-    renderRuleEvaluationPreview();
-    renderAgencyTemplatePreview();
-    renderCoverageRequirementPreview();
-    renderCoverageEnginePreview();
-    renderCoverageSlotPreview();
-    renderScheduleViewsPreview();
-    renderSystemInspectorPreview();
-    renderFairnessEnginePreview();
-    renderFairnessSnapshotPreview();
-    renderSeniorityLedgerPreview();
-    renderDataModelPreview();
-    renderSelects();
-    renderPills();
-    renderBoard();
-    renderSummary();
-    renderOutput();
-    renderMonthPreview();
+    safeRender('week label', renderWeekLabel);
+    safeRender('rule inputs', syncRuleInputs);
+    safeRender('engine blueprint', renderEngineBlueprint);
+    safeRender('agency profile', renderAgencyProfile);
+    safeRender('employee profiles', renderEmployeeProfiles);
+    safeRender('pattern foundation', renderPatternFoundation);
+    safeRender('pattern cycle preview', renderPatternCyclePreview);
+    safeRender('event foundation', renderEventFoundation);
+    safeRender('event behavior preview', renderEventBehaviorPreview);
+    safeRender('benefit ledger', renderBenefitLedgerFoundation);
+    safeRender('benefit rules', renderBenefitRulePreview);
+    safeRender('rule engine', renderRuleEnginePreview);
+    safeRender('rule evaluation', renderRuleEvaluationPreview);
+    safeRender('agency templates', renderAgencyTemplatePreview);
+    safeRender('coverage requirements', renderCoverageRequirementPreview);
+    safeRender('coverage engine', renderCoverageEnginePreview);
+    safeRender('coverage slots', renderCoverageSlotPreview);
+    safeRender('schedule views', renderScheduleViewsPreview);
+    safeRender('system inspector', renderSystemInspectorPreview);
+    safeRender('fairness engine', renderFairnessEnginePreview);
+    safeRender('fairness snapshot', renderFairnessSnapshotPreview);
+    safeRender('seniority ledger', renderSeniorityLedgerPreview);
+    safeRender('data model', renderDataModelPreview);
+    safeRender('selects', renderSelects);
+    safeRender('pills', renderPills);
+    safeRender('board', renderBoard);
+    safeRender('summary', renderSummary);
+    safeRender('output', renderOutput);
+    safeRender('month preview', renderMonthPreview);
   }
 
   function addEmployee(name, role) {
@@ -1477,42 +1496,45 @@ Purpose: Fairness Engine Foundation sandbox with overtime, mandation, weekend, h
   }
 
   function bindEvents() {
-    $('#employeeForm').addEventListener('submit', function (event) {
+    bindIfFound('#employeeForm', 'submit', function (event) {
       event.preventDefault();
       addEmployee($('#employeeName').value, $('#employeeRole').value);
       $('#employeeName').value = '';
       $('#employeeName').focus();
     });
-    $('#shiftForm').addEventListener('submit', function (event) {
+    bindIfFound('#shiftForm', 'submit', function (event) {
       event.preventDefault();
       addShift($('#shiftName').value, $('#shiftStart').value, $('#shiftEnd').value, $('#shiftMinStaff').value);
       $('#shiftName').value = '';
       $('#shiftMinStaff').value = '1';
       $('#shiftName').focus();
     });
-    $('#ruleForm').addEventListener('submit', function (event) { event.preventDefault(); saveRules(); });
-    $('#assignmentForm').addEventListener('submit', function (event) {
+    bindIfFound('#ruleForm', 'submit', function (event) { event.preventDefault(); saveRules(); });
+    bindIfFound('#assignmentForm', 'submit', function (event) {
       event.preventDefault();
       addAssignment($('#assignmentDay').value, $('#assignmentShift').value, $('#assignmentEmployee').value);
     });
     document.addEventListener('click', function (event) {
-      var employeeId = event.target.getAttribute('data-remove-employee');
-      var shiftId = event.target.getAttribute('data-remove-shift');
-      var assignmentId = event.target.getAttribute('data-remove-assignment');
-      var selectEmployeeId = event.target.closest('[data-select-employee]') ? event.target.closest('[data-select-employee]').getAttribute('data-select-employee') : '';
+      var target = event.target;
+      var employeeId = target && target.getAttribute ? target.getAttribute('data-remove-employee') : '';
+      var shiftId = target && target.getAttribute ? target.getAttribute('data-remove-shift') : '';
+      var assignmentId = target && target.getAttribute ? target.getAttribute('data-remove-assignment') : '';
+      var selectedButton = target && target.closest ? target.closest('[data-select-employee]') : null;
+      var selectEmployeeId = selectedButton ? selectedButton.getAttribute('data-select-employee') : '';
       if (employeeId) removeEmployee(employeeId);
       if (shiftId) removeShift(shiftId);
       if (assignmentId) removeAssignment(assignmentId);
       if (selectEmployeeId) { state.selectedEmployeeId = selectEmployeeId; save(); render(); }
     });
-    $('#sampleDataBtn').addEventListener('click', loadSample);
-    $('#clearDataBtn').addEventListener('click', function () {
+    bindIfFound('#sampleDataBtn', 'click', loadSample);
+    bindIfFound('#clearDataBtn', 'click', function () {
       state = normalizeState({ employees: [], shifts: [], assignments: [], rules: state.rules, agencyProfile: state.agencyProfile, selectedEmployeeId: null, sampleCleared: true });
       save(); render(); showToast('Schedule cleared.', 'info');
     });
-    $('#printBtn').addEventListener('click', function () { window.print(); });
-    $('#copyOutputBtn').addEventListener('click', function () {
-      $('#scheduleOutput').select();
+    bindIfFound('#printBtn', 'click', function () { window.print(); });
+    bindIfFound('#copyOutputBtn', 'click', function () {
+      var output = $('#scheduleOutput');
+      if (output) output.select();
       document.execCommand('copy');
       showToast('Text output copied.', 'success');
     });
