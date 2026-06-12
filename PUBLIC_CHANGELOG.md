@@ -1,5 +1,5 @@
-## Signal Schedule v0.17.1 — UI Debt Audit
+## Signal Schedule v0.18.0 — Multi-Agency Foundation
 
-- Cleaned up the Schedule page by removing extra foundation-preview dashboard panels.
-- Kept the planning work for analytics, notifications, and goal mode in documentation and data-model notes.
-- Reduced the chance of page-breaking render errors in future foundation builds.
+- Added planning for police, fire, EMS, corrections, dispatch, security, public works, and custom agency profiles.
+- Preserved the UI Debt Audit approach: no new foundation dashboard preview panels were added.
+- Prepared the roadmap for v0.19.0 Architecture Complete.

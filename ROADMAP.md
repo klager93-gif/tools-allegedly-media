@@ -1,4 +1,3 @@
-- Verify Signal Schedule v0.17.1 UI Debt Audit after deployment.
-- Next planned build: Signal Schedule v0.18.0 — Multi-Agency Foundation.
-- v0.19.0 remains Architecture Complete.
-- v1.0.0 begins Database Foundation.
+- Verify Signal Schedule v0.18.0 Multi-Agency Foundation after deployment.
+- Next planned build: Signal Schedule v0.19.0 — Architecture Complete.
+- v1.0.0 remains Database Foundation after the architecture audit.

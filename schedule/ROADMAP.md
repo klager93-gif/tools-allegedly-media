@@ -1,16 +1,12 @@
-## Current: v0.17.1 — UI Debt Audit
+## Current: v0.18.0 — Multi-Agency Foundation
 
-The current release reduces UI debt before continuing the architecture roadmap.
+The current release plans agency profiles, terminology, ranks, qualifications, and operational trait mapping without adding new dashboard preview panels.
 
 ## Next
 
-### v0.18.0 — Multi-Agency Foundation
-
-Plan agency-specific terminology and requirements for police, fire, EMS, corrections, dispatch, security, and public works without changing the core engines.
-
 ### v0.19.0 — Architecture Complete
 
-Audit the full 0.x architecture before database work begins.
+Audit the full 0.x architecture before database work begins. Confirm that agency profiles, employees, patterns, events, benefits, rules, coverage, views, fairness, explanations, mandation, bidding, analytics, notifications, and goal mode connect cleanly.
 
 ### v1.0.0 — Database Foundation
 

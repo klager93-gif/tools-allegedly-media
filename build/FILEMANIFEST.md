@@ -1,6 +1,6 @@
-# File Manifest — Signal Schedule v0.17.1 UI Debt Audit
+# File Manifest — Signal Schedule v0.18.0 Multi-Agency Foundation
 
-Generated for release package `signal-schedule-v0.17.1-ui-debt-audit.zip`.
+Generated for release package `signal-schedule-v0.18.0-multi-agency-foundation.zip`.
 
 Primary changed files:
 
@@ -16,11 +16,10 @@ Primary changed files:
 - `PUBLIC_CHANGELOG.md`
 - `ADMIN_CHANGELOG.md`
 - `MASTER-CHANGELOG.md`
+- `MASTER-ROADMAP.md`
 - `README.md`
 - `ROADMAP.md`
-- `MASTER-ROADMAP.md`
 - `standards/WORKFLOW_STANDARDS.md`
-- `standards/DEVELOPMENT_STANDARDS.md`
 - `build/BUILDMANIFEST.md`
 - `build/FILEMANIFEST.md`
 - `build/SHA256SUMS.txt`

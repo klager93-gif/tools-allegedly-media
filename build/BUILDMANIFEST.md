@@ -1,19 +1,19 @@
-# Build Manifest — Signal Schedule v0.17.1 UI Debt Audit
+# Build Manifest — Signal Schedule v0.18.0 Multi-Agency Foundation
 
 ## Source
 
-- Source ZIP: `signal-schedule-v0.17.0-goal-mode-foundation.zip`
-- New ZIP: `signal-schedule-v0.17.1-ui-debt-audit.zip`
+- Source ZIP: `signal-schedule-v0.17.1-ui-debt-audit.zip`
+- New ZIP: `signal-schedule-v0.18.0-multi-agency-foundation.zip`
 
 ## Purpose
 
-This build performs a UI Debt Audit after v0.17.0. It removes foundation-preview dashboard panels that were increasing render registry risk while preserving analytics, notification, and goal-mode concepts in documentation, text output, and data-model planning.
+This build adds Multi-Agency Foundation planning for police, fire, EMS, corrections, dispatch, security, public works, and custom agency profiles. It keeps the release documentation/architecture-focused under Rule 23 and avoids new dashboard preview panels or render registry entries.
 
 ## Validation
 
 - JavaScript syntax checked with `node --check`.
-- Render registry validation passed.
-- All `safeRender()` calls resolve to defined render functions.
-- Removed preview panel IDs are no longer present in `schedule/index.html`.
+- Render registry validation passed: every registry entry resolves to a defined function.
+- All `safeRender()` calls resolve to defined and registered functions.
+- Confirmed no new `renderMultiAgency*` functions or `multiAgencyPreview` panels were added.
 - ZIP integrity checked.
 - SHA256 sums regenerated.

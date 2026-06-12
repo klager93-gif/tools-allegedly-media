@@ -1,1 +1,1 @@
-**Signal Schedule v0.17.1 — UI Debt Audit** removes nonessential foundation-preview UI panels while preserving analytics, notification, and goal-mode architecture in documentation and data-model planning. Release ZIPs remain the official restore points.
+**Signal Schedule v0.18.0 — Multi-Agency Foundation** adds architecture planning for police, fire, EMS, corrections, dispatch, security, public works, and custom agency profiles while preserving the v0.17.1 UI Debt Audit. Release ZIPs remain the official restore points.

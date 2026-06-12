@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.17.1
-Purpose: UI Debt Audit cleanup that keeps foundation concepts in docs/data planning and reduces render-registry risk
+Version: v0.18.0
+Purpose: Multi-Agency Foundation cleanup that keeps foundation concepts in docs/data planning and reduces render-registry risk
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.17.1';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.18.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -1101,7 +1101,7 @@ Purpose: UI Debt Audit cleanup that keeps foundation concepts in docs/data plann
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.17.1 UI Debt Audit';
+    if (label) label.textContent = 'v0.18.0 Multi-Agency Foundation';
   }
 
   function syncRuleInputs() {
@@ -1646,7 +1646,7 @@ Purpose: UI Debt Audit cleanup that keeps foundation concepts in docs/data plann
       ['Operational Traits', String((state.operationalTraits || []).length), 'Employee traits such as gender can be used only when tied to documented operational rules.'],
       ['Analytics Foundation', String((state.analyticsMetrics || []).length + (state.analyticsReports || []).length + (state.analyticsTrendSignals || []).length + (state.analyticsForecasts || []).length), 'Plans hours, benefits, overtime, mandation, coverage, fairness, trends, forecasts, and audit-ready reports.'],
       ['Notifications Foundation', String((state.notificationTriggers || []).length + (state.notificationChannels || []).length + (state.notificationSubscriptions || []).length + (state.notificationAuditExamples || []).length), 'Plans alert triggers, delivery channels, audience subscriptions, suppression, escalation, and audit-ready notification history.'],
-      ['UI Debt Audit', String((state.goalModeProfiles || []).length + (state.goalModeTradeoffs || []).length + (state.goalModeRecommendations || []).length + (state.goalModeAuditExamples || []).length), 'Plans optimization goals, tradeoffs, recommendations, override behavior, and audit explanations.']
+      ['Multi-Agency Foundation', String((state.goalModeProfiles || []).length + (state.goalModeTradeoffs || []).length + (state.goalModeRecommendations || []).length + (state.goalModeAuditExamples || []).length), 'Plans optimization goals, tradeoffs, recommendations, override behavior, and audit explanations.']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -1814,7 +1814,7 @@ Purpose: UI Debt Audit cleanup that keeps foundation concepts in docs/data plann
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — GOAL MODE FOUNDATION');
-    lines.push('Version: v0.17.1');
+    lines.push('Version: v0.18.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -1901,8 +1901,8 @@ Purpose: UI Debt Audit cleanup that keeps foundation concepts in docs/data plann
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.17.1 Notes:');
-    lines.push('- Adds UI Debt Audit cleanup after v0.17.1.');
+    lines.push('v0.18.0 Notes:');
+    lines.push('- Adds Multi-Agency Foundation cleanup after v0.18.0.');
     lines.push('- Removes dashboard-style foundation preview panels for analytics, notifications, and goal mode.');
     lines.push('- Keeps foundation concepts in documentation, text output, and data-model planning while reducing render-registry risk.');
     lines.push('- Recommendations must explain winning goals, losing goals, source facts, and human overrides.');

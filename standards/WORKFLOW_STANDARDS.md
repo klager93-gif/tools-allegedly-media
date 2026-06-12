@@ -1,3 +1,11 @@
+# Workflow Standards — Signal Schedule v0.18.0 Update
+
+- Before packaging, validate every render registry entry against an actual defined function. Fail the build if any registered renderer is missing.
+- Foundation releases should not add new dashboard-style preview panels unless the UI itself is the purpose of the release.
+- Multi-agency support must use configurable facts and vocabulary, not hard-coded agency-specific engine branches.
+
+---
+
 # Workflow Standards
 
 ## Session Startup

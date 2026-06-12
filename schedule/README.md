@@ -1,13 +1,26 @@
-## v0.17.1 UI Debt Audit
+## v0.18.0 Multi-Agency Foundation
 
-Signal Schedule v0.17.1 cleans up UI debt introduced during the foundation releases.
+Signal Schedule v0.18.0 adds multi-agency architecture planning while preserving the v0.17.1 UI Debt Audit.
 
-This release removes nonessential dashboard-style preview panels for Analytics, Notifications, and Goal Mode. Those concepts remain part of the architecture, but they now live primarily in documentation, text output, and future data-model planning instead of requiring separate render functions.
+The goal is one scheduling engine that can support police, fire, EMS, corrections, dispatch, security, public works, and custom agencies through configurable facts instead of hard-coded assumptions.
 
-### Why this release exists
+### Core principle
 
-The same failure kept recurring: a section would be registered for rendering, but the matching render function would be missing or undefined. v0.17.1 reduces that risk by shrinking the render registry and adding explicit validation before packaging.
+Vocabulary changes. Engines do not.
+
+Examples:
+
+| Generic concept | Police | Fire | Corrections | Dispatch |
+|---|---|---|---|---|
+| Unit | Squad | Engine / Truck | Pod / Housing Unit | Console |
+| Supervisor | Sergeant | Captain | Lieutenant | Lead Dispatcher |
+| Assignment | Beat | Apparatus | Post | Channel |
+| Qualification | K9 / FTO | Paramedic / Driver | Transport / ERT | NCIC / TAC |
+
+### Rule 0
+
+Store facts, not assumptions. Agency profile, vocabulary, rank structures, qualifications, operational traits, and policy requirements must be stored as data before engines evaluate them.
 
 ### Rule 23
 
-Foundation releases should not create new preview panels unless the UI itself is the purpose of the release. Prefer documentation, data-model notes, workflow standards, manifests, and small conceptual changes.
+This foundation release intentionally avoids new dashboard-style preview panels and new render registry entries. Multi-agency concepts belong in documentation and data-model planning until the UI itself is ready.

@@ -1,9 +1,21 @@
-## v0.17.1 UI Debt Audit Data Planning
+## v0.18.0 Multi-Agency Data Planning
 
-Analytics, Notifications, and Goal Mode concepts remain planned future database areas, but v0.17.1 moves explanatory foundation previews out of the active UI.
+Future database work should support agency-independent engines through configurable agency facts.
 
-Future persistence should still account for:
+### Planned tables / concepts
 
-- analytics metrics and report definitions
-- notification triggers, channels, subscriptions, and audit history
-- goal profiles, tradeoffs, recommendations, overrides, and explanation chains
+- agencies
+- agency_profiles
+- agency_vocabulary
+- agency_rank_structures
+- agency_units
+- agency_assignment_types
+- agency_qualification_types
+- agency_operational_trait_types
+- employee_qualifications
+- employee_operational_traits
+- coverage_requirements
+
+### Design rule
+
+Avoid agency-specific engine branches such as `if agency is fire`. Store terms and requirements as data, then let the common engines evaluate facts.
