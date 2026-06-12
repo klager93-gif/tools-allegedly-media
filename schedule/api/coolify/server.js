@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v1.9.0
-Purpose: Coolify API with employee CRUD foundation and read-only assignments foundation.
+Version: v2.0.0
+Purpose: Coolify API with employee CRUD, assignments foundation, and read-only minimum staffing foundation.
 
 This release intentionally has:
 - no committed credentials
@@ -31,6 +31,8 @@ const PORT = Number(process.env.PORT || 3000);
 const DATA_PATH = resolve(__dirname, '../../data/employees.json');
 const ASSIGNMENT_TEMPLATES_PATH = resolve(__dirname, '../../data/assignment-templates.json');
 const EMPLOYEE_ASSIGNMENTS_PATH = resolve(__dirname, '../../data/employee-assignments.json');
+const MINIMUM_STAFFING_TEMPLATES_PATH = resolve(__dirname, '../../data/minimum-staffing-templates.json');
+const MINIMUM_STAFFING_PREVIEW_PATH = resolve(__dirname, '../../data/minimum-staffing-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -42,7 +44,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v1.9.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.0.0', ...overrides };
 }
 
 function notFound(res) {
@@ -159,6 +161,18 @@ async function listAssignmentsFromJsonSeed() {
   };
 }
 
+
+async function listMinimumStaffingFromJsonSeed() {
+  const [templatesRaw, previewRaw] = await Promise.all([
+    readFile(MINIMUM_STAFFING_TEMPLATES_PATH, 'utf8'),
+    readFile(MINIMUM_STAFFING_PREVIEW_PATH, 'utf8')
+  ]);
+  return {
+    templates: JSON.parse(templatesRaw),
+    preview: JSON.parse(previewRaw)
+  };
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -245,6 +259,26 @@ const server = createServer(async (req, res) => {
         data: { templates: [], assignments: [] },
         meta: apiMeta(),
         errors: [{ code: 'ASSIGNMENT_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+
+  if (req.method === 'GET' && (url.pathname === '/minimum-staffing' || url.pathname === '/api/minimum-staffing')) {
+    try {
+      const data = await listMinimumStaffingFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-minimum-staffing-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { templates: [], preview: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'MINIMUM_STAFFING_READ_FAILED', message: error.message }]
       });
     }
   }

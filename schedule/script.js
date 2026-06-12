@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.9.0
-Purpose: Employee CRUD Foundation with service/repository/adapter boundary preserved
+Version: v2.0.0
+Purpose: Minimum Staffing Foundation with assignment-driven staffing preview
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.8.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v1.5.1', 'signalSchedule.v1.5.0', 'signalSchedule.v1.4.0', 'signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v2.0.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v1.8.0', 'signalSchedule.v1.5.1', 'signalSchedule.v1.5.0', 'signalSchedule.v1.4.0', 'signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -231,7 +231,8 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
     endpoints: {
       health: '/health',
       employees: '/employees',
-      assignments: '/assignments'
+      assignments: '/assignments',
+      minimumStaffing: '/minimum-staffing'
     },
     responseShape: {
       ok: true,
@@ -246,6 +247,13 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
     getTemplates: function () { return loadJsonData('data/assignment-templates.json', []); },
     getAssignments: function () { return loadJsonData('data/employee-assignments.json', []); }
   };
+
+  var SignalScheduleMinimumStaffingAdapter = {
+    sourceName: 'static-json-minimum-staffing',
+    getTemplates: function () { return loadJsonData('data/minimum-staffing-templates.json', []); },
+    getPreview: function () { return loadJsonData('data/minimum-staffing-preview.json', []); }
+  };
+
 
 
 
@@ -1359,7 +1367,7 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.9.0 Assignments Foundation';
+    if (label) label.textContent = 'v2.0.0 Minimum Staffing Foundation';
   }
 
   function syncRuleInputs() {
@@ -1460,6 +1468,55 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
       }).join('');
     }).catch(function () {
       statsTarget.innerHTML = '<p class="schedule-empty">Assignment foundation data could not be loaded.</p>';
+      listTarget.innerHTML = '';
+    });
+  }
+
+
+  function renderMinimumStaffingFoundation() {
+    var statsTarget = $('#minimumStaffingStats');
+    var listTarget = $('#minimumStaffingList');
+    if (!statsTarget || !listTarget) return;
+
+    Promise.all([
+      SignalScheduleMinimumStaffingAdapter.getTemplates(),
+      SignalScheduleMinimumStaffingAdapter.getPreview()
+    ]).then(function (results) {
+      var templates = results[0] || [];
+      var preview = results[1] || [];
+      var agencyId = state.currentAgencyId;
+      var visibleTemplates = templates.filter(function (item) { return !agencyId || item.agencyId === agencyId; });
+      var visiblePreview = preview.filter(function (item) { return !agencyId || item.agencyId === agencyId; });
+      var activeTemplates = visibleTemplates.filter(function (item) { return String(item.status || '').toLowerCase() === 'active'; });
+      var belowMinimum = visiblePreview.filter(function (item) { return item.status === 'below-minimum'; });
+      var openSlots = visiblePreview.reduce(function (total, item) { return total + Number(item.openSlots || 0); }, 0);
+      var roles = Array.from(new Set(visibleTemplates.map(function (item) { return item.role || 'Role'; })));
+
+      statsTarget.innerHTML = [
+        ['Templates', String(visibleTemplates.length), 'Minimum staffing rules loaded'],
+        ['Active', String(activeTemplates.length), 'Rules available for validation'],
+        ['Below Min', String(belowMinimum.length), 'Preview rows currently short'],
+        ['Open Slots', String(openSlots), roles.join(', ') || 'No roles loaded']
+      ].map(function (item) {
+        return '<article class="minimum-staffing-stat"><span>' + escapeHtml(item[0]) + '</span><strong>' + escapeHtml(item[1]) + '</strong><small>' + escapeHtml(item[2]) + '</small></article>';
+      }).join('');
+
+      if (!visibleTemplates.length) {
+        listTarget.innerHTML = '<p class="schedule-empty">No minimum staffing templates loaded for this agency yet.</p>';
+        return;
+      }
+
+      listTarget.innerHTML = visibleTemplates.slice(0, 8).map(function (item) {
+        var daysLabel = Array.isArray(item.daysOfWeek) ? item.daysOfWeek.map(function (day) { return day.slice(0, 3); }).join(', ') : 'No days';
+        return '<article class="minimum-staffing-item">'
+          + '<span>' + escapeHtml(item.assignmentType || 'Requirement') + '</span>'
+          + '<strong>' + escapeHtml(item.assignmentName || 'Unnamed assignment') + '</strong>'
+          + '<p>' + escapeHtml(item.role || 'Role') + ' · Minimum ' + escapeHtml(item.minimumRequired) + ' / Target ' + escapeHtml(item.targetStaffing || item.minimumRequired) + '</p>'
+          + '<small>' + escapeHtml(item.shiftName || item.shiftGroup || 'No shift') + ' · ' + escapeHtml(daysLabel) + '</small>'
+          + '</article>';
+      }).join('');
+    }).catch(function () {
+      statsTarget.innerHTML = '<p class="schedule-empty">Minimum staffing data could not be loaded.</p>';
       listTarget.innerHTML = '';
     });
   }
@@ -2172,7 +2229,7 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — EMPLOYEE READ API FOUNDATION');
-    lines.push('Version: v1.9.0');
+    lines.push('Version: v2.0.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2316,6 +2373,7 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
     renderEmployeeReadFoundation: renderEmployeeReadFoundation,
     renderEngineBlueprint: renderEngineBlueprint,
     renderAssignmentFoundation: renderAssignmentFoundation,
+    renderMinimumStaffingFoundation: renderMinimumStaffingFoundation,
     renderAgencyProfile: renderAgencyProfile,
     renderEmployeeProfiles: renderEmployeeProfiles,
     renderPatternFoundation: renderPatternFoundation,
@@ -2358,6 +2416,7 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
     safeRender('rule inputs', 'syncRuleInputs');
     safeRender('employee read foundation', 'renderEmployeeReadFoundation');
     safeRender('assignments foundation', 'renderAssignmentFoundation');
+    safeRender('minimum staffing foundation', 'renderMinimumStaffingFoundation');
     safeRender('engine blueprint', 'renderEngineBlueprint');
     safeRender('agency profile', 'renderAgencyProfile');
     safeRender('employee profiles', 'renderEmployeeProfiles');

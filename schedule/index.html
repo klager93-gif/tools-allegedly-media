@@ -21,11 +21,11 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v1.9.0"
-  data-signal-theme="Assignments Foundation"
+  data-signal-version="v2.0.0"
+  data-signal-theme="Minimum Staffing Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Connect employees to operational assignments before staffing, requests, overtime, and schedule generation."
-  data-signal-status-text="Signal Schedule v1.9.0 adds assignment templates and employee assignment records while preserving the active JSON adapter."
+  data-signal-description="Define minimum staffing requirements by assignment, role, shift, location, and day before leave, VOT, mandation, and schedule generation."
+  data-signal-status-text="Signal Schedule v2.0.0 adds minimum staffing templates and read-only coverage requirement preview data while preserving the active JSON adapter."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v1.9.0 Assignments Foundation</strong>
+      <strong id="currentWeekLabel">v2.0.0 Minimum Staffing Foundation</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -72,6 +72,19 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
     </div>
     <div id="assignmentFoundationStats" class="assignment-foundation-stats"></div>
     <div id="assignmentFoundationList" class="assignment-foundation-grid"></div>
+  </section>
+
+
+
+  <section class="schedule-card minimum-staffing-card" aria-labelledby="minimumStaffingTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="minimumStaffingTitle">Minimum Staffing Foundation</h2>
+        <p>Minimum staffing rules define how many people are required for each assignment, role, shift, location, and day before leave approval, overtime posting, mandation, and schedule generation are built.</p>
+      </div>
+    </div>
+    <div id="minimumStaffingStats" class="minimum-staffing-stats"></div>
+    <div id="minimumStaffingList" class="minimum-staffing-grid"></div>
   </section>
 
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">

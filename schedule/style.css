@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v1.9.0
+Version: v2.0.0
 Purpose: Signal Schedule Assignments Foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
@@ -605,3 +605,21 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
 .assignment-foundation-item p { margin-top: 8px; }
 @media (max-width: 850px) { .assignment-foundation-stats, .assignment-foundation-grid { grid-template-columns: 1fr; } }
 @media print { .assignment-foundation-stat, .assignment-foundation-item { border-color: #ccc; background: #fff; color: #111; } }
+
+
+/* v2.0.0 Minimum Staffing Foundation */
+.minimum-staffing-card { border-color: rgba(34,197,94,.24); background: rgba(34,197,94,.06); }
+.minimum-staffing-stats,
+.minimum-staffing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.minimum-staffing-grid { grid-template-columns: repeat(2, 1fr); margin-top: 14px; }
+.minimum-staffing-stat,
+.minimum-staffing-item { padding: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(0,0,0,.14); }
+.minimum-staffing-stat span,
+.minimum-staffing-item span { display: block; color: var(--muted); font-size: 12px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
+.minimum-staffing-stat strong,
+.minimum-staffing-item strong { display: block; margin-top: 6px; font-size: 20px; letter-spacing: -.03em; }
+.minimum-staffing-stat small,
+.minimum-staffing-item small { display: block; margin-top: 8px; color: var(--muted); line-height: 1.35; }
+.minimum-staffing-item p { margin-top: 8px; }
+@media (max-width: 850px) { .minimum-staffing-stats, .minimum-staffing-grid { grid-template-columns: 1fr; } }
+@media print { .minimum-staffing-stat, .minimum-staffing-item { border-color: #ccc; background: #fff; color: #111; } }

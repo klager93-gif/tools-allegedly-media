@@ -1,22 +1,24 @@
-# Signal Labs Master Roadmap
+# Signal Labs Roadmap
 
-## Signal Schedule Current Path
+## Current
 
-- Current: v1.9.0 — Assignments Foundation
-- Next: v2.0.0 — Minimum Staffing Foundation
+Schedule v2.0.0 — Minimum Staffing Foundation is complete.
 
-## Schedule Sequence
+## Next
 
-```text
-v1.8.0 — Employee CRUD Foundation
-v1.9.0 — Assignments Foundation
-v2.0.0 — Minimum Staffing Foundation
-v2.1.0 — Events / Requests / VOT Foundation
-v2.2.0 — Scheduling Engine Foundation
-```
+Schedule v2.1.0 — Leave Requests Foundation
 
-## Notes
+Planned after v2.0.0:
 
-Assignments connect employees to operational work before coverage, leave, overtime, mandation, and schedule generation are implemented.
+- Leave request model
+- Request review states
+- Staffing impact preview
+- Request API foundation
+- Request UI foundation
 
-Rule 24 requires backend portability so static JSON, Coolify API, Postgres, D1, MySQL, or another backend can be swapped behind service/repository boundaries.
+## Later
+
+- v2.2.0 Voluntary OT / Open Shift Bidding
+- v2.3.0 Mandation Engine Foundation
+- v2.4.0 Schedule Generation Engine
+- v2.5.0 Publishing & Notifications

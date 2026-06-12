@@ -1,31 +1,18 @@
-# Signal Labs File Manifest
+# Schedule v2.0.0 Build Manifest
 
-Generated for Signal Schedule v1.9.0 Assignments Foundation.
+Build: Schedule v2.0.0 — Minimum Staffing Foundation
+Date: 2026-06-12
+Backup: 2026-06-12 Schedule Backup Before v2.0.0
 
-```text
-README.md
-MASTER-CHANGELOG.md
-MASTER-ROADMAP.md
-ADMIN_CHANGELOG.md
-PUBLIC_CHANGELOG.md
-BUILDMANIFEST.md
-FILEMANIFEST.md
-schedule/README.md
-schedule/CHANGELOG.md
-schedule/ROADMAP.md
-schedule/HOWTO.md
-schedule/ASSIGNMENTS-FOUNDATION.md
-schedule/RELEASE-v1.9.0.md
-schedule/index.html
-schedule/style.css
-schedule/script.js
-schedule/data/assignment-templates.json
-schedule/data/employee-assignments.json
-schedule/adapters/JsonAssignmentAdapter.js
-schedule/repositories/AssignmentRepository.js
-schedule/services/AssignmentService.js
-schedule/api/contracts/assignments.read.schema.json
-schedule/api/coolify/server.js
-schedule/api/coolify/README.md
-schedule/api/coolify/sql/004_assignments_foundation_schema.sql
-```
+Scope:
+- Schedule only
+- No Paycheck changes
+- No unrelated tools
+- No junk/work folders
+
+Primary additions:
+- Minimum staffing data
+- Minimum staffing adapter/repository/service
+- Minimum staffing API contract
+- Minimum staffing API route
+- Minimum staffing UI preview

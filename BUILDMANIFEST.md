@@ -1,21 +1,18 @@
-# Signal Labs Build Manifest
+# Schedule v2.0.0 Build Manifest
 
-Build: Signal Schedule v1.9.0 — Assignments Foundation
+Build: Schedule v2.0.0 — Minimum Staffing Foundation
+Date: 2026-06-12
+Backup: 2026-06-12 Schedule Backup Before v2.0.0
 
-Backup title: `2026-06-12 Schedule Backup Before v1.9.0`
+Scope:
+- Schedule only
+- No Paycheck changes
+- No unrelated tools
+- No junk/work folders
 
-Package type: Schedule release with mandatory root documentation updates.
-
-Validation:
-- Package scope: Schedule + mandatory root release files only
-- Paycheck touched: NO
-- Global assets touched: NO
-- Root app files touched: NO
-- Assignment writes: NOT ADDED
-- Authentication/login: NOT ADDED
-- Scheduling engine: NOT ADDED
-
-Primary changed area:
-- schedule/
-- schedule/api/coolify/
-- mandatory root release docs
+Primary additions:
+- Minimum staffing data
+- Minimum staffing adapter/repository/service
+- Minimum staffing API contract
+- Minimum staffing API route
+- Minimum staffing UI preview
