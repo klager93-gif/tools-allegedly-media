@@ -1,4 +1,4 @@
-- Verify Signal Schedule v0.8.1 Rule Engine Foundation after deployment.
+- Verify Signal Schedule v0.8.2 Preview Stabilization and Sample Data Repair after deployment.
 # Signal Labs Roadmap
 
 ## Immediate

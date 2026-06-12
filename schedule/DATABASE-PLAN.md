@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.8.1 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+Planning document for the future PHP/database version. Signal Schedule v0.8.2 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
 
 ## Core Rule
 

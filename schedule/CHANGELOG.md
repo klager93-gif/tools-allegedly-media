@@ -1,11 +1,19 @@
+## v0.8.2 — Preview Stabilization and Sample Data Repair
+
+- Restored default sample data when older empty local storage would otherwise render a blank sandbox.
+- Preserved the Clear Data action by marking intentionally cleared local data.
+- Limited visible rule-warning output so the live page does not become a giant warning wall.
+- Updated text export notes from v0.6 wording to v0.8 wording.
+- Kept the v0.8 Rule Engine Foundation scope: mock data only, no database or final automation.
+
 # Signal Schedule Changelog
 
-## v0.8.1 — Rule Engine Render Repair
+## v0.8.2 — Rule Engine Render Repair
 
 - Fixed a JavaScript render error caused by missing Rule Engine preview render functions.
 - Restored sample employee loading and employee add form behavior.
 - Added render handlers for Rule Engine principles, Rule Evaluation previews, and Agency Template previews.
-- Updated Schedule version references and cache-busting to v0.8.1.
+- Updated Schedule version references and cache-busting to v0.8.2.
 - No new scheduling logic, database storage, or CRUD workflow was added.
 
 ## v0.8.0 — Rule Engine Foundation

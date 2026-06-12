@@ -1,12 +1,10 @@
 # Build Manifest
 
-Build: Signal Schedule v0.8.1 — Rule Engine Render Repair
-Source: signal-schedule-v0.8.0-rule-engine-foundation.zip
+Build: Signal Schedule v0.8.2 — Preview Stabilization and Sample Data Repair
+Source: signal-schedule-v0.8.1-rule-engine-render-repair.zip
 Date: 2026-06-11
 
 Purpose:
-- Repair missing Rule Engine preview render functions.
-- Restore sample employee loading and add employee behavior.
-- Preserve v0.8 Rule Engine Foundation content.
-
-No new database, CRUD, approval, mandation automation, or final schedule generation was added.
+- Repair stale/empty local sample data behavior after v0.8.1.
+- Limit live rule-warning noise.
+- Keep Rule Engine Foundation preview stable while remaining mock-only.

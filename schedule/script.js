@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.8.1
-Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explanations, and audit planning
+Version: v0.8.2
+Purpose: Rule Engine Foundation sandbox with stabilized sample data, event-impact labels, and warning display
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.8.1';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.8.2';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -308,6 +308,7 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
 
   function normalizeState(input) {
     var next = input || {};
+    next.sampleCleared = next.sampleCleared === true;
     next.employees = Array.isArray(next.employees) ? next.employees : [];
     next.shifts = Array.isArray(next.shifts) ? next.shifts : [];
     next.assignments = Array.isArray(next.assignments) ? next.assignments : [];
@@ -435,8 +436,12 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
       }
       if (raw) state = normalizeState(JSON.parse(raw));
       else state = normalizeState(state);
+      if (!state.sampleCleared && !state.employees.length && !state.shifts.length && !state.assignments.length) {
+        state = normalizeState(buildSampleState());
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
     } catch (error) {
-      state = normalizeState({ employees: [], shifts: [], assignments: [] });
+      state = normalizeState(buildSampleState());
     }
   }
 
@@ -514,7 +519,7 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.8.1 Rules';
+    if (label) label.textContent = 'v0.8.2 Rules';
   }
 
   function syncRuleInputs() {
@@ -889,9 +894,10 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
       '<div class="coverage-card"><span>Rule Warnings</span><strong>' + warnings.length + '</strong><p>Coverage, overtime, rest-gap, and model warnings.</p></div>' +
       '<div class="coverage-card"><span>Busiest Day</span><strong>' + busiest.day + '</strong><p>' + busiest.count + ' assignment' + (busiest.count === 1 ? '' : 's') + ' scheduled.</p></div>' +
       '<div class="coverage-card"><span>Storage</span><strong>Local</strong><p>Temporary only. PHP/database storage is planned later.</p></div>';
-    $('#ruleWarnings').innerHTML = warnings.length ? warnings.map(function (warning) {
+    var visibleWarnings = warnings.slice(0, 8);
+    $('#ruleWarnings').innerHTML = warnings.length ? visibleWarnings.map(function (warning) {
       return '<div class="warning-item">' + escapeHtml(warning) + '</div>';
-    }).join('') : '<div class="success-item">No rule warnings with the current sandbox rules.</div>';
+    }).join('') + (warnings.length > visibleWarnings.length ? '<div class="warning-item">+' + (warnings.length - visibleWarnings.length) + ' more warnings hidden from the live preview. Use the text export for the full list.</div>' : '') : '<div class="success-item">No rule warnings with the current sandbox rules.</div>';
   }
 
   function textOutput() {
@@ -899,7 +905,7 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.8.1');
+    lines.push('Version: v0.8.2');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage + Explanations');
     lines.push('');
@@ -968,9 +974,9 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.6 Notes:');
+    lines.push('v0.8 Notes:');
     lines.push('- This is still local mock data, not a backend.');
-    lines.push('- Events are sample objects, not editable database records or approval workflows yet.');
+    lines.push('- Events, rules, benefit entries, and templates are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
     lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
     lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides.');
@@ -1065,8 +1071,8 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
     save(); render();
   }
 
-  function loadSample() {
-    state = normalizeState({
+  function buildSampleState() {
+    return {
       employees: [
         { id: 'emp-alex', name: 'Alex Rivera', employeeCode: 'E-1001', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2021-03-15', seniorityDate: '2021-03-15', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: 'B Nights Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6, holiday: 12 } },
         { id: 'emp-jordan', name: 'Jordan Smith', employeeCode: 'E-1002', role: 'Supervisor', position: 'Shift Supervisor', status: 'active', hireDate: '2017-08-01', seniorityDate: '2017-08-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'A Days', assignedPattern: '2-2-3 Days Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Radio', 'Supervisor', 'Trainer'], benefitBalances: { vacation: 120, sick: 80, personal: 16, comp: 0, holiday: 24 } },
@@ -1113,7 +1119,11 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
       selectedEmployeeId: 'emp-alex'
-    });
+    };
+  }
+
+  function loadSample() {
+    state = normalizeState(buildSampleState());
     save(); render(); showToast('Core engine sample data loaded.', 'success');
   }
 
@@ -1148,7 +1158,7 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
     });
     $('#sampleDataBtn').addEventListener('click', loadSample);
     $('#clearDataBtn').addEventListener('click', function () {
-      state = normalizeState({ employees: [], shifts: [], assignments: [], rules: state.rules, agencyProfile: state.agencyProfile, selectedEmployeeId: null });
+      state = normalizeState({ employees: [], shifts: [], assignments: [], rules: state.rules, agencyProfile: state.agencyProfile, selectedEmployeeId: null, sampleCleared: true });
       save(); render(); showToast('Schedule cleared.', 'info');
     });
     $('#printBtn').addEventListener('click', function () { window.print(); });
