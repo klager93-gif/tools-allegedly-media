@@ -12,12 +12,12 @@ Signal Schedule is the scheduling and staffing foundation inside Signal Labs. Th
 - Backend service path: `/schedule/api/coolify/`
 - Optional backend data source: Postgres through `DATABASE_URL`
 - Postgres employee reads are opt-in through `USE_POSTGRES_EMPLOYEES=true`
-- No live CRUD
+- Protected employee CRUD route boundaries exist
 - No authentication
 - No production credentials committed
 - No production database writes
 
-## v1.7.1 Coolify Dockerfile Deployment Fix
+## v1.9.0 Assignments Foundation
 
 This release adds an explicit Dockerfile deployment path for the Coolify API after the Nixpacks deployment path proved slow or unreliable during initial setup.
 

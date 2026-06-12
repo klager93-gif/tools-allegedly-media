@@ -1,49 +1,22 @@
-## Signal Schedule v1.4.0 — Backend Adapter Selection
-
-Current path: GitHub → Coolify → live site. Next recommended step is v1.3.3 Coolify Backend Setup Guide before any CRUD or live writes.
-
-Revised backend order:
-
-```text
-v1.3.3 — Coolify Backend Setup Guide
-v1.4.0 — Backend Adapter Selection
-v1.8.0 — Employee CRUD Foundation
-v1.8.0 — Employee CRUD Foundation
-v1.6.0 — Employee CRUD Foundation
-```
-
-## Signal Schedule v1.3.1 — D1 Setup Guide
-
-Current Schedule release: D1 setup documentation before Employee CRUD Foundation.
-
-Next: v1.8.0 — Employee CRUD Foundation.
-
-## Signal Schedule v1.3.0 — D1 Database Foundation
-
-D1 schema/seed planning is complete. Next step is employee CRUD planning/build, after backend deployment approach is confirmed.
+# Signal Labs Master Roadmap
 
 ## Signal Schedule Current Path
 
-- Current: v1.0.0 — Cloudflare Data Layer Foundation
-- Next: v1.1.0 — Repository / Adapter Layer
+- Current: v1.9.0 — Assignments Foundation
+- Next: v2.0.0 — Minimum Staffing Foundation
 
-# Master Roadmap
+## Schedule Sequence
 
-- v1.0.0: Static JSON data layer and multi-agency sample records.
-- v1.1.0: Repository / adapter layer.
-- v1.3.0: Worker folder repair and tool-owned infrastructure rule.
-- v1.3.0: D1 Database Foundation.
-- v1.5.0+: Employee API and persistent workflows after backend adapter boundaries are confirmed.
+```text
+v1.8.0 — Employee CRUD Foundation
+v1.9.0 — Assignments Foundation
+v2.0.0 — Minimum Staffing Foundation
+v2.1.0 — Events / Requests / VOT Foundation
+v2.2.0 — Scheduling Engine Foundation
+```
 
-Rule 24 requires backend portability so D1 remains replaceable with MySQL, PostgreSQL, PHP, or another backend later.
+## Notes
 
+Assignments connect employees to operational work before coverage, leave, overtime, mandation, and schedule generation are implemented.
 
-## Signal Schedule next
-
-- v1.3.0 — D1 Database Foundation
-- v1.3.0 — D1 Database Foundation
-- v1.8.0 — Employee CRUD Foundation
-
-## Signal Schedule v1.3.0 — D1 Database Foundation
-
-Adds the planned Cloudflare Worker / Pages Function API shape while keeping the active app static and backend-portable. No D1, credentials, CRUD, authentication, or live writes added.
+Rule 24 requires backend portability so static JSON, Coolify API, Postgres, D1, MySQL, or another backend can be swapped behind service/repository boundaries.

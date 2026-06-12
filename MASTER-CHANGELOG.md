@@ -1,5 +1,14 @@
 # Signal Labs Master Changelog
 
+## Signal Schedule v1.9.0 — Assignments Foundation
+
+- Added assignment templates and employee assignment records.
+- Added assignment service/repository/adapter boundaries.
+- Added read-only assignment API contract and future Postgres assignment schema.
+- Added Schedule UI preview connecting employees to operational assignments.
+- No Paycheck, root app, global asset, authentication, VOT, minimum staffing, or schedule engine changes added.
+
+
 ## Signal Schedule v1.4.0 — Backend Adapter Selection
 
 - Selected Coolify-hosted Schedule API service with Postgres as the preferred future backend path.

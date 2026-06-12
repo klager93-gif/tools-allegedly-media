@@ -1,5 +1,11 @@
 # Signal Labs Public Changelog
 
+## Signal Schedule v1.9.0 — Assignments Foundation
+
+- Signal Schedule now previews employee assignment records such as consoles, posts, stations, and operational roles.
+- This is a foundation release; public scheduling, bidding, and request workflows are not active yet.
+
+
 ## Signal Schedule v1.4.0 — Backend Adapter Selection
 
 - Selected Coolify-hosted Schedule API service with Postgres as the preferred future backend path.

@@ -1,5 +1,16 @@
 # Signal Schedule Changelog
 
+## v1.9.0 — Assignments Foundation
+
+- Added assignment template seed data.
+- Added employee assignment seed records.
+- Added assignment adapter, repository, and service boundaries.
+- Added read-only assignment API contract and Coolify JSON seed route planning.
+- Added future Postgres assignment schema.
+- Added Assignments Foundation preview section to the Schedule UI.
+- Added no assignment writes, login system, minimum staffing engine, VOT workflow, or schedule generation logic.
+
+
 ## v1.8.0 — Employee CRUD Foundation
 
 - Added protected employee CRUD route boundaries to the Coolify API.

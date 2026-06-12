@@ -1,6 +1,6 @@
 # Signal Schedule Coolify API
 
-Current version: v1.8.0
+Current version: v1.9.0
 
 This folder contains the tool-owned Coolify API for Signal Schedule.
 
@@ -57,3 +57,14 @@ Base Directory: /schedule/api/coolify
 Dockerfile Location: /schedule/api/coolify/Dockerfile
 Port: 3000
 ```
+
+## v1.9.0 Assignments Foundation
+
+Read-only JSON seed assignment routes are available for foundation review:
+
+```text
+GET /assignments
+GET /api/assignments
+```
+
+Assignment writes are not active in this release.

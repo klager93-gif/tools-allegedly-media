@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/style.css
-Version: v1.8.0
-Purpose: Signal Schedule Employee CRUD Foundation styles
+Version: v1.9.0
+Purpose: Signal Schedule Assignments Foundation styles
 */
 .schedule-shell { width: min(1180px, 100%); margin: 0 auto; }
 .schedule-hero { display: grid; grid-template-columns: 1fr minmax(220px, 320px); gap: 18px; align-items: stretch; margin: 18px 0; padding: 28px; border: 1px solid var(--border); border-radius: 30px; background: linear-gradient(135deg, rgba(34,197,94,.14), rgba(86,166,255,.08)); box-shadow: var(--shadow-toolbar); }
@@ -587,3 +587,21 @@ Shows minimum, target, maximum, shortage, surplus, and open spot planning.
   margin: 0.35rem 0 0;
   opacity: 0.78;
 }
+
+
+/* v1.9.0 Assignments Foundation */
+.assignment-foundation-card { border-color: rgba(168,85,247,.24); background: rgba(168,85,247,.06); }
+.assignment-foundation-stats,
+.assignment-foundation-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.assignment-foundation-grid { grid-template-columns: repeat(2, 1fr); margin-top: 14px; }
+.assignment-foundation-stat,
+.assignment-foundation-item { padding: 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 18px; background: rgba(0,0,0,.14); }
+.assignment-foundation-stat span,
+.assignment-foundation-item span { display: block; color: var(--muted); font-size: 12px; font-weight: 950; letter-spacing: .08em; text-transform: uppercase; }
+.assignment-foundation-stat strong,
+.assignment-foundation-item strong { display: block; margin-top: 6px; font-size: 20px; letter-spacing: -.03em; }
+.assignment-foundation-stat small,
+.assignment-foundation-item small { display: block; margin-top: 8px; color: var(--muted); line-height: 1.35; }
+.assignment-foundation-item p { margin-top: 8px; }
+@media (max-width: 850px) { .assignment-foundation-stats, .assignment-foundation-grid { grid-template-columns: 1fr; } }
+@media print { .assignment-foundation-stat, .assignment-foundation-item { border-color: #ccc; background: #fff; color: #111; } }

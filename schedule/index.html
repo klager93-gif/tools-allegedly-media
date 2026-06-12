@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v1.8.0
+Version: v1.9.0
 Purpose: Employee CRUD Foundation with JSON adapter still active
 -->
 <!DOCTYPE html>
@@ -21,11 +21,11 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v1.8.0"
-  data-signal-theme="Employee CRUD Foundation"
+  data-signal-version="v1.9.0"
+  data-signal-theme="Assignments Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define the Coolify API skeleton and API adapter boundary while keeping the static JSON adapter active."
-  data-signal-status-text="Signal Schedule v1.8.0 defines the Coolify API skeleton while preserving the active JSON adapter and future Postgres path."
+  data-signal-description="Connect employees to operational assignments before staffing, requests, overtime, and schedule generation."
+  data-signal-status-text="Signal Schedule v1.9.0 adds assignment templates and employee assignment records while preserving the active JSON adapter."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v1.8.0 Employee CRUD Foundation</strong>
+      <strong id="currentWeekLabel">v1.9.0 Assignments Foundation</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,7 +46,7 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v1.8.0 remains browser-only for the main app. This release adds a Coolify API skeleton and API adapter boundary while static JSON remains active. Protected CRUD route boundaries are now defined in the Coolify API. Writes remain disabled by default and require an admin API key.</p>
+      <p>Signal Schedule v1.9.0 remains browser-only for the main app. This release adds assignment templates, employee assignment records, assignment service/repository boundaries, and future Postgres schema planning. Writes remain disabled; no assignment editor or scheduling engine is active yet.</p>
     </div>
   </section>
 
@@ -60,6 +60,18 @@ Purpose: Employee CRUD Foundation with JSON adapter still active
     </div>
     <div id="employeeReadFoundationStats" class="employee-read-stats"></div>
     <div id="employeeReadFoundationList" class="employee-read-grid"></div>
+  </section>
+
+
+  <section class="schedule-card assignment-foundation-card" aria-labelledby="assignmentFoundationTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="assignmentFoundationTitle">Assignments Foundation</h2>
+        <p>Assignments connect employees to operational work such as consoles, posts, beats, stations, units, or desks before minimum staffing and schedule generation are built.</p>
+      </div>
+    </div>
+    <div id="assignmentFoundationStats" class="assignment-foundation-stats"></div>
+    <div id="assignmentFoundationList" class="assignment-foundation-grid"></div>
   </section>
 
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">

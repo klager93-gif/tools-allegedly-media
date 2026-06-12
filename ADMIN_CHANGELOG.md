@@ -1,5 +1,13 @@
 # Signal Labs Admin Changelog
 
+## Signal Schedule v1.9.0 — Assignments Foundation
+
+- Added assignment foundation data and documentation for admin review.
+- Added future assignment tables for templates and employee assignment records.
+- Added read-only `/assignments` API route from JSON seed data.
+- Assignment writes remain unavailable.
+
+
 ## Signal Schedule v1.4.0 — Backend Adapter Selection
 
 - Selected Coolify-hosted Schedule API service with Postgres as the preferred future backend path.

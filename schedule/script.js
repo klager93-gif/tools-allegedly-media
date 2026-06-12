@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.8.0
+Version: v1.9.0
 Purpose: Employee CRUD Foundation with service/repository/adapter boundary preserved
 */
 (function () {
@@ -230,14 +230,21 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
     status: 'skeleton-not-active',
     endpoints: {
       health: '/health',
-      employees: '/employees'
+      employees: '/employees',
+      assignments: '/assignments'
     },
     responseShape: {
       ok: true,
       data: [],
-      meta: { source: 'coolify-api-postgres-read', version: 'v1.8.0' },
+      meta: { source: 'coolify-api-postgres-read', version: 'v1.9.0' },
       errors: []
     }
+  };
+
+  var SignalScheduleAssignmentAdapter = {
+    sourceName: 'static-json-assignments',
+    getTemplates: function () { return loadJsonData('data/assignment-templates.json', []); },
+    getAssignments: function () { return loadJsonData('data/employee-assignments.json', []); }
   };
 
 
@@ -1352,7 +1359,7 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.8.0 Employee CRUD Foundation';
+    if (label) label.textContent = 'v1.9.0 Assignments Foundation';
   }
 
   function syncRuleInputs() {
@@ -1404,6 +1411,57 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
         + '<small>' + escapeHtml(employee.shiftGroup || 'No shift group') + ' / ' + escapeHtml(employee.assignedPattern || 'No pattern') + '</small>'
         + '</article>';
     }).join('');
+  }
+
+
+  function renderAssignmentFoundation() {
+    var statsTarget = $('#assignmentFoundationStats');
+    var listTarget = $('#assignmentFoundationList');
+    if (!statsTarget || !listTarget) return;
+
+    Promise.all([
+      SignalScheduleAssignmentAdapter.getTemplates(),
+      SignalScheduleAssignmentAdapter.getAssignments()
+    ]).then(function (results) {
+      var templates = results[0] || [];
+      var assignments = results[1] || [];
+      var agencyId = state.currentAgencyId;
+      var visibleTemplates = templates.filter(function (item) { return !agencyId || item.agencyId === agencyId; });
+      var visibleAssignments = assignments.filter(function (item) { return !agencyId || item.agencyId === agencyId; });
+      var activeAssignments = visibleAssignments.filter(function (item) { return String(item.status || '').toLowerCase() === 'active'; });
+      var assignmentTypes = Array.from(new Set(visibleTemplates.map(function (item) { return item.assignmentType || 'assignment'; })));
+
+      statsTarget.innerHTML = [
+        ['Templates', String(visibleTemplates.length), 'Reusable assignment definitions'],
+        ['Assignments', String(visibleAssignments.length), 'Employee assignment records'],
+        ['Active', String(activeAssignments.length), 'Currently effective records'],
+        ['Types', String(assignmentTypes.length), assignmentTypes.join(', ') || 'None loaded']
+      ].map(function (item) {
+        return '<article class="assignment-foundation-stat"><span>' + escapeHtml(item[0]) + '</span><strong>' + escapeHtml(item[1]) + '</strong><small>' + escapeHtml(item[2]) + '</small></article>';
+      }).join('');
+
+      var employeeMap = {};
+      (state.employees || []).forEach(function (employee) {
+        employeeMap[employee.id] = employee.name || employee.displayName || employee.employeeCode || employee.id;
+      });
+
+      if (!visibleAssignments.length) {
+        listTarget.innerHTML = '<p class="schedule-empty">No assignment records loaded for this agency yet.</p>';
+        return;
+      }
+
+      listTarget.innerHTML = visibleAssignments.slice(0, 8).map(function (item) {
+        return '<article class="assignment-foundation-item">'
+          + '<span>' + escapeHtml(item.assignmentType || 'Assignment') + '</span>'
+          + '<strong>' + escapeHtml(item.assignmentName || 'Unnamed assignment') + '</strong>'
+          + '<p>' + escapeHtml(employeeMap[item.employeeId] || item.employeeId || 'Unassigned employee') + ' · ' + escapeHtml(item.shiftGroup || 'No shift group') + '</p>'
+          + '<small>' + escapeHtml(item.assignedPattern || 'No pattern') + ' · Effective ' + escapeHtml(item.effectiveDate || 'not set') + '</small>'
+          + '</article>';
+      }).join('');
+    }).catch(function () {
+      statsTarget.innerHTML = '<p class="schedule-empty">Assignment foundation data could not be loaded.</p>';
+      listTarget.innerHTML = '';
+    });
   }
 
   function renderEngineBlueprint() {
@@ -2114,7 +2172,7 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — EMPLOYEE READ API FOUNDATION');
-    lines.push('Version: v1.8.0');
+    lines.push('Version: v1.9.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2257,6 +2315,7 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
     syncRuleInputs: syncRuleInputs,
     renderEmployeeReadFoundation: renderEmployeeReadFoundation,
     renderEngineBlueprint: renderEngineBlueprint,
+    renderAssignmentFoundation: renderAssignmentFoundation,
     renderAgencyProfile: renderAgencyProfile,
     renderEmployeeProfiles: renderEmployeeProfiles,
     renderPatternFoundation: renderPatternFoundation,
@@ -2298,6 +2357,7 @@ Purpose: Employee CRUD Foundation with service/repository/adapter boundary prese
     safeRender('week label', 'renderWeekLabel');
     safeRender('rule inputs', 'syncRuleInputs');
     safeRender('employee read foundation', 'renderEmployeeReadFoundation');
+    safeRender('assignments foundation', 'renderAssignmentFoundation');
     safeRender('engine blueprint', 'renderEngineBlueprint');
     safeRender('agency profile', 'renderAgencyProfile');
     safeRender('employee profiles', 'renderEmployeeProfiles');

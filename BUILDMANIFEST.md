@@ -1,16 +1,21 @@
 # Signal Labs Build Manifest
 
-Build: Signal Schedule v1.8.0 — Employee CRUD Foundation
+Build: Signal Schedule v1.9.0 — Assignments Foundation
 
-Package type: Tool release with root/build manifests.
+Backup title: `2026-06-12 Schedule Backup Before v1.9.0`
+
+Package type: Schedule release with mandatory root documentation updates.
 
 Validation:
-- Rule 26 asset validation: PASS
-- Missing references: 0
-- Node syntax check: PASS
+- Package scope: Schedule + mandatory root release files only
+- Paycheck touched: NO
+- Global assets touched: NO
+- Root app files touched: NO
+- Assignment writes: NOT ADDED
+- Authentication/login: NOT ADDED
+- Scheduling engine: NOT ADDED
 
 Primary changed area:
 - schedule/
 - schedule/api/coolify/
-
-No frontend employee editor, login system, role-based authentication, public writes, or scheduling engine logic added.
+- mandatory root release docs

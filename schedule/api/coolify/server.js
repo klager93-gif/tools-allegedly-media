@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v1.8.0
-Purpose: Coolify API with read-only employee routes and protected employee CRUD foundation.
+Version: v1.9.0
+Purpose: Coolify API with employee CRUD foundation and read-only assignments foundation.
 
 This release intentionally has:
 - no committed credentials
@@ -29,6 +29,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const PORT = Number(process.env.PORT || 3000);
 const DATA_PATH = resolve(__dirname, '../../data/employees.json');
+const ASSIGNMENT_TEMPLATES_PATH = resolve(__dirname, '../../data/assignment-templates.json');
+const EMPLOYEE_ASSIGNMENTS_PATH = resolve(__dirname, '../../data/employee-assignments.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -40,7 +42,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v1.8.0', ...overrides };
+  return { source: 'coolify-api', version: 'v1.9.0', ...overrides };
 }
 
 function notFound(res) {
@@ -145,6 +147,18 @@ async function listEmployeesFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+
+async function listAssignmentsFromJsonSeed() {
+  const [templatesRaw, assignmentsRaw] = await Promise.all([
+    readFile(ASSIGNMENT_TEMPLATES_PATH, 'utf8'),
+    readFile(EMPLOYEE_ASSIGNMENTS_PATH, 'utf8')
+  ]);
+  return {
+    templates: JSON.parse(templatesRaw),
+    assignments: JSON.parse(assignmentsRaw)
+  };
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -198,7 +212,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v1.8.0',
+          version: 'v1.9.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -211,6 +225,26 @@ const server = createServer(async (req, res) => {
         data: [],
         meta: apiMeta(),
         errors: [{ code: 'EMPLOYEE_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+
+  if (req.method === 'GET' && (url.pathname === '/assignments' || url.pathname === '/api/assignments')) {
+    try {
+      const data = await listAssignmentsFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-assignments-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { templates: [], assignments: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'ASSIGNMENT_READ_FAILED', message: error.message }]
       });
     }
   }

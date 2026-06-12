@@ -2,29 +2,28 @@
 
 ## Current
 
-**v1.8.0 — Employee CRUD Foundation**
+**v1.9.0 — Assignments Foundation**
 
-Signal Schedule now has protected employee CRUD route boundaries in the Coolify API. Writes remain disabled by default and require both `EMPLOYEE_WRITES_ENABLED=true` and an `ADMIN_API_KEY`. Deletes are soft deletes only.
+Signal Schedule now connects employees to operational assignments such as consoles, posts, stations, beats, units, and desks. This assignment layer is required before minimum staffing, time-off validation, VOT bidding, mandation, and schedule generation can work correctly.
 
-No login system, role-based authentication, frontend employee editor, or scheduling engine logic is active in this release.
+No login system, assignment editor, assignment writes, minimum staffing engine, or scheduling engine is active in this release.
 
 ## Next
 
-**v1.9.0 — Authentication / Admin Access Foundation**
+**v2.0.0 — Minimum Staffing Foundation**
 
 Planned focus:
 
-- Design login/session or token strategy.
-- Define admin/scheduler/supervisor/employee roles.
-- Protect employee data before real employee records are entered.
-- Decide whether public API reads should remain available or require authorization.
+- Minimum staffing requirements by agency, location, role, qualification, day, and time block.
+- Compare assignment foundation records against coverage needs.
+- Identify under-staffed and over-staffed areas before schedule generation.
 
 ## Planned Path
 
 ```text
 v1.8.0 — Employee CRUD Foundation
-v1.9.0 — Authentication / Admin Access Foundation
-v2.0.0 — Assignments Foundation
+v1.9.0 — Assignments Foundation
+v2.0.0 — Minimum Staffing Foundation
 v2.1.0 — Events / Requests / VOT Foundation
 v2.2.0 — Scheduling Engine Foundation
 ```
@@ -47,6 +46,7 @@ v1.6.0 — Coolify API Skeleton
 v1.7.0 — Postgres Connection + Employee Read Endpoint
 v1.7.1 — Coolify Dockerfile Deployment Fix
 v1.8.0 — Employee CRUD Foundation
+v1.9.0 — Assignments Foundation
 ```
 
 ## Rule 24
