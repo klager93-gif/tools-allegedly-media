@@ -2,27 +2,27 @@
 
 ## Current
 
-**v1.5.1 — Employee Data Model Design**
+**v1.6.0 — Coolify API Skeleton**
 
-Signal Schedule now has a documented employee model direction before Coolify API skeleton work begins. This release defines the employee, minimum staffing role, schedule assignment, certifications, overtime eligibility, leave configuration, and scheduling entity groups.
+Signal Schedule now has a tool-owned Coolify API skeleton for read-only `/health` and `/employees` routes. The active browser app still uses the static JSON adapter until the API adapter is intentionally enabled.
 
-The active app remains static and JSON-backed. No CRUD, authentication, live database writes, production API deployment, or Postgres connection is active in this release.
+No CRUD, authentication, production API deployment, Postgres connection, credentials, database writes, or scheduling engine logic are active in this release.
 
 ## Next
 
-**v1.6.0 — Coolify API Skeleton**
+**v1.7.0 — Postgres Connection + Employee Read Endpoint**
 
 Planned focus:
 
-- Define the Coolify-hosted API service skeleton.
-- Preserve the Employee service/repository boundary.
-- Keep static JSON active until the API adapter is intentionally switched.
-- Add health/read route shape without production credentials or database writes.
+- Add Postgres connection configuration for the Coolify API service.
+- Keep credentials out of the repository.
+- Preserve the `/employees` response wrapper.
+- Keep frontend access behind EmployeeService, EmployeeRepository, and ApiEmployeeAdapter.
+- Add no employee create/edit/delete until CRUD is intentionally scheduled.
 
 ## Planned Path
 
 ```text
-v1.6.0 — Coolify API Skeleton
 v1.7.0 — Postgres Connection + Employee Read Endpoint
 v1.8.0 — Employee CRUD Foundation
 v1.9.0 — Assignments Foundation
@@ -44,6 +44,7 @@ v1.3.3 — Coolify Backend Setup Guide
 v1.4.0 — Backend Adapter Selection
 v1.5.0 — Employee Read API Foundation
 v1.5.1 — Employee Data Model Design
+v1.6.0 — Coolify API Skeleton
 ```
 
 ## Rule 24

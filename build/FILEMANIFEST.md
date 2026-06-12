@@ -1,12 +1,8 @@
-# Signal Labs File Manifest
+# File Manifest
 
-Generated for Signal Schedule v1.5.1 — Employee Data Model Design.
-
-## Files
+Generated for Signal Schedule v1.6.0 — Coolify API Skeleton.
 
 - `ADMIN_CHANGELOG.md`
-- `BUILDMANIFEST.md`
-- `FILEMANIFEST.md`
 - `HOWTO.md`
 - `MASTER-CHANGELOG.md`
 - `MASTER-ROADMAP.md`
@@ -24,9 +20,6 @@ Generated for Signal Schedule v1.5.1 — Employee Data Model Design.
 - `assets/icons/favicon.ico`
 - `assets/icons/favicon.svg`
 - `assets/icons/site.webmanifest`
-- `build/BUILDMANIFEST.md`
-- `build/FILEMANIFEST.md`
-- `build/SHA256SUMS.txt`
 - `changelog/index.html`
 - `contact/index.html`
 - `docs/BACKUP.md`
@@ -74,6 +67,7 @@ Generated for Signal Schedule v1.5.1 — Employee Data Model Design.
 - `schedule/BACKEND-PORTABILITY.md`
 - `schedule/CHANGELOG.md`
 - `schedule/CLOUDFLARE-ARCHITECTURE.md`
+- `schedule/COOLIFY-API-SKELETON.md`
 - `schedule/COOLIFY-BACKEND-PIVOT.md`
 - `schedule/COOLIFY-BACKEND-SETUP.md`
 - `schedule/D1-DATABASE-FOUNDATION.md`
@@ -103,6 +97,7 @@ Generated for Signal Schedule v1.5.1 — Employee Data Model Design.
 - `schedule/RELEASE-v1.4.0.md`
 - `schedule/RELEASE-v1.5.0.md`
 - `schedule/RELEASE-v1.5.1.md`
+- `schedule/RELEASE-v1.6.0.md`
 - `schedule/REPOSITORY-ADAPTER-LAYER.md`
 - `schedule/ROADMAP.md`
 - `schedule/RULE-ENGINE.md`
@@ -112,8 +107,12 @@ Generated for Signal Schedule v1.5.1 — Employee Data Model Design.
 - `schedule/V1-READINESS.md`
 - `schedule/WORKER-API-FOUNDATION.md`
 - `schedule/WORKER-FOLDER-REPAIR.md`
+- `schedule/adapters/ApiEmployeeAdapter.js`
 - `schedule/adapters/JsonEmployeeAdapter.js`
 - `schedule/api/contracts/employees.read.schema.json`
+- `schedule/api/coolify/README.md`
+- `schedule/api/coolify/package.json`
+- `schedule/api/coolify/server.js`
 - `schedule/api/mock-functions/agencies.js`
 - `schedule/api/mock-functions/employees.js`
 - `schedule/api/mock-functions/health.js`

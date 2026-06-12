@@ -1,16 +1,21 @@
-# Signal Labs Build Manifest
+# Build Manifest
 
-## Current Build
+Build: Signal Schedule v1.6.0 — Coolify API Skeleton
+Date: 2026-06-12
+Package Type: Tool release with root manifest/checksum refresh
 
-Signal Schedule v1.5.1 — Employee Data Model Design
+## Included
 
-## Package Type
+- All valid project files from the prior clean baseline
+- Schedule v1.6.0 Coolify API skeleton files
+- Updated Schedule documentation
+- Updated root/build manifests and checksums
 
-Tool release with root manifest/checksum updates.
+## Not Included
 
-## Notes
-
-- Documentation/modeling release.
-- No CRUD, authentication, production API deployment, Postgres connection, or database writes.
-- Static JSON adapter remains active.
-- Coolify + Postgres remains the preferred future backend path.
+- No CRUD
+- No authentication
+- No production API deployment
+- No Postgres connection
+- No credentials
+- No database writes

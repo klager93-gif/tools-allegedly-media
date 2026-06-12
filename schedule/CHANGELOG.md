@@ -1,5 +1,17 @@
 # Signal Schedule Changelog
 
+## v1.6.0 — Coolify API Skeleton
+
+- Added tool-owned Coolify API skeleton under `schedule/api/coolify/`.
+- Added read-only skeleton routes for `GET /health` and `GET /employees`.
+- Added `ApiEmployeeAdapter.js` as an inactive future API adapter boundary.
+- Updated Employee API contract to v1.6.0.
+- Updated Schedule UI copy and metadata to v1.6.0.
+- Preserved static JSON as the active frontend adapter.
+- Confirmed Coolify + Postgres as the active backend direction.
+- Left Cloudflare Workers and D1 as historical/alternate adapter references only.
+- Added no CRUD, authentication, production API deployment, Postgres connection, credentials, database writes, or scheduling engine logic.
+
 ## v1.5.1 — Employee Data Model Design
 
 - Added employee data model design documentation before Coolify API skeleton work.

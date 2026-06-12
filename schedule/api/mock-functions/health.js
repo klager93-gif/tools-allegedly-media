@@ -4,11 +4,11 @@ export async function onRequestGet() {
     data: {
       service: 'Signal Schedule API',
       status: 'mock-online',
-      database: 'd1-schema-planned-not-bound',
-      version: 'v1.3.0'
+      database: 'legacy-cloudflare-mock-not-active',
+      version: 'legacy-v1.3.0'
     },
     meta: {
-      source: 'schedule-owned-api-mock',
+      source: 'legacy-cloudflare-mock',
       liveWrites: false
     },
     errors: []

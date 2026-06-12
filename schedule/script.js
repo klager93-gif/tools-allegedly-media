@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.5.1
-Purpose: Employee Data Model Design with service/repository/adapter boundary preserved
+Version: v1.6.0
+Purpose: Coolify API Skeleton with service/repository/adapter boundary preserved
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.5.1';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v1.4.0', 'signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v1.6.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v1.5.1', 'signalSchedule.v1.5.0', 'signalSchedule.v1.4.0', 'signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -227,16 +227,15 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
 
   var SignalScheduleApiAdapter = {
     sourceName: 'coolify-api-planned',
-    status: 'planned-not-active',
+    status: 'skeleton-not-active',
     endpoints: {
-      health: '/api/health',
-      agencies: '/api/agencies',
-      employees: '/api/employees'
+      health: '/health',
+      employees: '/employees'
     },
     responseShape: {
       ok: true,
       data: [],
-      meta: { source: 'coolify-api-planned', version: 'v1.5.1' },
+      meta: { source: 'coolify-api-skeleton', version: 'v1.6.0' },
       errors: []
     }
   };
@@ -247,7 +246,7 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
     sourceName: 'postgres-planned',
     status: 'schema-ready-not-active',
     connectionMode: 'coolify-managed-postgres-planned',
-    schemaFiles: ['schedule/api/contracts/employees.read.schema.json'],
+    schemaFiles: ['schedule/api/contracts/employees.read.schema.json', 'schedule/api/coolify/server.js'],
     tables: ['agencies', 'employees', 'audit_logs'],
     mode: 'read-only-foundation',
     notes: 'Postgres is the preferred future Coolify backend adapter. The active app still uses SignalScheduleJsonAdapter until the API service is intentionally enabled.'
@@ -1353,7 +1352,7 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.5.1 Employee Data Model Design';
+    if (label) label.textContent = 'v1.6.0 Coolify API Skeleton';
   }
 
   function syncRuleInputs() {
@@ -2115,7 +2114,7 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — EMPLOYEE READ API FOUNDATION');
-    lines.push('Version: v1.5.1');
+    lines.push('Version: v1.6.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2202,14 +2201,14 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v1.5.1 Notes:');
-    lines.push('- Defines the employee data model direction while preserving service, repository, and JSON adapter boundaries.');
-    lines.push('- Keeps the active app on local/static JSON data.');
-    lines.push('- Preserves Coolify-hosted API service with Postgres as the preferred future backend path.');
+    lines.push('v1.6.0 Notes:');
+    lines.push('- Defines the Coolify API skeleton while preserving service, repository, and adapter boundaries.');
+    lines.push('- Keeps the active browser app on local/static JSON data; the API adapter remains available but inactive by default.');
+    lines.push('- Adds a tool-owned Coolify API skeleton for /health and /employees without connecting Postgres yet.');
     lines.push('- Confirms the required path: UI → Services → Repositories → Adapters → Backend.');
     lines.push('- Rule 24 still applies: UI and business logic must use services, repositories, and adapters, not direct backend calls.');
     lines.push('- Rule 25 still applies: Schedule-owned infrastructure belongs inside /schedule/ unless shared intentionally.');
-    lines.push('- No live backend, credentials, CRUD, authentication, API deployment, or writes are active in this release.');
+    lines.push('- No production API deployment, credentials, CRUD, authentication, Postgres connection, or writes are active in this release.');
     lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides, then displayed through audience-specific views and explanations.');
     return lines.join('\n');
   }

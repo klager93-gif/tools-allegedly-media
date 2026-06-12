@@ -23,15 +23,15 @@ No Schedule CRUD, authentication, live API, database writes, or backend deployme
 | Paycheck | v0.9.9 | Preserve Weekly OT and prepare for later v1.0 validation. |
 | Overtime | Frozen | Critical fixes/shared-pattern sync only. |
 | Time Off | Active | Future planning work after Paycheck/Schedule stabilization. |
-| Schedule | v1.4.0 | v1.5.0 Employee Read API Foundation. |
+| Schedule | v1.6.0 | v1.7.0 Postgres Connection + Employee Read Endpoint. |
 | Pay Planner | v0.1.x | Incubator only; keep structurally valid while unlisted. |
 
 ## Signal Schedule Path
 
 ```text
 Current: v1.4.0 — Backend Adapter Selection
-Next:    v1.5.0 — Employee Read API Foundation
-Future:  v1.5.0 — Employee Read API Foundation
+Next:    v1.6.0 — Coolify API Skeleton
+Future:  v1.6.0 — Coolify API Skeleton
 Future:  v1.6.0 — Employee CRUD Foundation
 Future:  v1.7.0 — Assignments Foundation
 Future:  v1.8.0 — Events Foundation
@@ -73,5 +73,5 @@ Next:    v1.0.0 — Validation / Production Readiness
 
 ## Schedule Next
 
-- Current Schedule: v1.5.0 — Employee Read API Foundation
+- Current Schedule: v1.6.0 — Coolify API Skeleton
 - Next Schedule: v1.6.0 — Coolify API Skeleton

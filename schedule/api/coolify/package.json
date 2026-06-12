@@ -1,0 +1,13 @@
+{
+  "name": "signal-schedule-api-skeleton",
+  "version": "1.6.0",
+  "private": true,
+  "description": "Signal Schedule Coolify API skeleton. No database connection or writes in v1.6.0.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

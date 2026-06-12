@@ -2,46 +2,57 @@
 
 ## Current Version
 
-**v1.5.1 — Employee Data Model Design**
+**v1.6.0 — Coolify API Skeleton**
 
-This release is a model-design release. It defines what employee and scheduling entities need to look like before Coolify API skeleton work begins.
+This release defines the future Coolify API service skeleton while keeping the active browser app on static JSON.
 
 ## How to Use the Current App
 
 1. Open `/schedule/index.html`.
 2. Use the current browser-based prototype normally.
 3. Employee data is still read from static JSON through the Employee service/repository/adapter boundary.
-4. Do not expect create/edit/delete, authentication, production API calls, or database writes yet.
+4. Do not expect create/edit/delete, authentication, production API calls, Postgres reads, or database writes yet.
 
-## How to Read the New Model Docs
+## How to Review the API Skeleton
 
-Start with:
-
-```text
-schedule/EMPLOYEE-DATA-MODEL.md
-```
-
-Then review:
+Review:
 
 ```text
-schedule/SCHEDULE-DATA-MODEL.md
+schedule/COOLIFY-API-SKELETON.md
+schedule/api/coolify/README.md
+schedule/api/coolify/server.js
+schedule/adapters/ApiEmployeeAdapter.js
 ```
 
-The key idea is:
+The skeleton defines:
 
 ```text
-HR Position ≠ Minimum Staffing Role
+GET /health
+GET /employees
 ```
 
-Example:
+It also accepts:
 
 ```text
-Position: Telecommunicator
-Minimum Staffing Role: Dispatcher
-Secondary Role: Lead Dispatcher
+GET /api/health
+GET /api/employees
 ```
 
-Future coverage logic should use minimum staffing roles instead of relying only on HR job titles.
+## Optional Local API Skeleton Test
+
+```bash
+cd schedule/api/coolify
+npm start
+```
+
+Then open:
+
+```text
+http://localhost:3000/health
+http://localhost:3000/employees
+```
+
+This is a local skeleton only. It does not connect Postgres.
 
 ## Architecture Boundary
 
@@ -75,7 +86,7 @@ Schedule API service
 Postgres
 ```
 
-v1.5.1 does not install or connect Postgres.
+v1.6.0 does not install or connect Postgres.
 
 ## Do Not Add Yet
 
@@ -89,6 +100,6 @@ v1.5.1 does not install or connect Postgres.
 
 ## Next Planned Release
 
-**v1.6.0 — Coolify API Skeleton**
+**v1.7.0 — Postgres Connection + Employee Read Endpoint**
 
-The next release should define the API skeleton around the model direction without adding production database writes.
+The next release should connect the skeleton to Postgres for read-only employee data while keeping writes and CRUD out of scope.

@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/repositories/EmployeeRepository.js
-Version: v1.5.0
-Purpose: Read-only employee repository boundary. UI code must not read adapters directly.
+Version: v1.6.0
+Purpose: Read-only employee repository boundary. UI code must not read JSON or API adapters directly.
 */
 (function (global) {
   global.SignalScheduleEmployeeRepository = function SignalScheduleEmployeeRepository(adapter) {

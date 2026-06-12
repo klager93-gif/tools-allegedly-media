@@ -3,9 +3,9 @@ export async function onRequestGet() {
     ok: true,
     data: [],
     meta: {
-      source: 'schedule-owned-api-mock',
-      version: 'v1.3.0',
-      note: 'Schedule-owned mock endpoint shape only. D1 schema exists, but the active app still reads /schedule/data/agencies.json through the JSON adapter.'
+      source: 'legacy-cloudflare-mock',
+      version: 'legacy-v1.3.0',
+      note: 'Schedule-owned mock endpoint shape only. Legacy Cloudflare mock only. Coolify API skeleton is the active planning direction; the browser app still reads static JSON.'
     },
     errors: []
   });

@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v1.5.1
-Purpose: Employee Data Model Design with service/repository/adapter boundary preserved
+Version: v1.6.0
+Purpose: Coolify API Skeleton with JSON adapter still active
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,17 +15,17 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=1.5.0">
+<link rel="stylesheet" href="style.css?v=1.6.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v1.5.1"
-  data-signal-theme="Employee Data Model Design"
+  data-signal-version="v1.6.0"
+  data-signal-theme="Coolify API Skeleton"
   data-signal-status="Active Development"
-  data-signal-description="Add a read-only employee data flow through service, repository, and JSON adapter boundaries before CRUD or live database work."
-  data-signal-status-text="Signal Schedule v1.5.1 defines the Employee Data Model before Coolify API skeleton work while preserving the JSON adapter and future Coolify API + Postgres path."
+  data-signal-description="Define the Coolify API skeleton and API adapter boundary while keeping the static JSON adapter active."
+  data-signal-status-text="Signal Schedule v1.6.0 defines the Coolify API skeleton while preserving the active JSON adapter and future Postgres path."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v1.5.1 Employee Data Model Design</strong>
+      <strong id="currentWeekLabel">v1.6.0 Coolify API Skeleton</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,7 +46,7 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v1.5.1 remains browser-only for the main app. This release defines the employee and scheduling entity model direction before Coolify API skeleton work. Static JSON remains active, and no live backend, CRUD, auth, credentials, or database writes are added.</p>
+      <p>Signal Schedule v1.6.0 remains browser-only for the main app. This release adds a Coolify API skeleton and API adapter boundary while static JSON remains active. No production API deployment, Postgres connection, CRUD, auth, credentials, or database writes are added.</p>
     </div>
   </section>
 
@@ -66,7 +66,7 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v1.5.1 keeps the Employee Service and repository boundary intact while documenting employee model groups, minimum staffing roles, overtime eligibility, leave configuration, and future scheduling entities.</p>
+        <p>v1.6.0 keeps the Employee Service and repository boundary intact while defining the future Coolify API route shape for /health and /employees.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -531,9 +531,10 @@ Purpose: Employee Data Model Design with service/repository/adapter boundary pre
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="adapters/JsonEmployeeAdapter.js?v=1.5.0"></script>
-<script src="repositories/EmployeeRepository.js?v=1.5.0"></script>
-<script src="services/EmployeeService.js?v=1.5.0"></script>
-<script src="script.js?v=1.5.0"></script>
+<script src="adapters/JsonEmployeeAdapter.js?v=1.6.0"></script>
+<script src="adapters/ApiEmployeeAdapter.js?v=1.6.0"></script>
+<script src="repositories/EmployeeRepository.js?v=1.6.0"></script>
+<script src="services/EmployeeService.js?v=1.6.0"></script>
+<script src="script.js?v=1.6.0"></script>
 </body>
 </html>

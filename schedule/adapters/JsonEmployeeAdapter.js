@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/adapters/JsonEmployeeAdapter.js
-Version: v1.5.0
-Purpose: Browser-safe read-only JSON employee adapter for the Employee Read API Foundation.
+Version: v1.6.0
+Purpose: Browser-safe read-only JSON employee adapter for the Coolify API Skeleton release. Active adapter remains static JSON.
 */
 (function (global) {
   function readJson(url, fallback) {

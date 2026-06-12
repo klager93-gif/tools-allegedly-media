@@ -1,9 +1,9 @@
 {
-  "version": "v1.5.0",
+  "version": "v1.6.0",
   "name": "Signal Schedule Employee Read Response",
   "status": "contract-only",
   "method": "GET",
-  "plannedPath": "/api/employees",
+  "plannedPath": "/employees or /api/employees",
   "activeAdapter": "static-json",
   "futureAdapter": "coolify-api-postgres",
   "responseShape": {
@@ -23,15 +23,16 @@
       }
     ],
     "meta": {
-      "source": "static-json-or-coolify-api",
+      "source": "static-json-or-coolify-api-skeleton",
       "mode": "read-only",
-      "version": "v1.5.0"
+      "version": "v1.6.0"
     },
     "errors": []
   },
   "rules": [
-    "No writes are allowed in v1.5.0.",
-    "No UI code may call Postgres, MySQL, D1, or database-specific code directly.",
+    "No writes are allowed in v1.6.0.",
+    "No UI code may call Postgres, MySQL, D1, Workers, or database-specific code directly.",
+    "The browser app remains on the JSON adapter until the API adapter is intentionally enabled.",
     "Future Coolify API responses must preserve this wrapper shape unless intentionally versioned."
   ]
 }

@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/services/EmployeeService.js
-Version: v1.5.0
-Purpose: Read-only employee service boundary for future Coolify API/Postgres replacement.
+Version: v1.6.0
+Purpose: Read-only employee service boundary for current JSON and future Coolify API/Postgres replacement.
 */
 (function (global) {
   global.SignalScheduleEmployeeService = function SignalScheduleEmployeeService(repository) {
