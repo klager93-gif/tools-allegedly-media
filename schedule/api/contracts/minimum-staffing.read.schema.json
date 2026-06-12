@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-labs.local/schedule/api/contracts/minimum-staffing.read.schema.json",
+  "title": "Signal Schedule Minimum Staffing Read Response",
+  "type": "object",
+  "required": [
+    "ok",
+    "data",
+    "meta",
+    "errors"
+  ],
+  "properties": {
+    "ok": {
+      "type": "boolean"
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "templates",
+        "preview"
+      ],
+      "properties": {
+        "templates": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "preview": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "meta": {
+      "type": "object"
+    },
+    "errors": {
+      "type": "array"
+    }
+  }
+}
