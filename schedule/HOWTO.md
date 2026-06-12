@@ -1,16 +1,16 @@
-## v0.15.0 Analytics Foundation
+## v0.16.0 Notifications Foundation
 
-Open `schedule/index.html` in a browser.
+Open `/schedule/` in a browser.
 
-Use **Load Sample** if the sandbox appears empty or if older local storage is still active.
+Use **Load Sample** if the page does not populate automatically.
 
-Review the Analytics Foundation sections:
+Review the Notifications Foundation sections:
 
-- Analytics Foundation.
-- Report Family Preview.
-- Trend Signal Preview.
-- Forecast Planning Preview.
+- Notification Trigger Preview.
+- Notification Channel Preview.
+- Audience Subscription Preview.
+- Notification Audit Preview.
 
-These are not finished charts or dashboards. They are planning cards that define what future analytics should measure, what facts those metrics should use, and how reports should explain totals.
+This build does not send real notifications. It defines the planning objects future PHP/database work will need before in-app notices, email, SMS, push, read receipts, escalation queues, or delivery logs exist.
 
-If the page does not reflect v0.15.0, clear local storage or press **Load Sample**.
+If the page does not reflect v0.16.0, clear local storage or press **Load Sample**.

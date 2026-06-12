@@ -1,3 +1,14 @@
+## v0.16.0 — Notifications Foundation
+
+- Added Notifications Foundation previews for trigger definitions, delivery channels, audience subscriptions, and audit examples.
+- Added notification defaults for coverage shortage alerts, bid award notices, mandate risk warnings, and benefit balance warnings.
+- Added notification channel planning for in-app notices, email, SMS/text, and export/audit logs.
+- Added notification subscription planning for employee, supervisor, and admin/audit audiences.
+- Added notification audit examples for suppressed duplicates, escalations, and acknowledgement/read states.
+- Updated render registry and safe render calls for notification panels.
+- Updated visible Schedule version references and cache-busting to v0.16.0.
+- Preserved v0.15 Analytics Foundation and v0.14.1 render registry protections.
+
 ## v0.15.0 — Analytics Foundation
 
 - Added Analytics Foundation previews for metric definitions, report families, trend signals, and forecast planning.

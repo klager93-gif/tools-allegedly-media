@@ -1,3 +1,12 @@
+## Signal Schedule v0.16.0 — Notifications Foundation
+
+- Built from `signal-schedule-v0.15.0-analytics-foundation.zip`.
+- Added notificationTriggers, notificationChannels, notificationSubscriptions, and notificationAuditExamples state arrays.
+- Added defaults, normalization, sample-state loading, render functions, registry entries, safeRender calls, text export counts, and data-model counts.
+- Added Schedule notification preview sections and CSS.
+- Updated Schedule docs, roadmap, changelog, database plan, and rule-engine notes.
+- Preserved v0.15 Analytics Foundation and v0.14.1 render registry repair.
+
 ## Signal Schedule v0.15.0 — Analytics Foundation
 
 - Added analytics arrays to Schedule state and sample data.

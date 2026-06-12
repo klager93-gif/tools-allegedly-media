@@ -1,3 +1,9 @@
+## Signal Schedule v0.16.0 — Notifications Foundation
+
+- Added Notifications Foundation planning for trigger facts, delivery channels, audience subscriptions, suppression/escalation, and audit-ready notification history.
+- Advanced Schedule roadmap toward v0.17 Goal Mode Foundation.
+- Preserved analytics, bidding/opportunity, mandation, explainability, fairness, coverage, and render registry foundations.
+
 ## Signal Schedule v0.15.0 — Analytics Foundation
 
 - Added Analytics Foundation planning for reportable facts, metrics, reports, trends, and forecasts.

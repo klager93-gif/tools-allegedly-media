@@ -1,5 +1,5 @@
-## Signal Schedule v0.15.0 — Analytics Foundation
+## Signal Schedule v0.16.0 — Notifications Foundation
 
-- Added planning previews for future analytics, reports, trends, and forecasts.
-- Added report concepts for hours, benefits, overtime, mandation, coverage, and fairness.
-- Kept the app browser-only while the architecture is being finalized.
+- Added notification planning previews for alerts, channels, subscriptions, and audit history.
+- Preserved analytics, bidding/opportunity, mandation, explainability, fairness, coverage, and render registry foundations.
+- This does not send live messages yet; it defines the logic and data shape future notifications will need.

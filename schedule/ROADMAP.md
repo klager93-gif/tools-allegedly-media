@@ -1,29 +1,10 @@
-## Current: v0.15.0 — Analytics Foundation
+## Current: v0.16.0 — Notifications Foundation
 
-Completed planning layer for analytics metrics, report families, trend signals, and forecast models.
+- Model notification triggers from facts and rule outcomes.
+- Model delivery channels without sending real notices yet.
+- Model audience subscriptions by employee, supervisor, admin, and audit roles.
+- Model notification audit states such as delivered, read, suppressed, escalated, expired, and acted on.
 
-## Next: v0.16.0 — Notifications Foundation
+## Next: v0.17.0 — Goal Mode Foundation
 
-Planned concepts:
-
-- Employee notifications.
-- Supervisor notifications.
-- Approval reminders.
-- Schedule change notices.
-- OT posting notices.
-- Bid result notices.
-- Mandation notices.
-- Coverage risk alerts.
-- Audience-specific message wording.
-- Audit trail for sent/acknowledged notices.
-
-## Later
-
-- v0.17.0 — Goal Mode Foundation.
-- v0.18.0 — Multi-Agency Foundation.
-- v0.19.0 — Architecture Complete.
-- v1.0.0 — Database Foundation.
-
-## Standing Rule
-
-Do not build dashboards before the analytics facts are stable. Storage and UI can change later; the metric definitions and explanations are harder to fix once wrong.
+Goal Mode should define what the engine is trying to optimize before it recommends schedule changes, overtime, leave approvals, mandation, bids, or staffing actions.

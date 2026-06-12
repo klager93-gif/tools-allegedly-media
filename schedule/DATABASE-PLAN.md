@@ -1,33 +1,14 @@
-## v0.15.0 Analytics Data Planning
+## v0.16.0 Notifications Data Planning
 
-No database is introduced in this release.
+Future persistence should eventually support notification-related tables or models such as:
 
-Future database planning should support analytics without recalculating everything from screen text.
+- notification_triggers
+- notification_channels
+- notification_subscriptions
+- notification_events
+- notification_delivery_log
+- notification_read_receipts
+- notification_suppression_log
+- notification_escalation_log
 
-Likely future tables/modules:
-
-- analytics_metric_definitions
-- analytics_report_definitions
-- analytics_report_runs
-- analytics_trend_signals
-- analytics_forecasts
-- analytics_forecast_inputs
-- analytics_audit_links
-
-Source tables will likely include:
-
-- employees
-- employee_traits
-- assignments
-- schedule_events
-- benefit_ledger
-- coverage_requirements
-- bid_rounds
-- bid_awards
-- voluntary_overtime_requests
-- posted_overtime_opportunities
-- mandation_history
-- fairness_history
-- explanation_logs
-
-The goal is traceable reporting: every number should link back to the facts that produced it.
+Each notification should link back to the source fact that caused it, such as a coverage shortage, schedule change, leave request, bid award, mandate event, benefit warning, analytics forecast, or override.

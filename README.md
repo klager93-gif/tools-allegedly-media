@@ -1,1 +1,1 @@
-**Signal Schedule v0.15.0 — Analytics Foundation** adds planning for analytics metrics, report families, trend signals, and forecasts while preserving bidding/opportunity workflows and render registry protections. Release ZIPs remain the official restore points.
+**Signal Schedule v0.16.0 — Notifications Foundation** adds planning for notification triggers, channels, audience subscriptions, suppression/escalation, and audit history while preserving analytics, bidding/opportunity workflows, and render registry protections. Release ZIPs remain the official restore points.

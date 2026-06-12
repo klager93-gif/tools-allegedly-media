@@ -1,24 +1,23 @@
-# Build Manifest
+# Build Manifest — Signal Schedule v0.16.0 Notifications Foundation
 
-Build: Signal Schedule v0.15.0 — Analytics Foundation
-Source: signal-schedule-v0.14.1-render-registry-repair.zip
+## Source
 
-## Changes
-- Added Analytics Foundation preview sections to Schedule.
-- Added analytics metric, report family, trend signal, and forecast planning models.
-- Registered analytics render functions in the guarded render registry.
-- Updated Schedule sample data and data-model preview for analytics objects.
-- Updated Schedule documentation, changelogs, roadmap, and visible version references.
+- Built from: `signal-schedule-v0.15.0-analytics-foundation.zip`
+
+## Release
+
+- Output: `signal-schedule-v0.16.0-notifications-foundation.zip`
+- Theme: Notifications Foundation
+- Date: 2026-06-12
 
 ## Validation
-- Verified Schedule script syntax with `node --check schedule/script.js`.
-- Verified all guarded render registry function references exist.
-- Verified DOM IDs used by Schedule renderers exist in `schedule/index.html`.
-- Rebuilt file manifest and SHA256 checksums.
 
-## Not Changed
-- No database storage.
-- No real reports or dashboards.
-- No notification workflow yet.
-- No approval workflow.
-- No final schedule generation.
+- JavaScript syntax checked with `node --check schedule/script.js`.
+- Schedule visible version references updated to v0.16.0.
+- Cache-busting references updated for Schedule CSS/JS.
+- Notification render functions added to render registry and safe render flow.
+- Build SHA256 manifest regenerated.
+
+## Notes
+
+This remains a browser-only architecture sandbox. Notification planning does not send real emails, SMS, push notifications, or in-app messages yet.

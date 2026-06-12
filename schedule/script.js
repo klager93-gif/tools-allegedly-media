@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.15.0
-Purpose: Analytics Foundation sandbox with metrics, report families, trend signals, forecasts, and audit-ready explanations
+Version: v0.16.0
+Purpose: Notifications Foundation sandbox with alert triggers, delivery channels, subscription rules, and audit-ready notification explanations
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.15.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.16.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -45,6 +45,10 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
     analyticsReports: [],
     analyticsTrendSignals: [],
     analyticsForecasts: [],
+    notificationTriggers: [],
+    notificationChannels: [],
+    notificationSubscriptions: [],
+    notificationAuditExamples: [],
     agencyProfile: null,
     selectedEmployeeId: null
   };
@@ -74,6 +78,10 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
     if (!Array.isArray(state.analyticsReports) || !state.analyticsReports.length) state.analyticsReports = defaultAnalyticsReports();
     if (!Array.isArray(state.analyticsTrendSignals) || !state.analyticsTrendSignals.length) state.analyticsTrendSignals = defaultAnalyticsTrendSignals();
     if (!Array.isArray(state.analyticsForecasts) || !state.analyticsForecasts.length) state.analyticsForecasts = defaultAnalyticsForecasts();
+    if (!Array.isArray(state.notificationTriggers) || !state.notificationTriggers.length) state.notificationTriggers = defaultNotificationTriggers();
+    if (!Array.isArray(state.notificationChannels) || !state.notificationChannels.length) state.notificationChannels = defaultNotificationChannels();
+    if (!Array.isArray(state.notificationSubscriptions) || !state.notificationSubscriptions.length) state.notificationSubscriptions = defaultNotificationSubscriptions();
+    if (!Array.isArray(state.notificationAuditExamples) || !state.notificationAuditExamples.length) state.notificationAuditExamples = defaultNotificationAuditExamples();
   }
 
   function defaultAgencyProfile() {
@@ -639,6 +647,32 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
       { id: 'forecast-benefit-liability', name: 'Benefit Liability Forecast', inputFacts: 'Ledger balances, accrual rules, carryover rules, approved future leave, and payout policy', forecast: 'Project balances and potential payout/carryover exposure.', explanation: 'Forecast should distinguish earned time, used time, projected accrual, and policy limits.' }];
   }
 
+  function defaultNotificationTriggers() {
+    return [{ id: 'notice-coverage-shortage', name: 'Coverage Shortage Alert', source: 'Coverage Engine', trigger: 'Minimum staffing is projected below requirement for a role, qualification, location, day, or time block.', audience: 'Supervisor / Scheduler', explanation: 'Alert must list the open spot, required minimum, current staffing, and facts causing the shortage.' },
+      { id: 'notice-bid-award', name: 'Bid Award Notice', source: 'Bidding / Opportunities', trigger: 'A shift, vacation, or posted overtime award is ready for review or publication.', audience: 'Employee / Supervisor', explanation: 'Notice must include eligibility, seniority, fairness, tie-breaker, and audit explanation links.' },
+      { id: 'notice-mandate-risk', name: 'Mandate Risk Warning', source: 'Forecast + Mandation', trigger: 'Voluntary options may not fill a future open spot before coverage minimum is missed.', audience: 'Supervisor / Admin', explanation: 'Notice must show voluntary OT interest, posted opportunity responses, exceptions, and rotation context.' },
+      { id: 'notice-benefit-risk', name: 'Benefit Balance Warning', source: 'Benefit Ledger', trigger: 'A request or approval may create projected negative balance, carryover risk, or coverage conflict.', audience: 'Employee / Supervisor', explanation: 'Notice must distinguish current balance, projected accrual, approved future use, and policy limit.' }];
+  }
+
+  function defaultNotificationChannels() {
+    return [{ id: 'channel-in-app', name: 'In-app Notice Center', status: 'planned', purpose: 'Primary audit-safe place to show alerts, approvals, awards, and rule explanations.', guardrail: 'Every message should remain linked to its source fact and rule chain.' },
+      { id: 'channel-email', name: 'Email', status: 'future', purpose: 'Send reviewable notices to employees, supervisors, and admins after preferences exist.', guardrail: 'Do not email sensitive details unless agency policy and recipient role allow it.' },
+      { id: 'channel-sms', name: 'SMS / Text', status: 'future', purpose: 'Urgent operational alerts such as open OT, coverage shortages, callbacks, and mandation risk.', guardrail: 'Use concise messages and link back to full in-app explanation.' },
+      { id: 'channel-export', name: 'Report / Export Log', status: 'planned', purpose: 'Preserve notification history for audit, public records, labor review, and internal investigation.', guardrail: 'Export must show delivered, read, acted on, suppressed, and expired states where available.' }];
+  }
+
+  function defaultNotificationSubscriptions() {
+    return [{ id: 'sub-employee-self', audience: 'Employee', receives: ['Own requests', 'Own awards', 'Own schedule changes', 'Benefit warnings'], preference: 'Employee preference plus agency-required notices', rule: 'Employees should not receive other employees’ private details.' },
+      { id: 'sub-supervisor-shift', audience: 'Supervisor', receives: ['Coverage shortages', 'Pending approvals', 'Mandate risk', 'Posted OT response changes'], preference: 'Role-based operational subscription', rule: 'Supervisor notices should match assigned department, shift group, location, or authority.' },
+      { id: 'sub-admin-audit', audience: 'Admin / Audit', receives: ['Rule failures', 'Override activity', 'Notification delivery history', 'Suppressed alerts'], preference: 'Administrative subscription', rule: 'Audit notices should preserve complete fact chains without changing schedule outcomes.' }];
+  }
+
+  function defaultNotificationAuditExamples() {
+    return [{ id: 'audit-suppressed-duplicate', event: 'Duplicate alert suppressed', outcome: 'No second message sent', reason: 'Same coverage shortage already notified the supervisor within the configured window.', explanation: 'Suppression prevents noisy repeated alerts while preserving the source shortage in the audit log.' },
+      { id: 'audit-escalated-open-spot', event: 'Open spot escalated', outcome: 'Supervisor alert upgraded', reason: 'Posted OT opportunity received no eligible volunteers before the escalation threshold.', explanation: 'Escalation should cite opportunity age, responses, eligibility, coverage need, and mandate risk.' },
+      { id: 'audit-employee-award-read', event: 'Award notice acknowledged', outcome: 'Employee read receipt recorded', reason: 'Employee opened the in-app bid award notice.', explanation: 'Read state should be stored separately from whether the employee accepts, declines, or contests the award.' }];
+  }
+
   function defaultEventTypeDefinitions() {
     return [{
       id: 'event-vacation',
@@ -871,6 +905,10 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
     next.analyticsReports = Array.isArray(next.analyticsReports) && next.analyticsReports.length ? next.analyticsReports : defaultAnalyticsReports();
     next.analyticsTrendSignals = Array.isArray(next.analyticsTrendSignals) && next.analyticsTrendSignals.length ? next.analyticsTrendSignals : defaultAnalyticsTrendSignals();
     next.analyticsForecasts = Array.isArray(next.analyticsForecasts) && next.analyticsForecasts.length ? next.analyticsForecasts : defaultAnalyticsForecasts();
+    next.notificationTriggers = Array.isArray(next.notificationTriggers) && next.notificationTriggers.length ? next.notificationTriggers : defaultNotificationTriggers();
+    next.notificationChannels = Array.isArray(next.notificationChannels) && next.notificationChannels.length ? next.notificationChannels : defaultNotificationChannels();
+    next.notificationSubscriptions = Array.isArray(next.notificationSubscriptions) && next.notificationSubscriptions.length ? next.notificationSubscriptions : defaultNotificationSubscriptions();
+    next.notificationAuditExamples = Array.isArray(next.notificationAuditExamples) && next.notificationAuditExamples.length ? next.notificationAuditExamples : defaultNotificationAuditExamples();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
     next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
@@ -1025,7 +1063,7 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.15.0 Analytics Foundation';
+    if (label) label.textContent = 'v0.16.0 Notifications Foundation';
   }
 
   function syncRuleInputs() {
@@ -1596,7 +1634,8 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
       ['Mandation', String((state.mandateRotation || []).length), 'Tracks forced OT rotation, counts, skips, exceptions, and mandate explanations.'],
       ['Bidding / Opportunities', String((state.bidRounds || []).length + (state.voluntaryOvertimeRequests || []).length + (state.postedOvertimeOpportunities || []).length), 'Plans shift bids, vacation bids, voluntary OT requests, posted OT opportunities, awards, and explanations.'],
       ['Operational Traits', String((state.operationalTraits || []).length), 'Employee traits such as gender can be used only when tied to documented operational rules.'],
-      ['Analytics Foundation', String((state.analyticsMetrics || []).length + (state.analyticsReports || []).length + (state.analyticsTrendSignals || []).length + (state.analyticsForecasts || []).length), 'Plans hours, benefits, overtime, mandation, coverage, fairness, trends, forecasts, and audit-ready reports.']
+      ['Analytics Foundation', String((state.analyticsMetrics || []).length + (state.analyticsReports || []).length + (state.analyticsTrendSignals || []).length + (state.analyticsForecasts || []).length), 'Plans hours, benefits, overtime, mandation, coverage, fairness, trends, forecasts, and audit-ready reports.'],
+      ['Notifications Foundation', String((state.notificationTriggers || []).length + (state.notificationChannels || []).length + (state.notificationSubscriptions || []).length + (state.notificationAuditExamples || []).length), 'Plans alert triggers, delivery channels, audience subscriptions, suppression, escalation, and audit-ready notification history.']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -1763,8 +1802,8 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
     var lines = [];
     var warnings = coverageWarnings();
     var totals = employeeHours();
-    lines.push('SIGNAL SCHEDULE — MANDATION FOUNDATION');
-    lines.push('Version: v0.15.0');
+    lines.push('SIGNAL SCHEDULE — NOTIFICATIONS FOUNDATION');
+    lines.push('Version: v0.16.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -1796,6 +1835,11 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
     lines.push('- Posted OT opportunities: ' + ((state.postedOvertimeOpportunities || []).length));
     lines.push('- Mandate rotation entries: ' + ((state.mandateRotation || []).length));
     lines.push('- Operational traits: ' + ((state.operationalTraits || []).length));
+    lines.push('- Analytics foundation objects: ' + ((state.analyticsMetrics || []).length + (state.analyticsReports || []).length + (state.analyticsTrendSignals || []).length + (state.analyticsForecasts || []).length));
+    lines.push('- Notification triggers: ' + ((state.notificationTriggers || []).length));
+    lines.push('- Notification channels: ' + ((state.notificationChannels || []).length));
+    lines.push('- Notification subscriptions: ' + ((state.notificationSubscriptions || []).length));
+    lines.push('- Notification audit examples: ' + ((state.notificationAuditExamples || []).length));
     lines.push('');
     lines.push('Pattern Templates:');
     state.patterns.forEach(function (pattern) {
@@ -1845,10 +1889,10 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.15.0 Notes:');
-    lines.push('- Adds Bidding and Opportunity Foundation: shift bids, vacation bids, voluntary OT requests, and posted OT opportunities.');
-    lines.push('- Requests are employee-initiated; opportunities are management-posted needs that employees can volunteer or bid for.');
-    lines.push('- Awards should evaluate eligibility, seniority, fairness, coverage, and audit explanations before publication.');
+    lines.push('v0.16.0 Notes:');
+    lines.push('- Adds Notifications Foundation planning for triggers, channels, subscriptions, suppression, escalation, and audit history.');
+    lines.push('- Notifications must be generated from facts and rule outcomes, not loose one-off messages.');
+    lines.push('- Alerts should explain what happened, who should know, what source fact caused it, and whether action is required.');
     lines.push('- This is still local mock data, not a backend.');
     lines.push('- Events, rules, benefit entries, coverage rows, views, templates, fairness metrics, and explanations are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
@@ -1932,6 +1976,10 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
     renderAnalyticsReportPreview: renderAnalyticsReportPreview,
     renderAnalyticsTrendPreview: renderAnalyticsTrendPreview,
     renderAnalyticsForecastPreview: renderAnalyticsForecastPreview,
+    renderNotificationTriggerPreview: renderNotificationTriggerPreview,
+    renderNotificationChannelPreview: renderNotificationChannelPreview,
+    renderNotificationSubscriptionPreview: renderNotificationSubscriptionPreview,
+    renderNotificationAuditPreview: renderNotificationAuditPreview,
     renderDataModelPreview: renderDataModelPreview,
     renderSelects: renderSelects,
     renderPills: renderPills,
@@ -1977,6 +2025,10 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
     safeRender('analytics reports', 'renderAnalyticsReportPreview');
     safeRender('analytics trends', 'renderAnalyticsTrendPreview');
     safeRender('analytics forecasts', 'renderAnalyticsForecastPreview');
+    safeRender('notification triggers', 'renderNotificationTriggerPreview');
+    safeRender('notification channels', 'renderNotificationChannelPreview');
+    safeRender('notification subscriptions', 'renderNotificationSubscriptionPreview');
+    safeRender('notification audit', 'renderNotificationAuditPreview');
     safeRender('data model', 'renderDataModelPreview');
     safeRender('selects', 'renderSelects');
     safeRender('pills', 'renderPills');
@@ -2093,6 +2145,10 @@ Purpose: Analytics Foundation sandbox with metrics, report families, trend signa
       analyticsReports: defaultAnalyticsReports(),
       analyticsTrendSignals: defaultAnalyticsTrendSignals(),
       analyticsForecasts: defaultAnalyticsForecasts(),
+      notificationTriggers: defaultNotificationTriggers(),
+      notificationChannels: defaultNotificationChannels(),
+      notificationSubscriptions: defaultNotificationSubscriptions(),
+      notificationAuditExamples: defaultNotificationAuditExamples(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
       selectedEmployeeId: 'emp-alex'

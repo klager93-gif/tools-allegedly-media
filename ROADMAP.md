@@ -1,3 +1,2 @@
-- Verify Signal Schedule v0.15.0 Analytics Foundation after deployment.
-- Next planned release: Signal Schedule v0.16.0 — Notifications Foundation.
-- Later: v0.17.0 Goal Mode, v0.18.0 Multi-Agency, v0.19.0 Architecture Complete, v1.0.0 Database Foundation.
+- Verify Signal Schedule v0.16.0 Notifications Foundation after deployment.
+- Next planned release: Signal Schedule v0.17.0 — Goal Mode Foundation.

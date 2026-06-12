@@ -1,70 +1,72 @@
-# File Manifest
+# File Manifest — Signal Schedule v0.16.0 Notifications Foundation
 
-- .gitattributes
-- .gitignore
-- ADMIN_CHANGELOG.md
-- HOWTO.md
-- MASTER-CHANGELOG.md
-- MASTER-ROADMAP.md
-- PUBLIC_CHANGELOG.md
-- README.md
-- ROADMAP.md
-- about/index.html
-- assets/components/footer.js
-- assets/components/header.js
-- assets/global.css
-- assets/global.js
-- assets/icons/apple-touch-icon.png
-- assets/icons/favicon.ico
-- assets/icons/favicon.svg
-- assets/icons/site.webmanifest
-- build/BUILDMANIFEST.md
-- build/FILEMANIFEST.md
-- build/SHA256SUMS.txt
-- changelog/index.html
-- contact/index.html
-- docs/BACKUP.md
-- docs/RESTORE.md
-- how-to/index.html
-- index.html
-- overtime/BUILDMANIFEST.md
-- overtime/FILEMANIFEST.md
-- overtime/HOWTO.md
-- overtime/README.md
-- overtime/ROADMAP.md
-- overtime/index.html
-- overtime/script.js
-- overtime/style.css
-- pay-planner/index.html
-- paycheck/index.html
-- privacy/index.html
-- report-issue/index.html
-- request-feature/index.html
-- roadmap/index.html
-- schedule/CHANGELOG.md
-- schedule/DATABASE-PLAN.md
-- schedule/HOWTO.md
-- schedule/README.md
-- schedule/ROADMAP.md
-- schedule/RULE-ENGINE.md
-- schedule/index.html
-- schedule/script.js
-- schedule/style.css
-- standards/COMPONENT_STANDARDS.md
-- standards/DEVELOPMENT_STANDARDS.md
-- standards/DOCUMENTATION_STANDARDS.md
-- standards/RELEASE_STANDARDS.md
-- standards/REPOSITORY_STANDARDS.md
-- standards/STANDARDS.md
-- standards/UX_STANDARDS.md
-- standards/WORKFLOW_STANDARDS.md
-- status/index.html
-- terms/index.html
-- timeoff/BUILDMANIFEST.md
-- timeoff/FILEMANIFEST.md
-- timeoff/HOWTO.md
-- timeoff/README.md
-- timeoff/ROADMAP.md
-- timeoff/index.html
-- timeoff/script.js
-- timeoff/style.css
+Generated: 2026-06-12 06:41:16
+
+## Files
+- `.gitattributes` (66 bytes)
+- `.gitignore` (224 bytes)
+- `ADMIN_CHANGELOG.md` (4946 bytes)
+- `HOWTO.md` (1204 bytes)
+- `MASTER-CHANGELOG.md` (14058 bytes)
+- `MASTER-ROADMAP.md` (250 bytes)
+- `PUBLIC_CHANGELOG.md` (384 bytes)
+- `README.md` (315 bytes)
+- `ROADMAP.md` (150 bytes)
+- `about/index.html` (1902 bytes)
+- `assets/components/footer.js` (4684 bytes)
+- `assets/components/header.js` (2474 bytes)
+- `assets/global.css` (30794 bytes)
+- `assets/global.js` (998 bytes)
+- `assets/icons/apple-touch-icon.png` (1326 bytes)
+- `assets/icons/favicon.ico` (6756 bytes)
+- `assets/icons/favicon.svg` (453 bytes)
+- `assets/icons/site.webmanifest` (278 bytes)
+- `build/BUILDMANIFEST.md` (964 bytes)
+- `build/FILEMANIFEST.md` (1603 bytes)
+- `changelog/index.html` (2525 bytes)
+- `contact/index.html` (1709 bytes)
+- `docs/BACKUP.md` (930 bytes)
+- `docs/RESTORE.md` (534 bytes)
+- `how-to/index.html` (2227 bytes)
+- `index.html` (5770 bytes)
+- `overtime/BUILDMANIFEST.md` (1188 bytes)
+- `overtime/FILEMANIFEST.md` (807 bytes)
+- `overtime/HOWTO.md` (4403 bytes)
+- `overtime/README.md` (1373 bytes)
+- `overtime/ROADMAP.md` (1238 bytes)
+- `overtime/index.html` (20895 bytes)
+- `overtime/script.js` (59771 bytes)
+- `overtime/style.css` (36051 bytes)
+- `pay-planner/index.html` (3376 bytes)
+- `paycheck/index.html` (23024 bytes)
+- `privacy/index.html` (1963 bytes)
+- `report-issue/index.html` (1995 bytes)
+- `request-feature/index.html` (1904 bytes)
+- `roadmap/index.html` (2469 bytes)
+- `schedule/CHANGELOG.md` (19221 bytes)
+- `schedule/DATABASE-PLAN.md` (558 bytes)
+- `schedule/HOWTO.md` (607 bytes)
+- `schedule/README.md` (1532 bytes)
+- `schedule/ROADMAP.md` (565 bytes)
+- `schedule/RULE-ENGINE.md` (729 bytes)
+- `schedule/index.html` (26310 bytes)
+- `schedule/script.js` (140252 bytes)
+- `schedule/style.css` (26825 bytes)
+- `standards/COMPONENT_STANDARDS.md` (1251 bytes)
+- `standards/DEVELOPMENT_STANDARDS.md` (412 bytes)
+- `standards/DOCUMENTATION_STANDARDS.md` (152 bytes)
+- `standards/RELEASE_STANDARDS.md` (1853 bytes)
+- `standards/REPOSITORY_STANDARDS.md` (411 bytes)
+- `standards/STANDARDS.md` (512 bytes)
+- `standards/UX_STANDARDS.md` (183 bytes)
+- `standards/WORKFLOW_STANDARDS.md` (1162 bytes)
+- `status/index.html` (2134 bytes)
+- `terms/index.html` (1919 bytes)
+- `timeoff/BUILDMANIFEST.md` (963 bytes)
+- `timeoff/FILEMANIFEST.md` (677 bytes)
+- `timeoff/HOWTO.md` (4867 bytes)
+- `timeoff/README.md` (883 bytes)
+- `timeoff/ROADMAP.md` (1319 bytes)
+- `timeoff/index.html` (17078 bytes)
+- `timeoff/script.js` (67522 bytes)
+- `timeoff/style.css` (41300 bytes)
