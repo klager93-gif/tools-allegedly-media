@@ -1,3 +1,13 @@
+## 2026-06-11 — Signal Schedule v0.5.0 Pattern Foundation
+
+- Added visible Pattern Foundation and Pattern Cycle Preview panels to the Schedule sandbox.
+- Added sample pattern templates for B Nights, 2-2-3 Days, and Office 8s with an unpaid break.
+- Added cycle-day modeling for normal work days, off days, and short days.
+- Added paid minutes and break-rule planning to support non-public-safety schedules.
+- Updated week display behavior to follow Agency Profile work-week start settings.
+- Updated Schedule docs, root planning docs, changelog, database plan, rule-engine notes, and build manifests.
+- No database, pattern CRUD, login, admin save workflow, event overlays, or final schedule generation was added.
+
 ## 2026-06-11 — Signal Schedule v0.4.0 Employee Profile Foundation
 
 - Added visible Employee Profile Foundation panels to the Schedule sandbox.

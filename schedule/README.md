@@ -4,11 +4,11 @@ Signal Schedule is a scheduling and staffing tool for Signal Labs.
 
 ## Version
 
-v0.4.0 — Employee Profile Foundation.
+v0.5.0 — Pattern Foundation.
 
 ## Current Purpose
 
-This release adds the Employee Profile Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now includes rule-aware employee profiles using agency-defined vocabulary for assignment, eligibility, exceptions, qualifications, and benefit snapshots.
+This release adds the Pattern Foundation. Signal Schedule remains browser-only and local-storage based, but the mock data now includes agency-aware pattern templates, pattern cycle days, short days, paid minutes, break rules, and week-start display behavior.
 
 ## What it does now
 
@@ -21,6 +21,7 @@ This release adds the Employee Profile Foundation. Signal Schedule remains brows
 - Show a Core Engine Blueprint panel
 - Show an Agency Profile Foundation panel
 - Show an Employee Profile Foundation panel
+- Show Pattern Foundation and Pattern Cycle Preview panels
 - Preview agency-defined settings, vocabulary, shift definitions, and coverage requirements
 - Preview employee identity, agency assignment, eligibility, exceptions, qualifications, and benefit snapshots
 - Preview sample rule, pattern, event, and benefit-ledger objects
@@ -128,3 +129,12 @@ Employee profile planning includes:
 - Benefit snapshots for display only. Future benefit balances should come from the benefit ledger.
 
 v0.4.0 does not add employee database storage, admin editing, login accounts, or employee CRUD.
+
+
+## v0.5.0 Pattern Foundation
+
+Signal Schedule v0.5.0 adds visible pattern planning before schedule generation. Patterns are modeled as cycle-based objects with normal work days, off days, short days, paid minutes, and break rules.
+
+This release also corrects the week display philosophy so previews should follow the agency profile work-week start setting instead of assuming Monday-first display.
+
+v0.5.0 does not add database persistence, admin editing, final schedule generation, or editable pattern CRUD.

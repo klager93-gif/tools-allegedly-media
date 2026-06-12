@@ -71,3 +71,10 @@ Review the preview for:
 - Qualifications and capabilities.
 - Benefit snapshots.
 - Rule impact notes explaining why a person may be eligible, skipped, or restricted in future modules.
+
+
+## v0.5.0 Pattern Foundation Preview
+
+The Pattern Foundation panels show sample pattern templates and cycle days. These are not editable database-backed pattern records yet.
+
+Use the panels to review how normal days, off days, short days, paid minutes, and break rules should be represented before final schedule generation is built.

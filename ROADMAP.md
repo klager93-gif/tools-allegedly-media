@@ -1,4 +1,4 @@
-- Verify Signal Schedule v0.4.0 Employee Profile Foundation after deployment.
+- Verify Signal Schedule v0.5.0 Pattern Foundation after deployment.
 # Signal Labs Roadmap
 
 ## Immediate
@@ -95,3 +95,10 @@
 - Retired duplicate normal backup-folder workflow.
 - Standardized dated `Releases/` folders as the local archive structure.
 - Preserved emergency manual backups only for risky experiments, manual edits outside Git, temporary sandboxes, or unreleased testing.
+
+
+### v0.5.0
+
+- Pattern Foundation.
+- Added pattern templates and cycle-day preview.
+- Added short days, short weeks, paid minutes, break rules, and agency week-start display behavior.

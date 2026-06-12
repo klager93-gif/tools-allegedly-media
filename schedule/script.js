@@ -1,12 +1,13 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.4.0
-Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibility, exceptions, qualifications, benefits, and generated output
+Version: v0.5.0
+Purpose: Pattern Foundation sandbox for agency-aware pattern templates, cycle days, short days, paid minutes, break rules, and week-start display
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.4.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
-  var days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  var STORAGE_KEY = 'signalSchedule.v0.5.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  var days = baseDays.slice();
   var state = {
     employees: [],
     shifts: [],
@@ -83,19 +84,60 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
 
   function defaultPatterns() {
     return [{
+      id: 'pattern-b-nights',
+      name: 'B Nights Sample',
+      description: 'Cycle-based nights pattern with normal and short shifts. Short days are based on cycle position, not fixed weekday.',
+      cycleLength: 14,
+      baseShift: 'Night Shift',
+      notes: 'Sample only. Future versions should allow admin-defined patterns and employee-specific variations.',
+      cycleDays: [
+        { cycleDay: 1, dayType: 'work', shiftType: 'normal', start: '18:00', end: '06:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 2, dayType: 'work', shiftType: 'normal', start: '18:00', end: '06:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 3, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' },
+        { cycleDay: 4, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' },
+        { cycleDay: 5, dayType: 'work', shiftType: 'normal', start: '18:00', end: '06:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 6, dayType: 'work', shiftType: 'short', start: '18:00', end: '02:00', paidMinutes: 480, breakRule: 'Short day / short week example' },
+        { cycleDay: 7, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' },
+        { cycleDay: 8, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' },
+        { cycleDay: 9, dayType: 'work', shiftType: 'normal', start: '18:00', end: '06:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 10, dayType: 'work', shiftType: 'normal', start: '18:00', end: '06:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 11, dayType: 'work', shiftType: 'normal', start: '18:00', end: '06:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 12, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' },
+        { cycleDay: 13, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' },
+        { cycleDay: 14, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' }
+      ]
+    }, {
       id: 'pattern-2-2-3-days',
       name: '2-2-3 Days Sample',
-      sequence: ['work', 'work', 'off', 'off', 'work', 'work', 'work'],
-      shiftStart: '05:00',
-      shiftEnd: '17:00',
-      notes: 'Sample rotation shape only. Not a final agency policy.'
+      description: 'Seven-day sample rotation shape using day-shift work/off cycle days.',
+      cycleLength: 7,
+      baseShift: 'Day Shift',
+      notes: 'Sample rotation shape only. Not a final agency policy.',
+      cycleDays: [
+        { cycleDay: 1, dayType: 'work', shiftType: 'normal', start: '06:00', end: '18:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 2, dayType: 'work', shiftType: 'normal', start: '06:00', end: '18:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 3, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' },
+        { cycleDay: 4, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' },
+        { cycleDay: 5, dayType: 'work', shiftType: 'normal', start: '06:00', end: '18:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 6, dayType: 'work', shiftType: 'normal', start: '06:00', end: '18:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' },
+        { cycleDay: 7, dayType: 'work', shiftType: 'normal', start: '06:00', end: '18:00', paidMinutes: 720, breakRule: 'No automatic unpaid break' }
+      ]
     }, {
-      id: 'pattern-24-48',
-      name: '24/48 Sample',
-      sequence: ['work', 'off', 'off'],
-      shiftStart: '07:00',
-      shiftEnd: '07:00',
-      notes: 'Common fire/EMS-style rotation example.'
+      id: 'pattern-office-8s',
+      name: 'Office 8s With Unpaid Break',
+      description: 'Non-public-safety example where shift length and paid minutes differ because of an unpaid meal period.',
+      cycleLength: 7,
+      baseShift: 'Office Shift',
+      notes: 'Demonstrates 7A-3:30P display with 480 paid minutes.',
+      cycleDays: [
+        { cycleDay: 1, dayType: 'work', shiftType: 'normal', start: '07:00', end: '15:30', paidMinutes: 480, breakRule: '30-minute unpaid meal' },
+        { cycleDay: 2, dayType: 'work', shiftType: 'normal', start: '07:00', end: '15:30', paidMinutes: 480, breakRule: '30-minute unpaid meal' },
+        { cycleDay: 3, dayType: 'work', shiftType: 'normal', start: '07:00', end: '15:30', paidMinutes: 480, breakRule: '30-minute unpaid meal' },
+        { cycleDay: 4, dayType: 'work', shiftType: 'normal', start: '07:00', end: '15:30', paidMinutes: 480, breakRule: '30-minute unpaid meal' },
+        { cycleDay: 5, dayType: 'work', shiftType: 'normal', start: '07:00', end: '15:30', paidMinutes: 480, breakRule: '30-minute unpaid meal' },
+        { cycleDay: 6, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' },
+        { cycleDay: 7, dayType: 'off', shiftType: 'off', start: '', end: '', paidMinutes: 0, breakRule: '' }
+      ]
     }];
   }
 
@@ -111,6 +153,18 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
     next.assignments = Array.isArray(next.assignments) ? next.assignments : [];
     next.ruleProfiles = Array.isArray(next.ruleProfiles) && next.ruleProfiles.length ? next.ruleProfiles : defaultRuleProfiles();
     next.patterns = Array.isArray(next.patterns) && next.patterns.length ? next.patterns : defaultPatterns();
+    next.patterns = next.patterns.map(function (pattern) {
+      var fallback = defaultPatterns().find(function (item) { return item.id === pattern.id; }) || defaultPatterns()[0];
+      return {
+        id: pattern.id || id('pattern'),
+        name: pattern.name || 'Pattern',
+        description: pattern.description || pattern.notes || fallback.description,
+        cycleLength: Number(pattern.cycleLength || (pattern.sequence ? pattern.sequence.length : fallback.cycleLength || 0)),
+        baseShift: pattern.baseShift || fallback.baseShift || '',
+        notes: pattern.notes || fallback.notes || '',
+        cycleDays: Array.isArray(pattern.cycleDays) && pattern.cycleDays.length ? pattern.cycleDays : fallback.cycleDays
+      };
+    });
     next.employeePatterns = Array.isArray(next.employeePatterns) ? next.employeePatterns : [];
     next.scheduleEvents = Array.isArray(next.scheduleEvents) ? next.scheduleEvents : [];
     next.benefitLedger = Array.isArray(next.benefitLedger) ? next.benefitLedger : [];
@@ -211,6 +265,25 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
     return Number(parts[0] || 0) * 60 + Number(parts[1] || 0);
   }
 
+  function orderedDays() {
+    var agency = state.agencyProfile || defaultAgencyProfile();
+    var start = agency.workWeekStartsOn || 'Sunday';
+    var index = baseDays.indexOf(start);
+    if (index < 0) index = 0;
+    return baseDays.slice(index).concat(baseDays.slice(0, index));
+  }
+
+  function shouldUse24Hour() {
+    var agency = state.agencyProfile || defaultAgencyProfile();
+    return String(agency.timeFormat || '').toLowerCase().indexOf('24') !== -1;
+  }
+
+  function displayTime(time) {
+    if (!time) return '';
+    if (shouldUse24Hour()) return String(time).replace(':', '');
+    return formatTime(time);
+  }
+
   function shiftHours(shift) {
     var start = minutesFromTime(shift.start);
     var end = minutesFromTime(shift.end);
@@ -219,11 +292,12 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
   }
 
   function shiftLabel(shift) {
-    return shift.name + ' · ' + formatTime(shift.start) + '–' + formatTime(shift.end);
+    return shift.name + ' · ' + displayTime(shift.start) + '–' + displayTime(shift.end);
   }
 
   function assignmentSort(a, b) {
-    var dayDiff = days.indexOf(a.day) - days.indexOf(b.day);
+    var ordered = orderedDays();
+    var dayDiff = ordered.indexOf(a.day) - ordered.indexOf(b.day);
     if (dayDiff) return dayDiff;
     var shiftA = findShift(a.shiftId);
     var shiftB = findShift(b.shiftId);
@@ -240,7 +314,7 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.4.0 Employees';
+    if (label) label.textContent = 'v0.5.0 Patterns';
   }
 
   function syncRuleInputs() {
@@ -362,7 +436,7 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
     var cards = [
       ['Agency Profile', agency.name, agency.industryType + ' · ' + agency.timeFormat + ' · week starts ' + agency.workWeekStartsOn],
       ['Rule Profile', rule.name, rule.coverage],
-      ['Pattern Object', pattern.name, pattern.sequence.join(' / ') + ' · ' + pattern.shiftStart + '-' + pattern.shiftEnd],
+      ['Pattern Object', pattern.name, (pattern.cycleLength || 0) + ' day cycle · ' + (pattern.baseShift || 'custom shift') + ' · ' + ((pattern.cycleDays || []).filter(function (day) { return day.shiftType === 'short'; }).length) + ' short day(s)'],
       ['Schedule Event', eventSample.type + ' · ' + eventSample.status, eventSample.start + ' to ' + eventSample.end],
       ['Benefit Ledger', benefitSample.benefitType + ' ' + benefitSample.amount, benefitSample.reason]
     ];
@@ -371,10 +445,41 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
     }).join('');
   }
 
+  function patternDayLabel(day) {
+    if (!day || day.dayType === 'off') return 'Off';
+    return displayTime(day.start) + '-' + displayTime(day.end) + ' · ' + Math.round(Number(day.paidMinutes || 0) / 60 * 100) / 100 + ' paid hrs';
+  }
+
+  function renderPatternFoundation() {
+    var target = $('#patternFoundationPreview');
+    if (!target) return;
+    target.innerHTML = state.patterns.map(function (pattern) {
+      var workDays = (pattern.cycleDays || []).filter(function (day) { return day.dayType === 'work'; }).length;
+      var shortDays = (pattern.cycleDays || []).filter(function (day) { return day.shiftType === 'short'; }).length;
+      return '<article class="pattern-card"><span>Pattern Template</span><strong>' + escapeHtml(pattern.name) + '</strong><p>' + escapeHtml(pattern.description || pattern.notes || '') + '</p><small>Cycle: ' + escapeHtml(pattern.cycleLength) + ' days · Work days: ' + workDays + ' · Short days: ' + shortDays + ' · Base shift: ' + escapeHtml(pattern.baseShift || 'custom') + '</small></article>';
+    }).join('');
+  }
+
+  function renderPatternCyclePreview() {
+    var target = $('#patternCyclePreview');
+    if (!target) return;
+    var pattern = state.patterns.find(function (item) { return item.id === 'pattern-b-nights'; }) || state.patterns[0];
+    if (!pattern) {
+      target.innerHTML = '<div class="signal-empty-state"><strong>No patterns yet</strong><span>Pattern cycle previews will appear here.</span></div>';
+      return;
+    }
+    target.innerHTML = '<div class="pattern-cycle-heading"><strong>' + escapeHtml(pattern.name) + '</strong><span>' + escapeHtml(pattern.description || '') + '</span></div>' +
+      '<div class="pattern-cycle-grid">' + (pattern.cycleDays || []).map(function (day) {
+        var className = day.dayType === 'off' ? ' is-off' : (day.shiftType === 'short' ? ' is-short' : '');
+        return '<article class="pattern-day' + className + '"><span>Day ' + escapeHtml(day.cycleDay) + '</span><strong>' + escapeHtml(day.shiftType || day.dayType) + '</strong><p>' + escapeHtml(patternDayLabel(day)) + '</p><small>' + escapeHtml(day.breakRule || 'No shift') + '</small></article>';
+      }).join('') + '</div>';
+  }
+
   function renderSelects() {
     var daySelect = $('#assignmentDay');
     var shiftSelect = $('#assignmentShift');
     var employeeSelect = $('#assignmentEmployee');
+    days = orderedDays();
     daySelect.innerHTML = days.map(function (day) { return '<option value="' + day + '">' + day + '</option>'; }).join('');
     shiftSelect.innerHTML = state.shifts.length ? state.shifts.map(function (shift) {
       return '<option value="' + shift.id + '">' + escapeHtml(shiftLabel(shift)) + '</option>';
@@ -392,7 +497,7 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
       return '<span class="schedule-pill"><strong>' + escapeHtml(employee.name) + '</strong><small>' + escapeHtml(employee.role + exceptionText) + '</small><button class="icon-button" type="button" data-remove-employee="' + employee.id + '" aria-label="Remove ' + escapeHtml(employee.name) + '">×</button></span>';
     }).join('') : '<div class="signal-empty-state"><strong>No people yet</strong><span>Add employees to start testing schedule logic.</span></div>';
     shiftList.innerHTML = state.shifts.length ? state.shifts.map(function (shift) {
-      return '<span class="schedule-pill"><strong>' + escapeHtml(shift.name) + '</strong><small>' + formatTime(shift.start) + '–' + formatTime(shift.end) + ' · need ' + shift.minStaff + '</small><button class="icon-button" type="button" data-remove-shift="' + shift.id + '" aria-label="Remove ' + escapeHtml(shift.name) + '">×</button></span>';
+      return '<span class="schedule-pill"><strong>' + escapeHtml(shift.name) + '</strong><small>' + displayTime(shift.start) + '–' + displayTime(shift.end) + ' · need ' + shift.minStaff + '</small><button class="icon-button" type="button" data-remove-shift="' + shift.id + '" aria-label="Remove ' + escapeHtml(shift.name) + '">×</button></span>';
     }).join('') : '<div class="signal-empty-state"><strong>No shifts yet</strong><span>Add shift blocks like Days, Evenings, or Nights.</span></div>';
   }
 
@@ -496,9 +601,9 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.4.0');
+    lines.push('Version: v0.5.0');
     lines.push('');
-    lines.push('Core model: Agency Profile + Employee Profiles + Rules + Patterns + Events + Coverage + Explanations');
+    lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Pattern Days + Rules + Events + Coverage + Explanations');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);
@@ -512,6 +617,12 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
     lines.push('- Schedule events: ' + state.scheduleEvents.length);
     lines.push('- Benefit ledger entries: ' + state.benefitLedger.length);
     lines.push('- Coverage requirements: ' + state.coverageRequirements.length);
+    lines.push('');
+    lines.push('Pattern Templates:');
+    state.patterns.forEach(function (pattern) {
+      var shortDays = (pattern.cycleDays || []).filter(function (day) { return day.shiftType === 'short'; }).length;
+      lines.push('- ' + pattern.name + ': ' + pattern.cycleLength + ' day cycle, ' + shortDays + ' short day' + (shortDays === 1 ? '' : 's') + ', base shift ' + (pattern.baseShift || 'custom'));
+    });
     lines.push('');
     lines.push('Employees:');
     if (state.employees.length) {
@@ -535,7 +646,7 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
         var employee = findEmployee(assignment.employeeId);
         var shift = findShift(assignment.shiftId);
         if (!employee || !shift) return;
-        lines.push('  - ' + shift.name + ' (' + formatTime(shift.start) + '-' + formatTime(shift.end) + '): ' + employee.name + ' [' + employee.role + ']');
+        lines.push('  - ' + shift.name + ' (' + displayTime(shift.start) + '-' + displayTime(shift.end) + '): ' + employee.name + ' [' + employee.role + ']');
       });
     });
     lines.push('');
@@ -543,9 +654,9 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.4 Notes:');
+    lines.push('v0.5 Notes:');
     lines.push('- This is still local mock data, not a backend.');
-    lines.push('- Employee profiles are sample objects, not editable database records yet.');
+    lines.push('- Pattern templates and cycle days are sample objects, not editable database records yet.');
     lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, and coverage are mapped.');
     lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides.');
     return lines.join('\n');
@@ -563,7 +674,7 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
     var cells = [];
     for (var date = 1; date <= last.getDate(); date += 1) {
       var current = new Date(year, month, date);
-      var dayName = days[(current.getDay() + 6) % 7];
+      var dayName = baseDays[current.getDay()];
       var count = state.assignments.filter(function (assignment) { return assignment.day === dayName; }).length;
       cells.push('<div class="month-cell"><strong>' + date + '</strong><span>' + dayName.slice(0, 3) + '</span><small>' + count + ' weekly assignment' + (count === 1 ? '' : 's') + '</small></div>');
     }
@@ -576,6 +687,8 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
     renderEngineBlueprint();
     renderAgencyProfile();
     renderEmployeeProfiles();
+    renderPatternFoundation();
+    renderPatternCyclePreview();
     renderCoverageRequirementPreview();
     renderDataModelPreview();
     renderSelects();
@@ -633,9 +746,9 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
   function loadSample() {
     state = normalizeState({
       employees: [
-        { id: 'emp-alex', name: 'Alex Rivera', employeeCode: 'E-1001', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2021-03-15', seniorityDate: '2021-03-15', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: '2-2-3 Nights Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6, holiday: 12 } },
+        { id: 'emp-alex', name: 'Alex Rivera', employeeCode: 'E-1001', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2021-03-15', seniorityDate: '2021-03-15', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: 'B Nights Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 84, sick: 48, personal: 24, comp: 6, holiday: 12 } },
         { id: 'emp-jordan', name: 'Jordan Smith', employeeCode: 'E-1002', role: 'Supervisor', position: 'Shift Supervisor', status: 'active', hireDate: '2017-08-01', seniorityDate: '2017-08-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'A Days', assignedPattern: '2-2-3 Days Sample', overtimeEligible: true, mandateEligible: true, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: [], qualifications: ['Radio', 'Supervisor', 'Trainer'], benefitBalances: { vacation: 120, sick: 80, personal: 16, comp: 0, holiday: 24 } },
-        { id: 'emp-taylor', name: 'Taylor Morgan', employeeCode: 'E-1003', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2020-02-10', seniorityDate: '2020-02-10', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: '2-2-3 Nights Sample', overtimeEligible: true, mandateEligible: false, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: ['FMLA'], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 40, sick: 96, personal: 8, comp: 0, holiday: 8 } },
+        { id: 'emp-taylor', name: 'Taylor Morgan', employeeCode: 'E-1003', role: 'Dispatcher', position: 'Dispatcher', status: 'active', hireDate: '2020-02-10', seniorityDate: '2020-02-10', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'B Nights', assignedPattern: 'B Nights Sample', overtimeEligible: true, mandateEligible: false, tradeEligible: true, shiftBidEligible: true, vacationBidEligible: true, benefitEligible: true, exceptions: ['FMLA'], qualifications: ['Calltaking', 'Radio'], benefitBalances: { vacation: 40, sick: 96, personal: 8, comp: 0, holiday: 8 } },
         { id: 'emp-casey', name: 'Casey Lee', employeeCode: 'PT-204', role: 'Part-Time', position: 'Dispatcher', status: 'part-time', hireDate: '2024-11-01', seniorityDate: '2024-11-01', department: 'Communications', division: 'Operations', location: 'Main Center', shiftGroup: 'Float', assignedPattern: 'No fixed pattern', overtimeEligible: false, mandateEligible: false, tradeEligible: true, shiftBidEligible: false, vacationBidEligible: false, benefitEligible: false, exceptions: ['Part-time', 'No mandation'], qualifications: ['Calltaking'], benefitBalances: { vacation: 12, sick: 16, personal: 0, comp: 0, holiday: 0 } }
       ],
       shifts: [
@@ -655,7 +768,7 @@ Purpose: Employee Profile Foundation sandbox for agency-aware people, eligibilit
       ruleProfiles: defaultRuleProfiles(),
       patterns: defaultPatterns(),
       employeePatterns: [
-        { employeeId: 'emp-alex', patternId: 'pattern-2-2-3-days', startDate: '2026-06-01' },
+        { employeeId: 'emp-alex', patternId: 'pattern-b-nights', startDate: '2026-06-01' },
         { employeeId: 'emp-jordan', patternId: 'pattern-2-2-3-days', startDate: '2026-06-01' }
       ],
       scheduleEvents: [

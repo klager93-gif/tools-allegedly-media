@@ -307,3 +307,16 @@ Examples:
 - Fatigue rules should evaluate scheduled events and employee assignment history.
 
 Employee profiles should use agency-defined vocabulary from the Agency Profile Foundation. Titles, departments, qualifications, benefit types, and exception types should be configurable values, not hard-coded public safety assumptions.
+
+
+## v0.5.0 Pattern Rules
+
+Pattern rules should derive from agency profile and pattern facts.
+
+Key principles:
+
+- Week display order comes from agency profile work_week_starts_on.
+- Time display comes from agency profile time format.
+- Paid hours come from paid minutes and break rules, not start/end assumptions.
+- Short days can be cycle-based and should not be assumed to occur on a fixed weekday.
+- Patterns describe normal expectations; future events explain deviations.

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.4.0
+Version: v0.5.0
 Purpose: Logic-first schedule sandbox with text output and rule warnings
 -->
 <!DOCTYPE html>
@@ -15,17 +15,17 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.4.0">
+<link rel="stylesheet" href="style.css?v=0.5.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.4.0"
-  data-signal-theme="Employee Profile Foundation"
+  data-signal-version="v0.5.0"
+  data-signal-theme="Pattern Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Define rule-aware employee profiles that use agency-defined vocabulary, eligibility, exceptions, qualifications, and benefit snapshots."
-  data-signal-status-text="Signal Schedule v0.4.0 adds the Employee Profile Foundation: rule-aware people profiles connected to agency vocabulary, eligibility, exceptions, qualifications, and benefit snapshots."
+  data-signal-description="Define pattern templates, cycle days, short days, paid minutes, break rules, and week-start display behavior before schedule generation is added."
+  data-signal-status-text="Signal Schedule v0.5.0 adds the Pattern Foundation: agency-aware pattern templates, cycle days, short days, paid minutes, break rules, and week-start display behavior."
 >
 <div id="sl-header"></div>
 
@@ -34,11 +34,11 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
     <div>
       <p class="schedule-kicker">Signal Labs Tool</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Define the agency/company profile first so future employee profiles, patterns, events, benefits, coverage, and rules use agency-defined vocabulary instead of hard-coded assumptions.</p>
+      <p class="schedule-subtitle">Define agency-aware pattern templates so future schedules can be generated from people, patterns, cycle days, events, coverage, and rules instead of hard-coded calendar text.</p>
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.4.0 Employees</strong>
+      <strong id="currentWeekLabel">v0.5.0 Patterns</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.4.0 is still browser-only. This release adds the Employee Profile Foundation so people can be modeled as rule-aware objects with identity, agency assignment, eligibility, exceptions, qualifications, and benefit snapshots before database persistence is added.</p>
+      <p>Signal Schedule v0.5.0 is still browser-only. This release adds the Pattern Foundation so rotations can be modeled as cycle-based objects with normal days, short days, paid minutes, break rules, and agency week-start display before database persistence or schedule generation is added.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v0.4 keeps the agency foundation and adds employee profiles as the first major rule-aware object in the system.</p>
+        <p>v0.5 keeps the agency and employee foundations and adds pattern templates as the first model for where people should normally be.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -84,6 +84,27 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
       <aside id="employeeProfileDetail" class="employee-profile-detail" aria-live="polite"></aside>
     </div>
   </section>
+
+  <section class="schedule-card pattern-foundation-card" aria-labelledby="patternFoundationTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="patternFoundationTitle">Pattern Foundation</h2>
+        <p>Patterns describe repeating work/off cycles, normal shifts, short days, short weeks, paid minutes, and break rules before final schedule generation exists.</p>
+      </div>
+    </div>
+    <div id="patternFoundationPreview" class="pattern-foundation-grid"></div>
+  </section>
+
+  <section class="schedule-card pattern-cycle-card" aria-labelledby="patternCycleTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="patternCycleTitle">Pattern Cycle Preview</h2>
+        <p>Short days are modeled by cycle position, not hard-coded weekdays. The display order also follows the agency profile week-start setting.</p>
+      </div>
+    </div>
+    <div id="patternCyclePreview" class="pattern-cycle-preview"></div>
+  </section>
+
 
   <section class="schedule-card" aria-labelledby="coverageRulesTitle">
     <div class="schedule-card-heading">
@@ -240,6 +261,6 @@ Purpose: Logic-first schedule sandbox with text output and rule warnings
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.4.0"></script>
+<script src="script.js?v=0.5.0"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 ## Status
 
-Planning document for the future PHP/database version. Signal Schedule v0.4.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
+Planning document for the future PHP/database version. Signal Schedule v0.5.0 remains local-first and does not create database tables yet, but the sandbox now mirrors the future core engine objects.
 
 ## Core Rule
 
@@ -954,3 +954,41 @@ employee_qualifications
 ```
 
 Benefit balances should not become silent overwritten columns. They should be calculated from future benefit ledger entries. v0.4 may show snapshots for planning, but the ledger remains the planned source of truth.
+
+
+## v0.5.0 Pattern Foundation Tables
+
+v0.5.0 adds planning for pattern objects, but does not create database tables yet.
+
+Future tables should likely include:
+
+```text
+patterns
+- id
+- agency_id
+- name
+- description
+- cycle_length
+- base_shift_id nullable
+- active
+
+pattern_days
+- id
+- pattern_id
+- cycle_day_number
+- day_type work/off/custom
+- shift_type normal/short/kelly/training/custom
+- start_time nullable
+- end_time nullable
+- paid_minutes
+- break_rule_id nullable
+
+employee_patterns
+- id
+- employee_id
+- pattern_id
+- effective_start_date
+- effective_end_date nullable
+```
+
+Pattern days should store facts, not assumptions. A short day should be stored as a cycle-day fact with its own start time, end time, paid minutes, and break rule.

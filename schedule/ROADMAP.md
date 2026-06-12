@@ -2,7 +2,7 @@
 
 ## Current Version
 
-v0.4.0 — Employee Profile Foundation.
+v0.5.0 — Pattern Foundation.
 
 ## Development Rule: Rule 23 — Version Consistency
 
@@ -259,3 +259,26 @@ Not included:
 - No employee CRUD.
 - No automated schedule generation.
 
+
+
+## v0.5.0 — Pattern Foundation
+
+Goal: define repeating schedule patterns before event overlays and schedule generation.
+
+Planned/added concepts:
+
+- Pattern templates.
+- Pattern cycle days.
+- Work, off, normal, short, and custom shift types.
+- Cycle-based short days and short weeks.
+- Paid minutes and unpaid break rules.
+- Agency week-start display behavior.
+- Employee assigned-pattern preview.
+
+Still not included:
+
+- Pattern CRUD.
+- Database persistence.
+- Automatic schedule generation.
+- Drag/drop assignment.
+- Time-off or overtime event overlays.

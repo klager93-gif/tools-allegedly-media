@@ -20,4 +20,4 @@ Signal Labs is being maintained as a small software suite. Shared assets, naviga
 
 ## Current Schedule Planning
 
-**Signal Schedule v0.4.0 — Employee Profile Foundation** adds rule-aware employee profile planning using agency-defined vocabulary, eligibility, exceptions, qualifications, and benefit snapshots.
+**Signal Schedule v0.5.0 — Pattern Foundation** adds agency-aware pattern templates, cycle days, short days, paid minutes, break rules, and week-start display behavior.

@@ -1,3 +1,15 @@
+## v0.5.0 — Pattern Foundation
+
+- Added visible Pattern Foundation panels.
+- Added pattern template previews for B Nights, 2-2-3 Days, and Office 8s with unpaid break.
+- Added pattern cycle-day preview with normal work days, off days, and short days.
+- Added cycle-based short day planning so short days are not hard-coded to fixed weekdays.
+- Added paid minutes and break-rule planning to pattern days.
+- Updated week display behavior to respect the Agency Profile work-week start setting.
+- Updated Schedule version references to v0.5.0.
+- Updated Schedule roadmap, database plan, rule-engine notes, README, HOWTO, root roadmap, root README, master changelog, and build manifests.
+- No database storage, pattern CRUD, final schedule generation, event overlays, login, or admin save workflow was added.
+
 # Signal Schedule Changelog
 
 ## v0.4.0 — Employee Profile Foundation
