@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.2.1
-Purpose: Worker Folder Repair with static JSON adapter, API adapter contract, and backend portability
+Version: v1.3.0
+Purpose: D1 Database Foundation with static JSON adapter, API adapter contract, and backend portability
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.2.1';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v1.3.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -210,7 +210,7 @@ Purpose: Worker Folder Repair with static JSON adapter, API adapter contract, an
   }
 
   /*
-  v1.2 Worker Folder Repair
+  v1.2 D1 Database Foundation
   --------------------------------
   Rule 24 requires backend portability. The UI should not care whether data
   comes from static JSON, Cloudflare Worker APIs, D1, MySQL, Postgres, or another backend.
@@ -236,9 +236,21 @@ Purpose: Worker Folder Repair with static JSON adapter, API adapter contract, an
     responseShape: {
       ok: true,
       data: [],
-      meta: { source: 'worker-api', version: 'v1.2.1' },
+      meta: { source: 'worker-api', version: 'v1.3.0' },
       errors: []
     }
+  };
+
+
+
+  var SignalScheduleD1Adapter = {
+    sourceName: 'cloudflare-d1-planned',
+    status: 'schema-ready-not-active',
+    bindingName: 'DB',
+    schemaFiles: ['schedule/d1/schema.sql', 'schedule/d1/seed.sql'],
+    tables: ['agencies', 'employees', 'audit_logs'],
+    mode: 'read-only-foundation',
+    notes: 'D1 is the first planned backend adapter. The active app still uses SignalScheduleJsonAdapter until the Worker/D1 deployment is intentionally enabled.'
   };
 
   function createAgencyRepository(adapter) {
@@ -1341,7 +1353,7 @@ Purpose: Worker Folder Repair with static JSON adapter, API adapter contract, an
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.2.1 Worker Folder Repair';
+    if (label) label.textContent = 'v1.3.0 D1 Database Foundation';
   }
 
   function syncRuleInputs() {
@@ -2058,7 +2070,7 @@ Purpose: Worker Folder Repair with static JSON adapter, API adapter contract, an
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — GOAL MODE FOUNDATION');
-    lines.push('Version: v1.2.1');
+    lines.push('Version: v1.3.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2145,7 +2157,7 @@ Purpose: Worker Folder Repair with static JSON adapter, API adapter contract, an
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v1.2.1 Notes:');
+    lines.push('v1.3.0 Notes:');
     lines.push('- Adds database planning bridge before v1.0.');
     lines.push('- Removes dashboard-style foundation preview panels for analytics, notifications, and goal mode.');
     lines.push('- Confirms engines, entities, rules, explanations, audit records, notifications, goals, and agency profiles are ready to map into database tables.');

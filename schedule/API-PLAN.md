@@ -1,6 +1,10 @@
+## v1.3.0 D1 API Direction
+
+Worker/Pages Function endpoints should eventually read from the D1 adapter using the repository/service boundary. The active app remains JSON-backed until the D1 deployment is intentionally enabled.
+
 # Signal Schedule API Plan
 
-## v1.2.1 Worker Folder Repair
+## v1.3.0 D1 Database Foundation
 
 Planned initial endpoint shapes remain:
 
@@ -46,7 +50,7 @@ All API responses should use:
 
 ## Not active yet
 
-D1, authentication, writes, approvals, and CRUD are not active in v1.2.1.
+D1, authentication, writes, approvals, and CRUD are not active in v1.3.0.
 
 ## Rule 25
 

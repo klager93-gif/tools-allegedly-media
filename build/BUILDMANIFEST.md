@@ -1,18 +1,19 @@
 # Build Manifest
 
-Version: v1.2.1
-Release: Signal Schedule v1.2.1 — Worker Folder Repair
-Source: signal-labs-v1.2.0-worker-api-foundation.zip
-Output: signal-labs-v1.2.1-worker-folder-repair.zip
+Version: v1.3.0
+Release: Signal Schedule v1.3.0 — D1 Database Foundation
+Source: signal-labs-v1.2.1-worker-folder-repair.zip
+Output: signal-labs-v1.3.0-d1-database-foundation.zip
 
-Validation:
+## Validation
 
 - JavaScript syntax checked.
 - Schedule API mock JavaScript syntax checked.
 - Render registry validation passed.
-- Every safeRender callback resolves to a defined function.
-- Root-level /functions folder removed from release package.
-- Schedule-owned API mock files placed under /schedule/api/mock-functions/.
-- Rule 25 documented.
-- No live D1, credentials, CRUD, auth, live writes, or new dashboard preview panels added.
-- ZIP integrity checked after packaging.
+- Every safeRender callback resolves to a defined registered function.
+- Static JSON data files validated.
+- Employee agencyId references validated.
+- D1 schema and seed files added under /schedule/d1.
+- No root /functions folder added.
+- No live D1 binding, credentials, CRUD, authentication, or live writes added.
+- ZIP integrity checked.

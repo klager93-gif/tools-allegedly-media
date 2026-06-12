@@ -1,4 +1,4 @@
-# Signal Schedule v1.2.1 — Worker Folder Repair
+# Signal Schedule v1.3.0 — D1 Database Foundation
 
 Repairs the v1.2.0 Worker API planning folder placement.
 

@@ -1,4 +1,4 @@
-# Signal Schedule v1.2.1 — Worker Folder Repair
+# Signal Schedule v1.3.0 — D1 Database Foundation
 
 Signal Labs is a multi-tool repository. Schedule-specific backend planning must stay inside `/schedule/` unless explicitly shared by multiple tools.
 

@@ -1,4 +1,8 @@
-## v1.2.1 HOWTO — Worker Folder Repair
+## v1.3.0 HOWTO — D1 Database Foundation
+
+The Schedule tool still runs from static JSON. The new `/schedule/d1` files are planning/building blocks for the future Cloudflare D1 backend. Do not add live secrets or credentials to the repo.
+
+## v1.3.0 HOWTO — D1 Database Foundation
 
 Signal Schedule still runs as a static browser app. Use the multi-agency demo data exactly as before.
 

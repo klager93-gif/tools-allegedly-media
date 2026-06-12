@@ -1,4 +1,4 @@
-# Signal Schedule v1.2.1 — Worker Folder Repair
+# Signal Schedule v1.3.0 — D1 Database Foundation
 
 Adds the Cloudflare Worker / Pages Function API foundation while keeping the main app static and backend-portable.
 

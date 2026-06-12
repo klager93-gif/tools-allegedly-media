@@ -1,3 +1,7 @@
+## v1.3.0 D1 Foundation
+
+Cloudflare D1 is the first planned persistent database for Signal Schedule. D1 is introduced as an adapter target only; the live app still uses static JSON.
+
 # Signal Schedule v1.0.0 — Cloudflare Data Layer Foundation
 
 Signal Schedule is Cloudflare-native first: Pages now, JSON data layer now, Workers/Pages Functions next, and D1 later.

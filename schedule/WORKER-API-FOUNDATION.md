@@ -1,8 +1,8 @@
-# Signal Schedule v1.2.1 — Worker Folder Repair
+# Signal Schedule v1.3.0 — D1 Database Foundation
 
 ## Purpose
 
-v1.2.1 defines the Cloudflare Pages Functions / Worker API shape without connecting D1, credentials, authentication, CRUD, approvals, or live writes.
+v1.3.0 defines the Cloudflare Pages Functions / Worker API shape without connecting D1, credentials, authentication, CRUD, approvals, or live writes.
 
 The active app still reads browser-safe sample records through the JSON adapter.
 
@@ -22,7 +22,7 @@ GET /schedule/api/employees
   "data": [],
   "meta": {
     "source": "worker-api",
-    "version": "v1.2.1"
+    "version": "v1.3.0"
   },
   "errors": []
 }
@@ -36,7 +36,7 @@ GET /schedule/api/employees
   "data": null,
   "meta": {
     "source": "worker-api",
-    "version": "v1.2.1"
+    "version": "v1.3.0"
   },
   "errors": [
     {

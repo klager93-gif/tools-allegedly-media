@@ -1,4 +1,8 @@
-## v1.2.1 — Worker Folder Repair
+## v1.3.0 — D1 Database Foundation
+
+Signal Schedule now includes the first planned Cloudflare D1 foundation: schema, seed data, audit-log table planning, and a D1 adapter contract. The active app still uses static JSON and remains browser-only.
+
+## v1.3.0 — D1 Database Foundation
 
 Signal Schedule keeps the future API plan, but Schedule-owned mock API files now live inside the Schedule tool instead of the repository root.
 

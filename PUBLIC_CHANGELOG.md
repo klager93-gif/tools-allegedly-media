@@ -1,4 +1,8 @@
-## Signal Schedule v1.2.1 — Worker Folder Repair
+## Signal Schedule v1.3.0 — D1 Database Foundation
+
+Adds first D1 schema and seed planning files while keeping the live app static/read-only.
+
+## Signal Schedule v1.3.0 — D1 Database Foundation
 
 - Removed root-level `/functions/` from the release package.
 - Moved Schedule API mock planning files into `/schedule/api/mock-functions/`.
@@ -18,6 +22,6 @@ No live database, login system, CRUD, or server-side code is included yet.
 
 Adds repository and adapter boundaries around the static multi-agency JSON data layer.
 
-## Signal Schedule v1.2.1 — Worker Folder Repair
+## Signal Schedule v1.3.0 — D1 Database Foundation
 
 Adds the planned Cloudflare Worker / Pages Function API shape while keeping the active app static and backend-portable. No D1, credentials, CRUD, authentication, or live writes added.

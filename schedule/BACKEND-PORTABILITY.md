@@ -1,3 +1,7 @@
+## v1.3.0 Portability Check
+
+The D1 schema must remain behind adapter boundaries. Do not place D1-specific behavior in UI or business logic.
+
 # Backend Portability — Rule 24
 
 ## Rule 24
