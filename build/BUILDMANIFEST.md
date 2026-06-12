@@ -1,27 +1,15 @@
-# Build Manifest — Signal Schedule v0.19.1 Pre-Database Safety Audit
+# Build Manifest — Signal Labs v0.99.0 Database Planning
 
-- Source ZIP: `signal-labs.zip`
-- New ZIP: `signal-labs-v0.19.1-pre-database-safety-audit.zip`
-- Release type: safety audit / pre-database readiness / source cleanup
-- Build date: 2026-06-12
-
-## Build notes
-
-- Audited the user-supplied live/local source tree.
-- Updated Schedule version references to v0.19.1.
-- Added pre-database safety audit documentation.
-- Added `/schedule/` deprecation audit documentation.
-- Added PHP/MySQL starter planning documentation.
-- Excluded macOS metadata files and `.git/` internals from the release package.
-- Added no new dashboard preview panels.
-- Added no new render registry entries.
+Build: Signal Schedule v0.99.0 — Database Planning
+Source: signal-labs-v0.19.1-pre-database-safety-audit.zip
+Generated: 2026-06-12 07:12:36 UTC
 
 ## Validation
 
-- JavaScript syntax checked with `node --check schedule/script.js`.
+- JavaScript syntax checked.
 - Render registry validation passed.
-- Every registered renderer resolves to a defined function.
-- Every safeRender string callback resolves to a registered function.
-- Every safeRender string callback resolves to a defined function.
-- Confirmed no AppleDouble `._*` files or `__MACOSX/` metadata in the package tree.
-- ZIP integrity checked after packaging.
+- Every safeRender callback resolves to a defined function.
+- No new dashboard preview panels added.
+- No live PHP/MySQL credentials or connection code added.
+- macOS metadata and .git internals excluded from package.
+

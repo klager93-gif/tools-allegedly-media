@@ -1,78 +1,82 @@
-# File Manifest — Signal Schedule v0.19.1 Pre-Database Safety Audit
+# File Manifest — Signal Labs v0.99.0 Database Planning
 
-Generated for release package `signal-labs-v0.19.1-pre-database-safety-audit.zip`.
-
-.gitattributes
-.gitignore
-ADMIN_CHANGELOG.md
-HOWTO.md
-MASTER-CHANGELOG.md
-MASTER-ROADMAP.md
-PUBLIC_CHANGELOG.md
-README.md
-ROADMAP.md
-about/index.html
-assets/components/footer.js
-assets/components/header.js
-assets/global.css
-assets/global.js
-assets/icons/apple-touch-icon.png
-assets/icons/favicon.ico
-assets/icons/favicon.svg
-assets/icons/site.webmanifest
-build/BUILDMANIFEST.md
-build/FILEMANIFEST.md
-build/SHA256SUMS.txt
-changelog/index.html
-contact/index.html
-docs/BACKUP.md
-docs/RESTORE.md
-how-to/index.html
-index.html
-overtime/BUILDMANIFEST.md
-overtime/FILEMANIFEST.md
-overtime/HOWTO.md
-overtime/README.md
-overtime/ROADMAP.md
-overtime/index.html
-overtime/script.js
-overtime/style.css
-pay-planner/index.html
-paycheck/index.html
-privacy/index.html
-report-issue/index.html
-request-feature/index.html
-roadmap/index.html
-schedule/ARCHITECTURE-AUDIT.md
-schedule/CHANGELOG.md
-schedule/DATABASE-PLAN.md
-schedule/DEPRECATION-AUDIT.md
-schedule/ENTITY-MAP.md
-schedule/HOWTO.md
-schedule/PHP-MYSQL-STARTER.md
-schedule/PRE-DATABASE-SAFETY-AUDIT.md
-schedule/README.md
-schedule/ROADMAP.md
-schedule/RULE-ENGINE.md
-schedule/V1-READINESS.md
-schedule/index.html
-schedule/script.js
-schedule/style.css
-standards/COMPONENT_STANDARDS.md
-standards/DEVELOPMENT_STANDARDS.md
-standards/DOCUMENTATION_STANDARDS.md
-standards/RELEASE_STANDARDS.md
-standards/REPOSITORY_STANDARDS.md
-standards/STANDARDS.md
-standards/UX_STANDARDS.md
-standards/WORKFLOW_STANDARDS.md
-status/index.html
-terms/index.html
-timeoff/BUILDMANIFEST.md
-timeoff/FILEMANIFEST.md
-timeoff/HOWTO.md
-timeoff/README.md
-timeoff/ROADMAP.md
-timeoff/index.html
-timeoff/script.js
-timeoff/style.css
+- `.gitattributes`
+- `.gitignore`
+- `ADMIN_CHANGELOG.md`
+- `HOWTO.md`
+- `MASTER-CHANGELOG.md`
+- `MASTER-ROADMAP.md`
+- `PUBLIC_CHANGELOG.md`
+- `README.md`
+- `ROADMAP.md`
+- `about/index.html`
+- `assets/components/footer.js`
+- `assets/components/header.js`
+- `assets/global.css`
+- `assets/global.js`
+- `assets/icons/apple-touch-icon.png`
+- `assets/icons/favicon.ico`
+- `assets/icons/favicon.svg`
+- `assets/icons/site.webmanifest`
+- `build/BUILDMANIFEST.md`
+- `build/SHA256SUMS.txt`
+- `changelog/index.html`
+- `contact/index.html`
+- `docs/BACKUP.md`
+- `docs/RESTORE.md`
+- `how-to/index.html`
+- `index.html`
+- `overtime/BUILDMANIFEST.md`
+- `overtime/FILEMANIFEST.md`
+- `overtime/HOWTO.md`
+- `overtime/README.md`
+- `overtime/ROADMAP.md`
+- `overtime/index.html`
+- `overtime/script.js`
+- `overtime/style.css`
+- `pay-planner/index.html`
+- `paycheck/index.html`
+- `privacy/index.html`
+- `report-issue/index.html`
+- `request-feature/index.html`
+- `roadmap/index.html`
+- `schedule/API-PLAN.md`
+- `schedule/ARCHITECTURE-AUDIT.md`
+- `schedule/AUDIT-LOGGING-PLAN.md`
+- `schedule/CHANGELOG.md`
+- `schedule/DATABASE-PLAN.md`
+- `schedule/DATABASE-PLANNING.md`
+- `schedule/DEPRECATION-AUDIT.md`
+- `schedule/ENTITY-MAP.md`
+- `schedule/HOWTO.md`
+- `schedule/MIGRATION-PLAN.md`
+- `schedule/PHP-MYSQL-STARTER.md`
+- `schedule/PRE-DATABASE-SAFETY-AUDIT.md`
+- `schedule/README.md`
+- `schedule/RELEASE-v0.99.0.md`
+- `schedule/ROADMAP.md`
+- `schedule/RULE-ENGINE.md`
+- `schedule/SECURITY-PLAN.md`
+- `schedule/TABLE-PLAN.md`
+- `schedule/V1-READINESS.md`
+- `schedule/index.html`
+- `schedule/script.js`
+- `schedule/style.css`
+- `standards/COMPONENT_STANDARDS.md`
+- `standards/DEVELOPMENT_STANDARDS.md`
+- `standards/DOCUMENTATION_STANDARDS.md`
+- `standards/RELEASE_STANDARDS.md`
+- `standards/REPOSITORY_STANDARDS.md`
+- `standards/STANDARDS.md`
+- `standards/UX_STANDARDS.md`
+- `standards/WORKFLOW_STANDARDS.md`
+- `status/index.html`
+- `terms/index.html`
+- `timeoff/BUILDMANIFEST.md`
+- `timeoff/FILEMANIFEST.md`
+- `timeoff/HOWTO.md`
+- `timeoff/README.md`
+- `timeoff/ROADMAP.md`
+- `timeoff/index.html`
+- `timeoff/script.js`
+- `timeoff/style.css`

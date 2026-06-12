@@ -1,24 +1,48 @@
-## Current: v0.19.1 — Pre-Database Safety Audit
+## Current: v0.99.0 — Database Planning
 
-This release completes the 0.x architecture audit and prepares Signal Schedule for v1.0 database foundation work.
+This release plans the PHP/MySQL transition without creating live database code.
 
 ## Next
 
 ### v1.0.0 — Database Foundation
 
-Begin persistence and backend structure:
+Minimum target:
 
-- PHP/MySQL foundation
-- Database tables
-- Users and roles
-- CRUD workflows
-- Approval workflows
-- Audit logs
-- Stored agency settings
-- Stored employees, patterns, events, requests, opportunities, awards, goals, notifications, and explanations
+- Private config example.
+- Database connection helper.
+- Initial `schema.sql`.
+- Agencies table.
+- Employees table.
+- Read-only connection test.
+- No production write workflows yet.
 
-## Later
+### v1.1.0 — Agency Admin Foundation
 
-### v1.1+
+- Agency CRUD planning/implementation.
+- Agency settings persistence.
+- Terminology/vocabulary persistence.
 
-Move from architecture into real product workflows: production month views, drag-and-drop planning, dashboards, exports, email/SMS/in-app notifications, and admin management screens.
+### v1.2.0 — Employee Persistence Foundation
+
+- Employee records.
+- Assignment records.
+- Eligibility and operational trait persistence.
+
+### v1.3.0+
+
+- Shift definitions.
+- Schedule events.
+- Requests.
+- Opportunities.
+- Bids and awards.
+- Benefit ledger.
+- Rules and coverage.
+- Notifications.
+- Audit logs.
+
+## Guardrails
+
+- Do not build full CRUD before connection and schema are validated.
+- Do not store secrets in the repository.
+- Do not add preview UI just to explain database concepts.
+- Do not allow live writes before audit logging exists.

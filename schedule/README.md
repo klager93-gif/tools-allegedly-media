@@ -1,39 +1,35 @@
-## v0.19.1 Pre-Database Safety Audit
+## v0.99.0 — Database Planning
 
-Signal Schedule v0.19.1 closes the 0.x architecture phase before v1.0 database foundation work begins.
+Signal Schedule v0.99.0 is the bridge between the architecture phase and the first PHP/MySQL foundation release.
 
-This is an audit release, not a feature UI release. It confirms that the foundations built across v0.1 through v0.18 fit together as one workforce management architecture.
+This release does **not** create live database tables, PHP endpoints, CRUD workflows, authentication, approvals, or production data storage. It defines the database plan before implementation.
 
-### Architecture covered
+## Purpose
 
-- Agency profiles and terminology
-- Employee profiles and operational traits
-- Pattern foundation
-- Event foundation
-- Benefit ledger
-- Rule engine
-- Coverage engine
-- Schedule views
-- Fairness foundation
-- Explainability foundation
-- Mandation foundation
-- Bidding and opportunity foundation
-- Analytics foundation
-- Notifications foundation
-- Goal Mode foundation
-- Multi-agency foundation
+- Translate 0.x concepts into future table families.
+- Define stable IDs before persistence begins.
+- Plan API boundaries before PHP files exist.
+- Define a permissions model before user actions exist.
+- Define audit logging before any live write operations exist.
+- Keep Rule 0 and Rule 23 active while preparing for v1.0.
 
-### Core principle
+## Rule 0
 
-Store facts, not assumptions. Engines should consume stored facts and produce explainable outcomes.
+Store facts, not assumptions. Database tables should persist explicit facts such as agency settings, work week starts, pay periods, eligibility, restrictions, rule sources, and audit reasons.
 
-### v1.0 readiness
+## Rule 23
 
-The next major phase begins persistence: PHP, MySQL, users, roles, CRUD, approvals, and audit logs. v0.19.1 prepares the entity map and relationship map needed before tables are created.
+No new dashboard-style foundation preview panels were added for this planning release. Database planning belongs in documentation until the PHP/MySQL foundation is ready.
 
+## New planning files
 
-## v0.19.1 Safety Audit Additions
+- `DATABASE-PLANNING.md`
+- `TABLE-PLAN.md`
+- `API-PLAN.md`
+- `SECURITY-PLAN.md`
+- `MIGRATION-PLAN.md`
+- `AUDIT-LOGGING-PLAN.md`
 
-- `PRE-DATABASE-SAFETY-AUDIT.md` — pre-v1.0 safety review of the live/local source package.
-- `DEPRECATION-AUDIT.md` — files that may be deprecated or consolidated after v1.0 scaffolding exists.
-- `PHP-MYSQL-STARTER.md` — plain-English starter plan for introducing PHP/MySQL safely.
+## Next
+
+`v1.0.0 — Database Foundation` should begin with schema scaffolding, a private config example, a database connection helper, and read-only tests before any production writes.

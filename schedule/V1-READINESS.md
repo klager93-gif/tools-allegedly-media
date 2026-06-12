@@ -2,23 +2,19 @@
 
 Before building v1.0, confirm:
 
-- Database tables map to stored facts, not assumptions.
-- Agency terminology is data-driven.
-- Employees are separate from user accounts.
-- Requests, opportunities, bids, awards, explanations, and notifications are separate records.
-- Benefit changes are ledger entries.
-- Rule evaluations can be audited later.
-- Overrides require reasons.
-- Every future automated decision can produce an explanation.
-- Render registry validation remains part of every build until the UI is redesigned.
+- Hosting supports PHP 8.x.
+- Hosting supports MySQL or MariaDB.
+- A database can be created outside WordPress.
+- A limited database user can be created.
+- Credentials will not be committed publicly.
+- First schema will include only agencies and employees.
+- First PHP page will be read-only.
+- Audit logging will be planned before write actions.
 
 ## v1.0 minimum target
 
-- PHP/MySQL foundation
-- User and role model
-- Agency settings table
-- Employee table
-- Shift/pattern tables
-- Event/request/opportunity tables
-- Audit log table
-- Basic CRUD skeletons
+- `/schedule/php/config/config.example.php`
+- `/schedule/php/database/connection.php`
+- `/schedule/php/database/schema.sql`
+- `/schedule/php/api/health.php`
+- Optional private read-only test page.

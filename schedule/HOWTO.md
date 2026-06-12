@@ -1,15 +1,20 @@
-## v0.19.1 Pre-Database Safety Audit HOWTO
+## v0.99.0 Database Planning HOWTO
 
-Use this build as the final 0.x architecture reference before database work.
+Use this release as the blueprint for the PHP/MySQL transition.
 
-### How to read the architecture
+## What to review before v1.0
 
-1. Start with `ARCHITECTURE-AUDIT.md`.
-2. Review `ENTITY-MAP.md` for future database objects.
-3. Review `V1-READINESS.md` before creating PHP/MySQL tables.
-4. Keep Rule 0 active: store facts, not assumptions.
-5. Keep Rule 23 active: do not add dashboard preview panels unless the UI itself is the purpose of the release.
+1. `DATABASE-PLANNING.md` for the overall approach.
+2. `TABLE-PLAN.md` for first table families.
+3. `API-PLAN.md` for future PHP endpoint boundaries.
+4. `SECURITY-PLAN.md` before credentials or writes are added.
+5. `MIGRATION-PLAN.md` before moving local browser data into MySQL.
+6. `AUDIT-LOGGING-PLAN.md` before approvals or schedule-changing actions exist.
 
-### What not to do in v0.19
+## What not to do in v0.99
 
-Do not add new feature UI, fake production flows, drag-and-drop, live database calls, or new preview panels. v0.19 is a checkpoint before persistence.
+Do not add PHP credentials, live database connections, CRUD forms, login systems, approval flows, or new dashboard preview panels.
+
+## v1.0 first safe test
+
+The first PHP/MySQL test should be read-only: connect to the database, load one agency row, and display it on a private test page.
