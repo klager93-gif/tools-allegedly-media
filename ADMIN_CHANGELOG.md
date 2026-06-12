@@ -11,3 +11,11 @@
 - Preserved `schedule/index.html` as the foundation/admin overview.
 - Added read-only calendar data and service boundaries.
 - Added calendar API planning for Coolify.
+
+## v2.1.2 — Admin Navigation Foundation
+
+- Added Schedule-specific admin navigation.
+- Added placeholder pages for Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings.
+- Preserved existing Schedule overview and Calendar Foundation pages.
+- Documented admin-first, role-filter-later interface strategy.
+

@@ -31,3 +31,8 @@ Planned focus:
 - v2.4.0 — Mandation Foundation
 - v2.5.0 — Schedule Generation Foundation
 - v2.6.0 — Publishing & Notifications
+
+## Schedule v2.1.2 — Admin Navigation Foundation
+
+Schedule now includes admin-first navigation placeholders for Overview, Calendar, Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings. Future role-based views should filter this shared interface instead of duplicating separate apps.
+

@@ -1,31 +1,24 @@
 # Build Manifest
 
-## Schedule v2.1.1 — Full Root Deployment Cleanup
+## Release
 
-Backup title:
+- Tool: Schedule
+- Version: v2.1.2
+- Release: Admin Navigation Foundation
+- Date: 2026-06-12
+- Backup Title: 2026-06-12 Full Root Backup Before v2.1.2
 
-```text
-2026-06-12 Schedule Backup Before v2.1.1
-```
+## Deployment Type
 
-Built from uploaded current root package:
+Full-root replacement package.
 
-```text
-tools-allegedly-media.zip
-```
+## Scope
 
-Release package:
+Adds Schedule-specific admin navigation and placeholder pages while preserving the existing Schedule overview and Calendar Foundation pages.
 
-```text
-signal-labs-tools-root-v2.1.1-schedule-calendar-cleanup.zip
-```
+## Exclusions
 
-Scope:
-
-- Full root replacement package
-- Schedule v2.1.1 cleanup patch
-- Preserves `/schedule/index.html` for `/schedule/`
-- Preserves `/schedule/schedule.html` for calendar preview
-- Removes deployment junk: `__MACOSX/`, `.git/`, `._*`, `.DS_Store`
-
-Files included: 115
+- No .git folder
+- No __MACOSX folder
+- No .DS_Store files
+- No AppleDouble ._* files

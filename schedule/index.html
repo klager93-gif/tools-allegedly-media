@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v2.1.1
+Version: v2.1.2
 Purpose: Foundation/admin overview with Calendar Foundation navigation
 -->
 <!DOCTYPE html>
@@ -16,18 +16,38 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
 <link rel="stylesheet" href="style.css?v=1.6.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.1.2">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v2.1.1"
+  data-signal-version="v2.1.2"
   data-signal-theme="Calendar Foundation Cleanup"
   data-signal-status="Active Development"
   data-signal-description="Foundation overview with employee, assignment, minimum staffing, and calendar preview access."
   data-signal-status-text="Signal Schedule v2.1.1 keeps the foundation overview intact and links to the user-facing calendar preview."
 >
 <div id="sl-header"></div>
+
+<nav class="schedule-subnav" aria-label="Schedule admin navigation">
+  <div class="schedule-subnav__label">
+    <span>Schedule Admin Navigation</span>
+    <span class="schedule-subnav__role">Admin-first / role-filtering later</span>
+  </div>
+  <div class="schedule-subnav__links">
+      <a href="index.html" aria-current="page">Overview</a>
+      <a href="schedule.html">Calendar</a>
+      <a href="employees.html">Employees</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="staffing.html">Minimum Staffing</a>
+      <a href="leave.html">Leave Requests</a>
+      <a href="open-shifts.html">Open Shifts</a>
+      <a href="reports.html">Reports</a>
+      <a href="settings.html">Settings</a>
+  </div>
+</nav>
+
 
 <main class="schedule-shell">
   <section class="schedule-hero" aria-labelledby="scheduleTitle">
@@ -38,7 +58,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v2.1.1 Calendar Foundation Cleanup</strong>
+      <strong id="currentWeekLabel">v2.1.2 Admin Navigation Foundation</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>

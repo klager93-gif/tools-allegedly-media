@@ -20,3 +20,8 @@ Next:
 - v2.3.0 — Open Shift / VOT Foundation
 - v2.4.0 — Mandation Foundation
 - v2.5.0 — Schedule Generation Foundation
+
+## Schedule v2.1.2 — Admin Navigation Foundation
+
+Schedule now includes admin-first navigation placeholders for Overview, Calendar, Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings. Future role-based views should filter this shared interface instead of duplicating separate apps.
+

@@ -1,0 +1,124 @@
+/*
+Signal Labs
+Area: Signal Schedule
+File: schedule/schedule-nav.css
+Version: v2.1.2
+Purpose: Admin-first Schedule subsystem navigation and placeholder page styling
+*/
+.schedule-subnav {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto 18px;
+  padding: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.26);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.72);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+}
+.schedule-subnav__label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 10px;
+  color: rgba(226, 232, 240, 0.8);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.schedule-subnav__role {
+  color: rgba(125, 211, 252, 0.92);
+  letter-spacing: 0.04em;
+}
+.schedule-subnav__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.schedule-subnav__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 8px 12px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 999px;
+  color: rgba(241, 245, 249, 0.9);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 750;
+  background: rgba(30, 41, 59, 0.7);
+}
+.schedule-subnav__links a:hover,
+.schedule-subnav__links a:focus-visible {
+  border-color: rgba(125, 211, 252, 0.76);
+  background: rgba(14, 165, 233, 0.16);
+  color: #fff;
+}
+.schedule-subnav__links a[aria-current="page"] {
+  border-color: rgba(34, 197, 94, 0.7);
+  background: rgba(34, 197, 94, 0.14);
+  color: #f8fafc;
+}
+.schedule-placeholder-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto 48px;
+}
+.schedule-placeholder-hero,
+.schedule-placeholder-card {
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 24px;
+  background: rgba(15, 23, 42, 0.72);
+  color: #e5eefb;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+}
+.schedule-placeholder-hero {
+  padding: 28px;
+  margin-bottom: 18px;
+}
+.schedule-placeholder-hero h1 {
+  margin: 0 0 10px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+}
+.schedule-placeholder-hero p,
+.schedule-placeholder-card p {
+  color: rgba(226, 232, 240, 0.78);
+  line-height: 1.7;
+}
+.schedule-placeholder-card {
+  padding: 22px;
+  margin-bottom: 14px;
+}
+.schedule-placeholder-card h2 {
+  margin-top: 0;
+}
+.schedule-placeholder-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.schedule-placeholder-list li {
+  padding: 14px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 16px;
+  background: rgba(30, 41, 59, 0.52);
+}
+.schedule-placeholder-list strong {
+  display: block;
+  margin-bottom: 6px;
+}
+@media (max-width: 720px) {
+  .schedule-subnav,
+  .schedule-placeholder-shell {
+    width: min(100% - 20px, 1180px);
+  }
+  .schedule-subnav__label {
+    display: block;
+  }
+  .schedule-subnav__role {
+    display: block;
+    margin-top: 6px;
+  }
+}

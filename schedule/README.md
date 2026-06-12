@@ -41,3 +41,8 @@ Signal Schedule is a staffing and schedule-planning tool being built for dispatc
 - `schedule/index.html` preserved for `/schedule/`.
 - `schedule/schedule.html` preserved for the user-facing calendar preview.
 - Added Calendar Preview link from the foundation overview.
+
+## Schedule v2.1.2 — Admin Navigation Foundation
+
+Schedule now includes admin-first navigation placeholders for Overview, Calendar, Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings. Future role-based views should filter this shared interface instead of duplicating separate apps.
+

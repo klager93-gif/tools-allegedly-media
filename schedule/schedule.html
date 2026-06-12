@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/schedule.html
-Version: v2.1.0
+Version: v2.1.2
 Purpose: User-facing Calendar Foundation preview page
 -->
 <!DOCTYPE html>
@@ -15,18 +15,38 @@ Purpose: User-facing Calendar Foundation preview page
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
 <link rel="stylesheet" href="style.css?v=2.0.0">
 <link rel="stylesheet" href="schedule-calendar.css?v=2.1.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.1.2">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Schedule Calendar"
-  data-signal-version="v2.1.0"
+  data-signal-version="v2.1.2"
   data-signal-theme="Calendar Foundation"
   data-signal-status="Active Development"
   data-signal-description="Calendar-first preview of coverage, open shifts, and event impacts before the production scheduling engine exists."
-  data-signal-status-text="Signal Schedule v2.1.0 adds a separate user-facing calendar preview page while keeping the foundation index intact."
+  data-signal-status-text="Signal Schedule v2.1.2 adds admin-first Schedule navigation and placeholder pages while preserving the Calendar Foundation page."
 >
 <div id="sl-header"></div>
+
+<nav class="schedule-subnav" aria-label="Schedule admin navigation">
+  <div class="schedule-subnav__label">
+    <span>Schedule Admin Navigation</span>
+    <span class="schedule-subnav__role">Admin-first / role-filtering later</span>
+  </div>
+  <div class="schedule-subnav__links">
+      <a href="index.html">Overview</a>
+      <a href="schedule.html" aria-current="page">Calendar</a>
+      <a href="employees.html">Employees</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="staffing.html">Minimum Staffing</a>
+      <a href="leave.html">Leave Requests</a>
+      <a href="open-shifts.html">Open Shifts</a>
+      <a href="reports.html">Reports</a>
+      <a href="settings.html">Settings</a>
+  </div>
+</nav>
+
 
 <main class="calendar-shell">
   <section class="calendar-hero" aria-labelledby="calendarTitle">

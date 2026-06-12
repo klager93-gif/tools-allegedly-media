@@ -14,3 +14,8 @@ This package adds a separate user-facing Schedule calendar preview page while pr
 - `schedule/schedule.html` — user-facing calendar preview
 
 No Paycheck files or unrelated tools are included in this release package.
+
+## Schedule v2.1.2 — Admin Navigation Foundation
+
+Schedule now includes admin-first navigation placeholders for Overview, Calendar, Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings. Future role-based views should filter this shared interface instead of duplicating separate apps.
+

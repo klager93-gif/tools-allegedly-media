@@ -24,3 +24,11 @@
 
 - Added minimum staffing templates and preview data.
 - Added minimum staffing adapter, repository, service, API contract, and Coolify route planning.
+
+## v2.1.2 — Admin Navigation Foundation
+
+- Added Schedule-specific admin navigation.
+- Added placeholder pages for Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings.
+- Preserved existing Schedule overview and Calendar Foundation pages.
+- Documented admin-first, role-filter-later interface strategy.
+

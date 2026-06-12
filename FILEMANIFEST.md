@@ -1,4 +1,4 @@
-# File Manifest — Schedule v2.1.1 Full Root Package
+# File Manifest
 
 - `.gitattributes`
 - `.gitignore`
@@ -73,6 +73,7 @@
 - `schedule/RELEASE-v2.0.0.md`
 - `schedule/RELEASE-v2.1.0.md`
 - `schedule/RELEASE-v2.1.1.md`
+- `schedule/RELEASE-v2.1.2.md`
 - `schedule/ROADMAP.md`
 - `schedule/adapters/JsonCalendarAdapter.js`
 - `schedule/adapters/JsonMinimumStaffingAdapter.js`
@@ -82,19 +83,27 @@
 - `schedule/api/coolify/server.js`
 - `schedule/api/coolify/sql/005_minimum_staffing_foundation_schema.sql`
 - `schedule/api/coolify/sql/006_calendar_foundation_schema.sql`
+- `schedule/assignments.html`
 - `schedule/data/calendar-events-preview.json`
 - `schedule/data/calendar-preview.json`
 - `schedule/data/minimum-staffing-preview.json`
 - `schedule/data/minimum-staffing-templates.json`
+- `schedule/employees.html`
 - `schedule/index.html`
+- `schedule/leave.html`
+- `schedule/open-shifts.html`
+- `schedule/reports.html`
 - `schedule/repositories/CalendarRepository.js`
 - `schedule/repositories/MinimumStaffingRepository.js`
 - `schedule/schedule-calendar.css`
 - `schedule/schedule-calendar.js`
+- `schedule/schedule-nav.css`
 - `schedule/schedule.html`
 - `schedule/script.js`
 - `schedule/services/CalendarService.js`
 - `schedule/services/MinimumStaffingService.js`
+- `schedule/settings.html`
+- `schedule/staffing.html`
 - `schedule/style.css`
 - `standards/COMPONENT_STANDARDS.md`
 - `standards/DEVELOPMENT_STANDARDS.md`

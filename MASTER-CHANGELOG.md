@@ -20,3 +20,11 @@
 ## 2026-06-12 — Schedule v2.0.0 Minimum Staffing Foundation
 
 - Added minimum staffing foundation.
+
+## v2.1.2 — Admin Navigation Foundation
+
+- Added Schedule-specific admin navigation.
+- Added placeholder pages for Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings.
+- Preserved existing Schedule overview and Calendar Foundation pages.
+- Documented admin-first, role-filter-later interface strategy.
+
