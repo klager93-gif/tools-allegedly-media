@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.12.0
-Purpose: Explainability Foundation sandbox with why-layer previews for coverage, mandation, benefits, seniority, eligibility, and fairness outcomes
+Version: v0.13.0
+Purpose: Mandation Foundation sandbox with mandate rotation, counts, exceptions, eligibility, and operational trait planning
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.12.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.13.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -33,6 +33,9 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
     seniorityLedger: [],
     explanationExamples: [],
     explanationLevels: [],
+    mandationRules: [],
+    mandateRotation: [],
+    operationalTraits: [],
     agencyProfile: null,
     selectedEmployeeId: null
   };
@@ -46,6 +49,13 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
   function defaultMonthValue() {
     var now = new Date();
     return now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+  }
+
+
+  function ensureFoundationDefaults() {
+    if (!Array.isArray(state.mandationRules) || !state.mandationRules.length) state.mandationRules = defaultMandationRules();
+    if (!Array.isArray(state.mandateRotation) || !state.mandateRotation.length) state.mandateRotation = defaultMandateRotation();
+    if (!Array.isArray(state.operationalTraits) || !state.operationalTraits.length) state.operationalTraits = defaultOperationalTraits();
   }
 
   function defaultAgencyProfile() {
@@ -358,6 +368,97 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
     }];
   }
 
+
+  function defaultMandationRules() {
+    return [{
+      id: 'mandate-rule-eligibility',
+      name: 'Eligibility before rotation',
+      category: 'Mandation priority',
+      summary: 'Check FMLA, no-mandation, part-time, light duty, fatigue, and other active exceptions before choosing the next person.',
+      example: 'Taylor is skipped because FMLA/no-mandation is active before rotation order is considered.'
+    }, {
+      id: 'mandate-rule-counts',
+      name: 'Count forced OT separately',
+      category: 'Mandate history',
+      summary: 'Mandates should be counted separately from voluntary overtime so fairness reports can distinguish chosen work from forced work.',
+      example: 'Alex has 1 mandate and 720 forced OT minutes in the sample rotation window.'
+    }, {
+      id: 'mandate-rule-skips',
+      name: 'Skipped does not always mean removed',
+      category: 'Rotation handling',
+      summary: 'Agency rules should decide whether a skipped employee keeps their place, moves to the bottom, or is excluded from the current cycle.',
+      example: 'FMLA skip keeps place; refusal or unavailable status may move the person depending on policy.'
+    }, {
+      id: 'mandate-rule-audit',
+      name: 'Mandates need explanations',
+      category: 'Audit trail',
+      summary: 'Every mandate, skip, override, and exception should preserve the reason and rule source.',
+      example: 'Alex mandated because night coverage was below minimum and all higher-priority employees were unavailable or exempt.'
+    }];
+  }
+
+  function defaultMandateRotation() {
+    return [{
+      id: 'mandate-rot-alex',
+      employeeId: 'emp-alex',
+      order: 1,
+      status: 'next eligible',
+      mandateCount: 1,
+      forcedMinutes: 720,
+      skipReason: '',
+      rotationAction: 'eligible for next mandate evaluation'
+    }, {
+      id: 'mandate-rot-taylor',
+      employeeId: 'emp-taylor',
+      order: 2,
+      status: 'skipped / protected',
+      mandateCount: 0,
+      forcedMinutes: 0,
+      skipReason: 'Active FMLA / no-mandation exception',
+      rotationAction: 'future agency rule decides whether place is held or moved'
+    }, {
+      id: 'mandate-rot-casey',
+      employeeId: 'emp-casey',
+      order: 3,
+      status: 'not eligible',
+      mandateCount: 0,
+      forcedMinutes: 0,
+      skipReason: 'Part-time and no-mandation exception',
+      rotationAction: 'excluded from forced OT pool unless agency override exists'
+    }, {
+      id: 'mandate-rot-jordan',
+      employeeId: 'emp-jordan',
+      order: 4,
+      status: 'eligible supervisor',
+      mandateCount: 0,
+      forcedMinutes: 0,
+      skipReason: '',
+      rotationAction: 'eligible when supervisor-qualified coverage is needed'
+    }];
+  }
+
+  function defaultOperationalTraits() {
+    return [{
+      id: 'trait-gender',
+      name: 'Gender',
+      category: 'Operational trait',
+      purpose: 'Can support documented police, fire, corrections, transport, search, housing, or staffing requirements when legally and operationally appropriate.',
+      guardrail: 'Use only when tied to a documented coverage, safety, legal, or operational rule.'
+    }, {
+      id: 'trait-language',
+      name: 'Language skill',
+      category: 'Operational trait',
+      purpose: 'Can help fill specific coverage needs such as bilingual calltaking, public counter coverage, or community response.',
+      guardrail: 'Store as capability data and evaluate through coverage rules.'
+    }, {
+      id: 'trait-restriction',
+      name: 'Physical / duty restriction',
+      category: 'Operational trait',
+      purpose: 'Can prevent unsafe or policy-violating assignments and explain mandate skips.',
+      guardrail: 'Tie to date-bounded exceptions and preserve private detail appropriately.'
+    }];
+  }
+
   function defaultEventTypeDefinitions() {
     return [{
       id: 'event-vacation',
@@ -578,6 +679,9 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
     next.seniorityLedger = Array.isArray(next.seniorityLedger) && next.seniorityLedger.length ? next.seniorityLedger : defaultSeniorityLedger();
     next.explanationExamples = Array.isArray(next.explanationExamples) && next.explanationExamples.length ? next.explanationExamples : defaultExplanationExamples();
     next.explanationLevels = Array.isArray(next.explanationLevels) && next.explanationLevels.length ? next.explanationLevels : defaultExplanationLevels();
+    next.mandationRules = Array.isArray(next.mandationRules) && next.mandationRules.length ? next.mandationRules : defaultMandationRules();
+    next.mandateRotation = Array.isArray(next.mandateRotation) && next.mandateRotation.length ? next.mandateRotation : defaultMandateRotation();
+    next.operationalTraits = Array.isArray(next.operationalTraits) && next.operationalTraits.length ? next.operationalTraits : defaultOperationalTraits();
     next.agencyProfile = next.agencyProfile || defaultAgencyProfile();
     next.agencyProfile.shiftDefinitions = Array.isArray(next.agencyProfile.shiftDefinitions) ? next.agencyProfile.shiftDefinitions : defaultAgencyProfile().shiftDefinitions;
     next.agencyProfile.coverageRequirements = Array.isArray(next.agencyProfile.coverageRequirements) ? next.agencyProfile.coverageRequirements : defaultAgencyProfile().coverageRequirements;
@@ -732,7 +836,7 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.12.0 Explainability Foundation';
+    if (label) label.textContent = 'v0.13.0 Mandation Foundation';
   }
 
   function syncRuleInputs() {
@@ -1176,7 +1280,9 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
       ['Coverage Engine', String(coverageEngineRows().length), 'Compares scheduled counts against min, target, and max by day and time block'],
       ['Schedule Views', String((state.scheduleViews || []).length), 'Day, week, month, personal, coverage, and inspector views should use the same engine.'],
       ['Fairness Metrics', String((state.fairnessMetrics || []).length), 'Fairness compares history, rules, seniority, mandates, overtime, weekends, holidays, and callbacks.'],
-      ['Explainability', String((state.explanationExamples || []).length), 'Explains outcomes from facts, rules, history, audience, and audit context.']
+      ['Explainability', String((state.explanationExamples || []).length), 'Explains outcomes from facts, rules, history, audience, and audit context.'],
+      ['Mandation', String((state.mandateRotation || []).length), 'Tracks forced OT rotation, counts, skips, exceptions, and mandate explanations.'],
+      ['Operational Traits', String((state.operationalTraits || []).length), 'Employee traits such as gender can be used only when tied to documented operational rules.']
     ];
     target.innerHTML = cards.map(function (card) {
       return '<article class="model-card"><span>' + escapeHtml(card[0]) + '</span><strong>' + escapeHtml(card[1]) + '</strong><p>' + escapeHtml(card[2]) + '</p></article>';
@@ -1343,10 +1449,10 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
     var lines = [];
     var warnings = coverageWarnings();
     var totals = employeeHours();
-    lines.push('SIGNAL SCHEDULE — SCHEDULE VIEWS FOUNDATION');
-    lines.push('Version: v0.12.0');
+    lines.push('SIGNAL SCHEDULE — MANDATION FOUNDATION');
+    lines.push('Version: v0.13.0');
     lines.push('');
-    lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability');
+    lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation');
     lines.push('');
     lines.push('Rules:');
     lines.push('- Max hours/week: ' + state.rules.maxHoursPerWeek);
@@ -1369,6 +1475,9 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
     lines.push('- Fairness metrics: ' + ((state.fairnessMetrics || []).length));
     lines.push('- Explanation examples: ' + ((state.explanationExamples || []).length));
     lines.push('- Seniority ledger entries: ' + ((state.seniorityLedger || []).length));
+    lines.push('- Mandation rules: ' + ((state.mandationRules || []).length));
+    lines.push('- Mandate rotation entries: ' + ((state.mandateRotation || []).length));
+    lines.push('- Operational traits: ' + ((state.operationalTraits || []).length));
     lines.push('');
     lines.push('Pattern Templates:');
     state.patterns.forEach(function (pattern) {
@@ -1418,9 +1527,9 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.12.0 Notes:');
-    lines.push('- Adds Explainability Foundation: facts + rules + history = reasoned outcomes.');
-    lines.push('- Explanation levels separate employee-facing, supervisor-facing, and admin/audit detail.');
+    lines.push('v0.13.0 Notes:');
+    lines.push('- Adds Mandation Foundation: forced overtime needs rotation, eligibility, exceptions, counts, and explanations.');
+    lines.push('- Mandation events add coverage and mandate history; they do not consume vacation or benefit time.');
     lines.push('- This is still local mock data, not a backend.');
     lines.push('- Events, rules, benefit entries, coverage rows, views, templates, fairness metrics, and explanations are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
@@ -1488,6 +1597,9 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
     safeRender('seniority ledger', renderSeniorityLedgerPreview);
     safeRender('explainability', renderExplainabilityPreview);
     safeRender('explanation levels', renderExplanationLevelsPreview);
+    safeRender('mandation foundation', renderMandationFoundationPreview);
+    safeRender('mandate rotation', renderMandateRotationPreview);
+    safeRender('operational traits', renderOperationalTraitPreview);
     safeRender('data model', renderDataModelPreview);
     safeRender('selects', renderSelects);
     safeRender('pills', renderPills);
@@ -1592,6 +1704,9 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
       seniorityLedger: defaultSeniorityLedger(),
       explanationExamples: defaultExplanationExamples(),
       explanationLevels: defaultExplanationLevels(),
+      mandationRules: defaultMandationRules(),
+      mandateRotation: defaultMandateRotation(),
+      operationalTraits: defaultOperationalTraits(),
       agencyProfile: defaultAgencyProfile(),
       rules: { maxHoursPerWeek: 40, minGapHours: 8, monthStart: defaultMonthValue() },
       selectedEmployeeId: 'emp-alex'
@@ -1649,6 +1764,6 @@ Purpose: Explainability Foundation sandbox with why-layer previews for coverage,
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    load(); bindEvents(); render();
+    load(); ensureFoundationDefaults(); bindEvents(); render();
   });
 })();

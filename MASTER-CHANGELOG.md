@@ -1,16 +1,23 @@
-## Signal Schedule v0.12.0 — Explainability Foundation
+## Signal Schedule v0.13.0 — Mandation Foundation
+
+- Added mandate rotation, skip reason, exception, and count planning.
+- Added operational trait planning including gender when tied to documented operational rules.
+- Updated Schedule visible version references to v0.13.0.
+- No database, CRUD, approval workflow, or final schedule generation added.
+
+## Signal Schedule v0.13.0 — Explainability Foundation
 
 - Added Explainability Foundation planning.
 - Added sample explanations for mandation, coverage, benefits, seniority, eligibility, and fairness outcomes.
 - Added employee/supervisor/admin explanation level planning.
 - Preserved render stability and storage migration protections from v0.11.2.
 
-## Signal Schedule v0.12.0 — Explainability Foundation
+## Signal Schedule v0.13.0 — Explainability Foundation
 
 - Added Explainability Foundation planning.
 - Added fairness metric previews for overtime, mandates, weekends, holidays, callbacks, and seniority.
 - Added seniority-ledger planning so hire date, seniority date, and effective seniority can differ.
-- Updated Schedule visible version references to v0.12.0.
+- Updated Schedule visible version references to v0.13.0.
 
 ## Signal Schedule v0.10.0 — Schedule Views Foundation
 
@@ -247,6 +254,6 @@
 No calculator logic changes.
 
 
-## Signal Schedule v0.12.0 — Fairness Render Repair
+## Signal Schedule v0.13.0 — Fairness Render Repair
 
 Fixed a missing fairness preview helper that stopped Schedule rendering and restored sample employee/add employee behavior.

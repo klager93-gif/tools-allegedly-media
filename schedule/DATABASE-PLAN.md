@@ -1,6 +1,21 @@
+## v0.13.0 Mandation Planning
+
+Future tables may include:
+
+- mandate_rotation
+- mandate_history
+- mandate_exceptions
+- mandate_skip_reasons
+- employee_operational_traits
+- operational_trait_rules
+
+Mandation must remain separate from voluntary overtime and benefit usage. A mandate event may affect pay, coverage, mandate count, rotation order, and audit history, but it should not consume vacation minutes.
+
+Operational traits such as gender should only be evaluated through documented coverage, safety, legal, or operational rules.
+
 # Signal Schedule Database Plan
 
-## v0.12.0 Explainability Planning
+## v0.13.0 Mandation Planning
 
 Future persistence should include explanation/audit concepts that can connect an outcome back to facts, rules, events, and history.
 

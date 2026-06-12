@@ -1,6 +1,20 @@
+## v0.13.0 Mandation Foundation
+
+Mandation rules should evaluate in a clear order:
+
+1. Coverage need exists.
+2. Employee is eligible.
+3. Exceptions are checked.
+4. Fatigue/rest limits are checked.
+5. Rotation order is evaluated.
+6. Skip/selection reason is recorded.
+7. Mandate history and fairness metrics are updated.
+
+Every mandate, skip, and override should be explainable and auditable.
+
 # Signal Schedule Rule Engine
 
-## v0.12.0 Explainability Foundation
+## v0.13.0 Mandation Foundation
 
 The rule engine should eventually produce an outcome and an explanation.
 

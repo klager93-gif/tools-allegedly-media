@@ -1,3 +1,5 @@
-- Verify Signal Schedule v0.12.0 Explainability Foundation after deployment.
+- Verify Signal Schedule v0.13.0 Mandation Foundation after deployment.
+- Next planned Schedule release: v0.14.0 — Bidding Foundation.
+- Verify Signal Schedule v0.13.0 Mandation Foundation after deployment.
 - Next planned release: Signal Schedule v0.13.0 — Mandation Foundation.
 - Later Phase 0 releases continue through bidding, analytics, notifications, goal mode, and architecture completion before database persistence begins.

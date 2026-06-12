@@ -1,8 +1,16 @@
+## v0.13.0 Mandation Foundation
+
+Signal Schedule v0.13.0 adds the first visible planning model for mandation / forced overtime. Mandation is treated as its own module because it needs rotation lists, eligibility checks, skip reasons, exception handling, mandate counts, audit history, and explanations.
+
+Mandation is not the same as voluntary overtime and it does not consume vacation or benefit time.
+
+This release remains browser-only mock data with no database persistence or true automation.
+
 # Signal Schedule
 
-## v0.12.0 Explainability Foundation
+## v0.13.0 Mandation Foundation
 
-Signal Schedule v0.12.0 adds the first visible explainability model. The goal is to show how the future system can answer why an outcome happened instead of only showing the result.
+Signal Schedule v0.13.0 adds the first visible explainability model. The goal is to show how the future system can answer why an outcome happened instead of only showing the result.
 
 Current explainability examples include:
 

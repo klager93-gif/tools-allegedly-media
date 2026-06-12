@@ -1,6 +1,20 @@
+## Current: v0.13.0 — Mandation Foundation
+
+Adds mandate rotation, mandate counts, eligibility/exception checks, skip handling, and operational trait planning.
+
+Upcoming architecture items:
+
+- v0.14.0 — Bidding Foundation
+- v0.15.0 — Analytics Foundation
+- v0.16.0 — Notifications Foundation
+- v0.17.0 — Goal Mode Foundation
+- v0.18.0 — Multi-Agency Foundation
+- v0.19.0 — Architecture Complete
+- v1.0.0 — Database Foundation
+
 # Signal Schedule Roadmap
 
-## Current: v0.12.0 — Explainability Foundation
+## Current: v0.13.0 — Explainability Foundation
 
 - Add why-layer planning across coverage, mandation, benefits, seniority, eligibility, and fairness.
 - Separate employee-facing, supervisor-facing, and admin/audit explanations.

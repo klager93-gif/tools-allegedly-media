@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v0.12.0
+Version: v0.13.0
 Purpose: Explainability foundation sandbox with why-layer previews for coverage, mandation, benefits, seniority, eligibility, and fairness outcomes
 -->
 <!DOCTYPE html>
@@ -15,17 +15,17 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=0.12.0">
+<link rel="stylesheet" href="style.css?v=0.13.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v0.12.0"
-  data-signal-theme="Explainability Foundation"
+  data-signal-version="v0.13.0"
+  data-signal-theme="Mandation Foundation"
   data-signal-status="Active Development"
   data-signal-description="Define explainability planning for why-layer previews across coverage, mandation, benefits, seniority, eligibility, and fairness outcomes."
-  data-signal-status-text="Signal Schedule v0.12.0 adds Explainability Foundation planning while remaining browser-only and mock-data based."
+  data-signal-status-text="Signal Schedule v0.13.0 adds Mandation Foundation planning while remaining browser-only and mock-data based."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v0.12.0 Explainability</strong>
+      <strong id="currentWeekLabel">v0.13.0 Mandation</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,7 +46,7 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v0.12.0 is still browser-only. Explainability Foundation adds why-layer planning without database persistence, final UI, or true automation.</p>
+      <p>Signal Schedule v0.13.0 is still browser-only. Mandation Foundation adds forced-overtime rotation, exception, count, and explanation planning without database persistence or true automation.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
@@ -284,6 +284,38 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
     <div id="explanationLevelsPreview" class="explanation-level-grid"></div>
   </section>
 
+
+
+  <section class="schedule-card mandation-card" aria-labelledby="mandationFoundationTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="mandationFoundationTitle">Mandation Foundation</h2>
+        <p>Mandation is forced overtime. It needs its own rotation list, counts, eligibility checks, skip reasons, and explanations instead of being treated as normal overtime or benefit time.</p>
+      </div>
+    </div>
+    <div id="mandationFoundationPreview" class="mandation-grid"></div>
+  </section>
+
+  <section class="schedule-card mandate-rotation-card" aria-labelledby="mandateRotationTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="mandateRotationTitle">Mandate Rotation Preview</h2>
+        <p>Sample rotation entries show who is next, who is skipped, and why. Future agency rules decide whether skipped employees keep their spot, move down, or leave the pool.</p>
+      </div>
+    </div>
+    <div id="mandateRotationPreview" class="mandate-rotation-grid"></div>
+  </section>
+
+  <section class="schedule-card operational-trait-card" aria-labelledby="operationalTraitTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="operationalTraitTitle">Operational Trait Planning</h2>
+        <p>Employee traits, including gender, may be needed for police, fire, corrections, transport, search, housing, or safety rules, but should only be used when tied to documented operational needs.</p>
+      </div>
+    </div>
+    <div id="operationalTraitPreview" class="operational-trait-grid"></div>
+  </section>
+
   <section class="schedule-card" aria-labelledby="modelTitle">
     <div class="schedule-card-heading">
       <div>
@@ -429,6 +461,6 @@ Purpose: Explainability foundation sandbox with why-layer previews for coverage,
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=0.12.0"></script>
+<script src="script.js?v=0.13.0"></script>
 </body>
 </html>

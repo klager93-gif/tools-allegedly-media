@@ -1,13 +1,23 @@
+## v0.13.0 — Mandation Foundation
+
+- Added Mandation Foundation planning for forced overtime rotation, counts, skips, exceptions, and audit history.
+- Added mandate rotation preview and mandate rule examples.
+- Added operational trait planning, including gender as an employee trait only when tied to documented coverage, safety, legal, or operational rules.
+- Reinforced that mandation events add coverage and mandate history; they do not consume vacation or benefit time.
+- Updated Schedule version references and build manifests to v0.13.0.
+
+No database storage, real mandate automation, CRUD workflow, approval workflow, or final schedule generation was added.
+
 # Signal Schedule Changelog
 
-## v0.12.0 — Explainability Foundation
+## v0.13.0 — Explainability Foundation
 
 - Added Explainability Foundation panels.
 - Added Explanation Level Preview for employee-facing, supervisor-facing, and admin/audit explanation detail.
 - Added sample explanation examples for mandation, coverage, benefits, seniority, eligibility, and fairness outcomes.
 - Added explanation objects to the mock data model and text output.
 - Kept v0.11.2 render stability protections so one preview failure should not stop the entire page.
-- Updated Schedule version references and cache-busting to v0.12.0.
+- Updated Schedule version references and cache-busting to v0.13.0.
 - No database storage, live automation, approval workflow, CRUD workflow, mandation automation, or final schedule generation was added.
 
 ## v0.11.2 — Render Stability and Storage Migration Repair
