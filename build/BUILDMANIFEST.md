@@ -1,17 +1,18 @@
 # Build Manifest
 
-Version: v1.1.0
-Release: Signal Schedule v1.1.0 — Repository / Adapter Layer
-Source: signal-labs-v1.0.0-cloudflare-data-layer-foundation.zip
-Output: signal-labs-v1.1.0-repository-adapter-layer.zip
+Version: v1.2.1
+Release: Signal Schedule v1.2.1 — Worker Folder Repair
+Source: signal-labs-v1.2.0-worker-api-foundation.zip
+Output: signal-labs-v1.2.1-worker-folder-repair.zip
 
-## Validation
+Validation:
 
 - JavaScript syntax checked.
+- Schedule API mock JavaScript syntax checked.
 - Render registry validation passed.
 - Every safeRender callback resolves to a defined function.
-- Static JSON data files validated.
-- Repository/service/adapter layer added around static JSON source.
-- No live D1, Worker API, credentials, CRUD, or authentication added.
-- No new dashboard preview panels added.
-- ZIP integrity checked.
+- Root-level /functions folder removed from release package.
+- Schedule-owned API mock files placed under /schedule/api/mock-functions/.
+- Rule 25 documented.
+- No live D1, credentials, CRUD, auth, live writes, or new dashboard preview panels added.
+- ZIP integrity checked after packaging.

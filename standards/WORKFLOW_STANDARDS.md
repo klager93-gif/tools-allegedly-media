@@ -59,3 +59,8 @@ Before packaging, validate that every render registry entry and every safeRender
 No UI or business logic may depend directly on D1, Workers, MySQL, PHP, or any backend-specific implementation. All persistence must go through service, repository, and adapter layers so the backend can be replaced later with minimal changes.
 
 D1 is the first likely adapter because the live deployment is already GitHub to Cloudflare. It must not become a lock-in point.
+
+
+## Rule 25 — Tools Own Their Infrastructure
+
+No new folders, backend components, APIs, functions, or infrastructure files should be placed in the repository root unless they are intentionally shared by multiple tools. Tool-specific infrastructure belongs inside that tool’s directory, such as `/schedule/`. Root-level additions require explicit justification.

@@ -1,6 +1,9 @@
-# File Manifest
+# Signal Labs File Manifest
 
-Version: v1.1.0
+Version: v1.2.1
+Release: Signal Schedule v1.2.1 — Worker Folder Repair
+
+Files:
 
 - .gitattributes
 - .gitignore
@@ -20,9 +23,6 @@ Version: v1.1.0
 - assets/icons/favicon.ico
 - assets/icons/favicon.svg
 - assets/icons/site.webmanifest
-- build/BUILDMANIFEST.md
-- build/FILEMANIFEST.md
-- build/SHA256SUMS.txt
 - changelog/index.html
 - contact/index.html
 - docs/BACKUP.md
@@ -63,12 +63,19 @@ Version: v1.1.0
 - schedule/RELEASE-v0.99.1.md
 - schedule/RELEASE-v1.0.0.md
 - schedule/RELEASE-v1.1.0.md
+- schedule/RELEASE-v1.2.0.md
+- schedule/RELEASE-v1.2.1.md
 - schedule/REPOSITORY-ADAPTER-LAYER.md
 - schedule/ROADMAP.md
 - schedule/RULE-ENGINE.md
 - schedule/SECURITY-PLAN.md
 - schedule/TABLE-PLAN.md
 - schedule/V1-READINESS.md
+- schedule/WORKER-API-FOUNDATION.md
+- schedule/WORKER-FOLDER-REPAIR.md
+- schedule/api/mock-functions/agencies.js
+- schedule/api/mock-functions/employees.js
+- schedule/api/mock-functions/health.js
 - schedule/data/agencies.json
 - schedule/data/employees.json
 - schedule/index.html

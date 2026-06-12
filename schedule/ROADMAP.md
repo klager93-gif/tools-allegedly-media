@@ -1,33 +1,28 @@
-## Current: v1.1.0 — Repository / Adapter Layer
+## Current: v1.2.1 — Worker Folder Repair
 
-Signal Schedule now has a static multi-agency JSON data layer.
+The app remains static and browser-only while the future Worker API shape is documented.
+
+## Completed
+
+```text
+v0.99.1 — Cloudflare Architecture Pivot
+v1.0.0 — Cloudflare Data Layer Foundation
+v1.1.0 — Repository / Adapter Layer
+v1.2.1 — Worker Folder Repair
+```
 
 ## Next
 
 ```text
-v1.1.0 — Repository / Adapter Layer
-v1.2.0 — Worker API Foundation
 v1.3.0 — D1 Database Foundation
 v1.4.0 — Employee CRUD Foundation
+v1.5.0 — Assignments Foundation
+v1.6.0 — Events Foundation
+v1.7.0 — Requests Foundation
+v1.8.0 — Opportunities Foundation
+v1.9.0 — Bidding Foundation
 ```
 
-## Direction
+## Rule 24
 
-Cloudflare-native first, backend-portable always. The initial data source is JSON. Later adapters may target D1, MySQL, PostgreSQL, or another backend.
-
-
-## Current
-
-### v1.1.0 — Repository / Adapter Layer
-
-Static JSON is now accessed through adapter, repository, and service layers.
-
-## Next
-
-### v1.2.0 — Worker API Foundation
-
-Introduce Cloudflare Worker/Pages Function API planning and/or mock endpoints without moving persistence to D1 yet.
-
-### v1.3.0 — D1 Database Foundation
-
-Add the first Cloudflare D1 database schema and adapter.
+Backend portability remains required. D1 is the first likely backend adapter, not a permanent lock-in.

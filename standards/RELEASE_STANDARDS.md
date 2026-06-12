@@ -13,6 +13,7 @@ If yes, include every live top-level folder, even unchanged ones.
 ## Shared Asset Releases
 
 Shared asset releases must include all affected page files and cache-busting updates.
+
 ## Rule 23 — Version Consistency
 
 Whenever a tool version changes:
@@ -26,9 +27,15 @@ Whenever a tool version changes:
 - No page should display an older version than the current release.
 - If a global component affects multiple pages, all affected pages must be updated together.
 
+## Rule 24 — Backend Portability
 
+Backend releases must preserve service/repository/adapter boundaries. Do not couple UI or scheduling engines directly to Cloudflare D1, Workers, PHP, MySQL, or any other backend.
 
-## Rule 25 — Build Response Standard
+## Rule 25 — Tools Own Their Infrastructure
+
+No new folders, backend components, APIs, functions, or infrastructure files should be placed in the repository root unless they are intentionally shared by multiple tools. Tool-specific infrastructure belongs inside that tool’s directory, such as `/schedule/`. Root-level additions require explicit justification.
+
+## Rule 26 — Build Response Standard
 
 Every build response must include a concise release handoff with:
 
@@ -42,8 +49,7 @@ Every build response must include a concise release handoff with:
 
 Long architectural explanations are optional unless the user asks for them.
 
-
-## Rule 26 — Release Archives Are Backups
+## Rule 27 — Release Archives Are Backups
 
 Released ZIP files are complete snapshots and are considered the authoritative backup and restore point for each release.
 
@@ -66,8 +72,3 @@ Release ZIP
 ↓
 GitHub
 ```
-
-
-## Rule 24 — Backend Portability
-
-Backend releases must preserve service/repository/adapter boundaries. Do not couple UI or scheduling engines directly to Cloudflare D1, Workers, PHP, MySQL, or any other backend.

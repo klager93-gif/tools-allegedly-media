@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.1.0
-Purpose: Repository / Adapter Layer with static JSON adapter and backend portability
+Version: v1.2.1
+Purpose: Worker Folder Repair with static JSON adapter, API adapter contract, and backend portability
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.1.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v1.2.1';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -210,17 +210,35 @@ Purpose: Repository / Adapter Layer with static JSON adapter and backend portabi
   }
 
   /*
-  v1.1 Repository / Adapter Layer
+  v1.2 Worker Folder Repair
   --------------------------------
   Rule 24 requires backend portability. The UI should not care whether data
-  comes from static JSON, Cloudflare D1, MySQL, Postgres, or another backend.
-  For now the active adapter is static JSON. Future releases can add Worker/D1
-  adapters behind the same repository/service contract.
+  comes from static JSON, Cloudflare Worker APIs, D1, MySQL, Postgres, or another backend.
+  For now the active adapter remains static JSON. v1.2 defines an API adapter
+  contract and mock Worker endpoint shape without connecting D1 or live writes.
   */
   var SignalScheduleJsonAdapter = {
     sourceName: 'static-json',
     getAgencies: function () { return loadJsonData('data/agencies.json', defaultAgencies()); },
     getEmployees: function () { return loadJsonData('data/employees.json', defaultDataLayerEmployees()); }
+  };
+
+
+
+  var SignalScheduleApiAdapter = {
+    sourceName: 'cloudflare-worker-api-planned',
+    status: 'planned-not-active',
+    endpoints: {
+      health: '/schedule/api/health',
+      agencies: '/schedule/api/agencies',
+      employees: '/schedule/api/employees'
+    },
+    responseShape: {
+      ok: true,
+      data: [],
+      meta: { source: 'worker-api', version: 'v1.2.1' },
+      errors: []
+    }
   };
 
   function createAgencyRepository(adapter) {
@@ -1323,7 +1341,7 @@ Purpose: Repository / Adapter Layer with static JSON adapter and backend portabi
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.1.0 Repository / Adapter Layer';
+    if (label) label.textContent = 'v1.2.1 Worker Folder Repair';
   }
 
   function syncRuleInputs() {
@@ -1336,7 +1354,7 @@ Purpose: Repository / Adapter Layer with static JSON adapter and backend portabi
     var target = $('#engineBlueprint');
     if (!target) return;
     var items = [
-      ['Agencies', (state.agencies || []).length, 'Multi-agency records are loaded through the static data layer now and can later come from D1, MySQL, or another adapter.'],
+      ['Agencies', (state.agencies || []).length, 'Multi-agency records still load through the JSON adapter while v1.2 defines future Worker API endpoints and response shapes.'],
       ['People', state.employees.length, 'Employees carry agencyId from day one so pretend agencies and future tenants can share the same engines.'],
       ['Rules', state.ruleProfiles.length, 'Agency policies explain overtime, mandation, coverage, benefits, and fairness.'],
       ['Patterns', state.patterns.length, 'Rotations generate expected work instead of storing every day forever.'],
@@ -2040,7 +2058,7 @@ Purpose: Repository / Adapter Layer with static JSON adapter and backend portabi
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — GOAL MODE FOUNDATION');
-    lines.push('Version: v1.1.0');
+    lines.push('Version: v1.2.1');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2127,7 +2145,7 @@ Purpose: Repository / Adapter Layer with static JSON adapter and backend portabi
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v1.1.0 Notes:');
+    lines.push('v1.2.1 Notes:');
     lines.push('- Adds database planning bridge before v1.0.');
     lines.push('- Removes dashboard-style foundation preview panels for analytics, notifications, and goal mode.');
     lines.push('- Confirms engines, entities, rules, explanations, audit records, notifications, goals, and agency profiles are ready to map into database tables.');

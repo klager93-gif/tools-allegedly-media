@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v1.1.0
+Version: v1.2.1
 Purpose: Repository / Adapter Layer for backend portability
 -->
 <!DOCTYPE html>
@@ -15,17 +15,17 @@ Purpose: Repository / Adapter Layer for backend portability
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=1.1.0">
+<link rel="stylesheet" href="style.css?v=1.2.1">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v1.1.0"
-  data-signal-theme="Repository / Adapter Layer"
+  data-signal-version="v1.2.1"
+  data-signal-theme="Worker Folder Repair"
   data-signal-status="Active Development"
-  data-signal-description="Keep Signal Schedule backend-portable by routing data through services, repositories, and adapters."
-  data-signal-status-text="Signal Schedule v1.1.0 adds repository and adapter layers around the static JSON data source."
+  data-signal-description="Define the future Cloudflare Worker API shape while keeping data access backend-portable."
+  data-signal-status-text="Signal Schedule v1.2.1 repairs the Worker API planning folder location and keeps Schedule infrastructure self-contained."
 >
 <div id="sl-header"></div>
 
@@ -38,7 +38,7 @@ Purpose: Repository / Adapter Layer for backend portability
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v1.1.0 Repository / Adapter Layer</strong>
+      <strong id="currentWeekLabel">v1.2.1 Worker Folder Repair</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -46,14 +46,14 @@ Purpose: Repository / Adapter Layer for backend portability
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule v1.1.0 is still browser-only. This release wraps the static JSON data source behind service, repository, and adapter boundaries so D1, Worker, MySQL, Postgres, or other backends can be added later without rewriting the UI.</p>
+      <p>Signal Schedule v1.2.1 is still browser-only for the main app. This release repairs the Worker API planning folder location and keeps Schedule infrastructure self-contained while preserving response standards and adapter boundaries.</p>
     </div>
   </section>
   <section class="schedule-card engine-card" aria-labelledby="engineTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v1.1.0 keeps pretend agency and employee records in /schedule/data, but routes access through a JSON adapter, repositories, and services. The JSON adapter is the first backend adapter, not the permanent backend.</p>
+        <p>v1.2.1 keeps pretend agency and employee records in /schedule/data, routes access through the JSON adapter, and stores planned API mock files inside /schedule/api/mock-functions instead of the repository root.</p>
       </div>
     </div>
     <div id="engineBlueprint" class="engine-blueprint-grid"></div>
@@ -518,6 +518,6 @@ Purpose: Repository / Adapter Layer for backend portability
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=1.1.0"></script>
+<script src="script.js?v=1.2.1"></script>
 </body>
 </html>

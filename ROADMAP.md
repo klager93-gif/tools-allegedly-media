@@ -7,8 +7,12 @@
 
 - v1.0.0: Static multi-agency JSON data layer.
 - v1.1.0: Repository / adapter layer.
-- v1.2.0: Worker / Pages Function API foundation.
+- v1.2.1: Worker folder repair and tool-owned infrastructure rule.
 - v1.3.0: D1 Database Foundation.
 - v1.4.0+: CRUD and persistent workflows after audit logging is ready.
 
 Cloudflare-native first, backend-portable always.
+
+## Signal Schedule v1.2.1 — Worker Folder Repair
+
+Adds the planned Cloudflare Worker / Pages Function API shape while keeping the active app static and backend-portable. No D1, credentials, CRUD, authentication, or live writes added.

@@ -1,25 +1,25 @@
-## v1.1.0 — Repository / Adapter Layer
+## v1.2.1 — Worker Folder Repair
 
-Signal Schedule v1.0.0 begins the v1.x data architecture while keeping the app static and browser-only.
+Signal Schedule keeps the future API plan, but Schedule-owned mock API files now live inside the Schedule tool instead of the repository root.
 
-This release adds multi-agency JSON data files and data loading functions so pretend agencies and employee records are no longer only hardcoded UI examples.
+Active data source: `/schedule/data/*.json` through the JSON adapter.
 
-### Data files
+Schedule-owned mock API planning files:
 
 ```text
-/schedule/data/agencies.json
-/schedule/data/employees.json
+/schedule/api/mock-functions/health.js
+/schedule/api/mock-functions/agencies.js
+/schedule/api/mock-functions/employees.js
 ```
 
-### Current backend target
+Planned future API shape:
 
-Cloudflare-native first: Pages, Workers/Pages Functions, D1, KV, R2, and Secrets.
+```text
+GET /schedule/api/health
+GET /schedule/api/agencies
+GET /schedule/api/employees
+```
 
-### Portability rule
+No D1 database, credentials, CRUD, authentication, or live writes are active in this release.
 
-Rule 24 remains active: data access must move through service/repository/adapter layers so D1 can be replaced later by MySQL, PostgreSQL, PHP, or another backend with minimal UI changes.
-
-
-## v1.1.0 Repository / Adapter Layer
-
-Signal Schedule now treats static JSON as an adapter behind repositories and services. This protects the UI from backend-specific decisions and supports future D1, Worker, MySQL, or Postgres adapters.
+See `WORKER-FOLDER-REPAIR.md`, `WORKER-API-FOUNDATION.md`, and `BACKEND-PORTABILITY.md`.
