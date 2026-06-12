@@ -148,3 +148,27 @@ Postgres
 ## Next Planned Release
 
 **v1.8.0 — Employee CRUD Foundation**
+
+
+## v1.8.0 Employee CRUD testing
+
+Do not enable writes for real employee data yet. For controlled testing only, set these Coolify runtime variables:
+
+```text
+EMPLOYEE_WRITES_ENABLED=true
+ADMIN_API_KEY=<long random key>
+```
+
+Write requests must include either:
+
+```text
+Authorization: Bearer <ADMIN_API_KEY>
+```
+
+or:
+
+```text
+x-admin-api-key: <ADMIN_API_KEY>
+```
+
+Run `schedule/api/coolify/sql/003_employee_crud_safety_indexes.sql` before testing writes.

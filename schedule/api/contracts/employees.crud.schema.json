@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule Employee CRUD Foundation v1.8.0",
+  "type": "object",
+  "required": [
+    "id",
+    "agencyId",
+    "employeeCode",
+    "firstName",
+    "lastName",
+    "displayName",
+    "minimumStaffingRole",
+    "position"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "agencyId": {
+      "type": "string"
+    },
+    "employeeCode": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "middleName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "preferredName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "minimumStaffingRole": {
+      "type": "string"
+    },
+    "position": {
+      "type": "string"
+    },
+    "rank": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "department": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "division": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "location": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "shiftGroup": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "assignedPattern": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "probationary",
+        "leave",
+        "inactive",
+        "retired",
+        "separated",
+        "deleted"
+      ]
+    },
+    "gender": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "overtimeEligible": {
+      "type": "boolean"
+    },
+    "mandateEligible": {
+      "type": "boolean"
+    },
+    "qualifications": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

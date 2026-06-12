@@ -7,8 +7,8 @@ Revised backend order:
 ```text
 v1.3.3 — Coolify Backend Setup Guide
 v1.4.0 — Backend Adapter Selection
-v1.7.1 — Coolify Dockerfile Deployment Fix
-v1.7.1 — Coolify Dockerfile Deployment Fix
+v1.8.0 — Employee CRUD Foundation
+v1.8.0 — Employee CRUD Foundation
 v1.6.0 — Employee CRUD Foundation
 ```
 
@@ -42,7 +42,7 @@ Rule 24 requires backend portability so D1 remains replaceable with MySQL, Postg
 
 - v1.3.0 — D1 Database Foundation
 - v1.3.0 — D1 Database Foundation
-- v1.7.1 — Coolify Dockerfile Deployment Fix
+- v1.8.0 — Employee CRUD Foundation
 
 ## Signal Schedule v1.3.0 — D1 Database Foundation
 

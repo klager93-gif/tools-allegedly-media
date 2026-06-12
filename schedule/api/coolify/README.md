@@ -1,76 +1,59 @@
 # Signal Schedule Coolify API
 
-**Current Version:** v1.7.1 — Postgres Connection + Employee Read Endpoint
+Current version: v1.8.0
 
-This folder contains the tool-owned Coolify API service for Signal Schedule.
+This folder contains the tool-owned Coolify API for Signal Schedule.
 
-## Current Scope
+## Active routes
 
-- `GET /health`
-- `GET /api/health`
-- `GET /employees`
-- `GET /api/employees`
-- Optional read-only Postgres employee source
-- JSON seed fallback when Postgres is not enabled
-
-## Not Included
-
-- CRUD
-- Authentication
-- Production credentials
-- Database writes
-- Scheduling engine logic
-
-## Local Test
-
-```bash
-npm install
-npm start
-```
-
-## Environment
-
-Copy `.env.example` into your Coolify environment settings. Do not commit real credentials.
+Read routes:
 
 ```text
-DATABASE_URL=postgres://user:password@host:5432/database
-USE_POSTGRES_EMPLOYEES=false
+GET /health
+GET /employees
+GET /employees/:id
 ```
 
-`USE_POSTGRES_EMPLOYEES=false` keeps the API on JSON seed reads.
-
-Set `USE_POSTGRES_EMPLOYEES=true` only after the Postgres schema and seed are ready.
-
-## SQL
+Protected write foundation routes:
 
 ```text
-sql/001_employee_read_schema.sql
-sql/002_employee_seed_read_only.sql
+POST /employees
+PUT /employees/:id
+PATCH /employees/:id
+DELETE /employees/:id
 ```
 
-## Rule 24
+## Write safety
 
-The frontend must not directly depend on Postgres. Postgres access belongs inside this API/adapter boundary.
-
-
-## v1.7.1 Dockerfile Deployment
-
-For Coolify, use Dockerfile deployment instead of Nixpacks:
+Employee write routes are disabled unless all of the following are true:
 
 ```text
-Build Pack: Dockerfile
+DATA_MODE=postgres
+DATABASE_URL=<internal Postgres URL>
+EMPLOYEE_WRITES_ENABLED=true
+ADMIN_API_KEY=<long random key>
+```
+
+Write requests must include either:
+
+```text
+Authorization: Bearer <ADMIN_API_KEY>
+```
+
+or:
+
+```text
+x-admin-api-key: <ADMIN_API_KEY>
+```
+
+Deletes are soft deletes only. They set `status = deleted` and do not remove rows from Postgres.
+
+## Deployment
+
+Coolify deployment should use the Dockerfile build pack with:
+
+```text
 Base Directory: /schedule/api/coolify
 Dockerfile Location: /schedule/api/coolify/Dockerfile
 Port: 3000
-```
-
-The server listens on `0.0.0.0:3000` for container compatibility.
-
-Preferred runtime variables:
-
-```text
-NODE_ENV=production
-PORT=3000
-DATA_MODE=postgres
-DATABASE_URL=<internal Coolify Postgres URL>
 ```

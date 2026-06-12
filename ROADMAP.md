@@ -73,5 +73,5 @@ Next:    v1.0.0 — Validation / Production Readiness
 
 ## Schedule Next
 
-- Current Schedule: v1.7.1 — Coolify Dockerfile Deployment Fix
+- Current Schedule: v1.8.0 — Employee CRUD Foundation
 - Next Schedule: v1.8.0 — Employee CRUD Foundation

@@ -1,164 +1,168 @@
-# File Manifest
+# Signal Labs File Manifest
 
-Generated for Signal Schedule v1.7.1 — Coolify Dockerfile Deployment Fix.
+Generated for Signal Schedule v1.8.0 Employee CRUD Foundation.
 
-## Files
-
-- `ADMIN_CHANGELOG.md`
-- `BUILDMANIFEST.md`
-- `FILEMANIFEST.md`
-- `HOWTO.md`
-- `MASTER-CHANGELOG.md`
-- `MASTER-ROADMAP.md`
-- `PUBLIC_CHANGELOG.md`
-- `README.md`
-- `REPOSITORY-AUDIT-2026-06-12.md`
-- `ROADMAP.md`
-- `STANDARDS.md`
-- `about/index.html`
-- `assets/components/footer.js`
-- `assets/components/header.js`
-- `assets/global.css`
-- `assets/global.js`
-- `assets/icons/apple-touch-icon.png`
-- `assets/icons/favicon.ico`
-- `assets/icons/favicon.svg`
-- `assets/icons/site.webmanifest`
-- `build/BUILDMANIFEST.md`
-- `build/FILEMANIFEST.md`
-- `build/SHA256SUMS.txt`
-- `changelog/index.html`
-- `contact/index.html`
-- `docs/BACKUP.md`
-- `docs/RESTORE.md`
-- `how-to/index.html`
-- `index.html`
-- `overtime/BUILDMANIFEST.md`
-- `overtime/CHANGELOG.md`
-- `overtime/FILEMANIFEST.md`
-- `overtime/HOWTO.md`
-- `overtime/README.md`
-- `overtime/ROADMAP.md`
-- `overtime/index.html`
-- `overtime/script.js`
-- `overtime/style.css`
-- `pay-planner/CHANGELOG.md`
-- `pay-planner/HOWTO.md`
-- `pay-planner/README.md`
-- `pay-planner/ROADMAP.md`
-- `pay-planner/index.html`
-- `pay-planner/script.js`
-- `pay-planner/style.css`
-- `paycheck/ADMIN_CHANGELOG.md`
-- `paycheck/BACKUP.md`
-- `paycheck/BUILDMANIFEST.md`
-- `paycheck/CHANGELOG.md`
-- `paycheck/FILEMANIFEST.md`
-- `paycheck/HOWTO.md`
-- `paycheck/PUBLIC_CHANGELOG.md`
-- `paycheck/README.md`
-- `paycheck/RESTORE.md`
-- `paycheck/ROADMAP.md`
-- `paycheck/SHA256SUMS.txt`
-- `paycheck/index.html`
-- `paycheck/script.js`
-- `paycheck/style.css`
-- `privacy/index.html`
-- `report-issue/index.html`
-- `request-feature/index.html`
-- `roadmap/index.html`
-- `schedule/API-PLAN.md`
-- `schedule/ARCHITECTURE-AUDIT.md`
-- `schedule/AUDIT-LOGGING-PLAN.md`
-- `schedule/BACKEND-ADAPTER-SELECTION.md`
-- `schedule/BACKEND-PORTABILITY.md`
-- `schedule/CHANGELOG.md`
-- `schedule/CLOUDFLARE-ARCHITECTURE.md`
-- `schedule/COOLIFY-API-SKELETON.md`
-- `schedule/COOLIFY-BACKEND-PIVOT.md`
-- `schedule/COOLIFY-BACKEND-SETUP.md`
-- `schedule/COOLIFY-DOCKERFILE-DEPLOYMENT.md`
-- `schedule/D1-DATABASE-FOUNDATION.md`
-- `schedule/D1-SETUP-GUIDE.md`
-- `schedule/DATA-LAYER.md`
-- `schedule/DATABASE-PLAN.md`
-- `schedule/DATABASE-PLANNING.md`
-- `schedule/DEPRECATION-AUDIT.md`
-- `schedule/EMPLOYEE-DATA-MODEL.md`
-- `schedule/EMPLOYEE-READ-API-FOUNDATION.md`
-- `schedule/ENTITY-MAP.md`
-- `schedule/HOWTO.md`
-- `schedule/MIGRATION-PLAN.md`
-- `schedule/PHP-MYSQL-STARTER.md`
-- `schedule/POSTGRES-EMPLOYEE-READ-ENDPOINT.md`
-- `schedule/PRE-DATABASE-SAFETY-AUDIT.md`
-- `schedule/README.md`
-- `schedule/RELEASE-v0.99.0.md`
-- `schedule/RELEASE-v0.99.1.md`
-- `schedule/RELEASE-v1.0.0.md`
-- `schedule/RELEASE-v1.1.0.md`
-- `schedule/RELEASE-v1.2.0.md`
-- `schedule/RELEASE-v1.2.1.md`
-- `schedule/RELEASE-v1.3.0.md`
-- `schedule/RELEASE-v1.3.1.md`
-- `schedule/RELEASE-v1.3.2.md`
-- `schedule/RELEASE-v1.3.3.md`
-- `schedule/RELEASE-v1.4.0.md`
-- `schedule/RELEASE-v1.5.0.md`
-- `schedule/RELEASE-v1.5.1.md`
-- `schedule/RELEASE-v1.6.0.md`
-- `schedule/RELEASE-v1.7.0.md`
-- `schedule/RELEASE-v1.7.1.md`
-- `schedule/REPOSITORY-ADAPTER-LAYER.md`
-- `schedule/ROADMAP.md`
-- `schedule/RULE-ENGINE.md`
-- `schedule/SCHEDULE-DATA-MODEL.md`
-- `schedule/SECURITY-PLAN.md`
-- `schedule/TABLE-PLAN.md`
-- `schedule/V1-READINESS.md`
-- `schedule/WORKER-API-FOUNDATION.md`
-- `schedule/WORKER-FOLDER-REPAIR.md`
-- `schedule/adapters/ApiEmployeeAdapter.js`
-- `schedule/adapters/JsonEmployeeAdapter.js`
-- `schedule/api/contracts/employees.read.schema.json`
-- `schedule/api/coolify/.dockerignore`
-- `schedule/api/coolify/.env.example`
-- `schedule/api/coolify/Dockerfile`
-- `schedule/api/coolify/README.md`
-- `schedule/api/coolify/db/postgres.js`
-- `schedule/api/coolify/package.json`
-- `schedule/api/coolify/server.js`
-- `schedule/api/coolify/sql/001_employee_read_schema.sql`
-- `schedule/api/coolify/sql/002_employee_seed_read_only.sql`
-- `schedule/api/mock-functions/agencies.js`
-- `schedule/api/mock-functions/employees.js`
-- `schedule/api/mock-functions/health.js`
-- `schedule/d1/README.md`
-- `schedule/d1/schema.sql`
-- `schedule/d1/seed.sql`
-- `schedule/data/agencies.json`
-- `schedule/data/employees.json`
-- `schedule/index.html`
-- `schedule/repositories/EmployeeRepository.js`
-- `schedule/script.js`
-- `schedule/services/EmployeeService.js`
-- `schedule/style.css`
-- `standards/COMPONENT_STANDARDS.md`
-- `standards/DEVELOPMENT_STANDARDS.md`
-- `standards/DOCUMENTATION_STANDARDS.md`
-- `standards/RELEASE_STANDARDS.md`
-- `standards/REPOSITORY_STANDARDS.md`
-- `standards/STANDARDS.md`
-- `standards/UX_STANDARDS.md`
-- `standards/WORKFLOW_STANDARDS.md`
-- `status/index.html`
-- `terms/index.html`
-- `timeoff/BUILDMANIFEST.md`
-- `timeoff/CHANGELOG.md`
-- `timeoff/FILEMANIFEST.md`
-- `timeoff/HOWTO.md`
-- `timeoff/README.md`
-- `timeoff/ROADMAP.md`
-- `timeoff/index.html`
-- `timeoff/script.js`
-- `timeoff/style.css`
+```text
+ADMIN_CHANGELOG.md
+BUILDMANIFEST.md
+FILEMANIFEST.md
+HOWTO.md
+MASTER-CHANGELOG.md
+MASTER-ROADMAP.md
+PUBLIC_CHANGELOG.md
+README.md
+REPOSITORY-AUDIT-2026-06-12.md
+ROADMAP.md
+STANDARDS.md
+about/index.html
+assets/components/footer.js
+assets/components/header.js
+assets/global.css
+assets/global.js
+assets/icons/apple-touch-icon.png
+assets/icons/favicon.ico
+assets/icons/favicon.svg
+assets/icons/site.webmanifest
+build/BUILDMANIFEST.md
+build/FILEMANIFEST.md
+build/SHA256SUMS.txt
+changelog/index.html
+contact/index.html
+docs/BACKUP.md
+docs/RESTORE.md
+how-to/index.html
+index.html
+overtime/BUILDMANIFEST.md
+overtime/CHANGELOG.md
+overtime/FILEMANIFEST.md
+overtime/HOWTO.md
+overtime/README.md
+overtime/ROADMAP.md
+overtime/index.html
+overtime/script.js
+overtime/style.css
+pay-planner/CHANGELOG.md
+pay-planner/HOWTO.md
+pay-planner/README.md
+pay-planner/ROADMAP.md
+pay-planner/index.html
+pay-planner/script.js
+pay-planner/style.css
+paycheck/ADMIN_CHANGELOG.md
+paycheck/BACKUP.md
+paycheck/BUILDMANIFEST.md
+paycheck/CHANGELOG.md
+paycheck/FILEMANIFEST.md
+paycheck/HOWTO.md
+paycheck/PUBLIC_CHANGELOG.md
+paycheck/README.md
+paycheck/RESTORE.md
+paycheck/ROADMAP.md
+paycheck/SHA256SUMS.txt
+paycheck/index.html
+paycheck/script.js
+paycheck/style.css
+privacy/index.html
+report-issue/index.html
+request-feature/index.html
+roadmap/index.html
+schedule/API-PLAN.md
+schedule/ARCHITECTURE-AUDIT.md
+schedule/AUDIT-LOGGING-PLAN.md
+schedule/BACKEND-ADAPTER-SELECTION.md
+schedule/BACKEND-PORTABILITY.md
+schedule/CHANGELOG.md
+schedule/CLOUDFLARE-ARCHITECTURE.md
+schedule/COOLIFY-API-SKELETON.md
+schedule/COOLIFY-BACKEND-PIVOT.md
+schedule/COOLIFY-BACKEND-SETUP.md
+schedule/COOLIFY-DOCKERFILE-DEPLOYMENT.md
+schedule/D1-DATABASE-FOUNDATION.md
+schedule/D1-SETUP-GUIDE.md
+schedule/DATA-LAYER.md
+schedule/DATABASE-PLAN.md
+schedule/DATABASE-PLANNING.md
+schedule/DEPRECATION-AUDIT.md
+schedule/EMPLOYEE-CRUD-FOUNDATION.md
+schedule/EMPLOYEE-DATA-MODEL.md
+schedule/EMPLOYEE-READ-API-FOUNDATION.md
+schedule/ENTITY-MAP.md
+schedule/HOWTO.md
+schedule/MIGRATION-PLAN.md
+schedule/PHP-MYSQL-STARTER.md
+schedule/POSTGRES-EMPLOYEE-READ-ENDPOINT.md
+schedule/PRE-DATABASE-SAFETY-AUDIT.md
+schedule/README.md
+schedule/RELEASE-v0.99.0.md
+schedule/RELEASE-v0.99.1.md
+schedule/RELEASE-v1.0.0.md
+schedule/RELEASE-v1.1.0.md
+schedule/RELEASE-v1.2.0.md
+schedule/RELEASE-v1.2.1.md
+schedule/RELEASE-v1.3.0.md
+schedule/RELEASE-v1.3.1.md
+schedule/RELEASE-v1.3.2.md
+schedule/RELEASE-v1.3.3.md
+schedule/RELEASE-v1.4.0.md
+schedule/RELEASE-v1.5.0.md
+schedule/RELEASE-v1.5.1.md
+schedule/RELEASE-v1.6.0.md
+schedule/RELEASE-v1.7.0.md
+schedule/RELEASE-v1.7.1.md
+schedule/RELEASE-v1.8.0.md
+schedule/REPOSITORY-ADAPTER-LAYER.md
+schedule/ROADMAP.md
+schedule/RULE-ENGINE.md
+schedule/SCHEDULE-DATA-MODEL.md
+schedule/SECURITY-PLAN.md
+schedule/TABLE-PLAN.md
+schedule/V1-READINESS.md
+schedule/WORKER-API-FOUNDATION.md
+schedule/WORKER-FOLDER-REPAIR.md
+schedule/adapters/ApiEmployeeAdapter.js
+schedule/adapters/JsonEmployeeAdapter.js
+schedule/api/contracts/employees.crud.schema.json
+schedule/api/contracts/employees.read.schema.json
+schedule/api/coolify/.dockerignore
+schedule/api/coolify/.env.example
+schedule/api/coolify/Dockerfile
+schedule/api/coolify/README.md
+schedule/api/coolify/db/postgres.js
+schedule/api/coolify/package.json
+schedule/api/coolify/server.js
+schedule/api/coolify/sql/001_employee_read_schema.sql
+schedule/api/coolify/sql/002_employee_seed_read_only.sql
+schedule/api/coolify/sql/003_employee_crud_safety_indexes.sql
+schedule/api/mock-functions/agencies.js
+schedule/api/mock-functions/employees.js
+schedule/api/mock-functions/health.js
+schedule/d1/README.md
+schedule/d1/schema.sql
+schedule/d1/seed.sql
+schedule/data/agencies.json
+schedule/data/employees.json
+schedule/index.html
+schedule/repositories/EmployeeRepository.js
+schedule/script.js
+schedule/services/EmployeeService.js
+schedule/style.css
+standards/COMPONENT_STANDARDS.md
+standards/DEVELOPMENT_STANDARDS.md
+standards/DOCUMENTATION_STANDARDS.md
+standards/RELEASE_STANDARDS.md
+standards/REPOSITORY_STANDARDS.md
+standards/STANDARDS.md
+standards/UX_STANDARDS.md
+standards/WORKFLOW_STANDARDS.md
+status/index.html
+terms/index.html
+timeoff/BUILDMANIFEST.md
+timeoff/CHANGELOG.md
+timeoff/FILEMANIFEST.md
+timeoff/HOWTO.md
+timeoff/README.md
+timeoff/ROADMAP.md
+timeoff/index.html
+timeoff/script.js
+timeoff/style.css
+```

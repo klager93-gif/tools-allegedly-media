@@ -1,10 +1,10 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v1.7.0
-Purpose: Postgres Employee Read Endpoint with service/repository/adapter boundary preserved
+Version: v1.8.0
+Purpose: Employee CRUD Foundation with service/repository/adapter boundary preserved
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v1.7.0';
+  var STORAGE_KEY = 'signalSchedule.v1.8.0';
   var OLD_STORAGE_KEYS = ['signalSchedule.v1.5.1', 'signalSchedule.v1.5.0', 'signalSchedule.v1.4.0', 'signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
@@ -235,7 +235,7 @@ Purpose: Postgres Employee Read Endpoint with service/repository/adapter boundar
     responseShape: {
       ok: true,
       data: [],
-      meta: { source: 'coolify-api-postgres-read', version: 'v1.7.0' },
+      meta: { source: 'coolify-api-postgres-read', version: 'v1.8.0' },
       errors: []
     }
   };
@@ -1352,7 +1352,7 @@ Purpose: Postgres Employee Read Endpoint with service/repository/adapter boundar
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v1.7.0 Postgres Employee Read Endpoint';
+    if (label) label.textContent = 'v1.8.0 Employee CRUD Foundation';
   }
 
   function syncRuleInputs() {
@@ -2114,7 +2114,7 @@ Purpose: Postgres Employee Read Endpoint with service/repository/adapter boundar
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — EMPLOYEE READ API FOUNDATION');
-    lines.push('Version: v1.7.0');
+    lines.push('Version: v1.8.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -2201,7 +2201,7 @@ Purpose: Postgres Employee Read Endpoint with service/repository/adapter boundar
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v1.7.0 Notes:');
+    lines.push('v1.8.0 Notes:');
     lines.push('- Defines the Coolify API skeleton while preserving service, repository, and adapter boundaries.');
     lines.push('- Keeps the active browser app on local/static JSON data; the API adapter remains available but inactive by default.');
     lines.push('- Adds a tool-owned Coolify API skeleton for /health and /employees without connecting Postgres yet.');

@@ -1,5 +1,16 @@
 # Signal Schedule Changelog
 
+## v1.8.0 — Employee CRUD Foundation
+
+- Added protected employee CRUD route boundaries to the Coolify API.
+- Added `POST /employees`, `PUT /employees/:id`, `PATCH /employees/:id`, and `DELETE /employees/:id`.
+- Added `GET /employees/:id` single employee read route.
+- Added `EMPLOYEE_WRITES_ENABLED` safety flag.
+- Added `ADMIN_API_KEY` write-route guard using `Authorization: Bearer` or `x-admin-api-key`.
+- Added soft-delete behavior instead of physical deletes.
+- Added optional employee CRUD safety SQL indexes.
+- Added no public writes, login system, role-based auth, frontend employee editor, or scheduling engine logic.
+
 ## v1.7.1 — Coolify Dockerfile Deployment Fix
 
 - Added `schedule/api/coolify/Dockerfile` for predictable Coolify deployment.

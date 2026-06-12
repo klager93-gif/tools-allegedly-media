@@ -2,32 +2,31 @@
 
 ## Current
 
-**v1.7.1 — Coolify Dockerfile Deployment Fix**
+**v1.8.0 — Employee CRUD Foundation**
 
-Signal Schedule now has a Dockerfile deployment path for the Coolify API. This is a deployment fix for v1.7.0 after the Nixpacks build path proved too slow or unreliable during initial Coolify setup.
+Signal Schedule now has protected employee CRUD route boundaries in the Coolify API. Writes remain disabled by default and require both `EMPLOYEE_WRITES_ENABLED=true` and an `ADMIN_API_KEY`. Deletes are soft deletes only.
 
-The active browser app still uses the static JSON adapter until the API adapter is intentionally enabled. The Coolify API remains read-only.
-
-No CRUD, authentication, production credentials, database writes, or scheduling engine logic are active in this release.
+No login system, role-based authentication, frontend employee editor, or scheduling engine logic is active in this release.
 
 ## Next
 
-**v1.8.0 — Employee CRUD Foundation**
+**v1.9.0 — Authentication / Admin Access Foundation**
 
 Planned focus:
 
-- Define create/edit/delete employee boundaries.
-- Keep write operations behind service, repository, and adapter layers.
-- Add validation and error response rules before writes go live.
-- Keep authentication and roles as a separate planned release unless intentionally included.
+- Design login/session or token strategy.
+- Define admin/scheduler/supervisor/employee roles.
+- Protect employee data before real employee records are entered.
+- Decide whether public API reads should remain available or require authorization.
 
 ## Planned Path
 
 ```text
 v1.8.0 — Employee CRUD Foundation
-v1.9.0 — Assignments Foundation
-v2.0.0 — Events / Requests / VOT Foundation
-v2.1.0 — Scheduling Engine Foundation
+v1.9.0 — Authentication / Admin Access Foundation
+v2.0.0 — Assignments Foundation
+v2.1.0 — Events / Requests / VOT Foundation
+v2.2.0 — Scheduling Engine Foundation
 ```
 
 ## Completed
@@ -47,6 +46,7 @@ v1.5.1 — Employee Data Model Design
 v1.6.0 — Coolify API Skeleton
 v1.7.0 — Postgres Connection + Employee Read Endpoint
 v1.7.1 — Coolify Dockerfile Deployment Fix
+v1.8.0 — Employee CRUD Foundation
 ```
 
 ## Rule 24

@@ -122,3 +122,8 @@ Schedule-specific infrastructure belongs inside `/schedule/` unless it is intent
 **v1.8.0 — Employee CRUD Foundation**
 
 The next release should design and add controlled create/edit/delete boundaries only after the read path and Postgres configuration are reviewed.
+
+
+## v1.8.0 Employee CRUD Foundation
+
+The Coolify API now includes protected employee CRUD route boundaries. Employee writes remain disabled by default and require `EMPLOYEE_WRITES_ENABLED=true` plus `ADMIN_API_KEY`. Deletes are soft deletes only. No login system or role-based auth is included yet.

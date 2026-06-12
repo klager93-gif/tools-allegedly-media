@@ -1,8 +1,8 @@
 {
   "name": "signal-schedule-api-skeleton",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "private": true,
-  "description": "Signal Schedule Coolify API with Dockerfile deployment fix and optional read-only Postgres employee endpoint.",
+  "description": "Signal Schedule Coolify API with protected employee CRUD foundation and Postgres read/write boundaries.",
   "type": "module",
   "scripts": {
     "start": "node server.js"
