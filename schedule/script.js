@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.8.0
+Version: v0.8.1
 Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explanations, and audit planning
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.8.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.8.1';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -514,7 +514,7 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.8.0 Rules';
+    if (label) label.textContent = 'v0.8.1 Rules';
   }
 
   function syncRuleInputs() {
@@ -663,6 +663,49 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
     var rules = state.benefitRules && state.benefitRules.length ? state.benefitRules : defaultBenefitRules();
     target.innerHTML = rules.map(function (rule) {
       return '<article class="benefit-rule-card-item"><span>' + escapeHtml(rule.benefitType) + '</span><strong>' + escapeHtml(rule.method) + '</strong><p>' + escapeHtml(formatMinutes(rule.amountMinutes)) + ' · ' + escapeHtml(rule.cadence) + '</p><small>' + escapeHtml(rule.appliesTo) + '<br>' + escapeHtml(rule.notes) + '</small></article>';
+    }).join('');
+  }
+
+
+  function renderRuleEnginePreview() {
+    var target = $('#ruleEnginePreview');
+    if (!target) return;
+    var items = Array.isArray(state.ruleEnginePrinciples) && state.ruleEnginePrinciples.length ? state.ruleEnginePrinciples : defaultRuleEnginePrinciples();
+    target.innerHTML = items.map(function (item) {
+      return '<article class="rule-engine-item">' +
+        '<span>' + escapeHtml(item.name || 'Rule principle') + '</span>' +
+        '<strong>' + escapeHtml(item.summary || '') + '</strong>' +
+        '<p>' + escapeHtml(item.example || '') + '</p>' +
+        '</article>';
+    }).join('');
+  }
+
+  function renderRuleEvaluationPreview() {
+    var target = $('#ruleEvaluationPreview');
+    if (!target) return;
+    var items = Array.isArray(state.ruleEvaluationExamples) && state.ruleEvaluationExamples.length ? state.ruleEvaluationExamples : defaultRuleEvaluationExamples();
+    target.innerHTML = items.map(function (item) {
+      return '<article class="rule-evaluation-item">' +
+        '<span>' + escapeHtml(item.ruleType || 'Rule') + ' · ' + escapeHtml(item.priority || 'priority not set') + '</span>' +
+        '<strong>Input</strong>' +
+        '<p>' + escapeHtml(item.input || '') + '</p>' +
+        '<strong>Outcome</strong>' +
+        '<p>' + escapeHtml(item.outcome || '') + '</p>' +
+        '<em>' + escapeHtml(item.explanation || '') + '</em>' +
+        '</article>';
+    }).join('');
+  }
+
+  function renderAgencyTemplatePreview() {
+    var target = $('#agencyTemplatePreview');
+    if (!target) return;
+    var items = Array.isArray(state.agencyRuleTemplates) && state.agencyRuleTemplates.length ? state.agencyRuleTemplates : defaultAgencyRuleTemplates();
+    target.innerHTML = items.map(function (item) {
+      return '<article class="agency-template-item">' +
+        '<span>Editable template</span>' +
+        '<strong>' + escapeHtml(item.name || 'Agency template') + '</strong>' +
+        '<p>' + escapeHtml(item.examples || '') + '</p>' +
+        '</article>';
     }).join('');
   }
 
@@ -856,7 +899,7 @@ Purpose: Rule Engine Foundation sandbox for policy evaluation, priority, explana
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — CORE ENGINE BLUEPRINT');
-    lines.push('Version: v0.8.0');
+    lines.push('Version: v0.8.1');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Pattern Templates + Events + Rules + Coverage + Explanations');
     lines.push('');

@@ -1,4 +1,12 @@
-## 2026-06-11 — Signal Schedule v0.8.0 Rule Engine Foundation
+# Master Changelog
+
+## Signal Schedule v0.8.1 — Rule Engine Render Repair
+
+- Fixed missing Rule Engine preview render functions that stopped page rendering after v0.8.0.
+- Restored sample employee loading and employee add form behavior.
+- No database, schedule automation, or CRUD workflow was added.
+
+## 2026-06-11 — Signal Schedule v0.8.1 Rule Engine Foundation
 
 - Added visible Rule Engine Foundation, Rule Evaluation Preview, and Agency Template Preview panels to the Schedule sandbox.
 - Added sample rule-engine principles for priority, explainability, audit trail, and editable industry templates.

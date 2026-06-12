@@ -1,3 +1,13 @@
+# Signal Schedule Changelog
+
+## v0.8.1 — Rule Engine Render Repair
+
+- Fixed a JavaScript render error caused by missing Rule Engine preview render functions.
+- Restored sample employee loading and employee add form behavior.
+- Added render handlers for Rule Engine principles, Rule Evaluation previews, and Agency Template previews.
+- Updated Schedule version references and cache-busting to v0.8.1.
+- No new scheduling logic, database storage, or CRUD workflow was added.
+
 ## v0.8.0 — Rule Engine Foundation
 
 - Added visible Rule Engine Foundation panels.

@@ -367,7 +367,7 @@ Future rule-engine behavior should evaluate events together with patterns, agenc
 
 ## v0.7.0 — Benefit Ledger Foundation
 
-Signal Schedule v0.8.0 adds benefit ledger planning. Benefit balances should be derived from auditable ledger entries rather than overwritten as silent totals.
+Signal Schedule v0.8.1 adds benefit ledger planning. Benefit balances should be derived from auditable ledger entries rather than overwritten as silent totals.
 
 Planned benefit ledger concepts include:
 

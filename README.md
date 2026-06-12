@@ -20,4 +20,4 @@ Signal Labs is being maintained as a small software suite. Shared assets, naviga
 
 ## Current Schedule Planning
 
-**Signal Schedule v0.8.0 — Rule Engine Foundation** adds policy evaluation planning for overtime, mandation, benefits, coverage, fatigue, trades, bidding, priority, explanations, and audit history.
+**Signal Schedule v0.8.1 — Rule Engine Foundation** adds policy evaluation planning for overtime, mandation, benefits, coverage, fatigue, trades, bidding, priority, explanations, and audit history.

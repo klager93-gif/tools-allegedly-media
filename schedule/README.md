@@ -144,7 +144,7 @@ v0.5.0 does not add database persistence, admin editing, final schedule generati
 
 ## v0.7.0 Benefit Ledger Foundation
 
-Signal Schedule v0.8.0 adds visible event planning before final schedule generation. Events are modeled as objects that modify expected pattern work.
+Signal Schedule v0.8.1 adds visible event planning before final schedule generation. Events are modeled as objects that modify expected pattern work.
 
 Sample event categories include:
 
