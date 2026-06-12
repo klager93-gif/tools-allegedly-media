@@ -1,27 +1,23 @@
-# Signal Schedule Migration Plan — v0.99.0
+# Signal Schedule Migration Plan — v0.99.1
 
-The current app is browser-only and stores prototype state locally. v1.x should migrate carefully.
+## Current state
 
-## Phase 1
+The app remains browser-only with local/static data.
 
-Create schema and read-only database test.
+## Next state
 
-## Phase 2
+v1.0 should introduce a static JSON data layer and service/repository boundaries.
 
-Persist agencies and employees.
+## Cloudflare path
 
-## Phase 3
+1. Static JSON adapter.
+2. Repository contracts.
+3. Worker/Pages Function read-only API.
+4. D1 schema and read-only D1 adapter.
+5. Audit logging.
+6. Controlled writes.
+7. CRUD and approvals.
 
-Persist assignments and shift definitions.
+## Portability path
 
-## Phase 4
-
-Persist requests and schedule events.
-
-## Phase 5
-
-Persist opportunities, bids, awards, explanations, notifications, and audit logs.
-
-## Rule
-
-Do not migrate every prototype object at once. Move one family at a time and keep fallback exports until data is verified.
+If the app later moves to MySQL/Postgres/PHP or another backend, replace the adapter, not the UI or scheduling engines.

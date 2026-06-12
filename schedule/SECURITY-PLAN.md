@@ -1,29 +1,21 @@
-# Signal Schedule Security Plan — v0.99.0
+# Signal Schedule Security Plan — v0.99.1
 
-## Credentials
+## Secrets
 
-Database credentials must live outside public web files when possible. If hosting limits that, use a private PHP config file that is never linked, never downloaded, and never committed with real passwords.
+Do not commit secrets to GitHub. Future Cloudflare secrets should be stored in Cloudflare Secrets / environment bindings, not in public files.
 
-## Database user
+## Database access
 
-Use a limited MySQL user. Do not use the hosting account root/admin user for the application.
+D1 bindings should be accessed only from Workers or Pages Functions, never directly from browser JavaScript.
 
-## Input safety
+## Writes
 
-- Use prepared statements.
-- Validate types and allowed values.
-- Escape output in HTML.
-- Treat all browser input as untrusted.
+Do not allow production writes until audit logging exists.
 
-## Permissions
+## Backend portability
 
-Future roles:
+Security decisions should stay outside UI code. Repositories and adapters should enforce backend access boundaries.
 
-- Employee
-- Supervisor
-- Admin
-- System
+## Future authentication
 
-## Write safety
-
-No live write action should exist before audit logging exists.
+Authentication and roles should be planned before employee self-service, supervisor approvals, or admin CRUD become live.

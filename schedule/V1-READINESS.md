@@ -1,20 +1,18 @@
-# v1.0 Database Readiness Checklist
+# v1.0 Readiness — Cloudflare Data Layer Foundation
 
-Before building v1.0, confirm:
+Before v1.0 begins, confirm:
 
-- Hosting supports PHP 8.x.
-- Hosting supports MySQL or MariaDB.
-- A database can be created outside WordPress.
-- A limited database user can be created.
-- Credentials will not be committed publicly.
-- First schema will include only agencies and employees.
-- First PHP page will be read-only.
-- Audit logging will be planned before write actions.
+- The static site still deploys from GitHub to Cloudflare.
+- No PHP/MySQL hosting is required for the first v1.x releases.
+- Data access will use services, repositories, and adapters.
+- Sample data is safe to commit publicly.
+- No secrets or private employee data are included.
+- Render registry validation still passes.
+- Rule 23 and Rule 24 are followed.
 
-## v1.0 minimum target
+## v1.0 target
 
-- `/schedule/php/config/config.example.php`
-- `/schedule/php/database/connection.php`
-- `/schedule/php/database/schema.sql`
-- `/schedule/php/api/health.php`
-- Optional private read-only test page.
+- Add `/schedule/data/agencies.json`.
+- Add `/schedule/data/employees.json`.
+- Add browser-safe data service/repository files.
+- Keep all live database work out of v1.0.

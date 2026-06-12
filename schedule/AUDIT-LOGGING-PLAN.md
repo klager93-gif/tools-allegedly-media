@@ -1,4 +1,4 @@
-# Signal Schedule Audit Logging Plan — v0.99.0
+# Signal Schedule Audit Logging Plan — v0.99.1
 
 Audit logging is mandatory before live schedule-changing writes.
 

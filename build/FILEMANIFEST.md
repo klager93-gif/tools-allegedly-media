@@ -1,4 +1,4 @@
-# File Manifest — Signal Labs v0.99.0 Database Planning
+# File Manifest — Signal Schedule v0.99.1
 
 - `.gitattributes`
 - `.gitignore`
@@ -18,8 +18,6 @@
 - `assets/icons/favicon.ico`
 - `assets/icons/favicon.svg`
 - `assets/icons/site.webmanifest`
-- `build/BUILDMANIFEST.md`
-- `build/SHA256SUMS.txt`
 - `changelog/index.html`
 - `contact/index.html`
 - `docs/BACKUP.md`
@@ -43,7 +41,9 @@
 - `schedule/API-PLAN.md`
 - `schedule/ARCHITECTURE-AUDIT.md`
 - `schedule/AUDIT-LOGGING-PLAN.md`
+- `schedule/BACKEND-PORTABILITY.md`
 - `schedule/CHANGELOG.md`
+- `schedule/CLOUDFLARE-ARCHITECTURE.md`
 - `schedule/DATABASE-PLAN.md`
 - `schedule/DATABASE-PLANNING.md`
 - `schedule/DEPRECATION-AUDIT.md`
@@ -54,6 +54,7 @@
 - `schedule/PRE-DATABASE-SAFETY-AUDIT.md`
 - `schedule/README.md`
 - `schedule/RELEASE-v0.99.0.md`
+- `schedule/RELEASE-v0.99.1.md`
 - `schedule/ROADMAP.md`
 - `schedule/RULE-ENGINE.md`
 - `schedule/SECURITY-PLAN.md`

@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v0.99.0
+Version: v0.99.1
 Purpose: Architecture Complete audit that keeps foundation concepts in docs/data planning and reduces render-registry risk
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v0.99.0';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v0.99.1';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v0.99.1', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -1101,7 +1101,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v0.99.0 Database Planning';
+    if (label) label.textContent = 'v0.99.1 Cloudflare Architecture Pivot';
   }
 
   function syncRuleInputs() {
@@ -1802,7 +1802,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
       '<div class="coverage-card"><span>People Scheduled</span><strong>' + peopleScheduled + '/' + state.employees.length + '</strong><p>Employees with at least one assignment.</p></div>' +
       '<div class="coverage-card"><span>Rule Warnings</span><strong>' + warnings.length + '</strong><p>Coverage, overtime, rest-gap, and model warnings.</p></div>' +
       '<div class="coverage-card"><span>Busiest Day</span><strong>' + busiest.day + '</strong><p>' + busiest.count + ' assignment' + (busiest.count === 1 ? '' : 's') + ' scheduled.</p></div>' +
-      '<div class="coverage-card"><span>Storage</span><strong>Local</strong><p>Temporary only. PHP/database storage is planned later.</p></div>';
+      '<div class="coverage-card"><span>Storage</span><strong>Local</strong><p>Temporary only. Cloudflare data adapters are planned later.</p></div>';
     var visibleWarnings = warnings.slice(0, 8);
     $('#ruleWarnings').innerHTML = warnings.length ? visibleWarnings.map(function (warning) {
       return '<div class="warning-item">' + escapeHtml(warning) + '</div>';
@@ -1814,7 +1814,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — GOAL MODE FOUNDATION');
-    lines.push('Version: v0.99.0');
+    lines.push('Version: v0.99.1');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');
@@ -1901,7 +1901,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     if (warnings.length) warnings.forEach(function (warning) { lines.push('- ' + warning); });
     else lines.push('- None');
     lines.push('');
-    lines.push('v0.99.0 Notes:');
+    lines.push('v0.99.1 Notes:');
     lines.push('- Adds database planning bridge before v1.0.');
     lines.push('- Removes dashboard-style foundation preview panels for analytics, notifications, and goal mode.');
     lines.push('- Confirms engines, entities, rules, explanations, audit records, notifications, goals, and agency profiles are ready to map into database tables.');
@@ -1909,7 +1909,7 @@ Purpose: Architecture Complete audit that keeps foundation concepts in docs/data
     lines.push('- This is still local mock data, not a backend.');
     lines.push('- Events, rules, benefit entries, coverage rows, views, templates, fairness metrics, and explanations are sample objects, not editable database records or approval workflows yet.');
     lines.push('- Pattern templates and cycle days are still sample objects, not editable database records yet.');
-    lines.push('- PHP should wait until agency profile, people, patterns, events, rules, benefits, mandates, fairness, explainability, and coverage are mapped.');
+    lines.push('- Cloudflare Workers/D1 should remain behind portable services, repositories, and adapters.');
     lines.push('- Future schedules should be generated from agency settings + pattern + start date + events + overrides, then displayed through audience-specific views and explanations.');
     return lines.join('\n');
   }

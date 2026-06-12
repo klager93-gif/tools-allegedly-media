@@ -1,12 +1,33 @@
-## v0.99.0 Database Plan
+## v0.99.1 Data Persistence Plan
 
-This file is retained as a compatibility note. The active database planning documents are:
+v0.99.1 pivots the first persistence target from PHP/MySQL to Cloudflare-native storage while preserving the table/entity planning from v0.99.0.
 
-- `DATABASE-PLANNING.md`
-- `TABLE-PLAN.md`
-- `API-PLAN.md`
-- `SECURITY-PLAN.md`
-- `MIGRATION-PLAN.md`
-- `AUDIT-LOGGING-PLAN.md`
+## First backend target
 
-v0.99.0 plans the database foundation. It does not create live PHP/MySQL behavior.
+- Cloudflare Pages for frontend deployment.
+- Cloudflare Workers / Pages Functions for APIs.
+- Cloudflare D1 for first SQL adapter.
+- Cloudflare Secrets for backend secrets.
+
+## Portability rule
+
+D1 is an adapter, not the architecture. Services and repositories must sit between UI/business logic and backend storage.
+
+## Future structured entities
+
+- agencies
+- employees
+- audit_logs
+- assignments
+- shifts
+- events
+- requests
+- opportunities
+- bids
+- awards
+- benefits
+- rules
+- coverage
+- explanations
+- notifications
+- goals

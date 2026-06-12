@@ -1,20 +1,19 @@
-## v0.99.0 Database Planning HOWTO
+## v0.99.1 Cloudflare Architecture Pivot HOWTO
 
-Use this release as the blueprint for the PHP/MySQL transition.
+Use this release as the revised blueprint for the Cloudflare-native backend path.
 
-## What to review before v1.0
+## Read first
 
-1. `DATABASE-PLANNING.md` for the overall approach.
-2. `TABLE-PLAN.md` for first table families.
-3. `API-PLAN.md` for future PHP endpoint boundaries.
-4. `SECURITY-PLAN.md` before credentials or writes are added.
-5. `MIGRATION-PLAN.md` before moving local browser data into MySQL.
-6. `AUDIT-LOGGING-PLAN.md` before approvals or schedule-changing actions exist.
+1. `CLOUDFLARE-ARCHITECTURE.md` for the target Cloudflare stack.
+2. `BACKEND-PORTABILITY.md` for Rule 24.
+3. `ROADMAP.md` for the revised v1.x sequence.
+4. `SECURITY-PLAN.md` before creating secrets or API endpoints.
+5. `MIGRATION-PLAN.md` before moving static data into D1.
 
-## What not to do in v0.99
+## Do not do yet
 
-Do not add PHP credentials, live database connections, CRUD forms, login systems, approval flows, or new dashboard preview panels.
+Do not add live D1 tables, Worker routes, credentials, CRUD forms, login systems, approval flows, or new dashboard preview panels.
 
-## v1.0 first safe test
+## First implementation step
 
-The first PHP/MySQL test should be read-only: connect to the database, load one agency row, and display it on a private test page.
+The next release should add a static data layer with sample JSON and service/repository functions. It should not require Cloudflare D1 yet.

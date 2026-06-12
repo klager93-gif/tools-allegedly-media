@@ -1,4 +1,4 @@
-# Signal Schedule Table Plan — v0.99.0
+# Signal Schedule Table Plan — v0.99.1
 
 ## Core tables for early v1.x
 

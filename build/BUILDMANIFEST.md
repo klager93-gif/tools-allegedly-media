@@ -1,15 +1,16 @@
-# Build Manifest — Signal Labs v0.99.0 Database Planning
+# Build Manifest — Signal Schedule v0.99.1
 
-Build: Signal Schedule v0.99.0 — Database Planning
-Source: signal-labs-v0.19.1-pre-database-safety-audit.zip
-Generated: 2026-06-12 07:12:36 UTC
+Release: Signal Schedule v0.99.1 — Cloudflare Architecture Pivot
 
-## Validation
+Source: signal-labs-v0.99.0-database-planning.zip
+
+Built: 2026-06-12T07:24:46Z
+
+Validation:
 
 - JavaScript syntax checked.
 - Render registry validation passed.
 - Every safeRender callback resolves to a defined function.
-- No new dashboard preview panels added.
-- No live PHP/MySQL credentials or connection code added.
-- macOS metadata and .git internals excluded from package.
-
+- No new Cloudflare/D1/Worker preview panels were added.
+- No live D1 database, Worker API, credentials, or CRUD code added.
+- Rule 24 backend portability documented.

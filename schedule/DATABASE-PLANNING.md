@@ -1,6 +1,6 @@
-# Signal Schedule v0.99.0 Database Planning
+# Signal Schedule v0.99.1 Database Planning
 
-This bridge release defines the persistence plan before v1.0 introduces PHP/MySQL.
+This bridge release defines the persistence plan before v1.0 introduces Cloudflare Workers/D1.
 
 ## Principle
 

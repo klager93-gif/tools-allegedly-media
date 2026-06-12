@@ -27,4 +27,4 @@ After v1.0 database scaffolding exists, consider consolidating or archiving:
 
 ## Do not delete yet
 
-None of the current `/schedule/` files should be deleted before v1.0 begins. They still document decisions that will be needed while creating the first PHP/MySQL schema and backend structure.
+None of the current `/schedule/` files should be deleted before v1.0 begins. They still document decisions that will be needed while creating the first Cloudflare data-layer and backend adapter structure.

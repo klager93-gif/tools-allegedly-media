@@ -1,25 +1,34 @@
-# Signal Schedule API Plan — v0.99.0
+# Signal Schedule API Plan — v0.99.1
 
-Future PHP endpoints should be grouped by domain rather than by UI screen.
+Future APIs should be grouped by domain rather than by UI screen. The first API implementation target is Cloudflare Workers or Pages Functions, not PHP endpoints.
 
-## Early read-only endpoints
+## Initial read-only endpoints
 
-- `/schedule/php/api/agencies.php`
-- `/schedule/php/api/employees.php`
-- `/schedule/php/api/health.php`
+```text
+/api/health
+/api/agencies
+/api/employees
+```
 
-## Later write endpoints
+## Future endpoint families
 
-- `/schedule/php/api/requests.php`
-- `/schedule/php/api/opportunities.php`
-- `/schedule/php/api/bids.php`
-- `/schedule/php/api/awards.php`
-- `/schedule/php/api/events.php`
+```text
+/api/assignments
+/api/shifts
+/api/events
+/api/requests
+/api/opportunities
+/api/bids
+/api/awards
+/api/benefits
+/api/rules
+/api/coverage
+/api/explanations
+/api/notifications
+/api/goals
+/api/audit
+```
 
-## Rules
+## Rule 24
 
-- Validate every input server-side.
-- Require permissions for every write.
-- Return structured errors.
-- Log every schedule-changing write.
-- Do not expose database credentials to frontend JavaScript.
+API handlers should not contain scheduling business logic. They should call services, which call repositories, which call adapters.

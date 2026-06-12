@@ -1,11 +1,5 @@
-## Signal Schedule v0.99.0 — Database Planning
+# Public Changelog
 
-- Added database planning bridge before v1.0 PHP/MySQL foundation.
-- Added table, API, security, migration, and audit logging planning docs.
-- No live database code or new dashboard preview panels added.
+## Signal Schedule v0.99.1 — Cloudflare Architecture Pivot
 
-## Signal Schedule v0.19.1 — Pre-Database Safety Audit
-
-- Completes the architecture planning phase before database work begins.
-- Documents how employees, events, requests, opportunities, rules, coverage, fairness, explanations, notifications, goals, and audit records connect.
-- Adds no new dashboard preview panels.
+Updates the future backend direction for Signal Schedule. The app remains browser-only, but the roadmap now targets a Cloudflare-native data layer instead of traditional PHP/MySQL hosting.

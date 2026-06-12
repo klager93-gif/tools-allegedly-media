@@ -66,3 +66,8 @@ Release ZIP
 ↓
 GitHub
 ```
+
+
+## Rule 24 — Backend Portability
+
+Backend releases must preserve service/repository/adapter boundaries. Do not couple UI or scheduling engines directly to Cloudflare D1, Workers, PHP, MySQL, or any other backend.

@@ -1,9 +1,10 @@
-# Workflow Standards — Signal Schedule v0.19.0 Update
+# Workflow Standards — Signal Schedule v0.99.1 Update
 
 - Before packaging, validate every render registry entry against an actual defined function. Fail the build if any registered renderer is missing.
 - Foundation releases should not add new dashboard-style preview panels unless the UI itself is the purpose of the release.
 - Architecture-complete releases should audit relationships, assumptions, and database readiness instead of adding feature UI.
 - Multi-agency support must use configurable facts and vocabulary, not hard-coded agency-specific engine branches.
+- Backend portability is required. No UI or business logic may depend directly on D1, Workers, MySQL, PHP, or any backend-specific implementation.
 
 # Workflow Standards
 
@@ -51,3 +52,10 @@ Normal releases should be saved as ZIP archives in dated `Releases/` folders. Th
 Do not create new preview panels for every foundation release. Foundation releases should usually update documentation, data-model notes, workflow standards, manifests, and small conceptual code changes. Add a new render function or registry entry only when the UI itself is the purpose of the release.
 
 Before packaging, validate that every render registry entry and every safeRender call points to a defined render function. Fail the build if any renderer is missing.
+
+
+## Rule 24 — Backend Portability Required
+
+No UI or business logic may depend directly on D1, Workers, MySQL, PHP, or any backend-specific implementation. All persistence must go through service, repository, and adapter layers so the backend can be replaced later with minimal changes.
+
+D1 is the first likely adapter because the live deployment is already GitHub to Cloudflare. It must not become a lock-in point.

@@ -1,35 +1,32 @@
-## v0.99.0 — Database Planning
+## v0.99.1 — Cloudflare Architecture Pivot
 
-Signal Schedule v0.99.0 is the bridge between the architecture phase and the first PHP/MySQL foundation release.
+Signal Schedule v0.99.1 pivots the post-0.99 backend plan from traditional PHP/MySQL hosting to a Cloudflare-native path because the live site already deploys from GitHub to Cloudflare.
 
-This release does **not** create live database tables, PHP endpoints, CRUD workflows, authentication, approvals, or production data storage. It defines the database plan before implementation.
+This release does **not** create live D1 tables, Workers, API endpoints, CRUD workflows, authentication, approvals, or production data storage. It documents the architecture pivot before implementation.
 
-## Purpose
+## Direction
 
-- Translate 0.x concepts into future table families.
-- Define stable IDs before persistence begins.
-- Plan API boundaries before PHP files exist.
-- Define a permissions model before user actions exist.
-- Define audit logging before any live write operations exist.
-- Keep Rule 0 and Rule 23 active while preparing for v1.0.
+Initial backend target:
 
-## Rule 0
+```text
+Cloudflare Pages
+Cloudflare Workers / Pages Functions
+Cloudflare D1
+Cloudflare Secrets
+Cloudflare KV / R2 when appropriate
+```
 
-Store facts, not assumptions. Database tables should persist explicit facts such as agency settings, work week starts, pay periods, eligibility, restrictions, rule sources, and audit reasons.
+## Rule 24
 
-## Rule 23
+Backend portability is required. D1 is the first likely backend adapter, not a permanent lock-in. UI and business logic must go through services, repositories, and adapters.
 
-No new dashboard-style foundation preview panels were added for this planning release. Database planning belongs in documentation until the PHP/MySQL foundation is ready.
+## Guardrails
 
-## New planning files
-
-- `DATABASE-PLANNING.md`
-- `TABLE-PLAN.md`
-- `API-PLAN.md`
-- `SECURITY-PLAN.md`
-- `MIGRATION-PLAN.md`
-- `AUDIT-LOGGING-PLAN.md`
+- No secrets in GitHub.
+- No direct UI dependency on D1 or Workers.
+- No new foundation preview panels unless the UI itself is the release purpose.
+- Render registry validation remains required before packaging.
 
 ## Next
 
-`v1.0.0 — Database Foundation` should begin with schema scaffolding, a private config example, a database connection helper, and read-only tests before any production writes.
+`v1.0.0 — Cloudflare Data Layer Foundation` should add browser-safe JSON data files and service/repository boundaries before any live database or Worker API exists.
