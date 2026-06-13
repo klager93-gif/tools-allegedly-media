@@ -1,17 +1,10 @@
 # Build Manifest
 
-## Release Title
+Release Title: Schedule v2.7.0 — Shift Trades & Swap Requests
+ZIP Filename: signal-schedule-v2.7.0-shift-trades-swap-requests.zip
+Build Date: 2026-06-13
+Replace Scope: /schedule/ within full root package
 
-Schedule v2.6.0 — Seniority & Rotation Engine
+## Summary
 
-## Package
-
-signal-labs-v2.6.0-seniority-rotation-engine.zip
-
-## Scope
-
-Schedule tool content included inside full-root package.
-
-## Notes
-
-Includes Schedule v2.6.0 and Signal Labs Standards v3.0 consolidated development standards.
+Adds Shift Trades & Swap Requests foundation and includes the current full root package for delete-and-replace deployment.

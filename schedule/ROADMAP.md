@@ -1,6 +1,6 @@
 # Signal Schedule Roadmap
 
-## Current Release: Schedule v2.6.0 — Seniority & Rotation Engine
+## Current Release: Schedule v2.7.0 — Seniority & Rotation Engine
 
 - Seniority list preview
 - Equalized overtime/callback/mandate metrics
@@ -36,7 +36,7 @@ Planned focus:
 
 ## Near-Term Future
 
-- v2.6.0 — Seniority & Rotation Foundation
+- v2.7.0 — Seniority & Rotation Foundation
 - v2.7.0 — Trades / Swaps Foundation
 - v2.8.0 — Training & Certification Foundation
 - v2.9.0 — Benefit Ledger Foundation
@@ -55,3 +55,12 @@ Planned focus:
 - v2.3.0 — Open Shifts / VOT Foundation
 - v2.3.1 — Version Sync + API File Integrity Fix
 - v2.4.0 — Overtime Opportunity Board Foundation
+
+
+## Upcoming: Schedule v2.8.0 — Training & Certifications
+
+- Certification tracking.
+- Expiration warnings.
+- Required qualification checks.
+- Training assignments.
+- Calendar shortcode foundation remains planned for later release.

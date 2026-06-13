@@ -1,6 +1,13 @@
 # Signal Schedule Changelog
 
-## Schedule v2.6.0 — Seniority & Rotation Engine
+## Schedule v2.7.0 — Shift Trades & Swap Requests
+
+- Added Shift Trades & Swap Requests foundation.
+- Added trade queue preview, coverage impact warnings, qualification checks, admin recommendation preview, and audit trail preview.
+- Added ShiftTrade adapter, repository, service, API contract, SQL foundation, and preview data.
+- Updated Schedule navigation across pages.
+
+## Schedule v2.7.0 — Seniority & Rotation Engine
 
 - Added Seniority & Rotation Engine preview page.
 - Added seniority rotation JSON data, adapter, repository, and service layer.

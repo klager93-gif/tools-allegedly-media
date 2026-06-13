@@ -1,4 +1,4 @@
-# Signal Schedule v2.5.0 — Overtime Opportunity Board Foundation
+# Signal Schedule v2.6.0 — Overtime Opportunity Board Foundation
 
 ## Release type
 

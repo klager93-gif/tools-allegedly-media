@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/LeaveRequestService.js
-Version: v2.5.0
+Version: v2.6.0
 Purpose: Leave Requests service with Request Hours Foundation summary logic.
 */
 import { RequestHoursService } from './RequestHoursService.js';

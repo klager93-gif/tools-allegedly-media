@@ -113,3 +113,8 @@ Planned focus:
 ## Schedule Future: Calendar Short Codes
 
 Add admin-editable short codes for dense user-facing calendar and schedule views: VOT, T, SP, SF, VAC, CT, plus custom agency-defined codes.
+
+
+## Next: Schedule v2.8.0 — Training & Certifications
+
+Certification tracking, expiration warnings, required qualification rules, and training assignment previews.
