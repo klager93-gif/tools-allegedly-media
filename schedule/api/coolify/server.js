@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.1.0
-Purpose: Coolify API with employee CRUD, assignments, minimum staffing, and read-only calendar foundation.
+Version: v2.2.0
+Purpose: Coolify API with employee CRUD, assignments, minimum staffing, calendar, and read-only leave request foundation.
 
 This release intentionally has:
 - no committed credentials
@@ -35,6 +35,8 @@ const MINIMUM_STAFFING_TEMPLATES_PATH = resolve(__dirname, '../../data/minimum-s
 const MINIMUM_STAFFING_PREVIEW_PATH = resolve(__dirname, '../../data/minimum-staffing-preview.json');
 const CALENDAR_PREVIEW_PATH = resolve(__dirname, '../../data/calendar-preview.json');
 const CALENDAR_EVENTS_PREVIEW_PATH = resolve(__dirname, '../../data/calendar-events-preview.json');
+const LEAVE_REQUEST_TYPES_PATH = resolve(__dirname, '../../data/leave-request-types.json');
+const LEAVE_REQUESTS_PREVIEW_PATH = resolve(__dirname, '../../data/leave-requests-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -46,7 +48,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.1.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.2.0', ...overrides };
 }
 
 function notFound(res) {
@@ -186,6 +188,17 @@ async function listCalendarFromJsonSeed() {
   };
 }
 
+async function listLeaveRequestsFromJsonSeed() {
+  const [typesRaw, requestsRaw] = await Promise.all([
+    readFile(LEAVE_REQUEST_TYPES_PATH, 'utf8'),
+    readFile(LEAVE_REQUESTS_PREVIEW_PATH, 'utf8')
+  ]);
+  return {
+    types: JSON.parse(typesRaw),
+    requests: JSON.parse(requestsRaw)
+  };
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -311,6 +324,25 @@ const server = createServer(async (req, res) => {
         data: { preview: [], events: [] },
         meta: apiMeta(),
         errors: [{ code: 'CALENDAR_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+  if (req.method === 'GET' && (url.pathname === '/leave-requests' || url.pathname === '/api/leave-requests')) {
+    try {
+      const data = await listLeaveRequestsFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-leave-requests-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { types: [], requests: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'LEAVE_REQUEST_READ_FAILED', message: error.message }]
       });
     }
   }

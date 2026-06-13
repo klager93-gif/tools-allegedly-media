@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/leave.html
-Version: v2.1.2
-Purpose: Admin-first placeholder page for Leave Requests
+Version: v2.2.0
+Purpose: Admin-first Leave Requests Foundation preview page
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,20 +11,21 @@ Purpose: Admin-first placeholder page for Leave Requests
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Signal Schedule — Leave Requests</title>
-<meta name="description" content="Admin-first Schedule placeholder page for Leave Requests.">
+<meta name="description" content="Admin-first Schedule Leave Requests Foundation preview.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
 <link rel="stylesheet" href="style.css?v=2.0.0">
 <link rel="stylesheet" href="schedule-nav.css?v=2.1.2">
+<link rel="stylesheet" href="leave-requests.css?v=2.2.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Schedule Leave Requests"
-  data-signal-version="v2.1.2"
-  data-signal-theme="Admin Navigation Foundation"
-  data-signal-status="Reserved"
-  data-signal-description="Admin-first placeholder page for future Schedule Leave Requests workflows."
-  data-signal-status-text="Signal Schedule v2.1.2 reserves this section for future buildout and role-based visibility."
+  data-signal-version="v2.2.0"
+  data-signal-theme="Leave Requests Foundation"
+  data-signal-status="Preview"
+  data-signal-description="Admin-first leave request preview for future vacation, sick, personal, comp, and training workflows."
+  data-signal-status-text="Signal Schedule v2.2.0 adds preview-only leave request intake and review structure."
 >
 <div id="sl-header"></div>
 
@@ -46,27 +47,71 @@ Purpose: Admin-first placeholder page for Leave Requests
   </div>
 </nav>
 
-<main class="schedule-placeholder-shell">
-  <section class="schedule-placeholder-hero" aria-labelledby="pageTitle">
+<main class="leave-shell">
+  <section class="leave-hero" aria-labelledby="pageTitle">
     <p class="schedule-kicker">Signal Schedule</p>
     <h1 id="pageTitle">Leave Requests</h1>
-    <p>Leave request review is reserved for the admin-first Schedule interface.</p>
+    <p>Preview the future admin workflow for vacation, sick, personal, comp, and training requests. This release is read-only and does not approve, deny, or save production requests yet.</p>
   </section>
-  <section class="schedule-placeholder-card" aria-labelledby="statusTitle">
-    <h2 id="statusTitle">Reserved Placeholder</h2>
-    <p>Future work will add vacation, sick, personal, comp, and other leave request workflows with staffing impact checks.</p>
-    <ul class="schedule-placeholder-list">
-      <li><strong>Current Status</strong><span>Placeholder only. No production workflow is active from this page yet.</span></li>
-      <li><strong>Admin First</strong><span>Build the complete admin interface first, then limit visibility by role.</span></li>
-      <li><strong>Future Roles</strong><span>Supervisor, telecommunicator, trainee, and employee views will become filtered versions of this system.</span></li>
-    </ul>
+
+  <section class="leave-grid" aria-label="Leave Requests Foundation preview">
+    <aside class="leave-panel">
+      <h2>Review Dashboard</h2>
+      <p>Leave requests will eventually check employee assignment, shift, minimum staffing, and calendar impact before approval.</p>
+      <div class="leave-summary" data-leave-summary>
+        <div class="leave-stat"><strong>—</strong><span>Loading preview</span></div>
+      </div>
+      <p class="leave-status-line" data-leave-status-line>Loading Leave Requests Foundation preview data…</p>
+    </aside>
+
+    <section class="leave-form-card" aria-labelledby="requestFormTitle">
+      <h2 id="requestFormTitle">Request Intake Preview</h2>
+      <p>This form shows the intended fields. Submit/review actions remain disabled until authentication, permissions, and database writes are active.</p>
+      <div class="leave-form-grid">
+        <label>Employee
+          <select disabled>
+            <option>Morgan Price</option>
+            <option>Taylor Smith</option>
+            <option>Chris Jones</option>
+          </select>
+        </label>
+        <label>Leave Type
+          <select data-leave-type-select disabled>
+            <option>Loading types…</option>
+          </select>
+        </label>
+        <label>Start Date
+          <input type="date" value="2026-06-15" disabled>
+        </label>
+        <label>End Date
+          <input type="date" value="2026-06-18" disabled>
+        </label>
+        <label>Partial Day
+          <select disabled>
+            <option>No</option>
+            <option>Yes</option>
+          </select>
+        </label>
+        <label>Hours
+          <input type="number" value="8" min="0" step="0.25" disabled>
+        </label>
+      </div>
+      <label>Notes
+        <textarea disabled>Preview only. Future releases will save requests, route them for review, and compare them against minimum staffing.</textarea>
+      </label>
+      <div class="leave-preview-note">
+        Future production workflow: employee submits request → supervisor/admin reviews staffing impact → request is approved/denied → calendar and staffing views update.
+      </div>
+    </section>
   </section>
-  <section class="schedule-placeholder-card" aria-labelledby="roleTitle">
-    <h2 id="roleTitle">Role Visibility Plan</h2>
-    <p>This page is intentionally visible as an admin placeholder now. Later releases should keep the shared interface and remove, hide, or limit actions by role instead of creating separate duplicate apps.</p>
+
+  <section class="leave-panel" aria-labelledby="pendingTitle" style="margin-top:18px;">
+    <h2 id="pendingTitle">Preview Requests</h2>
+    <div class="leave-request-list" data-leave-request-list></div>
   </section>
 </main>
 <div id="sl-footer"></div>
 <script src="../assets/global.js?v=0.9.9.6"></script>
+<script type="module" src="leave-requests.js?v=2.2.0"></script>
 </body>
 </html>

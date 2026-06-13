@@ -1,4 +1,8 @@
-# File Manifest — Schedule v2.1.3 Full Root
+# File Manifest
+
+Generated for Schedule v2.2.0 Leave Requests Foundation.
+
+Total files: 138
 
 - `.gitattributes`
 - `.gitignore`
@@ -69,6 +73,7 @@
 - `schedule/CHANGELOG.md`
 - `schedule/EMPLOYEE-IDENTITY-FOUNDATION.md`
 - `schedule/HOWTO.md`
+- `schedule/LEAVE-REQUESTS-FOUNDATION.md`
 - `schedule/MINIMUM-STAFFING-FOUNDATION.md`
 - `schedule/README.md`
 - `schedule/RELEASE-v2.0.0.md`
@@ -76,27 +81,36 @@
 - `schedule/RELEASE-v2.1.1.md`
 - `schedule/RELEASE-v2.1.2.md`
 - `schedule/RELEASE-v2.1.3.md`
+- `schedule/RELEASE-v2.2.0.md`
 - `schedule/ROADMAP.md`
 - `schedule/adapters/JsonCalendarAdapter.js`
+- `schedule/adapters/JsonLeaveRequestsAdapter.js`
 - `schedule/adapters/JsonMinimumStaffingAdapter.js`
 - `schedule/api/contracts/calendar.read.schema.json`
+- `schedule/api/contracts/leave-requests.read.schema.json`
 - `schedule/api/contracts/minimum-staffing.read.schema.json`
 - `schedule/api/coolify/README.md`
 - `schedule/api/coolify/server.js`
 - `schedule/api/coolify/sql/005_minimum_staffing_foundation_schema.sql`
 - `schedule/api/coolify/sql/006_calendar_foundation_schema.sql`
 - `schedule/api/coolify/sql/007_employee_identity_cleanup_schema.sql`
+- `schedule/api/coolify/sql/008_leave_requests_foundation_schema.sql`
 - `schedule/assignments.html`
 - `schedule/data/calendar-events-preview.json`
 - `schedule/data/calendar-preview.json`
+- `schedule/data/leave-request-types.json`
+- `schedule/data/leave-requests-preview.json`
 - `schedule/data/minimum-staffing-preview.json`
 - `schedule/data/minimum-staffing-templates.json`
 - `schedule/employees.html`
 - `schedule/index.html`
+- `schedule/leave-requests.css`
+- `schedule/leave-requests.js`
 - `schedule/leave.html`
 - `schedule/open-shifts.html`
 - `schedule/reports.html`
 - `schedule/repositories/CalendarRepository.js`
+- `schedule/repositories/LeaveRequestRepository.js`
 - `schedule/repositories/MinimumStaffingRepository.js`
 - `schedule/schedule-calendar.css`
 - `schedule/schedule-calendar.js`
@@ -104,6 +118,7 @@
 - `schedule/schedule.html`
 - `schedule/script.js`
 - `schedule/services/CalendarService.js`
+- `schedule/services/LeaveRequestService.js`
 - `schedule/services/MinimumStaffingService.js`
 - `schedule/settings.html`
 - `schedule/staffing.html`

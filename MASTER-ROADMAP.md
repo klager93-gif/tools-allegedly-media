@@ -37,3 +37,10 @@ Completed identity cleanup before leave, open shifts, authentication, and role-b
 - Roles remain separate from employee records.
 
 Next: **v2.2.0 — Leave Requests Foundation**.
+## Schedule Current
+
+- v2.2.0 — Leave Requests Foundation complete.
+
+## Schedule Next
+
+- v2.3.0 — Open Shifts / VOT Foundation.

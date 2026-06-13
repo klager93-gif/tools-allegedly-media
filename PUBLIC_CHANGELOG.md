@@ -25,3 +25,6 @@ Schedule now has a calendar-style preview page for viewing coverage, short-staff
 - Added placeholder pages for Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings.
 - Preserved existing Schedule overview and Calendar Foundation pages.
 - Documented admin-first, role-filter-later interface strategy.
+## Schedule v2.2.0 — Leave Requests Foundation
+
+- Added preview structure for future Schedule leave request workflows.

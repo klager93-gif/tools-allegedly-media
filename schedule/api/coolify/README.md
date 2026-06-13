@@ -34,3 +34,12 @@ Employee identity is now standardized for future database/authentication work:
 - Future login accounts belong in `users`, not directly inside employee records.
 - Future authentication should accept username or email.
 - Future permissions should use separate `roles` and `user_roles` tables.
+
+## v2.2.0 Leave Requests Foundation
+
+Read-only preview route added:
+
+- `GET /leave-requests`
+- `GET /api/leave-requests`
+
+These routes read JSON seed data only. Production leave request writes remain disabled until authentication, roles, and database migrations are active.

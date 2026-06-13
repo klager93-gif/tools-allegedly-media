@@ -28,3 +28,7 @@
 - Added placeholder pages for Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings.
 - Preserved existing Schedule overview and Calendar Foundation pages.
 - Documented admin-first, role-filter-later interface strategy.
+## Schedule v2.2.0 — Leave Requests Foundation
+
+- Added admin-first Leave Requests preview page.
+- Added request intake fields, review dashboard, status cards, and staffing impact placeholders.

@@ -88,3 +88,6 @@ Completed identity cleanup before leave, open shifts, authentication, and role-b
 - Roles remain separate from employee records.
 
 Next: **v2.2.0 — Leave Requests Foundation**.
+## Schedule Roadmap Update
+
+Completed v2.2.0 Leave Requests Foundation. Next recommended: v2.3.0 Open Shifts / VOT Foundation.

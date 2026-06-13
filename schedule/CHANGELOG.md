@@ -41,3 +41,11 @@
 - Added placeholder pages for Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings.
 - Preserved existing Schedule overview and Calendar Foundation pages.
 - Documented admin-first, role-filter-later interface strategy.
+## v2.2.0 — Leave Requests Foundation
+
+- Replaced the Leave Requests placeholder with a preview-only admin workflow page.
+- Added leave request type and preview request seed data.
+- Added Leave Request adapter, repository, and service boundaries.
+- Added read-only API contract and Coolify route planning.
+- Added future Postgres leave request schema planning.
+- Kept Schedule admin navigation linked to the new Leave Requests page.

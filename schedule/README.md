@@ -49,3 +49,6 @@ Schedule now includes admin-first navigation placeholders for Overview, Calendar
 ## Schedule v2.1.3 — Employee Identity Cleanup
 
 Employee identity is now standardized for future production use. Employee records should use a hidden system key, an admin-entered agency employee ID, and an optional badge number. Future login accounts should live in a separate users table and support login by username or email. Roles should be assigned through separate role tables rather than embedded directly on employee records.
+## v2.2.0 — Leave Requests Foundation
+
+Schedule now includes a preview-only Leave Requests module for admin-first workflow design. It shows intake fields, request statuses, staffing impact placeholders, and review actions without enabling production writes.
