@@ -43,3 +43,13 @@ Read-only preview route added:
 - `GET /api/leave-requests`
 
 These routes read JSON seed data only. Production leave request writes remain disabled until authentication, roles, and database migrations are active.
+
+## v2.2.1 Request Hours Foundation Routes
+
+Read-only planning route added:
+
+- `GET /request-increment-settings`
+- `GET /api/request-increment-settings`
+
+Leave request responses now include request increment settings and preview hour fields. No production write routes are active for leave requests.
+

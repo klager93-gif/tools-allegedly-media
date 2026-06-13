@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/leave-requests.css
-Version: v2.2.0
-Purpose: Leave Requests Foundation UI styling
+Version: v2.2.1
+Purpose: Leave Requests Foundation and Request Hours UI styling
 */
 .leave-shell {
   width: min(1180px, calc(100% - 32px));
@@ -173,5 +173,59 @@ Purpose: Leave Requests Foundation UI styling
   }
   .leave-shell {
     width: min(100% - 20px, 1180px);
+  }
+}
+
+.leave-hours-preview {
+  display: grid;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(125, 211, 252, 0.34);
+  background: rgba(14, 165, 233, 0.12);
+}
+.leave-hours-preview strong {
+  font-size: 1.35rem;
+  color: #f8fafc;
+}
+.leave-hours-preview span {
+  color: rgba(224, 242, 254, 0.9);
+}
+.leave-hours-preview span[data-state="invalid"] {
+  color: #fecaca;
+}
+.leave-hours-preview span[data-state="override"] {
+  color: #fde68a;
+}
+.leave-settings-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+.leave-setting-card {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  background: rgba(30, 41, 59, 0.5);
+}
+.leave-setting-card span {
+  color: rgba(226, 232, 240, 0.72);
+  font-size: 0.82rem;
+}
+.leave-pill--override {
+  border-color: rgba(251, 191, 36, 0.56);
+  background: rgba(251, 191, 36, 0.12);
+}
+.leave-override-note {
+  border-left: 3px solid rgba(251, 191, 36, 0.64);
+  padding-left: 10px;
+}
+@media (max-width: 860px) {
+  .leave-settings-list {
+    grid-template-columns: 1fr;
   }
 }

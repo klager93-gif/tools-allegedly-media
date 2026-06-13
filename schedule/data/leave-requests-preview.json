@@ -16,7 +16,15 @@
     "coverageNote": "Police Radio Days may need one qualified dispatcher if approved.",
     "submittedAt": "2026-06-12T18:45:00-05:00",
     "reviewedBy": null,
-    "notes": "Family trip request."
+    "notes": "Family trip request.",
+    "fullDay": true,
+    "startTime": "07:00",
+    "endTime": "15:00",
+    "scheduledShiftHours": 8,
+    "calculatedHours": 32,
+    "minimumIncrementMinutes": 30,
+    "incrementOverrideUsed": false,
+    "incrementOverrideReason": null
   },
   {
     "id": "leave-2026-06-16-cjones",
@@ -35,7 +43,15 @@
     "coverageNote": "Supervisor coverage remains met on preview data.",
     "submittedAt": "2026-06-10T09:20:00-05:00",
     "reviewedBy": "Admin Preview",
-    "notes": "Half-day appointment."
+    "notes": "Half-day appointment.",
+    "fullDay": false,
+    "startTime": "13:00",
+    "endTime": "17:00",
+    "scheduledShiftHours": 8,
+    "calculatedHours": 4,
+    "minimumIncrementMinutes": 30,
+    "incrementOverrideUsed": false,
+    "incrementOverrideReason": null
   },
   {
     "id": "leave-2026-06-20-tsmith",
@@ -48,13 +64,21 @@
     "startDate": "2026-06-20",
     "endDate": "2026-06-20",
     "partialDay": false,
-    "hours": 8,
+    "hours": 12,
     "status": "pending",
     "staffingImpact": "covered-with-backfill",
     "coverageNote": "Training placeholder should create a calendar event and may require reassignment later.",
     "submittedAt": "2026-06-11T14:10:00-05:00",
     "reviewedBy": null,
-    "notes": "EMD refresher."
+    "notes": "EMD refresher.",
+    "fullDay": true,
+    "startTime": "19:00",
+    "endTime": "07:00",
+    "scheduledShiftHours": 12,
+    "calculatedHours": 12,
+    "minimumIncrementMinutes": 60,
+    "incrementOverrideUsed": false,
+    "incrementOverrideReason": null
   },
   {
     "id": "leave-2026-06-22-jadams",
@@ -67,12 +91,20 @@
     "startDate": "2026-06-22",
     "endDate": "2026-06-22",
     "partialDay": false,
-    "hours": 12,
+    "hours": 6.78,
     "status": "denied",
     "staffingImpact": "short",
     "coverageNote": "Preview denial shows where staffing impact would be considered before approval.",
     "submittedAt": "2026-06-12T06:10:00-05:00",
     "reviewedBy": "Admin Preview",
-    "notes": "Preview only; no production workflow active."
+    "notes": "Preview only; no production workflow active.",
+    "fullDay": false,
+    "startTime": "14:23",
+    "endTime": "21:10",
+    "scheduledShiftHours": 12,
+    "calculatedHours": 6.78,
+    "minimumIncrementMinutes": 15,
+    "incrementOverrideUsed": true,
+    "incrementOverrideReason": "Admin exact-time sick leave entry preview; override allowed for non-standard operational times."
   }
 ]

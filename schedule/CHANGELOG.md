@@ -1,3 +1,12 @@
+## v2.2.1 — Request Hours & Admin Override Foundation
+
+- Added request hour calculation planning for leave and future VOT/open shift workflows.
+- Added full-day vs partial-day request mode.
+- Added start/end time and calculated-hours preview.
+- Added request type minimum increment settings.
+- Added admin/scheduler override planning for exact time entries outside configured increments.
+- Added future SQL planning for request type settings and leave request hour fields.
+
 # Signal Schedule Changelog
 
 ## v2.1.3 — Employee Identity Cleanup

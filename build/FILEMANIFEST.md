@@ -1,8 +1,8 @@
-# File Manifest
+# File Manifest — Schedule v2.2.1
 
-Generated for Schedule v2.2.0 Leave Requests Foundation.
+This package is a full-root ZIP suitable for merge/overwrite deployment.
 
-Total files: 138
+## Files Included
 
 - `.gitattributes`
 - `.gitignore`
@@ -82,6 +82,8 @@ Total files: 138
 - `schedule/RELEASE-v2.1.2.md`
 - `schedule/RELEASE-v2.1.3.md`
 - `schedule/RELEASE-v2.2.0.md`
+- `schedule/RELEASE-v2.2.1.md`
+- `schedule/REQUEST-HOURS-FOUNDATION.md`
 - `schedule/ROADMAP.md`
 - `schedule/adapters/JsonCalendarAdapter.js`
 - `schedule/adapters/JsonLeaveRequestsAdapter.js`
@@ -89,12 +91,14 @@ Total files: 138
 - `schedule/api/contracts/calendar.read.schema.json`
 - `schedule/api/contracts/leave-requests.read.schema.json`
 - `schedule/api/contracts/minimum-staffing.read.schema.json`
+- `schedule/api/contracts/request-hours.read.schema.json`
 - `schedule/api/coolify/README.md`
 - `schedule/api/coolify/server.js`
 - `schedule/api/coolify/sql/005_minimum_staffing_foundation_schema.sql`
 - `schedule/api/coolify/sql/006_calendar_foundation_schema.sql`
 - `schedule/api/coolify/sql/007_employee_identity_cleanup_schema.sql`
 - `schedule/api/coolify/sql/008_leave_requests_foundation_schema.sql`
+- `schedule/api/coolify/sql/009_request_hours_foundation_schema.sql`
 - `schedule/assignments.html`
 - `schedule/data/calendar-events-preview.json`
 - `schedule/data/calendar-preview.json`
@@ -102,6 +106,7 @@ Total files: 138
 - `schedule/data/leave-requests-preview.json`
 - `schedule/data/minimum-staffing-preview.json`
 - `schedule/data/minimum-staffing-templates.json`
+- `schedule/data/request-increment-settings.json`
 - `schedule/employees.html`
 - `schedule/index.html`
 - `schedule/leave-requests.css`
@@ -120,6 +125,7 @@ Total files: 138
 - `schedule/services/CalendarService.js`
 - `schedule/services/LeaveRequestService.js`
 - `schedule/services/MinimumStaffingService.js`
+- `schedule/services/RequestHoursService.js`
 - `schedule/settings.html`
 - `schedule/staffing.html`
 - `schedule/style.css`

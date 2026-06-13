@@ -72,8 +72,41 @@
               "denied",
               "cancelled"
             ]
+          },
+          "fullDay": {
+            "type": "boolean"
+          },
+          "startTime": {
+            "type": "string"
+          },
+          "endTime": {
+            "type": "string"
+          },
+          "calculatedHours": {
+            "type": "number"
+          },
+          "scheduledShiftHours": {
+            "type": "number"
+          },
+          "minimumIncrementMinutes": {
+            "type": "integer"
+          },
+          "incrementOverrideUsed": {
+            "type": "boolean"
+          },
+          "incrementOverrideReason": {
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
+      }
+    },
+    "incrementSettings": {
+      "type": "array",
+      "items": {
+        "type": "object"
       }
     }
   }

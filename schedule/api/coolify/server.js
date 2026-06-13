@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.2.0
-Purpose: Coolify API with employee CRUD, assignments, minimum staffing, calendar, and read-only leave request foundation.
+Version: v2.2.1
+Purpose: Coolify API with employee CRUD, assignments, minimum staffing, calendar, and read-only leave request foundation plus request hours settings.
 
 This release intentionally has:
 - no committed credentials
@@ -37,6 +37,7 @@ const CALENDAR_PREVIEW_PATH = resolve(__dirname, '../../data/calendar-preview.js
 const CALENDAR_EVENTS_PREVIEW_PATH = resolve(__dirname, '../../data/calendar-events-preview.json');
 const LEAVE_REQUEST_TYPES_PATH = resolve(__dirname, '../../data/leave-request-types.json');
 const LEAVE_REQUESTS_PREVIEW_PATH = resolve(__dirname, '../../data/leave-requests-preview.json');
+const REQUEST_INCREMENT_SETTINGS_PATH = resolve(__dirname, '../../data/request-increment-settings.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -189,14 +190,21 @@ async function listCalendarFromJsonSeed() {
 }
 
 async function listLeaveRequestsFromJsonSeed() {
-  const [typesRaw, requestsRaw] = await Promise.all([
+  const [typesRaw, requestsRaw, settingsRaw] = await Promise.all([
     readFile(LEAVE_REQUEST_TYPES_PATH, 'utf8'),
-    readFile(LEAVE_REQUESTS_PREVIEW_PATH, 'utf8')
+    readFile(LEAVE_REQUESTS_PREVIEW_PATH, 'utf8'),
+    readFile(REQUEST_INCREMENT_SETTINGS_PATH, 'utf8')
   ]);
   return {
     types: JSON.parse(typesRaw),
-    requests: JSON.parse(requestsRaw)
+    requests: JSON.parse(requestsRaw),
+    incrementSettings: JSON.parse(settingsRaw)
   };
+}
+
+async function listRequestIncrementSettingsFromJsonSeed() {
+  const settingsRaw = await readFile(REQUEST_INCREMENT_SETTINGS_PATH, 'utf8');
+  return JSON.parse(settingsRaw);
 }
 
 async function listEmployees() {
@@ -343,6 +351,26 @@ const server = createServer(async (req, res) => {
         data: { types: [], requests: [] },
         meta: apiMeta(),
         errors: [{ code: 'LEAVE_REQUEST_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+
+  if (req.method === 'GET' && (url.pathname === '/request-increment-settings' || url.pathname === '/api/request-increment-settings')) {
+    try {
+      const data = await listRequestIncrementSettingsFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-request-hours-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: [],
+        meta: apiMeta(),
+        errors: [{ code: 'REQUEST_INCREMENT_SETTINGS_READ_FAILED', message: error.message }]
       });
     }
   }

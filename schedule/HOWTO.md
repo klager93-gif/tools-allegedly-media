@@ -41,3 +41,8 @@ Employee identity is now standardized for future production use. Employee record
 ## Leave Requests Preview
 
 Open `/schedule/leave.html` to view the Leave Requests Foundation. The page is preview-only. Submit, approve, deny, and staffing review actions are intentionally disabled until authentication and production writes are active.
+
+## v2.2.1 — Request Hours & Admin Override Foundation
+
+Leave Requests now include preview support for full-day vs partial-day time selection, start/end time calculation, request type minimum increments, and admin/scheduler override planning. Employee/self-service requests follow configured increments; admin/scheduler entries may use exact operational times with override notes.
+

@@ -91,3 +91,8 @@ Next: **v2.2.0 — Leave Requests Foundation**.
 ## Schedule Roadmap Update
 
 Completed v2.2.0 Leave Requests Foundation. Next recommended: v2.3.0 Open Shifts / VOT Foundation.
+
+## v2.2.1 — Request Hours & Admin Override Foundation
+
+Leave Requests now include preview support for full-day vs partial-day time selection, start/end time calculation, request type minimum increments, and admin/scheduler override planning. Employee/self-service requests follow configured increments; admin/scheduler entries may use exact operational times with override notes.
+
