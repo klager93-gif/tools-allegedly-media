@@ -1,25 +1,50 @@
-# Signal Labs Tools
+# Signal Schedule
 
-**Current package:** Schedule v2.3.1 — Version Sync + API File Integrity Fix
+**Current Version:** v2.4.0 — Overtime Opportunity Board Foundation
 
-This repository contains the Signal Labs tool set, including Schedule, Paycheck, Overtime, Time Off, and shared site assets.
+Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, nursing, and similar shift-based operations.
 
-## Current Schedule release included in this package
-
-**Schedule v2.3.1** is a cleanup release. It does not add a new workflow. It synchronizes displayed Schedule versions, restores missing API/data seed files referenced by the Schedule app and Coolify API skeleton, and removes packaging junk from the release ZIP.
-
-## Schedule pages
+## Pages
 
 - `schedule/index.html` — foundation/admin overview
 - `schedule/schedule.html` — calendar preview
-- `schedule/employees.html` — employees placeholder/foundation page
-- `schedule/assignments.html` — assignments placeholder/foundation page
-- `schedule/staffing.html` — minimum staffing foundation page
-- `schedule/leave.html` — leave request foundation page
-- `schedule/open-shifts.html` — open shifts / VOT foundation page
-- `schedule/reports.html` — reports placeholder/foundation page
-- `schedule/settings.html` — settings placeholder/foundation page
+- `schedule/employees.html` — employees foundation placeholder
+- `schedule/assignments.html` — assignments foundation placeholder
+- `schedule/staffing.html` — minimum staffing foundation
+- `schedule/leave.html` — leave request foundation
+- `schedule/open-shifts.html` — overtime opportunity board foundation
+- `schedule/reports.html` — reports foundation placeholder
+- `schedule/settings.html` — settings foundation placeholder
 
-## Production status
+## Current foundations
 
-Schedule remains an active-development prototype. The current UI is read-only/preview-oriented for most advanced modules. Employee write routes in the API skeleton remain protected and disabled unless intentionally enabled with environment variables.
+- Employee read foundation
+- Protected employee CRUD API planning
+- Assignments foundation
+- Minimum staffing foundation
+- Calendar foundation
+- Leave requests foundation
+- Request hours and admin override planning
+- Admin-controlled request reason planning
+- Overtime opportunity posting preview
+- Volunteer/VOT matching preview
+- Award review preview
+- Coolify API skeleton with optional Postgres employee adapter
+
+## v2.4.0 feature focus
+
+- Renamed Open Shifts/VOT page into an admin-first Overtime Opportunity Board preview.
+- Added posted OT opportunity cards with slots, coverage status, qualification tags, volunteer counts, and recommended award preview.
+- Added opportunity filters for all, short coverage, watch coverage, and high-priority postings.
+- Added admin posting preview form for assignment, role, date, slot count, priority, award rule, time range, and requirements.
+- Added award review panel showing matching volunteers, seniority rank, eligibility status, and award recommendation.
+- Expanded preview seed data with eligibility rules, award policy, slots, seniority rank, and review status.
+
+## Not production ready yet
+
+- No active schedule generation engine
+- No final leave approval workflow
+- No final VOT bidding workflow
+- No employee portal
+- No production auth system
+- No live write routes unless intentionally enabled and protected

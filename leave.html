@@ -1,0 +1,142 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/leave.html
+Version: v2.4.0
+Purpose: Admin-first Leave Requests Foundation preview page with request hours and admin override planning
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Leave Requests</title>
+<meta name="description" content="Admin-first Schedule Leave Requests Foundation preview.">
+<link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
+<link rel="stylesheet" href="style.css?v=2.4.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.4.0">
+<link rel="stylesheet" href="leave-requests.css?v=2.4.0">
+</head>
+<body
+  data-signal-global-layout="true"
+  data-signal-area="Signal Schedule"
+  data-signal-title="Schedule Leave Requests"
+  data-signal-version="v2.4.0"
+  data-signal-theme="Leave Requests Foundation"
+  data-signal-status="Preview"
+  data-signal-description="Admin-first leave request preview for future vacation, sick, personal, comp, and training workflows."
+  data-signal-status-text="Signal Schedule v2.4.0 syncs displayed versions, restores required API seed files, and keeps the admin-first foundations read-only"
+>
+<div id="sl-header"></div>
+
+<nav class="schedule-subnav" aria-label="Schedule admin navigation">
+  <div class="schedule-subnav__label">
+    <span>Schedule Admin Navigation</span>
+    <span class="schedule-subnav__role">Admin-first / role-filtering later</span>
+  </div>
+  <div class="schedule-subnav__links">
+      <a href="index.html">Overview</a>
+      <a href="schedule.html">Calendar</a>
+      <a href="employees.html">Employees</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="staffing.html">Minimum Staffing</a>
+      <a href="leave.html" aria-current="page">Leave Requests</a>
+      <a href="open-shifts.html">Open Shifts</a>
+      <a href="reports.html">Reports</a>
+      <a href="settings.html">Settings</a>
+  </div>
+</nav>
+
+<main class="leave-shell">
+  <section class="leave-hero" aria-labelledby="pageTitle">
+    <p class="schedule-kicker">Signal Schedule</p>
+    <h1 id="pageTitle">Leave Requests</h1>
+    <p>Preview the future admin workflow for vacation, sick, personal, comp, and training requests. This release is read-only and does not approve, deny, or save production requests yet.</p>
+  </section>
+
+  <section class="leave-grid" aria-label="Leave Requests Foundation preview">
+    <aside class="leave-panel">
+      <h2>Review Dashboard</h2>
+      <p>Leave requests will eventually check employee assignment, shift, minimum staffing, and calendar impact before approval.</p>
+      <div class="leave-summary" data-leave-summary>
+        <div class="leave-stat"><strong>—</strong><span>Loading preview</span></div>
+      </div>
+      <p class="leave-status-line" data-leave-status-line>Loading Leave Requests Foundation preview data…</p>
+    </aside>
+
+    <section class="leave-form-card" aria-labelledby="requestFormTitle">
+      <h2 id="requestFormTitle">Request Intake Preview</h2>
+      <p>This form shows the intended fields. Submit/review actions remain disabled until authentication, permissions, and database writes are active.</p>
+      <div class="leave-form-grid">
+        <label>Employee
+          <select disabled>
+            <option>Morgan Price</option>
+            <option>Taylor Smith</option>
+            <option>Chris Jones</option>
+          </select>
+        </label>
+        <label>Leave Type
+          <select data-leave-type-select disabled>
+            <option>Loading types…</option>
+          </select>
+        </label>
+        <label>Start Date
+          <input type="date" value="2026-06-15" disabled>
+        </label>
+        <label>End Date
+          <input type="date" value="2026-06-18" disabled>
+        </label>
+        <label>Request Mode
+          <select data-request-mode>
+            <option value="partial-day">Partial Day / Time Range</option>
+            <option value="full-day">Full Day — Use Scheduled Shift Hours</option>
+          </select>
+        </label>
+        <label>Scheduled Shift Hours
+          <input data-scheduled-shift-hours type="number" value="8" min="0" step="0.25">
+        </label>
+        <label>Start Time
+          <input data-start-time type="time" value="13:00">
+        </label>
+        <label>End Time
+          <input data-end-time type="time" value="17:00">
+        </label>
+        <label>Submitting Role
+          <select data-request-role>
+            <option value="employee">Employee / Self-Service</option>
+            <option value="supervisor">Supervisor</option>
+            <option value="scheduler">Scheduler</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <label>Admin Override
+          <select data-admin-override>
+            <option value="">No override</option>
+            <option value="on">Override increment rule</option>
+          </select>
+        </label>
+      </div>
+      <div class="leave-hours-preview" aria-live="polite">
+        <strong data-calculated-hours>4 hours</strong>
+        <span data-increment-message>Employee/self-service requests must match the configured increment.</span>
+      </div>
+      <div class="leave-settings-list" data-increment-settings-list aria-label="Configured request increments"></div>
+      <label>Notes
+        <textarea disabled>Preview only. Future releases will save requests, route them for review, and compare them against minimum staffing.</textarea>
+      </label>
+      <div class="leave-preview-note">
+        Future production workflow: employee submits request → supervisor/admin reviews staffing impact → request is approved/denied → calendar and staffing views update.
+      </div>
+    </section>
+  </section>
+
+  <section class="leave-panel" aria-labelledby="pendingTitle" style="margin-top:18px;">
+    <h2 id="pendingTitle">Preview Requests</h2>
+    <div class="leave-request-list" data-leave-request-list></div>
+  </section>
+</main>
+<div id="sl-footer"></div>
+<script src="../assets/global.js?v=0.9.9.6"></script>
+<script type="module" src="leave-requests.js?v=2.4.0"></script>
+</body>
+</html>
