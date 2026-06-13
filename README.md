@@ -1,37 +1,25 @@
 # Signal Labs Tools
 
-**Current package:** Schedule v2.1.1 — Full Root Deployment Cleanup
+**Current package:** Schedule v2.3.1 — Version Sync + API File Integrity Fix
 
-Current Schedule release included in this package:
+This repository contains the Signal Labs tool set, including Schedule, Paycheck, Overtime, Time Off, and shared site assets.
 
-**Schedule v2.1.0 — Calendar Foundation**
+## Current Schedule release included in this package
 
-This package adds a separate user-facing Schedule calendar preview page while preserving the existing Schedule foundation index.
+**Schedule v2.3.1** is a cleanup release. It does not add a new workflow. It synchronizes displayed Schedule versions, restores missing API/data seed files referenced by the Schedule app and Coolify API skeleton, and removes packaging junk from the release ZIP.
 
-## Schedule Pages
+## Schedule pages
 
 - `schedule/index.html` — foundation/admin overview
-- `schedule/schedule.html` — user-facing calendar preview
+- `schedule/schedule.html` — calendar preview
+- `schedule/employees.html` — employees placeholder/foundation page
+- `schedule/assignments.html` — assignments placeholder/foundation page
+- `schedule/staffing.html` — minimum staffing foundation page
+- `schedule/leave.html` — leave request foundation page
+- `schedule/open-shifts.html` — open shifts / VOT foundation page
+- `schedule/reports.html` — reports placeholder/foundation page
+- `schedule/settings.html` — settings placeholder/foundation page
 
-No Paycheck files or unrelated tools are included in this release package.
+## Production status
 
-## Schedule v2.1.2 — Admin Navigation Foundation
-
-Schedule now includes admin-first navigation placeholders for Overview, Calendar, Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings. Future role-based views should filter this shared interface instead of duplicating separate apps.
-
-## Schedule v2.1.3 — Employee Identity Cleanup
-
-Employee identity is now standardized for future production use. Employee records should use a hidden system key, an admin-entered agency employee ID, and an optional badge number. Future login accounts should live in a separate users table and support login by username or email. Roles should be assigned through separate role tables rather than embedded directly on employee records.
-## Schedule v2.2.0
-
-The Schedule tool now includes a preview-only Leave Requests Foundation page at `/schedule/leave.html`.
-
-## v2.2.1 — Request Hours & Admin Override Foundation
-
-Leave Requests now include preview support for full-day vs partial-day time selection, start/end time calculation, request type minimum increments, and admin/scheduler override planning. Employee/self-service requests follow configured increments; admin/scheduler entries may use exact operational times with override notes.
-
-## Schedule v2.3.0 — Open Shifts / VOT Foundation
-
-The Schedule tool now includes a preview Open Shifts / VOT page at `schedule/open-shifts.html`.
-
-The page is still admin-first and read-only. It demonstrates the planned workflow for posting open shifts, showing staffing shortages, collecting volunteer interest, calculating request hours, and controlling request reasons through future admin settings.
+Schedule remains an active-development prototype. The current UI is read-only/preview-oriented for most advanced modules. Employee write routes in the API skeleton remain protected and disabled unless intentionally enabled with environment variables.

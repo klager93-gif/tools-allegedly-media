@@ -1,64 +1,48 @@
 # Signal Schedule
 
-**Current Version:** v2.1.1 — Calendar Foundation Cleanup
+**Current Version:** v2.3.1 — Version Sync + API File Integrity Fix
 
-Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, and similar shift-based operations.
+Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, nursing, and similar shift-based operations.
 
 ## Pages
 
-- `schedule/index.html` — foundation/admin overview page
-- `schedule/schedule.html` — user-facing calendar preview page
+- `schedule/index.html` — foundation/admin overview
+- `schedule/schedule.html` — calendar preview
+- `schedule/employees.html` — employees foundation placeholder
+- `schedule/assignments.html` — assignments foundation placeholder
+- `schedule/staffing.html` — minimum staffing foundation
+- `schedule/leave.html` — leave request foundation
+- `schedule/open-shifts.html` — open shifts / VOT foundation
+- `schedule/reports.html` — reports foundation placeholder
+- `schedule/settings.html` — settings foundation placeholder
 
-## Current Foundations
+## Current foundations
 
-- Employee foundation
-- Employee CRUD foundation
+- Employee read foundation
+- Protected employee CRUD API planning
 - Assignments foundation
 - Minimum staffing foundation
 - Calendar foundation
+- Leave requests foundation
+- Request hours and admin override planning
+- Open shifts / VOT foundation
+- Admin-controlled request reason planning
+- Coolify API skeleton with optional Postgres employee adapter
 
-## v2.1.0 Adds
+## v2.3.1 cleanup
 
-- Month-style calendar preview
-- Coverage status indicators
-- Day detail panel
-- Event placeholders
-- Open shift placeholders
-- Calendar data/service/repository boundaries
-- Calendar API contract and read-only API route planning
+- Synchronized Schedule page metadata and visible version text to v2.3.1.
+- Updated Schedule script storage key to `signalSchedule.v2.3.1` while preserving migration from older local keys.
+- Restored required JSON seed files referenced by the UI and API skeleton.
+- Added missing `schedule/api/coolify/db/postgres.js` adapter file.
+- Cleaned changelog/readme drift before the next feature release.
+- Built release ZIP without `.git`, macOS resource forks, or deployment junk.
 
-## Not Production Ready Yet
+## Not production ready yet
 
 - No active schedule generation engine
-- No leave approval workflow
-- No VOT bidding workflow
+- No final leave approval workflow
+- No final VOT bidding workflow
 - No employee portal
 - No production auth system
-
-## v2.1.1 Cleanup
-
-- Full-root replacement package cleanup.
-- `schedule/index.html` preserved for `/schedule/`.
-- `schedule/schedule.html` preserved for the user-facing calendar preview.
-- Added Calendar Preview link from the foundation overview.
-
-## Schedule v2.1.2 — Admin Navigation Foundation
-
-Schedule now includes admin-first navigation placeholders for Overview, Calendar, Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings. Future role-based views should filter this shared interface instead of duplicating separate apps.
-
-## Schedule v2.1.3 — Employee Identity Cleanup
-
-Employee identity is now standardized for future production use. Employee records should use a hidden system key, an admin-entered agency employee ID, and an optional badge number. Future login accounts should live in a separate users table and support login by username or email. Roles should be assigned through separate role tables rather than embedded directly on employee records.
-## v2.2.0 — Leave Requests Foundation
-
-Schedule now includes a preview-only Leave Requests module for admin-first workflow design. It shows intake fields, request statuses, staffing impact placeholders, and review actions without enabling production writes.
-
-## v2.2.1 — Request Hours & Admin Override Foundation
-
-Leave Requests now include preview support for full-day vs partial-day time selection, start/end time calculation, request type minimum increments, and admin/scheduler override planning. Employee/self-service requests follow configured increments; admin/scheduler entries may use exact operational times with override notes.
-
-## Schedule v2.3.0 — Open Shifts / VOT Foundation
-
-The Schedule tool now includes a preview Open Shifts / VOT page at `schedule/open-shifts.html`.
-
-The page is still admin-first and read-only. It demonstrates the planned workflow for posting open shifts, showing staffing shortages, collecting volunteer interest, calculating request hours, and controlling request reasons through future admin settings.
+- No live write routes unless intentionally enabled and protected

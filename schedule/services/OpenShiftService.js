@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/OpenShiftService.js
-Version: v2.3.0
+Version: v2.3.1
 Purpose: Open Shifts / VOT Foundation service helpers.
 */
 export class OpenShiftService {

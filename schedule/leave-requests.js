@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/leave-requests.js
-Version: v2.2.1
+Version: v2.3.1
 Purpose: Leave Requests Foundation preview rendering with request hours and admin override logic.
 */
 import { JsonLeaveRequestsAdapter } from './adapters/JsonLeaveRequestsAdapter.js';
@@ -159,7 +159,7 @@ async function initLeaveRequests() {
     bindHoursPreview();
     updateHoursPreview();
     if (els.statusLine) {
-      els.statusLine.textContent = 'Preview data loaded. v2.2.1 adds request hour calculation and admin override planning; no production leave writes are active.';
+      els.statusLine.textContent = 'Preview data loaded. v2.3.1 keeps request hour calculation and admin override planning synced with the current Schedule release; no production leave writes are active.';
     }
   } catch (error) {
     if (els.statusLine) els.statusLine.textContent = error.message;

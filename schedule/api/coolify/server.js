@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.3.0
+Version: v2.3.1
 Purpose: Coolify API with employee CRUD, assignments, minimum staffing, calendar, and read-only leave request, request hours, open shifts, and VOT foundation.
 
 This release intentionally has:
@@ -52,7 +52,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.3.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.3.1', ...overrides };
 }
 
 function notFound(res) {
@@ -278,7 +278,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v1.9.0',
+          version: 'v2.3.1',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()

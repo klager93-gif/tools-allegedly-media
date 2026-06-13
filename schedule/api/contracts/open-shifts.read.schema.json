@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Signal Schedule Open Shifts Read Contract",
-  "version": "v2.3.0",
+  "version": "v2.3.1",
   "type": "object",
   "required": [
     "openShifts",

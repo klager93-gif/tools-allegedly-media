@@ -1,13 +1,14 @@
-## v2.2.1 — Request Hours & Admin Override Foundation
-
-- Added request hour calculation planning for leave and future VOT/open shift workflows.
-- Added full-day vs partial-day request mode.
-- Added start/end time and calculated-hours preview.
-- Added request type minimum increment settings.
-- Added admin/scheduler override planning for exact time entries outside configured increments.
-- Added future SQL planning for request type settings and leave request hour fields.
-
 # Signal Schedule Changelog
+
+## v2.3.1 — Version Sync + API File Integrity Fix
+
+- Synchronized Schedule page metadata and visible version labels to v2.3.1.
+- Updated Schedule script storage key to `signalSchedule.v2.3.1` and preserved older key migration.
+- Restored missing seed files: `agencies.json`, `employees.json`, `assignment-templates.json`, and `employee-assignments.json`.
+- Added missing Coolify API Postgres adapter at `schedule/api/coolify/db/postgres.js`.
+- Updated API metadata from v2.3.0/v1.9.0 drift to v2.3.1.
+- Cleaned README version drift before the next feature build.
+- Rebuilt the release package without `.git`, macOS resource fork files, or release junk.
 
 ## v2.1.3 — Employee Identity Cleanup
 

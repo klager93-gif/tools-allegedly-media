@@ -1,15 +1,16 @@
-# Build Manifest
+# Signal Labs Build Manifest
 
-Tool: Schedule
-Version: v2.3.0
-Release Name: Open Shifts / VOT Foundation
-Backup Title: 2026-06-12 Schedule Backup Before v2.3.0
-Deployment Default: Merge / overwrite
-Full Root Replacement: Only if explicitly requested for cleanup
+**Current package:** Schedule v2.3.1 — Version Sync + API File Integrity Fix  
+**Build date:** 2026-06-13
 
 ## Scope
 
-- Adds Open Shifts / VOT Foundation preview.
-- Keeps Paycheck, Overtime, and Timeoff functionally untouched.
-- Maintains Schedule admin navigation links.
-- Excludes junk/work folders.
+Full repository package prepared from the user's local copy with Schedule v2.3.1 cleanup applied.
+
+## Exclusions
+
+- `.git/`
+- macOS resource forks (`._*`)
+- `.DS_Store`
+- `__MACOSX/`
+- prior release/archive ZIPs
