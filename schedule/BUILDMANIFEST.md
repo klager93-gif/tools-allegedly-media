@@ -1,5 +1,4 @@
-# Schedule Build Manifest
-
-Release: Schedule v2.10.0 — Benefit Ledger
-
-Adds benefit balances, request impacts, manual adjustment audit preview, calendar shortcodes, and supporting architecture.
+Release: Schedule v2.11.0 — Calendar Shortcode Admin Controls
+Package: signal-schedule-v2.11.0-calendar-shortcode-admin-controls.zip
+Scope: Schedule feature release included in full root package
+Built: 2026-06-13

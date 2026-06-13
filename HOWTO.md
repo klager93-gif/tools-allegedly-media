@@ -40,3 +40,8 @@ Leave Requests now include preview support for full-day vs partial-day time sele
 The Schedule tool now includes a preview Open Shifts / VOT page at `schedule/open-shifts.html`.
 
 The page is still admin-first and read-only. It demonstrates the planned workflow for posting open shifts, showing staffing shortages, collecting volunteer interest, calculating request hours, and controlling request reasons through future admin settings.
+
+
+## Schedule v2.11.0 — Calendar Shortcode Admin Controls
+
+Adds admin-managed compact calendar codes and database migration tracking guidance. After uploading v2.11.0, run migrations 004 through 017 in order.

@@ -1,146 +1,156 @@
-# Schedule File Manifest
+Release: Schedule v2.11.0 — Calendar Shortcode Admin Controls
 
-Release: Schedule v2.10.0 — Benefit Ledger
-
-- `schedule/BUILDMANIFEST.md`
-- `schedule/CALENDAR-FOUNDATION.md`
-- `schedule/CHANGELOG.md`
-- `schedule/EMPLOYEE-IDENTITY-FOUNDATION.md`
-- `schedule/FILEMANIFEST.md`
-- `schedule/HOWTO.md`
-- `schedule/LEAVE-REQUESTS-FOUNDATION.md`
-- `schedule/MINIMUM-STAFFING-FOUNDATION.md`
-- `schedule/OPEN-SHIFTS-FOUNDATION.md`
-- `schedule/README.md`
-- `schedule/RELEASE-v2.0.0.md`
-- `schedule/RELEASE-v2.1.0.md`
-- `schedule/RELEASE-v2.1.1.md`
-- `schedule/RELEASE-v2.1.2.md`
-- `schedule/RELEASE-v2.1.3.md`
-- `schedule/RELEASE-v2.10.0-Benefit-Ledger.md`
-- `schedule/RELEASE-v2.2.0.md`
-- `schedule/RELEASE-v2.2.1.md`
-- `schedule/RELEASE-v2.3.0.md`
-- `schedule/RELEASE-v2.3.1.md`
-- `schedule/RELEASE-v2.4.0.md`
-- `schedule/RELEASE-v2.5.0.md`
-- `schedule/RELEASE-v2.6.0-Seniority-Rotation-Engine.md`
-- `schedule/RELEASE-v2.7.0-Shift-Trades-Swap-Requests.md`
-- `schedule/RELEASE-v2.7.1-Trade-Form-Layout-Fix.md`
-- `schedule/RELEASE-v2.8.0-Training-Certifications.md`
-- `schedule/RELEASE-v2.9.0-Qualification-Eligibility-Engine.md`
-- `schedule/REQUEST-HOURS-FOUNDATION.md`
-- `schedule/ROADMAP.md`
-- `schedule/adapters/JsonBenefitLedgerAdapter.js`
-- `schedule/adapters/JsonCalendarAdapter.js`
-- `schedule/adapters/JsonCoverageBoardAdapter.js`
-- `schedule/adapters/JsonLeaveRequestsAdapter.js`
-- `schedule/adapters/JsonMinimumStaffingAdapter.js`
-- `schedule/adapters/JsonOpenShiftAdapter.js`
-- `schedule/adapters/JsonSeniorityRotationAdapter.js`
-- `schedule/adapters/JsonShiftEligibilityAdapter.js`
-- `schedule/adapters/JsonShiftTradeAdapter.js`
-- `schedule/adapters/JsonTrainingCertificationAdapter.js`
-- `schedule/api/contracts/benefit-ledger.read.schema.json`
-- `schedule/api/contracts/calendar.read.schema.json`
-- `schedule/api/contracts/coverage-board.read.schema.json`
-- `schedule/api/contracts/leave-requests.read.schema.json`
-- `schedule/api/contracts/minimum-staffing.read.schema.json`
-- `schedule/api/contracts/open-shifts.read.schema.json`
-- `schedule/api/contracts/request-hours.read.schema.json`
-- `schedule/api/contracts/seniority-rotation.read.schema.json`
-- `schedule/api/contracts/shift-eligibility.read.schema.json`
-- `schedule/api/contracts/shift-trades.read.schema.json`
-- `schedule/api/contracts/training-certifications.read.schema.json`
-- `schedule/api/coolify/README.md`
-- `schedule/api/coolify/db/postgres.js`
-- `schedule/api/coolify/server.js`
-- `schedule/api/coolify/sql/005_minimum_staffing_foundation_schema.sql`
-- `schedule/api/coolify/sql/006_calendar_foundation_schema.sql`
-- `schedule/api/coolify/sql/007_employee_identity_cleanup_schema.sql`
-- `schedule/api/coolify/sql/008_leave_requests_foundation_schema.sql`
-- `schedule/api/coolify/sql/009_request_hours_foundation_schema.sql`
-- `schedule/api/coolify/sql/010_open_shifts_foundation_schema.sql`
-- `schedule/api/coolify/sql/011_coverage_board_foundation_schema.sql`
-- `schedule/api/coolify/sql/012_seniority_rotation_foundation_schema.sql`
-- `schedule/api/coolify/sql/013_shift_trades_foundation_schema.sql`
-- `schedule/api/coolify/sql/014_training_certifications_foundation_schema.sql`
-- `schedule/api/coolify/sql/015_shift_eligibility_foundation_schema.sql`
-- `schedule/api/coolify/sql/016_benefit_ledger_foundation_schema.sql`
-- `schedule/assignments.html`
-- `schedule/benefits.css`
-- `schedule/benefits.html`
-- `schedule/benefits.js`
-- `schedule/coverage-board.css`
-- `schedule/coverage-board.js`
-- `schedule/coverage.html`
-- `schedule/data/agencies.json`
-- `schedule/data/assignment-templates.json`
-- `schedule/data/benefit-ledger-preview.json`
-- `schedule/data/calendar-events-preview.json`
-- `schedule/data/calendar-preview.json`
-- `schedule/data/coverage-board-preview.json`
-- `schedule/data/employee-assignments.json`
-- `schedule/data/employees.json`
-- `schedule/data/leave-request-types.json`
-- `schedule/data/leave-requests-preview.json`
-- `schedule/data/minimum-staffing-preview.json`
-- `schedule/data/minimum-staffing-templates.json`
-- `schedule/data/open-shifts-preview.json`
-- `schedule/data/request-increment-settings.json`
-- `schedule/data/request-reasons.json`
-- `schedule/data/seniority-rotation-preview.json`
-- `schedule/data/shift-eligibility-preview.json`
-- `schedule/data/shift-trades-preview.json`
-- `schedule/data/training-certifications-preview.json`
-- `schedule/data/vot-requests-preview.json`
-- `schedule/eligibility.css`
-- `schedule/eligibility.html`
-- `schedule/eligibility.js`
-- `schedule/employees.html`
-- `schedule/index.html`
-- `schedule/leave-requests.css`
-- `schedule/leave-requests.js`
-- `schedule/leave.html`
-- `schedule/open-shifts.css`
-- `schedule/open-shifts.html`
-- `schedule/open-shifts.js`
-- `schedule/reports.html`
-- `schedule/repositories/BenefitLedgerRepository.js`
-- `schedule/repositories/CalendarRepository.js`
-- `schedule/repositories/CoverageBoardRepository.js`
-- `schedule/repositories/LeaveRequestRepository.js`
-- `schedule/repositories/MinimumStaffingRepository.js`
-- `schedule/repositories/OpenShiftRepository.js`
-- `schedule/repositories/SeniorityRotationRepository.js`
-- `schedule/repositories/ShiftEligibilityRepository.js`
-- `schedule/repositories/ShiftTradeRepository.js`
-- `schedule/repositories/TrainingCertificationRepository.js`
-- `schedule/schedule-calendar.css`
-- `schedule/schedule-calendar.js`
-- `schedule/schedule-nav.css`
-- `schedule/schedule.html`
-- `schedule/script.js`
-- `schedule/seniority.css`
-- `schedule/seniority.html`
-- `schedule/seniority.js`
-- `schedule/services/BenefitLedgerService.js`
-- `schedule/services/CalendarService.js`
-- `schedule/services/CoverageBoardService.js`
-- `schedule/services/LeaveRequestService.js`
-- `schedule/services/MinimumStaffingService.js`
-- `schedule/services/OpenShiftService.js`
-- `schedule/services/RequestHoursService.js`
-- `schedule/services/SeniorityRotationService.js`
-- `schedule/services/ShiftEligibilityService.js`
-- `schedule/services/ShiftTradeService.js`
-- `schedule/services/TrainingCertificationService.js`
-- `schedule/settings.html`
-- `schedule/shift-trades.css`
-- `schedule/shift-trades.js`
-- `schedule/staffing.html`
-- `schedule/style.css`
-- `schedule/trades.html`
-- `schedule/training.css`
-- `schedule/training.html`
-- `schedule/training.js`
+Schedule files included:
+BUILDMANIFEST.md
+CALENDAR-FOUNDATION.md
+CHANGELOG.md
+EMPLOYEE-IDENTITY-FOUNDATION.md
+FILEMANIFEST.md
+HOWTO.md
+LEAVE-REQUESTS-FOUNDATION.md
+MINIMUM-STAFFING-FOUNDATION.md
+OPEN-SHIFTS-FOUNDATION.md
+README.md
+RELEASE-v2.0.0.md
+RELEASE-v2.1.0.md
+RELEASE-v2.1.1.md
+RELEASE-v2.1.2.md
+RELEASE-v2.1.3.md
+RELEASE-v2.10.0-Benefit-Ledger.md
+RELEASE-v2.11.0-Calendar-Shortcode-Admin-Controls.md
+RELEASE-v2.2.0.md
+RELEASE-v2.2.1.md
+RELEASE-v2.3.0.md
+RELEASE-v2.3.1.md
+RELEASE-v2.4.0.md
+RELEASE-v2.5.0.md
+RELEASE-v2.6.0-Seniority-Rotation-Engine.md
+RELEASE-v2.7.0-Shift-Trades-Swap-Requests.md
+RELEASE-v2.7.1-Trade-Form-Layout-Fix.md
+RELEASE-v2.8.0-Training-Certifications.md
+RELEASE-v2.9.0-Qualification-Eligibility-Engine.md
+REQUEST-HOURS-FOUNDATION.md
+ROADMAP.md
+adapters/JsonBenefitLedgerAdapter.js
+adapters/JsonCalendarAdapter.js
+adapters/JsonCalendarShortcodeAdapter.js
+adapters/JsonCoverageBoardAdapter.js
+adapters/JsonLeaveRequestsAdapter.js
+adapters/JsonMinimumStaffingAdapter.js
+adapters/JsonOpenShiftAdapter.js
+adapters/JsonSeniorityRotationAdapter.js
+adapters/JsonShiftEligibilityAdapter.js
+adapters/JsonShiftTradeAdapter.js
+adapters/JsonTrainingCertificationAdapter.js
+api/contracts/benefit-ledger.read.schema.json
+api/contracts/calendar-shortcodes.read.schema.json
+api/contracts/calendar.read.schema.json
+api/contracts/coverage-board.read.schema.json
+api/contracts/leave-requests.read.schema.json
+api/contracts/minimum-staffing.read.schema.json
+api/contracts/open-shifts.read.schema.json
+api/contracts/request-hours.read.schema.json
+api/contracts/seniority-rotation.read.schema.json
+api/contracts/shift-eligibility.read.schema.json
+api/contracts/shift-trades.read.schema.json
+api/contracts/training-certifications.read.schema.json
+api/coolify/README.md
+api/coolify/db/postgres.js
+api/coolify/server.js
+api/coolify/sql/004_schema_migrations_foundation.sql
+api/coolify/sql/005_minimum_staffing_foundation_schema.sql
+api/coolify/sql/006_calendar_foundation_schema.sql
+api/coolify/sql/007_employee_identity_cleanup_schema.sql
+api/coolify/sql/008_leave_requests_foundation_schema.sql
+api/coolify/sql/009_request_hours_foundation_schema.sql
+api/coolify/sql/010_open_shifts_foundation_schema.sql
+api/coolify/sql/011_coverage_board_foundation_schema.sql
+api/coolify/sql/012_seniority_rotation_foundation_schema.sql
+api/coolify/sql/013_shift_trades_foundation_schema.sql
+api/coolify/sql/014_training_certifications_foundation_schema.sql
+api/coolify/sql/015_shift_eligibility_foundation_schema.sql
+api/coolify/sql/016_benefit_ledger_foundation_schema.sql
+api/coolify/sql/017_calendar_shortcode_admin_controls_schema.sql
+assignments.html
+benefits.css
+benefits.html
+benefits.js
+coverage-board.css
+coverage-board.js
+coverage.html
+data/agencies.json
+data/assignment-templates.json
+data/benefit-ledger-preview.json
+data/calendar-events-preview.json
+data/calendar-preview.json
+data/calendar-shortcodes-preview.json
+data/coverage-board-preview.json
+data/employee-assignments.json
+data/employees.json
+data/leave-request-types.json
+data/leave-requests-preview.json
+data/minimum-staffing-preview.json
+data/minimum-staffing-templates.json
+data/open-shifts-preview.json
+data/request-increment-settings.json
+data/request-reasons.json
+data/seniority-rotation-preview.json
+data/shift-eligibility-preview.json
+data/shift-trades-preview.json
+data/training-certifications-preview.json
+data/vot-requests-preview.json
+eligibility.css
+eligibility.html
+eligibility.js
+employees.html
+index.html
+leave-requests.css
+leave-requests.js
+leave.html
+open-shifts.css
+open-shifts.html
+open-shifts.js
+reports.html
+repositories/BenefitLedgerRepository.js
+repositories/CalendarRepository.js
+repositories/CalendarShortcodeRepository.js
+repositories/CoverageBoardRepository.js
+repositories/LeaveRequestRepository.js
+repositories/MinimumStaffingRepository.js
+repositories/OpenShiftRepository.js
+repositories/SeniorityRotationRepository.js
+repositories/ShiftEligibilityRepository.js
+repositories/ShiftTradeRepository.js
+repositories/TrainingCertificationRepository.js
+schedule-calendar.css
+schedule-calendar.js
+schedule-nav.css
+schedule.html
+script.js
+seniority.css
+seniority.html
+seniority.js
+services/BenefitLedgerService.js
+services/CalendarService.js
+services/CalendarShortcodeService.js
+services/CoverageBoardService.js
+services/LeaveRequestService.js
+services/MinimumStaffingService.js
+services/OpenShiftService.js
+services/RequestHoursService.js
+services/SeniorityRotationService.js
+services/ShiftEligibilityService.js
+services/ShiftTradeService.js
+services/TrainingCertificationService.js
+settings.html
+shift-trades.css
+shift-trades.js
+shortcodes.css
+shortcodes.html
+shortcodes.js
+staffing.html
+style.css
+trades.html
+training.css
+training.html
+training.js

@@ -23,3 +23,7 @@ CREATE TABLE IF NOT EXISTS minimum_staffing_templates (
 
 CREATE INDEX IF NOT EXISTS idx_minimum_staffing_agency ON minimum_staffing_templates (agency_id);
 CREATE INDEX IF NOT EXISTS idx_minimum_staffing_assignment_role ON minimum_staffing_templates (assignment_name, role);
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('005', 'minimum_staffing_foundation')
+ON CONFLICT (version) DO NOTHING;

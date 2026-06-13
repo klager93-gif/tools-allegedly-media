@@ -48,3 +48,7 @@ CREATE TABLE IF NOT EXISTS request_reason_options (
   created_at TIMESTAMPTZ DEFAULT now(),
   updated_at TIMESTAMPTZ DEFAULT now()
 );
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('010', 'open_shifts_foundation')
+ON CONFLICT (version) DO NOTHING;

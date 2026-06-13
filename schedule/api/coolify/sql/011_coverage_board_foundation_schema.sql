@@ -29,3 +29,7 @@ CREATE TABLE IF NOT EXISTS schedule_coverage_blocks (
 
 CREATE INDEX IF NOT EXISTS idx_schedule_coverage_blocks_agency_date
 ON schedule_coverage_blocks (agency_id, coverage_date);
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('011', 'coverage_board_foundation')
+ON CONFLICT (version) DO NOTHING;

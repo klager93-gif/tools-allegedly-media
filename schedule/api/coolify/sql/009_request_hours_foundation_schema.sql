@@ -24,3 +24,7 @@ ALTER TABLE leave_requests
   ADD COLUMN IF NOT EXISTS increment_override_reason TEXT;
 
 -- Future open_shift / VOT tables should reuse these same fields.
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('009', 'request_hours_foundation')
+ON CONFLICT (version) DO NOTHING;

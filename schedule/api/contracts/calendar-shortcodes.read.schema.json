@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule Calendar Shortcodes Read Model",
+  "type": "object",
+  "required": [
+    "meta",
+    "shortcodes"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "settings": {
+      "type": "object"
+    },
+    "shortcodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "code",
+          "label",
+          "category",
+          "active"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "employeeVisible": {
+            "type": "boolean"
+          },
+          "adminEditable": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

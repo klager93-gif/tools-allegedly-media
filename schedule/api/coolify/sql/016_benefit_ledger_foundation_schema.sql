@@ -36,3 +36,7 @@ CREATE TABLE IF NOT EXISTS calendar_shortcodes (
   admin_editable BOOLEAN NOT NULL DEFAULT TRUE,
   UNIQUE (agency_id, code)
 );
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('016', 'benefit_ledger_foundation')
+ON CONFLICT (version) DO NOTHING;

@@ -90,3 +90,8 @@ No build is complete until all thirteen sections are present. No placeholders su
 ## Package Rules
 
 Exclude .git, .DS_Store, ._*, __MACOSX, and node_modules. Include release notes and updated docs.
+
+
+## Database Migration Discipline
+
+Schedule database migrations must be tracked in `schema_migrations`. Migration numbers should remain sequential whenever practical. Every migration should end with an idempotent insert into `schema_migrations` using `ON CONFLICT DO NOTHING`.

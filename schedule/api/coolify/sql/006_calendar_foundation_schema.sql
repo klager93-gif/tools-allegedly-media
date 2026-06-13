@@ -34,3 +34,7 @@ CREATE TABLE IF NOT EXISTS schedule_calendar_events (
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('006', 'calendar_foundation')
+ON CONFLICT (version) DO NOTHING;

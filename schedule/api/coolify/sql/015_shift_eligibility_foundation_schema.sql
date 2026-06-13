@@ -26,3 +26,7 @@ create table if not exists schedule_eligibility_audit (
   override_reason text,
   checked_at timestamptz not null default now()
 );
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('015', 'shift_eligibility_foundation')
+ON CONFLICT (version) DO NOTHING;

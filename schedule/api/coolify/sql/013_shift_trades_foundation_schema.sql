@@ -21,3 +21,7 @@ CREATE TABLE IF NOT EXISTS schedule_shift_trade_requests (
     created_at timestamptz DEFAULT now(),
     updated_at timestamptz DEFAULT now()
 );
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('013', 'shift_trades_foundation')
+ON CONFLICT (version) DO NOTHING;

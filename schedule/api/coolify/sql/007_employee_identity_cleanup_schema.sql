@@ -66,3 +66,7 @@ INSERT INTO roles (id, name, description) VALUES
   ('role-trainee', 'Trainee', 'Limited trainee schedule visibility'),
   ('role-employee', 'Employee', 'General employee self-service access')
 ON CONFLICT (id) DO NOTHING;
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('007', 'employee_identity_cleanup')
+ON CONFLICT (version) DO NOTHING;

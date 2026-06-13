@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v2.10.0
+Version: v2.11.0
 Purpose: Foundation/admin overview with Calendar Foundation navigation
 -->
 <!DOCTYPE html>
@@ -22,11 +22,11 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v2.10.0"
-  data-signal-theme="Seniority & Rotation Engine"
+  data-signal-version="v2.11.0"
+  data-signal-theme="Benefit Ledger / Calendar Shortcodes"
   data-signal-status="Active Development"
   data-signal-description="Foundation overview with employee, assignment, minimum staffing, coverage board, request, and OT opportunity access."
-  data-signal-status-text="Signal Schedule v2.10.0 adds Seniority & Rotation foundations for equalization, callbacks, mandation, skip reasons, and audit-ready recommendations"
+  data-signal-status-text="Signal Schedule v2.11.0 adds Seniority & Rotation foundations for equalization, callbacks, mandation, skip reasons, and audit-ready recommendations"
 >
 <div id="sl-header"></div>
 
@@ -47,6 +47,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
       <a href="training.html">Training & Certs</a>
       <a href="eligibility.html">Eligibility</a>
       <a href="benefits.html">Benefit Ledger</a>
+      <a href="shortcodes.html">Shortcodes</a>
       <a href="leave.html">Leave Requests</a>
       <a href="open-shifts.html">Open Shifts</a>
       <a href="reports.html">Reports</a>
@@ -64,7 +65,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v2.10.0 Seniority & Rotation</strong>
+      <strong id="currentWeekLabel">v2.11.0 Calendar Shortcodes</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -72,12 +73,25 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule remains browser-only for the main app. v2.10.0 adds the Seniority & Rotation Engine foundation while keeping database writes, authentication, and final award actions disabled until later backend releases.</p>
+      <p>Signal Schedule remains browser-only for the main app. v2.11.0 adds the Benefit Ledger / Calendar Shortcodes foundation while keeping database writes, authentication, and final award actions disabled until later backend releases.</p>
     </div>
   </section>
 
 
-  <section class="schedule-card calendar-entry-card" aria-labelledby="calendarEntryTitle">
+  
+<section class="schedule-card shortcode-entry-card" aria-labelledby="shortcodeEntryTitle">
+  <div class="schedule-card-heading">
+    <div>
+      <h2 id="shortcodeEntryTitle">Calendar Shortcode Admin Controls</h2>
+      <p>Manage compact codes like VAC, SP, SF, VOT, and T so week/month calendars stay readable while day details show full text.</p>
+    </div>
+    <div class="schedule-actions-inline">
+      <a class="schedule-link-button" href="shortcodes.html">Open Shortcodes <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="schedule-card calendar-entry-card" aria-labelledby="calendarEntryTitle">
     <div class="schedule-card-heading">
       <div>
         <h2 id="calendarEntryTitle">Calendar Preview</h2>
@@ -93,7 +107,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
 <section class="schedule-card trade-entry-card" aria-labelledby="tradeEntryTitle">
   <div class="schedule-card-header">
     <div>
-      <p class="schedule-kicker">v2.10.0</p>
+      <p class="schedule-kicker">v2.11.0</p>
       <h2 id="tradeEntryTitle">Shift Trades & Swap Requests</h2>
       <p>Preview employee trades, swaps, giveaways, coverage impacts, qualification checks, approvals, warnings, and audit-ready decision context.</p>
     </div>
@@ -117,7 +131,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   <section class="schedule-card seniority-entry-card" aria-labelledby="seniorityEntryTitle">
     <div class="schedule-card-heading">
       <div>
-        <h2 id="seniorityEntryTitle">Seniority & Rotation Engine</h2>
+        <h2 id="seniorityEntryTitle">Benefit Ledger / Calendar Shortcodes</h2>
         <p>Open the Seniority & Rotation preview to review equalized OT, callback order, mandate candidates, skip reasons, and audit-ready recommendation logic.</p>
       </div>
       <div class="schedule-actions-inline">
@@ -130,7 +144,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
 <section class="schedule-card benefit-entry-card" aria-labelledby="benefitEntryTitle">
   <div class="schedule-card-heading">
     <div>
-      <p class="schedule-kicker">v2.10.0</p>
+      <p class="schedule-kicker">v2.11.0</p>
       <h2 id="benefitEntryTitle">Benefit Ledger</h2>
       <p>Preview vacation, sick, personal, comp, and holiday bank balances, request impacts, manual adjustments, and calendar shortcodes such as VAC, SP, SF, CT, HOL, VOT, and T.</p>
     </div>

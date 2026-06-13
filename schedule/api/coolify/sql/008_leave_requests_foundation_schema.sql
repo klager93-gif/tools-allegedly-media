@@ -30,3 +30,7 @@ CREATE TABLE IF NOT EXISTS leave_requests (
 CREATE INDEX IF NOT EXISTS idx_leave_requests_employee_id ON leave_requests(employee_id);
 CREATE INDEX IF NOT EXISTS idx_leave_requests_status ON leave_requests(status);
 CREATE INDEX IF NOT EXISTS idx_leave_requests_date_range ON leave_requests(start_date, end_date);
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('008', 'leave_requests_foundation')
+ON CONFLICT (version) DO NOTHING;

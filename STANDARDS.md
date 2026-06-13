@@ -123,3 +123,8 @@ Before a full fresh install, coordinated recovery release, or multi-tool package
 ## 9. Nuclear Option
 
 After two failed hotfixes for the same release path, stop patching and rebuild from the last known good package with a full audit before release.
+
+
+## Database Migration Discipline
+
+Schedule database migrations must be tracked in `schema_migrations`. Migration numbers should remain sequential whenever practical. Every migration should end with an idempotent insert into `schema_migrations` using `ON CONFLICT DO NOTHING`.

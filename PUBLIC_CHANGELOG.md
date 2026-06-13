@@ -1,3 +1,10 @@
+## Schedule v2.11.0 — Calendar Shortcode Admin Controls
+
+- Added Calendar Shortcode Admin Controls.
+- Added shortcode data, adapter, repository, service, API contract, and SQL foundation.
+- Added migration tracking foundation and schema_migrations inserts for Schedule feature migrations.
+- Updated Schedule navigation across pages.
+
 
 ## Schedule v2.10.0 — Benefit Ledger
 

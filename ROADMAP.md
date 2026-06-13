@@ -1,3 +1,9 @@
+# Current: Schedule v2.11.0 — Calendar Shortcode Admin Controls
+
+Next: Schedule v2.12.0 — Calendar Views
+
+Database note: after v2.11 is uploaded, run Schedule migrations 004 through 017 in order.
+
 # Signal Labs Roadmap
 
 ## Current Coordinated Recovery

@@ -24,3 +24,7 @@ CREATE INDEX IF NOT EXISTS idx_schedule_training_certifications_employee
 
 CREATE INDEX IF NOT EXISTS idx_schedule_training_certifications_expires
     ON schedule_training_certifications (expires_on);
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('014', 'training_certifications_foundation')
+ON CONFLICT (version) DO NOTHING;

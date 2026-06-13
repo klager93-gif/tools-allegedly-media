@@ -64,3 +64,8 @@ Adds shift trade and swap request foundation with coverage impact checks and adm
 ## Current Focus — v2.10.0
 
 The Benefit Ledger links optional shift requirements to Training & Certifications so the system can decide whether an employee is eligible to fill a qualified role such as Fire Dispatcher, Police Radio, NCIC desk, or Calltaking.
+
+
+## Schedule v2.11.0 — Calendar Shortcode Admin Controls
+
+Adds admin-managed compact calendar codes and database migration tracking guidance. After uploading v2.11.0, run migrations 004 through 017 in order.

@@ -26,3 +26,7 @@ create table if not exists schedule_rotation_events (
   equalized_hours numeric(8,2) default 0,
   created_at timestamptz not null default now()
 );
+
+INSERT INTO schema_migrations (version, name)
+VALUES ('012', 'seniority_rotation_foundation')
+ON CONFLICT (version) DO NOTHING;
