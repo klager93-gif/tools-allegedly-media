@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v2.13.0
+Version: v2.15.0
 Purpose: Foundation/admin overview with Calendar Foundation navigation
 -->
 <!DOCTYPE html>
@@ -15,19 +15,19 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=2.13.0">
-<link rel="stylesheet" href="schedule-nav.css?v=2.13.0">
-<link rel="stylesheet" href="footer.css?v=2.13.0">
+<link rel="stylesheet" href="style.css?v=2.15.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.15.0">
+<link rel="stylesheet" href="footer.css?v=2.15.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v2.13.0"
+  data-signal-version="v2.15.0"
   data-signal-theme="Calendar Views + Schedule Footer"
   data-signal-status="Active Development"
   data-signal-description="Foundation overview with calendar views, shortcodes, employee, assignment, coverage, request, and OT opportunity access."
-  data-signal-status-text="Signal Schedule v2.13.0 adds Employee Profile & Self-Service Settings while production writes remain disabled."
+  data-signal-status-text="Signal Schedule v2.15.0 adds Supervisors & Organizational Hierarchy while production writes remain disabled."
 >
 <div id="sl-header"></div>
 
@@ -41,6 +41,8 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
       <a href="schedule.html">Calendar</a>
       <a href="employees.html">Employees</a>
       <a href="profile.html">Profile</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="supervisors.html">Supervisors</a>
       <a href="assignments.html">Assignments</a>
       <a href="staffing.html">Minimum Staffing</a>
       <a href="coverage.html">Coverage Board</a>
@@ -67,7 +69,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v2.13.0 Employee Profile</strong>
+      <strong id="currentWeekLabel">v2.15.0 Supervisors & Hierarchy</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -75,19 +77,37 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule remains browser-first for the current prototype. v2.13.0 adds Employee Profile & Self-Service Settings, begins live-feature overview cleanup, and keeps database writes, authentication, and final approval actions disabled until later backend releases.</p>
+      <p>Signal Schedule remains browser-first for the current prototype. v2.15.0 adds Supervisors & Organizational Hierarchy, including hybrid management scope previews, while database writes, authentication, and final approval actions remain disabled until later backend releases.</p>
     </div>
   </section>
 
 <section class="schedule-card profile-entry-card" aria-labelledby="profileEntryTitle">
   <div class="schedule-card-heading">
     <div>
-      <p class="schedule-kicker">v2.13.0 Live Module</p>
+      <p class="schedule-kicker">v2.14.0 Live Module</p>
       <h2 id="profileEntryTitle">Employee Profile & Self-Service</h2>
       <p>Open employee profile settings to preview admin-controlled editable fields, contact methods, notification preferences, and pending profile change rules.</p>
     </div>
     <div class="schedule-actions-inline">
       <a class="schedule-link-button" href="profile.html">Open Employee Profile <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
+    <section class="schedule-card" aria-labelledby="timelineEntryTitle">
+      <h2 id="timelineEntryTitle">Employee Timeline & Audit Trail</h2>
+      <p>Admin and supervisor view of everything done to an employee, including profile changes, requests, trades, training, benefits, eligibility, and schedule events.</p>
+      <a class="schedule-link-button" href="timeline.html">Open Employee Timeline <span aria-hidden="true">→</span></a>
+    </section>
+
+<section class="schedule-card supervisor-entry-card" aria-labelledby="supervisorEntryTitle">
+  <div class="schedule-card-heading">
+    <div>
+      <p class="schedule-kicker">v2.15.0 Live Module</p>
+      <h2 id="supervisorEntryTitle">Supervisors & Organizational Hierarchy</h2>
+      <p>Preview hybrid supervisor scope by employee, group, position, department, division, and location before permissions and approvals are enforced.</p>
+    </div>
+    <div class="schedule-actions-inline">
+      <a class="schedule-link-button" href="supervisors.html">Open Supervisors <span aria-hidden="true">→</span></a>
     </div>
   </div>
 </section>
@@ -110,6 +130,8 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
     <a href="benefits.html">Benefits</a>
     <a href="shortcodes.html">Shortcodes</a>
     <a href="profile.html">Profile</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="supervisors.html">Supervisors</a>
   </div>
 </section>
 
@@ -694,7 +716,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="components/footer.js?v=2.13.0"></script>
+<script src="components/footer.js?v=2.15.0"></script>
 <script src="script.js?v=2.6.0"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-# Schedule v2.13.0 — Employee Profile & Self-Service Settings
+# Schedule v2.14.0 — Employee Profile & Self-Service Settings
 
 Adds the Employee Profile & Self-Service Settings foundation.
 

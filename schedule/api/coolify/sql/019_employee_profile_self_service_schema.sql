@@ -1,7 +1,7 @@
 -- Signal Labs
 -- Area: Signal Schedule
 -- File: schedule/api/coolify/sql/019_employee_profile_self_service_schema.sql
--- Version: v2.13.0
+-- Version: v2.14.0
 -- Purpose: Employee Profile & Self-Service Settings foundation
 
 CREATE TABLE IF NOT EXISTS employee_profile_field_policies (

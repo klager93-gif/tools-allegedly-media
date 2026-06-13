@@ -1,6 +1,12 @@
-## v2.13.0 Database Update
+## Schedule v2.15.0 — Supervisors & Organizational Hierarchy
 
-After uploading v2.13.0, run `019_employee_profile_self_service_schema.sql` and verify `schema_migrations` shows version `019`.
+- Added supervisor hierarchy preview.
+- Added hybrid supervisor scope by employee, group, position, department, division, and location.
+- Added SQL migration 021 supervisor hierarchy.
+
+## v2.14.0 Database Update
+
+After uploading v2.14.0, run `019_employee_profile_self_service_schema.sql` and verify `schema_migrations` shows version `019`.
 
 
 ## Schedule v2.12.0 — Calendar Views + Schedule Footer

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonEmployeeProfileAdapter.js
-Version: v2.13.0
+Version: v2.15.0
 Purpose: JSON adapter for employee profile self-service preview data
 */
 export async function fetchEmployeeProfilePreview() {

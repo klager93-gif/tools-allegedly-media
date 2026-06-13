@@ -1,4 +1,18 @@
-## Schedule v2.13.0 — Employee Profile & Self-Service Settings
+## Schedule v2.15.0 — Supervisors & Organizational Hierarchy
+
+- Added supervisor hierarchy preview.
+- Added hybrid supervisor scope by employee, group, position, department, division, and location.
+- Added SQL migration 021 supervisor hierarchy.
+
+
+## Schedule v2.14.0 — Employee Timeline & Audit Trail
+
+- Added Employee Timeline & Audit Trail foundation.
+- Added admin/supervisor employee-specific event history preview.
+- Added actor, before/after, reason, category, and visibility preview.
+- Added timeline adapter, repository, service, API contract, data, and SQL migration 020.
+
+## Schedule v2.14.0 — Employee Profile & Self-Service Settings
 
 - Added Employee Profile & Self-Service Settings foundation.
 - Added admin-controlled editable field, contact, notification, and profile change request preview.

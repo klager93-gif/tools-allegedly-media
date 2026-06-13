@@ -1,3 +1,9 @@
+## Schedule v2.15.0 — Supervisors & Organizational Hierarchy
+
+- Added supervisor hierarchy preview.
+- Added hybrid supervisor scope by employee, group, position, department, division, and location.
+- Added SQL migration 021 supervisor hierarchy.
+
 # Schedule v2.14.0 — Employee Timeline & Audit Trail
 
 Current Schedule release adds employee profile self-service controls and overview live-feature cleanup.

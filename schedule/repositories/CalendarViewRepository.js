@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/CalendarViewRepository.js
-Version: v2.13.0
+Version: v2.15.0
 Purpose: Repository boundary for calendar view data
 */
 import { getCalendarViewPreview } from '../adapters/JsonCalendarViewAdapter.js';
