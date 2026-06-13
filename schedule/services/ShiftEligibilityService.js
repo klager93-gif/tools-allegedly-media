@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/ShiftEligibilityService.js
-Version: v2.9.0
+Version: v2.13.0
 Purpose: Qualification & Eligibility Engine service helpers
 */
 import { getPreview } from '../repositories/ShiftEligibilityRepository.js';

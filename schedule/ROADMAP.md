@@ -1,3 +1,13 @@
+## Current
+
+- Schedule v2.13.0 — Employee Profile & Self-Service Settings is complete.
+
+## Next
+
+- Schedule v2.14.0 — Employee Timeline & Audit Trail.
+- Schedule v2.15.0 — Supervisors & Organizational Hierarchy.
+- Schedule v2.16.0 — Roles & Permissions Engine.
+
 
 ## Current: Schedule v2.12.0 — Calendar Views + Schedule Footer
 

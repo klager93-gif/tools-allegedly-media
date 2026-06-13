@@ -1,3 +1,7 @@
+## v2.13.0 Database Update
+
+After uploading v2.13.0, run `019_employee_profile_self_service_schema.sql` and verify `schema_migrations` shows version `019`.
+
 
 ## Schedule v2.12.0 — Calendar Views + Schedule Footer
 

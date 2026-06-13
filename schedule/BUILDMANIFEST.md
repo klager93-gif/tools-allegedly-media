@@ -1,12 +1,51 @@
 # Build Manifest
 
-Release Title: Schedule v2.12.0 — Calendar Views + Schedule Footer
-ZIP Filename: signal-schedule-v2.12.0-calendar-views-schedule-footer.zip
-Build Scope: Full root replacement package
+## Release Title
 
-## Notes
+Schedule v2.13.0 — Employee Profile & Self-Service Settings
 
-- Calendar views added to /schedule/schedule.html.
-- Schedule footer component added across /schedule/ pages.
-- Overview version drift corrected.
-- SQL 018 added for Calendar Views foundation.
+## Files Modified
+
+- ADMIN_CHANGELOG.md
+- BUILDMANIFEST.md
+- FILEMANIFEST.md
+- HOWTO.md
+- MASTER-CHANGELOG.md
+- MASTER-ROADMAP.md
+- PUBLIC_CHANGELOG.md
+- README.md
+- ROADMAP.md
+- SHA256SUMS.txt
+- index.html
+- schedule/index.html
+- schedule/style.css
+- schedule/schedule-nav.css
+- schedule/*.html pages
+- schedule/README.md
+- schedule/CHANGELOG.md
+- schedule/ROADMAP.md
+- schedule/HOWTO.md
+- schedule/FILEMANIFEST.md
+- schedule/BUILDMANIFEST.md
+
+## Files Added
+
+- schedule/profile.html
+- schedule/profile.css
+- schedule/profile.js
+- schedule/data/employee-profile-preview.json
+- schedule/adapters/JsonEmployeeProfileAdapter.js
+- schedule/repositories/EmployeeProfileRepository.js
+- schedule/services/EmployeeProfileService.js
+- schedule/api/contracts/employee-profile.read.schema.json
+- schedule/api/coolify/sql/019_employee_profile_self_service_schema.sql
+- schedule/RELEASE-v2.13.0-Employee-Profile-Self-Service-Settings.md
+
+## Files Removed
+
+- None.
+
+## Database
+
+- Added migration 019_employee_profile_self_service_schema.sql.
+

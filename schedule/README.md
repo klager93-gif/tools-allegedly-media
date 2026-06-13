@@ -1,3 +1,9 @@
+# Schedule v2.13.0 — Employee Profile & Self-Service Settings
+
+Current Schedule release adds employee profile self-service controls and overview live-feature cleanup.
+
+Database migration required after upload: `019_employee_profile_self_service_schema.sql`.
+
 
 ## Schedule v2.12.0 — Calendar Views + Schedule Footer
 
@@ -8,11 +14,11 @@
 
 # Signal Schedule
 
-Current Version: v2.10.0
+Current Version: v2.13.0
 
 Signal Schedule is an admin-first staffing and scheduling platform foundation. v2.8.0 adds the Training & Certifications foundation for qualification-aware staffing, expiration warnings, and assignment restrictions.
 
-**Current Version: v2.8.0
+**Current Version: v2.13.0
 
 Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, nursing, and similar shift-based operations.
 

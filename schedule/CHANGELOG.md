@@ -1,3 +1,10 @@
+## Schedule v2.13.0 — Employee Profile & Self-Service Settings
+
+- Added Employee Profile & Self-Service Settings foundation.
+- Added admin-controlled editable field, contact, notification, and profile change request preview.
+- Added SQL migration 019.
+- Cleaned Schedule overview live-feature modules.
+
 
 ## Schedule v2.12.0 — Calendar Views + Schedule Footer
 

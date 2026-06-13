@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/RequestHoursService.js
-Version: v2.6.0
+Version: v2.13.0
 Purpose: Shared preview service for leave/VOT request hour calculation and admin override rules.
 */
 export class RequestHoursService {
