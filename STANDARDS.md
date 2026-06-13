@@ -128,3 +128,8 @@ After two failed hotfixes for the same release path, stop patching and rebuild f
 ## Database Migration Discipline
 
 Schedule database migrations must be tracked in `schema_migrations`. Migration numbers should remain sequential whenever practical. Every migration should end with an idempotent insert into `schema_migrations` using `ON CONFLICT DO NOTHING`.
+
+
+## Release File Standard — No Persistent Per-Version Release Files
+
+Do not accumulate `RELEASE-vX.X.X*.md` files in the repository. Historical release details belong in changelogs and GitHub release/commit history. The repository should keep one current release summary at `schedule/LATEST_RELEASE.md`, overwritten each release.

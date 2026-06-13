@@ -1,3 +1,10 @@
+## Schedule v2.16.1 — Release File Cleanup & Latest Release
+
+- Cleaned accumulated Schedule release note files.
+- Added Schedule `LATEST_RELEASE.md`.
+- Fixed Schedule overview/version drift.
+- No database migration required.
+
 ## Schedule v2.16.0 — Roles & Permissions Engine
 
 Adds the Roles & Permissions Engine foundation for agency-controlled view, edit, approve, delete, override, and export access.

@@ -1,8 +1,10 @@
 # File Manifest
 
-Generated for Schedule v2.16.0 — Roles & Permissions Engine.
+Generated for Schedule v2.16.1 — Release File Cleanup & Latest Release.
 
 ```text
+.gitattributes
+.gitignore
 ADMIN_CHANGELOG.md
 BUILDMANIFEST.md
 FILEMANIFEST.md
@@ -73,33 +75,11 @@ schedule/CHANGELOG.md
 schedule/EMPLOYEE-IDENTITY-FOUNDATION.md
 schedule/FILEMANIFEST.md
 schedule/HOWTO.md
+schedule/LATEST_RELEASE.md
 schedule/LEAVE-REQUESTS-FOUNDATION.md
 schedule/MINIMUM-STAFFING-FOUNDATION.md
 schedule/OPEN-SHIFTS-FOUNDATION.md
 schedule/README.md
-schedule/RELEASE-v2.0.0.md
-schedule/RELEASE-v2.1.0.md
-schedule/RELEASE-v2.1.1.md
-schedule/RELEASE-v2.1.2.md
-schedule/RELEASE-v2.1.3.md
-schedule/RELEASE-v2.10.0-Benefit-Ledger.md
-schedule/RELEASE-v2.11.0-Calendar-Shortcode-Admin-Controls.md
-schedule/RELEASE-v2.12.0-Calendar-Views-Schedule-Footer.md
-schedule/RELEASE-v2.13.0-Employee-Profile-Self-Service-Settings.md
-schedule/RELEASE-v2.14.0-Employee-Timeline-Audit-Trail.md
-schedule/RELEASE-v2.15.0-Supervisors-Organizational-Hierarchy.md
-schedule/RELEASE-v2.16.0-Roles-Permissions-Engine.md
-schedule/RELEASE-v2.2.0.md
-schedule/RELEASE-v2.2.1.md
-schedule/RELEASE-v2.3.0.md
-schedule/RELEASE-v2.3.1.md
-schedule/RELEASE-v2.4.0.md
-schedule/RELEASE-v2.5.0.md
-schedule/RELEASE-v2.6.0-Seniority-Rotation-Engine.md
-schedule/RELEASE-v2.7.0-Shift-Trades-Swap-Requests.md
-schedule/RELEASE-v2.7.1-Trade-Form-Layout-Fix.md
-schedule/RELEASE-v2.8.0-Training-Certifications.md
-schedule/RELEASE-v2.9.0-Qualification-Eligibility-Engine.md
 schedule/REQUEST-HOURS-FOUNDATION.md
 schedule/ROADMAP.md
 schedule/adapters/JsonBenefitLedgerAdapter.js

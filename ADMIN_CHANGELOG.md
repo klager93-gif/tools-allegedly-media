@@ -1,3 +1,9 @@
+## Schedule v2.16.1 — Release File Cleanup & Latest Release
+
+- Removed persistent Schedule `RELEASE-v*.md` files.
+- Added `schedule/LATEST_RELEASE.md`.
+- No SQL migration required; current database target remains `022 roles_permissions`.
+
 ## Schedule v2.16.0 — Roles & Permissions Engine
 
 Adds the Roles & Permissions Engine foundation for agency-controlled view, edit, approve, delete, override, and export access.

@@ -1,6 +1,6 @@
 # Schedule File Manifest
 
-Generated for Schedule v2.16.0 — Roles & Permissions Engine.
+Generated for Schedule v2.16.1 — Release File Cleanup & Latest Release.
 
 ```text
 BUILDMANIFEST.md
@@ -9,33 +9,11 @@ CHANGELOG.md
 EMPLOYEE-IDENTITY-FOUNDATION.md
 FILEMANIFEST.md
 HOWTO.md
+LATEST_RELEASE.md
 LEAVE-REQUESTS-FOUNDATION.md
 MINIMUM-STAFFING-FOUNDATION.md
 OPEN-SHIFTS-FOUNDATION.md
 README.md
-RELEASE-v2.0.0.md
-RELEASE-v2.1.0.md
-RELEASE-v2.1.1.md
-RELEASE-v2.1.2.md
-RELEASE-v2.1.3.md
-RELEASE-v2.10.0-Benefit-Ledger.md
-RELEASE-v2.11.0-Calendar-Shortcode-Admin-Controls.md
-RELEASE-v2.12.0-Calendar-Views-Schedule-Footer.md
-RELEASE-v2.13.0-Employee-Profile-Self-Service-Settings.md
-RELEASE-v2.14.0-Employee-Timeline-Audit-Trail.md
-RELEASE-v2.15.0-Supervisors-Organizational-Hierarchy.md
-RELEASE-v2.16.0-Roles-Permissions-Engine.md
-RELEASE-v2.2.0.md
-RELEASE-v2.2.1.md
-RELEASE-v2.3.0.md
-RELEASE-v2.3.1.md
-RELEASE-v2.4.0.md
-RELEASE-v2.5.0.md
-RELEASE-v2.6.0-Seniority-Rotation-Engine.md
-RELEASE-v2.7.0-Shift-Trades-Swap-Requests.md
-RELEASE-v2.7.1-Trade-Form-Layout-Fix.md
-RELEASE-v2.8.0-Training-Certifications.md
-RELEASE-v2.9.0-Qualification-Eligibility-Engine.md
 REQUEST-HOURS-FOUNDATION.md
 ROADMAP.md
 adapters/JsonBenefitLedgerAdapter.js

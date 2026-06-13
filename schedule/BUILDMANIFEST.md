@@ -1,21 +1,25 @@
 # Build Manifest
 
-Release: Schedule v2.16.0 — Roles & Permissions Engine
-ZIP: signal-schedule-v2.16.0-roles-permissions-engine.zip
-Date: 2026-06-13
-Scope: Full root replacement package
+## Release Title
 
-## Added
-- schedule/permissions.html
-- schedule/permissions.css
-- schedule/permissions.js
-- schedule/data/roles-permissions-preview.json
-- schedule/adapters/JsonRolesPermissionsAdapter.js
-- schedule/repositories/RolesPermissionsRepository.js
-- schedule/services/RolesPermissionsService.js
-- schedule/api/contracts/roles-permissions.read.schema.json
-- schedule/api/coolify/sql/022_roles_permissions_schema.sql
-- schedule/RELEASE-v2.16.0-Roles-Permissions-Engine.md
+Schedule v2.16.1 — Release File Cleanup & Latest Release
+
+## ZIP Filename
+
+signal-schedule-v2.16.1-release-file-cleanup-latest-release.zip
+
+## Replace Scope
+
+Full root replacement.
 
 ## Database
-Run 022_roles_permissions_schema.sql after uploading v2.16.0.
+
+No new SQL migration required. Current database target remains `022 roles_permissions`.
+
+## Deleted During Cleanup
+
+- `schedule/RELEASE-v*.md` historical per-version release files
+- macOS metadata/resource fork files (`._*`)
+- `.DS_Store`
+- `.git/`
+- `__MACOSX/`
