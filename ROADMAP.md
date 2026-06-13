@@ -126,3 +126,9 @@ Add admin-editable short codes for dense user-facing calendar and schedule views
 ## Next: Schedule v2.9.0 — Benefit Ledger
 
 Certification tracking, expiration warnings, required qualification rules, and training assignment previews.
+
+
+## Schedule v2.9.0 — Qualification & Eligibility Engine
+
+Adds optional shift credential requirements and eligibility checks powered by Training & Certifications. Coverage, Open OT, Trades, and Assignments can now preview whether an employee is eligible, warned, or blocked for a qualified role.
+

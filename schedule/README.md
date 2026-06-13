@@ -1,6 +1,6 @@
 # Signal Schedule
 
-Current Version: v2.8.0
+Current Version: v2.9.0
 
 Signal Schedule is an admin-first staffing and scheduling platform foundation. v2.8.0 adds the Training & Certifications foundation for qualification-aware staffing, expiration warnings, and assignment restrictions.
 
@@ -59,3 +59,8 @@ Signal Schedule is a staffing and schedule-planning tool being built for dispatc
 Schedule v2.8.0 — Training & Certifications
 
 Adds shift trade and swap request foundation with coverage impact checks and admin review preview.
+
+
+## Current Focus — v2.9.0
+
+The Qualification & Eligibility Engine links optional shift requirements to Training & Certifications so the system can decide whether an employee is eligible to fill a qualified role such as Fire Dispatcher, Police Radio, NCIC desk, or Calltaking.

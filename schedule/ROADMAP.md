@@ -1,6 +1,6 @@
 # Signal Schedule Roadmap
 
-## Current Release: Schedule v2.8.0 — Training & Certifications
+## Current Release: Schedule v2.9.0 — Training & Certifications
 
 - Seniority list preview
 - Equalized overtime/callback/mandate metrics
@@ -64,3 +64,8 @@ Planned focus:
 - Required qualification checks.
 - Training assignments.
 - Calendar shortcode foundation remains planned for later release.
+
+
+## Added in v2.9.0 — Qualification & Eligibility Engine
+
+Shift requirements can optionally require credentials from Training & Certifications. This prepares Coverage, OT, Trades, Assignments, callbacks, and mandates to make qualification-aware decisions.

@@ -1,4 +1,4 @@
-# Schedule v2.7.1 — Trade Form Layout Fix
+# Schedule v2.8.0 — Trade Form Layout Fix
 
 Patch release for the Shift Trades & Swap Requests page.
 
@@ -7,7 +7,7 @@ Patch release for the Shift Trades & Swap Requests page.
 - Fixed the Approval Rule Preview control row overflowing outside the card.
 - Updated select controls to respect their grid columns.
 - Added mobile stacking behavior for the trade approval form.
-- Updated visible Schedule version references to v2.7.1.
+- Updated visible Schedule version references to v2.8.0.
 
 ## Scope
 

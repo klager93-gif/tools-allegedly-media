@@ -1,4 +1,4 @@
-# Schedule v2.7.1 — Shift Trades & Swap Requests
+# Schedule v2.8.0 — Shift Trades & Swap Requests
 
 Adds the Shift Trades & Swap Requests foundation to Signal Schedule.
 

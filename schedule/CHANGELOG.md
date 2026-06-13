@@ -1,4 +1,4 @@
-## Schedule v2.8.0 — Training & Certifications
+## Schedule v2.9.0 — Training & Certifications
 
 - Added Training & Certifications preview page.
 - Added certification expiration, active, expired, in-training, and restricted status previews.

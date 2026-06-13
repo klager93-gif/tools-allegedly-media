@@ -1,5 +1,10 @@
 ## Schedule v2.8.0 — Training & Certifications
 
+## Schedule v2.9.0 — Qualification & Eligibility Engine
+
+Adds optional shift credential requirements and eligibility checks powered by Training & Certifications. Coverage, Open OT, Trades, and Assignments can now preview whether an employee is eligible, warned, or blocked for a qualified role.
+
+
 - Added Training & Certifications preview page.
 - Added certification expiration, active, expired, in-training, and restricted status previews.
 - Added role/credential requirement rule preview.
