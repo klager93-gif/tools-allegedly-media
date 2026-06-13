@@ -1,5 +1,7 @@
 # File Manifest
 
+Generated for Schedule v2.14.0 — Employee Timeline & Audit Trail.
+
 - ADMIN_CHANGELOG.md
 - BUILDMANIFEST.md
 - FILEMANIFEST.md
@@ -83,6 +85,7 @@
 - schedule/RELEASE-v2.11.0-Calendar-Shortcode-Admin-Controls.md
 - schedule/RELEASE-v2.12.0-Calendar-Views-Schedule-Footer.md
 - schedule/RELEASE-v2.13.0-Employee-Profile-Self-Service-Settings.md
+- schedule/RELEASE-v2.14.0-Employee-Timeline-Audit-Trail.md
 - schedule/RELEASE-v2.2.0.md
 - schedule/RELEASE-v2.2.1.md
 - schedule/RELEASE-v2.3.0.md
@@ -102,6 +105,7 @@
 - schedule/adapters/JsonCalendarViewAdapter.js
 - schedule/adapters/JsonCoverageBoardAdapter.js
 - schedule/adapters/JsonEmployeeProfileAdapter.js
+- schedule/adapters/JsonEmployeeTimelineAdapter.js
 - schedule/adapters/JsonLeaveRequestsAdapter.js
 - schedule/adapters/JsonMinimumStaffingAdapter.js
 - schedule/adapters/JsonOpenShiftAdapter.js
@@ -115,6 +119,7 @@
 - schedule/api/contracts/calendar.read.schema.json
 - schedule/api/contracts/coverage-board.read.schema.json
 - schedule/api/contracts/employee-profile.read.schema.json
+- schedule/api/contracts/employee-timeline.read.schema.json
 - schedule/api/contracts/leave-requests.read.schema.json
 - schedule/api/contracts/minimum-staffing.read.schema.json
 - schedule/api/contracts/open-shifts.read.schema.json
@@ -142,6 +147,7 @@
 - schedule/api/coolify/sql/017_calendar_shortcode_admin_controls_schema.sql
 - schedule/api/coolify/sql/018_calendar_views_foundation_schema.sql
 - schedule/api/coolify/sql/019_employee_profile_self_service_schema.sql
+- schedule/api/coolify/sql/020_employee_timeline_audit_trail_schema.sql
 - schedule/assignments.html
 - schedule/benefits.css
 - schedule/benefits.html
@@ -160,6 +166,7 @@
 - schedule/data/coverage-board-preview.json
 - schedule/data/employee-assignments.json
 - schedule/data/employee-profile-preview.json
+- schedule/data/employee-timeline-preview.json
 - schedule/data/employees.json
 - schedule/data/leave-request-types.json
 - schedule/data/leave-requests-preview.json
@@ -195,6 +202,7 @@
 - schedule/repositories/CalendarViewRepository.js
 - schedule/repositories/CoverageBoardRepository.js
 - schedule/repositories/EmployeeProfileRepository.js
+- schedule/repositories/EmployeeTimelineRepository.js
 - schedule/repositories/LeaveRequestRepository.js
 - schedule/repositories/MinimumStaffingRepository.js
 - schedule/repositories/OpenShiftRepository.js
@@ -216,6 +224,7 @@
 - schedule/services/CalendarViewService.js
 - schedule/services/CoverageBoardService.js
 - schedule/services/EmployeeProfileService.js
+- schedule/services/EmployeeTimelineService.js
 - schedule/services/LeaveRequestService.js
 - schedule/services/MinimumStaffingService.js
 - schedule/services/OpenShiftService.js
@@ -232,6 +241,9 @@
 - schedule/shortcodes.js
 - schedule/staffing.html
 - schedule/style.css
+- schedule/timeline.css
+- schedule/timeline.html
+- schedule/timeline.js
 - schedule/trades.html
 - schedule/training.css
 - schedule/training.html

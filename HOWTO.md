@@ -1,6 +1,6 @@
-## v2.13.0 Database Update
+## v2.14.0 Database Update
 
-After uploading v2.13.0, run `019_employee_profile_self_service_schema.sql` and verify `schema_migrations` shows version `019`.
+After uploading v2.14.0, run `019_employee_profile_self_service_schema.sql` and verify `schema_migrations` shows version `019`.
 
 # Signal Labs How To
 

@@ -1,4 +1,4 @@
-# Schedule v2.13.0 — Employee Profile & Self-Service Settings
+# Schedule v2.14.0 — Employee Timeline & Audit Trail
 
 Current Schedule release adds employee profile self-service controls and overview live-feature cleanup.
 

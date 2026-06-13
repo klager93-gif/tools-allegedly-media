@@ -1,6 +1,6 @@
 ## Current
 
-- Schedule v2.13.0 — Employee Profile & Self-Service Settings is complete.
+- Schedule v2.14.0 — Employee Timeline & Audit Trail is complete.
 
 ## Next
 
