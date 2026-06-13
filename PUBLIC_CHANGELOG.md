@@ -1,3 +1,9 @@
+# Public Changelog
+
+## Schedule v2.6.0 — Seniority & Rotation Engine
+
+Signal Schedule now includes a read-only Seniority & Rotation preview for future overtime, callback, and mandation ordering.
+
 ## v2.2.1 — Request Hours & Admin Override Foundation
 
 - Added request hour calculation planning for leave and future VOT/open shift workflows.

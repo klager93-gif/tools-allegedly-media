@@ -1,15 +1,17 @@
 # Build Manifest
 
-Build: Full Root + Signal Schedule v2.5.0 Coverage Board Foundation
-Date: 2026-06-13
+## Release Title
 
-## Replace Recommendation
+Schedule v2.6.0 — Seniority & Rotation Engine
 
-Full root replacement.
+## Package
 
-## Primary Changes
+signal-labs-v2.6.0-seniority-rotation-engine.zip
 
-- Added Schedule Coverage Board foundation.
-- Updated Schedule navigation across all Schedule pages.
-- Added coverage data, adapter, repository, service, API read contract, and SQL schema preview.
-- Preserved existing root, shared assets, and other tool folders.
+## Scope
+
+Full-root replacement package.
+
+## Notes
+
+Includes Schedule v2.6.0 and Signal Labs Standards v3.0 consolidated development standards.

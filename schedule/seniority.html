@@ -1,0 +1,105 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/seniority.html
+Version: v2.6.0
+Purpose: Admin-first Seniority and Rotation Engine foundation page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Seniority & Rotation</title>
+<meta name="description" content="Admin-first Signal Schedule seniority, equalization, callback, and mandation rotation preview.">
+<link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
+<link rel="stylesheet" href="style.css?v=2.6.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.6.0">
+<link rel="stylesheet" href="seniority.css?v=2.6.0">
+</head>
+<body
+  data-signal-global-layout="true"
+  data-signal-area="Signal Schedule"
+  data-signal-title="Seniority & Rotation"
+  data-signal-version="v2.6.0"
+  data-signal-theme="Seniority & Rotation Engine"
+  data-signal-status="Preview"
+  data-signal-description="Admin-first seniority, equalization, callback order, mandate order, and skip reason foundation."
+  data-signal-status-text="Signal Schedule v2.6.0 adds the Seniority & Rotation Engine foundation for fair ordering, exceptions, and audit-ready staffing decisions."
+>
+<div id="sl-header"></div>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation">
+  <div class="schedule-subnav__label">
+    <span>Schedule Admin Navigation</span>
+    <span class="schedule-subnav__role">Admin-first / role-filtering later</span>
+  </div>
+  <div class="schedule-subnav__links">
+      <a href="index.html">Overview</a>
+      <a href="schedule.html">Calendar</a>
+      <a href="employees.html">Employees</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="staffing.html">Minimum Staffing</a>
+      <a href="coverage.html">Coverage Board</a>
+      <a href="seniority.html" aria-current="page">Seniority & Rotation</a>
+      <a href="leave.html">Leave Requests</a>
+      <a href="open-shifts.html">Open Shifts</a>
+      <a href="reports.html">Reports</a>
+      <a href="settings.html">Settings</a>
+  </div>
+</nav>
+<main class="seniority-shell">
+  <section class="seniority-hero" aria-labelledby="pageTitle">
+    <p class="schedule-kicker">Signal Schedule v2.6.0</p>
+    <h1 id="pageTitle">Seniority & Rotation Engine</h1>
+    <p>Preview how the system will order employees for overtime, callback, and mandation while respecting seniority, equalization totals, eligibility, qualifications, and admin-approved skip reasons.</p>
+  </section>
+
+  <section class="seniority-grid" aria-label="Seniority and rotation preview">
+    <aside class="seniority-panel">
+      <h2>Rotation Snapshot</h2>
+      <p>This foundation is read-only. It shows how future award, callback, and mandate actions can be explained before they affect payroll or coverage.</p>
+      <div class="seniority-summary" data-seniority-summary><div class="seniority-stat"><strong>—</strong><span>Loading preview</span></div></div>
+      <div class="seniority-filter" aria-label="Rotation filters">
+        <button type="button" data-seniority-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-seniority-filter="eligible">Eligible</button>
+        <button type="button" data-seniority-filter="skipped">Skipped</button>
+        <button type="button" data-seniority-filter="mandate">Mandate Order</button>
+        <button type="button" data-seniority-filter="callback">Callback Order</button>
+      </div>
+      <p class="seniority-status-line" data-seniority-status-line>Loading Seniority & Rotation preview data…</p>
+    </aside>
+
+    <section class="seniority-builder-card" aria-labelledby="builderTitle">
+      <h2 id="builderTitle">Ordering Rule Preview</h2>
+      <p>Admins eventually decide which method controls a list: seniority first, lowest equalized OT first, rotating wheel, reverse seniority, or manual override with audit reason.</p>
+      <div class="seniority-builder-grid">
+        <label>Scenario<select data-seniority-scenario><option value="Open OT Award">Open OT Award</option><option value="Callback">Callback</option><option value="Mandation">Mandation</option></select></label>
+        <label>Primary Rule<select data-seniority-rule><option value="Lowest equalized OT first">Lowest equalized OT first</option><option value="Highest seniority first">Highest seniority first</option><option value="Reverse seniority mandate">Reverse seniority mandate</option><option value="Rotating wheel">Rotating wheel</option></select></label>
+        <label>Required Qualification<select data-seniority-qualification><option value="Dispatcher">Dispatcher</option><option value="Police Radio">Police Radio</option><option value="Booking">Booking</option><option value="Paramedic">Paramedic</option></select></label>
+      </div>
+      <div class="seniority-preview-box" data-seniority-builder-preview></div>
+    </section>
+  </section>
+
+  <section class="seniority-list-section" aria-labelledby="rotationListTitle">
+    <div class="seniority-section-header"><div><h2 id="rotationListTitle">Rotation List Preview</h2><p>Ranked employees include status, equalization hours, seniority date, qualifications, last offered date, and skip/exception reason.</p></div><span data-seniority-count>—</span></div>
+    <div class="seniority-list" data-seniority-list></div>
+  </section>
+
+  <section class="seniority-list-section" aria-labelledby="auditTitle">
+    <div class="seniority-section-header"><div><h2 id="auditTitle">Offer / Skip Audit Trail</h2><p>Future production actions should explain who was offered, accepted, declined, skipped, mandated, or manually overridden.</p></div></div>
+    <div class="seniority-audit" data-seniority-audit></div>
+  </section>
+
+  <section class="seniority-list-section" aria-labelledby="calendarCodesTitle">
+    <div class="seniority-section-header"><div><h2 id="calendarCodesTitle">Calendar Shortcode Roadmap Note</h2><p>Future calendar views should support agency-defined short codes like VOT, T, SP, SF, VAC, CT, and custom admin codes. Month/week cells can show the code while day details show the full label, reason, hours, approval state, and audit trail.</p></div></div>
+    <div class="seniority-code-grid"><span><strong>VOT</strong> Voluntary Overtime</span><span><strong>T</strong> Training</span><span><strong>SP</strong> Sick Personal</span><span><strong>SF</strong> Sick Family</span><span><strong>VAC</strong> Vacation</span><span><strong>CT</strong> Comp Time</span></div>
+  </section>
+</main>
+<div id="sl-footer"></div>
+<script src="../assets/global.js?v=0.9.9.6"></script>
+<script src="../assets/components/header.js?v=0.9.9.6"></script>
+<script src="../assets/components/footer.js?v=0.9.9.6"></script>
+<script type="module" src="seniority.js?v=2.6.0"></script>
+</body>
+</html>

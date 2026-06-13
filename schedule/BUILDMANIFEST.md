@@ -1,12 +1,17 @@
-# Schedule Build Manifest
+# Build Manifest
 
-Build: Signal Schedule v2.5.0 Coverage Board Foundation
-Date: 2026-06-13
+## Release Title
 
-## Primary Changes
+Schedule v2.6.0 — Seniority & Rotation Engine
 
-- Added coverage.html, coverage-board.css, and coverage-board.js.
-- Added CoverageBoard adapter, repository, and service.
-- Added coverage-board-preview.json.
-- Added API contract and future Postgres SQL schema preview.
-- Updated Schedule navigation and version references.
+## Package
+
+signal-labs-v2.6.0-seniority-rotation-engine.zip
+
+## Scope
+
+Schedule tool content included inside full-root package.
+
+## Notes
+
+Includes Schedule v2.6.0 and Signal Labs Standards v3.0 consolidated development standards.

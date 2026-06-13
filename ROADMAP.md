@@ -108,3 +108,8 @@ Planned focus:
 - Staffing impact summaries
 - Supervisor notes
 - Request history preview
+
+
+## Schedule Future: Calendar Short Codes
+
+Add admin-editable short codes for dense user-facing calendar and schedule views: VOT, T, SP, SF, VAC, CT, plus custom agency-defined codes.

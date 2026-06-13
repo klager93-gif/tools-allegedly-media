@@ -1,3 +1,11 @@
+# Master Changelog
+
+## Schedule v2.6.0 — Seniority & Rotation Engine
+
+- Added Schedule v2.6.0 Seniority & Rotation Engine foundation.
+- Added Signal Labs Standards v3.0 consolidated standards and release handoff rules.
+- Added calendar shortcode roadmap item for future user-facing calendar views.
+
 # Schedule v2.5.0 — Coverage Board Foundation
 
 - Added Schedule Coverage Board foundation.

@@ -1,5 +1,17 @@
 # Signal Schedule Roadmap
 
+## Current Release: Schedule v2.6.0 — Seniority & Rotation Engine
+
+- Seniority list preview
+- Equalized overtime/callback/mandate metrics
+- Callback and mandation ordering foundation
+- Skip reason and admin override audit foundation
+- Navigation updated for Seniority & Rotation
+
+## Scheduled Future Item: Calendar Short Codes
+
+Add admin-defined calendar display codes for user-facing week/month views and schedule views. Built-in examples should include VOT (Voluntary Overtime), T (Training), SP (Sick Personal), SF (Sick Family), VAC (Vacation), CT (Comp Time), and agency-defined custom codes. Calendar cells should show the short code in dense week/month views; day detail panels should show full text, reason, hours, approval state, and audit history. Admins should be able to modify built-in codes and add their own.
+
 ## Current: v2.4.0 — Overtime Opportunity Board Foundation
 
 Completed focus:

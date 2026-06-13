@@ -1,3 +1,11 @@
+# Admin Changelog
+
+## Schedule v2.6.0 — Seniority & Rotation Engine
+
+- Added seniority, equalization, callback, mandation, skip reason, and audit preview foundations.
+- Updated Schedule navigation.
+- Added Standards v3.0 release handoff requirements.
+
 ## v2.2.1 — Request Hours & Admin Override Foundation
 
 - Added request hour calculation planning for leave and future VOT/open shift workflows.

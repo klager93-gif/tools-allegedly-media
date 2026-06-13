@@ -37,3 +37,8 @@ The repository root keeps only true site/shared items such as `index.html`, `ass
 ## Production status
 
 Schedule remains an active-development prototype. The current UI is read-only/preview-oriented for most advanced modules. Employee write routes in the API skeleton remain protected and disabled unless intentionally enabled with environment variables.
+
+
+## Standards v3.0
+
+Signal Labs now uses consolidated development standards with required release handoff sections, single-source naming, tool-owned infrastructure, and package validation rules.

@@ -1,97 +1,103 @@
 # Schedule File Manifest
 
-Generated for Schedule v2.5.0 build.
-
-```text
-BUILDMANIFEST.md
-CALENDAR-FOUNDATION.md
-CHANGELOG.md
-EMPLOYEE-IDENTITY-FOUNDATION.md
-FILEMANIFEST.md
-HOWTO.md
-LEAVE-REQUESTS-FOUNDATION.md
-MINIMUM-STAFFING-FOUNDATION.md
-OPEN-SHIFTS-FOUNDATION.md
-README.md
-RELEASE-v2.0.0.md
-RELEASE-v2.1.0.md
-RELEASE-v2.1.1.md
-RELEASE-v2.1.2.md
-RELEASE-v2.1.3.md
-RELEASE-v2.2.0.md
-RELEASE-v2.2.1.md
-RELEASE-v2.3.0.md
-RELEASE-v2.3.1.md
-RELEASE-v2.4.0.md
-RELEASE-v2.5.0.md
-REQUEST-HOURS-FOUNDATION.md
-ROADMAP.md
-adapters/JsonCalendarAdapter.js
-adapters/JsonCoverageBoardAdapter.js
-adapters/JsonLeaveRequestsAdapter.js
-adapters/JsonMinimumStaffingAdapter.js
-adapters/JsonOpenShiftAdapter.js
-api/contracts/calendar.read.schema.json
-api/contracts/coverage-board.read.schema.json
-api/contracts/leave-requests.read.schema.json
-api/contracts/minimum-staffing.read.schema.json
-api/contracts/open-shifts.read.schema.json
-api/contracts/request-hours.read.schema.json
-api/coolify/README.md
-api/coolify/db/postgres.js
-api/coolify/server.js
-api/coolify/sql/005_minimum_staffing_foundation_schema.sql
-api/coolify/sql/006_calendar_foundation_schema.sql
-api/coolify/sql/007_employee_identity_cleanup_schema.sql
-api/coolify/sql/008_leave_requests_foundation_schema.sql
-api/coolify/sql/009_request_hours_foundation_schema.sql
-api/coolify/sql/010_open_shifts_foundation_schema.sql
-api/coolify/sql/011_coverage_board_foundation_schema.sql
-assignments.html
-coverage-board.css
-coverage-board.js
-coverage.html
-data/agencies.json
-data/assignment-templates.json
-data/calendar-events-preview.json
-data/calendar-preview.json
-data/coverage-board-preview.json
-data/employee-assignments.json
-data/employees.json
-data/leave-request-types.json
-data/leave-requests-preview.json
-data/minimum-staffing-preview.json
-data/minimum-staffing-templates.json
-data/open-shifts-preview.json
-data/request-increment-settings.json
-data/request-reasons.json
-data/vot-requests-preview.json
-employees.html
-index.html
-leave-requests.css
-leave-requests.js
-leave.html
-open-shifts.css
-open-shifts.html
-open-shifts.js
-reports.html
-repositories/CalendarRepository.js
-repositories/CoverageBoardRepository.js
-repositories/LeaveRequestRepository.js
-repositories/MinimumStaffingRepository.js
-repositories/OpenShiftRepository.js
-schedule-calendar.css
-schedule-calendar.js
-schedule-nav.css
-schedule.html
-script.js
-services/CalendarService.js
-services/CoverageBoardService.js
-services/LeaveRequestService.js
-services/MinimumStaffingService.js
-services/OpenShiftService.js
-services/RequestHoursService.js
-settings.html
-staffing.html
-style.css
-```
+- BUILDMANIFEST.md
+- CALENDAR-FOUNDATION.md
+- CHANGELOG.md
+- EMPLOYEE-IDENTITY-FOUNDATION.md
+- FILEMANIFEST.md
+- HOWTO.md
+- LEAVE-REQUESTS-FOUNDATION.md
+- MINIMUM-STAFFING-FOUNDATION.md
+- OPEN-SHIFTS-FOUNDATION.md
+- README.md
+- RELEASE-v2.0.0.md
+- RELEASE-v2.1.0.md
+- RELEASE-v2.1.1.md
+- RELEASE-v2.1.2.md
+- RELEASE-v2.1.3.md
+- RELEASE-v2.2.0.md
+- RELEASE-v2.2.1.md
+- RELEASE-v2.3.0.md
+- RELEASE-v2.3.1.md
+- RELEASE-v2.4.0.md
+- RELEASE-v2.5.0.md
+- RELEASE-v2.6.0-Seniority-Rotation-Engine.md
+- REQUEST-HOURS-FOUNDATION.md
+- ROADMAP.md
+- adapters/JsonCalendarAdapter.js
+- adapters/JsonCoverageBoardAdapter.js
+- adapters/JsonLeaveRequestsAdapter.js
+- adapters/JsonMinimumStaffingAdapter.js
+- adapters/JsonOpenShiftAdapter.js
+- adapters/JsonSeniorityRotationAdapter.js
+- api/contracts/calendar.read.schema.json
+- api/contracts/coverage-board.read.schema.json
+- api/contracts/leave-requests.read.schema.json
+- api/contracts/minimum-staffing.read.schema.json
+- api/contracts/open-shifts.read.schema.json
+- api/contracts/request-hours.read.schema.json
+- api/contracts/seniority-rotation.read.schema.json
+- api/coolify/README.md
+- api/coolify/db/postgres.js
+- api/coolify/server.js
+- api/coolify/sql/005_minimum_staffing_foundation_schema.sql
+- api/coolify/sql/006_calendar_foundation_schema.sql
+- api/coolify/sql/007_employee_identity_cleanup_schema.sql
+- api/coolify/sql/008_leave_requests_foundation_schema.sql
+- api/coolify/sql/009_request_hours_foundation_schema.sql
+- api/coolify/sql/010_open_shifts_foundation_schema.sql
+- api/coolify/sql/011_coverage_board_foundation_schema.sql
+- api/coolify/sql/012_seniority_rotation_foundation_schema.sql
+- assignments.html
+- coverage-board.css
+- coverage-board.js
+- coverage.html
+- data/agencies.json
+- data/assignment-templates.json
+- data/calendar-events-preview.json
+- data/calendar-preview.json
+- data/coverage-board-preview.json
+- data/employee-assignments.json
+- data/employees.json
+- data/leave-request-types.json
+- data/leave-requests-preview.json
+- data/minimum-staffing-preview.json
+- data/minimum-staffing-templates.json
+- data/open-shifts-preview.json
+- data/request-increment-settings.json
+- data/request-reasons.json
+- data/seniority-rotation-preview.json
+- data/vot-requests-preview.json
+- employees.html
+- index.html
+- leave-requests.css
+- leave-requests.js
+- leave.html
+- open-shifts.css
+- open-shifts.html
+- open-shifts.js
+- reports.html
+- repositories/CalendarRepository.js
+- repositories/CoverageBoardRepository.js
+- repositories/LeaveRequestRepository.js
+- repositories/MinimumStaffingRepository.js
+- repositories/OpenShiftRepository.js
+- repositories/SeniorityRotationRepository.js
+- schedule-calendar.css
+- schedule-calendar.js
+- schedule-nav.css
+- schedule.html
+- script.js
+- seniority.css
+- seniority.html
+- seniority.js
+- services/CalendarService.js
+- services/CoverageBoardService.js
+- services/LeaveRequestService.js
+- services/MinimumStaffingService.js
+- services/OpenShiftService.js
+- services/RequestHoursService.js
+- services/SeniorityRotationService.js
+- settings.html
+- staffing.html
+- style.css
