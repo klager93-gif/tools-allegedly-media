@@ -1,3 +1,10 @@
+## Schedule v2.7.1 — Trade Form Layout Fix
+
+- Fixed Approval Rule Preview dropdown overflow on the Shift Trades page.
+- Added safer responsive layout rules for trade approval controls.
+- Updated Schedule visible version references to v2.7.1.
+
+
 # Signal Schedule Changelog
 
 ## Schedule v2.7.0 — Shift Trades & Swap Requests
@@ -7,7 +14,7 @@
 - Added ShiftTrade adapter, repository, service, API contract, SQL foundation, and preview data.
 - Updated Schedule navigation across pages.
 
-## Schedule v2.7.0 — Seniority & Rotation Engine
+## Schedule v2.6.0 — Seniority & Rotation Engine
 
 - Added Seniority & Rotation Engine preview page.
 - Added seniority rotation JSON data, adapter, repository, and service layer.
@@ -17,7 +24,7 @@
 - Updated Schedule navigation across pages for the new Seniority & Rotation page.
 - Added API contract and Postgres SQL foundation for seniority lists and rotation events.
 - Added calendar shortcode roadmap note for VOT, T, SP, SF, and agency-defined codes.
-- Included Signal Labs Standards v3.0 consolidated development standards in this full-root package.
+- Included Signal Labs Standards v3.0 consolidated development standards in the v2.6.0 full-root package.
 
 ## v2.5.0 — Coverage Board Foundation
 

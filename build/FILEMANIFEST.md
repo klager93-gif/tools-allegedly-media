@@ -1,9 +1,8 @@
 # File Manifest
 
-Release: Schedule v2.7.0 — Shift Trades & Swap Requests
-Generated: 2026-06-13
+Release: Schedule v2.7.1 — Trade Form Layout Fix
 
-## Package Contents
+## Included Files
 
 - `ADMIN_CHANGELOG.md`
 - `BUILDMANIFEST.md`
@@ -59,6 +58,7 @@ Generated: 2026-06-13
 - `paycheck/README.md`
 - `paycheck/RESTORE.md`
 - `paycheck/ROADMAP.md`
+- `paycheck/SHA256SUMS.txt`
 - `paycheck/index.html`
 - `paycheck/script.js`
 - `paycheck/style.css`
@@ -89,6 +89,7 @@ Generated: 2026-06-13
 - `schedule/RELEASE-v2.5.0.md`
 - `schedule/RELEASE-v2.6.0-Seniority-Rotation-Engine.md`
 - `schedule/RELEASE-v2.7.0-Shift-Trades-Swap-Requests.md`
+- `schedule/RELEASE-v2.7.1-Trade-Form-Layout-Fix.md`
 - `schedule/REQUEST-HOURS-FOUNDATION.md`
 - `schedule/ROADMAP.md`
 - `schedule/adapters/JsonCalendarAdapter.js`
@@ -196,3 +197,4 @@ Generated: 2026-06-13
 - `timeoff/index.html`
 - `timeoff/script.js`
 - `timeoff/style.css`
+

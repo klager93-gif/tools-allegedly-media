@@ -1,10 +1,18 @@
 # Build Manifest
 
-Release Title: Schedule v2.7.0 — Shift Trades & Swap Requests
-ZIP Filename: signal-schedule-v2.7.0-shift-trades-swap-requests.zip
+Release Title: Schedule v2.7.1 — Trade Form Layout Fix
+ZIP Filename: signal-schedule-v2.7.1-trade-form-layout-fix.zip
 Build Date: 2026-06-13
-Replace Scope: /schedule/ within full root package
+Replace Scope: Full root replacement
 
 ## Summary
 
-Adds Shift Trades & Swap Requests foundation and includes the current full root package for delete-and-replace deployment.
+Patches the Shift Trades & Swap Requests approval form layout overflow and synchronizes Schedule visible version references to v2.7.1.
+
+## Validation
+
+- JavaScript syntax checks
+- Schedule infrastructure ownership check
+- Root misplaced folder check
+- ZIP integrity check
+- macOS metadata exclusion check

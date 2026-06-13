@@ -1,4 +1,4 @@
--- Signal Schedule v2.7.0 — Shift Trades & Swap Requests Foundation
+-- Signal Schedule v2.7.1 — Shift Trades & Swap Requests Foundation
 -- Preview schema for future production trade/swap approval tracking.
 CREATE TABLE IF NOT EXISTS schedule_shift_trade_requests (
     id text PRIMARY KEY,

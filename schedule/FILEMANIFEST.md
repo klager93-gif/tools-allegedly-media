@@ -1,10 +1,71 @@
-# Signal Schedule File Manifest
+# File Manifest
 
-Release: Schedule v2.7.0 — Shift Trades & Swap Requests
-Generated: 2026-06-13
+Release: Schedule v2.7.1 — Trade Form Layout Fix
 
-## Schedule Files
+## Included Files
 
+- `ADMIN_CHANGELOG.md`
+- `BUILDMANIFEST.md`
+- `FILEMANIFEST.md`
+- `HOWTO.md`
+- `MASTER-CHANGELOG.md`
+- `MASTER-ROADMAP.md`
+- `PUBLIC_CHANGELOG.md`
+- `README.md`
+- `REPOSITORY-AUDIT-2026-06-12.md`
+- `ROADMAP.md`
+- `STANDARDS.md`
+- `about/index.html`
+- `assets/components/footer.js`
+- `assets/components/header.js`
+- `assets/global.css`
+- `assets/global.js`
+- `assets/icons/apple-touch-icon.png`
+- `assets/icons/favicon.ico`
+- `assets/icons/favicon.svg`
+- `assets/icons/site.webmanifest`
+- `build/BUILDMANIFEST.md`
+- `build/FILEMANIFEST.md`
+- `changelog/index.html`
+- `contact/index.html`
+- `docs/BACKUP.md`
+- `docs/RESTORE.md`
+- `how-to/index.html`
+- `index.html`
+- `overtime/BUILDMANIFEST.md`
+- `overtime/CHANGELOG.md`
+- `overtime/FILEMANIFEST.md`
+- `overtime/HOWTO.md`
+- `overtime/README.md`
+- `overtime/ROADMAP.md`
+- `overtime/index.html`
+- `overtime/script.js`
+- `overtime/style.css`
+- `pay-planner/CHANGELOG.md`
+- `pay-planner/HOWTO.md`
+- `pay-planner/README.md`
+- `pay-planner/ROADMAP.md`
+- `pay-planner/index.html`
+- `pay-planner/script.js`
+- `pay-planner/style.css`
+- `paycheck/ADMIN_CHANGELOG.md`
+- `paycheck/BACKUP.md`
+- `paycheck/BUILDMANIFEST.md`
+- `paycheck/CHANGELOG.md`
+- `paycheck/FILEMANIFEST.md`
+- `paycheck/HOWTO.md`
+- `paycheck/PUBLIC_CHANGELOG.md`
+- `paycheck/README.md`
+- `paycheck/RESTORE.md`
+- `paycheck/ROADMAP.md`
+- `paycheck/SHA256SUMS.txt`
+- `paycheck/index.html`
+- `paycheck/script.js`
+- `paycheck/style.css`
+- `privacy/index.html`
+- `report-issue/index.html`
+- `request-feature/index.html`
+- `roadmap/index.html`
 - `schedule/BUILDMANIFEST.md`
 - `schedule/CALENDAR-FOUNDATION.md`
 - `schedule/CHANGELOG.md`
@@ -28,6 +89,7 @@ Generated: 2026-06-13
 - `schedule/RELEASE-v2.5.0.md`
 - `schedule/RELEASE-v2.6.0-Seniority-Rotation-Engine.md`
 - `schedule/RELEASE-v2.7.0-Shift-Trades-Swap-Requests.md`
+- `schedule/RELEASE-v2.7.1-Trade-Form-Layout-Fix.md`
 - `schedule/REQUEST-HOURS-FOUNDATION.md`
 - `schedule/ROADMAP.md`
 - `schedule/adapters/JsonCalendarAdapter.js`
@@ -116,3 +178,23 @@ Generated: 2026-06-13
 - `schedule/staffing.html`
 - `schedule/style.css`
 - `schedule/trades.html`
+- `standards/COMPONENT_STANDARDS.md`
+- `standards/DEVELOPMENT_STANDARDS.md`
+- `standards/DOCUMENTATION_STANDARDS.md`
+- `standards/RELEASE_STANDARDS.md`
+- `standards/REPOSITORY_STANDARDS.md`
+- `standards/STANDARDS.md`
+- `standards/UX_STANDARDS.md`
+- `standards/WORKFLOW_STANDARDS.md`
+- `status/index.html`
+- `terms/index.html`
+- `timeoff/BUILDMANIFEST.md`
+- `timeoff/CHANGELOG.md`
+- `timeoff/FILEMANIFEST.md`
+- `timeoff/HOWTO.md`
+- `timeoff/README.md`
+- `timeoff/ROADMAP.md`
+- `timeoff/index.html`
+- `timeoff/script.js`
+- `timeoff/style.css`
+

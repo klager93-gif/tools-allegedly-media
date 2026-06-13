@@ -1,3 +1,9 @@
+## Schedule v2.7.1 — Trade Form Layout Fix
+
+- Fixed Shift Trades & Swap Requests approval form layout overflow.
+- Updated Schedule visible version references to v2.7.1.
+
+
 ## Schedule v2.7.0 — Shift Trades & Swap Requests
 
 - Added Shift Trades & Swap Requests foundation to Signal Schedule.
@@ -5,7 +11,7 @@
 
 # Admin Changelog
 
-## Schedule v2.7.0 — Seniority & Rotation Engine
+## Schedule v2.6.0 — Seniority & Rotation Engine
 
 - Added seniority, equalization, callback, mandation, skip reason, and audit preview foundations.
 - Updated Schedule navigation.
