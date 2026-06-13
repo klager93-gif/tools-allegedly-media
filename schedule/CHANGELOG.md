@@ -1,4 +1,11 @@
-## Schedule v2.9.0 — Training & Certifications
+
+## Schedule v2.10.0 — Benefit Ledger
+
+- Added Benefit Ledger foundation.
+- Added leave bank previews, request impacts, adjustments, and audit trail preview.
+- Added calendar shortcode foundation for compact week/month labels.
+
+## Schedule v2.10.0 — Training & Certifications
 
 - Added Training & Certifications preview page.
 - Added certification expiration, active, expired, in-training, and restricted status previews.

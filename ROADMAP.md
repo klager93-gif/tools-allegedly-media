@@ -123,12 +123,21 @@ Add admin-editable short codes for dense user-facing calendar and schedule views
 - Restriction previews.
 - Qualification-aware scheduling foundation.
 
-## Next: Schedule v2.9.0 — Benefit Ledger
+## Next: Schedule v2.10.0 — Benefit Ledger (current)
 
 Certification tracking, expiration warnings, required qualification rules, and training assignment previews.
 
 
-## Schedule v2.9.0 — Qualification & Eligibility Engine
+## Schedule v2.10.0 — Qualification & Eligibility Engine
 
 Adds optional shift credential requirements and eligibility checks powered by Training & Certifications. Coverage, Open OT, Trades, and Assignments can now preview whether an employee is eligible, warned, or blocked for a qualified role.
 
+
+
+## Next Planned Release
+
+### Schedule v2.11.0 — Calendar Shortcode Admin Controls
+
+- Admin add/edit/disable shortcode labels.
+- Connect shortcode labels to requests, training, OT, and benefit banks.
+- Improve week/month calendar display.

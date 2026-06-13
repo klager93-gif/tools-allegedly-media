@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "version": "v2.10.0",
+    "title": "Benefit Ledger Preview",
+    "note": "Browser-only preview data for bank balances, request impacts, adjustments, and calendar shortcodes."
+  },
+  "banks": [
+    {
+      "id": "vac",
+      "name": "Vacation",
+      "code": "VAC",
+      "earned": 120,
+      "used": 36,
+      "pending": 8,
+      "remaining": 76,
+      "unit": "hours",
+      "colorLabel": "blue"
+    },
+    {
+      "id": "sick",
+      "name": "Sick",
+      "code": "S",
+      "earned": 96,
+      "used": 24,
+      "pending": 4,
+      "remaining": 68,
+      "unit": "hours",
+      "colorLabel": "red"
+    },
+    {
+      "id": "personal",
+      "name": "Personal",
+      "code": "P",
+      "earned": 24,
+      "used": 8,
+      "pending": 0,
+      "remaining": 16,
+      "unit": "hours",
+      "colorLabel": "purple"
+    },
+    {
+      "id": "comp",
+      "name": "Comp Time",
+      "code": "CT",
+      "earned": 18,
+      "used": 6,
+      "pending": 2,
+      "remaining": 10,
+      "unit": "hours",
+      "colorLabel": "green"
+    },
+    {
+      "id": "holiday",
+      "name": "Holiday",
+      "code": "HOL",
+      "earned": 40,
+      "used": 16,
+      "pending": 8,
+      "remaining": 16,
+      "unit": "hours",
+      "colorLabel": "amber"
+    }
+  ],
+  "requestImpacts": [
+    {
+      "employee": "Morgan Price",
+      "requestType": "Vacation",
+      "code": "VAC",
+      "date": "2026-07-06",
+      "hours": 8,
+      "bank": "Vacation",
+      "before": 76,
+      "after": 68,
+      "status": "pending approval"
+    },
+    {
+      "employee": "Taylor Reed",
+      "requestType": "Sick Family",
+      "code": "SF",
+      "date": "2026-07-08",
+      "hours": 4,
+      "bank": "Sick",
+      "before": 68,
+      "after": 64,
+      "status": "pending approval"
+    },
+    {
+      "employee": "Jordan Miles",
+      "requestType": "Comp Time",
+      "code": "CT",
+      "date": "2026-07-10",
+      "hours": 2,
+      "bank": "Comp Time",
+      "before": 10,
+      "after": 8,
+      "status": "approved preview"
+    }
+  ],
+  "adjustments": [
+    {
+      "date": "2026-06-30",
+      "employee": "Morgan Price",
+      "bank": "Vacation",
+      "change": 8,
+      "reason": "Monthly accrual",
+      "enteredBy": "System Preview"
+    },
+    {
+      "date": "2026-06-28",
+      "employee": "Jordan Miles",
+      "bank": "Comp Time",
+      "change": 2,
+      "reason": "Callback converted to comp",
+      "enteredBy": "Admin Preview"
+    },
+    {
+      "date": "2026-06-25",
+      "employee": "Taylor Reed",
+      "bank": "Sick",
+      "change": -4,
+      "reason": "Approved sick family request",
+      "enteredBy": "Supervisor Preview"
+    }
+  ],
+  "shortcodes": [
+    {
+      "code": "VAC",
+      "label": "Vacation",
+      "category": "Time Off",
+      "bank": "Vacation",
+      "adminEditable": true
+    },
+    {
+      "code": "SP",
+      "label": "Sick Personal",
+      "category": "Sick",
+      "bank": "Sick",
+      "adminEditable": true
+    },
+    {
+      "code": "SF",
+      "label": "Sick Family",
+      "category": "Sick",
+      "bank": "Sick",
+      "adminEditable": true
+    },
+    {
+      "code": "P",
+      "label": "Personal",
+      "category": "Time Off",
+      "bank": "Personal",
+      "adminEditable": true
+    },
+    {
+      "code": "CT",
+      "label": "Comp Time",
+      "category": "Time Off",
+      "bank": "Comp Time",
+      "adminEditable": true
+    },
+    {
+      "code": "HOL",
+      "label": "Holiday",
+      "category": "Holiday",
+      "bank": "Holiday",
+      "adminEditable": true
+    },
+    {
+      "code": "VOT",
+      "label": "Voluntary Overtime",
+      "category": "Overtime",
+      "bank": null,
+      "adminEditable": true
+    },
+    {
+      "code": "T",
+      "label": "Training",
+      "category": "Training",
+      "bank": null,
+      "adminEditable": true
+    }
+  ],
+  "calendarDays": [
+    {
+      "date": "2026-07-06",
+      "day": "Mon",
+      "items": [
+        {
+          "code": "VAC",
+          "label": "Morgan Price Vacation"
+        },
+        {
+          "code": "VOT",
+          "label": "Open voluntary overtime"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-08",
+      "day": "Wed",
+      "items": [
+        {
+          "code": "SF",
+          "label": "Taylor Reed Sick Family"
+        },
+        {
+          "code": "T",
+          "label": "Fire dispatch training"
+        }
+      ]
+    },
+    {
+      "date": "2026-07-10",
+      "day": "Fri",
+      "items": [
+        {
+          "code": "CT",
+          "label": "Jordan Miles Comp Time"
+        }
+      ]
+    }
+  ]
+}

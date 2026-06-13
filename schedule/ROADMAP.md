@@ -1,6 +1,6 @@
 # Signal Schedule Roadmap
 
-## Current Release: Schedule v2.9.0 — Training & Certifications
+## Current Release: Schedule v2.10.0 — Training & Certifications
 
 - Seniority list preview
 - Equalized overtime/callback/mandate metrics
@@ -39,7 +39,7 @@ Planned focus:
 - v2.6.0 — Seniority & Rotation Foundation
 - v2.7.0 — Trades / Swaps Foundation
 - v2.8.0 — Training & Certification Foundation
-- v2.9.0 — Benefit Ledger Foundation
+- v2.10.0 — Benefit Ledger Foundation
 - v3.0.0 — First usable staffing workflow prototype
 
 ## Completed Foundations
@@ -57,7 +57,7 @@ Planned focus:
 - v2.4.0 — Overtime Opportunity Board Foundation
 
 
-## Upcoming: Schedule v2.9.0 — Benefit Ledger
+## Upcoming: Schedule v2.10.0 — Benefit Ledger (current)
 
 - Certification tracking.
 - Expiration warnings.
@@ -66,6 +66,15 @@ Planned focus:
 - Calendar shortcode foundation remains planned for later release.
 
 
-## Added in v2.9.0 — Qualification & Eligibility Engine
+## Added in v2.10.0 — Qualification & Eligibility Engine
 
 Shift requirements can optionally require credentials from Training & Certifications. This prepares Coverage, OT, Trades, Assignments, callbacks, and mandates to make qualification-aware decisions.
+
+
+## Next Planned Release
+
+### Schedule v2.11.0 — Calendar Shortcode Admin Controls
+
+- Admin add/edit/disable shortcode labels.
+- Connect shortcode labels to requests, training, OT, and benefit banks.
+- Improve week/month calendar display.

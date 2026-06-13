@@ -44,7 +44,7 @@ Schedule remains an active-development prototype. The current UI is read-only/pr
 Signal Labs now uses consolidated development standards with required release handoff sections, single-source naming, tool-owned infrastructure, and package validation rules.
 
 
-## Schedule v2.9.0 — Qualification & Eligibility Engine
+## Schedule v2.10.0 — Benefit Ledger
 
 Adds optional shift credential requirements and eligibility checks powered by Training & Certifications. Coverage, Open OT, Trades, and Assignments can now preview whether an employee is eligible, warned, or blocked for a qualified role.
 

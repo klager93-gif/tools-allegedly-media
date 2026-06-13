@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v2.9.0
+Version: v2.10.0
 Purpose: Foundation/admin overview with Calendar Foundation navigation
 -->
 <!DOCTYPE html>
@@ -22,11 +22,11 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v2.9.0"
+  data-signal-version="v2.10.0"
   data-signal-theme="Seniority & Rotation Engine"
   data-signal-status="Active Development"
   data-signal-description="Foundation overview with employee, assignment, minimum staffing, coverage board, request, and OT opportunity access."
-  data-signal-status-text="Signal Schedule v2.9.0 adds Seniority & Rotation foundations for equalization, callbacks, mandation, skip reasons, and audit-ready recommendations"
+  data-signal-status-text="Signal Schedule v2.10.0 adds Seniority & Rotation foundations for equalization, callbacks, mandation, skip reasons, and audit-ready recommendations"
 >
 <div id="sl-header"></div>
 
@@ -43,6 +43,10 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
       <a href="staffing.html">Minimum Staffing</a>
       <a href="coverage.html">Coverage Board</a>
       <a href="seniority.html">Seniority & Rotation</a>
+      <a href="trades.html">Trades & Swaps</a>
+      <a href="training.html">Training & Certs</a>
+      <a href="eligibility.html">Eligibility</a>
+      <a href="benefits.html">Benefit Ledger</a>
       <a href="leave.html">Leave Requests</a>
       <a href="open-shifts.html">Open Shifts</a>
       <a href="reports.html">Reports</a>
@@ -60,7 +64,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v2.9.0 Seniority & Rotation</strong>
+      <strong id="currentWeekLabel">v2.10.0 Seniority & Rotation</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -68,7 +72,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule remains browser-only for the main app. v2.9.0 adds the Seniority & Rotation Engine foundation while keeping database writes, authentication, and final award actions disabled until later backend releases.</p>
+      <p>Signal Schedule remains browser-only for the main app. v2.10.0 adds the Seniority & Rotation Engine foundation while keeping database writes, authentication, and final award actions disabled until later backend releases.</p>
     </div>
   </section>
 
@@ -89,7 +93,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
 <section class="schedule-card trade-entry-card" aria-labelledby="tradeEntryTitle">
   <div class="schedule-card-header">
     <div>
-      <p class="schedule-kicker">v2.9.0</p>
+      <p class="schedule-kicker">v2.10.0</p>
       <h2 id="tradeEntryTitle">Shift Trades & Swap Requests</h2>
       <p>Preview employee trades, swaps, giveaways, coverage impacts, qualification checks, approvals, warnings, and audit-ready decision context.</p>
     </div>
@@ -121,6 +125,20 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
       </div>
     </div>
   </section>
+
+  
+<section class="schedule-card benefit-entry-card" aria-labelledby="benefitEntryTitle">
+  <div class="schedule-card-heading">
+    <div>
+      <p class="schedule-kicker">v2.10.0</p>
+      <h2 id="benefitEntryTitle">Benefit Ledger</h2>
+      <p>Preview vacation, sick, personal, comp, and holiday bank balances, request impacts, manual adjustments, and calendar shortcodes such as VAC, SP, SF, CT, HOL, VOT, and T.</p>
+    </div>
+    <div class="schedule-actions-inline">
+      <a class="schedule-link-button" href="benefits.html">Open Benefit Ledger <span aria-hidden="true">→</span></a>
+    </div>
+  </div>
+</section>
 
   <section class="schedule-card employee-read-foundation-card" aria-labelledby="employeeReadFoundationTitle">
     <div class="schedule-card-heading">

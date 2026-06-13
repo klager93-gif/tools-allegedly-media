@@ -1,6 +1,6 @@
-# Signal Schedule File Manifest
+# Schedule File Manifest
 
-Release: Schedule v2.9.0 — Qualification & Eligibility Engine
+Release: Schedule v2.10.0 — Benefit Ledger
 
 - `schedule/BUILDMANIFEST.md`
 - `schedule/CALENDAR-FOUNDATION.md`
@@ -17,6 +17,7 @@ Release: Schedule v2.9.0 — Qualification & Eligibility Engine
 - `schedule/RELEASE-v2.1.1.md`
 - `schedule/RELEASE-v2.1.2.md`
 - `schedule/RELEASE-v2.1.3.md`
+- `schedule/RELEASE-v2.10.0-Benefit-Ledger.md`
 - `schedule/RELEASE-v2.2.0.md`
 - `schedule/RELEASE-v2.2.1.md`
 - `schedule/RELEASE-v2.3.0.md`
@@ -30,6 +31,7 @@ Release: Schedule v2.9.0 — Qualification & Eligibility Engine
 - `schedule/RELEASE-v2.9.0-Qualification-Eligibility-Engine.md`
 - `schedule/REQUEST-HOURS-FOUNDATION.md`
 - `schedule/ROADMAP.md`
+- `schedule/adapters/JsonBenefitLedgerAdapter.js`
 - `schedule/adapters/JsonCalendarAdapter.js`
 - `schedule/adapters/JsonCoverageBoardAdapter.js`
 - `schedule/adapters/JsonLeaveRequestsAdapter.js`
@@ -39,6 +41,7 @@ Release: Schedule v2.9.0 — Qualification & Eligibility Engine
 - `schedule/adapters/JsonShiftEligibilityAdapter.js`
 - `schedule/adapters/JsonShiftTradeAdapter.js`
 - `schedule/adapters/JsonTrainingCertificationAdapter.js`
+- `schedule/api/contracts/benefit-ledger.read.schema.json`
 - `schedule/api/contracts/calendar.read.schema.json`
 - `schedule/api/contracts/coverage-board.read.schema.json`
 - `schedule/api/contracts/leave-requests.read.schema.json`
@@ -63,12 +66,17 @@ Release: Schedule v2.9.0 — Qualification & Eligibility Engine
 - `schedule/api/coolify/sql/013_shift_trades_foundation_schema.sql`
 - `schedule/api/coolify/sql/014_training_certifications_foundation_schema.sql`
 - `schedule/api/coolify/sql/015_shift_eligibility_foundation_schema.sql`
+- `schedule/api/coolify/sql/016_benefit_ledger_foundation_schema.sql`
 - `schedule/assignments.html`
+- `schedule/benefits.css`
+- `schedule/benefits.html`
+- `schedule/benefits.js`
 - `schedule/coverage-board.css`
 - `schedule/coverage-board.js`
 - `schedule/coverage.html`
 - `schedule/data/agencies.json`
 - `schedule/data/assignment-templates.json`
+- `schedule/data/benefit-ledger-preview.json`
 - `schedule/data/calendar-events-preview.json`
 - `schedule/data/calendar-preview.json`
 - `schedule/data/coverage-board-preview.json`
@@ -98,6 +106,7 @@ Release: Schedule v2.9.0 — Qualification & Eligibility Engine
 - `schedule/open-shifts.html`
 - `schedule/open-shifts.js`
 - `schedule/reports.html`
+- `schedule/repositories/BenefitLedgerRepository.js`
 - `schedule/repositories/CalendarRepository.js`
 - `schedule/repositories/CoverageBoardRepository.js`
 - `schedule/repositories/LeaveRequestRepository.js`
@@ -115,6 +124,7 @@ Release: Schedule v2.9.0 — Qualification & Eligibility Engine
 - `schedule/seniority.css`
 - `schedule/seniority.html`
 - `schedule/seniority.js`
+- `schedule/services/BenefitLedgerService.js`
 - `schedule/services/CalendarService.js`
 - `schedule/services/CoverageBoardService.js`
 - `schedule/services/LeaveRequestService.js`
