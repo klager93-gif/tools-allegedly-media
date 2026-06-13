@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/TrainingCertificationRepository.js
-Version: v2.15.0
+Version: v2.16.0
 Purpose: Repository facade for Training & Certifications data
 */
 import { getTrainingCertificationPreview } from '../adapters/JsonTrainingCertificationAdapter.js';

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/CalendarViewService.js
-Version: v2.15.0
+Version: v2.16.0
 Purpose: Calendar view service helpers for week/day UI previews
 */
 import { readCalendarViewPreview } from '../repositories/CalendarViewRepository.js';

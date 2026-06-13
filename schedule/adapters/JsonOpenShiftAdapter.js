@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/adapters/JsonOpenShiftAdapter.js
-Version: v2.15.0
+Version: v2.16.0
 Purpose: JSON adapter for Open Shifts / VOT Foundation preview data.
 */
 export class JsonOpenShiftAdapter {

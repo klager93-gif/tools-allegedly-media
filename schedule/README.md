@@ -1,10 +1,14 @@
-## Schedule v2.15.0 — Supervisors & Organizational Hierarchy
+## Schedule v2.16.0 — Roles & Permissions Engine
+
+Adds role templates, permission matrix, field-level access controls, scope-aware permissions, and approval authority previews. New SQL migration: `022_roles_permissions_schema.sql`.
+
+## Schedule v2.16.0 — Supervisors & Organizational Hierarchy
 
 - Added supervisor hierarchy preview.
 - Added hybrid supervisor scope by employee, group, position, department, division, and location.
 - Added SQL migration 021 supervisor hierarchy.
 
-# Schedule v2.15.0 — Employee Timeline & Audit Trail
+# Schedule v2.16.0 — Employee Timeline & Audit Trail
 
 Current Schedule release adds employee profile self-service controls and overview live-feature cleanup.
 
@@ -20,11 +24,11 @@ Database migration required after upload: `019_employee_profile_self_service_sch
 
 # Signal Schedule
 
-Current Version: v2.15.0
+Current Version: v2.16.0
 
 Signal Schedule is an admin-first staffing and scheduling platform foundation. v2.8.0 adds the Training & Certifications foundation for qualification-aware staffing, expiration warnings, and assignment restrictions.
 
-**Current Version: v2.15.0
+**Current Version: v2.16.0
 
 Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, nursing, and similar shift-based operations.
 

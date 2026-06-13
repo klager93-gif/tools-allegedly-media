@@ -1,3 +1,7 @@
+## Schedule v2.16.0 — Roles & Permissions Engine
+
+Adds the Roles & Permissions Engine foundation for agency-controlled view, edit, approve, delete, override, and export access.
+
 ## Schedule v2.15.0 — Supervisors & Organizational Hierarchy
 
 - Added supervisor hierarchy preview.

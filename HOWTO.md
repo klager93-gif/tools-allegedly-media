@@ -1,3 +1,7 @@
+## Schedule v2.16.0 — Roles & Permissions Engine
+
+Adds the Roles & Permissions Engine foundation for agency-controlled view, edit, approve, delete, override, and export access.
+
 ## v2.14.0 Database Update
 
 After uploading v2.14.0, run `019_employee_profile_self_service_schema.sql` and verify `schema_migrations` shows version `019`.

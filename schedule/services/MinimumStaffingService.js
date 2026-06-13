@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/MinimumStaffingService.js
-Version: v2.15.0
+Version: v2.16.0
 Purpose: Service boundary for minimum staffing calculations and future validation.
 */
 export class MinimumStaffingService {

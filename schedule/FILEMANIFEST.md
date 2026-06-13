@@ -1,5 +1,7 @@
 # Schedule File Manifest
 
+Generated for Schedule v2.16.0 — Roles & Permissions Engine.
+
 ```text
 BUILDMANIFEST.md
 CALENDAR-FOUNDATION.md
@@ -22,6 +24,7 @@ RELEASE-v2.12.0-Calendar-Views-Schedule-Footer.md
 RELEASE-v2.13.0-Employee-Profile-Self-Service-Settings.md
 RELEASE-v2.14.0-Employee-Timeline-Audit-Trail.md
 RELEASE-v2.15.0-Supervisors-Organizational-Hierarchy.md
+RELEASE-v2.16.0-Roles-Permissions-Engine.md
 RELEASE-v2.2.0.md
 RELEASE-v2.2.1.md
 RELEASE-v2.3.0.md
@@ -45,6 +48,7 @@ adapters/JsonEmployeeTimelineAdapter.js
 adapters/JsonLeaveRequestsAdapter.js
 adapters/JsonMinimumStaffingAdapter.js
 adapters/JsonOpenShiftAdapter.js
+adapters/JsonRolesPermissionsAdapter.js
 adapters/JsonSeniorityRotationAdapter.js
 adapters/JsonShiftEligibilityAdapter.js
 adapters/JsonShiftTradeAdapter.js
@@ -61,6 +65,7 @@ api/contracts/leave-requests.read.schema.json
 api/contracts/minimum-staffing.read.schema.json
 api/contracts/open-shifts.read.schema.json
 api/contracts/request-hours.read.schema.json
+api/contracts/roles-permissions.read.schema.json
 api/contracts/seniority-rotation.read.schema.json
 api/contracts/shift-eligibility.read.schema.json
 api/contracts/shift-trades.read.schema.json
@@ -87,6 +92,7 @@ api/coolify/sql/018_calendar_views_foundation_schema.sql
 api/coolify/sql/019_employee_profile_self_service_schema.sql
 api/coolify/sql/020_employee_timeline_audit_trail_schema.sql
 api/coolify/sql/021_supervisor_hierarchy_schema.sql
+api/coolify/sql/022_roles_permissions_schema.sql
 assignments.html
 benefits.css
 benefits.html
@@ -114,6 +120,7 @@ data/minimum-staffing-templates.json
 data/open-shifts-preview.json
 data/request-increment-settings.json
 data/request-reasons.json
+data/roles-permissions-preview.json
 data/seniority-rotation-preview.json
 data/shift-eligibility-preview.json
 data/shift-trades-preview.json
@@ -132,6 +139,9 @@ leave.html
 open-shifts.css
 open-shifts.html
 open-shifts.js
+permissions.css
+permissions.html
+permissions.js
 profile.css
 profile.html
 profile.js
@@ -146,6 +156,7 @@ repositories/EmployeeTimelineRepository.js
 repositories/LeaveRequestRepository.js
 repositories/MinimumStaffingRepository.js
 repositories/OpenShiftRepository.js
+repositories/RolesPermissionsRepository.js
 repositories/SeniorityRotationRepository.js
 repositories/ShiftEligibilityRepository.js
 repositories/ShiftTradeRepository.js
@@ -170,6 +181,7 @@ services/LeaveRequestService.js
 services/MinimumStaffingService.js
 services/OpenShiftService.js
 services/RequestHoursService.js
+services/RolesPermissionsService.js
 services/SeniorityRotationService.js
 services/ShiftEligibilityService.js
 services/ShiftTradeService.js

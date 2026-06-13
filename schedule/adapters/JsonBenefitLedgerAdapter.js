@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonBenefitLedgerAdapter.js
-Version: v2.15.0
+Version: v2.16.0
 Purpose: JSON adapter for Benefit Ledger preview data
 */
 export async function getBenefitLedgerPreview() {

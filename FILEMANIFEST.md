@@ -1,5 +1,7 @@
 # File Manifest
 
+Generated for Schedule v2.16.0 — Roles & Permissions Engine.
+
 ```text
 ADMIN_CHANGELOG.md
 BUILDMANIFEST.md
@@ -86,6 +88,7 @@ schedule/RELEASE-v2.12.0-Calendar-Views-Schedule-Footer.md
 schedule/RELEASE-v2.13.0-Employee-Profile-Self-Service-Settings.md
 schedule/RELEASE-v2.14.0-Employee-Timeline-Audit-Trail.md
 schedule/RELEASE-v2.15.0-Supervisors-Organizational-Hierarchy.md
+schedule/RELEASE-v2.16.0-Roles-Permissions-Engine.md
 schedule/RELEASE-v2.2.0.md
 schedule/RELEASE-v2.2.1.md
 schedule/RELEASE-v2.3.0.md
@@ -109,6 +112,7 @@ schedule/adapters/JsonEmployeeTimelineAdapter.js
 schedule/adapters/JsonLeaveRequestsAdapter.js
 schedule/adapters/JsonMinimumStaffingAdapter.js
 schedule/adapters/JsonOpenShiftAdapter.js
+schedule/adapters/JsonRolesPermissionsAdapter.js
 schedule/adapters/JsonSeniorityRotationAdapter.js
 schedule/adapters/JsonShiftEligibilityAdapter.js
 schedule/adapters/JsonShiftTradeAdapter.js
@@ -125,6 +129,7 @@ schedule/api/contracts/leave-requests.read.schema.json
 schedule/api/contracts/minimum-staffing.read.schema.json
 schedule/api/contracts/open-shifts.read.schema.json
 schedule/api/contracts/request-hours.read.schema.json
+schedule/api/contracts/roles-permissions.read.schema.json
 schedule/api/contracts/seniority-rotation.read.schema.json
 schedule/api/contracts/shift-eligibility.read.schema.json
 schedule/api/contracts/shift-trades.read.schema.json
@@ -151,6 +156,7 @@ schedule/api/coolify/sql/018_calendar_views_foundation_schema.sql
 schedule/api/coolify/sql/019_employee_profile_self_service_schema.sql
 schedule/api/coolify/sql/020_employee_timeline_audit_trail_schema.sql
 schedule/api/coolify/sql/021_supervisor_hierarchy_schema.sql
+schedule/api/coolify/sql/022_roles_permissions_schema.sql
 schedule/assignments.html
 schedule/benefits.css
 schedule/benefits.html
@@ -178,6 +184,7 @@ schedule/data/minimum-staffing-templates.json
 schedule/data/open-shifts-preview.json
 schedule/data/request-increment-settings.json
 schedule/data/request-reasons.json
+schedule/data/roles-permissions-preview.json
 schedule/data/seniority-rotation-preview.json
 schedule/data/shift-eligibility-preview.json
 schedule/data/shift-trades-preview.json
@@ -196,6 +203,9 @@ schedule/leave.html
 schedule/open-shifts.css
 schedule/open-shifts.html
 schedule/open-shifts.js
+schedule/permissions.css
+schedule/permissions.html
+schedule/permissions.js
 schedule/profile.css
 schedule/profile.html
 schedule/profile.js
@@ -210,6 +220,7 @@ schedule/repositories/EmployeeTimelineRepository.js
 schedule/repositories/LeaveRequestRepository.js
 schedule/repositories/MinimumStaffingRepository.js
 schedule/repositories/OpenShiftRepository.js
+schedule/repositories/RolesPermissionsRepository.js
 schedule/repositories/SeniorityRotationRepository.js
 schedule/repositories/ShiftEligibilityRepository.js
 schedule/repositories/ShiftTradeRepository.js
@@ -234,6 +245,7 @@ schedule/services/LeaveRequestService.js
 schedule/services/MinimumStaffingService.js
 schedule/services/OpenShiftService.js
 schedule/services/RequestHoursService.js
+schedule/services/RolesPermissionsService.js
 schedule/services/SeniorityRotationService.js
 schedule/services/ShiftEligibilityService.js
 schedule/services/ShiftTradeService.js

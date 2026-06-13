@@ -5,7 +5,7 @@
 ## Next
 
 - Schedule v2.14.0 — Employee Timeline & Audit Trail.
-- Schedule v2.15.0 — Supervisors & Organizational Hierarchy.
+- Schedule v2.16.0 — Supervisors & Organizational Hierarchy.
 - Schedule v2.16.0 — Roles & Permissions Engine.
 
 ## Schedule v2.12.0 — Calendar Views + Schedule Footer
