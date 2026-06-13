@@ -1,4 +1,4 @@
-## Schedule v2.16.0 — Roles & Permissions Engine
+## Schedule v2.17.0 — Roles & Permissions Engine
 
 Adds the Roles & Permissions Engine foundation for agency-controlled view, edit, approve, delete, override, and export access.
 

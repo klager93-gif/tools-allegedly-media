@@ -1,15 +1,15 @@
-## Schedule v2.16.1 — Release File Cleanup & Latest Release
+## Schedule v2.17.0 — Release File Cleanup & Latest Release
 
 - Removed persistent per-version `RELEASE-v*.md` files from `/schedule/`.
 - Added `LATEST_RELEASE.md` as the single current release summary.
-- Fixed overview/version drift and updated Schedule metadata to v2.16.1.
+- Fixed overview/version drift and updated Schedule metadata to v2.17.0.
 - Preserved full-root replacement contents while excluding `.git`, `._*`, `.DS_Store`, and `__MACOSX`.
 
-## Schedule v2.16.0 — Roles & Permissions Engine
+## Schedule v2.17.0 — Roles & Permissions Engine
 
 Adds role templates, permission matrix, field-level access controls, scope-aware permissions, and approval authority previews. New SQL migration: `022_roles_permissions_schema.sql`.
 
-## Schedule v2.16.0 — Supervisors & Organizational Hierarchy
+## Schedule v2.17.0 — Supervisors & Organizational Hierarchy
 
 - Added supervisor hierarchy preview.
 - Added hybrid supervisor scope by employee, group, position, department, division, and location.

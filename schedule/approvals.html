@@ -1,0 +1,60 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/approvals.html
+Version: v2.17.0
+Purpose: Request Approval Workflow preview
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request Approval Workflow — Signal Schedule</title>
+<link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
+<link rel="stylesheet" href="schedule-nav.css?v=2.17.0">
+<link rel="stylesheet" href="footer.css?v=2.17.0">
+<link rel="stylesheet" href="approvals.css?v=2.17.0">
+</head>
+<body data-signal-global-layout="true" data-signal-area="Signal Schedule" data-signal-title="Request Approval Workflow" data-signal-version="v2.17.0" data-signal-theme="Request Approval Workflow" data-signal-status="Preview" data-signal-description="Approval queues and routing foundation for leave, trades, VOT, training, profile changes, and benefit adjustments.">
+<div id="sl-header"></div>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation">
+  <div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Admin-first / role-filtering later</span></div>
+  <div class="schedule-subnav__links">
+      <a href="index.html">Overview</a><a href="schedule.html">Calendar</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="permissions.html">Permissions</a><a href="approvals.html" aria-current="page">Approvals</a><a href="assignments.html">Assignments</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="seniority.html">Seniority & Rotation</a><a href="trades.html">Trades & Swaps</a><a href="training.html">Training & Certs</a><a href="eligibility.html">Eligibility</a><a href="benefits.html">Benefit Ledger</a><a href="shortcodes.html">Shortcodes</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a>
+  </div>
+</nav>
+<main class="approvals-shell">
+  <section class="approvals-hero">
+    <div>
+      <p class="approvals-kicker">v2.17.0 Foundation</p>
+      <h1>Request Approval Workflow</h1>
+      <p>Preview how submitted requests move through supervisor scope, roles and permissions, policy checks, recommendations, approval decisions, escalations, and audit events before schedule changes are finalized.</p>
+    </div>
+    <div class="approvals-summary" data-approval-stats></div>
+  </section>
+  <section class="approvals-card">
+    <h2>Approval Queues</h2>
+    <p>Each queue can follow a different route based on agency policy and required authority.</p>
+    <div class="approval-grid" data-approval-queues></div>
+  </section>
+  <section class="approvals-card">
+    <h2>Pending Request Preview</h2>
+    <div class="approval-list" data-approval-requests></div>
+  </section>
+  <section class="approvals-card">
+    <h2>Approval Chains</h2>
+    <div class="approval-grid" data-approval-chains></div>
+  </section>
+  <section class="approvals-card">
+    <h2>Policy Checks</h2>
+    <ul class="approval-notes" data-policy-checks></ul>
+  </section>
+</main>
+<div id="schedule-footer"></div>
+<div id="sl-footer"></div>
+<script type="module" src="approvals.js?v=2.17.0"></script>
+<script src="components/footer.js?v=2.17.0"></script>
+<script src="../assets/global.js?v=0.9.9.6"></script>
+</body>
+</html>

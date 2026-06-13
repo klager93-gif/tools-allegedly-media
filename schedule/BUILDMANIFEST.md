@@ -1,25 +1,13 @@
 # Build Manifest
 
-## Release Title
+## Release
+Schedule v2.17.0 — Request Approval Workflow
 
-Schedule v2.16.1 — Release File Cleanup & Latest Release
-
-## ZIP Filename
-
-signal-schedule-v2.16.1-release-file-cleanup-latest-release.zip
-
-## Replace Scope
-
-Full root replacement.
+## Package
+Full-root replacement package.
 
 ## Database
+Adds migration 023_request_approval_workflow_schema.sql.
 
-No new SQL migration required. Current database target remains `022 roles_permissions`.
-
-## Deleted During Cleanup
-
-- `schedule/RELEASE-v*.md` historical per-version release files
-- macOS metadata/resource fork files (`._*`)
-- `.DS_Store`
-- `.git/`
-- `__MACOSX/`
+## Notes
+Valid files from the prior root package were preserved. No RELEASE-v*.md files were generated.

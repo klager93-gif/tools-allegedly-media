@@ -1,11 +1,11 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v2.16.1
+Version: v2.17.0
 Purpose: Seniority and Rotation Engine foundation with schedule admin preview
 */
 (function () {
-  var STORAGE_KEY = 'signalSchedule.v2.16.1';
-  var OLD_STORAGE_KEYS = ['signalSchedule.v2.16.0', 'signalSchedule.v2.8.0', 'signalSchedule.v2.5.0', 'signalSchedule.v2.4.0', 'signalSchedule.v2.3.0', 'signalSchedule.v2.2.1', 'signalSchedule.v2.2.0', 'signalSchedule.v2.1.3', 'signalSchedule.v2.1.2', 'signalSchedule.v2.1.1', 'signalSchedule.v2.1.0', 'signalSchedule.v2.0.0', 'signalSchedule.v1.8.0', 'signalSchedule.v1.5.1', 'signalSchedule.v1.5.0', 'signalSchedule.v1.4.0', 'signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
+  var STORAGE_KEY = 'signalSchedule.v2.17.0';
+  var OLD_STORAGE_KEYS = ['signalSchedule.v2.17.0', 'signalSchedule.v2.8.0', 'signalSchedule.v2.5.0', 'signalSchedule.v2.4.0', 'signalSchedule.v2.3.0', 'signalSchedule.v2.2.1', 'signalSchedule.v2.2.0', 'signalSchedule.v2.1.3', 'signalSchedule.v2.1.2', 'signalSchedule.v2.1.1', 'signalSchedule.v2.1.0', 'signalSchedule.v2.0.0', 'signalSchedule.v1.8.0', 'signalSchedule.v1.5.1', 'signalSchedule.v1.5.0', 'signalSchedule.v1.4.0', 'signalSchedule.v1.3.3', 'signalSchedule.v1.3.2', 'signalSchedule.v1.3.1', 'signalSchedule.v1.3.0', 'signalSchedule.v1.2.1', 'signalSchedule.v1.2.0', 'signalSchedule.v1.1.0', 'signalSchedule.v1.0.0', 'signalSchedule.v0.99.0', 'signalSchedule.v0.19.1', 'signalSchedule.v0.18.0', 'signalSchedule.v0.17.1', 'signalSchedule.v0.16.0', 'signalSchedule.v0.15.0', 'signalSchedule.v0.14.1', 'signalSchedule.v0.13.0', 'signalSchedule.v0.12.0', 'signalSchedule.v0.11.2', 'signalSchedule.v0.10.0', 'signalSchedule.v0.9.0', 'signalSchedule.v0.8.3', 'signalSchedule.v0.8.2', 'signalSchedule.v0.8.1', 'signalSchedule.v0.8.0', 'signalSchedule.v0.7.0', 'signalSchedule.v0.6.0', 'signalSchedule.v0.5.0', 'signalSchedule.v0.4.0', 'signalSchedule.v0.3.0', 'signalSchedule.v0.2.1', 'signalSchedule.v0.2.0', 'signalSchedule.v0.1.4', 'signalSchedule.v0.1.1', 'signalSchedule.v0.1.0'];
   var baseDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   var days = baseDays.slice();
   var state = {
@@ -1367,7 +1367,7 @@ Purpose: Seniority and Rotation Engine foundation with schedule admin preview
 
   function renderWeekLabel() {
     var label = $('#currentWeekLabel');
-    if (label) label.textContent = 'v2.16.1 Release File Cleanup';
+    if (label) label.textContent = 'v2.17.0 Release File Cleanup';
   }
 
   function syncRuleInputs() {
@@ -2229,7 +2229,7 @@ Purpose: Seniority and Rotation Engine foundation with schedule admin preview
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — EMPLOYEE READ API FOUNDATION');
-    lines.push('Version: v2.16.1');
+    lines.push('Version: v2.17.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');

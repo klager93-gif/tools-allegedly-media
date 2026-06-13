@@ -1,186 +1,191 @@
 # Schedule File Manifest
 
-Generated for Schedule v2.16.1 — Release File Cleanup & Latest Release.
-
-```text
-BUILDMANIFEST.md
-CALENDAR-FOUNDATION.md
-CHANGELOG.md
-EMPLOYEE-IDENTITY-FOUNDATION.md
-FILEMANIFEST.md
-HOWTO.md
-LATEST_RELEASE.md
-LEAVE-REQUESTS-FOUNDATION.md
-MINIMUM-STAFFING-FOUNDATION.md
-OPEN-SHIFTS-FOUNDATION.md
-README.md
-REQUEST-HOURS-FOUNDATION.md
-ROADMAP.md
-adapters/JsonBenefitLedgerAdapter.js
-adapters/JsonCalendarAdapter.js
-adapters/JsonCalendarShortcodeAdapter.js
-adapters/JsonCalendarViewAdapter.js
-adapters/JsonCoverageBoardAdapter.js
-adapters/JsonEmployeeProfileAdapter.js
-adapters/JsonEmployeeTimelineAdapter.js
-adapters/JsonLeaveRequestsAdapter.js
-adapters/JsonMinimumStaffingAdapter.js
-adapters/JsonOpenShiftAdapter.js
-adapters/JsonRolesPermissionsAdapter.js
-adapters/JsonSeniorityRotationAdapter.js
-adapters/JsonShiftEligibilityAdapter.js
-adapters/JsonShiftTradeAdapter.js
-adapters/JsonSupervisorHierarchyAdapter.js
-adapters/JsonTrainingCertificationAdapter.js
-api/contracts/benefit-ledger.read.schema.json
-api/contracts/calendar-shortcodes.read.schema.json
-api/contracts/calendar-view.read.schema.json
-api/contracts/calendar.read.schema.json
-api/contracts/coverage-board.read.schema.json
-api/contracts/employee-profile.read.schema.json
-api/contracts/employee-timeline.read.schema.json
-api/contracts/leave-requests.read.schema.json
-api/contracts/minimum-staffing.read.schema.json
-api/contracts/open-shifts.read.schema.json
-api/contracts/request-hours.read.schema.json
-api/contracts/roles-permissions.read.schema.json
-api/contracts/seniority-rotation.read.schema.json
-api/contracts/shift-eligibility.read.schema.json
-api/contracts/shift-trades.read.schema.json
-api/contracts/supervisor-hierarchy.read.schema.json
-api/contracts/training-certifications.read.schema.json
-api/coolify/README.md
-api/coolify/db/postgres.js
-api/coolify/server.js
-api/coolify/sql/004_schema_migrations_foundation.sql
-api/coolify/sql/005_minimum_staffing_foundation_schema.sql
-api/coolify/sql/006_calendar_foundation_schema.sql
-api/coolify/sql/007_employee_identity_cleanup_schema.sql
-api/coolify/sql/008_leave_requests_foundation_schema.sql
-api/coolify/sql/009_request_hours_foundation_schema.sql
-api/coolify/sql/010_open_shifts_foundation_schema.sql
-api/coolify/sql/011_coverage_board_foundation_schema.sql
-api/coolify/sql/012_seniority_rotation_foundation_schema.sql
-api/coolify/sql/013_shift_trades_foundation_schema.sql
-api/coolify/sql/014_training_certifications_foundation_schema.sql
-api/coolify/sql/015_shift_eligibility_foundation_schema.sql
-api/coolify/sql/016_benefit_ledger_foundation_schema.sql
-api/coolify/sql/017_calendar_shortcode_admin_controls_schema.sql
-api/coolify/sql/018_calendar_views_foundation_schema.sql
-api/coolify/sql/019_employee_profile_self_service_schema.sql
-api/coolify/sql/020_employee_timeline_audit_trail_schema.sql
-api/coolify/sql/021_supervisor_hierarchy_schema.sql
-api/coolify/sql/022_roles_permissions_schema.sql
-assignments.html
-benefits.css
-benefits.html
-benefits.js
-components/footer.js
-coverage-board.css
-coverage-board.js
-coverage.html
-data/agencies.json
-data/assignment-templates.json
-data/benefit-ledger-preview.json
-data/calendar-events-preview.json
-data/calendar-preview.json
-data/calendar-shortcodes-preview.json
-data/calendar-view-preview.json
-data/coverage-board-preview.json
-data/employee-assignments.json
-data/employee-profile-preview.json
-data/employee-timeline-preview.json
-data/employees.json
-data/leave-request-types.json
-data/leave-requests-preview.json
-data/minimum-staffing-preview.json
-data/minimum-staffing-templates.json
-data/open-shifts-preview.json
-data/request-increment-settings.json
-data/request-reasons.json
-data/roles-permissions-preview.json
-data/seniority-rotation-preview.json
-data/shift-eligibility-preview.json
-data/shift-trades-preview.json
-data/supervisor-hierarchy-preview.json
-data/training-certifications-preview.json
-data/vot-requests-preview.json
-eligibility.css
-eligibility.html
-eligibility.js
-employees.html
-footer.css
-index.html
-leave-requests.css
-leave-requests.js
-leave.html
-open-shifts.css
-open-shifts.html
-open-shifts.js
-permissions.css
-permissions.html
-permissions.js
-profile.css
-profile.html
-profile.js
-reports.html
-repositories/BenefitLedgerRepository.js
-repositories/CalendarRepository.js
-repositories/CalendarShortcodeRepository.js
-repositories/CalendarViewRepository.js
-repositories/CoverageBoardRepository.js
-repositories/EmployeeProfileRepository.js
-repositories/EmployeeTimelineRepository.js
-repositories/LeaveRequestRepository.js
-repositories/MinimumStaffingRepository.js
-repositories/OpenShiftRepository.js
-repositories/RolesPermissionsRepository.js
-repositories/SeniorityRotationRepository.js
-repositories/ShiftEligibilityRepository.js
-repositories/ShiftTradeRepository.js
-repositories/SupervisorHierarchyRepository.js
-repositories/TrainingCertificationRepository.js
-schedule-calendar.css
-schedule-calendar.js
-schedule-nav.css
-schedule.html
-script.js
-seniority.css
-seniority.html
-seniority.js
-services/BenefitLedgerService.js
-services/CalendarService.js
-services/CalendarShortcodeService.js
-services/CalendarViewService.js
-services/CoverageBoardService.js
-services/EmployeeProfileService.js
-services/EmployeeTimelineService.js
-services/LeaveRequestService.js
-services/MinimumStaffingService.js
-services/OpenShiftService.js
-services/RequestHoursService.js
-services/RolesPermissionsService.js
-services/SeniorityRotationService.js
-services/ShiftEligibilityService.js
-services/ShiftTradeService.js
-services/SupervisorHierarchyService.js
-services/TrainingCertificationService.js
-settings.html
-shift-trades.css
-shift-trades.js
-shortcodes.css
-shortcodes.html
-shortcodes.js
-staffing.html
-style.css
-supervisors.css
-supervisors.html
-supervisors.js
-timeline.css
-timeline.html
-timeline.js
-trades.html
-training.css
-training.html
-training.js
-```
+- `BUILDMANIFEST.md`
+- `CALENDAR-FOUNDATION.md`
+- `CHANGELOG.md`
+- `EMPLOYEE-IDENTITY-FOUNDATION.md`
+- `FILEMANIFEST.md`
+- `HOWTO.md`
+- `LATEST_RELEASE.md`
+- `LEAVE-REQUESTS-FOUNDATION.md`
+- `MINIMUM-STAFFING-FOUNDATION.md`
+- `OPEN-SHIFTS-FOUNDATION.md`
+- `README.md`
+- `REQUEST-HOURS-FOUNDATION.md`
+- `ROADMAP.md`
+- `adapters/JsonBenefitLedgerAdapter.js`
+- `adapters/JsonCalendarAdapter.js`
+- `adapters/JsonCalendarShortcodeAdapter.js`
+- `adapters/JsonCalendarViewAdapter.js`
+- `adapters/JsonCoverageBoardAdapter.js`
+- `adapters/JsonEmployeeProfileAdapter.js`
+- `adapters/JsonEmployeeTimelineAdapter.js`
+- `adapters/JsonLeaveRequestsAdapter.js`
+- `adapters/JsonMinimumStaffingAdapter.js`
+- `adapters/JsonOpenShiftAdapter.js`
+- `adapters/JsonRequestApprovalWorkflowAdapter.js`
+- `adapters/JsonRolesPermissionsAdapter.js`
+- `adapters/JsonSeniorityRotationAdapter.js`
+- `adapters/JsonShiftEligibilityAdapter.js`
+- `adapters/JsonShiftTradeAdapter.js`
+- `adapters/JsonSupervisorHierarchyAdapter.js`
+- `adapters/JsonTrainingCertificationAdapter.js`
+- `api/contracts/benefit-ledger.read.schema.json`
+- `api/contracts/calendar-shortcodes.read.schema.json`
+- `api/contracts/calendar-view.read.schema.json`
+- `api/contracts/calendar.read.schema.json`
+- `api/contracts/coverage-board.read.schema.json`
+- `api/contracts/employee-profile.read.schema.json`
+- `api/contracts/employee-timeline.read.schema.json`
+- `api/contracts/leave-requests.read.schema.json`
+- `api/contracts/minimum-staffing.read.schema.json`
+- `api/contracts/open-shifts.read.schema.json`
+- `api/contracts/request-approval-workflow.read.schema.json`
+- `api/contracts/request-hours.read.schema.json`
+- `api/contracts/roles-permissions.read.schema.json`
+- `api/contracts/seniority-rotation.read.schema.json`
+- `api/contracts/shift-eligibility.read.schema.json`
+- `api/contracts/shift-trades.read.schema.json`
+- `api/contracts/supervisor-hierarchy.read.schema.json`
+- `api/contracts/training-certifications.read.schema.json`
+- `api/coolify/README.md`
+- `api/coolify/db/postgres.js`
+- `api/coolify/server.js`
+- `api/coolify/sql/004_schema_migrations_foundation.sql`
+- `api/coolify/sql/005_minimum_staffing_foundation_schema.sql`
+- `api/coolify/sql/006_calendar_foundation_schema.sql`
+- `api/coolify/sql/007_employee_identity_cleanup_schema.sql`
+- `api/coolify/sql/008_leave_requests_foundation_schema.sql`
+- `api/coolify/sql/009_request_hours_foundation_schema.sql`
+- `api/coolify/sql/010_open_shifts_foundation_schema.sql`
+- `api/coolify/sql/011_coverage_board_foundation_schema.sql`
+- `api/coolify/sql/012_seniority_rotation_foundation_schema.sql`
+- `api/coolify/sql/013_shift_trades_foundation_schema.sql`
+- `api/coolify/sql/014_training_certifications_foundation_schema.sql`
+- `api/coolify/sql/015_shift_eligibility_foundation_schema.sql`
+- `api/coolify/sql/016_benefit_ledger_foundation_schema.sql`
+- `api/coolify/sql/017_calendar_shortcode_admin_controls_schema.sql`
+- `api/coolify/sql/018_calendar_views_foundation_schema.sql`
+- `api/coolify/sql/019_employee_profile_self_service_schema.sql`
+- `api/coolify/sql/020_employee_timeline_audit_trail_schema.sql`
+- `api/coolify/sql/021_supervisor_hierarchy_schema.sql`
+- `api/coolify/sql/022_roles_permissions_schema.sql`
+- `api/coolify/sql/023_request_approval_workflow_schema.sql`
+- `approvals.css`
+- `approvals.html`
+- `approvals.js`
+- `assignments.html`
+- `benefits.css`
+- `benefits.html`
+- `benefits.js`
+- `components/footer.js`
+- `coverage-board.css`
+- `coverage-board.js`
+- `coverage.html`
+- `data/agencies.json`
+- `data/assignment-templates.json`
+- `data/benefit-ledger-preview.json`
+- `data/calendar-events-preview.json`
+- `data/calendar-preview.json`
+- `data/calendar-shortcodes-preview.json`
+- `data/calendar-view-preview.json`
+- `data/coverage-board-preview.json`
+- `data/employee-assignments.json`
+- `data/employee-profile-preview.json`
+- `data/employee-timeline-preview.json`
+- `data/employees.json`
+- `data/leave-request-types.json`
+- `data/leave-requests-preview.json`
+- `data/minimum-staffing-preview.json`
+- `data/minimum-staffing-templates.json`
+- `data/open-shifts-preview.json`
+- `data/request-approval-workflow-preview.json`
+- `data/request-increment-settings.json`
+- `data/request-reasons.json`
+- `data/roles-permissions-preview.json`
+- `data/seniority-rotation-preview.json`
+- `data/shift-eligibility-preview.json`
+- `data/shift-trades-preview.json`
+- `data/supervisor-hierarchy-preview.json`
+- `data/training-certifications-preview.json`
+- `data/vot-requests-preview.json`
+- `eligibility.css`
+- `eligibility.html`
+- `eligibility.js`
+- `employees.html`
+- `footer.css`
+- `index.html`
+- `leave-requests.css`
+- `leave-requests.js`
+- `leave.html`
+- `open-shifts.css`
+- `open-shifts.html`
+- `open-shifts.js`
+- `permissions.css`
+- `permissions.html`
+- `permissions.js`
+- `profile.css`
+- `profile.html`
+- `profile.js`
+- `reports.html`
+- `repositories/BenefitLedgerRepository.js`
+- `repositories/CalendarRepository.js`
+- `repositories/CalendarShortcodeRepository.js`
+- `repositories/CalendarViewRepository.js`
+- `repositories/CoverageBoardRepository.js`
+- `repositories/EmployeeProfileRepository.js`
+- `repositories/EmployeeTimelineRepository.js`
+- `repositories/LeaveRequestRepository.js`
+- `repositories/MinimumStaffingRepository.js`
+- `repositories/OpenShiftRepository.js`
+- `repositories/RequestApprovalWorkflowRepository.js`
+- `repositories/RolesPermissionsRepository.js`
+- `repositories/SeniorityRotationRepository.js`
+- `repositories/ShiftEligibilityRepository.js`
+- `repositories/ShiftTradeRepository.js`
+- `repositories/SupervisorHierarchyRepository.js`
+- `repositories/TrainingCertificationRepository.js`
+- `schedule-calendar.css`
+- `schedule-calendar.js`
+- `schedule-nav.css`
+- `schedule.html`
+- `script.js`
+- `seniority.css`
+- `seniority.html`
+- `seniority.js`
+- `services/BenefitLedgerService.js`
+- `services/CalendarService.js`
+- `services/CalendarShortcodeService.js`
+- `services/CalendarViewService.js`
+- `services/CoverageBoardService.js`
+- `services/EmployeeProfileService.js`
+- `services/EmployeeTimelineService.js`
+- `services/LeaveRequestService.js`
+- `services/MinimumStaffingService.js`
+- `services/OpenShiftService.js`
+- `services/RequestApprovalWorkflowService.js`
+- `services/RequestHoursService.js`
+- `services/RolesPermissionsService.js`
+- `services/SeniorityRotationService.js`
+- `services/ShiftEligibilityService.js`
+- `services/ShiftTradeService.js`
+- `services/SupervisorHierarchyService.js`
+- `services/TrainingCertificationService.js`
+- `settings.html`
+- `shift-trades.css`
+- `shift-trades.js`
+- `shortcodes.css`
+- `shortcodes.html`
+- `shortcodes.js`
+- `staffing.html`
+- `style.css`
+- `supervisors.css`
+- `supervisors.html`
+- `supervisors.js`
+- `timeline.css`
+- `timeline.html`
+- `timeline.js`
+- `trades.html`
+- `training.css`
+- `training.html`
+- `training.js`

@@ -1,12 +1,12 @@
-## Schedule v2.16.1 — Release File Cleanup & Latest Release
+## Schedule v2.17.0 — Release File Cleanup & Latest Release
 
 Current cleanup release. Persistent per-version release files have been replaced by `schedule/LATEST_RELEASE.md`. Database target remains `022 roles_permissions`; no new SQL migration is required.
 
-## Schedule v2.16.0 — Roles & Permissions Engine
+## Schedule v2.17.0 — Roles & Permissions Engine
 
 Adds the Roles & Permissions Engine foundation for agency-controlled view, edit, approve, delete, override, and export access.
 
-## Schedule v2.16.0 — Supervisors & Organizational Hierarchy
+## Schedule v2.17.0 — Supervisors & Organizational Hierarchy
 
 - Added supervisor hierarchy preview.
 - Added hybrid supervisor scope by employee, group, position, department, division, and location.
