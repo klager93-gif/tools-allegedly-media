@@ -1,3 +1,11 @@
+
+## Schedule v2.12.0 — Calendar Views + Schedule Footer
+
+- Added week and day calendar views using admin-defined calendar shortcodes.
+- Added lightweight Schedule-specific footer across /schedule/ pages.
+- Added Calendar View adapter, repository, service, API contract, data, and SQL foundation.
+- Fixed overview page version drift.
+
 ## Schedule v2.11.0 — Calendar Shortcode Admin Controls
 
 - Added Calendar Shortcode Admin Controls.

@@ -1,3 +1,11 @@
+
+## Schedule v2.12.0 — Calendar Views + Schedule Footer
+
+- Added week and day calendar views using admin-defined calendar shortcodes.
+- Added lightweight Schedule-specific footer across /schedule/ pages.
+- Added Calendar View adapter, repository, service, API contract, data, and SQL foundation.
+- Fixed overview page version drift.
+
 # How To Use Signal Schedule v2.1.0
 
 ## Open the Foundation Overview

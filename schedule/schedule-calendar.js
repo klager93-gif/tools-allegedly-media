@@ -1,123 +1,92 @@
 /*
-Signal Labs Tool File: schedule/schedule-calendar.js
-Version: v2.6.0
-Purpose: User-facing Calendar Foundation preview renderer.
+Signal Labs
+Area: Signal Schedule
+File: schedule/schedule-calendar.js
+Version: v2.12.0
+Purpose: Render user-facing week/day calendar previews using admin shortcodes
 */
-import { JsonCalendarAdapter } from './adapters/JsonCalendarAdapter.js';
-import { CalendarRepository } from './repositories/CalendarRepository.js';
-import { CalendarService } from './services/CalendarService.js';
+import { loadCalendarViewModel } from './services/CalendarViewService.js';
 
-const $ = (selector) => document.querySelector(selector);
-const service = new CalendarService(new CalendarRepository(new JsonCalendarAdapter()));
-const monthYear = { year: 2026, monthIndex: 5, label: 'June 2026' };
-let calendarData = { days: [], preview: [], events: [], summary: {} };
-let selectedDate = '2026-06-12';
+const codeClass = (value) => `code-${String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 
-function escapeHtml(value) {
-  return String(value ?? '').replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+function isCode(value, shortcodeMap) {
+  return shortcodeMap.has(value);
 }
 
-function rowsForDate(date) {
-  const found = calendarData.days.find((day) => day.date === date);
-  return found || { date, label: date, rows: [], events: [] };
+function pill(value, shortcodeMap) {
+  const title = isCode(value, shortcodeMap) ? shortcodeMap.get(value).label : 'Scheduled shift';
+  return `<span class="shift-pill ${isCode(value, shortcodeMap) ? codeClass(value) : ''}" title="${title}">${value}</span>`;
 }
 
-function renderSummary() {
-  const target = $('#calendarSummary');
-  if (!target) return;
-  const summary = calendarData.summary || {};
-  const items = [
-    ['Coverage Rows', summary.calendarRows || 0],
-    ['Event Placeholders', summary.eventRows || 0],
-    ['Covered Rows', summary.coveredRows || 0],
-    ['Short Rows', summary.shortRows || 0],
-    ['Open Slots', summary.openSlots || 0]
-  ];
-  target.innerHTML = items.map(([label, value]) => `<article class="calendar-summary-item"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></article>`).join('');
-}
+function renderWeek(model) {
+  const mount = document.getElementById('weekCalendarGrid');
+  if (!mount) return;
 
-function renderCalendarGrid() {
-  const target = $('#calendarGrid');
-  if (!target) return;
-  const first = new Date(monthYear.year, monthYear.monthIndex, 1);
-  const daysInMonth = new Date(monthYear.year, monthYear.monthIndex + 1, 0).getDate();
-  const blanks = first.getDay();
-  const cells = [];
+  const employees = model.employees || [];
+  const days = model.week || [];
+  let html = '<div class="week-grid"><div class="employee-header">Employee</div>';
+  html += days.map((day) => `<div class="week-header">${day.label}</div>`).join('');
 
-  for (let i = 0; i < blanks; i += 1) cells.push('<div class="calendar-day is-muted" aria-hidden="true"></div>');
-
-  for (let day = 1; day <= daysInMonth; day += 1) {
-    const date = `${monthYear.year}-06-${String(day).padStart(2, '0')}`;
-    const dayData = rowsForDate(date);
-    const statuses = [...new Set(dayData.rows.map((row) => row.coverageStatus))];
-    const hasEvents = dayData.events.length > 0;
-    const classes = ['calendar-day'];
-    if (date === selectedDate) classes.push('is-selected');
-    const pills = statuses.map((status) => `<span class="calendar-pill status-${escapeHtml(status)}">${escapeHtml(status)}</span>`).join('') + (hasEvents ? '<span class="calendar-pill">event</span>' : '');
-    const rowText = dayData.rows.length ? `${dayData.rows.length} coverage row${dayData.rows.length === 1 ? '' : 's'}` : 'No preview rows';
-    cells.push(`
-      <button class="${classes.join(' ')}" type="button" data-calendar-date="${date}">
-        <span class="calendar-day-number"><b>${day}</b></span>
-        <small>${escapeHtml(rowText)}</small>
-        <span class="calendar-pill-row">${pills}</span>
-      </button>
-    `);
+  for (const employee of employees) {
+    html += `<div class="employee-cell"><strong>${employee.name}</strong><span>${employee.role}</span></div>`;
+    for (const day of days) {
+      const cell = (day.cells || []).find((item) => item.employee === employee.name);
+      html += `<div class="day-cell">${(cell?.items || []).map((item) => pill(item, model.shortcodeMap)).join('')}</div>`;
+    }
   }
-  target.innerHTML = cells.join('');
+  html += '</div>';
+  mount.innerHTML = html;
 }
 
-function renderDayDetail() {
-  const dayData = rowsForDate(selectedDate);
-  const label = $('#selectedDayLabel');
-  const coverage = $('#dayCoverageList');
-  const events = $('#dayEventList');
-  if (label) label.textContent = dayData.label || selectedDate;
-  if (coverage) {
-    coverage.innerHTML = dayData.rows.length ? dayData.rows.map((row) => {
-      const people = row.scheduledEmployees && row.scheduledEmployees.length ? row.scheduledEmployees.map((name) => `<li>${escapeHtml(name)}</li>`).join('') : '<li>No one assigned yet</li>';
-      const openSlots = Number(row.openSlots || Math.max(0, Number(row.minimumRequired || 0) - Number((row.scheduledEmployees || []).length)));
-      return `
-        <article class="coverage-detail is-${escapeHtml(row.coverageStatus)}">
-          <strong>${escapeHtml(row.assignmentName)} — ${escapeHtml(row.shiftName)}</strong>
-          <span>${escapeHtml(row.role)} · Minimum ${escapeHtml(row.minimumRequired)} · ${escapeHtml(row.location || '')}</span>
-          <span>Status: ${escapeHtml(row.coverageStatus)}${openSlots ? ` · Open slots: ${openSlots}` : ''}</span>
-          <ul>${people}</ul>
-        </article>
-      `;
-    }).join('') : '<article class="coverage-detail"><strong>No preview coverage</strong><span>This date has no schedule rows yet.</span></article>';
-  }
-  if (events) {
-    events.innerHTML = dayData.events.length ? dayData.events.map((event) => `
-      <article class="event-detail">
-        <strong>${escapeHtml(event.type)}</strong>
-        <span>${escapeHtml(event.assignmentName)} · ${escapeHtml(event.status)} · ${escapeHtml(event.impact)}</span>
-        <span>${event.employee ? escapeHtml(event.employee) : 'No employee assigned'}</span>
-      </article>
-    `).join('') : '<article class="event-detail"><strong>No event placeholders</strong><span>Leave, training, VOT, and mandation events will appear here in future releases.</span></article>';
-  }
+function renderDay(model) {
+  const detail = model.dayDetail || {};
+  const eventsMount = document.getElementById('dayTimeline');
+  const statusMount = document.getElementById('daySummaryCards');
+  if (!eventsMount || !statusMount) return;
+
+  eventsMount.innerHTML = (detail.events || []).map((event) => `
+    <article class="day-event">
+      <div class="day-event__time">${event.time}</div>
+      <div>
+        <div class="day-event__title">${event.title} ${pill(event.code, model.shortcodeMap)}</div>
+        <div class="day-event__detail">${event.detail}</div>
+      </div>
+      <span class="shift-pill ${codeClass(event.status)}">${event.status}</span>
+    </article>
+  `).join('');
+
+  statusMount.innerHTML = `
+    <div class="day-card"><h3>Coverage Status</h3><dl>
+      <div><dt>Status</dt><dd>${detail.coverageStatus}</dd></div>
+      <div><dt>Minimum</dt><dd>${detail.minimumStaffing}</dd></div>
+      <div><dt>Assigned</dt><dd>${detail.assigned}</dd></div>
+    </dl></div>
+    <div class="day-card"><h3>Summary</h3><dl>
+      <div><dt>Regular</dt><dd>${detail.summary?.regular || '0h 00m'}</dd></div>
+      <div><dt>Overtime</dt><dd>${detail.summary?.overtime || '0h 00m'}</dd></div>
+      <div><dt>Double OT</dt><dd>${detail.summary?.doubleOt || '0h 00m'}</dd></div>
+      <div><dt>Total</dt><dd><strong>${detail.summary?.total || '0h 00m'}</strong></dd></div>
+    </dl></div>
+  `;
 }
 
-function bindCalendar() {
-  document.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-calendar-date]');
-    if (!button) return;
-    selectedDate = button.getAttribute('data-calendar-date');
-    renderCalendarGrid();
-    renderDayDetail();
-  });
+function renderLegend(model) {
+  const mount = document.getElementById('calendarLegend');
+  if (!mount) return;
+  mount.innerHTML = (model.shortcodes || []).map((item) => `<span>${pill(item.code, model.shortcodeMap)} ${item.label}</span>`).join('');
 }
 
 async function init() {
-  bindCalendar();
   try {
-    calendarData = await service.getCalendarPreview();
+    const model = await loadCalendarViewModel();
+    renderWeek(model);
+    renderDay(model);
+    renderLegend(model);
   } catch (error) {
     console.error(error);
-    calendarData = { days: [], preview: [], events: [], summary: { calendarRows: 0, eventRows: 0, coveredRows: 0, shortRows: 0, openSlots: 0 } };
+    const mount = document.getElementById('weekCalendarGrid');
+    if (mount) mount.innerHTML = '<div class="calendar-section">Calendar view preview data could not be loaded.</div>';
   }
-  renderSummary();
-  renderCalendarGrid();
-  renderDayDetail();
 }
 
-document.addEventListener('DOMContentLoaded', init);
+init();

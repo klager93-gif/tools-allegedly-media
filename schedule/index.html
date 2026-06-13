@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v2.11.0
+Version: v2.12.0
 Purpose: Foundation/admin overview with Calendar Foundation navigation
 -->
 <!DOCTYPE html>
@@ -15,18 +15,19 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=2.6.0">
-<link rel="stylesheet" href="schedule-nav.css?v=2.6.0">
+<link rel="stylesheet" href="style.css?v=2.12.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.12.0">
+<link rel="stylesheet" href="footer.css?v=2.12.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v2.11.0"
-  data-signal-theme="Benefit Ledger / Calendar Shortcodes"
+  data-signal-version="v2.12.0"
+  data-signal-theme="Calendar Views + Schedule Footer"
   data-signal-status="Active Development"
-  data-signal-description="Foundation overview with employee, assignment, minimum staffing, coverage board, request, and OT opportunity access."
-  data-signal-status-text="Signal Schedule v2.11.0 adds Seniority & Rotation foundations for equalization, callbacks, mandation, skip reasons, and audit-ready recommendations"
+  data-signal-description="Foundation overview with calendar views, shortcodes, employee, assignment, coverage, request, and OT opportunity access."
+  data-signal-status-text="Signal Schedule v2.12.0 adds Calendar Views and a Schedule-specific footer while production writes remain disabled."
 >
 <div id="sl-header"></div>
 
@@ -65,7 +66,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v2.11.0 Calendar Shortcodes</strong>
+      <strong id="currentWeekLabel">v2.12.0 Calendar Views</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -73,7 +74,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule remains browser-only for the main app. v2.11.0 adds the Benefit Ledger / Calendar Shortcodes foundation while keeping database writes, authentication, and final award actions disabled until later backend releases.</p>
+      <p>Signal Schedule remains browser-first for the current prototype. v2.12.0 adds Calendar Views and a Schedule-specific footer while database writes, authentication, and final approval actions remain disabled until later backend releases.</p>
     </div>
   </section>
 
@@ -98,7 +99,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
         <p>Open the separate user-facing calendar foundation page to preview month view, daily coverage, short-staffing placeholders, open shifts, and event impacts.</p>
       </div>
       <div class="schedule-actions-inline">
-        <a class="schedule-link-button" href="schedule.html">Open Calendar Preview <span aria-hidden="true">→</span></a>
+        <a class="schedule-link-button" href="schedule.html">Open Calendar Views <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -131,7 +132,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   <section class="schedule-card seniority-entry-card" aria-labelledby="seniorityEntryTitle">
     <div class="schedule-card-heading">
       <div>
-        <h2 id="seniorityEntryTitle">Benefit Ledger / Calendar Shortcodes</h2>
+        <h2 id="seniorityEntryTitle">Seniority & Rotation</h2>
         <p>Open the Seniority & Rotation preview to review equalized OT, callback order, mandate candidates, skip reasons, and audit-ready recommendation logic.</p>
       </div>
       <div class="schedule-actions-inline">
@@ -654,11 +655,13 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   </section>
 </main>
 
+<div id="schedule-footer"></div>
 <div id="sl-footer"></div>
 
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
+<script src="components/footer.js?v=2.12.0"></script>
 <script src="script.js?v=2.6.0"></script>
 </body>
 </html>

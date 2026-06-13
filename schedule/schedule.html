@@ -2,30 +2,31 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/schedule.html
-Version: v2.11.0
-Purpose: User-facing Calendar Foundation preview page
+Version: v2.12.0
+Purpose: Week and day calendar views with shortcode display
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signal Schedule — Calendar Foundation</title>
-<meta name="description" content="Calendar-first Schedule preview showing daily coverage, short staffing placeholders, and event impact before the scheduling engine is active.">
+<title>Signal Schedule — Calendar Views</title>
+<meta name="description" content="Week and day calendar views for Signal Schedule with admin-defined shortcodes and daily detail previews.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=2.6.0">
-<link rel="stylesheet" href="schedule-calendar.css?v=2.6.0">
-<link rel="stylesheet" href="schedule-nav.css?v=2.6.0">
+<link rel="stylesheet" href="style.css?v=2.12.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.12.0">
+<link rel="stylesheet" href="schedule-calendar.css?v=2.12.0">
+<link rel="stylesheet" href="footer.css?v=2.12.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Schedule Calendar"
-  data-signal-version="v2.11.0"
-  data-signal-theme="Calendar Foundation"
+  data-signal-version="v2.12.0"
+  data-signal-theme="Calendar Views + Schedule Footer"
   data-signal-status="Active Development"
-  data-signal-description="Calendar-first preview of coverage, open shifts, and event impacts before the production scheduling engine exists."
-  data-signal-status-text="Signal Schedule v2.5.0 syncs displayed versions, restores required API seed files, and keeps the admin-first foundations read-only"
+  data-signal-description="Week and day calendar views with shortcode display and daily schedule detail previews."
+  data-signal-status-text="Signal Schedule v2.12.0 adds Calendar Views and a Schedule-specific footer while production writes remain disabled."
 >
 <div id="sl-header"></div>
 
@@ -54,67 +55,58 @@ Purpose: User-facing Calendar Foundation preview page
   </div>
 </nav>
 
-
 <main class="calendar-shell">
   <section class="calendar-hero" aria-labelledby="calendarTitle">
     <div>
-      <p class="schedule-kicker">Signal Schedule</p>
-      <h1 id="calendarTitle">Calendar Foundation</h1>
-      <p class="calendar-subtitle">A month-style schedule preview that shows coverage, short staffing, events, and open shift placeholders before the full scheduling engine is active.</p>
+      <p class="schedule-kicker">Signal Schedule v2.12.0</p>
+      <h1 id="calendarTitle">Calendar Views</h1>
+      <p class="calendar-subtitle">Preview week and day views using the admin-managed shortcode system. Week view keeps labels compact; day view expands the same events into full text, coverage status, request context, and hour summaries.</p>
     </div>
     <div class="calendar-status-card">
-      <span>Preview Month</span>
-      <strong>June 2026</strong>
+      <span>Preview Week</span>
+      <strong>Jun 9 – Jun 15, 2026</strong>
       <small>Read-only foundation</small>
     </div>
   </section>
 
-  <section class="calendar-summary-grid" id="calendarSummary" aria-label="Calendar summary"></section>
+  <div class="calendar-toolbar" aria-label="Calendar controls">
+    <button class="calendar-control" type="button">←</button>
+    <button class="calendar-control calendar-control--wide" type="button">Jun 9 – Jun 15, 2026</button>
+    <button class="calendar-control" type="button">→</button>
+    <button class="calendar-control" type="button">Today</button>
+    <select class="calendar-control calendar-control--wide" aria-label="Group filter"><option>Group: All Groups</option><option>A Days</option><option>B Nights</option></select>
+    <select class="calendar-control calendar-control--wide" aria-label="Position filter"><option>Position: All</option><option>Dispatcher</option><option>CTO</option></select>
+    <select class="calendar-control calendar-control--wide" aria-label="View filter"><option>View: All Employees</option><option>My Schedule</option><option>Open Coverage</option></select>
+  </div>
 
-  <section class="calendar-layout">
-    <section class="calendar-card" aria-labelledby="monthViewTitle">
-      <div class="calendar-section-heading">
-        <div>
-          <h2 id="monthViewTitle">Month View</h2>
-          <p>Click a day to preview assignments, coverage status, and event impact.</p>
-        </div>
-      </div>
-      <div class="calendar-weekdays" aria-hidden="true">
-        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
-      </div>
-      <div id="calendarGrid" class="calendar-grid"></div>
-    </section>
-
-    <aside class="calendar-card calendar-detail-card" aria-labelledby="dayDetailTitle">
-      <div class="calendar-section-heading">
-        <div>
-          <h2 id="dayDetailTitle">Day Detail</h2>
-          <p id="selectedDayLabel">Select a day with coverage data.</p>
-        </div>
-      </div>
-      <div id="dayCoverageList" class="day-coverage-list"></div>
-      <div id="dayEventList" class="day-event-list"></div>
-    </aside>
+  <section class="calendar-board" aria-labelledby="weekViewTitle">
+    <div class="calendar-section" style="margin-top:0;border:0;border-radius:0;background:transparent;">
+      <h2 id="weekViewTitle">Week View</h2>
+      <p>Compact schedule grid for users and supervisors. Shortcodes keep the week readable while preserving detail for the day view.</p>
+    </div>
+    <div class="week-scroll"><div id="weekCalendarGrid"></div></div>
+    <div id="calendarLegend" class="legend" aria-label="Calendar shortcode legend"></div>
   </section>
 
-  <section class="calendar-card calendar-next-card" aria-labelledby="calendarNextTitle">
-    <div class="calendar-section-heading">
-      <div>
-        <h2 id="calendarNextTitle">What This Unlocks Next</h2>
-        <p>The calendar now gives future leave, VOT, mandation, and schedule generation workflows somewhere visible to land.</p>
-      </div>
+  <section class="calendar-section" aria-labelledby="dayViewTitle">
+    <h2 id="dayViewTitle">Day View</h2>
+    <p>Expanded daily schedule detail for one employee, including events, approval states, coverage status, and hour totals.</p>
+    <div class="calendar-toolbar">
+      <button class="calendar-control" type="button">Thu, Jun 12, 2026</button>
+      <select class="calendar-control calendar-control--wide" aria-label="Employee filter"><option>Employee: Morgan Price</option><option>Taylor Reed</option><option>Jordan Smith</option></select>
+      <button class="calendar-control" type="button">Actions</button>
     </div>
-    <div class="calendar-next-grid">
-      <article><strong>Leave Requests</strong><span>Show approved and pending time off on the day it affects coverage.</span></article>
-      <article><strong>Open Shifts / VOT</strong><span>Turn short days into bid opportunities.</span></article>
-      <article><strong>Mandation</strong><span>Escalate unresolved coverage gaps using eligibility and rules.</span></article>
-      <article><strong>Publishing</strong><span>Convert previews into a schedule employees can actually read.</span></article>
+    <div class="day-layout">
+      <div class="day-timeline" id="dayTimeline"></div>
+      <aside class="day-side" id="daySummaryCards"></aside>
     </div>
   </section>
 </main>
 
+<div id="schedule-footer"></div>
 <div id="sl-footer"></div>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script type="module" src="schedule-calendar.js?v=2.6.0"></script>
+<script src="components/footer.js?v=2.12.0"></script>
+<script type="module" src="schedule-calendar.js?v=2.12.0"></script>
 </body>
 </html>

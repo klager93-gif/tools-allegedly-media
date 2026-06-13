@@ -1,3 +1,9 @@
+## Schedule v2.12.0 — Calendar Views + Schedule Footer
+
+- Adds user-facing week and day calendar views.
+- Adds Schedule-specific footer across /schedule/ pages.
+- Adds Calendar View foundation files and fixes overview version drift.
+
 # Signal Labs Tools
 
 **Current package:** Full Root Cleanup + Schedule v2.5.0 — Overtime Opportunity Board Foundation

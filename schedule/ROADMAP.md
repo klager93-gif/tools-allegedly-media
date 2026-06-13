@@ -1,3 +1,12 @@
+
+## Current: Schedule v2.12.0 — Calendar Views + Schedule Footer
+
+Completed week/day calendar view foundation and Schedule-specific footer.
+
+## Next: Schedule v2.13.0 — Employee Profile & Self-Service Settings
+
+Employee profile, contact info, notification preferences, and admin-controlled editable fields.
+
 # Current: Schedule v2.11.0 — Calendar Shortcode Admin Controls
 
 Next: Schedule v2.12.0 — Calendar Views
