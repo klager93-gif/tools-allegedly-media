@@ -52,3 +52,12 @@
 - Added leave request type and preview request data.
 - Added leave request adapter/repository/service boundaries.
 - Added read-only API route planning and future schema planning.
+
+## v2.3.0 — Open Shifts / VOT Foundation
+
+- Added Open Shifts / VOT Foundation preview page.
+- Added open shift and VOT request preview data.
+- Added admin-controlled request reason seed options.
+- Added OpenShift adapter, repository, and service boundaries.
+- Added read-only Open Shifts API contract and Coolify route planning.
+- Added future SQL planning for open shifts, VOT requests, and request reason options.

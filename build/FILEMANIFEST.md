@@ -1,8 +1,6 @@
-# File Manifest — Schedule v2.2.1
+# File Manifest
 
-This package is a full-root ZIP suitable for merge/overwrite deployment.
-
-## Files Included
+Generated for Schedule v2.3.0 — Open Shifts / VOT Foundation.
 
 - `.gitattributes`
 - `.gitignore`
@@ -75,6 +73,7 @@ This package is a full-root ZIP suitable for merge/overwrite deployment.
 - `schedule/HOWTO.md`
 - `schedule/LEAVE-REQUESTS-FOUNDATION.md`
 - `schedule/MINIMUM-STAFFING-FOUNDATION.md`
+- `schedule/OPEN-SHIFTS-FOUNDATION.md`
 - `schedule/README.md`
 - `schedule/RELEASE-v2.0.0.md`
 - `schedule/RELEASE-v2.1.0.md`
@@ -83,14 +82,17 @@ This package is a full-root ZIP suitable for merge/overwrite deployment.
 - `schedule/RELEASE-v2.1.3.md`
 - `schedule/RELEASE-v2.2.0.md`
 - `schedule/RELEASE-v2.2.1.md`
+- `schedule/RELEASE-v2.3.0.md`
 - `schedule/REQUEST-HOURS-FOUNDATION.md`
 - `schedule/ROADMAP.md`
 - `schedule/adapters/JsonCalendarAdapter.js`
 - `schedule/adapters/JsonLeaveRequestsAdapter.js`
 - `schedule/adapters/JsonMinimumStaffingAdapter.js`
+- `schedule/adapters/JsonOpenShiftAdapter.js`
 - `schedule/api/contracts/calendar.read.schema.json`
 - `schedule/api/contracts/leave-requests.read.schema.json`
 - `schedule/api/contracts/minimum-staffing.read.schema.json`
+- `schedule/api/contracts/open-shifts.read.schema.json`
 - `schedule/api/contracts/request-hours.read.schema.json`
 - `schedule/api/coolify/README.md`
 - `schedule/api/coolify/server.js`
@@ -99,6 +101,7 @@ This package is a full-root ZIP suitable for merge/overwrite deployment.
 - `schedule/api/coolify/sql/007_employee_identity_cleanup_schema.sql`
 - `schedule/api/coolify/sql/008_leave_requests_foundation_schema.sql`
 - `schedule/api/coolify/sql/009_request_hours_foundation_schema.sql`
+- `schedule/api/coolify/sql/010_open_shifts_foundation_schema.sql`
 - `schedule/assignments.html`
 - `schedule/data/calendar-events-preview.json`
 - `schedule/data/calendar-preview.json`
@@ -106,17 +109,23 @@ This package is a full-root ZIP suitable for merge/overwrite deployment.
 - `schedule/data/leave-requests-preview.json`
 - `schedule/data/minimum-staffing-preview.json`
 - `schedule/data/minimum-staffing-templates.json`
+- `schedule/data/open-shifts-preview.json`
 - `schedule/data/request-increment-settings.json`
+- `schedule/data/request-reasons.json`
+- `schedule/data/vot-requests-preview.json`
 - `schedule/employees.html`
 - `schedule/index.html`
 - `schedule/leave-requests.css`
 - `schedule/leave-requests.js`
 - `schedule/leave.html`
+- `schedule/open-shifts.css`
 - `schedule/open-shifts.html`
+- `schedule/open-shifts.js`
 - `schedule/reports.html`
 - `schedule/repositories/CalendarRepository.js`
 - `schedule/repositories/LeaveRequestRepository.js`
 - `schedule/repositories/MinimumStaffingRepository.js`
+- `schedule/repositories/OpenShiftRepository.js`
 - `schedule/schedule-calendar.css`
 - `schedule/schedule-calendar.js`
 - `schedule/schedule-nav.css`
@@ -125,6 +134,7 @@ This package is a full-root ZIP suitable for merge/overwrite deployment.
 - `schedule/services/CalendarService.js`
 - `schedule/services/LeaveRequestService.js`
 - `schedule/services/MinimumStaffingService.js`
+- `schedule/services/OpenShiftService.js`
 - `schedule/services/RequestHoursService.js`
 - `schedule/settings.html`
 - `schedule/staffing.html`

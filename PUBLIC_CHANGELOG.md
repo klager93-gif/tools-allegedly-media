@@ -37,3 +37,12 @@ Schedule now has a calendar-style preview page for viewing coverage, short-staff
 ## Schedule v2.2.0 — Leave Requests Foundation
 
 - Added preview structure for future Schedule leave request workflows.
+
+## v2.3.0 — Open Shifts / VOT Foundation
+
+- Added Open Shifts / VOT Foundation preview page.
+- Added open shift and VOT request preview data.
+- Added admin-controlled request reason seed options.
+- Added OpenShift adapter, repository, and service boundaries.
+- Added read-only Open Shifts API contract and Coolify route planning.
+- Added future SQL planning for open shifts, VOT requests, and request reason options.

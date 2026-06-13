@@ -53,3 +53,15 @@ Read-only planning route added:
 
 Leave request responses now include request increment settings and preview hour fields. No production write routes are active for leave requests.
 
+
+
+## v2.3.0 Open Shifts / VOT Foundation Routes
+
+Read-only planning routes:
+
+- `GET /open-shifts`
+- `GET /api/open-shifts`
+- `GET /request-reasons`
+- `GET /api/request-reasons`
+
+These routes return JSON seed data only. No VOT request submission, award, approval, or production write workflow is active yet.

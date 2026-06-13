@@ -58,3 +58,12 @@
 - Added read-only API contract and Coolify route planning.
 - Added future Postgres leave request schema planning.
 - Kept Schedule admin navigation linked to the new Leave Requests page.
+
+## v2.3.0 — Open Shifts / VOT Foundation
+
+- Added Open Shifts / VOT Foundation preview page.
+- Added open shift and VOT request preview data.
+- Added admin-controlled request reason seed options.
+- Added OpenShift adapter, repository, and service boundaries.
+- Added read-only Open Shifts API contract and Coolify route planning.
+- Added future SQL planning for open shifts, VOT requests, and request reason options.

@@ -96,3 +96,15 @@ Completed v2.2.0 Leave Requests Foundation. Next recommended: v2.3.0 Open Shifts
 
 Leave Requests now include preview support for full-day vs partial-day time selection, start/end time calculation, request type minimum increments, and admin/scheduler override planning. Employee/self-service requests follow configured increments; admin/scheduler entries may use exact operational times with override notes.
 
+## Completed: v2.3.0 — Open Shifts / VOT Foundation
+
+Open Shifts and voluntary overtime now have a preview page, seed data, request reason planning, API boundaries, and future schema planning.
+
+## Next Recommended: v2.4.0 — Supervisor Review Foundation
+
+Planned focus:
+- Pending leave/VOT review dashboard
+- Approve/deny placeholders
+- Staffing impact summaries
+- Supervisor notes
+- Request history preview

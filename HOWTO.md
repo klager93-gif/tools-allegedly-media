@@ -35,3 +35,8 @@ Employee identity is now standardized for future production use. Employee record
 
 Leave Requests now include preview support for full-day vs partial-day time selection, start/end time calculation, request type minimum increments, and admin/scheduler override planning. Employee/self-service requests follow configured increments; admin/scheduler entries may use exact operational times with override notes.
 
+## Schedule v2.3.0 — Open Shifts / VOT Foundation
+
+The Schedule tool now includes a preview Open Shifts / VOT page at `schedule/open-shifts.html`.
+
+The page is still admin-first and read-only. It demonstrates the planned workflow for posting open shifts, showing staffing shortages, collecting volunteer interest, calculating request hours, and controlling request reasons through future admin settings.

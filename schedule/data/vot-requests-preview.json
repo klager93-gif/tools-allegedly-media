@@ -1,0 +1,46 @@
+[
+  {
+    "id": "vot-preview-001",
+    "openShiftId": "open-shift-2026-06-14-police-radio-nights",
+    "employee": "Morgan Price",
+    "employeeId": "CCD-301",
+    "assignmentPreference": "Police Radio",
+    "shiftPreference": "Nights",
+    "interestLevel": "Highly Interested",
+    "requestMode": "full-shift",
+    "startTime": "19:00",
+    "endTime": "07:00",
+    "calculatedHours": 12,
+    "reason": "Helping Staffing",
+    "customReason": "Available after regular shift if needed.",
+    "contactPreference": "Text",
+    "status": "Submitted",
+    "qualificationStatus": [
+      "Police Radio",
+      "NCIC",
+      "Overtime Eligible"
+    ]
+  },
+  {
+    "id": "vot-preview-002",
+    "openShiftId": "open-shift-2026-06-15-calltaking-days",
+    "employee": "Taylor Smith",
+    "employeeId": "CCD-214",
+    "assignmentPreference": "Any Assignment",
+    "shiftPreference": "Days",
+    "interestLevel": "Would Like",
+    "requestMode": "partial-shift",
+    "startTime": "11:00",
+    "endTime": "15:00",
+    "calculatedHours": 4,
+    "reason": "Extra Income",
+    "customReason": "Can cover the back half of days.",
+    "contactPreference": "Email",
+    "status": "Under Review",
+    "qualificationStatus": [
+      "Calltaking",
+      "EMD",
+      "Overtime Eligible"
+    ]
+  }
+]

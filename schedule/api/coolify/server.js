@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.2.1
-Purpose: Coolify API with employee CRUD, assignments, minimum staffing, calendar, and read-only leave request foundation plus request hours settings.
+Version: v2.3.0
+Purpose: Coolify API with employee CRUD, assignments, minimum staffing, calendar, and read-only leave request, request hours, open shifts, and VOT foundation.
 
 This release intentionally has:
 - no committed credentials
@@ -38,6 +38,9 @@ const CALENDAR_EVENTS_PREVIEW_PATH = resolve(__dirname, '../../data/calendar-eve
 const LEAVE_REQUEST_TYPES_PATH = resolve(__dirname, '../../data/leave-request-types.json');
 const LEAVE_REQUESTS_PREVIEW_PATH = resolve(__dirname, '../../data/leave-requests-preview.json');
 const REQUEST_INCREMENT_SETTINGS_PATH = resolve(__dirname, '../../data/request-increment-settings.json');
+const OPEN_SHIFTS_PREVIEW_PATH = resolve(__dirname, '../../data/open-shifts-preview.json');
+const VOT_REQUESTS_PREVIEW_PATH = resolve(__dirname, '../../data/vot-requests-preview.json');
+const REQUEST_REASONS_PATH = resolve(__dirname, '../../data/request-reasons.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -49,7 +52,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.2.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.3.0', ...overrides };
 }
 
 function notFound(res) {
@@ -206,6 +209,21 @@ async function listRequestIncrementSettingsFromJsonSeed() {
   const settingsRaw = await readFile(REQUEST_INCREMENT_SETTINGS_PATH, 'utf8');
   return JSON.parse(settingsRaw);
 }
+
+
+async function listOpenShiftsFromJsonSeed() {
+  const [openShiftsRaw, votRequestsRaw, reasonsRaw] = await Promise.all([
+    readFile(OPEN_SHIFTS_PREVIEW_PATH, 'utf8'),
+    readFile(VOT_REQUESTS_PREVIEW_PATH, 'utf8'),
+    readFile(REQUEST_REASONS_PATH, 'utf8')
+  ]);
+  return {
+    openShifts: JSON.parse(openShiftsRaw),
+    votRequests: JSON.parse(votRequestsRaw),
+    requestReasons: JSON.parse(reasonsRaw)
+  };
+}
+
 
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
@@ -371,6 +389,45 @@ const server = createServer(async (req, res) => {
         data: [],
         meta: apiMeta(),
         errors: [{ code: 'REQUEST_INCREMENT_SETTINGS_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+
+  if (req.method === 'GET' && (url.pathname === '/open-shifts' || url.pathname === '/api/open-shifts')) {
+    try {
+      const data = await listOpenShiftsFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-open-shifts-vot-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { openShifts: [], votRequests: [], requestReasons: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'OPEN_SHIFTS_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+  if (req.method === 'GET' && (url.pathname === '/request-reasons' || url.pathname === '/api/request-reasons')) {
+    try {
+      const reasonsRaw = await readFile(REQUEST_REASONS_PATH, 'utf8');
+      return sendJson(res, 200, {
+        ok: true,
+        data: JSON.parse(reasonsRaw),
+        meta: apiMeta({ mode: 'read-only-request-reasons-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: [],
+        meta: apiMeta(),
+        errors: [{ code: 'REQUEST_REASONS_READ_FAILED', message: error.message }]
       });
     }
   }

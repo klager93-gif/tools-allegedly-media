@@ -2,29 +2,30 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/open-shifts.html
-Version: v2.1.2
-Purpose: Admin-first placeholder page for Open Shifts
+Version: v2.3.0
+Purpose: Admin-first Open Shifts / VOT Foundation preview page
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signal Schedule — Open Shifts</title>
-<meta name="description" content="Admin-first Schedule placeholder page for Open Shifts.">
+<title>Signal Schedule — Open Shifts / VOT</title>
+<meta name="description" content="Admin-first Schedule Open Shifts and Voluntary Overtime Foundation preview.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
 <link rel="stylesheet" href="style.css?v=2.0.0">
 <link rel="stylesheet" href="schedule-nav.css?v=2.1.2">
+<link rel="stylesheet" href="open-shifts.css?v=2.3.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
-  data-signal-title="Schedule Open Shifts"
-  data-signal-version="v2.1.2"
-  data-signal-theme="Admin Navigation Foundation"
-  data-signal-status="Reserved"
-  data-signal-description="Admin-first placeholder page for future Schedule Open Shifts workflows."
-  data-signal-status-text="Signal Schedule v2.1.2 reserves this section for future buildout and role-based visibility."
+  data-signal-title="Schedule Open Shifts / VOT"
+  data-signal-version="v2.3.0"
+  data-signal-theme="Open Shifts / VOT Foundation"
+  data-signal-status="Preview"
+  data-signal-description="Admin-first open shifts and voluntary overtime preview for future bid, eligibility, and award workflows."
+  data-signal-status-text="Signal Schedule v2.3.0 adds Open Shifts / VOT Foundation preview data and admin-controlled reason planning."
 >
 <div id="sl-header"></div>
 
@@ -46,27 +47,135 @@ Purpose: Admin-first placeholder page for Open Shifts
   </div>
 </nav>
 
-<main class="schedule-placeholder-shell">
-  <section class="schedule-placeholder-hero" aria-labelledby="pageTitle">
+<main class="open-shifts-shell">
+  <section class="open-shifts-hero" aria-labelledby="pageTitle">
     <p class="schedule-kicker">Signal Schedule</p>
-    <h1 id="pageTitle">Open Shifts</h1>
-    <p>Open shift and voluntary overtime workflows are reserved for the admin-first Schedule interface.</p>
+    <h1 id="pageTitle">Open Shifts / VOT</h1>
+    <p>Preview the future workflow for posting open shifts, collecting voluntary overtime interest, matching qualifications, and giving supervisors/admins the information needed before awarding OT.</p>
   </section>
-  <section class="schedule-placeholder-card" aria-labelledby="statusTitle">
-    <h2 id="statusTitle">Reserved Placeholder</h2>
-    <p>Future work will let management post opportunities, collect bids, and evaluate eligibility before awarding OT.</p>
-    <ul class="schedule-placeholder-list">
-      <li><strong>Current Status</strong><span>Placeholder only. No production workflow is active from this page yet.</span></li>
-      <li><strong>Admin First</strong><span>Build the complete admin interface first, then limit visibility by role.</span></li>
-      <li><strong>Future Roles</strong><span>Supervisor, telecommunicator, trainee, and employee views will become filtered versions of this system.</span></li>
-    </ul>
+
+  <section class="open-shifts-grid" aria-label="Open Shifts / VOT Foundation preview">
+    <aside class="open-shifts-panel">
+      <h2>Coverage Snapshot</h2>
+      <p>Open shifts will eventually connect assignments, minimum staffing, employee qualifications, overtime eligibility, fatigue rules, and award decisions.</p>
+      <div class="open-shift-summary" data-open-shift-summary>
+        <div class="open-shift-stat"><strong>—</strong><span>Loading preview</span></div>
+      </div>
+      <p class="open-shift-status-line" data-open-shift-status-line>Loading Open Shifts / VOT Foundation preview data…</p>
+    </aside>
+
+    <section class="open-shifts-form-card" aria-labelledby="votFormTitle">
+      <h2 id="votFormTitle">Volunteer Interest Preview</h2>
+      <p>This form shows the planned self-service/admin workflow. Submit and award actions remain disabled until authentication, permissions, and database writes are active.</p>
+      <div class="vot-form-grid">
+        <label>Open Shift
+          <select disabled>
+            <option>Police Radio · Nights · 1900–0700</option>
+            <option>Calltaking · Days · 0700–1500</option>
+            <option>Fire Radio · Evenings · 1500–2300</option>
+          </select>
+        </label>
+        <label>Employee
+          <select disabled>
+            <option>Morgan Price</option>
+            <option>Taylor Smith</option>
+            <option>Chris Jones</option>
+          </select>
+        </label>
+        <label>Request Mode
+          <select data-vot-mode>
+            <option value="full-shift">Full Shift — Use Scheduled Shift Hours</option>
+            <option value="partial-shift">Partial Shift / Time Range</option>
+          </select>
+        </label>
+        <label>Scheduled Shift Hours
+          <input data-vot-shift-hours type="number" value="12" min="0" step="0.25">
+        </label>
+        <label>Start Time
+          <input data-vot-start-time type="time" value="19:00">
+        </label>
+        <label>End Time
+          <input data-vot-end-time type="time" value="07:00">
+        </label>
+        <label>Preferred Shift
+          <select disabled>
+            <option>Any Shift</option>
+            <option>Days</option>
+            <option>Afternoons</option>
+            <option>Nights</option>
+          </select>
+        </label>
+        <label>Preferred Assignment
+          <select disabled>
+            <option>Any Assignment</option>
+            <option>Police Radio</option>
+            <option>Fire Radio</option>
+            <option>Calltaking</option>
+            <option>NCIC</option>
+          </select>
+        </label>
+        <label>Interest Level
+          <select disabled>
+            <option>Will Take If Needed</option>
+            <option>Would Like</option>
+            <option>Highly Interested</option>
+          </select>
+        </label>
+        <label>Contact Preference
+          <select disabled>
+            <option>No Preference</option>
+            <option>Text</option>
+            <option>Email</option>
+            <option>Phone Call</option>
+            <option>App Notification</option>
+          </select>
+        </label>
+        <label>Reason
+          <select disabled>
+            <option>Helping Staffing</option>
+            <option>Extra Income</option>
+            <option>Training Opportunity</option>
+            <option>Shift Preference</option>
+            <option>Other / Custom</option>
+          </select>
+        </label>
+        <label>Admin Override
+          <select disabled>
+            <option>No override</option>
+            <option>Override increment rule</option>
+          </select>
+        </label>
+      </div>
+      <div class="vot-hours-preview" aria-live="polite">
+        <strong data-vot-calculated-hours>12 hours</strong>
+        <span data-vot-increment-message>Full shift uses scheduled shift hours.</span>
+      </div>
+      <div class="vot-notes">
+        <label>Custom Reason / Notes
+          <textarea disabled>Preview only. Future releases will save VOT interest, validate eligibility, and route awards for admin/supervisor review.</textarea>
+        </label>
+      </div>
+    </section>
   </section>
-  <section class="schedule-placeholder-card" aria-labelledby="roleTitle">
-    <h2 id="roleTitle">Role Visibility Plan</h2>
-    <p>This page is intentionally visible as an admin placeholder now. Later releases should keep the shared interface and remove, hide, or limit actions by role instead of creating separate duplicate apps.</p>
+
+  <section class="open-shifts-panel" aria-labelledby="openShiftTitle" style="margin-top:18px;">
+    <h2 id="openShiftTitle">Available Open Shift Preview</h2>
+    <div class="open-shift-list" data-open-shift-list></div>
+  </section>
+
+  <section class="open-shifts-panel" aria-labelledby="votRequestTitle" style="margin-top:18px;">
+    <h2 id="votRequestTitle">Volunteer Request Preview</h2>
+    <div class="vot-request-list" data-vot-request-list></div>
+  </section>
+
+  <section class="open-shifts-panel" aria-labelledby="reasonTitle" style="margin-top:18px;">
+    <h2 id="reasonTitle">Admin-Controlled Reason Options</h2>
+    <p>Default reasons are seed options only. Future admin settings will allow agencies to add, edit, disable, delete, and control employee visibility for each reason.</p>
+    <ul class="reason-list" data-reason-list></ul>
   </section>
 </main>
 <div id="sl-footer"></div>
 <script src="../assets/global.js?v=0.9.9.6"></script>
+<script type="module" src="open-shifts.js?v=2.3.0"></script>
 </body>
 </html>

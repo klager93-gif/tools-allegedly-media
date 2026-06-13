@@ -41,3 +41,12 @@
 
 - Added admin-first Leave Requests preview page.
 - Added request intake fields, review dashboard, status cards, and staffing impact placeholders.
+
+## v2.3.0 — Open Shifts / VOT Foundation
+
+- Added Open Shifts / VOT Foundation preview page.
+- Added open shift and VOT request preview data.
+- Added admin-controlled request reason seed options.
+- Added OpenShift adapter, repository, and service boundaries.
+- Added read-only Open Shifts API contract and Coolify route planning.
+- Added future SQL planning for open shifts, VOT requests, and request reason options.
