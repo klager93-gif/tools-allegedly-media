@@ -1,7 +1,11 @@
-## Schedule v2.7.1 — Trade Form Layout Fix
+## Schedule v2.8.0 — Training & Certifications
 
-- Fixed Shift Trades & Swap Requests approval form layout overflow.
-- Updated Schedule visible version references to v2.7.1.
+- Added Training & Certifications preview page.
+- Added certification expiration, active, expired, in-training, and restricted status previews.
+- Added role/credential requirement rule preview.
+- Added training certification JSON data, adapter, repository, and service layers.
+- Added API read contract and Postgres SQL foundation.
+- Updated Schedule navigation across pages.
 
 
 # Master Changelog

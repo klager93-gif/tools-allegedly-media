@@ -115,6 +115,14 @@ Planned focus:
 Add admin-editable short codes for dense user-facing calendar and schedule views: VOT, T, SP, SF, VAC, CT, plus custom agency-defined codes.
 
 
-## Next: Schedule v2.8.0 — Training & Certifications
+## Current: Schedule v2.8.0 — Training & Certifications
+
+- Certification tracking.
+- Expiration warnings.
+- Training status.
+- Restriction previews.
+- Qualification-aware scheduling foundation.
+
+## Next: Schedule v2.9.0 — Benefit Ledger
 
 Certification tracking, expiration warnings, required qualification rules, and training assignment previews.

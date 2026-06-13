@@ -1,10 +1,10 @@
 # Signal Schedule
 
-Current Version: v2.7.1
+Current Version: v2.8.0
 
-Signal Schedule is an admin-first staffing and scheduling platform foundation. v2.7.1 patches the Shift Trades & Swap Requests layout and keeps Schedule ready for the next Training & Certifications release.
+Signal Schedule is an admin-first staffing and scheduling platform foundation. v2.8.0 adds the Training & Certifications foundation for qualification-aware staffing, expiration warnings, and assignment restrictions.
 
-**Current Version: v2.7.1
+**Current Version: v2.8.0
 
 Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, nursing, and similar shift-based operations.
 
@@ -56,6 +56,6 @@ Signal Schedule is a staffing and schedule-planning tool being built for dispatc
 
 ## Current Release
 
-Schedule v2.7.1 — Shift Trades & Swap Requests
+Schedule v2.8.0 — Training & Certifications
 
 Adds shift trade and swap request foundation with coverage impact checks and admin review preview.
