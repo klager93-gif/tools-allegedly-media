@@ -1,50 +1,39 @@
-# Signal Schedule
+# Signal Labs Tools
 
-**Current Version:** v2.4.0 — Overtime Opportunity Board Foundation
+**Current package:** Full Root Cleanup + Schedule v2.4.0 — Overtime Opportunity Board Foundation
 
-Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, nursing, and similar shift-based operations.
+This repository contains the Signal Labs tool set, including Schedule, Paycheck, Overtime, Time Off, Pay Planner, and shared site assets.
 
-## Pages
+## Current Schedule release included in this package
+
+**Schedule v2.4.0** adds the Overtime Opportunity Board foundation for posted overtime opportunities, slot counts, qualification tags, volunteer/VOT matching preview, seniority/eligibility review, and admin award preview.
+
+## Root cleanup included in this package
+
+This package is safe for full-root replacement because Schedule-specific infrastructure is contained inside `schedule/` instead of being duplicated at the repository root.
+
+Moved/contained under `schedule/`:
+
+- `schedule/adapters/`
+- `schedule/api/`
+- `schedule/data/`
+- `schedule/repositories/`
+- `schedule/services/`
+
+The repository root keeps only true site/shared items such as `index.html`, `assets/`, public info pages, standards, and individual tool folders.
+
+## Schedule pages
 
 - `schedule/index.html` — foundation/admin overview
 - `schedule/schedule.html` — calendar preview
-- `schedule/employees.html` — employees foundation placeholder
-- `schedule/assignments.html` — assignments foundation placeholder
-- `schedule/staffing.html` — minimum staffing foundation
-- `schedule/leave.html` — leave request foundation
-- `schedule/open-shifts.html` — overtime opportunity board foundation
-- `schedule/reports.html` — reports foundation placeholder
-- `schedule/settings.html` — settings foundation placeholder
+- `schedule/employees.html` — employees placeholder/foundation page
+- `schedule/assignments.html` — assignments placeholder/foundation page
+- `schedule/staffing.html` — minimum staffing foundation page
+- `schedule/leave.html` — leave request foundation page
+- `schedule/open-shifts.html` — overtime opportunity board foundation page
+- `schedule/reports.html` — reports placeholder/foundation page
+- `schedule/settings.html` — settings placeholder/foundation page
 
-## Current foundations
+## Production status
 
-- Employee read foundation
-- Protected employee CRUD API planning
-- Assignments foundation
-- Minimum staffing foundation
-- Calendar foundation
-- Leave requests foundation
-- Request hours and admin override planning
-- Admin-controlled request reason planning
-- Overtime opportunity posting preview
-- Volunteer/VOT matching preview
-- Award review preview
-- Coolify API skeleton with optional Postgres employee adapter
-
-## v2.4.0 feature focus
-
-- Renamed Open Shifts/VOT page into an admin-first Overtime Opportunity Board preview.
-- Added posted OT opportunity cards with slots, coverage status, qualification tags, volunteer counts, and recommended award preview.
-- Added opportunity filters for all, short coverage, watch coverage, and high-priority postings.
-- Added admin posting preview form for assignment, role, date, slot count, priority, award rule, time range, and requirements.
-- Added award review panel showing matching volunteers, seniority rank, eligibility status, and award recommendation.
-- Expanded preview seed data with eligibility rules, award policy, slots, seniority rank, and review status.
-
-## Not production ready yet
-
-- No active schedule generation engine
-- No final leave approval workflow
-- No final VOT bidding workflow
-- No employee portal
-- No production auth system
-- No live write routes unless intentionally enabled and protected
+Schedule remains an active-development prototype. The current UI is read-only/preview-oriented for most advanced modules. Employee write routes in the API skeleton remain protected and disabled unless intentionally enabled with environment variables.

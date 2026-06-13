@@ -19,9 +19,6 @@ Cleanup / integrity release. No new workflow features.
 - Cleaned Schedule changelog order/formatting.
 - Packaged without `.git`, macOS resource forks, or temporary files.
 
-## Validation
+## Replace guidance
 
-- `node --check schedule/script.js`
-- `node --check schedule/api/coolify/server.js`
-- Verified referenced Schedule CSS/JS files exist.
-- Verified key Schedule API seed files exist.
+Replace the entire `/schedule/` folder only. This was not a full-root feature release.

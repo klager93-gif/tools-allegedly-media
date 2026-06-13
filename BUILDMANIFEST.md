@@ -1,39 +1,58 @@
-# Build Manifest — Signal Schedule v2.4.0
+# Signal Labs Build Manifest
 
-## Release
+**Current package:** Full Root Cleanup + Schedule v2.4.0 — Overtime Opportunity Board Foundation  
+**Build date:** 2026-06-13
 
-Signal Schedule v2.4.0 — Overtime Opportunity Board Foundation
+## Scope
 
-## Release date
+Full repository replacement package prepared from the user's local copy with Schedule v2.4.0 applied and Schedule-owned infrastructure contained inside `schedule/`.
 
-2026-06-13
+## Structural cleanup
 
-## Package scope
+Removed misplaced root-level Schedule infrastructure duplicates:
 
-Schedule tool release. Replace `/schedule/` only.
+- `adapters/`
+- `api/`
+- `data/`
+- `repositories/`
+- `services/`
 
-## Primary files changed
+Removed misplaced root-level Schedule page duplicates:
 
+- `assignments.html`
+- `employees.html`
+- `leave.html`
+- `leave-requests.css`
+- `leave-requests.js`
+- `open-shifts.css`
 - `open-shifts.html`
 - `open-shifts.js`
-- `open-shifts.css`
-- `services/OpenShiftService.js`
-- `data/open-shifts-preview.json`
-- `data/vot-requests-preview.json`
-- `index.html`
+- `reports.html`
+- `schedule-calendar.css`
+- `schedule-calendar.js`
+- `schedule-nav.css`
+- `schedule.html`
 - `script.js`
-- `README.md`
-- `CHANGELOG.md`
-- `ROADMAP.md`
-- `RELEASE-v2.4.0.md`
-- `FILEMANIFEST.md`
-- `BUILDMANIFEST.md`
+- `settings.html`
+- `staffing.html`
+- `style.css`
+
+Canonical copies now live under `schedule/`.
+
+## Exclusions
+
+- `.git/`
+- macOS resource forks (`._*`)
+- `.DS_Store`
+- `__MACOSX/`
+- prior release/archive ZIPs
 
 ## Validation
 
-- `node --check schedule/open-shifts.js`
-- `node --check schedule/services/OpenShiftService.js`
-- `node --check schedule/adapters/JsonOpenShiftAdapter.js`
-- `node --check schedule/repositories/OpenShiftRepository.js`
-- `node --check schedule/script.js`
-- ZIP excludes `.git`, `.DS_Store`, `__MACOSX`, and Apple resource fork files.
+- Verified root homepage remains Signal Labs Home (`index.html`, v0.9.9.6)
+- Verified Schedule visible version files are v2.4.0
+- Verified Schedule-specific adapters/API/data/repositories/services exist under `schedule/`
+- Verified no root-level `adapters/`, `api/`, `data/`, `repositories/`, or `services/` directories remain
+- Verified no misplaced Schedule page files remain at repository root
+- Ran JavaScript syntax checks on root/global/tool scripts
+- Ran ZIP integrity check

@@ -8,17 +8,17 @@
     "startTime": "19:00",
     "endTime": "07:00",
     "hours": 12,
+    "slotsAvailable": 1,
     "need": 1,
     "current": 1,
     "minimum": 2,
     "coverageStatus": "short",
     "priority": "High",
     "needByTime": "2026-06-14T16:00:00-05:00",
-    "qualifiedTags": [
-      "Police Radio",
-      "NCIC",
-      "Overtime Eligible"
-    ],
+    "postedBy": "Operations Supervisor",
+    "awardPolicy": "Seniority, qualification, fatigue check, then admin award",
+    "qualifiedTags": ["Police Radio", "NCIC", "Overtime Eligible"],
+    "eligibilityRules": ["Overtime Eligible", "Police Radio certified", "NCIC certified", "Not already assigned"],
     "status": "open"
   },
   {
@@ -30,17 +30,17 @@
     "startTime": "07:00",
     "endTime": "15:00",
     "hours": 8,
+    "slotsAvailable": 2,
     "need": 1,
     "current": 2,
     "minimum": 3,
     "coverageStatus": "watch",
     "priority": "Medium",
     "needByTime": "2026-06-14T18:00:00-05:00",
-    "qualifiedTags": [
-      "Calltaking",
-      "EMD",
-      "Overtime Eligible"
-    ],
+    "postedBy": "Shift Commander",
+    "awardPolicy": "First eligible volunteer may be awarded by admin",
+    "qualifiedTags": ["Calltaking", "EMD", "Overtime Eligible"],
+    "eligibilityRules": ["Overtime Eligible", "Calltaking qualified", "EMD preferred"],
     "status": "open"
   },
   {
@@ -52,16 +52,17 @@
     "startTime": "15:00",
     "endTime": "23:00",
     "hours": 8,
+    "slotsAvailable": 1,
     "need": 1,
     "current": 0,
     "minimum": 1,
     "coverageStatus": "short",
     "priority": "High",
     "needByTime": "2026-06-16T10:00:00-05:00",
-    "qualifiedTags": [
-      "Fire Radio",
-      "Overtime Eligible"
-    ],
+    "postedBy": "Operations Supervisor",
+    "awardPolicy": "Qualification match first, then equalization review",
+    "qualifiedTags": ["Fire Radio", "Overtime Eligible"],
+    "eligibilityRules": ["Overtime Eligible", "Fire Radio certified", "No fatigue conflict"],
     "status": "open"
   }
 ]

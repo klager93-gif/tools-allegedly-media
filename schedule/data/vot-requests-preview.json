@@ -4,6 +4,7 @@
     "openShiftId": "open-shift-2026-06-14-police-radio-nights",
     "employee": "Morgan Price",
     "employeeId": "CCD-301",
+    "seniorityRank": 4,
     "assignmentPreference": "Police Radio",
     "shiftPreference": "Nights",
     "interestLevel": "Highly Interested",
@@ -15,17 +16,16 @@
     "customReason": "Available after regular shift if needed.",
     "contactPreference": "Text",
     "status": "Submitted",
-    "qualificationStatus": [
-      "Police Radio",
-      "NCIC",
-      "Overtime Eligible"
-    ]
+    "eligibilityStatus": "eligible",
+    "awardRecommendation": "Recommended",
+    "qualificationStatus": ["Police Radio", "NCIC", "Overtime Eligible"]
   },
   {
     "id": "vot-preview-002",
     "openShiftId": "open-shift-2026-06-15-calltaking-days",
     "employee": "Taylor Smith",
     "employeeId": "CCD-214",
+    "seniorityRank": 2,
     "assignmentPreference": "Any Assignment",
     "shiftPreference": "Days",
     "interestLevel": "Would Like",
@@ -37,10 +37,29 @@
     "customReason": "Can cover the back half of days.",
     "contactPreference": "Email",
     "status": "Under Review",
-    "qualificationStatus": [
-      "Calltaking",
-      "EMD",
-      "Overtime Eligible"
-    ]
+    "eligibilityStatus": "eligible",
+    "awardRecommendation": "Review partial coverage",
+    "qualificationStatus": ["Calltaking", "EMD", "Overtime Eligible"]
+  },
+  {
+    "id": "vot-preview-003",
+    "openShiftId": "open-shift-2026-06-16-fire-radio-evenings",
+    "employee": "Jordan Reed",
+    "employeeId": "CCD-119",
+    "seniorityRank": 1,
+    "assignmentPreference": "Fire Radio",
+    "shiftPreference": "Evenings",
+    "interestLevel": "Will Take If Needed",
+    "requestMode": "full-shift",
+    "startTime": "15:00",
+    "endTime": "23:00",
+    "calculatedHours": 8,
+    "reason": "Shift Preference",
+    "customReason": "Prefer evenings this week.",
+    "contactPreference": "Phone Call",
+    "status": "Submitted",
+    "eligibilityStatus": "needs-review",
+    "awardRecommendation": "Check fatigue rule",
+    "qualificationStatus": ["Fire Radio", "Overtime Eligible", "Fatigue Review"]
   }
 ]

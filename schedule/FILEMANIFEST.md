@@ -1,8 +1,8 @@
-# Signal Schedule File Manifest
+# File Manifest — Signal Schedule v2.4.0
 
-**Version:** v2.3.1
+Generated for Schedule v2.4.0.
 
-## Included Schedule files
+## Files
 
 - `schedule/BUILDMANIFEST.md`
 - `schedule/CALENDAR-FOUNDATION.md`
@@ -23,6 +23,7 @@
 - `schedule/RELEASE-v2.2.1.md`
 - `schedule/RELEASE-v2.3.0.md`
 - `schedule/RELEASE-v2.3.1.md`
+- `schedule/RELEASE-v2.4.0.md`
 - `schedule/REQUEST-HOURS-FOUNDATION.md`
 - `schedule/ROADMAP.md`
 - `schedule/adapters/JsonCalendarAdapter.js`

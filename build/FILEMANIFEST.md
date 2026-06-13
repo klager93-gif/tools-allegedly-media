@@ -1,6 +1,6 @@
 # File Manifest
 
-Generated for Schedule v2.3.0 — Open Shifts / VOT Foundation.
+Generated for Full Root Cleanup + Schedule v2.4.0 — Overtime Opportunity Board Foundation.
 
 - `.gitattributes`
 - `.gitignore`
@@ -14,6 +14,7 @@ Generated for Schedule v2.3.0 — Open Shifts / VOT Foundation.
 - `README.md`
 - `REPOSITORY-AUDIT-2026-06-12.md`
 - `ROADMAP.md`
+- `SHA256SUMS.txt`
 - `STANDARDS.md`
 - `about/index.html`
 - `assets/components/footer.js`
@@ -67,9 +68,11 @@ Generated for Schedule v2.3.0 — Open Shifts / VOT Foundation.
 - `report-issue/index.html`
 - `request-feature/index.html`
 - `roadmap/index.html`
+- `schedule/BUILDMANIFEST.md`
 - `schedule/CALENDAR-FOUNDATION.md`
 - `schedule/CHANGELOG.md`
 - `schedule/EMPLOYEE-IDENTITY-FOUNDATION.md`
+- `schedule/FILEMANIFEST.md`
 - `schedule/HOWTO.md`
 - `schedule/LEAVE-REQUESTS-FOUNDATION.md`
 - `schedule/MINIMUM-STAFFING-FOUNDATION.md`
@@ -83,6 +86,8 @@ Generated for Schedule v2.3.0 — Open Shifts / VOT Foundation.
 - `schedule/RELEASE-v2.2.0.md`
 - `schedule/RELEASE-v2.2.1.md`
 - `schedule/RELEASE-v2.3.0.md`
+- `schedule/RELEASE-v2.3.1.md`
+- `schedule/RELEASE-v2.4.0.md`
 - `schedule/REQUEST-HOURS-FOUNDATION.md`
 - `schedule/ROADMAP.md`
 - `schedule/adapters/JsonCalendarAdapter.js`
@@ -95,6 +100,7 @@ Generated for Schedule v2.3.0 — Open Shifts / VOT Foundation.
 - `schedule/api/contracts/open-shifts.read.schema.json`
 - `schedule/api/contracts/request-hours.read.schema.json`
 - `schedule/api/coolify/README.md`
+- `schedule/api/coolify/db/postgres.js`
 - `schedule/api/coolify/server.js`
 - `schedule/api/coolify/sql/005_minimum_staffing_foundation_schema.sql`
 - `schedule/api/coolify/sql/006_calendar_foundation_schema.sql`
@@ -103,8 +109,12 @@ Generated for Schedule v2.3.0 — Open Shifts / VOT Foundation.
 - `schedule/api/coolify/sql/009_request_hours_foundation_schema.sql`
 - `schedule/api/coolify/sql/010_open_shifts_foundation_schema.sql`
 - `schedule/assignments.html`
+- `schedule/data/agencies.json`
+- `schedule/data/assignment-templates.json`
 - `schedule/data/calendar-events-preview.json`
 - `schedule/data/calendar-preview.json`
+- `schedule/data/employee-assignments.json`
+- `schedule/data/employees.json`
 - `schedule/data/leave-request-types.json`
 - `schedule/data/leave-requests-preview.json`
 - `schedule/data/minimum-staffing-preview.json`

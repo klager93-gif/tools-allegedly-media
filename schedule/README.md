@@ -1,6 +1,6 @@
 # Signal Schedule
 
-**Current Version:** v2.3.1 — Version Sync + API File Integrity Fix
+**Current Version:** v2.4.0 — Overtime Opportunity Board Foundation
 
 Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, nursing, and similar shift-based operations.
 
@@ -12,7 +12,7 @@ Signal Schedule is a staffing and schedule-planning tool being built for dispatc
 - `schedule/assignments.html` — assignments foundation placeholder
 - `schedule/staffing.html` — minimum staffing foundation
 - `schedule/leave.html` — leave request foundation
-- `schedule/open-shifts.html` — open shifts / VOT foundation
+- `schedule/open-shifts.html` — overtime opportunity board foundation
 - `schedule/reports.html` — reports foundation placeholder
 - `schedule/settings.html` — settings foundation placeholder
 
@@ -25,18 +25,20 @@ Signal Schedule is a staffing and schedule-planning tool being built for dispatc
 - Calendar foundation
 - Leave requests foundation
 - Request hours and admin override planning
-- Open shifts / VOT foundation
 - Admin-controlled request reason planning
+- Overtime opportunity posting preview
+- Volunteer/VOT matching preview
+- Award review preview
 - Coolify API skeleton with optional Postgres employee adapter
 
-## v2.3.1 cleanup
+## v2.4.0 feature focus
 
-- Synchronized Schedule page metadata and visible version text to v2.3.1.
-- Updated Schedule script storage key to `signalSchedule.v2.3.1` while preserving migration from older local keys.
-- Restored required JSON seed files referenced by the UI and API skeleton.
-- Added missing `schedule/api/coolify/db/postgres.js` adapter file.
-- Cleaned changelog/readme drift before the next feature release.
-- Built release ZIP without `.git`, macOS resource forks, or deployment junk.
+- Renamed Open Shifts/VOT page into an admin-first Overtime Opportunity Board preview.
+- Added posted OT opportunity cards with slots, coverage status, qualification tags, volunteer counts, and recommended award preview.
+- Added opportunity filters for all, short coverage, watch coverage, and high-priority postings.
+- Added admin posting preview form for assignment, role, date, slot count, priority, award rule, time range, and requirements.
+- Added award review panel showing matching volunteers, seniority rank, eligibility status, and award recommendation.
+- Expanded preview seed data with eligibility rules, award policy, slots, seniority rank, and review status.
 
 ## Not production ready yet
 

@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/services/OpenShiftService.js
-Version: v2.3.1
-Purpose: Open Shifts / VOT Foundation service helpers.
+Version: v2.4.0
+Purpose: Open Shifts / Overtime Opportunity Board service helpers.
 */
 export class OpenShiftService {
   constructor(repository) {
@@ -12,13 +12,35 @@ export class OpenShiftService {
     return this.repository.listOpenShiftPreview();
   }
 
-  summarizeCoverage(openShifts = []) {
-    return openShifts.reduce((summary, shift) => {
+  summarizeCoverage(openShifts = [], votRequests = []) {
+    const summary = openShifts.reduce((accumulator, shift) => {
       const status = shift.coverageStatus || 'unknown';
-      summary.total += 1;
-      summary[status] = (summary[status] || 0) + 1;
-      return summary;
-    }, { total: 0 });
+      accumulator.total += 1;
+      accumulator.openSlots += Number(shift.slotsAvailable || shift.need || 0);
+      accumulator[status] = (accumulator[status] || 0) + 1;
+      return accumulator;
+    }, { total: 0, openSlots: 0 });
+
+    summary.volunteers = votRequests.length;
+    summary.eligibleVolunteers = votRequests.filter(request => request.eligibilityStatus === 'eligible').length;
+    return summary;
+  }
+
+  filterOpportunities(openShifts = [], filter = 'all') {
+    if (filter === 'all') return openShifts;
+    return openShifts.filter(shift => shift.coverageStatus === filter || shift.priority?.toLowerCase() === filter);
+  }
+
+  getRequestsForShift(votRequests = [], openShiftId) {
+    return votRequests.filter(request => request.openShiftId === openShiftId);
+  }
+
+  recommendAward(votRequests = []) {
+    const eligible = votRequests
+      .filter(request => request.eligibilityStatus === 'eligible')
+      .sort((a, b) => Number(a.seniorityRank || 999) - Number(b.seniorityRank || 999));
+
+    return eligible[0] || null;
   }
 
   calculateShiftHours(startTime, endTime) {

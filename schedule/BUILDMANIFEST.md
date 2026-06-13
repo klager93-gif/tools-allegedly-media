@@ -1,27 +1,39 @@
-# Signal Schedule Build Manifest
+# Build Manifest — Signal Schedule v2.4.0
 
-**Version:** v2.3.1 — Version Sync + API File Integrity Fix  
-**Build date:** 2026-06-13
+## Release
 
-## Build scope
+Signal Schedule v2.4.0 — Overtime Opportunity Board Foundation
 
-Cleanup release for `/schedule/` plus root README version cleanup.
+## Release date
 
-## Changed areas
+2026-06-13
 
-- Schedule HTML page metadata and visible version labels
-- Schedule cache-busting query strings
-- Schedule script storage key
-- Schedule README and changelog
-- Schedule API seed data files
-- Schedule Coolify API optional Postgres adapter
-- Root README current package note
+## Package scope
+
+Schedule tool release. Replace `/schedule/` only.
+
+## Primary files changed
+
+- `open-shifts.html`
+- `open-shifts.js`
+- `open-shifts.css`
+- `services/OpenShiftService.js`
+- `data/open-shifts-preview.json`
+- `data/vot-requests-preview.json`
+- `index.html`
+- `script.js`
+- `README.md`
+- `CHANGELOG.md`
+- `ROADMAP.md`
+- `RELEASE-v2.4.0.md`
+- `FILEMANIFEST.md`
+- `BUILDMANIFEST.md`
 
 ## Validation
 
+- `node --check schedule/open-shifts.js`
+- `node --check schedule/services/OpenShiftService.js`
+- `node --check schedule/adapters/JsonOpenShiftAdapter.js`
+- `node --check schedule/repositories/OpenShiftRepository.js`
 - `node --check schedule/script.js`
-- `node --check schedule/api/coolify/server.js`
-- `node --check schedule/api/coolify/db/postgres.js`
-- Verified required Schedule API/data files exist.
-- Verified Schedule HTML CSS/JS references resolve locally.
-- Built release ZIP excluding `.git`, `.DS_Store`, `._*`, `__MACOSX`, and release/archive junk.
+- ZIP excludes `.git`, `.DS_Store`, `__MACOSX`, and Apple resource fork files.
