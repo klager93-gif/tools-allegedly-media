@@ -1,6 +1,6 @@
 # Signal Labs Tools
 
-**Current package:** Full Root Cleanup + Schedule v2.4.0 — Overtime Opportunity Board Foundation
+**Current package:** Full Root Cleanup + Schedule v2.5.0 — Overtime Opportunity Board Foundation
 
 This repository contains the Signal Labs tool set, including Schedule, Paycheck, Overtime, Time Off, Pay Planner, and shared site assets.
 

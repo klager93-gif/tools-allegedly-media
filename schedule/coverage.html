@@ -1,0 +1,124 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/coverage.html
+Version: v2.5.0
+Purpose: Admin-first Coverage Board foundation page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Coverage Board</title>
+<meta name="description" content="Admin-first Signal Schedule Coverage Board preview for minimum staffing gaps, assigned staff, available staff, and linked OT opportunities.">
+<link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
+<link rel="stylesheet" href="style.css?v=2.5.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.5.0">
+<link rel="stylesheet" href="coverage-board.css?v=2.5.0">
+</head>
+<body
+  data-signal-global-layout="true"
+  data-signal-area="Signal Schedule"
+  data-signal-title="Coverage Board"
+  data-signal-version="v2.5.0"
+  data-signal-theme="Coverage Board Foundation"
+  data-signal-status="Preview"
+  data-signal-description="Admin-first coverage board for daily staffing, minimum gaps, available employees, and linked OT opportunities."
+  data-signal-status-text="Signal Schedule v2.5.0 adds the Coverage Board foundation for staffing status, open slots, minimum warnings, and OT opportunity linkage."
+>
+<div id="sl-header"></div>
+
+<nav class="schedule-subnav" aria-label="Schedule admin navigation">
+  <div class="schedule-subnav__label">
+    <span>Schedule Admin Navigation</span>
+    <span class="schedule-subnav__role">Admin-first / role-filtering later</span>
+  </div>
+  <div class="schedule-subnav__links">
+      <a href="index.html">Overview</a>
+      <a href="schedule.html">Calendar</a>
+      <a href="employees.html">Employees</a>
+      <a href="assignments.html">Assignments</a>
+      <a href="staffing.html">Minimum Staffing</a>
+      <a href="coverage.html" aria-current="page">Coverage Board</a>
+      <a href="leave.html">Leave Requests</a>
+      <a href="open-shifts.html">Open Shifts</a>
+      <a href="reports.html">Reports</a>
+      <a href="settings.html">Settings</a>
+  </div>
+</nav>
+
+<main class="coverage-shell">
+  <section class="coverage-hero" aria-labelledby="pageTitle">
+    <p class="schedule-kicker">Signal Schedule v2.5.0</p>
+    <h1 id="pageTitle">Coverage Board</h1>
+    <p>Review daily staffing coverage, identify minimum staffing gaps, see target staffing needs, and connect uncovered work to posted overtime opportunities. This is still a read-only preview until production scheduling writes are connected.</p>
+  </section>
+
+  <section class="coverage-grid" aria-label="Coverage Board preview">
+    <aside class="coverage-panel">
+      <h2>Board Snapshot</h2>
+      <p>The Coverage Board shows why open shifts exist: below-minimum rows, pending leave/training impacts, and assignments that need OT or reassignment.</p>
+      <div class="coverage-summary" data-coverage-summary>
+        <div class="coverage-stat"><strong>—</strong><span>Loading preview</span></div>
+      </div>
+      <div class="coverage-filter" aria-label="Coverage filters">
+        <button type="button" data-coverage-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-coverage-filter="below-minimum">Below Minimum</button>
+        <button type="button" data-coverage-filter="at-minimum">At Minimum</button>
+        <button type="button" data-coverage-filter="open">Open Slots</button>
+        <button type="button" data-coverage-filter="stable">Stable</button>
+      </div>
+      <p class="coverage-status-line" data-coverage-status-line>Loading Coverage Board preview data…</p>
+    </aside>
+
+    <section class="coverage-form-card" aria-labelledby="builderTitle">
+      <h2 id="builderTitle">Coverage Rule Preview</h2>
+      <p>This admin preview shows how a staffing block would be evaluated before approval, OT posting, mandation, or schedule generation.</p>
+      <div class="coverage-builder-grid">
+        <label>Assignment
+          <select data-coverage-assignment>
+            <option>Police Radio</option>
+            <option>Calltaking</option>
+            <option>Fire Radio</option>
+            <option>Shift Supervisor</option>
+          </select>
+        </label>
+        <label>Role
+          <select data-coverage-role>
+            <option>Dispatcher</option>
+            <option>Supervisor</option>
+            <option>Calltaker</option>
+            <option>Police Officer</option>
+          </select>
+        </label>
+        <label>Assigned
+          <input data-coverage-assigned type="number" min="0" step="1" value="2">
+        </label>
+        <label>Minimum
+          <input data-coverage-minimum type="number" min="0" step="1" value="3">
+        </label>
+        <label>Target
+          <input data-coverage-target type="number" min="0" step="1" value="4">
+        </label>
+      </div>
+      <div class="coverage-preview-card" data-coverage-builder-preview></div>
+    </section>
+  </section>
+
+  <section class="coverage-panel" aria-labelledby="coverageListTitle" style="margin-top:18px;">
+    <div class="coverage-board-heading">
+      <div>
+        <h2 id="coverageListTitle">Daily Coverage</h2>
+        <p>Coverage rows compare assigned staffing against minimum, target, and maximum staffing by assignment, role, shift, location, and date.</p>
+      </div>
+      <span data-coverage-count>—</span>
+    </div>
+    <div data-coverage-list></div>
+  </section>
+</main>
+<div id="sl-footer"></div>
+<script src="../assets/global.js?v=0.9.9.6"></script>
+<script type="module" src="coverage-board.js?v=2.5.0"></script>
+</body>
+</html>

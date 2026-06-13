@@ -1,6 +1,6 @@
 # Signal Schedule
 
-**Current Version:** v2.4.0 — Overtime Opportunity Board Foundation
+**Current Version:** v2.5.0 — Overtime Opportunity Board Foundation
 
 Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, nursing, and similar shift-based operations.
 
@@ -31,7 +31,7 @@ Signal Schedule is a staffing and schedule-planning tool being built for dispatc
 - Award review preview
 - Coolify API skeleton with optional Postgres employee adapter
 
-## v2.4.0 feature focus
+## v2.5.0 feature focus
 
 - Renamed Open Shifts/VOT page into an admin-first Overtime Opportunity Board preview.
 - Added posted OT opportunity cards with slots, coverage status, qualification tags, volunteer counts, and recommended award preview.

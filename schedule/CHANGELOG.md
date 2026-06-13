@@ -1,5 +1,17 @@
 # Signal Schedule Changelog
 
+## v2.5.0 — Coverage Board Foundation
+
+- Added admin-first Coverage Board page.
+- Added coverage preview rows grouped by date.
+- Added minimum, target, and maximum staffing comparison.
+- Added below-minimum, at-minimum, covered, and above-minimum statuses.
+- Added filters for below-minimum, at-minimum, open slots, and stable rows.
+- Added Coverage Board JSON adapter, repository, and service layer.
+- Added coverage read contract and future Postgres schema preview.
+- Updated Schedule navigation to include Coverage Board across Schedule pages.
+- Updated Schedule version references to v2.5.0.
+
 ## v2.4.0 — Overtime Opportunity Board Foundation
 
 - Converted the Open Shifts/VOT preview into an admin-first Overtime Opportunity Board.

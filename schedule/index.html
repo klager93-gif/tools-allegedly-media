@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v2.4.0
+Version: v2.5.0
 Purpose: Foundation/admin overview with Calendar Foundation navigation
 -->
 <!DOCTYPE html>
@@ -15,18 +15,18 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
 <meta property="og:title" content="Signal Schedule">
 <meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=2.4.0">
-<link rel="stylesheet" href="schedule-nav.css?v=2.4.0">
+<link rel="stylesheet" href="style.css?v=2.5.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.5.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Signal Schedule"
-  data-signal-version="v2.4.0"
-  data-signal-theme="Calendar Foundation Cleanup"
+  data-signal-version="v2.5.0"
+  data-signal-theme="Coverage Board Foundation"
   data-signal-status="Active Development"
-  data-signal-description="Foundation overview with employee, assignment, minimum staffing, and calendar preview access."
-  data-signal-status-text="Signal Schedule v2.4.0 adds the Overtime Opportunity Board foundation for posted OT, volunteers, eligibility review, and award preview"
+  data-signal-description="Foundation overview with employee, assignment, minimum staffing, coverage board, request, and OT opportunity access."
+  data-signal-status-text="Signal Schedule v2.5.0 adds the Overtime Opportunity Board foundation for posted OT, volunteers, eligibility review, and award preview"
 >
 <div id="sl-header"></div>
 
@@ -41,6 +41,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
       <a href="employees.html">Employees</a>
       <a href="assignments.html">Assignments</a>
       <a href="staffing.html">Minimum Staffing</a>
+      <a href="coverage.html">Coverage Board</a>
       <a href="leave.html">Leave Requests</a>
       <a href="open-shifts.html">Open Shifts</a>
       <a href="reports.html">Reports</a>
@@ -58,7 +59,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
     </div>
     <div class="schedule-status-card" aria-label="Schedule summary">
       <span>Core Engine</span>
-      <strong id="currentWeekLabel">v2.4.0 Overtime Opportunity Board</strong>
+      <strong id="currentWeekLabel">v2.5.0 Coverage Board</strong>
       <small id="scheduleSaveStatus">Saved locally</small>
     </div>
   </section>
@@ -66,7 +67,7 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
   <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
     <div>
       <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule remains browser-only for the main app. v2.4.0 adds the Overtime Opportunity Board foundation while keeping database writes, authentication, and final award actions disabled until later backend releases.</p>
+      <p>Signal Schedule remains browser-only for the main app. v2.5.0 adds the Coverage Board foundation while keeping database writes, authentication, and final award actions disabled until later backend releases.</p>
     </div>
   </section>
 
@@ -79,6 +80,18 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
       </div>
       <div class="schedule-actions-inline">
         <a class="schedule-link-button" href="schedule.html">Open Calendar Preview <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule-card coverage-entry-card" aria-labelledby="coverageEntryTitle">
+    <div class="schedule-card-heading">
+      <div>
+        <h2 id="coverageEntryTitle">Coverage Board</h2>
+        <p>Open the Coverage Board preview to compare assigned staffing against minimum, target, and maximum staffing and link uncovered work to open OT opportunities.</p>
+      </div>
+      <div class="schedule-actions-inline">
+        <a class="schedule-link-button" href="coverage.html">Open Coverage Board <span aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -589,6 +602,6 @@ Purpose: Foundation/admin overview with Calendar Foundation navigation
 <script src="../assets/components/header.js?v=0.9.9.6"></script>
 <script src="../assets/components/footer.js?v=0.9.9.6"></script>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="script.js?v=2.4.0"></script>
+<script src="script.js?v=2.5.0"></script>
 </body>
 </html>

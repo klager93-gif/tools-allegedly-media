@@ -1,3 +1,9 @@
+# Schedule v2.5.0 — Coverage Board Foundation
+
+- Added Schedule Coverage Board foundation.
+- Updated Schedule nav across pages.
+- Added coverage data, adapter, repository, service, API contract, and SQL preview.
+
 ## v2.2.1 — Request Hours & Admin Override Foundation
 
 - Added request hour calculation planning for leave and future VOT/open shift workflows.

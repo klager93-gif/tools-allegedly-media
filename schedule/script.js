@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v2.4.0
+Version: v2.5.0
 Purpose: Minimum Staffing Foundation with assignment-driven staffing preview
 */
 (function () {
@@ -2229,7 +2229,7 @@ Purpose: Minimum Staffing Foundation with assignment-driven staffing preview
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — EMPLOYEE READ API FOUNDATION');
-    lines.push('Version: v2.4.0');
+    lines.push('Version: v2.5.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');

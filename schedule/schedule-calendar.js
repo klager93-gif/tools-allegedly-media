@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/schedule-calendar.js
-Version: v2.4.0
+Version: v2.5.0
 Purpose: User-facing Calendar Foundation preview renderer.
 */
 import { JsonCalendarAdapter } from './adapters/JsonCalendarAdapter.js';
