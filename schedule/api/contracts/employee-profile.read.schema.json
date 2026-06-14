@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-labs.local/schedule/contracts/employee-profile.read.schema.json",
+  "title": "Employee Profile Self-Service Preview",
+  "type": "object",
+  "required": [
+    "employee",
+    "fields",
+    "notifications",
+    "policies",
+    "audit"
+  ],
+  "properties": {
+    "employee": {
+      "type": "object"
+    },
+    "fields": {
+      "type": "array"
+    },
+    "notifications": {
+      "type": "array"
+    },
+    "policies": {
+      "type": "array"
+    },
+    "audit": {
+      "type": "array"
+    }
+  }
+}
