@@ -1,5 +1,13 @@
+## v4.3.0 — Availability, Preferences, Restrictions + Navigation Exposure
 
-## v4.2.0 — Employee Portal Preview + Builder Autocomplete
+- Added `/schedule/availability.html` for employee availability, preferences, restrictions, and View As group filters.
+- Added preview data, read-only API contract, service/repository/adapter boundaries, and migration 043.
+- Expanded View As group foundation to include groups, roles, locations, departments, qualifications, shifts, and future pattern filters.
+- Updated app shell navigation so Schedule Builder, Publishing, Employee Portal, and Availability are visible from the connected navigation.
+- Enhanced builder assignment hints with availability/preference/restriction context where preview data exists.
+
+
+## v4.3.0 — Employee Portal Preview + Builder Autocomplete
 
 - Added `/schedule/employee/` employee-facing portal preview.
 - Added permanent View As foundation for employee and group previews.
@@ -8,14 +16,14 @@
 - Added assignment hinting for availability, group, role, and qualification context while editing the grid.
 - Added migration 042 for future View As profiles, audit logging, and portal preferences.
 
-## Signal Schedule v4.2.0 — Beta Foundation & Publishing
+## Signal Schedule v4.3.0 — Beta Foundation & Publishing
 
 Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
 
 Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql`.
 
 
-## v4.2.0 — Schedule Planning & Forecast Horizon
+## v4.3.0 — Schedule Planning & Forecast Horizon
 
 - Adds Schedule Planning / Forecast Horizon foundation.
 - Adds forecast runs through a selected date range.
@@ -25,7 +33,7 @@ Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publish
 - Navigation coverage audit confirms Planning Forecast is linked in the desktop app shell.
 
 
-## v4.2.0 — Schedule File Organization & Release Cleanup
+## v4.3.0 — Schedule File Organization & Release Cleanup
 
 - Organized Schedule page-specific CSS and JS into /schedule/pages module folders.
 - Preserved public /schedule/*.html URLs to avoid breaking navigation, bookmarks, or live links.

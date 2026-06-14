@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v4.2.0
+Version: v4.3.0
 Purpose: Desktop application overview for Signal Schedule.
 -->
 <!DOCTYPE html>
@@ -12,15 +12,15 @@ Purpose: Desktop application overview for Signal Schedule.
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Signal Schedule — Desktop Workspace</title>
 <meta name="description" content="Desktop-first scheduling workspace for staffing, assignments, coverage, requests, approvals, seniority, mandation, and qualifications.">
-<link rel="stylesheet" href="app-shell.css?v=4.1.0">
+<link rel="stylesheet" href="app-shell.css?v=4.3.0">
 </head>
 <body
   data-signal-area="Signal Schedule"
   data-signal-title="Overview"
-  data-signal-version="v4.2.0"
+  data-signal-version="v4.3.0"
   data-signal-description="Desktop-first Schedule workspace."
 >
-<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Role-based panels</span></div><div class="schedule-subnav__links"><a href="index.html" aria-current="page">Overview</a><a href="employee/index.html" class="schedule-card"><strong>Employee Portal Preview</strong><span>View As employee/group preview for schedules, requests, OT, and profile.</span></a><a href="builder.html">Scheduling Workspace</a><a href="draft-planning.html">Draft Planning</a><a href="publishing.html">Publishing</a><a href="schedule.html">Calendar</a><a href="weekly-board.html">Weekly View</a><a href="daily-board.html">Daily Board</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="seniority.html">Seniority & Rotation</a><a href="qualifications.html">Qualifications</a><a href="training.html">Training & Certs</a><a href="eligibility.html">Eligibility</a><a href="assignments.html">Assignments</a><a href="assignment-generator.html">Assignment Generator</a><a href="conflict-detection.html">Conflict Detection</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="approvals.html">Approvals</a><a href="leave.html">Leave Requests</a><a href="leave-banks.html">Leave Banks</a><a href="open-shifts.html">Open Shifts</a><a href="ot-volunteer-board.html">OT Volunteer Board</a><a href="shift-trades.html">Shift Trades</a><a href="mandation.html">Mandation</a><a href="permissions.html">Permissions</a><a href="notifications.html">Notifications</a><a href="visibility.html">Visibility & Privacy</a><a href="shortcodes.html">Shortcodes</a><a href="benefits.html">Benefit Ledger</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a></div></nav>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Role-based panels</span></div><div class="schedule-subnav__links"><a href="index.html" aria-current="page">Overview</a><a href="employee/index.html" class="schedule-card"><strong>Employee Portal Preview</strong><span>View As employee/group/role/location/qualification preview for schedules, requests, OT, and profile.</span></a><a href="builder.html">Scheduling Workspace</a><a href="draft-planning.html">Draft Planning</a><a href="publishing.html">Publishing</a><a href="schedule.html">Calendar</a><a href="weekly-board.html">Weekly View</a><a href="daily-board.html">Daily Board</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="seniority.html">Seniority & Rotation</a><a href="qualifications.html">Qualifications</a><a href="training.html">Training & Certs</a><a href="eligibility.html">Eligibility</a><a href="assignments.html">Assignments</a><a href="assignment-generator.html">Assignment Generator</a><a href="conflict-detection.html">Conflict Detection</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="approvals.html">Approvals</a><a href="leave.html">Leave Requests</a><a href="leave-banks.html">Leave Banks</a><a href="open-shifts.html">Open Shifts</a><a href="ot-volunteer-board.html">OT Volunteer Board</a><a href="shift-trades.html">Shift Trades</a><a href="mandation.html">Mandation</a><a href="permissions.html">Permissions</a><a href="notifications.html">Notifications</a><a href="visibility.html">Visibility & Privacy</a><a href="shortcodes.html">Shortcodes</a><a href="benefits.html">Benefit Ledger</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a></div></nav>
 
 <main class="schedule-shell schedule-dashboard">
   <section class="schedule-hero schedule-hero--compact" aria-labelledby="scheduleTitle">
@@ -30,10 +30,10 @@ Purpose: Desktop application overview for Signal Schedule.
       <p class="schedule-subtitle">Operational scheduling workspace for coverage, assignments, requests, trades, mandation, seniority, qualifications, and audit-ready supervisor decisions.</p>
     </div>
     <div class="schedule-status-grid" aria-label="Workspace summary">
-      <div><strong>v4.2.0</strong><span>Scheduling Workspace</span></div>
+      <div><strong>v4.3.0</strong><span>Scheduling Workspace</span></div>
       <div><strong>35+</strong><span>Modules</span></div>
       <div><strong>Desktop</strong><span>Primary UX</span></div>
-      <div><strong>040</strong><span>Migration</span></div>
+      <div><strong>043</strong><span>Migration</span></div>
     </div>
   </section>
 
@@ -50,6 +50,7 @@ Purpose: Desktop application overview for Signal Schedule.
       <a class="schedule-module-card" href="daily-board.html"><span>Daily Board</span><strong>One-day coverage and shift detail view.</strong></a>
       <a class="schedule-module-card" href="assignments.html"><span>Assignments</span><strong>Assignment records by role, source, status, and coverage spot.</strong></a>
       <a class="schedule-module-card" href="assignment-generator.html"><span>Assignment Generator</span><strong>Draft schedule generation preview before publish.</strong></a>
+      <a class="schedule-module-card is-primary" href="availability.html"><span>Availability & Preferences</span><strong>Employee availability, preferences, restrictions, and View As group filters.</strong></a>
       <a class="schedule-module-card" href="conflict-detection.html"><span>Conflict Detection</span><strong>Double booking, rest, coverage, qualification, and leave conflicts.</strong></a>
       <a class="schedule-module-card is-primary" href="publishing.html"><span>Publishing</span><strong>Draft-to-published schedule snapshots, readiness checks, rollback points, and employee visibility.</strong></a>
       <a class="schedule-module-card" href="approvals.html"><span>Approvals</span><strong>Request queues with authority and escalation rules.</strong></a>
@@ -70,6 +71,7 @@ Purpose: Desktop application overview for Signal Schedule.
         <a href="coverage-spots.html"><b>Coverage Spots</b><span>Numbered staffing spots and open slot visibility.</span></a>
         <a href="staffing.html"><b>Minimum Staffing</b><span>Role and time-block requirements.</span></a>
         <a href="qualifications.html"><b>Qualifications</b><span>Licenses, certificates, expirations, and role requirements.</span></a>
+        <a href="availability.html"><b>Availability & Preferences</b><span>Availability windows, preference rules, restrictions, and builder warning inputs.</span></a>
       </div>
     </section>
 
@@ -93,8 +95,8 @@ Purpose: Desktop application overview for Signal Schedule.
   <section class="schedule-card">
     <div class="schedule-section-head">
       <div>
-        <h2>v4.2.0 Beta Foundation Notes</h2>
-        <p>This build starts the beta foundation with publishing, immutable schedule snapshots, post/seat tables, availability/preferences/restrictions tables, and a draft-to-published review workspace.</p>
+        <h2>v4.3.0 Availability & View System Notes</h2>
+        <p>This build connects recent beta pages into visible navigation and adds the employee availability, preference, restriction, and reusable View As group foundations needed for smarter schedule validation.</p>
       </div>
     </div>
     <div class="schedule-rule-grid">
@@ -107,6 +109,6 @@ Purpose: Desktop application overview for Signal Schedule.
 </main>
 
 <div id="schedule-footer"></div>
-<script src="app-shell.js?v=4.1.0"></script>
+<script src="app-shell.js?v=4.3.0"></script>
 </body>
 </html>

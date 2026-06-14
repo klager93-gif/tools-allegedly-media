@@ -1,3 +1,9 @@
+## Signal Schedule v4.3.0 — Availability, Preferences, Restrictions + Navigation Exposure
+
+- Adds `/schedule/availability.html` availability/preference/restriction preview workspace.
+- Exposes Schedule Builder, Publishing, Employee Portal, and Availability in the connected Schedule navigation.
+- Adds migration 043 and read-only preview foundations for employee availability, preferences, restrictions, and View As group filters.
+
 ## Signal Schedule v4.0.0 — Beta Foundation & Publishing
 
 Schedule 4.0.0 starts the beta series with publishing, immutable schedule snapshots, post/seat foundations, availability/preferences/restrictions foundations, and migration 040. This release modifies `/schedule/` and root documentation only.

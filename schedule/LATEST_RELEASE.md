@@ -1,3 +1,3 @@
 # Latest Release
 
-Signal Schedule v4.2.0 — Employee Portal Preview + Builder Autocomplete
+Signal Schedule v4.3.0 — Availability, Preferences, Restrictions + Navigation Exposure
