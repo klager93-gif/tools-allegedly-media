@@ -1,3 +1,8 @@
+
+## Signal Schedule v3.0.0 — Weekly Schedule View
+
+Adds weekly schedule view foundation and full v3.0.0 package validation.
+
 <!-- Signal Schedule v2.30.0 Alpha Integration & Stability Audit included in latest full-replace package. -->
 
 ## v2.29.0 — Qualifications & Certification Engine

@@ -1,4 +1,9 @@
 
+## Signal Schedule v3.0.0 — Weekly Schedule View
+
+Adds weekly schedule view foundation and full v3.0.0 package validation.
+
+
 ## v2.29.0 — Qualifications & Certification Engine
 
 - Added `qualifications.html`, `qualifications.css`, and `qualifications.js`.

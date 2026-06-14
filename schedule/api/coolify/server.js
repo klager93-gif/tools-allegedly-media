@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.29.0
+Version: v3.0.0
 Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, and seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:
@@ -53,6 +53,7 @@ const SENIORITY_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/seniority-e
 const ASSIGNMENT_GENERATOR_PREVIEW_PATH = resolve(__dirname, '../../data/assignment-generator-preview.json');
 const CONFLICT_DETECTION_PREVIEW_PATH = resolve(__dirname, '../../data/conflict-detection-preview.json');
 const QUALIFICATIONS_CERTIFICATIONS_PREVIEW_PATH = resolve(__dirname, '../../data/qualifications-certifications-preview.json');
+const WEEKLY_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/weekly-board-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -64,7 +65,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.29.0', ...overrides };
+  return { source: 'coolify-api', version: 'v3.0.0', ...overrides };
 }
 
 function notFound(res) {
@@ -350,7 +351,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v2.29.0',
+          version: 'v3.0.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -642,6 +643,26 @@ const server = createServer(async (req, res) => {
     }
   }
 
+
+
+  if (req.method === 'GET' && (url.pathname === '/weekly-board' || url.pathname === '/api/weekly-board')) {
+    try {
+      const raw = await readFile(WEEKLY_BOARD_PREVIEW_PATH, 'utf8');
+      sendJson(res, 200, {
+        ok: true,
+        data: JSON.parse(raw),
+        meta: apiMeta({ endpoint: 'weekly-board', mode: 'read-only-preview' })
+      });
+    } catch (error) {
+      sendJson(res, 500, {
+        ok: false,
+        data: null,
+        meta: apiMeta({ endpoint: 'weekly-board' }),
+        errors: [{ code: 'WEEKLY_BOARD_READ_FAILED', message: error.message }]
+      });
+    }
+    return;
+  }
 
   if (req.method === 'GET' && (url.pathname === '/leave-banks' || url.pathname === '/api/leave-banks')) {
     try {

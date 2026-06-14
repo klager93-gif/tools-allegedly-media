@@ -1,3 +1,8 @@
+
+## Signal Schedule v3.0.0 — Weekly Schedule View
+
+Adds weekly schedule view foundation and full v3.0.0 package validation.
+
 # Signal Schedule v2.26.0 File Manifest Addendum
 
 Adds Seniority Engine Foundation files and migration 032.

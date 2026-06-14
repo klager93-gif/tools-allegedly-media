@@ -1,4 +1,9 @@
 
+## v3.0.0 — Weekly Schedule View
+
+Adds the first weekly schedule grid foundation with seven-day staffing visibility, open spots, source badges, conflict indicators, role-based panels, read-only API endpoint, API contract, and Postgres migration 036.
+
+
 ## v2.29.0 — Qualifications & Certification Engine
 
 Adds Qualifications & Certification Engine for credential definitions, employee credentials, license numbers, certificate numbers, issuing authorities, expiration warnings, role qualification requirements, notes, role-based employee/supervisor/admin panels, read-only API endpoint, API contract, and Postgres migration 035. License numbers can be not required, optional, or required per qualification type.
