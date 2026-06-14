@@ -80,6 +80,6 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 
 The Schedule UI now supports a Schedule-only theme engine through the shared desktop application shell. Themes currently include Light, Midnight, Slate, CAD Dark, and High Contrast. A compact one-column sidebar with flyout groups replaces the long grouped navigation tree.
 
-## v3.3.0 — Desktop UX Refinement
+## v3.3.1 — Version Drift Hotfix
 
 Schedule now uses connected, box-style flyout navigation instead of separated pill hover menus. Midnight is the default theme when no saved user preference exists.

@@ -1,10 +1,10 @@
-# Signal Schedule v3.3.0 — Desktop UX Refinement
+# Signal Schedule v3.3.1 — Version Drift Hotfix
 
 Released: 2026-06-15
 
 ## Summary
 
-Refines the Schedule desktop application UI after the v3.2 theme foundation. The main change is replacing separated pill-style hover menus with connected, box-style flyout panels that feel more like desktop scheduling software.
+Normalizes visible Schedule release labels after the v3.3.0 desktop UX release. Page-level hardcoded release labels are removed or made generic so app-shell.js remains the visible release source of truth.
 
 ## Database Migration Required
 

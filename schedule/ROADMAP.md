@@ -82,7 +82,7 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 
 Schedule now has a desktop theme foundation and compact flyout navigation. Next UX work should continue dense workspace refinement before drag-and-drop planning.
 
-## v3.3.0 — Desktop UX Refinement
+## v3.3.1 — Version Drift Hotfix
 
 - Connected flyout navigation panels.
 - Desktop application density pass.
