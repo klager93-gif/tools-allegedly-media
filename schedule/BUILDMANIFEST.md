@@ -1,3 +1,11 @@
+
+## v2.29.0 — Qualifications & Certification Engine
+
+- Added `qualifications.html`, `qualifications.css`, and `qualifications.js`.
+- Added qualification preview data, adapter, repository, service, API contract, API route, and migration 035.
+- Added optional/required license-number policy support and notes/issuing authority fields.
+- Database migration required: `schedule/api/coolify/sql/035_qualifications_certifications_schema.sql`.
+
 # Signal Schedule v2.26.0 Build Manifest
 
 ## Release

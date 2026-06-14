@@ -51,3 +51,15 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 - `services/ConflictDetectionService.js`
 - `api/contracts/conflict-detection.read.schema.json`
 - `api/coolify/sql/034_conflict_detection_foundation_schema.sql`
+
+## v2.29.0 Additions
+
+- schedule/qualifications.html
+- schedule/qualifications.css
+- schedule/qualifications.js
+- schedule/data/qualifications-certifications-preview.json
+- schedule/adapters/JsonQualificationsCertificationAdapter.js
+- schedule/repositories/QualificationsCertificationRepository.js
+- schedule/services/QualificationsCertificationService.js
+- schedule/api/contracts/qualifications-certifications.read.schema.json
+- schedule/api/coolify/sql/035_qualifications_certifications_schema.sql

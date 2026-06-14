@@ -1,3 +1,10 @@
+
+## v2.29.0 — Qualifications & Certification Engine
+
+Adds Qualifications & Certification Engine for credential definitions, employee credentials, license numbers, certificate numbers, issuing authorities, expiration warnings, role qualification requirements, notes, role-based employee/supervisor/admin panels, read-only API endpoint, API contract, and Postgres migration 035. License numbers can be not required, optional, or required per qualification type.
+
+Database migration required: `schedule/api/coolify/sql/035_qualifications_certifications_schema.sql`.
+
 ## v2.26.0 — Seniority Engine Foundation
 
 - Adds Seniority Engine Foundation with agency-configurable overall, classification, department, rank, and shift seniority lists.

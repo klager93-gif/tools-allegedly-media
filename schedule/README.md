@@ -1,3 +1,10 @@
+
+## v2.29.0 — Qualifications & Certification Engine
+
+Adds Qualifications & Certification Engine for credential definitions, employee credentials, license numbers, certificate numbers, issuing authorities, expiration warnings, role qualification requirements, notes, role-based employee/supervisor/admin panels, read-only API endpoint, API contract, and Postgres migration 035. License numbers can be not required, optional, or required per qualification type.
+
+Database migration required: `schedule/api/coolify/sql/035_qualifications_certifications_schema.sql`.
+
 ## Signal Schedule v2.26.0 — Seniority Engine Foundation
 
 Adds agency-configurable seniority lists for overall, classification, department, rank, and shift ordering. Includes vacation pick, shift bid, OT award, and mandation scenario previews, tie breakers, list freezes, employee-visible holds, supervisor/admin override notes, audit trail, read-only API endpoint, and Postgres migration 032.

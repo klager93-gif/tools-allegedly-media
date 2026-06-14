@@ -79,3 +79,15 @@ Adds Assignment Generator Foundation and role-based supervisor/admin panels; inc
 
 Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
 
+
+## v2.29.0 Additions
+
+- schedule/qualifications.html
+- schedule/qualifications.css
+- schedule/qualifications.js
+- schedule/data/qualifications-certifications-preview.json
+- schedule/adapters/JsonQualificationsCertificationAdapter.js
+- schedule/repositories/QualificationsCertificationRepository.js
+- schedule/services/QualificationsCertificationService.js
+- schedule/api/contracts/qualifications-certifications.read.schema.json
+- schedule/api/coolify/sql/035_qualifications_certifications_schema.sql

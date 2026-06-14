@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.28.0
-Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, and seniority engine, assignment generator, and conflict detection.
+Version: v2.29.0
+Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, and seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:
 - no committed credentials
@@ -52,6 +52,7 @@ const MANDATION_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/mandation-e
 const SENIORITY_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/seniority-engine-preview.json');
 const ASSIGNMENT_GENERATOR_PREVIEW_PATH = resolve(__dirname, '../../data/assignment-generator-preview.json');
 const CONFLICT_DETECTION_PREVIEW_PATH = resolve(__dirname, '../../data/conflict-detection-preview.json');
+const QUALIFICATIONS_CERTIFICATIONS_PREVIEW_PATH = resolve(__dirname, '../../data/qualifications-certifications-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -63,7 +64,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.28.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.29.0', ...overrides };
 }
 
 function notFound(res) {
@@ -291,6 +292,11 @@ async function listConflictDetectionFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+async function listQualificationsCertificationsFromJsonSeed() {
+  const raw = await readFile(QUALIFICATIONS_CERTIFICATIONS_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -344,7 +350,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v2.28.0',
+          version: 'v2.29.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -612,6 +618,26 @@ const server = createServer(async (req, res) => {
         data: { meta: {}, summary: {}, filters: {}, sources: [], conflicts: [], ruleChecks: [], rolePanels: [], resolutionQueue: [], rules: [] },
         meta: apiMeta(),
         errors: [{ code: 'CONFLICT_DETECTION_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+
+  if (req.method === 'GET' && (url.pathname === '/qualifications-certifications' || url.pathname === '/api/qualifications-certifications')) {
+    try {
+      const data = await listQualificationsCertificationsFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-qualifications-certifications', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { meta: {}, summary: {}, policyProfile: {}, qualificationTypes: [], employeeCredentials: [], roleRequirements: [], expirationWarnings: [], integrationChecks: [], rolePanels: [], rules: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'QUALIFICATIONS_CERTIFICATIONS_READ_FAILED', message: error.message }]
       });
     }
   }
