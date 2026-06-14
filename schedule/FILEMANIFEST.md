@@ -1,3 +1,18 @@
+# Signal Schedule v2.26.0 File Manifest Addendum
+
+Adds Seniority Engine Foundation files and migration 032.
+
+- schedule/seniority.html
+- schedule/seniority.css
+- schedule/seniority.js
+- schedule/data/seniority-engine-preview.json
+- schedule/adapters/JsonSeniorityEngineAdapter.js
+- schedule/repositories/SeniorityEngineRepository.js
+- schedule/services/SeniorityEngineService.js
+- schedule/api/contracts/seniority-engine.read.schema.json
+- schedule/api/coolify/sql/032_seniority_engine_schema.sql
+- schedule/api/coolify/server.js
+
 # Signal Schedule File Manifest
 
 ## v2.25.0 — Mandation Engine Foundation

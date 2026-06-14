@@ -1,3 +1,15 @@
+## Current — v2.26.0 Seniority Engine Foundation
+
+- Overall, classification, department, rank, and shift seniority list model.
+- Scenario preview for vacation picks, shift bids, OT awards, and mandation ordering.
+- Agency-configurable tie breakers and employee/admin visibility split.
+- Manual override and audit foundation.
+
+## Next — v2.27.0 Assignment Generator
+
+- Generate assignment previews from patterns, coverage requirements, leave, training, and open coverage.
+- Keep production writes disabled until conflict detection and approval workflow are connected.
+
 ## v2.24.1 — Full-Replace Cleanup & Drift Audit
 
 - Normalizes Schedule navigation/footer drift.

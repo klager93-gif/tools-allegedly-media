@@ -91,12 +91,14 @@ schedule/adapters/JsonEmployeeProfileAdapter.js
 schedule/adapters/JsonEmployeeTimelineAdapter.js
 schedule/adapters/JsonLeaveBanksAdapter.js
 schedule/adapters/JsonLeaveRequestsAdapter.js
+schedule/adapters/JsonMandationEngineAdapter.js
 schedule/adapters/JsonMinimumStaffingAdapter.js
 schedule/adapters/JsonNotificationAdapter.js
 schedule/adapters/JsonOpenShiftAdapter.js
 schedule/adapters/JsonOtVolunteerBoardAdapter.js
 schedule/adapters/JsonRequestApprovalWorkflowAdapter.js
 schedule/adapters/JsonRolesPermissionsAdapter.js
+schedule/adapters/JsonSeniorityEngineAdapter.js
 schedule/adapters/JsonSeniorityRotationAdapter.js
 schedule/adapters/JsonShiftEligibilityAdapter.js
 schedule/adapters/JsonShiftTradeAdapter.js
@@ -114,6 +116,7 @@ schedule/api/contracts/employee-profile.read.schema.json
 schedule/api/contracts/employee-timeline.read.schema.json
 schedule/api/contracts/leave-banks.read.schema.json
 schedule/api/contracts/leave-requests.read.schema.json
+schedule/api/contracts/mandation-engine.read.schema.json
 schedule/api/contracts/minimum-staffing.read.schema.json
 schedule/api/contracts/notifications.read.schema.json
 schedule/api/contracts/open-shifts.read.schema.json
@@ -121,6 +124,7 @@ schedule/api/contracts/ot-volunteer-board.read.schema.json
 schedule/api/contracts/request-approval-workflow.read.schema.json
 schedule/api/contracts/request-hours.read.schema.json
 schedule/api/contracts/roles-permissions.read.schema.json
+schedule/api/contracts/seniority-engine.read.schema.json
 schedule/api/contracts/seniority-rotation.read.schema.json
 schedule/api/contracts/shift-eligibility.read.schema.json
 schedule/api/contracts/shift-trades.read.schema.json
@@ -156,6 +160,8 @@ schedule/api/coolify/sql/027_assignment_engine_integration_schema.sql
 schedule/api/coolify/sql/028_leave_banks_foundation_schema.sql
 schedule/api/coolify/sql/029_ot_volunteer_board_schema.sql
 schedule/api/coolify/sql/030_shift_trades_ui_schema.sql
+schedule/api/coolify/sql/031_mandation_engine_foundation_schema.sql
+schedule/api/coolify/sql/032_seniority_engine_schema.sql
 schedule/approvals.css
 schedule/approvals.html
 schedule/approvals.js
@@ -193,6 +199,7 @@ schedule/data/employees.json
 schedule/data/leave-banks-preview.json
 schedule/data/leave-request-types.json
 schedule/data/leave-requests-preview.json
+schedule/data/mandation-engine-preview.json
 schedule/data/minimum-staffing-preview.json
 schedule/data/minimum-staffing-templates.json
 schedule/data/notifications-preview.json
@@ -202,6 +209,7 @@ schedule/data/request-approval-workflow-preview.json
 schedule/data/request-increment-settings.json
 schedule/data/request-reasons.json
 schedule/data/roles-permissions-preview.json
+schedule/data/seniority-engine-preview.json
 schedule/data/seniority-rotation-preview.json
 schedule/data/shift-eligibility-preview.json
 schedule/data/shift-trades-preview.json
@@ -220,6 +228,9 @@ schedule/leave-banks.js
 schedule/leave-requests.css
 schedule/leave-requests.js
 schedule/leave.html
+schedule/mandation.css
+schedule/mandation.html
+schedule/mandation.js
 schedule/notifications.css
 schedule/notifications.html
 schedule/notifications.js
@@ -248,12 +259,14 @@ schedule/repositories/EmployeeProfileRepository.js
 schedule/repositories/EmployeeTimelineRepository.js
 schedule/repositories/LeaveBanksRepository.js
 schedule/repositories/LeaveRequestRepository.js
+schedule/repositories/MandationEngineRepository.js
 schedule/repositories/MinimumStaffingRepository.js
 schedule/repositories/NotificationRepository.js
 schedule/repositories/OpenShiftRepository.js
 schedule/repositories/OtVolunteerBoardRepository.js
 schedule/repositories/RequestApprovalWorkflowRepository.js
 schedule/repositories/RolesPermissionsRepository.js
+schedule/repositories/SeniorityEngineRepository.js
 schedule/repositories/SeniorityRotationRepository.js
 schedule/repositories/ShiftEligibilityRepository.js
 schedule/repositories/ShiftTradeRepository.js
@@ -279,6 +292,7 @@ schedule/services/EmployeeProfileService.js
 schedule/services/EmployeeTimelineService.js
 schedule/services/LeaveBanksService.js
 schedule/services/LeaveRequestService.js
+schedule/services/MandationEngineService.js
 schedule/services/MinimumStaffingService.js
 schedule/services/NotificationService.js
 schedule/services/OpenShiftService.js
@@ -286,6 +300,7 @@ schedule/services/OtVolunteerBoardService.js
 schedule/services/RequestApprovalWorkflowService.js
 schedule/services/RequestHoursService.js
 schedule/services/RolesPermissionsService.js
+schedule/services/SeniorityEngineService.js
 schedule/services/SeniorityRotationService.js
 schedule/services/ShiftEligibilityService.js
 schedule/services/ShiftTradeService.js

@@ -1,3 +1,9 @@
+## Signal Schedule v2.26.0 — Seniority Engine Foundation
+
+Adds agency-configurable seniority lists for overall, classification, department, rank, and shift ordering. Includes vacation pick, shift bid, OT award, and mandation scenario previews, tie breakers, list freezes, employee-visible holds, supervisor/admin override notes, audit trail, read-only API endpoint, and Postgres migration 032.
+
+Database migration required: `schedule/api/coolify/sql/032_seniority_engine_schema.sql`.
+
 ## Signal Schedule v2.24.1 — Full-Replace Cleanup & Drift Audit
 
 Normalizes Schedule navigation/footer drift and cleans the full-replace package. No database migration required.

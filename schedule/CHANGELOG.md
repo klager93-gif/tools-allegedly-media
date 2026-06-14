@@ -1,3 +1,10 @@
+## v2.26.0 — Seniority Engine Foundation
+
+- Adds Seniority Engine Foundation with agency-configurable overall, classification, department, rank, and shift seniority lists.
+- Adds scenario preview for vacation picks, shift bids, OT awards, and mandation ordering.
+- Adds tie-breaker policy, frozen list behavior, employee-visible holds, supervisor/admin-only override notes, and audit preview.
+- Adds read-only Seniority Engine API contract, service/repository/adapter, preview data, endpoint, and Postgres migration 032.
+
 ## v2.24.1 — Full-Replace Cleanup & Drift Audit
 
 - Normalized Schedule subnavigation across pages.

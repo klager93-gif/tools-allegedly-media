@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.25.0
-Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, and mandation engine.
+Version: v2.26.0
+Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, and seniority engine.
 
 This release intentionally has:
 - no committed credentials
@@ -49,6 +49,7 @@ const LEAVE_BANKS_PREVIEW_PATH = resolve(__dirname, '../../data/leave-banks-prev
 const OT_VOLUNTEER_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/ot-volunteer-board-preview.json');
 const SHIFT_TRADES_PREVIEW_PATH = resolve(__dirname, '../../data/shift-trades-preview.json');
 const MANDATION_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/mandation-engine-preview.json');
+const SENIORITY_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/seniority-engine-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -60,7 +61,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.25.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.26.0', ...overrides };
 }
 
 function notFound(res) {
@@ -273,6 +274,11 @@ async function listMandationEngineFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+async function listSeniorityEngineFromJsonSeed() {
+  const raw = await readFile(SENIORITY_ENGINE_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -326,7 +332,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v2.25.0',
+          version: 'v2.26.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -634,6 +640,27 @@ const server = createServer(async (req, res) => {
         data: { meta: {}, summary: {}, policyProfile: {}, shortages: [], rotation: [], evaluations: [], overrideLog: [], employeeView: {}, rules: [] },
         meta: apiMeta(),
         errors: [{ code: 'MANDATION_ENGINE_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+
+
+  if (req.method === 'GET' && (url.pathname === '/seniority-engine' || url.pathname === '/api/seniority-engine')) {
+    try {
+      const data = await listSeniorityEngineFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-seniority-engine', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { meta: {}, summary: {}, policyProfile: {}, rankTypes: [], employees: [], lists: [], scenarios: [], overrides: [], audit: [], rules: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'SENIORITY_ENGINE_READ_FAILED', message: error.message }]
       });
     }
   }

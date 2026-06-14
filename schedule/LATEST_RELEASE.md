@@ -1,5 +1,15 @@
-# Signal Schedule Latest Release
+# Signal Schedule v2.26.0 — Seniority Engine Foundation
 
-## v2.25.0 — Mandation Engine Foundation
+Database Migration Required: Yes
 
-Adds policy-driven mandate rotation, shortage-window eligibility, short-day/early-in/holdover/day-off mandate settings, separate hour caps, employee-facing and supervisor/admin views, override audit preview, read-only API contract/endpoint, and Postgres migration 031.
+Run:
+
+```text
+schedule/api/coolify/sql/032_seniority_engine_schema.sql
+```
+
+Expected newest migration row:
+
+```text
+032 | seniority_engine
+```
