@@ -1,8 +1,3 @@
-# Signal Schedule v3.3.0 File Manifest
-
-Full-replace package inventory. Schedule-specific release changes are limited to the Schedule module.
-
-```text
 ADMIN_CHANGELOG.md
 BUILDMANIFEST.md
 FILEMANIFEST.generated.txt
@@ -394,4 +389,3 @@ timeoff/ROADMAP.md
 timeoff/index.html
 timeoff/script.js
 timeoff/style.css
-```

@@ -76,6 +76,10 @@ Adds draft assignment generation previews and establishes role-based panels for 
 Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
 
 
-## v3.2.0 Theme Engine Foundation
+## v3.3.0 Theme Engine Foundation
 
 The Schedule UI now supports a Schedule-only theme engine through the shared desktop application shell. Themes currently include Light, Midnight, Slate, CAD Dark, and High Contrast. A compact one-column sidebar with flyout groups replaces the long grouped navigation tree.
+
+## v3.3.0 — Desktop UX Refinement
+
+Schedule now uses connected, box-style flyout navigation instead of separated pill hover menus. Midnight is the default theme when no saved user preference exists.

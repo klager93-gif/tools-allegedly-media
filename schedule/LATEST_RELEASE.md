@@ -1,5 +1,11 @@
-# Latest Release
+# Signal Schedule v3.3.0 — Desktop UX Refinement
 
-Signal Schedule v3.2.0 — Theme Engine Foundation
+Released: 2026-06-15
 
-Desktop theme engine, compact one-column flyout navigation, and shared application shell refinement. No database migration required.
+## Summary
+
+Refines the Schedule desktop application UI after the v3.2 theme foundation. The main change is replacing separated pill-style hover menus with connected, box-style flyout panels that feel more like desktop scheduling software.
+
+## Database Migration Required
+
+No.

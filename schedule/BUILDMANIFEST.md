@@ -1,55 +1,49 @@
-# Signal Schedule v3.1.0 Build Manifest
+# Signal Schedule v3.3.0 Build Manifest
 
-Release: Signal Schedule v3.1.0 — Desktop Application UI System
-Date: 2026-06-14
+Release: Signal Schedule v3.3.0 — Desktop UX Refinement
+Date: 2026-06-15
 Database migration required: No
 
 ## Summary
 
-This release converts Schedule from the earlier centered website-style layout to a desktop-first application shell across all Schedule pages.
+Refines the desktop application shell introduced in v3.2.0. The main UX change is replacing separated pill-style sidebar hover menus with connected, box-style flyout panels and setting Midnight as the default Schedule theme when no user preference exists.
 
 ## Key Changes
 
-- Added `schedule/app-shell.css`.
-- Added `schedule/app-shell.js`.
-- Added `schedule/weekly-schedule.html` compatibility redirect to `weekly-board.html`.
-- Updated Schedule HTML pages to load the shared app shell.
-- Grouped Schedule navigation into Command, People, Staffing, Requests, and Rules & Admin sections.
-- Normalized app version metadata to v3.1.0 for Schedule pages.
-- Preserved role-based panels on canonical pages instead of creating duplicate `-admin` pages.
+- Replaced floating/separated pill flyouts with connected box-style flyout panels.
+- Tightened sidebar hover/focus behavior for desktop use.
+- Reduced visual gaps between submenu items.
+- Kept one-column sidebar navigation with grouped flyouts.
+- Set Midnight as the default theme for new users/no saved preference.
+- Preserved Schedule-only scope; no Paycheck, Overtime, Timeoff, or root shared asset styling changes.
 
-## Validation
+## Files Affected
 
-- JS syntax checked.
-- JSON parsed.
-- HTML asset references checked.
-- ZIP integrity checked.
-
-## v3.2.0 — Theme Engine Foundation
-
-Build date: 2026-06-14
-Database migration required: No
-
-Affected files:
 - schedule/app-shell.css
 - schedule/app-shell.js
-- schedule/assets/themes/midnight.css
-- schedule/assets/themes/light.css
-- schedule/assets/themes/slate.css
-- schedule/assets/themes/cad.css
-- schedule/assets/themes/high-contrast.css
-- schedule/*.html (cache-bust Schedule shell assets to v3.2.0)
+- schedule/assets/themes/*.css
+- schedule/*.html (version/cache metadata only where applicable)
 - schedule/README.md
 - schedule/ROADMAP.md
 - schedule/CHANGELOG.md
 - schedule/PUBLIC_CHANGELOG.md
 - schedule/ADMIN_CHANGELOG.md
 - schedule/FILEMANIFEST.md
+- schedule/FILEMANIFEST.generated.txt
 - schedule/BUILDMANIFEST.md
 - schedule/LATEST_RELEASE.md
 
-Validation:
+## Files Not Touched
+
+- overtime/**
+- paycheck/**
+- timeoff/**
+- assets/**
+
+## Validation
+
 - JavaScript syntax checked.
 - JSON parsed.
-- HTML Schedule asset references checked.
+- HTML asset references checked.
 - ZIP integrity checked.
+- Confirmed non-Schedule files were not modified compared with v3.2.0 baseline.

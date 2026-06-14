@@ -305,10 +305,16 @@ Adds role templates, permission matrix, field-level access controls, scope-aware
 Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
 
 
-## v3.2.0 — Theme Engine Foundation
+## v3.3.0 — Theme Engine Foundation
 
 - Added Schedule-only theme token system for Light, Midnight, Slate, CAD Dark, and High Contrast modes.
 - Added client-side theme picker with localStorage persistence.
 - Reworked Schedule sidebar into a one-column navigation with desktop hover/focus flyouts.
 - Kept role-based panel philosophy; no duplicate `-admin` pages were introduced.
+- No database migration required.
+
+## v3.3.0 — Desktop UX Refinement
+
+- Replaced floating pill hover menus with connected box-style flyout panels.
+- Tightened Schedule desktop navigation behavior.
 - No database migration required.
