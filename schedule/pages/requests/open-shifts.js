@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/pages/requests/open-shifts.js
-Version: v3.8.1
+Version: v3.9.0
 Purpose: Overtime Opportunity Board preview UI.
 */
 import { JsonOpenShiftAdapter } from '../../adapters/JsonOpenShiftAdapter.js';

@@ -1,6 +1,6 @@
 # Signal Schedule Build Manifest
 
-Version: v3.8.1 — Drag-and-Drop + Draft Engine
+Version: v3.9.0 — Drag-and-Drop + Draft Engine
 
 ## Release summary
 
@@ -19,7 +19,7 @@ Adds draft planning foundations with staged move queue, conflict previews, publi
 Required: `schedule/api/coolify/sql/038_drag_drop_draft_planning_schema.sql`
 
 
-## v3.8.1 — Schedule File Organization & Release Cleanup
+## v3.9.0 — Schedule File Organization & Release Cleanup
 
 ### Purpose
 Organizes page-specific support CSS/JS files into `/schedule/pages/` module folders while preserving public `/schedule/*.html` URLs. This is safe for full replacement because all HTML asset references were updated and validated.

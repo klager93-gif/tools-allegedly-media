@@ -1,4 +1,4 @@
-Current Version: v3.8.1 — Drag-and-Drop + Draft Engine
+Current Version: v3.9.0 — Drag-and-Drop + Draft Engine
 
 
 # Signal Schedule v3.6.1
@@ -105,17 +105,17 @@ Schedule now uses connected, box-style flyout navigation instead of separated pi
 Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.
 
 
-## v3.8.1 Navigation Coverage Audit Hotfix
+## v3.9.0 Navigation Coverage Audit Hotfix
 
 Schedule navigation was audited so canonical pages are linked and redirect-only compatibility pages stay out of primary nav. No database migration required.
 
 
-## v3.8.1 Scheduling Workspace
+## v3.9.0 Scheduling Workspace
 
 The Scheduling Workspace is the central desktop grid and inspector foundation for future draft, drag-and-drop, forecast, and publish workflows.
 
 
-## v3.8.1 — Schedule File Organization & Release Cleanup
+## v3.9.0 — Schedule File Organization & Release Cleanup
 
 ### Purpose
 Organizes page-specific support CSS/JS files into `/schedule/pages/` module folders while preserving public `/schedule/*.html` URLs. This is safe for full replacement because all HTML asset references were updated and validated.

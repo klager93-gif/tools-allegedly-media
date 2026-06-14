@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/workspace/assignments.js
-Version: v3.8.1
+Version: v3.9.0
 Purpose: Render Assignment Engine Integration preview
 */
 import { getAssignmentEnginePreview } from '../../services/AssignmentEngineService.js';

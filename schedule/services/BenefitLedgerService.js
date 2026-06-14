@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/BenefitLedgerService.js
-Version: v3.8.1
+Version: v3.9.0
 Purpose: Service helpers for Benefit Ledger preview calculations
 */
 import { getLedger } from '../repositories/BenefitLedgerRepository.js';

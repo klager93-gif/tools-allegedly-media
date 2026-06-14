@@ -1,6 +1,6 @@
 # Signal Schedule File Manifest
 
-Version: v3.8.1 — Drag-and-Drop + Draft Engine
+Version: v3.9.0 — Drag-and-Drop + Draft Engine
 
 ## Schedule files
 
@@ -340,7 +340,7 @@ Version: v3.8.1 — Drag-and-Drop + Draft Engine
 - `workspace.js`
 
 
-## v3.8.1 — Schedule File Organization & Release Cleanup
+## v3.9.0 — Schedule File Organization & Release Cleanup
 
 ### Purpose
 Organizes page-specific support CSS/JS files into `/schedule/pages/` module folders while preserving public `/schedule/*.html` URLs. This is safe for full replacement because all HTML asset references were updated and validated.

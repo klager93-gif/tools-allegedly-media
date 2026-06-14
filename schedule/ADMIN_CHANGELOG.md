@@ -1,5 +1,15 @@
 
-## v3.8.1 — Schedule File Organization & Release Cleanup
+## v3.9.0 — Schedule Planning & Forecast Horizon
+
+- Adds Schedule Planning / Forecast Horizon foundation.
+- Adds forecast runs through a selected date range.
+- Adds forecast issue preview for under-minimum coverage, qualification gaps, training/leave conflicts, OT posting needs, and likely mandate risk.
+- Adds recommended action queues and heatmap preview.
+- Adds read-only API contract/endpoint, service/repository/adapter boundaries, and Postgres migration 039.
+- Navigation coverage audit confirms Planning Forecast is linked in the desktop app shell.
+
+
+## v3.9.0 — Schedule File Organization & Release Cleanup
 
 - Organized Schedule page-specific CSS and JS into /schedule/pages module folders.
 - Preserved public /schedule/*.html URLs to avoid breaking navigation, bookmarks, or live links.

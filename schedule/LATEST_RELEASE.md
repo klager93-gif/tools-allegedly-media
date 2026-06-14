@@ -1,3 +1,3 @@
-# Signal Schedule v3.8.1 — Schedule File Organization & Release Cleanup
+# Signal Schedule v3.9.0 — Schedule Planning & Forecast Horizon
 
-Full-replacement infrastructure cleanup that organizes page support assets under /schedule/pages while preserving public HTML URLs. No database migration required.
+No live publish writes are enabled. Database migration required: `039_schedule_planning_forecast_horizon_schema.sql`.

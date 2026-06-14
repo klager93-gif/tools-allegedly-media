@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v3.8.1
-Purpose: Coolify API with employee CRUD and read-only foundations including draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
+Version: v3.9.0
+Purpose: Coolify API with employee CRUD and read-only foundations including schedule planning, draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:
 - no committed credentials
@@ -56,6 +56,7 @@ const QUALIFICATIONS_CERTIFICATIONS_PREVIEW_PATH = resolve(__dirname, '../../dat
 const WEEKLY_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/weekly-board-preview.json');
 const VISIBILITY_PRIVACY_PREVIEW_PATH = resolve(__dirname, '../../data/visibility-privacy-preview.json');
 const DRAFT_PLANNING_PREVIEW_PATH = resolve(__dirname, '../../data/draft-planning-preview.json');
+const SCHEDULE_PLANNING_PREVIEW_PATH = resolve(__dirname, '../../data/schedule-planning-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -307,6 +308,11 @@ async function listVisibilityPrivacyFromJsonSeed() {
 
 async function listDraftPlanningFromJsonSeed() {
   const raw = await readFile(DRAFT_PLANNING_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
+async function listSchedulePlanningFromJsonSeed() {
+  const raw = await readFile(SCHEDULE_PLANNING_PREVIEW_PATH, 'utf8');
   return JSON.parse(raw);
 }
 
@@ -672,6 +678,26 @@ const server = createServer(async (req, res) => {
         data: { meta: {}, summary: {}, userGroups: [], scheduleVisibilityRules: [], leaveVisibilityRules: [], displayExamples: [], adminControls: [], rules: [] },
         meta: apiMeta(),
         errors: [{ code: 'VISIBILITY_PRIVACY_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+
+  if (req.method === 'GET' && (url.pathname === '/schedule-planning' || url.pathname === '/api/schedule-planning' || url.pathname === '/planning' || url.pathname === '/api/planning')) {
+    try {
+      const data = await listSchedulePlanningFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-schedule-planning-forecast-horizon', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { meta: {}, summary: {}, forecastRuns: [], forecastIssues: [], recommendedActions: [], heatmap: [], rules: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'SCHEDULE_PLANNING_READ_FAILED', message: error.message }]
       });
     }
   }
