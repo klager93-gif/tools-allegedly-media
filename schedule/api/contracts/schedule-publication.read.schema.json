@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule Publication Preview",
+  "type": "object",
+  "required": [
+    "meta",
+    "summary",
+    "versions",
+    "checklist",
+    "snapshots",
+    "events",
+    "rules"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "versions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "checklist": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "snapshots": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

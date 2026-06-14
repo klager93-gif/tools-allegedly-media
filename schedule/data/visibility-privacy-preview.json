@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "version": "v3.6.0",
+    "module": "schedule-visibility-privacy",
+    "status": "preview",
+    "description": "Admin-configurable schedule visibility and privacy controls for role-based schedule details."
+  },
+  "summary": {
+    "policyProfile": "Default Agency Visibility",
+    "groups": 5,
+    "scheduleRules": 7,
+    "leaveRules": 8,
+    "hiddenSensitiveTypes": 2
+  },
+  "userGroups": [
+    { "id": "employee", "label": "Employee", "level": 10, "description": "Standard employee self-service view." },
+    { "id": "supervisor", "label": "Supervisor", "level": 40, "description": "Can view supervised employees and operational staffing details." },
+    { "id": "scheduling-supervisor", "label": "Scheduling Supervisor", "level": 60, "description": "Can view full schedule detail and cross-shift staffing queues." },
+    { "id": "manager", "label": "Manager", "level": 80, "description": "Can view management-level summaries and sensitive exceptions." },
+    { "id": "admin", "label": "Administrator", "level": 100, "description": "Can view and configure all schedule visibility policies." }
+  ],
+  "scheduleVisibilityRules": [
+    { "id": "rule-supervisor-hours", "subjectGroup": "Employee", "targetGroup": "Supervisor", "visibility": "hours_only", "showsExactTimes": false, "showsWorkingStatus": true, "notesVisible": false, "description": "Employees can see that supervisors are working and the total hours, but not exact times." },
+    { "id": "rule-peer-same-shift", "subjectGroup": "Employee", "targetGroup": "Employee", "visibility": "working_off_only", "showsExactTimes": false, "showsWorkingStatus": true, "notesVisible": false, "description": "Employees can see whether peers are working or off without exact schedule detail." },
+    { "id": "rule-supervisor-team", "subjectGroup": "Supervisor", "targetGroup": "Employee", "visibility": "full_times", "showsExactTimes": true, "showsWorkingStatus": true, "notesVisible": true, "description": "Supervisors can see full schedule detail for managed employees." },
+    { "id": "rule-manager-all", "subjectGroup": "Manager", "targetGroup": "Employee", "visibility": "full_times", "showsExactTimes": true, "showsWorkingStatus": true, "notesVisible": true, "description": "Managers can see broad staffing detail across groups." },
+    { "id": "rule-admin-all", "subjectGroup": "Administrator", "targetGroup": "All", "visibility": "full_times", "showsExactTimes": true, "showsWorkingStatus": true, "notesVisible": true, "description": "Admins can view and edit all visibility policy detail." }
+  ],
+  "leaveVisibilityRules": [
+    { "leaveType": "Vacation", "employeeView": "show_type", "supervisorView": "show_type", "adminView": "show_type", "sensitive": false },
+    { "leaveType": "Sick", "employeeView": "off_only", "supervisorView": "show_type", "adminView": "show_type", "sensitive": true },
+    { "leaveType": "Comp", "employeeView": "show_type", "supervisorView": "show_type", "adminView": "show_type", "sensitive": false },
+    { "leaveType": "Holiday", "employeeView": "show_type", "supervisorView": "show_type", "adminView": "show_type", "sensitive": false },
+    { "leaveType": "Training", "employeeView": "show_type", "supervisorView": "show_type", "adminView": "show_type", "sensitive": false },
+    { "leaveType": "Personal", "employeeView": "off_only", "supervisorView": "show_type", "adminView": "show_type", "sensitive": true },
+    { "leaveType": "FMLA", "employeeView": "hidden", "supervisorView": "off_only", "adminView": "show_type", "sensitive": true },
+    { "leaveType": "Administrative", "employeeView": "off_only", "supervisorView": "show_type", "adminView": "show_type", "sensitive": false }
+  ],
+  "displayExamples": [
+    { "scenario": "Employee viewing supervisor", "output": "Supervisor Smith — Working 12 hours", "hidden": "Exact start/end times" },
+    { "scenario": "Employee viewing sick leave", "output": "Morgan Price — Off", "hidden": "Sick leave label and notes" },
+    { "scenario": "Supervisor viewing managed employee", "output": "Morgan Price — Sick 0700-1900", "hidden": "None, unless agency marks notes admin-only" },
+    { "scenario": "Admin viewing schedule", "output": "Full schedule, leave type, time, note, and policy reason", "hidden": "None" }
+  ],
+  "adminControls": [
+    "Configure schedule visibility by viewer group and target group.",
+    "Choose full times, hours only, working/off only, or hidden.",
+    "Configure leave type visibility separately from schedule visibility.",
+    "Mark sensitive leave types as off-only or hidden for employee views.",
+    "Allow admin and scheduling supervisors to override visibility for operational need.",
+    "Audit every policy change with actor, timestamp, old value, and new value."
+  ],
+  "rules": [
+    "Privacy policies must be role/group based, not hard-coded to a single agency.",
+    "Employee-facing views should never expose admin-only notes.",
+    "Sensitive leave labels can be hidden while still preserving coverage accuracy.",
+    "Higher authority roles may see more detail when authorized by agency policy.",
+    "Visibility policies affect display only; underlying schedule and coverage calculations still use full data."
+  ]
+}

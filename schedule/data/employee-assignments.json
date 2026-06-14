@@ -1,0 +1,62 @@
+[
+  {
+    "id": "ea-001",
+    "agencyId": "agency-central-dispatch",
+    "templateId": "template-dispatch-console",
+    "assignmentName": "Police Radio 1",
+    "employeeId": "emp-dispatch-001",
+    "day": "Monday",
+    "shiftId": "shift-days",
+    "startTime": "07:00",
+    "endTime": "19:00",
+    "status": "preview"
+  },
+  {
+    "id": "ea-002",
+    "agencyId": "agency-central-dispatch",
+    "templateId": "template-dispatch-console",
+    "assignmentName": "Fire Radio",
+    "employeeId": "emp-dispatch-002",
+    "day": "Monday",
+    "shiftId": "shift-nights",
+    "startTime": "19:00",
+    "endTime": "07:00",
+    "status": "preview"
+  },
+  {
+    "id": "ea-003",
+    "agencyId": "agency-kcso-corrections",
+    "templateId": "template-corrections-post",
+    "assignmentName": "Booking",
+    "employeeId": "emp-kcso-001",
+    "day": "Tuesday",
+    "shiftId": "shift-nights",
+    "startTime": "18:00",
+    "endTime": "06:00",
+    "status": "preview"
+  },
+  {
+    "id": "ea-004",
+    "agencyId": "agency-metro-fire",
+    "templateId": "template-fire-apparatus",
+    "assignmentName": "Engine 1 Driver",
+    "employeeId": "emp-fire-001",
+    "day": "Wednesday",
+    "shiftId": "shift-24",
+    "startTime": "07:00",
+    "endTime": "07:00",
+    "status": "preview"
+  },
+  {
+    "id": "ea-005",
+    "agencyId": "agency-north-park-police",
+    "templateId": "template-police-beat",
+    "assignmentName": "District 1 Beat",
+    "employeeId": "emp-police-001",
+    "day": "Friday",
+    "shiftId": "shift-afternoons",
+    "startTime": "15:00",
+    "endTime": "23:00",
+    "status": "preview"
+  }
+]

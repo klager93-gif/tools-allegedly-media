@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule Employee Availability Preferences Read Contract",
+  "type": "object",
+  "required": [
+    "version",
+    "summary",
+    "employees",
+    "availability",
+    "preferences",
+    "restrictions",
+    "viewGroups"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "employees": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "availability": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "preferences": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "restrictions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "viewGroups": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "builderIntegration": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

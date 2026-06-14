@@ -1,0 +1,234 @@
+{
+  "version": "v4.6.1",
+  "weekOf": "2026-06-14",
+  "days": [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+  ],
+  "employees": [
+    {
+      "id": "emp-morgan",
+      "name": "Morgan Price",
+      "role": "Dispatcher",
+      "group": "A Days",
+      "quals": [
+        "Calltaking",
+        "Police Radio",
+        "NCIC"
+      ]
+    },
+    {
+      "id": "emp-riley",
+      "name": "Riley Stone",
+      "role": "Dispatcher",
+      "group": "A Days",
+      "quals": [
+        "Calltaking",
+        "Fire Radio"
+      ]
+    },
+    {
+      "id": "emp-jordan",
+      "name": "Jordan Lane",
+      "role": "Supervisor",
+      "group": "A Days",
+      "quals": [
+        "Supervisor",
+        "Police Radio"
+      ]
+    },
+    {
+      "id": "emp-casey",
+      "name": "Casey Brooks",
+      "role": "Dispatcher",
+      "group": "B Nights",
+      "quals": [
+        "Calltaking",
+        "Police Radio"
+      ]
+    },
+    {
+      "id": "emp-taylor",
+      "name": "Taylor Reed",
+      "role": "Dispatcher",
+      "group": "B Nights",
+      "quals": [
+        "Calltaking",
+        "Fire Radio",
+        "NCIC"
+      ]
+    },
+    {
+      "id": "emp-drew",
+      "name": "Drew Hale",
+      "role": "Supervisor",
+      "group": "B Nights",
+      "quals": [
+        "Supervisor"
+      ]
+    }
+  ],
+  "assignments": [
+    {
+      "day": "Sun",
+      "shift": "Days",
+      "role": "Dispatcher",
+      "employee": "Morgan Price"
+    },
+    {
+      "day": "Sun",
+      "shift": "Days",
+      "role": "Dispatcher",
+      "employee": "Riley Stone"
+    },
+    {
+      "day": "Sun",
+      "shift": "Days",
+      "role": "Supervisor",
+      "employee": "Jordan Lane"
+    },
+    {
+      "day": "Sun",
+      "shift": "Nights",
+      "role": "Dispatcher",
+      "employee": "Casey Brooks"
+    },
+    {
+      "day": "Sun",
+      "shift": "Nights",
+      "role": "Dispatcher",
+      "employee": "Taylor Reed"
+    },
+    {
+      "day": "Sun",
+      "shift": "Nights",
+      "role": "Supervisor",
+      "employee": "Drew Hale"
+    },
+    {
+      "day": "Mon",
+      "shift": "Days",
+      "role": "Dispatcher",
+      "employee": "Morgan Price"
+    },
+    {
+      "day": "Mon",
+      "shift": "Days",
+      "role": "Dispatcher",
+      "employee": "Riley Stone"
+    },
+    {
+      "day": "Mon",
+      "shift": "Days",
+      "role": "Supervisor",
+      "employee": "Jordan Lane"
+    },
+    {
+      "day": "Tue",
+      "shift": "Days",
+      "role": "Dispatcher",
+      "employee": "Morgan Price"
+    },
+    {
+      "day": "Tue",
+      "shift": "Days",
+      "role": "Dispatcher",
+      "employee": "OPEN"
+    },
+    {
+      "day": "Tue",
+      "shift": "Days",
+      "role": "Supervisor",
+      "employee": "Jordan Lane"
+    },
+    {
+      "day": "Wed",
+      "shift": "Nights",
+      "role": "Dispatcher",
+      "employee": "Casey Brooks"
+    },
+    {
+      "day": "Wed",
+      "shift": "Nights",
+      "role": "Dispatcher",
+      "employee": "Taylor Reed"
+    },
+    {
+      "day": "Wed",
+      "shift": "Nights",
+      "role": "Supervisor",
+      "employee": "Drew Hale"
+    },
+    {
+      "day": "Thu",
+      "shift": "Nights",
+      "role": "Dispatcher",
+      "employee": "Casey Brooks"
+    },
+    {
+      "day": "Thu",
+      "shift": "Nights",
+      "role": "Dispatcher",
+      "employee": "OPEN"
+    },
+    {
+      "day": "Thu",
+      "shift": "Nights",
+      "role": "Supervisor",
+      "employee": "Drew Hale"
+    },
+    {
+      "day": "Fri",
+      "shift": "Days",
+      "role": "Dispatcher",
+      "employee": "Morgan Price"
+    },
+    {
+      "day": "Fri",
+      "shift": "Days",
+      "role": "Dispatcher",
+      "employee": "Riley Stone"
+    },
+    {
+      "day": "Fri",
+      "shift": "Days",
+      "role": "Supervisor",
+      "employee": "OPEN"
+    },
+    {
+      "day": "Sat",
+      "shift": "Nights",
+      "role": "Dispatcher",
+      "employee": "Casey Brooks"
+    },
+    {
+      "day": "Sat",
+      "shift": "Nights",
+      "role": "Dispatcher",
+      "employee": "Taylor Reed"
+    },
+    {
+      "day": "Sat",
+      "shift": "Nights",
+      "role": "Supervisor",
+      "employee": "Drew Hale"
+    }
+  ],
+  "unavailable": [
+    {
+      "day": "Tue",
+      "employee": "Riley Stone",
+      "reason": "Approved time off 0700-1900"
+    },
+    {
+      "day": "Fri",
+      "employee": "Jordan Lane",
+      "reason": "Training"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Benefit Ledger Read Preview",
+  "type": "object",
+  "required": [
+    "banks",
+    "requestImpacts",
+    "shortcodes"
+  ],
+  "properties": {
+    "banks": {
+      "type": "array"
+    },
+    "requestImpacts": {
+      "type": "array"
+    },
+    "adjustments": {
+      "type": "array"
+    },
+    "shortcodes": {
+      "type": "array"
+    },
+    "calendarDays": {
+      "type": "array"
+    }
+  }
+}
