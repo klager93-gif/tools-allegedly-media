@@ -1,3 +1,8 @@
+## Current Position
+
+- v2.23.0 complete: OT Volunteer Board Foundation.
+- Next likely release: v2.24.0 — Shift Trade UI / workflow connection.
+
 # Signal Schedule Roadmap
 
 ## Current

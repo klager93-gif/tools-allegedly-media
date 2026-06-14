@@ -1,15 +1,25 @@
-# Signal Schedule v2.22.0 — Assignment Engine UI Contrast Hotfix
+# Signal Schedule v2.23.0 — OT Volunteer Board Foundation
 
-Current Schedule release fixes Assignment Engine readability on the dark Schedule layout. The assignment page remains the v2.21 Assignment Engine foundation, but cards, records, badges, history events, and rules now use readable dark-surface styling.
+Signal Schedule v2.23.0 adds an admin-first OT Volunteer Board foundation for posted overtime opportunities, employee volunteer interest, eligibility preview, award queue review, and open shift connection points.
 
 ## Database Migration Required
 
-No. v2.22.0 is a UI hotfix only. If v2.21.0 migration 027 has already been run, no psql action is needed.
+Yes. Run:
+
+```text
+schedule/api/coolify/sql/029_ot_volunteer_board_schema.sql
+```
+
+Expected newest migration row:
+
+```text
+029 | ot_volunteer_board_foundation
+```
 
 ## Current Foundation
 
-Signal Schedule currently includes employees, agencies, requests, coverage board, coverage spots, daily board, notifications, roles/permissions, approvals, and assignment engine preview foundations.
+Signal Schedule currently includes employees, agencies, requests, coverage board, coverage spots, daily board, assignment engine, leave banks, notifications, roles/permissions, approvals, and OT volunteer board preview foundations.
 
 ## Next Planned Release
 
-v2.22.0 — Leave Banks Foundation.
+v2.24.0 — Shift Trade UI / workflow connection.

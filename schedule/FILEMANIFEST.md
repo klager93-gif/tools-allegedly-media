@@ -29,3 +29,15 @@ This release is packaged as a full repository snapshot for replace-safe deployme
 ## Database
 
 No new SQL migration. Existing v2.21.0 migration 027 remains the current database target.
+
+## v2.23.0 Added Files
+
+- `schedule/ot-volunteer-board.html`
+- `schedule/ot-volunteer-board.css`
+- `schedule/ot-volunteer-board.js`
+- `schedule/data/ot-volunteer-board-preview.json`
+- `schedule/adapters/JsonOtVolunteerBoardAdapter.js`
+- `schedule/repositories/OtVolunteerBoardRepository.js`
+- `schedule/services/OtVolunteerBoardService.js`
+- `schedule/api/contracts/ot-volunteer-board.read.schema.json`
+- `schedule/api/coolify/sql/029_ot_volunteer_board_schema.sql`

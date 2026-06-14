@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.22.0
-Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, and assignment engine, and leave banks.
+Version: v2.23.0
+Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, assignment engine, leave banks, and OT volunteer board.
 
 This release intentionally has:
 - no committed credentials
@@ -46,6 +46,7 @@ const COVERAGE_SPOTS_PREVIEW_PATH = resolve(__dirname, '../../data/coverage-spot
 const DAILY_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/daily-board-preview.json');
 const ASSIGNMENT_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/assignment-engine-preview.json');
 const LEAVE_BANKS_PREVIEW_PATH = resolve(__dirname, '../../data/leave-banks-preview.json');
+const OT_VOLUNTEER_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/ot-volunteer-board-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -57,7 +58,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.22.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.23.0', ...overrides };
 }
 
 function notFound(res) {
@@ -255,6 +256,11 @@ async function listLeaveBanksFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+async function listOtVolunteerBoardFromJsonSeed() {
+  const raw = await readFile(OT_VOLUNTEER_BOARD_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -308,7 +314,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v2.22.0',
+          version: 'v2.23.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -555,6 +561,26 @@ const server = createServer(async (req, res) => {
         data: { summary: {}, bankTypes: [], employeeBalances: [], pendingImpacts: [], adjustments: [], rules: [] },
         meta: apiMeta(),
         errors: [{ code: 'LEAVE_BANKS_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+
+  if (req.method === 'GET' && (url.pathname === '/ot-volunteer-board' || url.pathname === '/api/ot-volunteer-board')) {
+    try {
+      const data = await listOtVolunteerBoardFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-ot-volunteer-board-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { summary: {}, filters: {}, opportunities: [], volunteers: [], awardQueue: [], rules: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'OT_VOLUNTEER_BOARD_READ_FAILED', message: error.message }]
       });
     }
   }

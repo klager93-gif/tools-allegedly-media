@@ -1,32 +1,32 @@
-
-## v2.22.0 — Leave Banks Foundation
-
-- Adds Leave Banks Foundation for vacation, sick, personal, comp, holiday, and training balances.
-- Adds preview data, read-only service/repository/adapter boundaries, API contract, page, and endpoint.
-- Adds Postgres migration 028_leave_banks_foundation_schema.sql.
-- Production balance writes remain disabled.
-
-# Signal Schedule v2.21.1 Build Manifest
+# Signal Schedule v2.23.0 Build Manifest
 
 ## Release
 
-Signal Schedule v2.21.1 — Assignment Engine UI Contrast Hotfix
+Signal Schedule v2.23.0 — OT Volunteer Board Foundation
 
 ## Database Migration Required
 
-No. This is a UI-only hotfix. Do not run a new psql migration for v2.21.1.
+Yes. Run `schedule/api/coolify/sql/029_ot_volunteer_board_schema.sql`.
+
+Expected newest migration row: `029 | ot_volunteer_board_foundation`.
 
 ## Primary Files Changed
 
-- `schedule/assignments.html`
-- `schedule/assignments.css`
-- `schedule/assignments.js`
-- `schedule/LATEST_RELEASE.md`
-- Schedule/root changelog, roadmap, README, build manifest, and file manifest documents
+- `schedule/ot-volunteer-board.html`
+- `schedule/ot-volunteer-board.css`
+- `schedule/ot-volunteer-board.js`
+- `schedule/data/ot-volunteer-board-preview.json`
+- `schedule/adapters/JsonOtVolunteerBoardAdapter.js`
+- `schedule/repositories/OtVolunteerBoardRepository.js`
+- `schedule/services/OtVolunteerBoardService.js`
+- `schedule/api/contracts/ot-volunteer-board.read.schema.json`
+- `schedule/api/coolify/sql/029_ot_volunteer_board_schema.sql`
+- `schedule/api/coolify/server.js`
+- Schedule navigation and documentation files
 
 ## Validation
 
-- Assignment Engine CSS checked for dark-layout contrast.
 - JavaScript syntax checked.
+- JSON parsed.
 - HTML asset references checked.
 - ZIP integrity checked.

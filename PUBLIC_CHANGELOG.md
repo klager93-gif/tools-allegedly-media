@@ -1,3 +1,10 @@
+## v2.23.0 — OT Volunteer Board Foundation
+
+- Adds OT Volunteer Board Foundation for posted overtime opportunities, volunteer/withdraw preview, eligibility status, award queue, and open shift connection points.
+- Adds preview data, read-only service/repository/adapter boundaries, API contract, page, and endpoint.
+- Adds Postgres migration 029_ot_volunteer_board_schema.sql.
+- Production volunteer writes and award actions remain disabled.
+
 
 ## v2.22.0 — Leave Banks Foundation
 

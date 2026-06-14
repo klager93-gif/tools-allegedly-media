@@ -1,3 +1,13 @@
+# Signal Labs Tools
+
+## Current Schedule Release
+
+Signal Schedule v2.23.0 — OT Volunteer Board Foundation. Database migration 029 required.
+
+## Current Schedule Release
+
+Signal Schedule v2.23.0 — OT Volunteer Board Foundation. Database migration 029 required.
+
 # Signal Schedule v2.22.0 — Assignment Engine UI Contrast Hotfix
 
 Current Schedule release fixes Assignment Engine readability on the dark Schedule layout. The assignment page remains the v2.21 Assignment Engine foundation, but cards, records, badges, history events, and rules now use readable dark-surface styling.
@@ -12,4 +22,4 @@ Signal Schedule currently includes employees, agencies, requests, coverage board
 
 ## Next Planned Release
 
-v2.22.0 — Leave Banks Foundation.
+v2.23.0 — OT Volunteer Board Foundation.

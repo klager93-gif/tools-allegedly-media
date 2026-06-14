@@ -2,22 +2,25 @@
 
 ## Current
 
-Schedule v2.22.0 — Assignment Engine UI Contrast Hotfix
+Schedule v2.23.0 — OT Volunteer Board Foundation
 
-- Assignment Engine page readability has been restored on the dark Schedule layout.
-- Assignment records, source types, history events, and foundation rules now use dark cards with readable text.
-- No database migration required.
+- Posted overtime opportunities.
+- Volunteer/withdraw preview model.
+- Eligibility indicators and fatigue/seniority context.
+- Award queue foundation.
+- Open shift and assignment engine connection points.
 
 ## Next
 
-Schedule v2.22.0 — Leave Banks Foundation
+Schedule v2.24.0 — Shift Trade UI / workflow connection
 
-- Define vacation, sick, personal, comp, holiday, and training balance buckets.
-- Prepare request approvals to deduct from configured banks.
-- Keep the first release read-only/preview until deduction rules are validated.
+- Improve employee trade request preview.
+- Connect trade approval state to assignment engine history.
+- Prepare trade-related coverage impact displays.
 
-## Recently Completed
+## Near-Term
 
-- v2.21.0 Assignment Engine Integration
-- v2.20.0 Daily Schedule Board Foundation
-- v2.19.0 Coverage Spots Foundation
+- v2.24.0 Shift Trade UI / workflow connection
+- v2.25.0 Mandation Engine Foundation
+- v2.26.0 Notification/approval integration pass
+- v2.30.0 Usable alpha milestone
