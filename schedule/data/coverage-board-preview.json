@@ -1,0 +1,191 @@
+[
+  {
+    "id": "coverage-2026-06-15-police-radio-days",
+    "agencyId": "agency-central-dispatch",
+    "date": "2026-06-15",
+    "day": "Monday",
+    "shiftName": "Day Shift",
+    "startTime": "07:00",
+    "endTime": "15:00",
+    "assignment": "Police Radio",
+    "role": "Dispatcher",
+    "location": "Main Center",
+    "minimumRequired": 2,
+    "targetStaffing": 3,
+    "maximumStaffing": 4,
+    "assignedCount": 2,
+    "pendingLeave": 0,
+    "pendingTraining": 0,
+    "openSlots": 0,
+    "targetOpenSlots": 1,
+    "status": "at-minimum",
+    "risk": "watch",
+    "assignedEmployees": [
+      "Morgan Price",
+      "Alex Rivera"
+    ],
+    "availableEmployees": [
+      "Jamie Chen",
+      "Taylor Brooks"
+    ],
+    "linkedOpenShiftId": null,
+    "notes": "Minimum met, but one additional qualified dispatcher would bring the assignment to target."
+  },
+  {
+    "id": "coverage-2026-06-15-calltaking-days",
+    "agencyId": "agency-central-dispatch",
+    "date": "2026-06-15",
+    "day": "Monday",
+    "shiftName": "Day Shift",
+    "startTime": "07:00",
+    "endTime": "15:00",
+    "assignment": "Calltaking",
+    "role": "Dispatcher",
+    "location": "Main Center",
+    "minimumRequired": 3,
+    "targetStaffing": 4,
+    "maximumStaffing": 5,
+    "assignedCount": 2,
+    "pendingLeave": 1,
+    "pendingTraining": 0,
+    "openSlots": 1,
+    "targetOpenSlots": 2,
+    "status": "below-minimum",
+    "risk": "high",
+    "assignedEmployees": [
+      "Casey Morgan",
+      "Riley Stone"
+    ],
+    "availableEmployees": [
+      "Jamie Chen",
+      "Morgan Price",
+      "Taylor Brooks"
+    ],
+    "linkedOpenShiftId": "open-shift-2026-06-15-calltaking-days",
+    "notes": "One pending leave request pushes calltaking below minimum for the day shift."
+  },
+  {
+    "id": "coverage-2026-06-16-fire-radio-evenings",
+    "agencyId": "agency-central-dispatch",
+    "date": "2026-06-16",
+    "day": "Tuesday",
+    "shiftName": "Evening Shift",
+    "startTime": "15:00",
+    "endTime": "23:00",
+    "assignment": "Fire Radio",
+    "role": "Dispatcher",
+    "location": "Main Center",
+    "minimumRequired": 1,
+    "targetStaffing": 2,
+    "maximumStaffing": 3,
+    "assignedCount": 0,
+    "pendingLeave": 0,
+    "pendingTraining": 1,
+    "openSlots": 1,
+    "targetOpenSlots": 2,
+    "status": "below-minimum",
+    "risk": "critical",
+    "assignedEmployees": [],
+    "availableEmployees": [
+      "Alex Rivera",
+      "Jordan Lee"
+    ],
+    "linkedOpenShiftId": "open-shift-2026-06-16-fire-radio-evenings",
+    "notes": "Training impact leaves fire radio uncovered unless OT or reassignment is approved."
+  },
+  {
+    "id": "coverage-2026-06-17-supervisor-nights",
+    "agencyId": "agency-central-dispatch",
+    "date": "2026-06-17",
+    "day": "Wednesday",
+    "shiftName": "Night Shift",
+    "startTime": "23:00",
+    "endTime": "07:00",
+    "assignment": "Shift Supervisor",
+    "role": "Supervisor",
+    "location": "Main Center",
+    "minimumRequired": 1,
+    "targetStaffing": 1,
+    "maximumStaffing": 2,
+    "assignedCount": 1,
+    "pendingLeave": 0,
+    "pendingTraining": 0,
+    "openSlots": 0,
+    "targetOpenSlots": 0,
+    "status": "covered",
+    "risk": "stable",
+    "assignedEmployees": [
+      "Dana Holt"
+    ],
+    "availableEmployees": [
+      "Lee Carter"
+    ],
+    "linkedOpenShiftId": null,
+    "notes": "Supervisor coverage is satisfied."
+  },
+  {
+    "id": "coverage-2026-06-18-police-radio-nights",
+    "agencyId": "agency-central-dispatch",
+    "date": "2026-06-18",
+    "day": "Thursday",
+    "shiftName": "Night Shift",
+    "startTime": "19:00",
+    "endTime": "07:00",
+    "assignment": "Police Radio",
+    "role": "Dispatcher",
+    "location": "Main Center",
+    "minimumRequired": 2,
+    "targetStaffing": 3,
+    "maximumStaffing": 4,
+    "assignedCount": 1,
+    "pendingLeave": 0,
+    "pendingTraining": 0,
+    "openSlots": 1,
+    "targetOpenSlots": 2,
+    "status": "below-minimum",
+    "risk": "high",
+    "assignedEmployees": [
+      "Jamie Chen"
+    ],
+    "availableEmployees": [
+      "Morgan Price",
+      "Alex Rivera",
+      "Taylor Brooks"
+    ],
+    "linkedOpenShiftId": "open-shift-2026-06-14-police-radio-nights",
+    "notes": "Night shift needs one qualified radio dispatcher to meet minimum."
+  },
+  {
+    "id": "coverage-2026-06-19-patrol-nights",
+    "agencyId": "agency-police-department",
+    "date": "2026-06-19",
+    "day": "Friday",
+    "shiftName": "Night Shift",
+    "startTime": "18:00",
+    "endTime": "06:00",
+    "assignment": "Patrol Beat",
+    "role": "Police Officer",
+    "location": "North Sector",
+    "minimumRequired": 3,
+    "targetStaffing": 4,
+    "maximumStaffing": 5,
+    "assignedCount": 4,
+    "pendingLeave": 0,
+    "pendingTraining": 0,
+    "openSlots": 0,
+    "targetOpenSlots": 0,
+    "status": "above-minimum",
+    "risk": "stable",
+    "assignedEmployees": [
+      "Officer Smith",
+      "Officer Davis",
+      "Officer Patel",
+      "Officer Nguyen"
+    ],
+    "availableEmployees": [
+      "Officer Reed"
+    ],
+    "linkedOpenShiftId": null,
+    "notes": "Patrol is above minimum and at target staffing."
+  }
+]

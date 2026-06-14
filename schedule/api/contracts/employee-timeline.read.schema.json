@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule Employee Timeline Preview",
+  "type": "object",
+  "required": [
+    "employee",
+    "events"
+  ],
+  "properties": {
+    "employee": {
+      "type": "object"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "filters": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "when",
+          "category",
+          "actor",
+          "title"
+        ],
+        "properties": {
+          "when": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "actor": {
+            "type": "string"
+          },
+          "actorType": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "oldValue": {
+            "type": "string"
+          },
+          "newValue": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "visibility": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "policy": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,366 @@
+{
+  "meta": {
+    "version": "v2.12.0",
+    "month": "June 2026",
+    "timezone": "America/Chicago"
+  },
+  "shortcodes": [
+    {
+      "code": "VAC",
+      "label": "Vacation",
+      "category": "leave"
+    },
+    {
+      "code": "SP",
+      "label": "Sick Personal",
+      "category": "leave"
+    },
+    {
+      "code": "SF",
+      "label": "Sick Family",
+      "category": "leave"
+    },
+    {
+      "code": "P",
+      "label": "Personal",
+      "category": "leave"
+    },
+    {
+      "code": "CT",
+      "label": "Comp Time",
+      "category": "benefit"
+    },
+    {
+      "code": "HOL",
+      "label": "Holiday",
+      "category": "benefit"
+    },
+    {
+      "code": "VOT",
+      "label": "Voluntary Overtime",
+      "category": "overtime"
+    },
+    {
+      "code": "T",
+      "label": "Training",
+      "category": "training"
+    }
+  ],
+  "employees": [
+    {
+      "id": "emp-dispatch-001",
+      "name": "Morgan Price",
+      "role": "Dispatcher"
+    },
+    {
+      "id": "emp-dispatch-002",
+      "name": "Taylor Reed",
+      "role": "Dispatcher"
+    },
+    {
+      "id": "emp-dispatch-003",
+      "name": "Jordan Smith",
+      "role": "Senior Dispatcher"
+    },
+    {
+      "id": "emp-dispatch-004",
+      "name": "Casey Brown",
+      "role": "CTO"
+    },
+    {
+      "id": "emp-dispatch-005",
+      "name": "Riley Johnson",
+      "role": "Dispatcher"
+    }
+  ],
+  "week": [
+    {
+      "date": "2026-06-09",
+      "label": "Mon 6/9",
+      "cells": [
+        {
+          "employee": "Morgan Price",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Taylor Reed",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Jordan Smith",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Casey Brown",
+          "items": [
+            "P"
+          ]
+        },
+        {
+          "employee": "Riley Johnson",
+          "items": [
+            "0700-1900"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-10",
+      "label": "Tue 6/10",
+      "cells": [
+        {
+          "employee": "Morgan Price",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Taylor Reed",
+          "items": [
+            "T"
+          ]
+        },
+        {
+          "employee": "Jordan Smith",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Casey Brown",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Riley Johnson",
+          "items": [
+            "0700-1900"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-11",
+      "label": "Wed 6/11",
+      "cells": [
+        {
+          "employee": "Morgan Price",
+          "items": [
+            "VAC"
+          ]
+        },
+        {
+          "employee": "Taylor Reed",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Jordan Smith",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Casey Brown",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Riley Johnson",
+          "items": [
+            "CT"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-12",
+      "label": "Thu 6/12",
+      "cells": [
+        {
+          "employee": "Morgan Price",
+          "items": [
+            "VAC"
+          ]
+        },
+        {
+          "employee": "Taylor Reed",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Jordan Smith",
+          "items": [
+            "SF"
+          ]
+        },
+        {
+          "employee": "Casey Brown",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Riley Johnson",
+          "items": [
+            "0700-1900"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-13",
+      "label": "Fri 6/13",
+      "cells": [
+        {
+          "employee": "Morgan Price",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Taylor Reed",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Jordan Smith",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Casey Brown",
+          "items": [
+            "T"
+          ]
+        },
+        {
+          "employee": "Riley Johnson",
+          "items": [
+            "0700-1900"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-14",
+      "label": "Sat 6/14",
+      "cells": [
+        {
+          "employee": "Morgan Price",
+          "items": [
+            "VOT"
+          ]
+        },
+        {
+          "employee": "Taylor Reed",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Jordan Smith",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Casey Brown",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Riley Johnson",
+          "items": [
+            "HOL"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-15",
+      "label": "Sun 6/15",
+      "cells": [
+        {
+          "employee": "Morgan Price",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Taylor Reed",
+          "items": [
+            "VAC"
+          ]
+        },
+        {
+          "employee": "Jordan Smith",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Casey Brown",
+          "items": [
+            "0700-1900"
+          ]
+        },
+        {
+          "employee": "Riley Johnson",
+          "items": [
+            "0700-1900"
+          ]
+        }
+      ]
+    }
+  ],
+  "dayDetail": {
+    "date": "2026-06-12",
+    "employee": "Morgan Price",
+    "coverageStatus": "Covered",
+    "minimumStaffing": 6,
+    "assigned": 6,
+    "events": [
+      {
+        "time": "0700-0800",
+        "title": "Vacation",
+        "code": "VAC",
+        "status": "Approved",
+        "detail": "Approved vacation. Request ID: VAC-2026-0612"
+      },
+      {
+        "time": "0800-1200",
+        "title": "Training",
+        "code": "T",
+        "status": "Approved",
+        "detail": "Policy & Procedure Update. Training ID: TRN-2026-0456"
+      },
+      {
+        "time": "1200-1900",
+        "title": "Voluntary Overtime",
+        "code": "VOT",
+        "status": "Accepted",
+        "detail": "Volunteer overtime assignment. Request ID: VOT-2026-0612"
+      }
+    ],
+    "summary": {
+      "regular": "0h 00m",
+      "overtime": "7h 00m",
+      "doubleOt": "0h 00m",
+      "total": "7h 00m"
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "summary": {
+    "totalChecks": 6,
+    "eligible": 2,
+    "warn": 2,
+    "blocked": 2,
+    "overrideCandidates": 3
+  },
+  "policyChecks": [
+    "Shifts, assignment spots, open OT opportunities, and trades may define optional required credentials.",
+    "Eligibility must be calculated from active Training & Certifications records before an employee fills a qualified role.",
+    "Expired, suspended, revoked, missing, or in-training credentials should warn or block based on agency policy.",
+    "Admin overrides must include a reason and write to the event/audit ledger.",
+    "The same eligibility service should be shared by Coverage, Open Shifts, Trades, Assignments, and future mandate/callback logic."
+  ],
+  "requirements": [
+    {
+      "id": "req-fire-dispatch",
+      "label": "Fire Dispatcher Shift",
+      "requiredCredential": "Fire Dispatch",
+      "appliesTo": [
+        "Coverage Board",
+        "Open Shifts",
+        "Trades",
+        "Assignments"
+      ],
+      "defaultImpact": "block if missing or expired",
+      "allowOverride": true
+    },
+    {
+      "id": "req-police-radio",
+      "label": "Police Radio Position",
+      "requiredCredential": "Police Radio",
+      "appliesTo": [
+        "Coverage Board",
+        "Open Shifts",
+        "Assignments"
+      ],
+      "defaultImpact": "block if missing",
+      "allowOverride": true
+    },
+    {
+      "id": "req-calltaking",
+      "label": "Calltaking Seat",
+      "requiredCredential": "Calltaking",
+      "appliesTo": [
+        "Coverage Board",
+        "Assignments"
+      ],
+      "defaultImpact": "warn if trainee",
+      "allowOverride": true
+    },
+    {
+      "id": "req-ncic",
+      "label": "NCIC Access Assignment",
+      "requiredCredential": "NCIC",
+      "appliesTo": [
+        "Coverage Board",
+        "Open Shifts",
+        "Trades"
+      ],
+      "defaultImpact": "block if expired",
+      "allowOverride": false
+    }
+  ],
+  "checks": [
+    {
+      "id": "elig-001",
+      "source": "Coverage Board",
+      "shift": "Fire Dispatcher 0700-1900",
+      "requiredCredential": "Fire Dispatch",
+      "employee": "Casey Martin",
+      "employeeCredentialStatus": "training",
+      "result": "warn",
+      "reason": "Credential is in training; solo staffing not released.",
+      "adminAction": "Allow only with trainer or supervisor override."
+    },
+    {
+      "id": "elig-002",
+      "source": "Open OT",
+      "shift": "Fire Dispatcher OT 1900-2300",
+      "requiredCredential": "Fire Dispatch",
+      "employee": "Morgan Price",
+      "employeeCredentialStatus": "missing",
+      "result": "blocked",
+      "reason": "Employee does not have Fire Dispatch credential.",
+      "adminAction": "Do not award unless admin override policy allows emergency exception."
+    },
+    {
+      "id": "elig-003",
+      "source": "Trades",
+      "shift": "Police Radio 1500-2300",
+      "requiredCredential": "Police Radio",
+      "employee": "Avery Chen",
+      "employeeCredentialStatus": "active",
+      "result": "eligible",
+      "reason": "Required credential is active.",
+      "adminAction": "Trade may proceed to remaining policy checks."
+    },
+    {
+      "id": "elig-004",
+      "source": "Assignments",
+      "shift": "NCIC Desk 0700-1500",
+      "requiredCredential": "NCIC",
+      "employee": "Sam Rivera",
+      "employeeCredentialStatus": "expired",
+      "result": "blocked",
+      "reason": "Required credential is expired.",
+      "adminAction": "Block assignment until renewal is recorded."
+    },
+    {
+      "id": "elig-005",
+      "source": "Coverage Board",
+      "shift": "Calltaking Seat 1100-1900",
+      "requiredCredential": "Calltaking",
+      "employee": "Jordan Wells",
+      "employeeCredentialStatus": "training",
+      "result": "warn",
+      "reason": "Employee is training and may need trainer signoff.",
+      "adminAction": "Assign with trainer if coverage policy allows."
+    },
+    {
+      "id": "elig-006",
+      "source": "Open OT",
+      "shift": "Police Radio OT 0700-1100",
+      "requiredCredential": "Police Radio",
+      "employee": "Avery Chen",
+      "employeeCredentialStatus": "active",
+      "result": "eligible",
+      "reason": "Employee has active Police Radio credential.",
+      "adminAction": "Eligible for award review."
+    }
+  ]
+}
