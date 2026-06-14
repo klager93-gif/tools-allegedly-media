@@ -1,3 +1,38 @@
+# Signal Schedule v2.24.0 Build Manifest
+
+## Release
+
+Signal Schedule v2.24.0 — Shift Trades UI
+
+## Database Migration Required
+
+Yes. Run `schedule/api/coolify/sql/030_shift_trades_ui_schema.sql`.
+
+Expected newest migration row: `030 | shift_trades_ui`.
+
+## Primary Files Changed
+
+- `schedule/trades.html`
+- `schedule/shift-trades.html`
+- `schedule/shift-trades.css`
+- `schedule/shift-trades.js`
+- `schedule/data/shift-trades-preview.json`
+- `schedule/adapters/JsonShiftTradeAdapter.js`
+- `schedule/repositories/ShiftTradeRepository.js`
+- `schedule/services/ShiftTradeService.js`
+- `schedule/api/contracts/shift-trades.read.schema.json`
+- `schedule/api/coolify/sql/030_shift_trades_ui_schema.sql`
+- `schedule/api/coolify/server.js`
+
+## Validation
+
+- JavaScript syntax checked.
+- JSON parsed.
+- HTML asset references checked.
+- ZIP integrity checked.
+
+---
+
 # Signal Schedule v2.23.0 Build Manifest
 
 ## Release

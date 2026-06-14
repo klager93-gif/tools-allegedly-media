@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.23.0
+Version: v2.24.0
 Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, assignment engine, leave banks, and OT volunteer board.
 
 This release intentionally has:
@@ -47,6 +47,7 @@ const DAILY_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/daily-board-prev
 const ASSIGNMENT_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/assignment-engine-preview.json');
 const LEAVE_BANKS_PREVIEW_PATH = resolve(__dirname, '../../data/leave-banks-preview.json');
 const OT_VOLUNTEER_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/ot-volunteer-board-preview.json');
+const SHIFT_TRADES_PREVIEW_PATH = resolve(__dirname, '../../data/shift-trades-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -58,7 +59,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.23.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.24.0', ...overrides };
 }
 
 function notFound(res) {
@@ -261,6 +262,11 @@ async function listOtVolunteerBoardFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+async function listShiftTradesFromJsonSeed() {
+  const raw = await readFile(SHIFT_TRADES_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -314,7 +320,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v2.23.0',
+          version: 'v2.24.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -585,6 +591,26 @@ const server = createServer(async (req, res) => {
     }
   }
 
+
+
+  if (req.method === 'GET' && (url.pathname === '/shift-trades' || url.pathname === '/api/shift-trades')) {
+    try {
+      const data = await listShiftTradesFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-shift-trades-ui', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { meta: {}, requests: [], workflowStages: [], rules: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'SHIFT_TRADES_READ_FAILED', message: error.message }]
+      });
+    }
+  }
 
   const employeeId = getEmployeeIdFromPath(url.pathname);
   if (employeeId && req.method === 'GET') {

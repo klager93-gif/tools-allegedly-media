@@ -1,3 +1,16 @@
+# Signal Schedule v2.24.0 File Manifest Addendum
+
+Adds Shift Trades UI files and migration 030.
+
+- schedule/trades.html
+- schedule/shift-trades.html
+- schedule/shift-trades.css
+- schedule/shift-trades.js
+- schedule/data/shift-trades-preview.json
+- schedule/api/coolify/sql/030_shift_trades_ui_schema.sql
+
+---
+
 
 ## v2.22.0 — Leave Banks Foundation
 

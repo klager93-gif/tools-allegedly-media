@@ -1,7 +1,7 @@
 {
   "meta": {
-    "version": "v2.8.0",
-    "title": "Shift Trades & Swap Requests",
+    "version": "v2.24.0",
+    "title": "Shift Trades UI",
     "status": "preview",
     "updated": "2026-06-13"
   },
@@ -31,7 +31,10 @@
         "Submitted by Morgan Price",
         "Accepted by Jordan Ellis",
         "Awaiting supervisor review"
-      ]
+      ],
+      "employeeAcceptance": "Accepted",
+      "supervisorDecision": "Pending supervisor review",
+      "assignmentEngineHook": "Creates assignment change preview"
     },
     {
       "id": "swap-002",
@@ -57,7 +60,10 @@
       "audit": [
         "Submitted by Casey Nguyen",
         "Qualification warning generated"
-      ]
+      ],
+      "employeeAcceptance": "Pending employee response",
+      "supervisorDecision": "Pending supervisor review",
+      "assignmentEngineHook": "Creates assignment change preview"
     },
     {
       "id": "trade-003",
@@ -83,7 +89,10 @@
       "audit": [
         "Draft created",
         "Coverage warning generated"
-      ]
+      ],
+      "employeeAcceptance": "Not sent",
+      "supervisorDecision": "Pending supervisor review",
+      "assignmentEngineHook": "Creates open shift if approved"
     }
   ],
   "statusCounts": {
@@ -98,5 +107,27 @@
     "Trade-created overtime requires agency rule review.",
     "Both employee acceptance and supervisor approval can be required by policy.",
     "Every approval, rejection, warning, and override must write to the audit trail."
+  ],
+  "workflowStages": [
+    {
+      "stage": "submitted",
+      "label": "Employee submits trade request",
+      "writesEnabled": false
+    },
+    {
+      "stage": "accepted",
+      "label": "Other employee accepts or declines",
+      "writesEnabled": false
+    },
+    {
+      "stage": "review",
+      "label": "Supervisor reviews coverage, eligibility, and OT impact",
+      "writesEnabled": false
+    },
+    {
+      "stage": "assignment-hook",
+      "label": "Approved trade prepares assignment engine change",
+      "writesEnabled": false
+    }
   ]
 }

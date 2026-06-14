@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/shift-trades.css
-Version: v2.19.0
-Purpose: Shift Trades & Swap Requests preview styling
+Version: v2.24.0
+Purpose: Shift Trades UI styling
 */
 .trade-shell { width:min(1180px,calc(100% - 32px)); margin:0 auto 56px; color:#e5eefb; }
 .trade-hero, .trade-panel, .trade-builder-card, .trade-list-section { border:1px solid rgba(148,163,184,.24); border-radius:24px; background:rgba(15,23,42,.72); box-shadow:0 18px 40px rgba(15,23,42,.16); }
@@ -48,3 +48,7 @@ Purpose: Shift Trades & Swap Requests preview styling
 .trade-empty { padding:18px; border:1px dashed rgba(148,163,184,.32); border-radius:18px; }
 @media (max-width:820px){ .trade-shell{width:min(100% - 20px,1180px)} .trade-grid{grid-template-columns:1fr} .trade-card__top,.trade-section-header{display:block} .trade-status{margin-top:10px} }
 @media (max-width:620px){ .trade-builder-grid{grid-template-columns:1fr} .trade-builder-card{padding:18px} }
+
+.trade-workflow { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:10px; margin:12px 0; }
+.trade-workflow span { padding:11px 12px; border-radius:14px; border:1px solid rgba(125,211,252,.24); background:rgba(14,165,233,.10); color:#dbeafe; font-weight:750; }
+.trade-workflow strong { color:#fff; }

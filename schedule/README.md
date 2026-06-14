@@ -1,3 +1,10 @@
+## v2.24.0 — Shift Trades UI
+
+- Adds Shift Trades UI for employee trade requests, proposed swap review, approval workflow status, and assignment engine connection points.
+- Updates trade preview data, read-only API contract/endpoint, service/repository/adapter cache versions, and navigation.
+- Adds Postgres migration `030_shift_trades_ui_schema.sql`.
+- Production trade writes remain disabled.
+
 # Signal Schedule v2.23.0 — OT Volunteer Board Foundation
 
 Signal Schedule v2.23.0 adds an admin-first OT Volunteer Board foundation for posted overtime opportunities, employee volunteer interest, eligibility preview, award queue review, and open shift connection points.

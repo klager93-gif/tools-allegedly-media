@@ -2,8 +2,8 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/shift-trades.js
-Version: v2.19.0
-Purpose: Shift Trades & Swap Requests preview UI
+Version: v2.24.0
+Purpose: Render Shift Trades UI preview with approval workflow and assignment engine hooks
 */
 import { loadShiftTradeBoard } from './services/ShiftTradeService.js';
 
@@ -58,6 +58,7 @@ function renderList() {
       </dl>
       <div class="trade-tags">${(item.qualificationChecks || []).map((q) => `<span>${q}</span>`).join('')}</div>
       ${(item.warnings || []).length ? `<div class="trade-warning"><strong>Warnings</strong><ul>${item.warnings.map((w) => `<li>${w}</li>`).join('')}</ul></div>` : ''}
+      <div class="trade-workflow"><span>Employee acceptance: <strong>${item.employeeAcceptance || 'Pending'}</strong></span><span>Supervisor decision: <strong>${item.supervisorDecision || 'Pending'}</strong></span><span>Assignment hook: <strong>${item.assignmentEngineHook || 'Preview only'}</strong></span></div>
       <div class="trade-recommendation"><strong>Admin recommendation:</strong> ${item.adminRecommendation}</div>
       <details><summary>Audit preview</summary><ul>${(item.audit || []).map((entry) => `<li>${entry}</li>`).join('')}</ul></details>
     </article>`).join('');
