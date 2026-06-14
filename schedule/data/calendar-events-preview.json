@@ -1,0 +1,29 @@
+[
+  {
+    "id": "evt-leave-001",
+    "date": "2026-06-15",
+    "type": "Leave Placeholder",
+    "employee": "Avery Brooks",
+    "status": "planned",
+    "impact": "removes-from-coverage",
+    "assignmentName": "Police Radio"
+  },
+  {
+    "id": "evt-open-001",
+    "date": "2026-06-13",
+    "type": "Open Shift Placeholder",
+    "employee": null,
+    "status": "open",
+    "impact": "needs-coverage",
+    "assignmentName": "Fire Radio"
+  },
+  {
+    "id": "evt-training-001",
+    "date": "2026-06-16",
+    "type": "Training Placeholder",
+    "employee": "Riley Chen",
+    "status": "planned",
+    "impact": "non-coverage",
+    "assignmentName": "Training / Admin"
+  }
+]

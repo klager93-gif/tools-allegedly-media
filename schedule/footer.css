@@ -1,0 +1,66 @@
+/*
+Signal Labs
+Area: Signal Schedule
+File: schedule/footer.css
+Version: v3.3.3
+Purpose: Schedule-specific lightweight footer styling
+*/
+.schedule-footer {
+  max-width: 1180px;
+  margin: 32px auto 24px;
+  padding: 18px 22px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 18px;
+  background: rgba(15, 23, 42, 0.78);
+  box-shadow: 0 18px 45px rgba(2, 6, 23, 0.26);
+}
+.schedule-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.schedule-footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.schedule-footer__title {
+  color: #e5e7eb;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.schedule-footer__meta {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+.schedule-footer__links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.schedule-footer__links a {
+  color: #c7d2fe;
+  font-weight: 700;
+  text-decoration: none;
+}
+.schedule-footer__links a:hover,
+.schedule-footer__links a:focus {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.schedule-footer__dot {
+  color: #64748b;
+}
+@media (max-width: 720px) {
+  .schedule-footer {
+    margin: 24px 16px;
+    padding: 16px;
+  }
+  .schedule-footer__inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

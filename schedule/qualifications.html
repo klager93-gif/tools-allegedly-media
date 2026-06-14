@@ -1,0 +1,87 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/qualifications.html
+Version: v3.3.3
+Purpose: Qualifications & Certification Engine with license numbers, notes, expiration warnings, and role-based panels
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Qualifications & Certifications</title>
+<meta name="description" content="Signal Schedule Qualifications & Certification Engine for credentials, license numbers, expiration warnings, and role qualification requirements.">
+<link rel="stylesheet" href="app-shell.css?v=3.3.3">
+<link rel="stylesheet" href="qualifications.css?v=3.3.3">
+</head>
+<body data-signal-global-layout="true" data-signal-area="Signal Schedule" data-signal-title="Qualifications & Certifications" data-signal-version="v3.3.3" data-signal-theme="Qualifications & Certification Engine" data-signal-status="Preview" data-signal-description="Track credentials, license numbers, notes, and expiration warnings for assignment eligibility." data-signal-status-text="Signal Schedule v3.3.3 consolidates visible versioning, approval routing copy, and asset cache-busting.">
+<div id="sl-header"></div>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Role-based panels</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="schedule.html">Calendar</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="permissions.html">Permissions</a><a href="approvals.html">Approvals</a><a href="notifications.html">Notifications</a><a href="assignments.html">Assignments</a><a href="assignment-generator.html">Assignment Generator</a><a href="conflict-detection.html">Conflict Detection</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="daily-board.html">Daily Board</a><a href="weekly-board.html">Weekly View</a><a href="seniority.html">Seniority & Rotation</a><a href="mandation.html">Mandation</a><a href="shift-trades.html">Shift Trades</a><a href="training.html">Training & Certs</a><a href="qualifications.html" aria-current="page">Qualifications</a><a href="eligibility.html">Eligibility</a><a href="benefits.html">Benefit Ledger</a><a href="leave-banks.html">Leave Banks</a><a href="ot-volunteer-board.html">OT Volunteer Board</a><a href="shortcodes.html">Shortcodes</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a></div></nav>
+<main class="qual-shell" data-qual-shell data-active-role="supervisor">
+  <section class="qual-hero" aria-labelledby="pageTitle">
+    <p class="schedule-kicker">Signal Schedule</p>
+    <h1 id="pageTitle">Qualifications & Certification Engine</h1>
+    <p>Track employee credentials, license numbers, certificate numbers, issuing authorities, expiration warnings, and role qualification requirements before assignments are generated or published.</p>
+  </section>
+
+  <section class="qual-grid" aria-label="Qualification overview">
+    <aside class="qual-panel">
+      <h2>Credential Snapshot</h2>
+      <p>Preview-only credential tracking. Future publish workflows should connect these records to assignment generation, conflict detection, mandation, and notifications.</p>
+      <div class="qual-summary" data-qual-summary><div class="qual-stat"><strong>—</strong><span>Loading preview</span></div></div>
+      <div class="qual-view-toggle" aria-label="Role preview">
+        <button type="button" data-qual-role="employee" aria-pressed="false">Employee</button>
+        <button type="button" data-qual-role="supervisor" aria-pressed="true">Supervisor</button>
+        <button type="button" data-qual-role="admin" aria-pressed="false">Admin</button>
+      </div>
+      <p class="qual-status-line" data-qual-status>Loading Qualifications preview data…</p>
+    </aside>
+
+    <section class="qual-card">
+      <h2>Agency Policy</h2>
+      <div class="qual-policy" data-qual-policy></div>
+    </section>
+  </section>
+
+  <section class="qual-card">
+    <div class="qual-section-header"><div><h2>Employee Credentials</h2><p>License numbers and notes obey role visibility. Admin can require license numbers per qualification type.</p></div><span data-qual-count>—</span></div>
+    <div class="qual-records" data-qual-records></div>
+  </section>
+
+  <section class="qual-card supervisor-admin-only">
+    <div class="qual-section-header"><div><h2>Expiration Warnings</h2><p>Agency-configured warning windows for expiring and expired credentials.</p></div></div>
+    <div class="qual-warning-list" data-qual-warnings></div>
+  </section>
+
+  <section class="qual-card supervisor-admin-only">
+    <div class="qual-section-header"><div><h2>Role Requirements</h2><p>How required credentials will affect assignment generation and conflict detection.</p></div></div>
+    <div class="qual-requirements" data-qual-requirements></div>
+  </section>
+
+  <section class="qual-card admin-only">
+    <div class="qual-section-header"><div><h2>Qualification Definitions</h2><p>Admin policy controls for license-number requirements, expiration behavior, and notes.</p></div></div>
+    <div class="qual-types" data-qual-types></div>
+  </section>
+
+  <section class="qual-card">
+    <div class="qual-section-header"><div><h2>Role-Based Visibility</h2><p>Same page, different detail level.</p></div><span data-current-role>Supervisor</span></div>
+    <div class="qual-role-panels" data-qual-role-panels></div>
+  </section>
+
+  <section class="qual-card supervisor-admin-only">
+    <div class="qual-section-header"><div><h2>Integration Checks</h2><p>Where credential data connects next.</p></div></div>
+    <div class="qual-integrations" data-qual-integrations></div>
+  </section>
+
+  <section class="qual-card admin-only">
+    <div class="qual-section-header"><div><h2>Rules</h2><p>Configuration and audit guardrails.</p></div></div>
+    <ul class="qual-rules" data-qual-rules></ul>
+  </section>
+</main>
+<div id="schedule-footer"></div>
+<div id="sl-footer"></div>
+<script src="app-shell.js?v=3.3.3"></script>
+<script type="module" src="qualifications.js?v=3.3.3"></script>
+</body>
+</html>
