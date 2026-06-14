@@ -38,3 +38,8 @@ Signal Schedule currently includes employees, agencies, requests, coverage board
 ## Next Planned Release
 
 v2.24.0 — Shift Trade UI / workflow connection.
+
+
+## v2.25.0 — Mandation Engine Foundation
+
+Adds policy-driven mandate rotation, shortage-window eligibility, employee and supervisor/admin mandate views, agency-set mandate hour caps, max consecutive hour rules, and override audit preview.

@@ -39,3 +39,8 @@ Schedule v2.24.0 — Shift Trade UI / workflow connection
 - v2.25.0 Mandation Engine Foundation
 - v2.26.0 Notification/approval integration pass
 - v2.30.0 Usable alpha milestone
+
+
+## v2.25.0 — Mandation Engine Foundation
+
+Completed first major alpha milestone foundation for mandation rules, rotation lists, policy caps, shortage-window eligibility, and override audit preview. Next: seniority engine, assignment generator, conflict detection, and qualification expiration.

@@ -33,3 +33,8 @@ Schedule v2.22.0 — Leave Banks Foundation
 - v2.21.0 Assignment Engine Integration
 - v2.20.0 Daily Schedule Board Foundation
 - v2.19.0 Coverage Spots Foundation
+
+
+## v2.25.0 — Mandation Engine Foundation
+
+Completed first major alpha milestone foundation for mandation rules, rotation lists, policy caps, shortage-window eligibility, and override audit preview. Next: seniority engine, assignment generator, conflict detection, and qualification expiration.

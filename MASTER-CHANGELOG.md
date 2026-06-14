@@ -2,6 +2,15 @@
 
 Normalizes Schedule navigation/footer drift and cleans the full-replace package. No database migration required.
 
+## v2.25.0 — Mandation Engine Foundation
+
+- Added Mandation Engine Foundation with agency-configurable policy profile preview.
+- Added employee-facing mandate rotation list and supervisor/admin detail view.
+- Added shortage-window eligibility examples for holdover, early-in, short-day, and day-off mandates.
+- Added max day-off mandate hours, max connected mandate hours, max consecutive work hours, and minimum rest policy fields.
+- Added supervisor/admin override preview with required reason and audit notes.
+- Added read-only Mandation Engine API contract, service/repository/adapter, preview data, page assets, and Postgres migration 031.
+
 ## v2.24.0 — Shift Trades UI
 
 - Adds Shift Trades UI for employee trade requests, proposed swap review, approval workflow status, and assignment engine connection points.
