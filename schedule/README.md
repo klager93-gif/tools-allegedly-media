@@ -1,40 +1,14 @@
-## Schedule v2.17.0 — Release File Cleanup & Latest Release
-
-Current cleanup release. Persistent per-version release files have been replaced by `schedule/LATEST_RELEASE.md`. Database target remains `022 roles_permissions`; no new SQL migration is required.
-
-## Schedule v2.17.0 — Roles & Permissions Engine
-
-Adds role templates, permission matrix, field-level access controls, scope-aware permissions, and approval authority previews. New SQL migration: `022_roles_permissions_schema.sql`.
-
-## Schedule v2.17.0 — Supervisors & Organizational Hierarchy
-
-- Added supervisor hierarchy preview.
-- Added hybrid supervisor scope by employee, group, position, department, division, and location.
-- Added SQL migration 021 supervisor hierarchy.
-
-# Schedule v2.17.0 — Employee Timeline & Audit Trail
-
-Current Schedule release adds employee profile self-service controls and overview live-feature cleanup.
-
-Database migration required after upload: `019_employee_profile_self_service_schema.sql`.
-
-
-## Schedule v2.12.0 — Calendar Views + Schedule Footer
-
-- Added week and day calendar views using admin-defined calendar shortcodes.
-- Added lightweight Schedule-specific footer across /schedule/ pages.
-- Added Calendar View adapter, repository, service, API contract, data, and SQL foundation.
-- Fixed overview page version drift.
-
 # Signal Schedule
 
-Current Version: v2.17.0
+Current Version: v2.17.1
 
-Signal Schedule is an admin-first staffing and scheduling platform foundation. v2.8.0 adds the Training & Certifications foundation for qualification-aware staffing, expiration warnings, and assignment restrictions.
+## Current Release — Schedule v2.17.1 — Asset Drift & Load Cleanup
 
-**Current Version: v2.17.0
+Schedule v2.17.1 is a maintenance release focused on asset drift and load cleanup after the Request Approval Workflow release. It updates Schedule page asset versions, removes duplicate root component loads, and keeps the database at migration 023.
 
-Signal Schedule is a staffing and schedule-planning tool being built for dispatch, police, fire, corrections, nursing, and similar shift-based operations.
+## Database Status
+
+Current migration target: 023 request_approval_workflow. No new SQL migration is required for v2.17.1.
 
 ## Pages
 

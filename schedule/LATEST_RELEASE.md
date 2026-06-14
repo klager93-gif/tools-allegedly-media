@@ -2,23 +2,27 @@
 
 ## Current Version
 
-Schedule v2.17.0 — Request Approval Workflow
+Schedule v2.17.1 — Asset Drift & Load Cleanup
 
 ## Previous Version
 
-Schedule v2.16.1 — Release File Cleanup & Latest Release
+Schedule v2.17.0 — Request Approval Workflow
 
 ## Highlights
 
-- Added Request Approval Workflow page.
-- Added approval queues for leave, trades, open shifts/VOT, profile changes, training requests, and benefit adjustments.
-- Added approval chain preview using supervisor hierarchy and roles/permissions foundations.
-- Added approval decision/audit foundation.
-- Added JSON data, adapter, repository, service, API contract, and Postgres SQL migration.
+- Normalized Schedule asset cache versions to v2.17.1.
+- Removed duplicate root header/footer component loads from Schedule pages.
+- Standardized Schedule footer loading across pages.
+- Updated stale page script and stylesheet references.
+- Performed a drift and performance-oriented load cleanup before Notification Foundation.
 
 ## Database Version
 
 023 request_approval_workflow
+
+## Database Action
+
+No new migration required.
 
 ## Next Planned Release
 

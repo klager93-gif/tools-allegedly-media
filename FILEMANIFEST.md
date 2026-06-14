@@ -1,7 +1,7 @@
 # File Manifest
 
-- `.gitattributes`
-- `.gitignore`
+Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
+
 - `ADMIN_CHANGELOG.md`
 - `BUILDMANIFEST.md`
 - `FILEMANIFEST.md`

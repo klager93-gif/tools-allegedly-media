@@ -1,3 +1,8 @@
+## Schedule v2.17.1 — Asset Drift & Load Cleanup
+
+- Maintenance cleanup for Schedule asset loading, cache version drift, and duplicate component script references.
+- No database migration required; Schedule database remains at 023.
+
 ## Schedule v2.17.0 — Release File Cleanup & Latest Release
 
 - Cleaned accumulated Schedule release note files.

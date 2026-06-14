@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/ShiftTradeRepository.js
-Version: v2.16.1
+Version: v2.17.1
 Purpose: Repository layer for Shift Trades & Swap Requests
 */
 import { readShiftTrades } from '../adapters/JsonShiftTradeAdapter.js';

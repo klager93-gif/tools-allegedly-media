@@ -1,3 +1,11 @@
+## Schedule v2.17.1 — Asset Drift & Load Cleanup
+
+- Normalized Schedule asset cache-busting query strings to v2.17.1.
+- Removed duplicate root header/footer component script loads from Schedule pages.
+- Updated stale coverage, leave, open shifts, eligibility, trades, training, seniority, and overview asset references.
+- Standardized Schedule footer loading order and version metadata.
+- No database migration required; database remains at 023 request_approval_workflow.
+
 ## Schedule v2.17.0 — Release File Cleanup & Latest Release
 
 - Removed persistent per-version `RELEASE-v*.md` files from `/schedule/`.

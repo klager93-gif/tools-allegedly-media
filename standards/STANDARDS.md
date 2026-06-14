@@ -100,3 +100,7 @@ Schedule database migrations must be tracked in `schema_migrations`. Migration n
 ## Release File Standard — No Persistent Per-Version Release Files
 
 Do not accumulate `RELEASE-vX.X.X*.md` files in the repository. Historical release details belong in changelogs and GitHub release/commit history. The repository should keep one current release summary at `schedule/LATEST_RELEASE.md`, overwritten each release.
+
+## Release File Standard
+
+Persistent per-version `RELEASE-v*.md` files should not accumulate in the repository. Use `schedule/LATEST_RELEASE.md` for the current Schedule release summary and keep historical release details in changelogs and GitHub releases.

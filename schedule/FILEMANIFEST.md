@@ -1,5 +1,7 @@
 # Schedule File Manifest
 
+Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
+
 - `BUILDMANIFEST.md`
 - `CALENDAR-FOUNDATION.md`
 - `CHANGELOG.md`

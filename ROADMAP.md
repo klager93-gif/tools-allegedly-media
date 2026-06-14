@@ -1,3 +1,7 @@
+# Roadmap Update
+
+Current Schedule release: Schedule v2.17.1 — Asset Drift & Load Cleanup. Next: Schedule v2.18.0 — Notification Foundation.
+
 ## Current
 
 - Schedule v2.14.0 — Employee Timeline & Audit Trail is complete.

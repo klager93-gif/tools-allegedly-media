@@ -1,3 +1,7 @@
+# Schedule v2.17.1 — Asset Drift & Load Cleanup
+
+Current Schedule maintenance release. No database migration required.
+
 ## Schedule v2.17.0 — Release File Cleanup & Latest Release
 
 Current cleanup release. Persistent per-version release files have been replaced by `schedule/LATEST_RELEASE.md`. Database target remains `022 roles_permissions`; no new SQL migration is required.
