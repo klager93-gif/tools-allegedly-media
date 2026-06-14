@@ -1,3 +1,8 @@
+## Signal Schedule v2.20.0 — Daily Schedule Board Foundation
+
+- Added a read-only Daily Schedule Board preview showing staffing by date, agency, shift, role, and numbered coverage spot.
+- Database migration required: `026_daily_schedule_board_foundation_schema.sql`.
+
 ## Schedule v2.17.1 — Asset Drift & Load Cleanup
 
 - Maintenance cleanup for Schedule asset loading, cache version drift, and duplicate component script references.

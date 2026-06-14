@@ -1,3 +1,8 @@
+## Signal Schedule Current — v2.20.0 Daily Schedule Board Foundation
+
+- Daily board preview now groups coverage spots into visible staffing rows by date, agency, shift, and role.
+- Next target: leave-bank balance application and approval impact preview.
+
 ## Current Schedule Focus
 
 Schedule v2.18.0 — Notification Foundation completed. Next recommended Schedule release: v2.19.0 Coverage Spots / Daily Staffing Board Foundation.

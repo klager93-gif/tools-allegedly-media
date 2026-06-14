@@ -1,3 +1,7 @@
+## Signal Schedule v2.20.0 — Daily Schedule Board Foundation
+
+- Added Daily Schedule Board preview, daily board seed data, read-only API route, contract, service/repository/adapter layers, and Postgres migration 026.
+
 ## Signal Schedule v2.19.0 — Coverage Spots Foundation
 
 - Added numbered coverage spot preview, open/filled/under-minimum status, assignment-ready seed records, read-only API contract/endpoint, and Postgres migration 025.

@@ -1,14 +1,14 @@
 # Build Manifest
 
-Release: Schedule v2.17.1 — Asset Drift & Load Cleanup
-Package: signal-schedule-v2.17.1-asset-drift-load-cleanup.zip
+Release: Schedule v2.20.0 — Daily Schedule Board Foundation
+Package: signal-schedule-v2.20.0-daily-schedule-board-foundation.zip
 Scope: Full-root replacement
-Database: No new migration; remains at 023 request_approval_workflow
+Database: Migration required; apply 026_daily_schedule_board_foundation_schema.sql
 
 ## Summary
 
-- Normalized Schedule asset cache-busting query strings to v2.17.1.
-- Removed duplicate root header/footer component loads from Schedule pages.
-- Standardized Schedule footer loading order.
-- Updated stale page asset references and Schedule metadata.
-- Preserved all valid files for full-root replacement.
+- Added Daily Schedule Board preview grouped by date, agency, shift, role, and numbered coverage spot.
+- Added open/filled/under-minimum/over-maximum board calculations.
+- Added read-only API contract/endpoint and JSON seed data.
+- Added service, repository, and adapter layers for the Daily Board foundation.
+- Updated Schedule navigation and documentation.

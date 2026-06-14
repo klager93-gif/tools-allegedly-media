@@ -1,6 +1,6 @@
 # Schedule File Manifest
 
-Generated for Schedule v2.19.0 — Notification Foundation.
+Generated for Schedule v2.20.0 — Daily Schedule Board Foundation.
 
 ## Files
 
@@ -17,11 +17,14 @@ Generated for Schedule v2.19.0 — Notification Foundation.
 - `README.md`
 - `REQUEST-HOURS-FOUNDATION.md`
 - `ROADMAP.md`
+- `SHA256SUMS.txt`
 - `adapters/JsonBenefitLedgerAdapter.js`
 - `adapters/JsonCalendarAdapter.js`
 - `adapters/JsonCalendarShortcodeAdapter.js`
 - `adapters/JsonCalendarViewAdapter.js`
 - `adapters/JsonCoverageBoardAdapter.js`
+- `adapters/JsonCoverageSpotsAdapter.js`
+- `adapters/JsonDailyBoardAdapter.js`
 - `adapters/JsonEmployeeProfileAdapter.js`
 - `adapters/JsonEmployeeTimelineAdapter.js`
 - `adapters/JsonLeaveRequestsAdapter.js`
@@ -40,6 +43,8 @@ Generated for Schedule v2.19.0 — Notification Foundation.
 - `api/contracts/calendar-view.read.schema.json`
 - `api/contracts/calendar.read.schema.json`
 - `api/contracts/coverage-board.read.schema.json`
+- `api/contracts/coverage-spots.read.schema.json`
+- `api/contracts/daily-board.read.schema.json`
 - `api/contracts/employee-profile.read.schema.json`
 - `api/contracts/employee-timeline.read.schema.json`
 - `api/contracts/leave-requests.read.schema.json`
@@ -78,6 +83,8 @@ Generated for Schedule v2.19.0 — Notification Foundation.
 - `api/coolify/sql/022_roles_permissions_schema.sql`
 - `api/coolify/sql/023_request_approval_workflow_schema.sql`
 - `api/coolify/sql/024_notification_foundation_schema.sql`
+- `api/coolify/sql/025_coverage_spots_foundation_schema.sql`
+- `api/coolify/sql/026_daily_schedule_board_foundation_schema.sql`
 - `approvals.css`
 - `approvals.html`
 - `approvals.js`
@@ -88,7 +95,13 @@ Generated for Schedule v2.19.0 — Notification Foundation.
 - `components/footer.js`
 - `coverage-board.css`
 - `coverage-board.js`
+- `coverage-spots.css`
+- `coverage-spots.html`
+- `coverage-spots.js`
 - `coverage.html`
+- `daily-board.css`
+- `daily-board.html`
+- `daily-board.js`
 - `data/agencies.json`
 - `data/assignment-templates.json`
 - `data/benefit-ledger-preview.json`
@@ -97,6 +110,8 @@ Generated for Schedule v2.19.0 — Notification Foundation.
 - `data/calendar-shortcodes-preview.json`
 - `data/calendar-view-preview.json`
 - `data/coverage-board-preview.json`
+- `data/coverage-spots-preview.json`
+- `data/daily-board-preview.json`
 - `data/employee-assignments.json`
 - `data/employee-profile-preview.json`
 - `data/employee-timeline-preview.json`
@@ -144,6 +159,8 @@ Generated for Schedule v2.19.0 — Notification Foundation.
 - `repositories/CalendarShortcodeRepository.js`
 - `repositories/CalendarViewRepository.js`
 - `repositories/CoverageBoardRepository.js`
+- `repositories/CoverageSpotsRepository.js`
+- `repositories/DailyBoardRepository.js`
 - `repositories/EmployeeProfileRepository.js`
 - `repositories/EmployeeTimelineRepository.js`
 - `repositories/LeaveRequestRepository.js`
@@ -170,6 +187,8 @@ Generated for Schedule v2.19.0 — Notification Foundation.
 - `services/CalendarShortcodeService.js`
 - `services/CalendarViewService.js`
 - `services/CoverageBoardService.js`
+- `services/CoverageSpotsService.js`
+- `services/DailyBoardService.js`
 - `services/EmployeeProfileService.js`
 - `services/EmployeeTimelineService.js`
 - `services/LeaveRequestService.js`
@@ -202,16 +221,3 @@ Generated for Schedule v2.19.0 — Notification Foundation.
 - `training.css`
 - `training.html`
 - `training.js`
-
-
-## v2.19.0 Coverage Spots Foundation
-
-- `coverage-spots.html`
-- `coverage-spots.css`
-- `coverage-spots.js`
-- `data/coverage-spots-preview.json`
-- `adapters/JsonCoverageSpotsAdapter.js`
-- `repositories/CoverageSpotsRepository.js`
-- `services/CoverageSpotsService.js`
-- `api/contracts/coverage-spots.read.schema.json`
-- `api/coolify/sql/025_coverage_spots_foundation_schema.sql`

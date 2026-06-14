@@ -2,25 +2,25 @@
 
 ## Current
 
-Schedule v2.19.0 — Coverage Spots Foundation
+Schedule v2.20.0 — Daily Schedule Board Foundation
 
-- Numbered staffing spots by date, shift, role, and spot code.
-- Open/filled/under-minimum coverage visibility.
-- Assignment-ready records for future daily board, VOT, trades, callbacks, and mandates.
-- Read-only preview API and Postgres schema migration 025.
+- Daily board grouped by date, agency, shift, role, and numbered coverage spot.
+- Open, filled, under-minimum, and over-maximum staffing visibility.
+- Assignment source labels from pattern, overtime, trade, override, leave, open shift, callback, or mandate.
+- Read-only preview API and Postgres schema migration 026.
 
 ## Next
 
-Schedule v2.20.0 — Daily Schedule Board Foundation
+Schedule v2.21.0 — Leave Banks / Balance Application
 
-- Daily view grouped by agency, shift, and role.
-- Open coverage visible directly on the board.
-- Assignment source labels from pattern, OT, trade, override, training, callback, or mandate.
-- No drag/drop writes until authentication and protected write policies are ready.
+- Start tying approved leave requests to available leave balances.
+- Preview accrual, deduction, correction, and carryover rows.
+- Show balance impact before approval.
+- Keep live writes protected until authentication and admin approval policy are ready.
 
 ## Completed
 
-- v2.19.0 — Notification Foundation
+- v2.19.0 — Coverage Spots Foundation
 - v2.17.1 — Asset Drift & Load Cleanup
 - v2.17.0 — Request Approval Workflow / Roles / Hierarchy foundations
 - v2.16.0 — Roles & Permissions Foundation

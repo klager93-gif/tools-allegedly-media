@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.19.0
-Purpose: Coolify API with employee CRUD and read-only foundations including notifications and coverage spots.
+Version: v2.20.0
+Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, and daily board.
 
 This release intentionally has:
 - no committed credentials
@@ -43,6 +43,7 @@ const VOT_REQUESTS_PREVIEW_PATH = resolve(__dirname, '../../data/vot-requests-pr
 const REQUEST_REASONS_PATH = resolve(__dirname, '../../data/request-reasons.json');
 const NOTIFICATIONS_PREVIEW_PATH = resolve(__dirname, '../../data/notifications-preview.json');
 const COVERAGE_SPOTS_PREVIEW_PATH = resolve(__dirname, '../../data/coverage-spots-preview.json');
+const DAILY_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/daily-board-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -54,7 +55,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.19.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.20.0', ...overrides };
 }
 
 function notFound(res) {
@@ -237,6 +238,11 @@ async function listCoverageSpotsFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+async function listDailyBoardFromJsonSeed() {
+  const raw = await readFile(DAILY_BOARD_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -290,7 +296,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v2.19.0',
+          version: 'v2.20.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -479,6 +485,25 @@ const server = createServer(async (req, res) => {
         data: { summary: {}, days: [], rules: [] },
         meta: apiMeta(),
         errors: [{ code: 'COVERAGE_SPOTS_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+  if (req.method === 'GET' && (url.pathname === '/daily-board' || url.pathname === '/api/daily-board')) {
+    try {
+      const data = await listDailyBoardFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-daily-board-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { summary: {}, filters: {}, days: [], rules: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'DAILY_BOARD_READ_FAILED', message: error.message }]
       });
     }
   }

@@ -83,3 +83,8 @@ Adds optional shift credential requirements and eligibility checks powered by Tr
 ## Schedule v2.11.0 — Calendar Shortcode Admin Controls
 
 Adds admin-managed compact calendar codes and database migration tracking guidance. After uploading v2.11.0, run migrations 004 through 017 in order.
+
+
+## Signal Schedule v2.20.0
+
+Daily Schedule Board Foundation adds a read-only staffing board preview and Postgres migration 026.

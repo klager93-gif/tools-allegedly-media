@@ -1,6 +1,6 @@
 # File Manifest
 
-Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
+Generated for Schedule v2.20.0 — Daily Schedule Board Foundation.
 
 - `ADMIN_CHANGELOG.md`
 - `BUILDMANIFEST.md`
@@ -79,15 +79,19 @@ Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
 - `schedule/README.md`
 - `schedule/REQUEST-HOURS-FOUNDATION.md`
 - `schedule/ROADMAP.md`
+- `schedule/SHA256SUMS.txt`
 - `schedule/adapters/JsonBenefitLedgerAdapter.js`
 - `schedule/adapters/JsonCalendarAdapter.js`
 - `schedule/adapters/JsonCalendarShortcodeAdapter.js`
 - `schedule/adapters/JsonCalendarViewAdapter.js`
 - `schedule/adapters/JsonCoverageBoardAdapter.js`
+- `schedule/adapters/JsonCoverageSpotsAdapter.js`
+- `schedule/adapters/JsonDailyBoardAdapter.js`
 - `schedule/adapters/JsonEmployeeProfileAdapter.js`
 - `schedule/adapters/JsonEmployeeTimelineAdapter.js`
 - `schedule/adapters/JsonLeaveRequestsAdapter.js`
 - `schedule/adapters/JsonMinimumStaffingAdapter.js`
+- `schedule/adapters/JsonNotificationAdapter.js`
 - `schedule/adapters/JsonOpenShiftAdapter.js`
 - `schedule/adapters/JsonRequestApprovalWorkflowAdapter.js`
 - `schedule/adapters/JsonRolesPermissionsAdapter.js`
@@ -101,10 +105,13 @@ Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
 - `schedule/api/contracts/calendar-view.read.schema.json`
 - `schedule/api/contracts/calendar.read.schema.json`
 - `schedule/api/contracts/coverage-board.read.schema.json`
+- `schedule/api/contracts/coverage-spots.read.schema.json`
+- `schedule/api/contracts/daily-board.read.schema.json`
 - `schedule/api/contracts/employee-profile.read.schema.json`
 - `schedule/api/contracts/employee-timeline.read.schema.json`
 - `schedule/api/contracts/leave-requests.read.schema.json`
 - `schedule/api/contracts/minimum-staffing.read.schema.json`
+- `schedule/api/contracts/notifications.read.schema.json`
 - `schedule/api/contracts/open-shifts.read.schema.json`
 - `schedule/api/contracts/request-approval-workflow.read.schema.json`
 - `schedule/api/contracts/request-hours.read.schema.json`
@@ -137,6 +144,9 @@ Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
 - `schedule/api/coolify/sql/021_supervisor_hierarchy_schema.sql`
 - `schedule/api/coolify/sql/022_roles_permissions_schema.sql`
 - `schedule/api/coolify/sql/023_request_approval_workflow_schema.sql`
+- `schedule/api/coolify/sql/024_notification_foundation_schema.sql`
+- `schedule/api/coolify/sql/025_coverage_spots_foundation_schema.sql`
+- `schedule/api/coolify/sql/026_daily_schedule_board_foundation_schema.sql`
 - `schedule/approvals.css`
 - `schedule/approvals.html`
 - `schedule/approvals.js`
@@ -147,7 +157,13 @@ Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
 - `schedule/components/footer.js`
 - `schedule/coverage-board.css`
 - `schedule/coverage-board.js`
+- `schedule/coverage-spots.css`
+- `schedule/coverage-spots.html`
+- `schedule/coverage-spots.js`
 - `schedule/coverage.html`
+- `schedule/daily-board.css`
+- `schedule/daily-board.html`
+- `schedule/daily-board.js`
 - `schedule/data/agencies.json`
 - `schedule/data/assignment-templates.json`
 - `schedule/data/benefit-ledger-preview.json`
@@ -156,6 +172,8 @@ Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
 - `schedule/data/calendar-shortcodes-preview.json`
 - `schedule/data/calendar-view-preview.json`
 - `schedule/data/coverage-board-preview.json`
+- `schedule/data/coverage-spots-preview.json`
+- `schedule/data/daily-board-preview.json`
 - `schedule/data/employee-assignments.json`
 - `schedule/data/employee-profile-preview.json`
 - `schedule/data/employee-timeline-preview.json`
@@ -164,6 +182,7 @@ Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
 - `schedule/data/leave-requests-preview.json`
 - `schedule/data/minimum-staffing-preview.json`
 - `schedule/data/minimum-staffing-templates.json`
+- `schedule/data/notifications-preview.json`
 - `schedule/data/open-shifts-preview.json`
 - `schedule/data/request-approval-workflow-preview.json`
 - `schedule/data/request-increment-settings.json`
@@ -184,6 +203,9 @@ Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
 - `schedule/leave-requests.css`
 - `schedule/leave-requests.js`
 - `schedule/leave.html`
+- `schedule/notifications.css`
+- `schedule/notifications.html`
+- `schedule/notifications.js`
 - `schedule/open-shifts.css`
 - `schedule/open-shifts.html`
 - `schedule/open-shifts.js`
@@ -199,10 +221,13 @@ Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
 - `schedule/repositories/CalendarShortcodeRepository.js`
 - `schedule/repositories/CalendarViewRepository.js`
 - `schedule/repositories/CoverageBoardRepository.js`
+- `schedule/repositories/CoverageSpotsRepository.js`
+- `schedule/repositories/DailyBoardRepository.js`
 - `schedule/repositories/EmployeeProfileRepository.js`
 - `schedule/repositories/EmployeeTimelineRepository.js`
 - `schedule/repositories/LeaveRequestRepository.js`
 - `schedule/repositories/MinimumStaffingRepository.js`
+- `schedule/repositories/NotificationRepository.js`
 - `schedule/repositories/OpenShiftRepository.js`
 - `schedule/repositories/RequestApprovalWorkflowRepository.js`
 - `schedule/repositories/RolesPermissionsRepository.js`
@@ -224,10 +249,13 @@ Generated for Schedule v2.17.1 — Asset Drift & Load Cleanup.
 - `schedule/services/CalendarShortcodeService.js`
 - `schedule/services/CalendarViewService.js`
 - `schedule/services/CoverageBoardService.js`
+- `schedule/services/CoverageSpotsService.js`
+- `schedule/services/DailyBoardService.js`
 - `schedule/services/EmployeeProfileService.js`
 - `schedule/services/EmployeeTimelineService.js`
 - `schedule/services/LeaveRequestService.js`
 - `schedule/services/MinimumStaffingService.js`
+- `schedule/services/NotificationService.js`
 - `schedule/services/OpenShiftService.js`
 - `schedule/services/RequestApprovalWorkflowService.js`
 - `schedule/services/RequestHoursService.js`

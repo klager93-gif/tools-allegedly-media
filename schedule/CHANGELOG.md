@@ -1,3 +1,11 @@
+## Schedule v2.20.0 — Daily Schedule Board Foundation
+
+- Added Daily Schedule Board preview page grouped by date, agency, shift, role, and numbered coverage spot.
+- Added open/filled/under-minimum/over-maximum calculations so supervisors can see staffing status for a day.
+- Added `daily-board-preview.json`, adapter, repository, service, contract, and read-only Coolify API endpoint.
+- Added migration `026_daily_schedule_board_foundation_schema.sql` for daily board snapshots and board rows.
+- Added Daily Board navigation across Schedule pages and updated Schedule asset cache-busting to v2.20.0.
+
 ## Schedule v2.19.0 — Coverage Spots Foundation
 
 - Added Coverage Spots Foundation preview page for numbered staffing spots by date, shift, role, and spot code.
