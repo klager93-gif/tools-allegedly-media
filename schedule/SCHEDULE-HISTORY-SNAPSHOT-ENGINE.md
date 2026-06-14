@@ -1,6 +1,6 @@
-# Schedule History & Snapshot Engine — v4.8.1
+# Schedule History & Snapshot Engine — v5.0.0
 
-Signal Schedule v4.8.1 corrects the product model before revision history grows deeper.
+Signal Schedule v5.0.0 corrects the product model before revision history grows deeper.
 
 ## Core principle
 

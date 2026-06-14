@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/AssignmentGeneratorRepository.js
-Version: v4.8.1
+Version: v5.0.0
 Purpose: Repository boundary for Assignment Generator preview data.
 */
 export class AssignmentGeneratorRepository {

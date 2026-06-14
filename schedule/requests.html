@@ -1,0 +1,53 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/requests.html
+Version: v5.0.0
+Purpose: Request & Approval Engine foundation hub
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request & Approval Engine — Signal Schedule</title>
+<link rel="stylesheet" href="app-shell.css?v=5.0.0">
+<link rel="stylesheet" href="pages/requests/request-engine.css?v=5.0.0">
+</head>
+<body data-signal-global-layout="true" data-signal-area="Signal Schedule" data-signal-title="Request & Approval Engine" data-signal-version="v5.0.0" data-signal-theme="Request & Approval Engine" data-signal-status="Foundation" data-signal-description="Unified request intake, approval routing, policy checks, schedule impacts, and audit trail foundation.">
+<div id="sl-header"></div>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Admin = Employee + More</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="requests.html" aria-current="page">Requests</a></div></nav>
+<main class="request-engine-shell">
+  <section class="request-engine-hero">
+    <div>
+      <p class="request-kicker">Signal Schedule v5.0</p>
+      <h1>Request & Approval Engine</h1>
+      <p>Central foundation for time off, trades, voluntary overtime, training, comp, and profile/data-change requests. Requests are treated as operational events that can affect coverage, schedule history, leave banks, notifications, and audit trails.</p>
+      <div class="request-actions"><button type="button" data-copy="/api/request-approval-engine">Copy API Endpoint</button><button type="button" data-copy="046_request_approval_engine_schema.sql">Copy Migration Filename</button></div>
+    </div>
+    <div class="request-engine-stats" data-request-stats></div>
+  </section>
+  <section class="request-engine-card">
+    <h2>Approval Queues</h2>
+    <p>Each request type can have its own route, authority level, policy checks, and schedule impact review.</p>
+    <div class="request-grid" data-request-queues></div>
+  </section>
+  <section class="request-engine-card">
+    <h2>Pending Requests</h2>
+    <div class="request-list" data-request-list></div>
+  </section>
+  <section class="request-engine-card">
+    <h2>Workflow</h2>
+    <div class="request-steps" data-request-workflow></div>
+  </section>
+  <section class="request-engine-card">
+    <h2>Policy Checks</h2>
+    <ul class="request-notes" data-request-policy></ul>
+  </section>
+</main>
+<div id="schedule-footer"></div>
+<div id="sl-footer"></div>
+<script type="module" src="pages/requests/request-engine.js?v=5.0.0"></script>
+<script src="app-shell.js?v=5.0.0"></script>
+</body>
+</html>

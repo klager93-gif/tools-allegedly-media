@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/SchedulePlanningRepository.js
-Version: v4.8.1
+Version: v5.0.0
 Purpose: Repository boundary for schedule planning and forecast horizon data.
 */
 export class SchedulePlanningRepository {

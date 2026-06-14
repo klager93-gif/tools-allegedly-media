@@ -1,4 +1,13 @@
-# v4.8.1 — Employee Experience & Data Tools
+
+## v5.0.0 — Request & Approval Engine
+
+- Added central `requests.html` Request & Approval Engine hub.
+- Added request queues for time off, trades, VOT, training, profile changes, and open-shift interest.
+- Added migration `046_request_approval_engine_schema.sql`.
+- Added request case, decision, event, comment, and schedule-impact foundations.
+- Added copy helpers for request IDs, API endpoints, and migration filenames.
+
+# v5.0.0 — Employee Experience & Data Tools
 
 - Added Data Tools page for templates, imports, exports, and profile-management readiness.
 - Added migration 045 for schedule templates, import jobs, export jobs, employee profile extras, and notification preferences.

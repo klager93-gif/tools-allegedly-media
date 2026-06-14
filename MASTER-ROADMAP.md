@@ -1,4 +1,4 @@
-# Signal Schedule Roadmap — Revised after v4.8.1
+# Signal Schedule Roadmap — Revised after v5.0.0
 
 ## Completed
 
@@ -15,7 +15,7 @@
 - Schedule History.
 - One Agency / One Living Schedule / Many Snapshots.
 
-### v4.8.1 — Employee Experience & Data Tools
+### v5.0.0 — Employee Experience & Data Tools
 - Employee experience foundation.
 - Admin = Employee + More role-inheritance rule.
 - Data Tools page.

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/CoverageSpotsRepository.js
-Version: v4.8.1
+Version: v5.0.0
 Purpose: Repository boundary for coverage spots foundation data
 */
 import { fetchCoverageSpotsPreview } from '../adapters/JsonCoverageSpotsAdapter.js';

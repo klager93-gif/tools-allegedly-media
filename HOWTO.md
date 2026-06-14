@@ -55,7 +55,7 @@ The page is still admin-first and read-only. It demonstrates the planned workflo
 Adds admin-managed compact calendar codes and database migration tracking guidance. After uploading v2.11.0, run migrations 004 through 017 in order.
 
 
-## Applying v4.8.1
+## Applying v5.0.0
 
 1. Back up the live site.
 2. Upload the full replacement package.

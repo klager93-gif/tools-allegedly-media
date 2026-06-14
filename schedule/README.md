@@ -1,10 +1,10 @@
-# Signal Schedule v4.8.1
+# Signal Schedule v5.0.0
 
 Signal Schedule is the scheduling, staffing, employee experience, and operational-memory system for public-safety-style agencies.
 
 ## Current release
 
-Signal Schedule v4.8.1 — Employee Experience & Data Tools.
+Signal Schedule v5.0.0 — Employee Experience & Data Tools.
 
 ## Current foundations
 
@@ -15,7 +15,7 @@ Signal Schedule v4.8.1 — Employee Experience & Data Tools.
 - Admin = Employee + More role-inheritance principle.
 - Data Tools page for templates, imports, exports, and profile-management readiness.
 
-## v4.8.1 files of interest
+## v5.0.0 files of interest
 
 - `data-tools.html`
 - `pages/admin/data-tools.css`
@@ -27,4 +27,4 @@ Signal Schedule v4.8.1 — Employee Experience & Data Tools.
 
 ## Database
 
-Current required migration after v4.8.1: `045_employee_experience_data_tools_schema`.
+Current required migration after v5.0.0: `045_employee_experience_data_tools_schema`.

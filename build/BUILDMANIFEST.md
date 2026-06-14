@@ -1,26 +1,23 @@
-# Signal Schedule v3.1.0 Build Manifest
+# Build Manifest — Signal Schedule v5.0.0 Full Replacement
 
-Release: Signal Schedule v3.1.0 — Desktop Application UI System
-Date: 2026-06-14
-Database migration required: No
+Built from v4.8.1 full replacement.
 
-## Summary
+## Release
 
-This release converts Schedule from the earlier centered website-style layout to a desktop-first application shell across all Schedule pages.
+Signal Schedule v5.0.0 — Request & Approval Engine
 
-## Key Changes
+## Key changes
 
-- Added `schedule/app-shell.css`.
-- Added `schedule/app-shell.js`.
-- Added `schedule/weekly-schedule.html` compatibility redirect to `weekly-board.html`.
-- Updated Schedule HTML pages to load the shared app shell.
-- Grouped Schedule navigation into Command, People, Staffing, Requests, and Rules & Admin sections.
-- Normalized app version metadata to v3.1.0 for Schedule pages.
-- Preserved role-based panels on canonical pages instead of creating duplicate `-admin` pages.
+- Added central request engine hub at `schedule/requests.html`.
+- Added request engine preview data, CSS, JS, and API contract.
+- Added read-only `/api/request-approval-engine` preview route.
+- Added migration `schedule/api/coolify/sql/046_request_approval_engine_schema.sql`.
+- Updated navigation to route Requests to the central request engine.
+- Updated docs/changelogs/roadmap/version/cache references.
 
 ## Validation
 
-- JS syntax checked.
-- JSON parsed.
-- HTML asset references checked.
-- ZIP integrity checked.
+- JavaScript syntax checks passed.
+- HTML asset reference check passed.
+- Package junk check passed.
+- SQL migration 046 included in existing Coolify SQL folder.

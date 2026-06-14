@@ -1,9 +1,5 @@
-# Latest Release — Signal Schedule v4.8.1
+# Latest Schedule Release
 
-Release: Signal Schedule v4.8.1 — SQL Migration Folder Normalization
+Current release: **Signal Schedule v5.0.0 — Request & Approval Engine**
 
-Summary: Full replacement hotfix that moves migration 045 into the established Coolify migration folder and removes the accidental `/schedule/sql/` folder from the package.
-
-SQL migration path: `schedule/api/coolify/sql/045_employee_experience_data_tools_schema.sql`.
-
-Database note: If migration 045 has already been applied and tracked, do not rerun it.
+SQL migration required: `schedule/api/coolify/sql/046_request_approval_engine_schema.sql`.
