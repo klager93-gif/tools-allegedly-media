@@ -54,3 +54,8 @@ Adds policy-driven mandate rotation, shortage-window eligibility, employee and s
 ## v2.27.0 Assignment Generator Foundation
 
 Adds draft assignment generation previews and establishes role-based panels for employee/supervisor/admin detail instead of creating duplicate `-admin` pages unless the workflow is genuinely separate.
+
+## v2.28.0 — Conflict Detection Foundation
+
+Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
+

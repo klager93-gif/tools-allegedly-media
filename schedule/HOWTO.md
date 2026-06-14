@@ -33,3 +33,8 @@ Expected newest row:
 ## Notes
 
 Daily Board is read-only foundation work. Drag/drop assignment writes, employee portal scheduling writes, and approval-driven live updates are planned later.
+
+## v2.28.0 — Conflict Detection Foundation
+
+Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
+

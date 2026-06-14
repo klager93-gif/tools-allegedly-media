@@ -45,3 +45,8 @@ Schedule v2.22.0 — Leave Banks Foundation
 - v2.21.0 Assignment Engine Integration
 - v2.20.0 Daily Schedule Board Foundation
 - v2.19.0 Coverage Spots Foundation
+
+## v2.28.0 — Conflict Detection Foundation
+
+Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
+

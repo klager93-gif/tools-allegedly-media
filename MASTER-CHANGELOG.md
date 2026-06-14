@@ -226,3 +226,8 @@ Adds optional shift credential requirements and eligibility checks powered by Tr
 ## Signal Schedule v2.27.0 — Assignment Generator Foundation
 
 Adds Assignment Generator Foundation and role-based supervisor/admin panels; includes migration 033.
+
+## v2.28.0 — Conflict Detection Foundation
+
+Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
+

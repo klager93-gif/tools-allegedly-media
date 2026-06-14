@@ -56,3 +56,8 @@ Schedule v2.24.0 — Shift Trade UI / workflow connection
 ## v2.25.0 — Mandation Engine Foundation
 
 Completed first major alpha milestone foundation for mandation rules, rotation lists, policy caps, shortage-window eligibility, and override audit preview. Next: seniority engine, assignment generator, conflict detection, and qualification expiration.
+
+## v2.28.0 — Conflict Detection Foundation
+
+Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
+

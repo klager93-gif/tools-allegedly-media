@@ -1,5 +1,5 @@
 # Latest Release
 
-## Signal Schedule v2.27.0 — Assignment Generator Foundation
+Signal Schedule v2.28.0 — Conflict Detection Foundation
 
-Adds draft assignment generation and role-based supervisor/admin panels. Database migration 033 is required.
+Adds preview conflict detection for generated assignments, coverage issues, leave overlap, rest/maximum-hour warnings, missing qualifications, role-based visibility, and read-only API/schema foundations.

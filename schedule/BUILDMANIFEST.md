@@ -42,3 +42,14 @@ Database Migration Required: Yes — schedule/api/coolify/sql/031_mandation_engi
 ## v2.27.0 — Assignment Generator Foundation
 
 Added assignment-generator page/assets, preview data, service/repository/adapter, API contract, SQL migration 033, and Coolify read endpoint.
+
+## v2.28.0 — Conflict Detection Foundation
+
+Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
+
+### v2.28.0 Build Validation
+- JS syntax checked.
+- JSON parsed.
+- HTML asset references checked.
+- ZIP integrity checked.
+- Migration uses `schema_migrations (version, name)`.
