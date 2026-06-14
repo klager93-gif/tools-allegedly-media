@@ -1,23 +1,23 @@
-# Signal Schedule v2.20.0 — Daily Schedule Board Foundation
+# Signal Schedule v2.21.0 — Assignment Engine Integration
 
 ## Summary
 
-Adds the Daily Schedule Board foundation so coverage spots can be viewed as a supervisor-friendly day board grouped by date, agency, shift, role, and numbered spot.
+Adds the Assignment Engine Integration foundation so employees, coverage spots, daily board rows, assignment sources, and assignment history can be represented as one scheduling read model.
 
 ## Database Migration Required
 
 Yes. Run:
 
 ```text
-schedule/api/coolify/sql/026_daily_schedule_board_foundation_schema.sql
+schedule/api/coolify/sql/027_assignment_engine_integration_schema.sql
 ```
 
 Expected newest migration:
 
 ```text
-026 | daily_schedule_board_foundation
+027 | assignment_engine_integration
 ```
 
 ## Notes
 
-This release remains read-only preview functionality. It does not enable drag/drop assignments, employee portal scheduling writes, or live scheduling mutations.
+This release remains read-only preview functionality. It does not enable drag/drop assignments, automatic pattern generation, or live assignment mutations.

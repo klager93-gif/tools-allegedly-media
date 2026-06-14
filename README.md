@@ -1,3 +1,7 @@
+# Signal Schedule v2.21.0 — Assignment Engine Integration
+
+Current Schedule release adds read-only assignment records, source context, and assignment history connecting employees, coverage spots, and daily board rows.
+
 # Schedule v2.17.1 — Asset Drift & Load Cleanup
 
 Current Schedule maintenance release. No database migration required.
@@ -85,6 +89,6 @@ Adds optional shift credential requirements and eligibility checks powered by Tr
 Adds admin-managed compact calendar codes and database migration tracking guidance. After uploading v2.11.0, run migrations 004 through 017 in order.
 
 
-## Signal Schedule v2.20.0
+## Signal Schedule v2.21.0
 
 Daily Schedule Board Foundation adds a read-only staffing board preview and Postgres migration 026.

@@ -1,3 +1,11 @@
+## Signal Schedule v2.21.0 — Assignment Engine Integration
+
+- Added Assignment Engine Integration preview tying date, agency, shift, role, numbered coverage spot, employee, source, status, and coverage impact into one read model.
+- Added assignment source labels for pattern, overtime, trade, override, leave, and training.
+- Added assignment history preview so later boards can explain why a spot changed or opened.
+- Added `assignment-engine-preview.json`, adapter, repository, service, contract, and read-only Coolify API endpoint.
+- Added migration `027_assignment_engine_integration_schema.sql` for assignment records and assignment history.
+
 ## Signal Schedule v2.20.0 — Daily Schedule Board Foundation
 
 - Added a read-only Daily Schedule Board preview showing staffing by date, agency, shift, role, and numbered coverage spot.

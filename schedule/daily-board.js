@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/daily-board.js
-Version: v2.20.0
+Version: v2.21.0
 Purpose: Render Daily Schedule Board foundation preview
 */
 import { getDailyBoardPreview } from './services/DailyBoardService.js';

@@ -1,94 +1,53 @@
-## Signal Schedule Current — v2.20.0 Daily Schedule Board Foundation
-
-- Daily board preview now groups coverage spots into visible staffing rows by date, agency, shift, and role.
-- Next target: leave-bank balance application and approval impact preview.
-
-## Current Schedule Focus
-
-Schedule v2.18.0 — Notification Foundation completed. Next recommended Schedule release: v2.19.0 Coverage Spots / Daily Staffing Board Foundation.
+# Signal Schedule Roadmap
 
 ## Current
 
-- Schedule v2.14.0 — Employee Timeline & Audit Trail is complete.
+Schedule v2.21.0 — Assignment Engine Integration
+
+- Assignment records link date, agency, shift, role, numbered coverage spot, employee, source, status, and coverage impact.
+- Source context explains whether coverage came from pattern, overtime, trade, override, leave, or training.
+- Assignment history preview records why a spot changed or opened.
+- Read-only preview API and Postgres schema migration 027.
 
 ## Next
 
-- Schedule v2.14.0 — Employee Timeline & Audit Trail.
-- Schedule v2.17.0 — Supervisors & Organizational Hierarchy.
-- Schedule v2.17.0 — Roles & Permissions Engine.
+Schedule v2.22.0 — Leave Banks / Balance Application
 
-## Schedule v2.12.0 — Calendar Views + Schedule Footer
+- Start tying approved leave requests to available leave balances.
+- Preview accrual, deduction, correction, and carryover rows.
+- Show balance impact before approval.
+- Keep live writes protected until authentication and admin approval policy are ready.
 
-- Adds user-facing week and day calendar views.
-- Adds Schedule-specific footer across /schedule/ pages.
-- Adds Calendar View foundation files and fixes overview version drift.
+## Then
 
-# Current: Schedule v2.11.0 — Calendar Shortcode Admin Controls
+Schedule v2.23.0 — OT Volunteer Board
 
-Next: Schedule v2.12.0 — Calendar Views
+- Connect open shifts, assignment vacancies, and voluntary overtime requests.
+- Track volunteer status, withdrawal, eligibility, and approval routing.
 
-Database note: after v2.11 is uploaded, run Schedule migrations 004 through 017 in order.
+## Completed
 
-# Signal Labs Master Roadmap
-
-## 2026-06-12 — Schedule v2.1.1
-
-- Cleaned full-root deployment package and preserved Schedule index/calendar routing.
-
-
-## Schedule
-
-Completed:
-
-- v1.8.0 — Employee CRUD Foundation
-- v1.9.0 — Assignments Foundation
-- v2.0.0 — Minimum Staffing Foundation
-- v2.1.0 — Calendar Foundation
-
-Next:
-
+- v2.20.0 — Daily Schedule Board Foundation
+- v2.19.0 — Coverage Spots Foundation
+- v2.18.0 — Notification Foundation
+- v2.17.1 — Asset Drift & Load Cleanup
+- v2.17.0 — Request Approval Workflow / Roles / Hierarchy foundations
+- v2.16.0 — Roles & Permissions Foundation
+- v2.15.0 — Supervisor Hierarchy Foundation
+- v2.14.0 — Employee Timeline / Employee Profile foundations
+- v2.13.0 — Calendar Views Foundation
+- v2.12.0 — Calendar Footer / View cleanup
+- v2.11.0 — Calendar Shortcode Admin Controls
+- v2.10.0 — Benefit Ledger and Training foundations
+- v2.9.0 — Shift Eligibility Foundation
+- v2.8.0 — Shift Trades Foundation
+- v2.7.0 — Seniority Rotation Foundation
+- v2.6.0 — Coverage Board Foundation
+- v2.3.0 — Open Shifts / VOT Foundation
+- v2.2.1 — Request Hours & Admin Override Foundation
 - v2.2.0 — Leave Requests Foundation
-- v2.3.0 — Open Shift / VOT Foundation
-- v2.4.0 — Mandation Foundation
-- v2.5.0 — Schedule Generation Foundation
-
-## Schedule v2.1.2 — Admin Navigation Foundation
-
-Schedule now includes admin-first navigation placeholders for Overview, Calendar, Employees, Assignments, Minimum Staffing, Leave Requests, Open Shifts, Reports, and Settings. Future role-based views should filter this shared interface instead of duplicating separate apps.
-
-## v2.1.3 — Employee Identity Cleanup
-
-Completed identity cleanup before leave, open shifts, authentication, and role-based views:
-
-- Hidden system IDs remain internal.
-- Agency employee IDs are admin-entered.
-- Badge numbers are optional and separate.
-- Future login users stay separate from employees.
-- Username or email may be used for login.
-- Roles remain separate from employee records.
-
-Next: **v2.2.0 — Leave Requests Foundation**.
-## Schedule Current
-
-- v2.2.0 — Leave Requests Foundation complete.
-
-## Schedule Next
-
-- v2.3.0 — Open Shifts / VOT Foundation.
-
-## v2.2.1 — Request Hours & Admin Override Foundation
-
-Leave Requests now include preview support for full-day vs partial-day time selection, start/end time calculation, request type minimum increments, and admin/scheduler override planning. Employee/self-service requests follow configured increments; admin/scheduler entries may use exact operational times with override notes.
-
-## Completed: v2.3.0 — Open Shifts / VOT Foundation
-
-Open Shifts and voluntary overtime now have a preview page, seed data, request reason planning, API boundaries, and future schema planning.
-
-## Next Recommended: v2.4.0 — Supervisor Review Foundation
-
-Planned focus:
-- Pending leave/VOT review dashboard
-- Approve/deny placeholders
-- Staffing impact summaries
-- Supervisor notes
-- Request history preview
+- v2.1.3 — Employee Identity Cleanup
+- v2.1.0 — Calendar Foundation
+- v2.0.0 — Minimum Staffing Foundation
+- v1.9.0 — Assignments Foundation
+- v1.8.0 — Employee CRUD Foundation

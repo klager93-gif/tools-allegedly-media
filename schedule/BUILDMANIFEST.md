@@ -1,20 +1,32 @@
-# Signal Schedule Build Manifest
+# Signal Schedule v2.21.0 Build Manifest
 
-Package: signal-schedule-v2.20.0-daily-schedule-board-foundation.zip
-Version: v2.20.0
-Date: 2026-06-13
+## Release
 
-## Build Contents
+Signal Schedule v2.21.0 — Assignment Engine Integration
 
-- Full repository snapshot for upload/replace workflow.
-- Signal Schedule Daily Schedule Board Foundation files.
-- Postgres migration 026.
-- Updated Schedule navigation, documentation, and latest release notes.
+## Database Migration Required
+
+Yes. Run `schedule/api/coolify/sql/027_assignment_engine_integration_schema.sql`.
+
+## Primary Files Changed
+
+- `schedule/assignments.html`
+- `schedule/assignments.css`
+- `schedule/assignments.js`
+- `schedule/data/assignment-engine-preview.json`
+- `schedule/adapters/JsonAssignmentEngineAdapter.js`
+- `schedule/repositories/AssignmentEngineRepository.js`
+- `schedule/services/AssignmentEngineService.js`
+- `schedule/api/contracts/assignment-engine.read.schema.json`
+- `schedule/api/coolify/sql/027_assignment_engine_integration_schema.sql`
+- `schedule/api/coolify/server.js`
+- `schedule/CHANGELOG.md`
+- `schedule/LATEST_RELEASE.md`
+- `schedule/ROADMAP.md`
 
 ## Validation
 
-- JSON parsed successfully.
-- JavaScript syntax checked successfully.
-- HTML asset references checked successfully.
-- Schedule navigation includes Daily Board.
-- Migration uses `schema_migrations (version, name)` to match the live database.
+- JSON parsed.
+- JavaScript syntax checked.
+- HTML asset references checked.
+- Postgres migration uses `schema_migrations (version, name)`.

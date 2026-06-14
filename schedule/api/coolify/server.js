@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.20.0
-Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, and daily board.
+Version: v2.21.0
+Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, and assignment engine.
 
 This release intentionally has:
 - no committed credentials
@@ -44,6 +44,7 @@ const REQUEST_REASONS_PATH = resolve(__dirname, '../../data/request-reasons.json
 const NOTIFICATIONS_PREVIEW_PATH = resolve(__dirname, '../../data/notifications-preview.json');
 const COVERAGE_SPOTS_PREVIEW_PATH = resolve(__dirname, '../../data/coverage-spots-preview.json');
 const DAILY_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/daily-board-preview.json');
+const ASSIGNMENT_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/assignment-engine-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -55,7 +56,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.20.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.21.0', ...overrides };
 }
 
 function notFound(res) {
@@ -243,6 +244,11 @@ async function listDailyBoardFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+async function listAssignmentEngineFromJsonSeed() {
+  const raw = await readFile(ASSIGNMENT_ENGINE_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -296,7 +302,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v2.20.0',
+          version: 'v2.21.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -507,6 +513,26 @@ const server = createServer(async (req, res) => {
       });
     }
   }
+
+  if (req.method === 'GET' && (url.pathname === '/assignment-engine' || url.pathname === '/api/assignment-engine')) {
+    try {
+      const data = await listAssignmentEngineFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-assignment-engine-integration', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { summary: {}, filters: {}, records: [], sourceTypes: [], history: [], rules: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'ASSIGNMENT_ENGINE_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
 
   const employeeId = getEmployeeIdFromPath(url.pathname);
   if (employeeId && req.method === 'GET') {
