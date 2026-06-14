@@ -1,19 +1,20 @@
-# Build Manifest
+# Signal Schedule Build Manifest
 
-Release: Schedule v2.18.0 — Notification Foundation
-Package: signal-schedule-v2.18.0-notification-foundation.zip
+Package: signal-schedule-v2.19.0-coverage-spots-foundation.zip
+Version: v2.19.0
 Date: 2026-06-13
 
-## Summary
+## Build Contents
 
-- Added Notification Foundation UI and data model preview.
-- Added read-only API contract/endpoint and Postgres migration 024.
-- Added Notifications to Schedule navigation and overview.
-- Updated Schedule cache-busting and metadata to v2.18.0.
+- Full repository snapshot for upload/replace workflow.
+- Signal Schedule Coverage Spots Foundation files.
+- Postgres migration 025.
+- Updated Schedule documentation and latest release notes.
 
 ## Validation
 
-- Static asset reference check completed.
-- JSON parse check completed.
-- JavaScript syntax check completed with Node check.
-- Release package generated from full repository snapshot.
+- JSON parsed successfully.
+- JavaScript syntax checked successfully.
+- HTML asset references checked successfully.
+- Schedule navigation includes Coverage Spots.
+- Migration uses `schema_migrations (version, name)` to match the live database.

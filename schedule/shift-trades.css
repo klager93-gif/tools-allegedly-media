@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/shift-trades.css
-Version: v2.18.0
+Version: v2.19.0
 Purpose: Shift Trades & Swap Requests preview styling
 */
 .trade-shell { width:min(1180px,calc(100% - 32px)); margin:0 auto 56px; color:#e5eefb; }

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/timeline.css
-Version: v2.18.0
+Version: v2.19.0
 Purpose: Employee Timeline & Audit Trail preview styles
 */
 .timeline-shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto 48px; color: #e5eefb; }

@@ -1,6 +1,6 @@
 # Schedule File Manifest
 
-Generated for Schedule v2.18.0 — Notification Foundation.
+Generated for Schedule v2.19.0 — Notification Foundation.
 
 ## Files
 
@@ -202,3 +202,16 @@ Generated for Schedule v2.18.0 — Notification Foundation.
 - `training.css`
 - `training.html`
 - `training.js`
+
+
+## v2.19.0 Coverage Spots Foundation
+
+- `coverage-spots.html`
+- `coverage-spots.css`
+- `coverage-spots.js`
+- `data/coverage-spots-preview.json`
+- `adapters/JsonCoverageSpotsAdapter.js`
+- `repositories/CoverageSpotsRepository.js`
+- `services/CoverageSpotsService.js`
+- `api/contracts/coverage-spots.read.schema.json`
+- `api/coolify/sql/025_coverage_spots_foundation_schema.sql`

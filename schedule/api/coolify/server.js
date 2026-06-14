@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v2.18.0
-Purpose: Coolify API with employee CRUD and read-only foundations including notifications.
+Version: v2.19.0
+Purpose: Coolify API with employee CRUD and read-only foundations including notifications and coverage spots.
 
 This release intentionally has:
 - no committed credentials
@@ -42,6 +42,7 @@ const OPEN_SHIFTS_PREVIEW_PATH = resolve(__dirname, '../../data/open-shifts-prev
 const VOT_REQUESTS_PREVIEW_PATH = resolve(__dirname, '../../data/vot-requests-preview.json');
 const REQUEST_REASONS_PATH = resolve(__dirname, '../../data/request-reasons.json');
 const NOTIFICATIONS_PREVIEW_PATH = resolve(__dirname, '../../data/notifications-preview.json');
+const COVERAGE_SPOTS_PREVIEW_PATH = resolve(__dirname, '../../data/coverage-spots-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -53,7 +54,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v2.18.0', ...overrides };
+  return { source: 'coolify-api', version: 'v2.19.0', ...overrides };
 }
 
 function notFound(res) {
@@ -231,6 +232,11 @@ async function listNotificationsFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+async function listCoverageSpotsFromJsonSeed() {
+  const raw = await readFile(COVERAGE_SPOTS_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -284,7 +290,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v2.18.0',
+          version: 'v2.19.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -454,6 +460,25 @@ const server = createServer(async (req, res) => {
         data: { summary: {}, channels: [], rules: [], queue: [], preferences: [], policyNotes: [] },
         meta: apiMeta(),
         errors: [{ code: 'NOTIFICATION_READ_FAILED', message: error.message }]
+      });
+    }
+  }
+
+  if (req.method === 'GET' && (url.pathname === '/coverage-spots' || url.pathname === '/api/coverage-spots')) {
+    try {
+      const data = await listCoverageSpotsFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-coverage-spots-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { summary: {}, days: [], rules: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'COVERAGE_SPOTS_READ_FAILED', message: error.message }]
       });
     }
   }

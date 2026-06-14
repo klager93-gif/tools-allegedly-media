@@ -59,6 +59,6 @@ CREATE INDEX IF NOT EXISTS idx_schedule_notification_rules_agency_trigger ON sch
 CREATE INDEX IF NOT EXISTS idx_schedule_notification_queue_agency_status ON schedule_notification_queue (agency_id, status);
 CREATE INDEX IF NOT EXISTS idx_schedule_notification_queue_related ON schedule_notification_queue (related_module, related_record_id);
 
-INSERT INTO schema_migrations (version, description)
+INSERT INTO schema_migrations (version, name)
 VALUES ('024', 'notification foundation schema')
 ON CONFLICT (version) DO NOTHING;

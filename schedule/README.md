@@ -1,13 +1,9 @@
 # Signal Schedule
 
-Current Version: v2.18.0
+Signal Schedule v2.19.0 adds the Coverage Spots Foundation. It previews numbered staffing spots by date, shift, role, and spot code so the system can show open coverage and prepare for assignment-ready scheduling.
 
-## Current Release — Schedule v2.18.0 — Notification Foundation
+The foundation includes a Coverage Spots page, seed data, adapter/repository/service boundaries, API contract, read-only Coolify endpoint, and Postgres migration 025.
 
-Signal Schedule v2.18.0 adds the Notification Foundation. It previews how Schedule events will become in-app, email, SMS/text, and digest notifications without enabling production sends or committing provider credentials.
+Current migration target: 025 coverage_spots_foundation. Run `schedule/api/coolify/sql/025_coverage_spots_foundation_schema.sql` after deploying this release if the Postgres database is active.
 
-The foundation includes notification channels, trigger rules, a queued notification preview, role preference defaults, quiet-hours behavior, digest behavior, and backend contract/schema boundaries.
-
-Current migration target: 024 notification_foundation. Run `schedule/api/coolify/sql/024_notification_foundation_schema.sql` after deploying this release if the Postgres database is active.
-
-Production writes and external notification sends remain disabled until protected authentication, provider configuration, and role enforcement are ready.
+Production writes, drag/drop assignments, and automatic OT/leave consumption remain disabled until protected authentication, role enforcement, and write policies are ready.

@@ -1,3 +1,11 @@
+## Schedule v2.19.0 — Coverage Spots Foundation
+
+- Added Coverage Spots Foundation preview page for numbered staffing spots by date, shift, role, and spot code.
+- Added open/filled/under-minimum visibility so coverage can become assignment-ready instead of only summary-based.
+- Added `coverage-spots-preview.json`, adapter, repository, service, contract, and read-only Coolify API endpoint.
+- Added migration `025_coverage_spots_foundation_schema.sql` for assignment-ready coverage spot records.
+- Added Coverage Spots navigation across Schedule pages and updated Schedule asset cache-busting to v2.19.0.
+
 ## Schedule v2.18.0 — Notification Foundation
 
 - Added Notification Foundation preview page for notification channels, rules, queue items, role preferences, quiet-hours, and digest behavior.

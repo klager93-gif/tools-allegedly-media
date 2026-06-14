@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/ShiftEligibilityRepository.js
-Version: v2.18.0
+Version: v2.19.0
 Purpose: Repository facade for Qualification & Eligibility Engine data
 */
 import { getShiftEligibilityPreview } from '../adapters/JsonShiftEligibilityAdapter.js';

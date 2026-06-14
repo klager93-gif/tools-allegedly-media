@@ -1,3 +1,7 @@
+## Signal Schedule v2.19.0 — Coverage Spots Foundation
+
+- Added numbered coverage spot preview, open/filled/under-minimum status, assignment-ready seed records, read-only API contract/endpoint, and Postgres migration 025.
+
 ## Schedule v2.18.0 — Notification Foundation
 
 - Added Signal Schedule Notification Foundation page, preview data, read-only API route, contract, and migration 024.
