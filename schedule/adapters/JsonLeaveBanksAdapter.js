@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonLeaveBanksAdapter.js
-Version: v4.0.0
+Version: v4.1.0
 Purpose: JSON adapter for Leave Banks Foundation preview data
 */
 export async function fetchLeaveBanksPreview() {

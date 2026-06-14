@@ -1,10 +1,10 @@
-## Signal Schedule v4.0.0 — Beta Foundation & Publishing
+## Signal Schedule v4.1.0 — Beta Foundation & Publishing
 
 Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
 
 Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql`.
 
-Current Version: v4.0.0 — Drag-and-Drop + Draft Engine
+Current Version: v4.1.0 — Drag-and-Drop + Draft Engine
 
 
 # Signal Schedule v3.6.1
@@ -111,17 +111,17 @@ Schedule now uses connected, box-style flyout navigation instead of separated pi
 Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.
 
 
-## v4.0.0 Navigation Coverage Audit Hotfix
+## v4.1.0 Navigation Coverage Audit Hotfix
 
 Schedule navigation was audited so canonical pages are linked and redirect-only compatibility pages stay out of primary nav. No database migration required.
 
 
-## v4.0.0 Scheduling Workspace
+## v4.1.0 Scheduling Workspace
 
 The Scheduling Workspace is the central desktop grid and inspector foundation for future draft, drag-and-drop, forecast, and publish workflows.
 
 
-## v4.0.0 — Schedule File Organization & Release Cleanup
+## v4.1.0 — Schedule File Organization & Release Cleanup
 
 ### Purpose
 Organizes page-specific support CSS/JS files into `/schedule/pages/` module folders while preserving public `/schedule/*.html` URLs. This is safe for full replacement because all HTML asset references were updated and validated.

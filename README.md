@@ -82,3 +82,8 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 - Preview conflicts and coverage impact.
 - Track staged moves, undo/reset direction, and publish checklist.
 - Prepare for forecast horizon and schedule publishing workflows.
+
+
+## Signal Schedule v4.1.0
+
+Adds the workable schedule sandbox and admin settings preview under `/schedule/`.

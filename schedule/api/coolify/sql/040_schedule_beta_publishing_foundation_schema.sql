@@ -1,4 +1,4 @@
--- Signal Schedule v4.0.0
+-- Signal Schedule v4.1.0
 -- Migration 040: Beta publishing, availability, preferences, restrictions, and post/seat foundations.
 
 CREATE TABLE IF NOT EXISTS schedule_published_versions (

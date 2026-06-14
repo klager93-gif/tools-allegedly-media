@@ -1,11 +1,11 @@
-## Signal Schedule v4.0.0 — Beta Foundation & Publishing
+## Signal Schedule v4.1.0 — Beta Foundation & Publishing
 
 Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
 
 Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql`.
 
 
-## v4.0.0 — Schedule Planning & Forecast Horizon
+## v4.1.0 — Schedule Planning & Forecast Horizon
 
 - Adds Schedule Planning / Forecast Horizon foundation.
 - Adds forecast runs through a selected date range.
@@ -15,7 +15,7 @@ Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publish
 - Navigation coverage audit confirms Planning Forecast is linked in the desktop app shell.
 
 
-## v4.0.0 — Schedule File Organization & Release Cleanup
+## v4.1.0 — Schedule File Organization & Release Cleanup
 
 - Organized Schedule page-specific CSS and JS into /schedule/pages module folders.
 - Preserved public /schedule/*.html URLs to avoid breaking navigation, bookmarks, or live links.

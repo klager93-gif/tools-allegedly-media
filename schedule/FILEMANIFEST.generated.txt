@@ -125,6 +125,7 @@ api/coolify/sql/037_schedule_visibility_privacy_schema.sql
 api/coolify/sql/038_drag_drop_draft_planning_schema.sql
 api/coolify/sql/039_schedule_planning_forecast_horizon_schema.sql
 api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql
+api/coolify/sql/041_schedule_workable_sandbox_settings_schema.sql
 app-shell.css
 app-shell.js
 approvals.html
@@ -136,6 +137,7 @@ assets/themes/slate.css
 assignment-generator.html
 assignments.html
 benefits.html
+builder.html
 components/footer.js
 components/panel.js
 components/table.js
@@ -177,6 +179,8 @@ data/request-approval-workflow-preview.json
 data/request-increment-settings.json
 data/request-reasons.json
 data/roles-permissions-preview.json
+data/schedule-admin-settings.json
+data/schedule-builder-sandbox.json
 data/schedule-planning-preview.json
 data/schedule-publication-preview.json
 data/seniority-engine-preview.json
@@ -246,6 +250,8 @@ pages/workspace/assignment-generator.css
 pages/workspace/assignment-generator.js
 pages/workspace/assignments.css
 pages/workspace/assignments.js
+pages/workspace/builder.css
+pages/workspace/builder.js
 pages/workspace/conflict-detection.css
 pages/workspace/conflict-detection.js
 pages/workspace/daily-board.css

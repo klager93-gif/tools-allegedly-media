@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonSchedulePublicationAdapter.js
-Version: v4.0.0
+Version: v4.1.0
 Purpose: JSON adapter for schedule publishing, versions, snapshots, checklist, and publication event preview data.
 */
 export class JsonSchedulePublicationAdapter {

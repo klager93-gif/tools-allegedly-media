@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/DraftPlanningService.js
-Version: v4.0.0
+Version: v4.1.0
 Purpose: Service boundary for drag-and-drop draft planning preview workflows.
 */
 export class DraftPlanningService {

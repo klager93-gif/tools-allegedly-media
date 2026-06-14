@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/settings/visibility.css
-Version: v4.0.0
+Version: v4.1.0
 Purpose: Schedule Visibility & Privacy Controls page styles.
 */
 .visibility-shell { display: grid; gap: var(--space-4, 1rem); }

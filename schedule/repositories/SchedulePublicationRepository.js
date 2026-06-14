@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/SchedulePublicationRepository.js
-Version: v4.0.0
+Version: v4.1.0
 Purpose: Repository boundary for schedule publishing and immutable schedule snapshot preview data.
 */
 export class SchedulePublicationRepository {
