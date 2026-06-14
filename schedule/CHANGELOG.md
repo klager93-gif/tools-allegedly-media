@@ -1,3 +1,11 @@
+## Schedule v2.18.0 — Notification Foundation
+
+- Added Notification Foundation preview page for notification channels, rules, queue items, role preferences, quiet-hours, and digest behavior.
+- Added `notifications-preview.json`, adapter, repository, service, contract, and read-only Coolify API endpoint.
+- Added migration `024_notification_foundation_schema.sql` for notification channels, rules, preferences, and queue records.
+- Added Notifications navigation across Schedule pages and updated Schedule asset cache-busting to v2.18.0.
+- Production email/SMS/push sends remain disabled; no provider credentials are committed.
+
 ## Schedule v2.17.1 — Asset Drift & Load Cleanup
 
 - Normalized Schedule asset cache-busting query strings to v2.17.1.

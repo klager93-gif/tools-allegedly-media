@@ -1,3 +1,11 @@
+## Schedule v2.18.0 — Notification Foundation
+
+After uploading v2.18.0, open `/schedule/notifications.html` and verify the Notification Foundation page loads channels, rules, queued items, preferences, and policy notes.
+
+If using the Coolify/Postgres backend, run `024_notification_foundation_schema.sql` and verify `schema_migrations` shows version `024`.
+
+Production notification sends remain disabled. Do not add provider keys to the repository.
+
 ## Schedule v2.17.0 — Roles & Permissions Engine
 
 Adds role templates, permission matrix, field-level access controls, scope-aware permissions, and approval authority previews. New SQL migration: `022_roles_permissions_schema.sql`.

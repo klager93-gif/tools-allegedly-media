@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/coverage-board.js
-Version: v2.17.1
+Version: v2.18.0
 Purpose: Coverage Board foundation preview UI.
 */
 import { JsonCoverageBoardAdapter } from './adapters/JsonCoverageBoardAdapter.js';

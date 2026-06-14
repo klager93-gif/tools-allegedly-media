@@ -1,3 +1,7 @@
+## Current Schedule Focus
+
+Schedule v2.18.0 — Notification Foundation completed. Next recommended Schedule release: v2.19.0 Coverage Spots / Daily Staffing Board Foundation.
+
 ## Current
 
 - Schedule v2.14.0 — Employee Timeline & Audit Trail is complete.

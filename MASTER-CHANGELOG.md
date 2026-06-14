@@ -1,3 +1,8 @@
+## Schedule v2.18.0 — Notification Foundation
+
+- Added Signal Schedule Notification Foundation page, preview data, read-only API route, contract, and migration 024.
+- Updated Schedule navigation/metadata/cache strings to v2.18.0.
+
 ## Schedule v2.17.1 — Asset Drift & Load Cleanup
 
 - Maintenance cleanup for Schedule asset loading, cache version drift, and duplicate component script references.
