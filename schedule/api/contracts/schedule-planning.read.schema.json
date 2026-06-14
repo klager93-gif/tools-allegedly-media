@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tools.allegedly-media.com/schedule/api/contracts/schedule-planning.read.schema.json",
+  "title": "Signal Schedule Schedule Planning Forecast Read Contract",
+  "type": "object",
+  "required": [
+    "meta",
+    "summary",
+    "forecastRuns",
+    "forecastIssues",
+    "recommendedActions",
+    "heatmap",
+    "rules"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "forecastRuns": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "forecastIssues": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "recommendedActions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "heatmap": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

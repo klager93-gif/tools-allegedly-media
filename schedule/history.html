@@ -1,0 +1,83 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/history.html
+Version: v5.0.0
+Purpose: Schedule History and snapshot management UI for one living agency schedule.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule History — Signal Schedule</title>
+<meta name="description" content="Review, publish, restore, export, and manage snapshots for the one living agency schedule.">
+<link rel="stylesheet" href="app-shell.css?v=5.0.0">
+<link rel="stylesheet" href="pages/workspace/history.css?v=5.0.0">
+</head>
+<body data-signal-area="Signal Schedule" data-signal-title="Schedule History" data-signal-version="v5.0.0" data-signal-description="One agency, one living schedule, many snapshots and restore points.">
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Schedule history</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="builder.html">Schedule Builder</a><a href="history.html" aria-current="page">Schedule History</a><a href="workspace.html">Scheduling Workspace</a><a href="draft-planning.html">Draft Planning</a><a href="publishing.html">Publishing</a><a href="schedule.html">Calendar</a><a href="weekly-board.html">Weekly View</a><a href="daily-board.html">Daily Board</a><a href="employees.html">Employees</a><a href="assignments.html">Assignments</a><a href="coverage.html">Coverage Board</a><a href="staffing.html">Minimum Staffing</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="settings.html">Settings</a></div></nav>
+<main class="schedule-shell saved-shell">
+  <section class="schedule-card saved-hero">
+    <div>
+      <p class="schedule-kicker">Signal Schedule v5.0.0</p>
+      <h1>Schedule History</h1>
+      <p>Signal Schedule now treats each agency as one continuous living schedule. This page manages snapshots, restore points, published versions, and audit-ready history for that single schedule timeline.</p>
+    </div>
+    <div class="saved-actions">
+      <button type="button" class="schedule-btn schedule-btn--primary" data-saved-action="refresh">Refresh history</button>
+      <a class="schedule-btn schedule-btn--secondary" href="builder.html">Open builder</a>
+    </div>
+  </section>
+
+  <section class="schedule-card saved-notes">
+    <h2>Current Working Schedule</h2>
+    <p><strong>One Agency → One Living Schedule → Many Snapshots.</strong> Use the builder to save a snapshot of the current working schedule, then publish or restore snapshots from this history view.</p>
+    <div class="saved-row-actions">
+      <a class="saved-mini-btn" href="builder.html">Open Current Schedule</a>
+      <button type="button" class="saved-mini-btn" data-copy-value="/api/saved-schedules">Copy Snapshot API</button>
+    </div>
+  </section>
+
+  <section class="saved-layout">
+    <section class="schedule-card saved-main" aria-labelledby="savedListTitle">
+      <div class="saved-command-row">
+        <div>
+          <h2 id="savedListTitle">Snapshots</h2>
+          <p>Draft, published, archived, and restored points in the agency schedule timeline. Newest updates appear first.</p>
+        </div>
+        <label class="saved-search"><span>Filter</span><input type="search" data-saved-filter placeholder="Name, status, agency, snapshot ID"></label>
+      </div>
+      <div class="saved-status" data-saved-status>Loading schedule history…</div>
+      <div class="saved-table-wrap">
+        <table class="saved-table">
+          <thead><tr><th>Snapshot</th><th>Date range</th><th>Status</th><th>Agency</th><th>Updated</th><th>Actions</th></tr></thead>
+          <tbody data-saved-table></tbody>
+        </table>
+      </div>
+    </section>
+
+    <aside class="schedule-card saved-inspector" aria-labelledby="savedInspectorTitle">
+      <p class="schedule-kicker">Inspector</p>
+      <h2 id="savedInspectorTitle">Select a snapshot</h2>
+      <div data-saved-inspector class="saved-empty">Choose a snapshot to view payload summary, validation summary, API endpoints, and restore/publish helper details.</div>
+    </aside>
+  </section>
+
+  <section class="schedule-card saved-notes">
+    <h2>v4.7 scope</h2>
+    <ul>
+      <li>Renames the user-facing model from Schedule History to Schedule History.</li>
+      <li>Introduces the one-agency, one-living-schedule, many-snapshots principle.</li>
+      <li>Moves the UI to <code>history.html</code> and updates navigation and dashboard links.</li>
+      <li>Uses the existing protected snapshot storage API from migration 044.</li>
+      <li>Keeps copy buttons for snapshot IDs, agency IDs, endpoints, and validation JSON.</li>
+      <li>Leaves deeper compare/version-diff features for a later release.</li>
+    </ul>
+  </section>
+</main>
+<div id="schedule-footer"></div>
+<script type="module" src="pages/workspace/history.js?v=5.0.0"></script>
+<script src="app-shell.js?v=5.0.0"></script>
+</body>
+</html>

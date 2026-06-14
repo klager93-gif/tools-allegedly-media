@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tools.allegedly-media.com/schedule/api/contracts/saved-schedules.write.schema.json",
+  "title": "Signal Schedule Saved Schedule Write Contract",
+  "version": "v5.0.0",
+  "type": "object",
+  "required": ["agencyId", "name", "scheduleStartDate", "scheduleEndDate", "payload"],
+  "properties": {
+    "id": { "type": "string" },
+    "agencyId": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "status": { "type": "string", "enum": ["draft", "validated", "published", "archived", "deleted"] },
+    "scheduleStartDate": { "type": "string", "format": "date" },
+    "scheduleEndDate": { "type": "string", "format": "date" },
+    "source": { "type": "string" },
+    "payload": { "type": "object" },
+    "validationSummary": { "type": "object" },
+    "createdBy": { "type": ["string", "null"] },
+    "updatedBy": { "type": ["string", "null"] },
+    "publishedAt": { "type": ["string", "null"], "format": "date-time" }
+  },
+  "additionalProperties": true
+}

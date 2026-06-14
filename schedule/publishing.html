@@ -1,0 +1,96 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/publishing.html
+Version: v5.0.0
+Purpose: Beta publishing foundation for draft-to-published schedule snapshots, review checklist, rollback points, and employee-facing visibility handoff.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publishing — Signal Schedule</title>
+<meta name="description" content="Review draft schedule readiness, published versions, immutable snapshots, rollback points, and employee-facing publication controls.">
+<link rel="stylesheet" href="app-shell.css?v=5.0.0">
+<link rel="stylesheet" href="pages/workspace/workspace.css?v=5.0.0">
+<link rel="stylesheet" href="pages/workspace/publishing.css?v=5.0.0">
+</head>
+<body
+  data-signal-area="Signal Schedule"
+  data-signal-title="Publishing"
+  data-signal-version="v5.0.0"
+  data-signal-description="Schedule publishing beta foundation."
+>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Role-based panels</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="workspace.html">Scheduling Workspace</a><a href="planning.html">Planning Forecast</a><a href="draft-planning.html">Draft Planning</a><a href="publishing.html" aria-current="page">Publishing</a><a href="weekly-board.html">Weekly View</a><a href="daily-board.html">Daily Board</a><a href="assignments.html">Assignments</a><a href="assignment-generator.html">Assignment Generator</a><a href="conflict-detection.html">Conflict Detection</a><a href="visibility.html">Visibility & Privacy</a><a href="settings.html">Settings</a></div></nav>
+
+<main class="schedule-shell workspace-shell publishing-shell">
+  <section class="workspace-header schedule-card publishing-hero">
+    <div>
+      <p class="schedule-kicker">Signal Schedule v5.0.0</p>
+      <h1>Publishing & Schedule Snapshots</h1>
+      <p>Move from draft planning into employee-facing schedules with publish readiness checks, immutable snapshots, rollback points, and visibility controls.</p>
+    </div>
+    <div class="workspace-actions" aria-label="Publishing actions">
+      <button type="button" class="schedule-btn schedule-btn--secondary">Run readiness check</button>
+      <button type="button" class="schedule-btn schedule-btn--secondary">Preview employee view</button>
+      <button type="button" class="schedule-btn schedule-btn--primary">Queue publish</button>
+    </div>
+  </section>
+
+  <section class="publishing-layout" aria-label="Publishing workspace">
+    <section class="schedule-card publishing-main" aria-labelledby="publishingVersionsTitle">
+      <div class="workspace-command-row">
+        <div>
+          <h2 id="publishingVersionsTitle">Versions</h2>
+          <p>Track draft candidates, published schedules, employee visibility, and rollback-ready records.</p>
+        </div>
+        <div class="workspace-filters">
+          <button type="button" class="schedule-btn schedule-btn--secondary">Drafts</button>
+          <button type="button" class="schedule-btn schedule-btn--secondary">Published</button>
+          <button type="button" class="schedule-btn schedule-btn--secondary">Blocked</button>
+        </div>
+      </div>
+      <div class="publishing-summary" data-publishing-summary></div>
+      <div class="workspace-grid-wrap">
+        <table class="workspace-mini-table publishing-table">
+          <thead><tr><th>Version</th><th>Range</th><th>Status</th><th>Published</th><th>Visibility</th></tr></thead>
+          <tbody data-publishing-versions></tbody>
+        </table>
+      </div>
+    </section>
+
+    <aside class="workspace-inspector schedule-card publishing-inspector" aria-labelledby="publishingInspectorTitle">
+      <div class="workspace-inspector__head">
+        <p class="schedule-kicker">Publish Inspector</p>
+        <h2 id="publishingInspectorTitle">Readiness detail</h2>
+        <p>Select a version or checklist item to inspect publish impact.</p>
+      </div>
+      <div class="workspace-inspector__body" data-publishing-inspector>
+        <div class="workspace-empty-state">Select a publish candidate to view version, snapshot, visibility, and rollback details.</div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="workspace-lower-grid">
+    <section class="schedule-card workspace-panel" aria-labelledby="publishChecklistTitle">
+      <div class="workspace-panel__head"><h2 id="publishChecklistTitle">Publish Readiness Checklist</h2><span class="schedule-status-pill schedule-status-pill--warning">Beta</span></div>
+      <div class="publishing-checklist" data-publishing-checklist></div>
+    </section>
+    <section class="schedule-card workspace-panel" aria-labelledby="snapshotsTitle">
+      <div class="workspace-panel__head"><h2 id="snapshotsTitle">Snapshots</h2><span class="schedule-status-pill">Immutable preview</span></div>
+      <div class="publishing-snapshot-list" data-publishing-snapshots></div>
+    </section>
+  </section>
+
+  <section class="schedule-card workspace-panel" aria-labelledby="publicationEventsTitle">
+    <div class="workspace-panel__head"><h2 id="publicationEventsTitle">Publication Events</h2><span class="schedule-status-pill schedule-status-pill--success">Audit-ready</span></div>
+    <div class="publishing-event-list" data-publishing-events></div>
+  </section>
+</main>
+
+<div id="schedule-footer"></div>
+<script type="module" src="pages/workspace/publishing.js?v=5.0.0"></script>
+<script src="app-shell.js?v=5.0.0"></script>
+</body>
+</html>

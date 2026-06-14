@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule Conflict Detection Read Contract",
+  "type": "object",
+  "required": [
+    "meta",
+    "summary",
+    "conflicts",
+    "ruleChecks",
+    "rolePanels",
+    "resolutionQueue",
+    "rules"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "filters": {
+      "type": "object"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "severity",
+          "type",
+          "message",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "employee": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "shift": {
+            "type": "string"
+          },
+          "spot": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "recommendedAction": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "visibility": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ruleChecks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "rolePanels": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "resolutionQueue": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

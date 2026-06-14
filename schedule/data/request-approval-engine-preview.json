@@ -1,0 +1,69 @@
+{
+  "summary": {
+    "openRequests": 12,
+    "awaitingSupervisor": 5,
+    "awaitingAdmin": 3,
+    "policyWarnings": 4,
+    "readyToApply": 2
+  },
+  "queues": [
+    { "name": "Time Off", "count": 5, "description": "Vacation, sick, comp, and training requests awaiting review." },
+    { "name": "Trades", "count": 2, "description": "Shift trade requests requiring employee and supervisor approval." },
+    { "name": "Voluntary OT", "count": 3, "description": "Employees requesting overtime opportunities or posted shifts." },
+    { "name": "Profile Changes", "count": 2, "description": "Employee self-service updates that may need admin review." }
+  ],
+  "requests": [
+    {
+      "id": "REQ-5001",
+      "type": "Vacation",
+      "employee": "Morgan Price",
+      "status": "Under review",
+      "dateRange": "2026-06-22 to 2026-06-24",
+      "hours": 24,
+      "reason": "Vacation request",
+      "policy": "No rule violation",
+      "coverage": "One day may require backfill",
+      "currentStep": "Supervisor review"
+    },
+    {
+      "id": "REQ-5002",
+      "type": "Shift Trade",
+      "employee": "Taylor Smith",
+      "status": "Submitted",
+      "dateRange": "2026-06-18",
+      "hours": 8,
+      "reason": "Trade with Jordan Lee",
+      "policy": "Qualification match needed",
+      "coverage": "No net staffing loss if approved",
+      "currentStep": "Other employee acceptance"
+    },
+    {
+      "id": "REQ-5003",
+      "type": "Voluntary OT",
+      "employee": "Jordan Lee",
+      "status": "Ready to award",
+      "dateRange": "2026-06-19",
+      "hours": 4,
+      "reason": "Posted OT opportunity",
+      "policy": "Within fatigue limit",
+      "coverage": "Fills open radio position",
+      "currentStep": "Admin award"
+    }
+  ],
+  "workflow": [
+    "Draft",
+    "Submitted",
+    "Policy and coverage check",
+    "Supervisor review",
+    "Admin review when required",
+    "Approved or denied",
+    "Applied to schedule",
+    "Audit trail retained"
+  ],
+  "policyChecks": [
+    "Checks request hours and increment settings before approval.",
+    "Flags minimum staffing impacts before schedule changes are applied.",
+    "Routes higher-risk requests to admin review.",
+    "Preserves decision history for future disputes and audits."
+  ]
+}

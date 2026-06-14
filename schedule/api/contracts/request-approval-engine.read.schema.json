@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tools.allegedly-media.com/schedule/api/contracts/request-approval-engine.read.schema.json",
+  "title": "Signal Schedule Request Approval Engine Preview",
+  "type": "object",
+  "required": ["summary", "queues", "requests", "workflow", "policyChecks"],
+  "properties": {
+    "summary": { "type": "object" },
+    "queues": { "type": "array", "items": { "type": "object" } },
+    "requests": { "type": "array", "items": { "type": "object" } },
+    "workflow": { "type": "array", "items": { "type": "string" } },
+    "policyChecks": { "type": "array", "items": { "type": "string" } }
+  }
+}
