@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/CalendarShortcodeRepository.js
-Version: v4.6.0
+Version: v4.6.1
 Purpose: Repository boundary for Calendar Shortcode Admin Controls
 */
 import { getCalendarShortcodesPreview } from '../adapters/JsonCalendarShortcodeAdapter.js';

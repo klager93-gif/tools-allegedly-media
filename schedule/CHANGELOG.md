@@ -1,12 +1,22 @@
 # Signal Schedule Changelog
 
-## v4.6.0 — Publish Schedule Foundation + Copy Helpers
+## v4.6.1 — Employee Portal Navigation Hotfix
+
+- Fixed employee portal subfolder navigation so admin links resolve back to `/schedule/` instead of `/schedule/employee/`.
+- Added Saved Schedules to the Scheduling/Calendar navigation group.
+- Fixed employee portal active navigation detection for nested employee pages.
+- Cleaned up View As group labels so raw internal values like `shiftGroup` no longer display to users.
+- Added hotfix validation for nested Schedule navigation targets.
+
+No SQL migration required.
+
+## v4.6.1 — Publish Schedule Foundation + Copy Helpers
 - Added protected publish route: `POST /api/saved-schedules/:id/publish`.
 - Added Saved Schedules UI Publish action with protected `ADMIN_API_KEY` prompt.
 - Added published status handling using `status = published` and `published_at = now()`.
 - Added copy buttons for schedule IDs, agency IDs, API endpoints, publish endpoints, and validation JSON.
 - Added `PUBLISHING-FOUNDATION.md`.
-- No database migration required; v4.6.0 uses migration 044 from v4.4.0.
+- No database migration required; v4.6.1 uses migration 044 from v4.4.0.
 
 ## v4.4.0 — Saved Schedule CRUD Foundation
 - Added protected Postgres-backed saved schedule CRUD foundation with `/api/saved-schedules` routes.

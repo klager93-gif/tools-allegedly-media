@@ -1,6 +1,6 @@
-# Signal Schedule v4.6.0 — Publishing Foundation
+# Signal Schedule v4.6.1 — Publishing Foundation
 
-v4.6.0 adds the first protected publish action for saved schedules.
+v4.6.1 adds the first protected publish action for saved schedules.
 
 ## What this release does
 

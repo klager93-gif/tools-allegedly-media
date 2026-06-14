@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/VisibilityPrivacyRepository.js
-Version: v4.6.0
+Version: v4.6.1
 Purpose: Repository boundary for Schedule Visibility & Privacy Controls preview data.
 */
 export class VisibilityPrivacyRepository {

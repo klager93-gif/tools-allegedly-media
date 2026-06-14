@@ -1,8 +1,18 @@
-## Signal Schedule v4.6.0 — Publish Schedule Foundation + Copy Helpers
+## Signal Schedule v4.6.1 — Publish Schedule Foundation + Copy Helpers
 
 Adds protected saved schedule persistence, migration 044, API route foundation, write contract documentation, employee write validation cleanup, and clean full-replacement packaging.
 
-## v4.6.0 — Availability, Preferences, Restrictions + Navigation Exposure
+## v4.6.1 — Employee Portal Navigation Hotfix
+
+- Fixed employee portal subfolder navigation so admin links resolve back to `/schedule/` instead of `/schedule/employee/`.
+- Added Saved Schedules to the Scheduling/Calendar navigation group.
+- Fixed employee portal active navigation detection for nested employee pages.
+- Cleaned up View As group labels so raw internal values like `shiftGroup` no longer display to users.
+- Added hotfix validation for nested Schedule navigation targets.
+
+No SQL migration required.
+
+## v4.6.1 — Availability, Preferences, Restrictions + Navigation Exposure
 
 - Added `/schedule/availability.html` for employee availability, preferences, restrictions, and View As group filters.
 - Added preview data, read-only API contract, service/repository/adapter boundaries, and migration 043.
@@ -11,7 +21,7 @@ Adds protected saved schedule persistence, migration 044, API route foundation, 
 - Enhanced builder assignment hints with availability/preference/restriction context where preview data exists.
 
 
-## v4.6.0 — Employee Portal Preview + Builder Autocomplete
+## v4.6.1 — Employee Portal Preview + Builder Autocomplete
 
 - Added `/schedule/employee/` employee-facing portal preview.
 - Added permanent View As foundation for employee and group previews.
@@ -20,14 +30,14 @@ Adds protected saved schedule persistence, migration 044, API route foundation, 
 - Added assignment hinting for availability, group, role, and qualification context while editing the grid.
 - Added migration 042 for future View As profiles, audit logging, and portal preferences.
 
-## Signal Schedule v4.6.0 — Beta Foundation & Publishing
+## Signal Schedule v4.6.1 — Beta Foundation & Publishing
 
 Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
 
 Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql`.
 
 
-## v4.6.0 — Schedule Planning & Forecast Horizon
+## v4.6.1 — Schedule Planning & Forecast Horizon
 
 - Adds Schedule Planning / Forecast Horizon foundation.
 - Adds forecast runs through a selected date range.
@@ -37,7 +47,7 @@ Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publish
 - Navigation coverage audit confirms Planning Forecast is linked in the desktop app shell.
 
 
-## v4.6.0 — Schedule File Organization & Release Cleanup
+## v4.6.1 — Schedule File Organization & Release Cleanup
 
 - Organized Schedule page-specific CSS and JS into /schedule/pages module folders.
 - Preserved public /schedule/*.html URLs to avoid breaking navigation, bookmarks, or live links.

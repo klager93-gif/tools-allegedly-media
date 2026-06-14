@@ -276,6 +276,14 @@ Fixes the Schedule footer rendering after the visibility/privacy release and add
 
 Adds the workable schedule sandbox and admin settings preview under `/schedule/`.
 
+## Signal Schedule v4.6.1 — Employee Portal Navigation Hotfix
+
+- Fixed employee portal subfolder navigation so links from `/schedule/employee/` resolve to the correct Schedule root pages.
+- Added Saved Schedules to the rebuilt Scheduling/Calendar nav group.
+- Fixed nested employee portal active navigation detection.
+- Cleaned View As group labels to avoid raw internal field names like `shiftGroup`.
+- No SQL migration required.
+
 ## Signal Schedule v4.6.0 — Publish Schedule Foundation + Copy Helpers
 - Added protected saved schedule publish-state action.
 - Added Saved Schedules copy buttons for operational fields.
