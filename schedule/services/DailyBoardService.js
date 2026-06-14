@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/DailyBoardService.js
-Version: v2.21.0
+Version: v3.3.2
 Purpose: Service calculations for Daily Schedule Board preview
 */
 import { listDailyBoardPreview } from '../repositories/DailyBoardRepository.js';

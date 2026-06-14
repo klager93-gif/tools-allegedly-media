@@ -1,6 +1,6 @@
-# Signal Schedule v3.3.0 Build Manifest
+# Signal Schedule v3.3.2 Build Manifest
 
-Release: Signal Schedule v3.3.1 — Version Drift Hotfix
+Release: Signal Schedule v3.3.2 — Version Drift Hotfix
 Date: 2026-06-15
 Database migration required: No
 

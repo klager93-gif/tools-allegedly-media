@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/profile.js
-Version: v2.19.0
+Version: v3.3.2
 Purpose: Render Employee Profile & Self-Service Settings preview
 */
 import { getEmployeeProfilePreview } from './services/EmployeeProfileService.js';

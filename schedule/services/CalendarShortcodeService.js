@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/CalendarShortcodeService.js
-Version: v2.19.0
+Version: v3.3.2
 Purpose: Service layer for Calendar Shortcode Admin Controls preview logic
 */
 import { getCalendarShortcodesDashboard } from '../repositories/CalendarShortcodeRepository.js';

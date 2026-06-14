@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/SeniorityEngineService.js
-Version: v2.26.0
+Version: v3.3.2
 Purpose: Seniority Engine preview calculations and ordering helpers.
 */
 const DATE_FIELDS = {

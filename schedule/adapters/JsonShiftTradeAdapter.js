@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonShiftTradeAdapter.js
-Version: v2.24.0
+Version: v3.3.2
 Purpose: JSON preview adapter for Shift Trades & Swap Requests
 */
 export async function readShiftTrades() {

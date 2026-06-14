@@ -15,8 +15,8 @@
     {
       "name": "Shift Trades",
       "pending": 2,
-      "route": "Employee acceptance \u2192 Supervisor review \u2192 Schedule update",
-      "permission": "Supervisor must manage both affected employees or escalate"
+      "route": "Employee acceptance \u2192 Affected supervisor review(s) \u2192 Schedule update",
+      "permission": "Each affected employee supervisor approves their employee; scheduling/admin authority may approve both sides"
     },
     {
       "name": "Open Shift / VOT",
@@ -114,7 +114,8 @@
         "Submit",
         "Employee Acceptance",
         "Eligibility Check",
-        "Supervisor Review",
+        "Supervisor A Review",
+        "Supervisor B Review or Scheduling/Admin Override",
         "Audit"
       ]
     },
@@ -140,8 +141,8 @@
     }
   ],
   "policyChecks": [
-    "Approval authority uses the Roles & Permissions Engine from v2.16.",
-    "Supervisor scope uses the hybrid hierarchy from v2.15.",
+    "Approval authority uses the Roles & Permissions Engine and supervisor hierarchy scope.",
+    "Shift trades across supervisor groups require each affected supervisor to approve, unless scheduling/admin authority approves both sides.",
     "Every approval, denial, escalation, and override writes an audit event.",
     "Requests that fail coverage, eligibility, benefit, or field-policy checks require escalation or override reason.",
     "Final schedule/database writes remain disabled in this prototype until backend actions are connected."

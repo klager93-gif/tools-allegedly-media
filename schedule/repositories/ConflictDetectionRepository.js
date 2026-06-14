@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/ConflictDetectionRepository.js
-Version: v2.28.0
+Version: v3.3.2
 Purpose: Repository boundary for Conflict Detection preview data.
 */
 export class ConflictDetectionRepository {

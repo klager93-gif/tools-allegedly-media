@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/CalendarRepository.js
-Version: v2.19.0
+Version: v3.3.2
 Purpose: Repository boundary for calendar preview reads before the production scheduling engine exists.
 */
 export class CalendarRepository {

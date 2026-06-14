@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/OtVolunteerBoardRepository.js
-Version: v2.23.0
+Version: v3.3.2
 Purpose: Repository boundary for OT Volunteer Board Foundation
 */
 import { fetchOtVolunteerBoardPreview } from '../adapters/JsonOtVolunteerBoardAdapter.js';

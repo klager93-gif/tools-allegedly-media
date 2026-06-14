@@ -1,11 +1,14 @@
-# Signal Schedule v3.3.1 — Version Drift Hotfix
-
-Released: 2026-06-15
-
-## Summary
-
-Normalizes visible Schedule release labels after the v3.3.0 desktop UX release. Page-level hardcoded release labels are removed or made generic so app-shell.js remains the visible release source of truth.
+# Signal Schedule v3.3.2 — UI Drift & Approval Copy Hotfix
 
 ## Database Migration Required
-
 No.
+
+## Summary
+Normalizes Schedule visible versioning and asset cache-busting after the v3.3.1 hotfix, updates file header metadata, removes release packaging junk, and clarifies shift trade approval routing for cross-supervisor trades.
+
+## Validation
+- JS syntax checked
+- JSON parsed
+- HTML asset references checked
+- ZIP integrity checked
+- Non-Schedule tool folders preserved

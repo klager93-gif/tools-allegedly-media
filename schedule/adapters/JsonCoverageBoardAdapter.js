@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/adapters/JsonCoverageBoardAdapter.js
-Version: v2.19.0
+Version: v3.3.2
 Purpose: JSON adapter for Coverage Board preview data.
 */
 export class JsonCoverageBoardAdapter {

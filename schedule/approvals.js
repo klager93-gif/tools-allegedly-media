@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/approvals.js
-Version: v2.19.0
+Version: v3.3.2
 Purpose: Render Request Approval Workflow preview
 */
 import { getRequestApprovalWorkflowPreview } from './services/RequestApprovalWorkflowService.js';
