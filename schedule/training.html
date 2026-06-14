@@ -1,0 +1,80 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/training.html
+Version: v2.19.0
+Purpose: Admin-first Training & Certifications foundation page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Training & Certifications</title>
+<meta name="description" content="Admin-first Signal Schedule training and certification preview with expiration warnings, qualification requirements, and coverage eligibility foundation.">
+<link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
+<link rel="stylesheet" href="style.css?v=2.18.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.24.1">
+<link rel="stylesheet" href="training.css?v=2.18.0">
+<link rel="stylesheet" href="footer.css?v=2.24.1">
+</head>
+<body
+  data-signal-global-layout="true"
+  data-signal-area="Signal Schedule"
+  data-signal-title="Training & Certifications"
+  data-signal-version="v2.24.1"
+  data-signal-theme="Qualification Foundation"
+  data-signal-status="Preview"
+  data-signal-description="Admin-first training assignment, certification expiration, qualification restriction, and staffing eligibility foundation."
+  data-signal-status-text="Signal Schedule v2.24.1 cleanup normalizes navigation, footer metadata, and full-replace package contents. Production writes remain limited to protected employee CRUD."
+>
+<div id="sl-header"></div>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Admin-first / role-filtering later</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="schedule.html">Calendar</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="permissions.html">Permissions</a><a href="approvals.html">Approvals</a><a href="notifications.html">Notifications</a><a href="assignments.html">Assignments</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="daily-board.html">Daily Board</a><a href="seniority.html">Seniority & Rotation</a><a href="shift-trades.html">Shift Trades</a><a href="training.html" aria-current="page">Training & Certs</a><a href="eligibility.html">Eligibility</a><a href="benefits.html">Benefit Ledger</a><a href="leave-banks.html">Leave Banks</a><a href="ot-volunteer-board.html">OT Volunteer Board</a><a href="shortcodes.html">Shortcodes</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a></div></nav>
+<main class="training-shell">
+  <section class="training-hero" aria-labelledby="pageTitle">
+    <p class="schedule-kicker">Signal Schedule v2.11.0</p>
+    <h1 id="pageTitle">Training & Certifications</h1>
+    <p>Track required certifications, training assignments, expiration warnings, and qualification restrictions before they affect coverage, overtime awards, trades, or schedule assignments.</p>
+  </section>
+
+  <section class="training-grid" aria-label="Training and certification preview">
+    <aside class="training-panel">
+      <h2>Qualification Snapshot</h2>
+      <p>This foundation is read-only. It previews the admin data needed to decide who can work a role, bid overtime, accept a trade, or fill a coverage gap.</p>
+      <div class="training-summary" data-training-summary><div class="training-stat"><strong>—</strong><span>Loading preview</span></div></div>
+      <div class="training-filter" aria-label="Training filters">
+        <button type="button" data-training-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-training-filter="expiring">Expiring</button>
+        <button type="button" data-training-filter="expired">Expired</button>
+        <button type="button" data-training-filter="training">In Training</button>
+        <button type="button" data-training-filter="restricted">Restricted</button>
+      </div>
+      <p class="training-status-line" data-training-status-line>Loading Training & Certifications preview data…</p>
+    </aside>
+
+    <section class="training-builder-card" aria-labelledby="builderTitle">
+      <h2 id="builderTitle">Requirement Rule Preview</h2>
+      <p>Admins eventually define which roles require certifications, which certifications expire, and whether expired or pending credentials block assignments.</p>
+      <div class="training-builder-grid">
+        <label>Role<select data-training-role><option>Dispatcher</option><option>Police Radio</option><option>Calltaking</option><option>Booking</option><option>Paramedic</option></select></label>
+        <label>Required Credential<select data-training-credential><option>NCIC</option><option>CPR</option><option>EMD</option><option>Police Radio</option><option>Fire Dispatch</option></select></label>
+        <label>Expiration Rule<select data-training-expiration><option>Warn within 60 days</option><option>Warn within 30 days</option><option>Block if expired</option><option>Supervisor override allowed</option></select></label>
+        <label>Schedule Impact<select data-training-impact><option>Warn only</option><option>Restrict role</option><option>Restrict overtime</option><option>Restrict trades</option></select></label>
+      </div>
+      <div class="training-preview-box" data-training-builder-preview></div>
+      <div class="training-rules"><h3>Policy Checks</h3><ul data-training-rules></ul></div>
+    </section>
+  </section>
+
+  <section class="training-list-section" aria-labelledby="trainingListTitle">
+    <div class="training-section-header"><div><h2 id="trainingListTitle">Certification & Training Queue</h2><p>Records include employee status, required credential, expiration date, restriction impact, and admin action preview.</p></div><span data-training-count>—</span></div>
+    <div class="training-list" data-training-list></div>
+  </section>
+</main>
+<div id="schedule-footer"></div>
+<div id="sl-footer"></div>
+<script src="../assets/global.js?v=0.9.9.6"></script>
+<script src="components/footer.js?v=2.24.1"></script>
+<script type="module" src="training.js?v=2.18.0"></script>
+</body>
+</html>

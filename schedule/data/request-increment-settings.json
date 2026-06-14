@@ -1,0 +1,44 @@
+[
+  {
+    "id": "vacation",
+    "label": "Vacation",
+    "employeeMinimumIncrementMinutes": 30,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  },
+  {
+    "id": "sick",
+    "label": "Sick Leave",
+    "employeeMinimumIncrementMinutes": 15,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  },
+  {
+    "id": "personal",
+    "label": "Personal Leave",
+    "employeeMinimumIncrementMinutes": 30,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  },
+  {
+    "id": "comp",
+    "label": "Comp Time",
+    "employeeMinimumIncrementMinutes": 15,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  },
+  {
+    "id": "training",
+    "label": "Training",
+    "employeeMinimumIncrementMinutes": 60,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  },
+  {
+    "id": "vot",
+    "label": "Voluntary Overtime / Open Shift",
+    "employeeMinimumIncrementMinutes": 15,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": false
+  }
+]

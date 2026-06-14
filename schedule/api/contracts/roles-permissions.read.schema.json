@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule Roles Permissions Preview",
+  "type": "object",
+  "required": [
+    "summary",
+    "roles",
+    "permissionMatrix",
+    "fieldRules",
+    "scopeRules",
+    "approvalRules"
+  ],
+  "properties": {
+    "summary": {
+      "type": "object"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "permissionMatrix": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "fieldRules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "scopeRules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "approvalRules": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

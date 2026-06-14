@@ -1,0 +1,57 @@
+[
+  {
+    "id": "vacation",
+    "label": "Vacation",
+    "paid": true,
+    "requiresApproval": true,
+    "calendarColor": "blue",
+    "description": "Planned time off request.",
+    "employeeMinimumIncrementMinutes": 30,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  },
+  {
+    "id": "sick",
+    "label": "Sick Leave",
+    "paid": true,
+    "requiresApproval": false,
+    "calendarColor": "red",
+    "description": "Unplanned or medically related absence placeholder.",
+    "employeeMinimumIncrementMinutes": 15,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  },
+  {
+    "id": "personal",
+    "label": "Personal Leave",
+    "paid": true,
+    "requiresApproval": true,
+    "calendarColor": "purple",
+    "description": "Personal day request.",
+    "employeeMinimumIncrementMinutes": 30,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  },
+  {
+    "id": "comp",
+    "label": "Comp Time",
+    "paid": true,
+    "requiresApproval": true,
+    "calendarColor": "green",
+    "description": "Compensatory leave request.",
+    "employeeMinimumIncrementMinutes": 15,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  },
+  {
+    "id": "training",
+    "label": "Training",
+    "paid": true,
+    "requiresApproval": true,
+    "calendarColor": "amber",
+    "description": "Training or class attendance event.",
+    "employeeMinimumIncrementMinutes": 60,
+    "adminOverrideAllowed": true,
+    "fullDayUsesScheduledShiftHours": true
+  }
+]

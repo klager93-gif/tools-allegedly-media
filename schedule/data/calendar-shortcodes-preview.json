@@ -1,0 +1,221 @@
+{
+  "meta": {
+    "version": "v2.11.0",
+    "title": "Calendar Shortcode Admin Controls",
+    "note": "Admin-first preview data for compact calendar labels, full text expansion, sorting, visibility, and audit-ready edits."
+  },
+  "settings": {
+    "maxCodeLength": 6,
+    "defaultCalendarDisplay": "code",
+    "showFullTextOnDayDetail": true,
+    "allowCustomCodes": true,
+    "requireUniqueActiveCodes": true,
+    "employeeVisibleDefault": true
+  },
+  "shortcodes": [
+    {
+      "id": "code-vac",
+      "code": "VAC",
+      "label": "Vacation",
+      "category": "Time Off",
+      "fullText": "Vacation leave",
+      "calendarVisibility": "week_month_and_day",
+      "employeeVisible": true,
+      "adminEditable": true,
+      "active": true,
+      "sortOrder": 10,
+      "linkedBank": "Vacation",
+      "example": "VAC"
+    },
+    {
+      "id": "code-sp",
+      "code": "SP",
+      "label": "Sick Personal",
+      "category": "Sick",
+      "fullText": "Sick leave - personal illness",
+      "calendarVisibility": "week_month_and_day",
+      "employeeVisible": true,
+      "adminEditable": true,
+      "active": true,
+      "sortOrder": 20,
+      "linkedBank": "Sick",
+      "example": "SP"
+    },
+    {
+      "id": "code-sf",
+      "code": "SF",
+      "label": "Sick Family",
+      "category": "Sick",
+      "fullText": "Sick leave - family care",
+      "calendarVisibility": "week_month_and_day",
+      "employeeVisible": true,
+      "adminEditable": true,
+      "active": true,
+      "sortOrder": 30,
+      "linkedBank": "Sick",
+      "example": "SF"
+    },
+    {
+      "id": "code-p",
+      "code": "P",
+      "label": "Personal",
+      "category": "Time Off",
+      "fullText": "Personal time",
+      "calendarVisibility": "week_month_and_day",
+      "employeeVisible": true,
+      "adminEditable": true,
+      "active": true,
+      "sortOrder": 40,
+      "linkedBank": "Personal",
+      "example": "P"
+    },
+    {
+      "id": "code-ct",
+      "code": "CT",
+      "label": "Comp Time",
+      "category": "Time Off",
+      "fullText": "Compensatory time used",
+      "calendarVisibility": "week_month_and_day",
+      "employeeVisible": true,
+      "adminEditable": true,
+      "active": true,
+      "sortOrder": 50,
+      "linkedBank": "Comp Time",
+      "example": "CT"
+    },
+    {
+      "id": "code-hol",
+      "code": "HOL",
+      "label": "Holiday",
+      "category": "Holiday",
+      "fullText": "Holiday bank / holiday assignment",
+      "calendarVisibility": "week_month_and_day",
+      "employeeVisible": true,
+      "adminEditable": true,
+      "active": true,
+      "sortOrder": 60,
+      "linkedBank": "Holiday",
+      "example": "HOL"
+    },
+    {
+      "id": "code-vot",
+      "code": "VOT",
+      "label": "Voluntary Overtime",
+      "category": "Overtime",
+      "fullText": "Voluntary overtime opportunity or assignment",
+      "calendarVisibility": "week_month_and_day",
+      "employeeVisible": true,
+      "adminEditable": true,
+      "active": true,
+      "sortOrder": 70,
+      "linkedBank": null,
+      "example": "VOT"
+    },
+    {
+      "id": "code-t",
+      "code": "T",
+      "label": "Training",
+      "category": "Training",
+      "fullText": "Training assignment or certification event",
+      "calendarVisibility": "week_month_and_day",
+      "employeeVisible": true,
+      "adminEditable": true,
+      "active": true,
+      "sortOrder": 80,
+      "linkedBank": null,
+      "example": "T"
+    },
+    {
+      "id": "code-fd",
+      "code": "FD",
+      "label": "Fire Dispatcher",
+      "category": "Qualification",
+      "fullText": "Fire Dispatcher qualification required or assigned",
+      "calendarVisibility": "day_detail_only",
+      "employeeVisible": false,
+      "adminEditable": true,
+      "active": true,
+      "sortOrder": 90,
+      "linkedBank": null,
+      "example": "FD"
+    }
+  ],
+  "editPreview": [
+    {
+      "field": "Code",
+      "current": "VOT",
+      "allowed": "1-6 uppercase characters, unique per agency",
+      "adminAction": "Edit built-in code or add custom code"
+    },
+    {
+      "field": "Full Text",
+      "current": "Voluntary Overtime",
+      "allowed": "Plain language label for day detail view",
+      "adminAction": "Shown when a calendar day is opened"
+    },
+    {
+      "field": "Visibility",
+      "current": "Week + Month + Day",
+      "allowed": "Month/week only, day detail only, hidden, or all views",
+      "adminAction": "Controls what employees see"
+    },
+    {
+      "field": "Linked Bank",
+      "current": "Sick",
+      "allowed": "Optional benefit bank mapping",
+      "adminAction": "Used by Benefit Ledger impact previews"
+    }
+  ],
+  "calendarPreview": [
+    {
+      "date": "2026-07-06",
+      "day": "Mon",
+      "compact": [
+        "VAC",
+        "VOT"
+      ],
+      "details": [
+        "Morgan Price \u2014 Vacation leave",
+        "Open voluntary overtime \u2014 Fire Dispatcher"
+      ]
+    },
+    {
+      "date": "2026-07-08",
+      "day": "Wed",
+      "compact": [
+        "SF",
+        "T"
+      ],
+      "details": [
+        "Taylor Reed \u2014 Sick family care",
+        "Jordan Miles \u2014 CTO training"
+      ]
+    },
+    {
+      "date": "2026-07-10",
+      "day": "Fri",
+      "compact": [
+        "CT",
+        "HOL"
+      ],
+      "details": [
+        "Jordan Miles \u2014 Comp time used",
+        "Holiday bank impact"
+      ]
+    }
+  ],
+  "auditPreview": [
+    {
+      "date": "2026-06-13",
+      "actor": "Admin Preview",
+      "action": "Created custom code FD",
+      "reason": "Fire Dispatcher events need a compact calendar label."
+    },
+    {
+      "date": "2026-06-13",
+      "actor": "Admin Preview",
+      "action": "Updated Sick Family label",
+      "reason": "Clarified day-detail text for employee calendar."
+    }
+  ]
+}
