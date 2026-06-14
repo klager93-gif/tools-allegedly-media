@@ -1,30 +1,26 @@
+# Signal Schedule v3.1.0 Build Manifest
 
-## v3.0.0 — Weekly Schedule View
+Release: Signal Schedule v3.1.0 — Desktop Application UI System
+Date: 2026-06-14
+Database migration required: No
 
-Adds the first weekly schedule grid foundation with seven-day staffing visibility, open spots, source badges, conflict indicators, role-based panels, read-only API endpoint, API contract, and Postgres migration 036.
+## Summary
 
-# Signal Schedule v3.0.0 — Build Manifest
+This release converts Schedule from the earlier centered website-style layout to a desktop-first application shell across all Schedule pages.
 
-## Release
+## Key Changes
 
-Alpha Integration & Stability Audit
-
-## Database Migration Required
-
-No.
+- Added `schedule/app-shell.css`.
+- Added `schedule/app-shell.js`.
+- Added `schedule/weekly-schedule.html` compatibility redirect to `weekly-board.html`.
+- Updated Schedule HTML pages to load the shared app shell.
+- Grouped Schedule navigation into Command, People, Staffing, Requests, and Rules & Admin sections.
+- Normalized app version metadata to v3.1.0 for Schedule pages.
+- Preserved role-based panels on canonical pages instead of creating duplicate `-admin` pages.
 
 ## Validation
 
-- HTML asset references checked.
+- JS syntax checked.
 - JSON parsed.
-- JavaScript syntax checked.
-- Schedule metadata/footer drift normalized.
-- Compatibility redirect retained for `trades.html`.
-
-## Deleted / Excluded
-
-- `.git/`
-- `__MACOSX/`
-- `.DS_Store`
-- `._*` AppleDouble files
-
+- HTML asset references checked.
+- ZIP integrity checked.

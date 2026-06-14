@@ -1,3 +1,7 @@
+## Signal Schedule v3.1.0 — Desktop Application UI System
+
+Converts Schedule to a desktop-first application UI across all Schedule pages. No database migration required.
+
 
 ## Signal Schedule v3.0.0 — Weekly Schedule View
 
