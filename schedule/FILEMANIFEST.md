@@ -31,3 +31,8 @@ New/updated key files:
 - schedule/api/coolify/server.js
 - schedule/components/footer.js
 - schedule/*.html navigation/footer cache metadata
+
+
+## v2.27.0 — Assignment Generator Foundation
+
+Added assignment-generator page/assets, preview data, service/repository/adapter, API contract, SQL migration 033, and Coolify read endpoint.

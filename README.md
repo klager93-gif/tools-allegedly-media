@@ -45,3 +45,8 @@ v2.23.0 — OT Volunteer Board Foundation.
 ## v2.25.0 — Mandation Engine Foundation
 
 Adds policy-driven mandate rotation, shortage-window eligibility, employee and supervisor/admin mandate views, agency-set mandate hour caps, max consecutive hour rules, and override audit preview.
+
+
+## Signal Schedule v2.27.0 — Assignment Generator Foundation
+
+Adds Assignment Generator Foundation and role-based supervisor/admin panels; includes migration 033.

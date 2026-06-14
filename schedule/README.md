@@ -49,3 +49,8 @@ v2.24.0 — Shift Trade UI / workflow connection.
 ## v2.25.0 — Mandation Engine Foundation
 
 Adds policy-driven mandate rotation, shortage-window eligibility, employee and supervisor/admin mandate views, agency-set mandate hour caps, max consecutive hour rules, and override audit preview.
+
+
+## v2.27.0 Assignment Generator Foundation
+
+Adds draft assignment generation previews and establishes role-based panels for employee/supervisor/admin detail instead of creating duplicate `-admin` pages unless the workflow is genuinely separate.

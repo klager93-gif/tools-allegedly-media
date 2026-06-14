@@ -97,3 +97,8 @@ Expected newest migration row: `029 | ot_volunteer_board_foundation`.
 - JSON parsed.
 - HTML asset references checked.
 - ZIP integrity checked.
+
+
+## Signal Schedule v2.27.0 — Assignment Generator Foundation
+
+Adds Assignment Generator Foundation and role-based supervisor/admin panels; includes migration 033.

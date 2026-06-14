@@ -221,3 +221,8 @@ Adds optional shift credential requirements and eligibility checks powered by Tr
 - Added OpenShift adapter, repository, and service boundaries.
 - Added read-only Open Shifts API contract and Coolify route planning.
 - Added future SQL planning for open shifts, VOT requests, and request reason options.
+
+
+## Signal Schedule v2.27.0 — Assignment Generator Foundation
+
+Adds Assignment Generator Foundation and role-based supervisor/admin panels; includes migration 033.

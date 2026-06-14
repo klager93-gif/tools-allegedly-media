@@ -1,15 +1,5 @@
-# Signal Schedule v2.26.0 — Seniority Engine Foundation
+# Latest Release
 
-Database Migration Required: Yes
+## Signal Schedule v2.27.0 — Assignment Generator Foundation
 
-Run:
-
-```text
-schedule/api/coolify/sql/032_seniority_engine_schema.sql
-```
-
-Expected newest migration row:
-
-```text
-032 | seniority_engine
-```
+Adds draft assignment generation and role-based supervisor/admin panels. Database migration 033 is required.

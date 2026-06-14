@@ -263,3 +263,9 @@ Adds role templates, permission matrix, field-level access controls, scope-aware
 
 - Added minimum staffing templates and preview data.
 - Added minimum staffing adapter, repository, service, API contract, and Coolify route planning.
+
+
+## v2.27.0 — Assignment Generator Foundation
+
+- Adds Assignment Generator preview page, data, service/repository/adapter, API contract, API route, and migration 033.
+- Formalizes role-based supervisor/admin panels on the same feature page instead of duplicate `-admin` pages when workflows are not separate.

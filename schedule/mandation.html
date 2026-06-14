@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/mandation.html
-Version: v2.25.0
+Version: v2.27.0
 Purpose: Mandation Engine Foundation with employee and supervisor/admin rotation views
 -->
 <!DOCTYPE html>
@@ -14,22 +14,22 @@ Purpose: Mandation Engine Foundation with employee and supervisor/admin rotation
 <meta name="description" content="Signal Schedule Mandation Engine Foundation for mandate rotation, shortage-window eligibility, policy rules, employee-facing lists, supervisor/admin details, and override audit preview.">
 <link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
 <link rel="stylesheet" href="style.css?v=2.25.0">
-<link rel="stylesheet" href="schedule-nav.css?v=2.26.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.27.0">
 <link rel="stylesheet" href="mandation.css?v=2.25.0">
-<link rel="stylesheet" href="footer.css?v=2.26.0">
+<link rel="stylesheet" href="footer.css?v=2.27.0">
 </head>
 <body
   data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
   data-signal-title="Mandation Engine"
-  data-signal-version="v2.25.0"
+  data-signal-version="v2.27.0"
   data-signal-theme="Mandation Engine Foundation"
   data-signal-status="Preview"
   data-signal-description="Mandation rotation, shortage-window eligibility, configurable policy rules, employee list, supervisor/admin detail view, and override audit preview."
-  data-signal-status-text="Signal Schedule v2.26.0 adds Seniority Engine Foundation. Production writes remain limited to protected employee CRUD."
+  data-signal-status-text="Signal Schedule v2.27.0 adds Assignment Generator Foundation. Production writes remain limited to protected employee CRUD."
 >
 <div id="sl-header"></div>
-<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Admin-first / role-filtering later</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="schedule.html">Calendar</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="permissions.html">Permissions</a><a href="approvals.html">Approvals</a><a href="notifications.html">Notifications</a><a href="assignments.html">Assignments</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="daily-board.html">Daily Board</a><a href="seniority.html">Seniority & Rotation</a><a href="mandation.html" aria-current="page">Mandation</a><a href="shift-trades.html">Shift Trades</a><a href="training.html">Training & Certs</a><a href="eligibility.html">Eligibility</a><a href="benefits.html">Benefit Ledger</a><a href="leave-banks.html">Leave Banks</a><a href="ot-volunteer-board.html">OT Volunteer Board</a><a href="shortcodes.html">Shortcodes</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a></div></nav>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Role-based panels</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="schedule.html">Calendar</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="permissions.html">Permissions</a><a href="approvals.html">Approvals</a><a href="notifications.html">Notifications</a><a href="assignments.html">Assignments</a><a href="assignment-generator.html">Assignment Generator</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="daily-board.html">Daily Board</a><a href="seniority.html">Seniority & Rotation</a><a href="mandation.html" aria-current="page">Mandation</a><a href="shift-trades.html">Shift Trades</a><a href="training.html">Training & Certs</a><a href="eligibility.html">Eligibility</a><a href="benefits.html">Benefit Ledger</a><a href="leave-banks.html">Leave Banks</a><a href="ot-volunteer-board.html">OT Volunteer Board</a><a href="shortcodes.html">Shortcodes</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a></div></nav>
 <main class="mandation-shell" data-mandation-shell>
   <section class="mandation-hero" aria-labelledby="pageTitle">
     <p class="schedule-kicker">Signal Schedule v2.25.0</p>
@@ -38,8 +38,8 @@ Purpose: Mandation Engine Foundation with employee and supervisor/admin rotation
   </section>
   <section class="mandation-grid" aria-label="Mandation controls and policy preview">
     <aside class="mandation-panel">
-      <h2>Mandation Views</h2>
-      <p>Employee mode shows a transparent rotation without management notes. Supervisor/Admin mode shows policy checks, notes, skip reasons, and override context.</p>
+      <h2>Role-Based Mandation Views</h2>
+      <p>Employee, supervisor, and admin details live on this same page. The UI changes detail level by role instead of maintaining a separate mandation-admin.html page.</p>
       <div class="mandation-summary" data-mandation-summary><div class="mandation-stat"><strong>—</strong><span>Loading preview</span></div></div>
       <div class="mandation-view-toggle" aria-label="Mandation view mode">
         <button type="button" data-mandation-view="employee" aria-pressed="false">Employee View</button>
@@ -66,7 +66,7 @@ Purpose: Mandation Engine Foundation with employee and supervisor/admin rotation
 <div id="schedule-footer"></div>
 <div id="sl-footer"></div>
 <script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="components/footer.js?v=2.26.0"></script>
+<script src="components/footer.js?v=2.27.0"></script>
 <script type="module" src="mandation.js?v=2.25.0"></script>
 </body>
 </html>

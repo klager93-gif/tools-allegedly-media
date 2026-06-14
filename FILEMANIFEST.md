@@ -69,3 +69,8 @@ No new SQL migration. Existing v2.21.0 migration 027 remains the current databas
 - `schedule/services/OtVolunteerBoardService.js`
 - `schedule/api/contracts/ot-volunteer-board.read.schema.json`
 - `schedule/api/coolify/sql/029_ot_volunteer_board_schema.sql`
+
+
+## Signal Schedule v2.27.0 — Assignment Generator Foundation
+
+Adds Assignment Generator Foundation and role-based supervisor/admin panels; includes migration 033.
