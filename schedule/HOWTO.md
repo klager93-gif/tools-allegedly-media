@@ -1,87 +1,61 @@
-# Signal Schedule v4.7.0 Notes
+# Signal Schedule v4.8.0 HOWTO
 
-Use `/schedule/builder.html` for the playable schedule grid, `/schedule/availability.html` for availability/preferences/restrictions, `/schedule/employee/` for employee portal preview, and `/schedule/publishing.html` for publishing preview.
+## Before uploading
 
-## Signal Schedule v4.7.0 — Beta Foundation & Publishing
-
-Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
-
-Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql`.
-
-# Signal Schedule v2.20.0 How To
-
-After uploading v2.20.0, open `/schedule/daily-board.html` and verify the Daily Schedule Board loads date, agency, shift, role, numbered spot, open coverage, and under-minimum status cards.
-
-## Database Migration Required
-
-Run:
+Back up the current live Schedule folder.
 
 ```text
-schedule/api/coolify/sql/026_daily_schedule_board_foundation_schema.sql
+2026-06-14 Schedule Backup Before v4.8.0
 ```
 
-Verify in psql:
+## Upload
+
+Upload the full replacement package.
+
+## Apply migration 045
+
+From `psql`, run the SQL file:
+
+```sql
+\i /app/schedule/sql/045_employee_experience_data_tools_schema.sql
+```
+
+If the migration tracker does not update automatically, add the row manually:
+
+```sql
+INSERT INTO schema_migrations (version, name)
+VALUES ('045', 'employee_experience_data_tools_schema')
+ON CONFLICT DO NOTHING;
+```
+
+Verify:
 
 ```sql
 SELECT *
 FROM schema_migrations
-ORDER BY version;
+ORDER BY version DESC
+LIMIT 10;
 ```
 
-Expected newest row:
+Expected top row:
 
 ```text
-026 | daily_schedule_board_foundation
+045 | employee_experience_data_tools_schema
 ```
 
-## Preview Pages
+## Test pages
 
-- `/schedule/daily-board.html`
-- `/schedule/coverage-spots.html`
-- `/schedule/coverage.html`
+- `/schedule/data-tools.html`
+- `/schedule/employee/index.html`
+- `/schedule/employee/calendar.html`
+- `/schedule/employee/requests.html`
+- `/schedule/employee/profile.html`
+- `/schedule/history.html`
 
-## Notes
+## Postgres pager
 
-Daily Board is read-only foundation work. Drag/drop assignment writes, employee portal scheduling writes, and approval-driven live updates are planned later.
+If Postgres shows `--More--`, run:
 
-## v2.28.0 — Conflict Detection Foundation
-
-Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
-
-
-
-## v3.6.1 — Schedule Visibility & Privacy Controls
-
-Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.
-
-
-## v4.7.0 — Schedule File Organization & Release Cleanup
-
-### Purpose
-Organizes page-specific support CSS/JS files into `/schedule/pages/` module folders while preserving public `/schedule/*.html` URLs. This is safe for full replacement because all HTML asset references were updated and validated.
-
-### Public URLs preserved
-All canonical Schedule pages remain at `/schedule/*.html`. Compatibility pages remain in place.
-
-### Support asset folders added
-- `/schedule/pages/calendar/`
-- `/schedule/pages/coverage/`
-- `/schedule/pages/people/`
-- `/schedule/pages/requests/`
-- `/schedule/pages/rules/`
-- `/schedule/pages/settings/`
-- `/schedule/pages/workspace/`
-
-### Legacy root support files removed
-- `/schedule/style.css`
-- `/schedule/script.js`
-- `/schedule/footer.css`
-- `/schedule/schedule-nav.css`
-
-### Validation
-- HTML asset references checked
-- JS syntax checked
-- JSON parsed
-- Navigation coverage preserved
-- ZIP integrity checked
-- No database migration required
+```sql
+\pset pager off
+```

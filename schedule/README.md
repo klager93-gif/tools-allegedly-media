@@ -1,26 +1,30 @@
-# Signal Schedule v4.7.0 Notes
+# Signal Schedule v4.8.0
 
-Use `/schedule/builder.html` for the playable schedule grid, `/schedule/availability.html` for availability/preferences/restrictions, `/schedule/employee/` for employee portal preview, and `/schedule/publishing.html` for publishing preview.
+Signal Schedule is the scheduling, staffing, employee experience, and operational-memory system for public-safety-style agencies.
 
-## Signal Schedule v4.7.0 — Publish Schedule Foundation + Copy Helpers
+## Current release
 
-Adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads. This is the persistence step needed before the builder, planning, assignment generation, publication, audit, and employee visibility workflows can become truly connected.
+Signal Schedule v4.8.0 — Employee Experience & Data Tools.
 
-Database migration required: `schedule/api/coolify/sql/044_saved_schedule_crud_foundation_schema.sql`.
+## Current foundations
 
-Protected write environment:
+- One Agency / One Living Schedule / Many Snapshots.
+- Schedule History and snapshot storage.
+- Protected schedule snapshot publishing foundation.
+- Employee portal preview.
+- Admin = Employee + More role-inheritance principle.
+- Data Tools page for templates, imports, exports, and profile-management readiness.
 
-```text
-DATA_MODE=postgres
-DATABASE_URL=postgres://...
-ADMIN_API_KEY=...
-SCHEDULE_WRITES_ENABLED=true
-```
+## v4.8.0 files of interest
 
-See `SAVED-SCHEDULES-FOUNDATION.md` for route and payload notes.
+- `data-tools.html`
+- `pages/admin/data-tools.css`
+- `pages/admin/data-tools.js`
+- `data/employee-experience-data-tools-preview.json`
+- `api/contracts/employee-experience-data-tools.read.schema.json`
+- `sql/045_employee_experience_data_tools_schema.sql`
+- `EMPLOYEE-EXPERIENCE-DATA-TOOLS.md`
 
-## v4.7.0 Publishing Foundation
+## Database
 
-- Protected publish endpoint: `POST /api/saved-schedules/:id/publish`.
-- Schedule History UI includes Publish and copy buttons for reusable fields.
-- No new migration required; uses migration 044.
+Current required migration after v4.8.0: `045_employee_experience_data_tools_schema`.

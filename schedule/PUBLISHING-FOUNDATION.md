@@ -1,6 +1,6 @@
-# Signal Schedule v4.7.0 — Publishing Foundation
+# Signal Schedule v4.8.0 — Publishing Foundation
 
-v4.7.0 adds the first protected publish action for snapshots.
+v4.8.0 adds the first protected publish action for snapshots.
 
 ## What this release does
 

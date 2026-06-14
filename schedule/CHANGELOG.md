@@ -1,3 +1,14 @@
+# v4.8.0 — Employee Experience & Data Tools
+
+- Added Data Tools page for templates, imports, exports, and profile-management readiness.
+- Added migration 045 for schedule templates, import jobs, export jobs, employee profile extras, and notification preferences.
+- Added read-only Employee Experience & Data Tools preview API/contract.
+- Updated employee dashboard language around My Schedule, My Requests, My Availability, My Profile, Notifications, and My Overtime.
+- Added Data Tools navigation under Settings and Me/Employees.
+- Reinforced Admin = Employee + More as a role-inheritance rule.
+
+SQL migration required: `045_employee_experience_data_tools_schema.sql`.
+
 # v4.7.0 — Schedule History & Snapshot Engine
 
 - Renamed the user-facing legacy saved-schedule list concept to Schedule History.

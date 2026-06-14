@@ -1,4 +1,4 @@
-/* Signal Labs | Signal Schedule | schedule/pages/people/availability.js | v4.7.0 */
+/* Signal Labs | Signal Schedule | schedule/pages/people/availability.js | v4.8.0 */
 const $=(s)=>document.querySelector(s);const esc=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 fetch('data/employee-availability-preferences-preview.json').then(r=>r.json()).then(render).catch(err=>{document.querySelector('[data-availability-matrix]').innerHTML=`<div class="availability-note"><strong>Unable to load availability preview.</strong><span>${esc(err.message)}</span></div>`;});
 function render(data){renderSummary(data);renderGroups(data);renderMatrix(data);renderNotes(data)}

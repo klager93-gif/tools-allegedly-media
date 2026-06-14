@@ -53,3 +53,12 @@ The page is still admin-first and read-only. It demonstrates the planned workflo
 ## Schedule v2.11.0 — Calendar Shortcode Admin Controls
 
 Adds admin-managed compact calendar codes and database migration tracking guidance. After uploading v2.11.0, run migrations 004 through 017 in order.
+
+
+## Applying v4.8.0
+
+1. Back up the live site.
+2. Upload the full replacement package.
+3. Apply `schedule/sql/045_employee_experience_data_tools_schema.sql` in Postgres.
+4. Insert the migration tracking row: `045 | employee_experience_data_tools_schema`.
+5. Visit `/schedule/data-tools.html` and `/schedule/employee/index.html`.

@@ -1,7 +1,7 @@
-# Latest Release — Signal Schedule v4.7.0
+# Latest Release — Signal Schedule v4.8.0
 
-Release: Signal Schedule v4.7.0 — Schedule History & Snapshot Engine
+Release: Signal Schedule v4.8.0 — Employee Experience & Data Tools
 
-Summary: Reframes saved schedules as Schedule History, reinforces one agency / one living schedule / many snapshots, moves the management UI to `history.html`, updates navigation references, and preserves the existing protected snapshot API foundation.
+Summary: Adds the Employee Experience & Data Tools foundation: Admin = Employee + More, expanded employee dashboard language, Data Tools page, templates/import/export preview data, read-only API contract, and migration 045 for persistent data-tool tables.
 
-No SQL migration required. This release uses migration 044 from v4.4.0.
+SQL migration required: `schedule/sql/045_employee_experience_data_tools_schema.sql`.

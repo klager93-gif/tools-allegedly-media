@@ -1,68 +1,53 @@
-# Signal Schedule Roadmap — Revised after v4.7.0
+# Signal Schedule Roadmap — Revised after v4.8.0
 
-## Product principles
+## Completed
 
+### v4.0–v4.3 — Planning & Forecast Foundation
+- Coverage foundations.
+- Forecast horizon.
+- Employee preferences, availability, restrictions.
+- View-as employee foundation.
+
+### v4.4–v4.7 — Persistence, Publishing & History
+- Database-backed snapshot storage.
+- Save/load foundation.
+- Publishing.
+- Schedule History.
 - One Agency / One Living Schedule / Many Snapshots.
+
+### v4.8.0 — Employee Experience & Data Tools
+- Employee experience foundation.
+- Admin = Employee + More role-inheritance rule.
+- Data Tools page.
+- Templates/imports/exports foundation.
+- Employee profile extras and notification preferences schema.
+
+## Active Roadmap
+
+### v5.0.0 — Request & Approval Engine
+- Vacation, sick, training, comp, trades, and voluntary OT requests.
+- Approvals, reason codes, notifications, and request history.
+
+### v5.1.0 — Staffing Engine
+- Coverage, assignments, open slots, OT opportunities, VOT, callback lists, mandation, fairness, and explainability.
+
+### v5.2.0 — Rules & Intelligence
+- Rules engine, notifications, analytics, fatigue, integrity checker, explainability, and forecasting.
+
+### v5.3.0 — Time Clock & Attendance
+- Clock in/out, meal/break tracking, timecards, exceptions, approvals, and payroll-prep exports.
+
+### v5.4.0 — Events & Development
+- Training, conferences, outreach opportunities, certifications, committees, mentorship, promotion packets, and career accomplishments.
+
+### v5.5.0 — Navigation & UX Consolidation
+- Task-based navigation, search, favorites, recent pages, mobile improvements, unified employee/admin experience.
+
+### v6.0.0 — Public Beta
+
+## Architecture Principles
+
 - Admin = Employee + More.
-- Navigation should consolidate around tasks, not isolated technical pages.
-
-## Completed: v4.7.0 — Schedule History & Snapshot Engine
-
-- Schedule History replaces user-facing legacy saved-schedule list language.
-- `history.html` becomes the snapshot/history workspace.
-- Snapshot restore/publish/export/copy actions are established at the UI foundation level.
-
-## Next major milestones
-
-- v4.8.0 — Templates & Data Tools.
-- v4.9.0 — Employee Portal Foundation.
-- v5.0.0 — Request & Approval Engine.
-- v5.1.0 — Assignment & Coverage Engine.
-- v5.2.0 — Overtime & Mandation Engine.
-- v5.3.0 — Rules & Intelligence.
-- v5.5.0 — Navigation & UX Consolidation.
-- v6.0.0 — Public Beta.
-
----
-
-# Signal Schedule Roadmap
-
-## Current — v4.7.0
-Saved schedule save/load UI foundation.
-
-Completed in this release:
-- Builder save draft button.
-- Schedule history list page.
-- Snapshot inspector.
-- Restore snapshot back into builder.
-
-## Next — v4.7.0
-Recommended next step: protected schedule draft management.
-
-Candidate scope:
-- Rename snapshot.
-- Duplicate snapshot.
-- Soft delete snapshot from UI.
-- Better admin key/session handling instead of repeated browser prompts.
-- Publish-ready status transition preparation.
-
-## Later
-- True publish/revision history.
-- Compare snapshots.
-- Employee portal schedule visibility.
-- Pattern generator connected to snapshots.
-
-## Completed in v4.7.0
-- Protected publish-state action for snapshots.
-- Schedule History UI Publish button.
-- Copy buttons for snapshot IDs, agency IDs, API endpoints, publish endpoints, and JSON details.
-
-## Next: v4.7.0
-- Published schedule version history.
-- Immutable snapshots.
-- Rollback/compare groundwork.
-
-
-## Navigation and Role Architecture Principle
-
-Admin is Employee + More: administrators retain all employee-facing pages and actions, including My Schedule, My Requests, My Availability, My Profile, and Notifications, with additional administrative capabilities layered on top. Navigation should remain task-based and subfolder-safe across employee, admin, and future supervisor views.
+- One Agency / One Living Schedule / Many Snapshots.
+- Scheduling answers who should work. Attendance answers who actually worked. Development answers how people are growing.
+- Signal Schedule becomes the operational memory of the agency.

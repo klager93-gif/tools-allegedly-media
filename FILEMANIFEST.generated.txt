@@ -1,5 +1,5 @@
-gitattributes
-gitignore
+.gitattributes
+.gitignore
 ADMIN_CHANGELOG.md
 BUILDMANIFEST.md
 FILEMANIFEST.generated.txt
@@ -70,6 +70,7 @@ schedule/ALPHA-INTEGRATION-AUDIT.md
 schedule/BUILDMANIFEST.md
 schedule/CALENDAR-FOUNDATION.md
 schedule/CHANGELOG.md
+schedule/EMPLOYEE-EXPERIENCE-DATA-TOOLS.md
 schedule/EMPLOYEE-IDENTITY-FOUNDATION.md
 schedule/EMPLOYEE-PORTAL-NAVIGATION-HOTFIX.md
 schedule/FILEMANIFEST.generated.txt
@@ -136,6 +137,7 @@ schedule/api/contracts/coverage-spots.read.schema.json
 schedule/api/contracts/daily-board.read.schema.json
 schedule/api/contracts/draft-planning.read.schema.json
 schedule/api/contracts/employee-availability-preferences.read.schema.json
+schedule/api/contracts/employee-experience-data-tools.read.schema.json
 schedule/api/contracts/employee-portal-preview.read.schema.json
 schedule/api/contracts/employee-profile.read.schema.json
 schedule/api/contracts/employee-timeline.read.schema.json
@@ -227,6 +229,7 @@ schedule/conflict-detection.html
 schedule/coverage-spots.html
 schedule/coverage.html
 schedule/daily-board.html
+schedule/data-tools.html
 schedule/data/agencies.json
 schedule/data/assignment-engine-preview.json
 schedule/data/assignment-generator-preview.json
@@ -243,6 +246,7 @@ schedule/data/daily-board-preview.json
 schedule/data/draft-planning-preview.json
 schedule/data/employee-assignments.json
 schedule/data/employee-availability-preferences-preview.json
+schedule/data/employee-experience-data-tools-preview.json
 schedule/data/employee-portal-preview.json
 schedule/data/employee-profile-preview.json
 schedule/data/employee-timeline-preview.json
@@ -289,6 +293,8 @@ schedule/mandation.html
 schedule/notifications.html
 schedule/open-shifts.html
 schedule/ot-volunteer-board.html
+schedule/pages/admin/data-tools.css
+schedule/pages/admin/data-tools.js
 schedule/pages/calendar/schedule-calendar.css
 schedule/pages/calendar/schedule-calendar.js
 schedule/pages/coverage/coverage-board.css
@@ -439,6 +445,8 @@ schedule/services/WeeklyBoardService.js
 schedule/settings.html
 schedule/shift-trades.html
 schedule/shortcodes.html
+schedule/sql/045_employee_experience_data_tools_schema.sql
+schedule/sql_placeholder.tmp
 schedule/staffing.html
 schedule/supervisors.html
 schedule/timeline.html

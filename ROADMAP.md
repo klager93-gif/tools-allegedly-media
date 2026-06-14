@@ -1,163 +1,53 @@
-## Signal Schedule v4.0.0 — Beta Foundation & Publishing
+# Signal Schedule Roadmap — Revised after v4.8.0
 
-Schedule 4.0.0 starts the beta series with publishing, immutable schedule snapshots, post/seat foundations, availability/preferences/restrictions foundations, and migration 040. This release modifies `/schedule/` and root documentation only.
+## Completed
 
+### v4.0–v4.3 — Planning & Forecast Foundation
+- Coverage foundations.
+- Forecast horizon.
+- Employee preferences, availability, restrictions.
+- View-as employee foundation.
 
-## v2.29.0 — Qualifications & Certification Engine
+### v4.4–v4.7 — Persistence, Publishing & History
+- Database-backed snapshot storage.
+- Save/load foundation.
+- Publishing.
+- Schedule History.
+- One Agency / One Living Schedule / Many Snapshots.
 
-Adds Qualifications & Certification Engine for credential definitions, employee credentials, license numbers, certificate numbers, issuing authorities, expiration warnings, role qualification requirements, notes, role-based employee/supervisor/admin panels, read-only API endpoint, API contract, and Postgres migration 035. License numbers can be not required, optional, or required per qualification type.
+### v4.8.0 — Employee Experience & Data Tools
+- Employee experience foundation.
+- Admin = Employee + More role-inheritance rule.
+- Data Tools page.
+- Templates/imports/exports foundation.
+- Employee profile extras and notification preferences schema.
 
-Database migration required: `schedule/api/coolify/sql/035_qualifications_certifications_schema.sql`.
+## Active Roadmap
 
-## Current — v2.26.0 Seniority Engine Foundation
+### v5.0.0 — Request & Approval Engine
+- Vacation, sick, training, comp, trades, and voluntary OT requests.
+- Approvals, reason codes, notifications, and request history.
 
-- Overall, classification, department, rank, and shift seniority list model.
-- Scenario preview for vacation picks, shift bids, OT awards, and mandation ordering.
-- Agency-configurable tie breakers and employee/admin visibility split.
-- Manual override and audit foundation.
+### v5.1.0 — Staffing Engine
+- Coverage, assignments, open slots, OT opportunities, VOT, callback lists, mandation, fairness, and explainability.
 
-## Next — v2.27.0 Assignment Generator
+### v5.2.0 — Rules & Intelligence
+- Rules engine, notifications, analytics, fatigue, integrity checker, explainability, and forecasting.
 
-- Generate assignment previews from patterns, coverage requirements, leave, training, and open coverage.
-- Keep production writes disabled until conflict detection and approval workflow are connected.
+### v5.3.0 — Time Clock & Attendance
+- Clock in/out, meal/break tracking, timecards, exceptions, approvals, and payroll-prep exports.
 
-## v2.24.0 — Shift Trades UI
+### v5.4.0 — Events & Development
+- Training, conferences, outreach opportunities, certifications, committees, mentorship, promotion packets, and career accomplishments.
 
-- Adds Shift Trades UI for employee trade requests, proposed swap review, approval workflow status, and assignment engine connection points.
-- Updates trade preview data, read-only API contract/endpoint, service/repository/adapter cache versions, and navigation.
-- Adds Postgres migration `030_shift_trades_ui_schema.sql`.
-- Production trade writes remain disabled.
+### v5.5.0 — Navigation & UX Consolidation
+- Task-based navigation, search, favorites, recent pages, mobile improvements, unified employee/admin experience.
 
-## Current Position
+### v6.0.0 — Public Beta
 
-- v2.23.0 complete: OT Volunteer Board Foundation.
-- Next likely release: v2.24.0 — Shift Trade UI / workflow connection.
+## Architecture Principles
 
-# Signal Schedule Roadmap
-
-## Current
-
-Schedule v2.22.0 — Assignment Engine UI Contrast Hotfix
-
-- Assignment Engine page readability has been restored on the dark Schedule layout.
-- Assignment records, source types, history events, and foundation rules now use dark cards with readable text.
-- No database migration required.
-
-## Next
-
-Schedule v2.22.0 — Leave Banks Foundation
-
-- Define vacation, sick, personal, comp, holiday, and training balance buckets.
-- Prepare request approvals to deduct from configured banks.
-- Keep the first release read-only/preview until deduction rules are validated.
-
-## Recently Completed
-
-- v2.21.0 Assignment Engine Integration
-- v2.20.0 Daily Schedule Board Foundation
-- v2.19.0 Coverage Spots Foundation
-
-## v2.28.0 — Conflict Detection Foundation
-
-Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
-
-
-
-# Signal Schedule Roadmap
-
-## Current Release
-
-### v3.7.0 — Scheduling Workspace
-- Central desktop scheduling workspace.
-- Wide schedule grid with role/spot rows and week columns.
-- Right inspector panel foundation for employees, shifts, open spots, and conflicts.
-- Compact command toolbar foundation for today/previous/next/draft/publish flows.
-- Component foundations for panels, toolbars, tables, and status tags.
-- No database migration required.
-
-## Near-Term Roadmap
-
-### v3.8.0 — Drag-and-Drop + Draft Engine
-- Drag employees between assignments, days, roles, or coverage spots.
-- Draft mode separate from published schedule.
-- Undo/reset draft support.
-- Conflict preview before save.
-- Draft → review → publish workflow.
-- Audit trail for manual changes and supervisor/admin overrides.
-
-### v3.9.0 — Schedule Planning / Forecast Horizon
-- Generate or simulate schedules through a selected future end date.
-- Scan pattern-generated schedules for conflicts, shortages, qualification gaps, leave/training overlaps, OT needs, and likely mandates.
-- Preview recommendations before publishing.
-
-### v4.0.0 — Reports & Dashboards
-- Leave balances, OT hours, mandation history, seniority lists, certification expirations, coverage shortages.
-- CSV, Excel, and PDF export targets.
-
-### v4.1.0 — Seating / Post Assignment Planner
-- Desk, console, post, station, unit, or workstation assignments.
-- Qualification requirements by seat/post.
-- Fair rotation tracking and fairness percentages.
-- Employee-visible and admin-visible views.
-- Dispatch-specific support such as Desk 1-6 plus Call Taker while remaining portable to other industries.
-
-### v4.2.0 — Shift Bidding System
-- Shift bids, vacation picks, bid rounds, seniority ordering, tie breakers, and agency rules.
-
-### v4.3.0 — Certification Expiration Notifications
-- 30/60/90 day warnings.
-- Employee, supervisor, and admin notifications.
-- Credential renewal workflows.
-
-### v4.4.0 — Import / Export
-- CSV and Excel import/export.
-- Migration helpers for legacy scheduling systems.
-
-### v4.6.0 — Employee Portal
-- Employee schedule view, leave balances, requests, trade acceptance, OT volunteer actions, notifications, and mandate/seniority visibility according to privacy rules.
-
-### v4.6.0 — Agency Rule Engine
-- Central configurable rule engine for rest, max hours, mandation, short days, holiday rules, union rules, staffing, seating assignments, and overrides.
-
-### v4.7.0 — Availability & Preferences
-- Employee availability, do-not-call flags, overtime preferences, preferred seats/posts, temporary restrictions, and shift preferences.
-
-### v4.8.0 — Relief Factor / Staffing Calculator
-- Required staffing calculations based on coverage hours, leave usage, training, sick averages, vacancies, and workload.
-
-### v4.9.0 — Vacancy / Hiring Tracker
-- Authorized strength, filled positions, vacancies, onboarding pipeline, and staffing risk.
-
-### v5.0.0 — Beta Milestone
-- Integrated production beta target with scheduling, approvals, coverage, reporting, rules, employee portal, and admin controls working as one system.
-
-## Long-Term Vision
-
-### v3.x
-Make it beautiful and operational.
-
-### v4.x
-Make it useful for real supervisors and large agencies.
-
-### v5.x
-Make it powerful enough for production beta.
-
-### v6.x
-Make it dangerous to Telestaff.
-
-## Signal Schedule v3.8.0 — Drag-and-Drop + Draft Engine
-
-- Draft schedule changes before publication.
-- Preview conflicts and coverage impact.
-- Track staged moves, undo/reset direction, and publish checklist.
-- Prepare for forecast horizon and schedule publishing workflows.
-
-## Completed in v4.6.0
-- Protected publish-state action for saved schedules.
-- Saved Schedules UI Publish button.
-- Copy buttons for saved schedule IDs, agency IDs, API endpoints, publish endpoints, and JSON details.
-
-## Next: v4.7.0
-- Published schedule version history.
-- Immutable snapshots.
-- Rollback/compare groundwork.
+- Admin = Employee + More.
+- One Agency / One Living Schedule / Many Snapshots.
+- Scheduling answers who should work. Attendance answers who actually worked. Development answers how people are growing.
+- Signal Schedule becomes the operational memory of the agency.

@@ -1,20 +1,25 @@
-# Full Replacement Build Manifest — Signal Schedule v4.7.0
+# Build Manifest — Signal Schedule v4.8.0
 
-Build: Signal Schedule v4.7.0 — Schedule History & Snapshot Engine
+Package: `signal-schedule-v4.8.0-full-replacement.zip`
 
-Package type: Full replacement.
+Build type: full replacement package.
 
-## Main Schedule changes
+Source: verified Signal Schedule v4.7.0 full replacement package.
 
-- `schedule/history.html` replaces the old saved-schedule list concept.
-- App navigation now uses Schedule History.
-- Builder links and buttons now use snapshot wording.
-- Product model updated to one agency / one living schedule / many snapshots.
-- New `schedule/SCHEDULE-HISTORY-SNAPSHOT-ENGINE.md` documentation.
-- No SQL migration required; migration 044 remains the storage foundation.
+## Release focus
 
-## Validation
+Employee Experience & Data Tools.
 
-- JavaScript syntax checks passed.
-- HTML asset reference check passed.
-- No package junk included.
+## Key changes
+
+- Added `/schedule/data-tools.html`.
+- Added Data Tools CSS/JS preview workspace.
+- Added employee experience/data tools preview data and read contract.
+- Added migration `045_employee_experience_data_tools_schema.sql`.
+- Updated employee portal language and links.
+- Updated app shell navigation with Data Tools and Me/Employees role inheritance.
+- Updated roadmap/docs to include Admin = Employee + More and current v4.8 milestone.
+
+## SQL
+
+Migration required: `schedule/sql/045_employee_experience_data_tools_schema.sql`.

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/coverage/coverage-board.css
-Version: v4.7.0
+Version: v4.8.0
 Purpose: Coverage Board foundation styles
 */
 .coverage-shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto 48px; color: #e5eefb; }

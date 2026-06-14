@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v4.7.0
+Version: v4.8.0
 Purpose: Coolify API with employee CRUD, snapshot CRUD, protected publish-state action, and read-only foundations including schedule publishing, schedule planning, draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:
@@ -67,6 +67,7 @@ const DRAFT_PLANNING_PREVIEW_PATH = resolve(__dirname, '../../data/draft-plannin
 const SCHEDULE_PLANNING_PREVIEW_PATH = resolve(__dirname, '../../data/schedule-planning-preview.json');
 const SCHEDULE_PUBLICATION_PREVIEW_PATH = resolve(__dirname, '../../data/schedule-publication-preview.json');
 const EMPLOYEE_AVAILABILITY_PREFERENCES_PREVIEW_PATH = resolve(__dirname, '../../data/employee-availability-preferences-preview.json');
+const EMPLOYEE_EXPERIENCE_DATA_TOOLS_PREVIEW_PATH = resolve(__dirname, '../../data/employee-experience-data-tools-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -78,7 +79,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v4.7.0', ...overrides };
+  return { source: 'coolify-api', version: 'v4.8.0', ...overrides };
 }
 
 function notFound(res) {
@@ -392,6 +393,11 @@ async function listEmployeeAvailabilityPreferencesFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+async function listEmployeeExperienceDataToolsFromJsonSeed() {
+  const raw = await readFile(EMPLOYEE_EXPERIENCE_DATA_TOOLS_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
 async function listEmployees() {
   if (shouldUsePostgresEmployees()) {
     return {
@@ -446,7 +452,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v4.7.0',
+          version: 'v4.8.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -1130,6 +1136,26 @@ const server = createServer(async (req, res) => {
 
   if ((url.pathname === '/employees' || url.pathname === '/api/employees' || employeeId) && ['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method || '')) {
     return methodNotAllowed(res);
+  }
+
+
+  if (req.method === 'GET' && (url.pathname === '/employee-experience-data-tools' || url.pathname === '/api/employee-experience-data-tools')) {
+    try {
+      const data = await listEmployeeExperienceDataToolsFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-employee-experience-data-tools-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { templates: [], imports: [], exports: [], profileFields: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'EMPLOYEE_EXPERIENCE_DATA_TOOLS_READ_FAILED', message: error.message }]
+      });
+    }
   }
 
   return notFound(res);
