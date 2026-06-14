@@ -1,3 +1,9 @@
+## Signal Schedule v4.0.0 — Beta Foundation & Publishing
+
+Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
+
+Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql`.
+
 # Signal Schedule v2.20.0 How To
 
 After uploading v2.20.0, open `/schedule/daily-board.html` and verify the Daily Schedule Board loads date, agency, shift, role, numbered spot, open coverage, and under-minimum status cards.
@@ -45,7 +51,7 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.
 
 
-## v3.9.0 — Schedule File Organization & Release Cleanup
+## v4.0.0 — Schedule File Organization & Release Cleanup
 
 ### Purpose
 Organizes page-specific support CSS/JS files into `/schedule/pages/` module folders while preserving public `/schedule/*.html` URLs. This is safe for full replacement because all HTML asset references were updated and validated.

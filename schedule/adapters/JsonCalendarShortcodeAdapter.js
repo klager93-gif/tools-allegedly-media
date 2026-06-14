@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonCalendarShortcodeAdapter.js
-Version: v3.9.0
+Version: v4.0.0
 Purpose: JSON adapter for Calendar Shortcode Admin Controls preview data
 */
 export async function getCalendarShortcodesPreview() {

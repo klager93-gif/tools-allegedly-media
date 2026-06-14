@@ -1,3 +1,7 @@
+## Signal Schedule v4.0.0 — Beta Foundation & Publishing
+
+Schedule 4.0.0 starts the beta series with publishing, immutable schedule snapshots, post/seat foundations, availability/preferences/restrictions foundations, and migration 040. This release modifies `/schedule/` and root documentation only.
+
 ## Signal Schedule v3.1.0 — Desktop Application UI System
 
 Converts Schedule to a desktop-first application UI across all Schedule pages. No database migration required.

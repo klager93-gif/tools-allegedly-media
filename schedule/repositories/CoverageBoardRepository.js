@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/CoverageBoardRepository.js
-Version: v3.9.0
+Version: v4.0.0
 Purpose: Repository boundary for Coverage Board preview data.
 */
 export class CoverageBoardRepository {

@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/OpenShiftRepository.js
-Version: v3.9.0
+Version: v4.0.0
 Purpose: Repository boundary for Open Shifts / VOT Foundation preview data.
 */
 export class OpenShiftRepository {

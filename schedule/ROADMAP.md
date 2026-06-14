@@ -1,8 +1,14 @@
+## Signal Schedule v4.0.0 — Beta Foundation & Publishing
+
+Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
+
+Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql`.
+
 # Signal Schedule Roadmap
 
 ## Current Release
 
-### v3.9.0 — Scheduling Workspace
+### v4.0.0 — Scheduling Workspace
 - Central desktop scheduling workspace.
 - Wide schedule grid with role/spot rows and week columns.
 - Right inspector panel foundation for employees, shifts, open spots, and conflicts.
@@ -12,7 +18,7 @@
 
 ## Near-Term Roadmap
 
-### v3.9.0 — Drag-and-Drop + Draft Engine
+### v4.0.0 — Drag-and-Drop + Draft Engine
 - Drag employees between assignments, days, roles, or coverage spots.
 - Draft mode separate from published schedule.
 - Undo/reset draft support.
@@ -20,7 +26,7 @@
 - Draft → review → publish workflow.
 - Audit trail for manual changes and supervisor/admin overrides.
 
-### v3.9.0 — Schedule Planning / Forecast Horizon
+### v4.0.0 — Schedule Planning / Forecast Horizon
 - Generate or simulate schedules through a selected future end date.
 - Scan pattern-generated schedules for conflicts, shortages, qualification gaps, leave/training overlaps, OT needs, and likely mandates.
 - Preview recommendations before publishing.
@@ -81,6 +87,6 @@ Make it powerful enough for production beta.
 Make it dangerous to Telestaff.
 
 
-## v3.9.0 — Schedule File Organization & Release Cleanup
+## v4.0.0 — Schedule File Organization & Release Cleanup
 
 Organizes page-specific support assets into /schedule/pages while preserving public page URLs.

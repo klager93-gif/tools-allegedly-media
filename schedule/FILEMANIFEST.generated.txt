@@ -42,6 +42,7 @@ adapters/JsonQualificationsCertificationAdapter.js
 adapters/JsonRequestApprovalWorkflowAdapter.js
 adapters/JsonRolesPermissionsAdapter.js
 adapters/JsonSchedulePlanningAdapter.js
+adapters/JsonSchedulePublicationAdapter.js
 adapters/JsonSeniorityEngineAdapter.js
 adapters/JsonSeniorityRotationAdapter.js
 adapters/JsonShiftEligibilityAdapter.js
@@ -75,6 +76,7 @@ api/contracts/request-approval-workflow.read.schema.json
 api/contracts/request-hours.read.schema.json
 api/contracts/roles-permissions.read.schema.json
 api/contracts/schedule-planning.read.schema.json
+api/contracts/schedule-publication.read.schema.json
 api/contracts/seniority-engine.read.schema.json
 api/contracts/seniority-rotation.read.schema.json
 api/contracts/shift-eligibility.read.schema.json
@@ -122,6 +124,7 @@ api/coolify/sql/036_weekly_schedule_view_schema.sql
 api/coolify/sql/037_schedule_visibility_privacy_schema.sql
 api/coolify/sql/038_drag_drop_draft_planning_schema.sql
 api/coolify/sql/039_schedule_planning_forecast_horizon_schema.sql
+api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql
 app-shell.css
 app-shell.js
 approvals.html
@@ -175,6 +178,7 @@ data/request-increment-settings.json
 data/request-reasons.json
 data/roles-permissions-preview.json
 data/schedule-planning-preview.json
+data/schedule-publication-preview.json
 data/seniority-engine-preview.json
 data/seniority-rotation-preview.json
 data/shift-eligibility-preview.json
@@ -250,6 +254,8 @@ pages/workspace/draft-planning.css
 pages/workspace/draft-planning.js
 pages/workspace/planning.css
 pages/workspace/planning.js
+pages/workspace/publishing.css
+pages/workspace/publishing.js
 pages/workspace/weekly-board.css
 pages/workspace/weekly-board.js
 pages/workspace/workspace.css
@@ -257,6 +263,7 @@ pages/workspace/workspace.js
 permissions.html
 planning.html
 profile.html
+publishing.html
 qualifications.html
 reports.html
 repositories/AssignmentEngineRepository.js
@@ -283,6 +290,7 @@ repositories/QualificationsCertificationRepository.js
 repositories/RequestApprovalWorkflowRepository.js
 repositories/RolesPermissionsRepository.js
 repositories/SchedulePlanningRepository.js
+repositories/SchedulePublicationRepository.js
 repositories/SeniorityEngineRepository.js
 repositories/SeniorityRotationRepository.js
 repositories/ShiftEligibilityRepository.js
@@ -318,6 +326,7 @@ services/RequestApprovalWorkflowService.js
 services/RequestHoursService.js
 services/RolesPermissionsService.js
 services/SchedulePlanningService.js
+services/SchedulePublicationService.js
 services/SeniorityEngineService.js
 services/SeniorityRotationService.js
 services/ShiftEligibilityService.js

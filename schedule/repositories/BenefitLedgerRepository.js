@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/BenefitLedgerRepository.js
-Version: v3.9.0
+Version: v4.0.0
 Purpose: Repository boundary for benefit balances, impacts, adjustments, and shortcodes
 */
 import { getBenefitLedgerPreview } from '../adapters/JsonBenefitLedgerAdapter.js';

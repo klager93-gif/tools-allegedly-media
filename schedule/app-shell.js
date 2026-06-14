@@ -2,14 +2,14 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/app-shell.js
-Version: v3.9.0
-Purpose: Desktop application shell, connected flyout navigation, app-styled controls, dense workspace defaults, and client-side theme engine.
+Version: v4.0.0
+Purpose: Desktop application shell, connected flyout navigation, app-styled controls, publishing navigation, dense workspace defaults, and client-side theme engine.
 */
 (function () {
   const body = document.body;
   if (!body || body.dataset.signalArea !== 'Signal Schedule') return;
 
-  const version = 'v3.9.0';
+  const version = 'v4.0.0';
   const title = body.dataset.signalTitle || document.title.replace('— Signal Schedule', '').trim() || 'Signal Schedule';
   const themeKey = 'signalScheduleTheme';
   const allowedThemes = ['midnight', 'light', 'slate', 'cad', 'high-contrast'];
@@ -69,6 +69,7 @@ Purpose: Desktop application shell, connected flyout navigation, app-styled cont
       'assignment-generator.html': 'Assignment Generator',
       'draft-planning.html': 'Draft Planning',
       'planning.html': 'Planning Forecast',
+      'publishing.html': 'Publishing',
       'conflict-detection.html': 'Conflict Detection',
       'coverage.html': 'Coverage Board',
       'coverage-spots.html': 'Coverage Spots',
@@ -99,9 +100,9 @@ Purpose: Desktop application shell, connected flyout navigation, app-styled cont
     };
     const groups = [
       { label: 'Overview', href: 'index.html', icon: '⌂', children: ['index.html', 'workspace.html', 'planning.html', 'draft-planning.html'] },
-      { label: 'Calendar', href: 'workspace.html', icon: '▣', children: ['workspace.html', 'planning.html', 'draft-planning.html', 'weekly-board.html', 'daily-board.html', 'schedule.html'] },
+      { label: 'Calendar', href: 'workspace.html', icon: '▣', children: ['workspace.html', 'planning.html', 'draft-planning.html', 'publishing.html', 'weekly-board.html', 'daily-board.html', 'schedule.html'] },
       { label: 'Employees', href: 'employees.html', icon: '👥', children: ['employees.html', 'profile.html', 'timeline.html', 'supervisors.html', 'seniority.html', 'qualifications.html', 'training.html', 'eligibility.html'] },
-      { label: 'Assignments', href: 'assignments.html', icon: '▦', children: ['assignments.html', 'assignment-generator.html', 'planning.html', 'draft-planning.html', 'conflict-detection.html'] },
+      { label: 'Assignments', href: 'assignments.html', icon: '▦', children: ['assignments.html', 'assignment-generator.html', 'planning.html', 'draft-planning.html', 'publishing.html', 'conflict-detection.html'] },
       { label: 'Coverage', href: 'coverage.html', icon: '▥', children: ['staffing.html', 'coverage.html', 'coverage-spots.html'] },
       { label: 'Requests', href: 'leave.html', icon: '✎', children: ['approvals.html', 'leave.html', 'leave-banks.html', 'open-shifts.html', 'ot-volunteer-board.html', 'shift-trades.html'] },
       { label: 'Rules', href: 'mandation.html', icon: '⚙', children: ['mandation.html', 'permissions.html', 'notifications.html', 'visibility.html', 'shortcodes.html', 'benefits.html'] },
