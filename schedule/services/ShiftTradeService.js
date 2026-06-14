@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/ShiftTradeService.js
-Version: v3.7.0
+Version: v3.8.0
 Purpose: Service logic for Shift Trades & Swap Requests preview
 */
 import { getShiftTradePreview } from '../repositories/ShiftTradeRepository.js';

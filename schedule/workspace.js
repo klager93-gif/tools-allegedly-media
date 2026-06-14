@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/workspace.js
-Version: v3.7.0
+Version: v3.8.0
 Purpose: Scheduling Workspace preview data rendering and inspector interactions.
 */
 const roleRows = [

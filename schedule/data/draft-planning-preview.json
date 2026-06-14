@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "version": "v3.8.0",
+    "module": "drag-drop-draft-planning",
+    "mode": "preview-only",
+    "notes": "Draft moves are preview data only until authenticated write routes are enabled."
+  },
+  "summary": {
+    "activeDraft": "draft-week-2026-06-15-a",
+    "draftStatus": "editing",
+    "pendingMoves": 4,
+    "blockingConflicts": 1,
+    "warnings": 3,
+    "publishReady": false
+  },
+  "draftRuns": [
+    {
+      "id": "draft-week-2026-06-15-a",
+      "name": "Week of Jun 15 Draft A",
+      "rangeStart": "2026-06-15",
+      "rangeEnd": "2026-06-21",
+      "status": "editing",
+      "createdBy": "Scheduling Supervisor",
+      "createdAt": "2026-06-14T12:00:00Z",
+      "source": "assignment-generator"
+    }
+  ],
+  "moveQueue": [
+    {
+      "id": "move-001",
+      "employee": "Jamie Carter",
+      "from": "Mon Dispatcher D1 0700-1900",
+      "to": "Tue Dispatcher D2 0700-1900",
+      "status": "warning",
+      "impact": "Creates qualification check; NCIC and Police Radio valid."
+    },
+    {
+      "id": "move-002",
+      "employee": "Chris Nolan",
+      "from": "Fri Dispatcher D2 0700-1900",
+      "to": "Fri Fire Radio F1 0700-1900",
+      "status": "blocked",
+      "impact": "Missing Fire Radio qualification."
+    },
+    {
+      "id": "move-003",
+      "employee": "Morgan Price",
+      "from": "Wed Open Supervisor S1",
+      "to": "Wed Supervisor S1 0700-1900",
+      "status": "ready",
+      "impact": "Fills under-minimum supervisor coverage."
+    },
+    {
+      "id": "move-004",
+      "employee": "Taylor Reed",
+      "from": "Thu Call Taker C1 0700-1900",
+      "to": "Thu Dispatcher D2 0700-1900",
+      "status": "warning",
+      "impact": "Leaves Call Taker C1 open; OT posting recommended."
+    }
+  ],
+  "publishChecklist": [
+    {
+      "label": "No blocking conflicts",
+      "status": "failed",
+      "detail": "One missing qualification conflict remains."
+    },
+    {
+      "label": "Coverage minimums satisfied",
+      "status": "warning",
+      "detail": "Call Taker C1 is open on Thursday."
+    },
+    {
+      "label": "Approval queue reviewed",
+      "status": "ready",
+      "detail": "No pending leave/trade approvals block this draft."
+    },
+    {
+      "label": "Audit note present",
+      "status": "ready",
+      "detail": "Draft can be published after supervisor note."
+    }
+  ],
+  "rules": [
+    "All drag-and-drop changes are staged in draft mode before publication.",
+    "Publish is blocked when a move creates a blocking conflict.",
+    "Undo/restage should preserve an audit trail of who moved what and why.",
+    "Supervisor/admin override notes are required when publishing with warnings."
+  ]
+}

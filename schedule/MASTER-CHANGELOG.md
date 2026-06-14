@@ -1,5 +1,10 @@
 
-## v3.7.0 — Navigation Coverage Audit Hotfix
+
+## v3.8.0 — Drag-and-Drop + Draft Engine
+
+Adds drag-and-drop draft planning foundations with staged move queue, conflict preview, publish checklist, preview data, read-only API endpoint, API contract, service/repository/adapter boundaries, navigation coverage audit, and Postgres migration 038.
+
+## v3.8.0 — Navigation Coverage Audit Hotfix
 
 - Audited Schedule HTML pages against the app-shell navigation.
 - Added missing raw fallback nav links on pages where Qualifications or Mandation were omitted.

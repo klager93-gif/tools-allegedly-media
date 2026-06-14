@@ -79,3 +79,10 @@ Make it powerful enough for production beta.
 
 ### v6.x
 Make it dangerous to Telestaff.
+
+## Signal Schedule v3.8.0 — Drag-and-Drop + Draft Engine
+
+- Draft schedule changes before publication.
+- Preview conflicts and coverage impact.
+- Track staged moves, undo/reset direction, and publish checklist.
+- Prepare for forecast horizon and schedule publishing workflows.

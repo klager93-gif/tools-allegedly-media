@@ -72,3 +72,9 @@ Adds Assignment Generator Foundation and role-based supervisor/admin panels; inc
 
 Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
 
+## Signal Schedule v3.8.0 — Drag-and-Drop + Draft Engine
+
+- Draft schedule changes before publication.
+- Preview conflicts and coverage impact.
+- Track staged moves, undo/reset direction, and publish checklist.
+- Prepare for forecast horizon and schedule publishing workflows.

@@ -2,7 +2,7 @@
 
 ## Current Release
 
-### v3.7.0 — Scheduling Workspace
+### v3.8.0 — Scheduling Workspace
 - Central desktop scheduling workspace.
 - Wide schedule grid with role/spot rows and week columns.
 - Right inspector panel foundation for employees, shifts, open spots, and conflicts.

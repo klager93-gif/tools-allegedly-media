@@ -1,4 +1,7 @@
 ## Signal Schedule v3.7.0 — Scheduling Workspace
+## Signal Schedule v3.8.0 — Drag-and-Drop + Draft Engine
+
+Adds draft planning foundations with staged assignment moves, conflict preview, publish checklist, read-only API endpoint, API contract, service/repository/adapter boundaries, navigation coverage audit, and Postgres migration 038.
 
 Adds the central Schedule workspace foundation, right inspector panel, component foundations, and updates the roadmap with missing major enterprise scheduling features. No database migration required.
 

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonOtVolunteerBoardAdapter.js
-Version: v3.7.0
+Version: v3.8.0
 Purpose: JSON adapter for OT Volunteer Board preview data
 */
 export async function fetchOtVolunteerBoardPreview() {

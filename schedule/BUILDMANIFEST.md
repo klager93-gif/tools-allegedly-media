@@ -1,23 +1,19 @@
 # Signal Schedule Build Manifest
 
-Version: v3.7.0 — Scheduling Workspace
+Version: v3.8.0 — Drag-and-Drop + Draft Engine
 
-## Files Added
-- `workspace.html`
-- `workspace.css`
-- `workspace.js`
-- `components/panel.js`
-- `components/toolbar.js`
-- `components/table.js`
-- `components/tag.js`
+## Release summary
 
-## Files Modified
-- `app-shell.js`
-- `*.html` Schedule fallback navigation/cache metadata
-- `ROADMAP.md`, `MASTER-ROADMAP.md`, changelogs, README, and manifests
-
-## Database Migration Required
-No.
+Adds draft planning foundations with staged move queue, conflict previews, publish checklist, API contract, API endpoint, and migration 038.
 
 ## Validation
-JS syntax checked, JSON parsed, HTML asset references checked, ZIP integrity checked.
+
+- JS syntax checked
+- JSON parsed
+- HTML asset references checked
+- Navigation coverage audit performed
+- ZIP integrity checked
+
+## Database migration
+
+Required: `schedule/api/coolify/sql/038_drag_drop_draft_planning_schema.sql`

@@ -1,3 +1,5 @@
-# Signal Schedule v3.7.0 — Scheduling Workspace
+# Signal Schedule Latest Release
 
-Adds the central Scheduling Workspace foundation with wide schedule grid, compact command toolbar, right inspector panel, and component foundations for future drag-and-drop/draft planning. Updates the roadmap to include the missing major enterprise scheduling features identified during roadmap audit. No database migration required.
+## v3.8.0 — Drag-and-Drop + Draft Engine
+
+Adds draft planning foundations, staged move queue, publish checklist, API contract/endpoint, and migration 038.

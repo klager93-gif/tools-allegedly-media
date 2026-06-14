@@ -1,6 +1,8 @@
 # Signal Schedule File Manifest
 
-Version: v3.7.0
+Version: v3.8.0 — Drag-and-Drop + Draft Engine
+
+## Schedule files
 
 - `ADMIN_CHANGELOG.md`
 - `ALPHA-INTEGRATION-AUDIT.md`
@@ -31,6 +33,7 @@ Version: v3.7.0
 - `adapters/JsonCoverageBoardAdapter.js`
 - `adapters/JsonCoverageSpotsAdapter.js`
 - `adapters/JsonDailyBoardAdapter.js`
+- `adapters/JsonDraftPlanningAdapter.js`
 - `adapters/JsonEmployeeProfileAdapter.js`
 - `adapters/JsonEmployeeTimelineAdapter.js`
 - `adapters/JsonLeaveBanksAdapter.js`
@@ -61,6 +64,7 @@ Version: v3.7.0
 - `api/contracts/coverage-board.read.schema.json`
 - `api/contracts/coverage-spots.read.schema.json`
 - `api/contracts/daily-board.read.schema.json`
+- `api/contracts/draft-planning.read.schema.json`
 - `api/contracts/employee-profile.read.schema.json`
 - `api/contracts/employee-timeline.read.schema.json`
 - `api/contracts/leave-banks.read.schema.json`
@@ -119,6 +123,7 @@ Version: v3.7.0
 - `api/coolify/sql/035_qualifications_certifications_schema.sql`
 - `api/coolify/sql/036_weekly_schedule_view_schema.sql`
 - `api/coolify/sql/037_schedule_visibility_privacy_schema.sql`
+- `api/coolify/sql/038_drag_drop_draft_planning_schema.sql`
 - `app-shell.css`
 - `app-shell.js`
 - `approvals.css`
@@ -168,6 +173,7 @@ Version: v3.7.0
 - `data/coverage-board-preview.json`
 - `data/coverage-spots-preview.json`
 - `data/daily-board-preview.json`
+- `data/draft-planning-preview.json`
 - `data/employee-assignments.json`
 - `data/employee-profile-preview.json`
 - `data/employee-timeline-preview.json`
@@ -195,6 +201,9 @@ Version: v3.7.0
 - `data/visibility-privacy-preview.json`
 - `data/vot-requests-preview.json`
 - `data/weekly-board-preview.json`
+- `draft-planning.css`
+- `draft-planning.html`
+- `draft-planning.js`
 - `eligibility.css`
 - `eligibility.html`
 - `eligibility.js`
@@ -239,6 +248,7 @@ Version: v3.7.0
 - `repositories/CoverageBoardRepository.js`
 - `repositories/CoverageSpotsRepository.js`
 - `repositories/DailyBoardRepository.js`
+- `repositories/DraftPlanningRepository.js`
 - `repositories/EmployeeProfileRepository.js`
 - `repositories/EmployeeTimelineRepository.js`
 - `repositories/LeaveBanksRepository.js`
@@ -277,6 +287,7 @@ Version: v3.7.0
 - `services/CoverageBoardService.js`
 - `services/CoverageSpotsService.js`
 - `services/DailyBoardService.js`
+- `services/DraftPlanningService.js`
 - `services/EmployeeProfileService.js`
 - `services/EmployeeTimelineService.js`
 - `services/LeaveBanksService.js`
