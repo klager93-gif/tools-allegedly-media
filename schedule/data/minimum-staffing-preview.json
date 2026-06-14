@@ -1,0 +1,58 @@
+[
+  {
+    "id": "ms-preview-police-radio-days",
+    "agencyId": "agency-central-dispatch",
+    "assignmentName": "Police Radio",
+    "role": "Dispatcher",
+    "shiftName": "Day Shift",
+    "day": "Monday",
+    "minimumRequired": 2,
+    "assignedCount": 2,
+    "targetStaffing": 3,
+    "status": "minimum-met",
+    "openSlots": 0,
+    "targetOpenSlots": 1
+  },
+  {
+    "id": "ms-preview-fire-radio-days",
+    "agencyId": "agency-central-dispatch",
+    "assignmentName": "Fire Radio",
+    "role": "Dispatcher",
+    "shiftName": "Day Shift",
+    "day": "Monday",
+    "minimumRequired": 1,
+    "assignedCount": 1,
+    "targetStaffing": 2,
+    "status": "minimum-met",
+    "openSlots": 0,
+    "targetOpenSlots": 1
+  },
+  {
+    "id": "ms-preview-supervisor-days",
+    "agencyId": "agency-central-dispatch",
+    "assignmentName": "Shift Supervisor",
+    "role": "Supervisor",
+    "shiftName": "Day Shift",
+    "day": "Monday",
+    "minimumRequired": 1,
+    "assignedCount": 0,
+    "targetStaffing": 1,
+    "status": "below-minimum",
+    "openSlots": 1,
+    "targetOpenSlots": 1
+  },
+  {
+    "id": "ms-preview-patrol-nights",
+    "agencyId": "agency-police-department",
+    "assignmentName": "Patrol Beat",
+    "role": "Police Officer",
+    "shiftName": "Night Shift",
+    "day": "Friday",
+    "minimumRequired": 3,
+    "assignedCount": 2,
+    "targetStaffing": 4,
+    "status": "below-minimum",
+    "openSlots": 1,
+    "targetOpenSlots": 2
+  }
+]
