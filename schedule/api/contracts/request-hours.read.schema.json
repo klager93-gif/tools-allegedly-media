@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule Request Hours Settings Read Contract",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "label",
+      "employeeMinimumIncrementMinutes",
+      "adminOverrideAllowed"
+    ],
+    "properties": {
+      "id": { "type": "string" },
+      "label": { "type": "string" },
+      "employeeMinimumIncrementMinutes": { "type": "integer", "minimum": 1 },
+      "adminOverrideAllowed": { "type": "boolean" },
+      "fullDayUsesScheduledShiftHours": { "type": "boolean" }
+    }
+  }
+}

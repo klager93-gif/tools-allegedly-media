@@ -1,0 +1,68 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/timeline.html
+Version: v4.3.0
+Purpose: Employee Timeline & Audit Trail foundation page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Employee Timeline</title>
+<meta name="description" content="Admin and supervisor employee timeline and audit trail preview for profile, schedule, requests, trades, training, benefits, and system events.">
+<link rel="stylesheet" href="pages/people/timeline.css?v=4.3.0">
+<link rel="stylesheet" href="app-shell.css?v=4.3.0">
+</head>
+<body
+  data-signal-global-layout="true"
+  data-signal-area="Signal Schedule"
+  data-signal-title="Employee Timeline"
+  data-signal-version="v4.3.0"
+  data-signal-theme="Employee Timeline & Audit Trail"
+  data-signal-status="Preview"
+  data-signal-description="Admin/supervisor employee activity timeline and audit trail preview."
+  data-signal-status-text="Signal Schedule v3.6.1 consolidates visible versioning, approval routing copy, and asset cache-busting."
+>
+<div id="sl-header"></div>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Admin-first / role-filtering later</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="workspace.html">Scheduling Workspace</a><a href="draft-planning.html">Draft Planning</a><a href="publishing.html">Publishing</a><a href="schedule.html">Calendar</a><a href="weekly-board.html">Weekly View</a><a href="daily-board.html">Daily Board</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html" aria-current="page">Timeline</a><a href="supervisors.html">Supervisors</a><a href="seniority.html">Seniority & Rotation</a><a href="qualifications.html">Qualifications</a><a href="training.html">Training & Certs</a><a href="eligibility.html">Eligibility</a><a href="assignments.html">Assignments</a><a href="assignment-generator.html">Assignment Generator</a><a href="conflict-detection.html">Conflict Detection</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="approvals.html">Approvals</a><a href="leave.html">Leave Requests</a><a href="leave-banks.html">Leave Banks</a><a href="open-shifts.html">Open Shifts</a><a href="ot-volunteer-board.html">OT Volunteer Board</a><a href="shift-trades.html">Shift Trades</a><a href="mandation.html">Mandation</a><a href="permissions.html">Permissions</a><a href="notifications.html">Notifications</a><a href="visibility.html">Visibility & Privacy</a><a href="shortcodes.html">Shortcodes</a><a href="benefits.html">Benefit Ledger</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a></div></nav>
+<main class="timeline-shell">
+  <section class="timeline-hero" aria-labelledby="timelineTitle">
+    <div>
+      <p class="timeline-kicker">Signal Schedule</p>
+      <h1 id="timelineTitle">Employee Timeline & Audit Trail</h1>
+      <p>Admin and supervisor view of employee-specific activity across profile changes, requests, schedules, open shifts, trades, training, benefits, eligibility, and system events.</p>
+    </div>
+    <div class="timeline-status-card">
+      <span>Timeline Status</span>
+      <strong data-timeline-summary>Loading…</strong>
+      <small>Admin/supervisor-only preview</small>
+    </div>
+  </section>
+  <section class="timeline-layout" aria-label="Employee timeline preview">
+    <aside class="timeline-panel">
+      <h2>Selected Employee</h2>
+      <div class="timeline-identity" data-timeline-identity></div>
+      <div class="timeline-stats" data-timeline-stats></div>
+      <p>Employee visibility is limited to their own activity. Supervisor visibility will later be filtered by assigned employees, groups, positions, or departments.</p>
+    </aside>
+    <section class="timeline-card" aria-labelledby="eventsTitle">
+      <h2 id="eventsTitle">Audit Events</h2>
+      <p>Filter timeline events by category. Each event records actor, timestamp, before/after values, and reason where available.</p>
+      <div class="timeline-filters" data-timeline-filters></div>
+      <div class="timeline-list" data-timeline-list></div>
+    </section>
+  </section>
+  <section class="timeline-card" aria-labelledby="policyTitle">
+    <h2 id="policyTitle">Timeline Visibility Rules</h2>
+    <p>Preview policy assumptions for employee, supervisor, and admin audit visibility.</p>
+    <div class="timeline-policy-grid" data-timeline-policy></div>
+  </section>
+</main>
+<div id="schedule-footer"></div>
+<div id="sl-footer"></div>
+<script src="app-shell.js?v=4.3.0"></script>
+<script type="module" src="pages/people/timeline.js?v=4.3.0"></script>
+</body>
+</html>

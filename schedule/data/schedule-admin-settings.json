@@ -1,0 +1,68 @@
+{
+  "version": "v4.3.0",
+  "agency": {
+    "name": "Central County Dispatch",
+    "timezone": "America/Chicago",
+    "weekStart": "Sunday",
+    "payPeriodStart": "2026-06-14",
+    "timeFormat": "24-hour"
+  },
+  "roles": [
+    "Dispatcher",
+    "Supervisor"
+  ],
+  "shiftGroups": [
+    "A Days",
+    "B Nights",
+    "C Days",
+    "D Nights"
+  ],
+  "shifts": [
+    {
+      "id": "days",
+      "label": "Days",
+      "start": "07:00",
+      "end": "19:00",
+      "paidHours": 12
+    },
+    {
+      "id": "nights",
+      "label": "Nights",
+      "start": "19:00",
+      "end": "07:00",
+      "paidHours": 12
+    }
+  ],
+  "coverageRules": [
+    {
+      "role": "Dispatcher",
+      "shift": "Days",
+      "minimum": 3,
+      "maximum": 5
+    },
+    {
+      "role": "Dispatcher",
+      "shift": "Nights",
+      "minimum": 2,
+      "maximum": 4
+    },
+    {
+      "role": "Supervisor",
+      "shift": "Days",
+      "minimum": 1,
+      "maximum": 1
+    },
+    {
+      "role": "Supervisor",
+      "shift": "Nights",
+      "minimum": 1,
+      "maximum": 1
+    }
+  ],
+  "requestRules": {
+    "partialDayTimeOff": true,
+    "timeOffIncrementMinutes": 15,
+    "overtimeIncrementMinutes": 30,
+    "adminOverrideAnyTime": true
+  }
+}

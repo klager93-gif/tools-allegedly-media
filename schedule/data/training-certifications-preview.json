@@ -1,0 +1,84 @@
+{
+  "summary": {
+    "totalRecords": 6,
+    "expiringSoon": 2,
+    "expired": 1,
+    "inTraining": 2,
+    "restricted": 2
+  },
+  "policyChecks": [
+    "Required certifications should be tied to roles, minimum staffing spots, and qualifications.",
+    "Expired credentials should warn or block assignments based on agency policy.",
+    "Training status should restrict solo staffing until the employee is released.",
+    "Overtime awards, trades, and open shift bids should verify required qualifications.",
+    "Admin overrides must include a reason and write to the audit trail."
+  ],
+  "records": [
+    {
+      "id": "cert-001",
+      "employee": "Morgan Price",
+      "role": "Dispatcher",
+      "credential": "NCIC",
+      "status": "expiring",
+      "expiresOn": "2026-07-30",
+      "daysRemaining": 47,
+      "scheduleImpact": "warn",
+      "adminAction": "Schedule renewal"
+    },
+    {
+      "id": "cert-002",
+      "employee": "Avery Chen",
+      "role": "Police Radio",
+      "credential": "Police Radio",
+      "status": "active",
+      "expiresOn": "2027-02-15",
+      "daysRemaining": 247,
+      "scheduleImpact": "eligible",
+      "adminAction": "No action"
+    },
+    {
+      "id": "cert-003",
+      "employee": "Jordan Wells",
+      "role": "Calltaking",
+      "credential": "EMD",
+      "status": "training",
+      "expiresOn": null,
+      "daysRemaining": null,
+      "scheduleImpact": "restricted",
+      "adminAction": "Trainee review"
+    },
+    {
+      "id": "cert-004",
+      "employee": "Sam Rivera",
+      "role": "Dispatcher",
+      "credential": "NCIC",
+      "status": "expired",
+      "expiresOn": "2026-05-31",
+      "daysRemaining": -13,
+      "scheduleImpact": "blocked",
+      "adminAction": "Remove from qualified list"
+    },
+    {
+      "id": "cert-005",
+      "employee": "Taylor Brooks",
+      "role": "Paramedic",
+      "credential": "CPR",
+      "status": "expiring",
+      "expiresOn": "2026-08-05",
+      "daysRemaining": 53,
+      "scheduleImpact": "warn",
+      "adminAction": "Renewal reminder"
+    },
+    {
+      "id": "cert-006",
+      "employee": "Casey Martin",
+      "role": "Fire Dispatch",
+      "credential": "Fire Dispatch",
+      "status": "training",
+      "expiresOn": null,
+      "daysRemaining": null,
+      "scheduleImpact": "restricted",
+      "adminAction": "Supervisor signoff needed"
+    }
+  ]
+}

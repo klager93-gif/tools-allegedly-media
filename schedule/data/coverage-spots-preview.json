@@ -1,0 +1,213 @@
+{
+  "summary": {
+    "agencies": 4,
+    "coverageDays": 2,
+    "totalSpots": 18,
+    "filledSpots": 11,
+    "openSpots": 7,
+    "underMinimumRoles": 4
+  },
+  "days": [
+    {
+      "date": "2026-06-14",
+      "label": "Sunday",
+      "agencyId": "agency-central-dispatch",
+      "agency": "Central Dispatch Center",
+      "shifts": [
+        {
+          "shiftId": "dispatch-days-2026-06-14",
+          "shift": "Days",
+          "time": "0700-1900",
+          "role": "Dispatcher",
+          "required": 4,
+          "maximum": 6,
+          "spots": [
+            {
+              "spotCode": "D1",
+              "label": "Police Radio",
+              "status": "filled",
+              "employee": "Morgan Price",
+              "employeeId": "emp-dispatch-001",
+              "source": "pattern"
+            },
+            {
+              "spotCode": "D2",
+              "label": "Fire Radio",
+              "status": "filled",
+              "employee": "Riley Brooks",
+              "employeeId": "emp-dispatch-002",
+              "source": "pattern"
+            },
+            {
+              "spotCode": "D3",
+              "label": "Calltaking",
+              "status": "open",
+              "employee": null,
+              "source": "vacancy"
+            },
+            {
+              "spotCode": "D4",
+              "label": "Calltaking",
+              "status": "open",
+              "employee": null,
+              "source": "pending overtime"
+            }
+          ]
+        },
+        {
+          "shiftId": "dispatch-days-supervisor-2026-06-14",
+          "shift": "Days",
+          "time": "0700-1900",
+          "role": "Supervisor",
+          "required": 1,
+          "maximum": 2,
+          "spots": [
+            {
+              "spotCode": "S1",
+              "label": "Shift Supervisor",
+              "status": "open",
+              "employee": null,
+              "source": "vacancy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-14",
+      "label": "Sunday",
+      "agencyId": "agency-kcso-corrections",
+      "agency": "Kankakee County Sheriff's Office",
+      "shifts": [
+        {
+          "shiftId": "jail-days-2026-06-14",
+          "shift": "Days",
+          "time": "0600-1800",
+          "role": "Correctional Officer",
+          "required": 3,
+          "maximum": 5,
+          "spots": [
+            {
+              "spotCode": "C1",
+              "label": "Booking",
+              "status": "filled",
+              "employee": "Alex Rivera",
+              "employeeId": "emp-kcso-001",
+              "source": "pattern"
+            },
+            {
+              "spotCode": "C2",
+              "label": "Housing Unit A",
+              "status": "open",
+              "employee": null,
+              "source": "leave"
+            },
+            {
+              "spotCode": "C3",
+              "label": "Transport",
+              "status": "filled",
+              "employee": "Taylor Morgan",
+              "employeeId": "emp-kcso-002",
+              "source": "override"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-15",
+      "label": "Monday",
+      "agencyId": "agency-metro-fire",
+      "agency": "Metro Fire District",
+      "shifts": [
+        {
+          "shiftId": "fire-gold-2026-06-15",
+          "shift": "Gold",
+          "time": "0700-0700",
+          "role": "Firefighter",
+          "required": 4,
+          "maximum": 6,
+          "spots": [
+            {
+              "spotCode": "E1",
+              "label": "Engine 1 Driver",
+              "status": "filled",
+              "employee": "Jordan Smith",
+              "employeeId": "emp-fire-001",
+              "source": "pattern"
+            },
+            {
+              "spotCode": "E2",
+              "label": "Engine 1 Medic",
+              "status": "filled",
+              "employee": "Casey Lee",
+              "employeeId": "emp-fire-002",
+              "source": "pattern"
+            },
+            {
+              "spotCode": "E3",
+              "label": "Truck",
+              "status": "open",
+              "employee": null,
+              "source": "open shift"
+            },
+            {
+              "spotCode": "E4",
+              "label": "Ambulance",
+              "status": "open",
+              "employee": null,
+              "source": "callback candidate"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-06-15",
+      "label": "Monday",
+      "agencyId": "agency-north-park-police",
+      "agency": "North Park Police Department",
+      "shifts": [
+        {
+          "shiftId": "police-afternoons-2026-06-15",
+          "shift": "Afternoons",
+          "time": "1500-2300",
+          "role": "Officer",
+          "required": 3,
+          "maximum": 5,
+          "spots": [
+            {
+              "spotCode": "P1",
+              "label": "Beat 1",
+              "status": "filled",
+              "employee": "Sam Carter",
+              "employeeId": "emp-police-001",
+              "source": "pattern"
+            },
+            {
+              "spotCode": "P2",
+              "label": "Beat 2",
+              "status": "filled",
+              "employee": "Jamie Novak",
+              "employeeId": "emp-police-002",
+              "source": "pattern"
+            },
+            {
+              "spotCode": "P3",
+              "label": "Beat 3",
+              "status": "open",
+              "employee": null,
+              "source": "vacancy"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "Coverage spots are numbered records, not just text labels, so future drag/drop assignments can target a specific seat.",
+    "A spot may be filled by pattern, overtime, trade, override, training assignment, callback, or mandate.",
+    "Open spots should be visible before they become overtime opportunities or mandates.",
+    "This release is read-only preview data. It does not yet write assignments or consume leave banks."
+  ]
+}

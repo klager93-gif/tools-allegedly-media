@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule OT Volunteer Board Read Contract",
+  "type": "object",
+  "required": ["summary", "opportunities", "volunteers", "awardQueue", "rules"],
+  "properties": {
+    "summary": { "type": "object" },
+    "filters": { "type": "object" },
+    "opportunities": { "type": "array" },
+    "volunteers": { "type": "array" },
+    "awardQueue": { "type": "array" },
+    "rules": { "type": "array", "items": { "type": "string" } }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tools.allegedly-media.com/schedule/api/contracts/assignment-generator.read.schema.json",
+  "title": "Signal Schedule Assignment Generator Read Contract",
+  "type": "object",
+  "required": [
+    "meta",
+    "summary",
+    "filters",
+    "inputs",
+    "runs",
+    "drafts",
+    "rolePanels",
+    "publishChecklist",
+    "rules"
+  ],
+  "properties": {
+    "meta": {
+      "type": "object"
+    },
+    "summary": {
+      "type": "object"
+    },
+    "filters": {
+      "type": "object"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "drafts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "rolePanels": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "publishChecklist": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

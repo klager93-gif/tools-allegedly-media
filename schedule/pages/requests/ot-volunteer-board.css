@@ -1,0 +1,46 @@
+/*
+Signal Labs
+Area: Signal Schedule
+File: schedule/pages/requests/ot-volunteer-board.css
+Version: v4.3.0
+Purpose: OT Volunteer Board Foundation styling
+*/
+.ot-board-shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto 48px; color: #e5eefb; }
+.ot-board-hero, .ot-board-panel, .ot-board-card { border: 1px solid rgba(148,163,184,.24); border-radius: 24px; background: rgba(15,23,42,.74); box-shadow: 0 18px 40px rgba(15,23,42,.16); }
+.ot-board-hero { padding: 28px; margin-bottom: 18px; }
+.ot-board-hero h1 { margin: 0 0 10px; font-size: clamp(2rem,4vw,3.35rem); }
+.ot-board-hero p, .ot-board-panel p, .ot-board-card p { color: rgba(226,232,240,.78); line-height: 1.65; }
+.ot-board-summary { display:grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr)); gap: 12px; margin: 16px 0; }
+.ot-board-summary-card { padding: 16px; border-radius: 18px; border: 1px solid rgba(148,163,184,.22); background: rgba(30,41,59,.58); }
+.ot-board-summary-card span { display:block; color: rgba(148,163,184,.94); font-weight:800; font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; }
+.ot-board-summary-card strong { display:block; margin-top: 6px; font-size: 1.65rem; color:#f8fafc; }
+.ot-board-layout { display:grid; grid-template-columns: minmax(0,1.25fr) minmax(280px,.75fr); gap: 18px; margin-top: 18px; }
+.ot-board-panel { padding: 22px; }
+.ot-board-section-title { display:flex; justify-content:space-between; gap: 16px; align-items:flex-start; margin-bottom: 12px; }
+.ot-board-section-title h2 { margin:0 0 4px; }
+.ot-board-section-title p { margin:0; }
+.ot-board-pill { display:inline-flex; align-items:center; border:1px solid rgba(125,211,252,.35); border-radius:999px; padding:6px 10px; background:rgba(14,165,233,.12); color:rgba(224,242,254,.98); font-weight:900; font-size:.82rem; white-space:nowrap; }
+.ot-board-list { display:grid; gap: 14px; }
+.ot-board-card { padding: 18px; }
+.ot-board-card--critical { border-color: rgba(248,113,113,.56); }
+.ot-board-card--high { border-color: rgba(251,191,36,.52); }
+.ot-board-card-top { display:flex; justify-content:space-between; gap: 12px; color:rgba(125,211,252,.95); font-weight:900; font-size:.8rem; text-transform:uppercase; letter-spacing:.06em; }
+.ot-board-card h3 { margin: 10px 0 4px; color:#f8fafc; }
+.ot-board-facts { display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin: 14px 0; }
+.ot-board-fact { padding: 10px; border-radius: 14px; background: rgba(30,41,59,.62); border:1px solid rgba(148,163,184,.18); }
+.ot-board-fact span { display:block; color:rgba(148,163,184,.94); font-size:.74rem; font-weight:800; text-transform:uppercase; }
+.ot-board-fact strong { display:block; margin-top:3px; color:#f8fafc; }
+.ot-board-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; }
+.ot-board-tags span { border:1px solid rgba(34,197,94,.34); color:rgba(220,252,231,.96); border-radius:999px; padding:6px 9px; background:rgba(34,197,94,.1); font-size:.82rem; }
+.ot-board-volunteers, .ot-board-queue, .ot-board-rules { display:grid; gap: 10px; }
+.ot-board-volunteer, .ot-board-queue-item, .ot-board-rule { padding: 12px; border-radius: 16px; border:1px solid rgba(148,163,184,.22); background:rgba(30,41,59,.56); }
+.ot-board-row { display:flex; justify-content:space-between; gap: 10px; align-items:flex-start; }
+.ot-board-row strong { color:#f8fafc; }
+.ot-board-row small, .ot-board-volunteer small, .ot-board-queue-item small { color:rgba(226,232,240,.72); }
+.ot-board-chip { border:1px solid rgba(148,163,184,.28); border-radius:999px; padding:5px 9px; color:rgba(226,232,240,.94); background:rgba(15,23,42,.48); font-weight:850; font-size:.78rem; white-space:nowrap; }
+.ot-board-chip--ok { border-color:rgba(34,197,94,.38); color:rgba(220,252,231,.98); background:rgba(34,197,94,.1); }
+.ot-board-chip--warn { border-color:rgba(251,191,36,.4); color:rgba(254,243,199,.98); background:rgba(251,191,36,.12); }
+.ot-board-chip--danger { border-color:rgba(248,113,113,.44); color:rgba(254,226,226,.98); background:rgba(248,113,113,.12); }
+.ot-board-note { margin-top:12px; padding:12px; border-radius:16px; border:1px dashed rgba(125,211,252,.36); background:rgba(14,165,233,.08); color:rgba(224,242,254,.94); font-weight:750; }
+@media (max-width: 920px) { .ot-board-layout, .ot-board-facts { grid-template-columns: 1fr; } }
+@media (max-width: 720px) { .ot-board-shell { width:min(100% - 20px, 1180px); } .ot-board-section-title, .ot-board-row { flex-direction:column; } }

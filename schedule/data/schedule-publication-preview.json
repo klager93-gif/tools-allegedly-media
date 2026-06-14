@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "version": "v4.3.0",
+    "module": "schedule-publication",
+    "status": "beta-foundation",
+    "migration": "040_schedule_beta_publishing_foundation_schema.sql"
+  },
+  "summary": {
+    "currentDraft": "June 23-29 Draft A",
+    "latestPublished": "June 16-22 Published v1.0",
+    "pendingChanges": 18,
+    "blockedItems": 3,
+    "visibilityGroups": 5,
+    "rollbackPoints": 4
+  },
+  "versions": [
+    {
+      "id": "pub-2026-06-16-v1",
+      "name": "June 16-22 Published v1.0",
+      "range": "2026-06-16 to 2026-06-22",
+      "status": "published",
+      "publishedAt": "2026-06-13 15:10",
+      "publishedBy": "Supervisor Admin",
+      "visibility": "Employee portal + supervisor board"
+    },
+    {
+      "id": "pub-2026-06-23-draft-a",
+      "name": "June 23-29 Draft A",
+      "range": "2026-06-23 to 2026-06-29",
+      "status": "draft",
+      "publishedAt": "Not published",
+      "publishedBy": "Scheduling Workspace",
+      "visibility": "Admin only"
+    },
+    {
+      "id": "pub-2026-06-23-review",
+      "name": "June 23-29 Review Candidate",
+      "range": "2026-06-23 to 2026-06-29",
+      "status": "ready for review",
+      "publishedAt": "Queued",
+      "publishedBy": "Assignment Generator",
+      "visibility": "Supervisors"
+    }
+  ],
+  "checklist": [
+    {
+      "item": "Coverage minimums satisfied",
+      "status": "blocked",
+      "detail": "3 open dispatcher spots remain on nights."
+    },
+    {
+      "item": "Conflict detection reviewed",
+      "status": "needs review",
+      "detail": "2 rest-window warnings and 1 training overlap."
+    },
+    {
+      "item": "Leave approvals locked",
+      "status": "ready",
+      "detail": "Approved leave imported into draft snapshot."
+    },
+    {
+      "item": "Visibility profile selected",
+      "status": "ready",
+      "detail": "Employee view hides private notes and admin-only reasons."
+    },
+    {
+      "item": "Rollback snapshot prepared",
+      "status": "ready",
+      "detail": "Previous published schedule retained as rollback target."
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "snap-001",
+      "label": "Pre-generation baseline",
+      "source": "Weekly schedule view",
+      "records": 142,
+      "createdAt": "2026-06-13 08:00"
+    },
+    {
+      "id": "snap-002",
+      "label": "Post-assignment-generator",
+      "source": "Assignment Generator",
+      "records": 151,
+      "createdAt": "2026-06-13 09:20"
+    },
+    {
+      "id": "snap-003",
+      "label": "Conflict-review candidate",
+      "source": "Conflict Detection",
+      "records": 151,
+      "createdAt": "2026-06-13 11:45"
+    },
+    {
+      "id": "snap-004",
+      "label": "Supervisor review candidate",
+      "source": "Publishing Workspace",
+      "records": 151,
+      "createdAt": "2026-06-13 14:30"
+    }
+  ],
+  "events": [
+    {
+      "time": "08:00",
+      "event": "Baseline captured",
+      "actor": "System",
+      "detail": "Current weekly board stored before draft work began."
+    },
+    {
+      "time": "09:20",
+      "event": "Assignments generated",
+      "actor": "Assignment Generator",
+      "detail": "Draft A created from pattern and coverage inputs."
+    },
+    {
+      "time": "11:45",
+      "event": "Conflicts attached",
+      "actor": "Conflict Detection",
+      "detail": "Open conflicts linked to publish checklist."
+    },
+    {
+      "time": "14:30",
+      "event": "Review candidate queued",
+      "actor": "Supervisor Admin",
+      "detail": "Ready for final coverage and visibility review."
+    }
+  ],
+  "rules": [
+    "Publishing writes remain disabled until authentication, permissions, and audit enforcement are active.",
+    "Published schedules should be immutable snapshots, not live draft records.",
+    "Rollback must restore a prior published snapshot and create a new publication event.",
+    "Employee-facing publication must respect visibility/privacy rules."
+  ]
+}

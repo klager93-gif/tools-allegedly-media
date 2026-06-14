@@ -1,0 +1,27 @@
+/*
+Signal Labs
+Area: Signal Schedule
+File: schedule/pages/workspace/publishing.css
+Version: v4.3.0
+Purpose: Schedule publishing workspace styles for beta foundation.
+*/
+.publishing-shell{gap:16px;}
+.publishing-hero h1{max-width:980px;}
+.publishing-layout{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:16px;align-items:start;}
+.publishing-main,.publishing-inspector{margin:0!important;}
+.publishing-summary{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:10px;margin:0 0 14px;}
+.publishing-stat{border:1px solid var(--ss-app-border);background:var(--ss-app-panel-soft);border-radius:12px;padding:10px;}
+.publishing-stat span{display:block;color:var(--ss-app-muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;font-weight:900;}
+.publishing-stat strong{display:block;color:var(--ss-app-text);font-size:1.2rem;margin-top:4px;}
+.publishing-table tbody tr{cursor:pointer;}
+.publishing-table tbody tr.is-selected{outline:2px solid color-mix(in srgb,var(--ss-app-accent) 35%,transparent);outline-offset:-2px;background:color-mix(in srgb,var(--ss-app-accent) 10%,var(--ss-app-panel));}
+.publishing-checklist{display:grid;gap:10px;}
+.publishing-check{display:grid;grid-template-columns:auto 1fr;gap:8px 12px;align-items:start;border:1px solid var(--ss-app-border);background:var(--ss-app-panel-soft);border-radius:12px;padding:10px;}
+.publishing-check strong{display:block;color:var(--ss-app-text);}
+.publishing-check span:last-child{color:var(--ss-app-muted);font-weight:750;font-size:.82rem;}
+.publishing-event-list,.publishing-snapshot-list{display:grid;gap:10px;}
+.publishing-event,.publishing-snapshot{border:1px solid var(--ss-app-border);background:var(--ss-app-panel-soft);border-radius:12px;padding:10px;display:grid;gap:4px;}
+.publishing-event strong,.publishing-snapshot strong{color:var(--ss-app-text);}
+.publishing-event span,.publishing-snapshot span{color:var(--ss-app-muted);font-size:.82rem;font-weight:800;}
+@media(max-width:1200px){.publishing-layout{grid-template-columns:1fr}.publishing-summary{grid-template-columns:repeat(2,minmax(140px,1fr));}.publishing-inspector{position:static;}}
+@media(max-width:720px){.publishing-summary{grid-template-columns:1fr}.publishing-check{grid-template-columns:1fr;}}

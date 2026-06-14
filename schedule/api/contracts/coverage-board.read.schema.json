@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Signal Schedule Coverage Board Read Response",
+  "type": "object",
+  "required": [
+    "coverageRows"
+  ],
+  "properties": {
+    "coverageRows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "date",
+          "assignment",
+          "role",
+          "minimumRequired",
+          "assignedCount",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "assignment": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "minimumRequired": {
+            "type": "integer"
+          },
+          "assignedCount": {
+            "type": "integer"
+          },
+          "openSlots": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "below-minimum",
+              "at-minimum",
+              "covered",
+              "above-minimum"
+            ]
+          },
+          "linkedOpenShiftId": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "openShifts": {
+      "type": "array"
+    }
+  }
+}

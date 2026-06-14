@@ -1,0 +1,312 @@
+{
+  "version": "v4.3.0",
+  "meta": {
+    "release": "Availability, Preferences, Restrictions",
+    "status": "preview-read-only",
+    "standingRule": "Employee availability, preferences, and restrictions should influence builder warnings before any automatic schedule engine awards or mandates."
+  },
+  "summary": {
+    "employees": 6,
+    "activeAvailabilityWindows": 9,
+    "preferences": 8,
+    "restrictions": 6,
+    "builderWarningsEnabled": [
+      "unavailable",
+      "approved leave",
+      "preference mismatch",
+      "max consecutive shifts",
+      "qualification warning"
+    ]
+  },
+  "employees": [
+    {
+      "id": "emp-morgan",
+      "name": "Morgan Price",
+      "role": "Dispatcher",
+      "group": "A Days",
+      "department": "Communications",
+      "location": "Main Center",
+      "quals": [
+        "Calltaking",
+        "Police Radio",
+        "NCIC"
+      ]
+    },
+    {
+      "id": "emp-riley",
+      "name": "Riley Stone",
+      "role": "Dispatcher",
+      "group": "A Days",
+      "department": "Communications",
+      "location": "Main Center",
+      "quals": [
+        "Calltaking",
+        "Fire Radio"
+      ]
+    },
+    {
+      "id": "emp-jordan",
+      "name": "Jordan Lane",
+      "role": "Supervisor",
+      "group": "A Days",
+      "department": "Communications",
+      "location": "Main Center",
+      "quals": [
+        "Supervisor",
+        "Police Radio"
+      ]
+    },
+    {
+      "id": "emp-casey",
+      "name": "Casey Brooks",
+      "role": "Dispatcher",
+      "group": "B Nights",
+      "department": "Communications",
+      "location": "Main Center",
+      "quals": [
+        "Calltaking",
+        "Police Radio"
+      ]
+    },
+    {
+      "id": "emp-taylor",
+      "name": "Taylor Reed",
+      "role": "Dispatcher",
+      "group": "B Nights",
+      "department": "Communications",
+      "location": "Main Center",
+      "quals": [
+        "Calltaking",
+        "Fire Radio",
+        "NCIC"
+      ]
+    },
+    {
+      "id": "emp-drew",
+      "name": "Drew Hale",
+      "role": "Supervisor",
+      "group": "B Nights",
+      "department": "Communications",
+      "location": "Main Center",
+      "quals": [
+        "Supervisor"
+      ]
+    }
+  ],
+  "availability": [
+    {
+      "employeeId": "emp-morgan",
+      "day": "Mon",
+      "window": "0700-1900",
+      "status": "available",
+      "source": "normal pattern"
+    },
+    {
+      "employeeId": "emp-morgan",
+      "day": "Tue",
+      "window": "0700-1900",
+      "status": "unavailable",
+      "source": "approved vacation"
+    },
+    {
+      "employeeId": "emp-riley",
+      "day": "Fri",
+      "window": "1300-1700",
+      "status": "unavailable",
+      "source": "training"
+    },
+    {
+      "employeeId": "emp-casey",
+      "day": "Mon",
+      "window": "1900-0700",
+      "status": "available",
+      "source": "normal pattern"
+    },
+    {
+      "employeeId": "emp-casey",
+      "day": "Sat",
+      "window": "1900-0700",
+      "status": "available",
+      "source": "OT willing"
+    },
+    {
+      "employeeId": "emp-taylor",
+      "day": "Wed",
+      "window": "1900-0700",
+      "status": "available",
+      "source": "normal pattern"
+    },
+    {
+      "employeeId": "emp-taylor",
+      "day": "Sun",
+      "window": "1900-0700",
+      "status": "unavailable",
+      "source": "temporary restriction"
+    },
+    {
+      "employeeId": "emp-drew",
+      "day": "Thu",
+      "window": "1900-0700",
+      "status": "available",
+      "source": "normal pattern"
+    },
+    {
+      "employeeId": "emp-jordan",
+      "day": "Sat",
+      "window": "0700-1900",
+      "status": "unavailable",
+      "source": "weekend restriction"
+    }
+  ],
+  "preferences": [
+    {
+      "employeeId": "emp-morgan",
+      "type": "shift",
+      "value": "Days",
+      "weight": "preferred",
+      "note": "Prefers day shift"
+    },
+    {
+      "employeeId": "emp-morgan",
+      "type": "overtime",
+      "value": "Weekdays",
+      "weight": "preferred",
+      "note": "Available for weekday OT when not on leave"
+    },
+    {
+      "employeeId": "emp-riley",
+      "type": "post",
+      "value": "Fire Radio",
+      "weight": "preferred",
+      "note": "Wants more fire radio time"
+    },
+    {
+      "employeeId": "emp-casey",
+      "type": "shift",
+      "value": "Nights",
+      "weight": "preferred",
+      "note": "Prefers nights"
+    },
+    {
+      "employeeId": "emp-taylor",
+      "type": "overtime",
+      "value": "Weekends",
+      "weight": "preferred",
+      "note": "Wants weekend voluntary OT"
+    },
+    {
+      "employeeId": "emp-drew",
+      "type": "shift",
+      "value": "Nights",
+      "weight": "preferred",
+      "note": "Supervisor night preference"
+    },
+    {
+      "employeeId": "emp-jordan",
+      "type": "post",
+      "value": "Police Radio",
+      "weight": "preferred",
+      "note": "Can cover police radio supervision"
+    },
+    {
+      "employeeId": "emp-riley",
+      "type": "dayOff",
+      "value": "Sunday",
+      "weight": "preferred",
+      "note": "Prefers Sundays off"
+    }
+  ],
+  "restrictions": [
+    {
+      "employeeId": "emp-morgan",
+      "type": "approvedLeave",
+      "rule": "Cannot assign Tue 0700-1900",
+      "severity": "block"
+    },
+    {
+      "employeeId": "emp-riley",
+      "type": "training",
+      "rule": "Unavailable Fri 1300-1700",
+      "severity": "warning"
+    },
+    {
+      "employeeId": "emp-jordan",
+      "type": "weekend",
+      "rule": "Avoid weekend assignment unless admin override",
+      "severity": "warning"
+    },
+    {
+      "employeeId": "emp-casey",
+      "type": "maxConsecutive",
+      "rule": "Max 3 consecutive 12-hour shifts",
+      "severity": "warning"
+    },
+    {
+      "employeeId": "emp-taylor",
+      "type": "temporary",
+      "rule": "Cannot work Sunday night this week",
+      "severity": "block"
+    },
+    {
+      "employeeId": "emp-drew",
+      "type": "role",
+      "rule": "Supervisor assignments only unless admin override",
+      "severity": "warning"
+    }
+  ],
+  "viewGroups": [
+    {
+      "id": "group-a-days",
+      "label": "A Days",
+      "type": "shiftGroup",
+      "filter": {
+        "group": "A Days"
+      }
+    },
+    {
+      "id": "group-b-nights",
+      "label": "B Nights",
+      "type": "shiftGroup",
+      "filter": {
+        "group": "B Nights"
+      }
+    },
+    {
+      "id": "group-dispatchers",
+      "label": "Dispatchers",
+      "type": "role",
+      "filter": {
+        "role": "Dispatcher"
+      }
+    },
+    {
+      "id": "group-ncic",
+      "label": "NCIC Qualified",
+      "type": "qualification",
+      "filter": {
+        "qualification": "NCIC"
+      }
+    },
+    {
+      "id": "group-main-center",
+      "label": "Main Center",
+      "type": "location",
+      "filter": {
+        "location": "Main Center"
+      }
+    },
+    {
+      "id": "group-communications",
+      "label": "Communications",
+      "type": "department",
+      "filter": {
+        "department": "Communications"
+      }
+    }
+  ],
+  "builderIntegration": [
+    "Autocomplete should surface availability status while typing names.",
+    "Assignments should warn when approved leave, restrictions, or preference mismatches exist.",
+    "View As group filters should be reusable across employee portal, reports, and builder context."
+  ]
+}
