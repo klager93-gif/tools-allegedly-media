@@ -1,5 +1,3 @@
-# Latest Signal Schedule Release
+Signal Schedule v2.24.1 — Full-Replace Cleanup & Drift Audit
 
-Signal Schedule v2.24.0 — Shift Trades UI
-
-Database migration required: `schedule/api/coolify/sql/030_shift_trades_ui_schema.sql`.
+No database migration required.

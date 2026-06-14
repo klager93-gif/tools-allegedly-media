@@ -1,3 +1,11 @@
+## v2.24.1 — Full-Replace Cleanup & Drift Audit
+
+- Normalized Schedule subnavigation across pages.
+- Replaced duplicate `trades.html` UI with a compatibility redirect to `shift-trades.html`.
+- Normalized Schedule footer metadata/cache-busting for the current package.
+- Cleaned full-replace packaging by excluding `.git`, `__MACOSX`, and AppleDouble `._*` files.
+- No database migration required.
+
 ## v2.24.0 — Shift Trades UI
 
 - Adds Shift Trades UI for employee trade requests, proposed swap review, approval workflow status, and assignment engine connection points.

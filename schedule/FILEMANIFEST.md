@@ -1,3 +1,11 @@
+## v2.24.1 — Full-Replace Cleanup & Drift Audit
+
+- Normalizes Schedule navigation/footer drift.
+- Keeps `shift-trades.html` as the canonical trade UI.
+- Leaves `trades.html` only as a redirect compatibility shim.
+- Excludes `.git`, `__MACOSX`, and AppleDouble `._*` files from release packaging.
+- No database migration required.
+
 # Signal Schedule v2.24.0 File Manifest Addendum
 
 Adds Shift Trades UI files and migration 030.
