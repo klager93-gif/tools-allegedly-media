@@ -1,18 +1,15 @@
-# Signal Schedule v2.21.0 — Assignment Engine Integration
+# Signal Schedule v2.21.1 — Assignment Engine UI Contrast Hotfix
 
-Current Schedule release adds read-only assignment records, source context, and assignment history connecting employees, coverage spots, and daily board rows.
+Current Schedule release fixes Assignment Engine readability on the dark Schedule layout. The assignment page remains the v2.21 Assignment Engine foundation, but cards, records, badges, history events, and rules now use readable dark-surface styling.
 
-# Signal Schedule
+## Database Migration Required
 
-Signal Schedule v2.19.0 adds the Coverage Spots Foundation. It previews numbered staffing spots by date, shift, role, and spot code so the system can show open coverage and prepare for assignment-ready scheduling.
+No. v2.21.1 is a UI hotfix only. If v2.21.0 migration 027 has already been run, no psql action is needed.
 
-The foundation includes a Coverage Spots page, seed data, adapter/repository/service boundaries, API contract, read-only Coolify endpoint, and Postgres migration 025.
+## Current Foundation
 
-Current migration target: 025 coverage_spots_foundation. Run `schedule/api/coolify/sql/025_coverage_spots_foundation_schema.sql` after deploying this release if the Postgres database is active.
+Signal Schedule currently includes employees, agencies, requests, coverage board, coverage spots, daily board, notifications, roles/permissions, approvals, and assignment engine preview foundations.
 
-Production writes, drag/drop assignments, and automatic OT/leave consumption remain disabled until protected authentication, role enforcement, and write policies are ready.
+## Next Planned Release
 
-
-## v2.21.0 — Daily Schedule Board Foundation
-
-Adds a read-only daily board preview that turns coverage spots into visible staffing rows by date, agency, shift, role, and numbered spot. Requires migration `026_daily_schedule_board_foundation_schema.sql`.
+v2.22.0 — Leave Banks Foundation.

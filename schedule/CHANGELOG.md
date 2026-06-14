@@ -1,3 +1,9 @@
+## Signal Schedule v2.21.1 — Assignment Engine UI Contrast Hotfix
+
+- Fixed Assignment Engine card contrast so assignment records, source types, history events, and foundation rules are readable on the dark Schedule layout.
+- Updated Assignment Engine cache-busting and visible version label to v2.21.1.
+- No database migration required.
+
 ## Signal Schedule v2.21.0 — Assignment Engine Integration
 
 - Added Assignment Engine Integration preview tying date, agency, shift, role, numbered coverage spot, employee, source, status, and coverage impact into one read model.

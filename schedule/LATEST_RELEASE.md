@@ -1,23 +1,16 @@
-# Signal Schedule v2.21.0 — Assignment Engine Integration
+# Signal Schedule v2.21.1 — Assignment Engine UI Contrast Hotfix
 
 ## Summary
 
-Adds the Assignment Engine Integration foundation so employees, coverage spots, daily board rows, assignment sources, and assignment history can be represented as one scheduling read model.
+Fixes the Assignment Engine page readability issue where white/light cards inherited low-contrast text on the dark Schedule layout. The page now uses dark Schedule-compatible cards, readable text, and clearer badge contrast.
 
 ## Database Migration Required
 
-Yes. Run:
+No. This release is a UI/CSS hotfix only.
 
-```text
-schedule/api/coolify/sql/027_assignment_engine_integration_schema.sql
-```
+## Files Changed
 
-Expected newest migration:
-
-```text
-027 | assignment_engine_integration
-```
-
-## Notes
-
-This release remains read-only preview functionality. It does not enable drag/drop assignments, automatic pattern generation, or live assignment mutations.
+- `schedule/assignments.html`
+- `schedule/assignments.css`
+- `schedule/assignments.js`
+- Documentation/manifests updated for v2.21.1

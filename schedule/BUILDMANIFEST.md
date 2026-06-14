@@ -1,32 +1,24 @@
-# Signal Schedule v2.21.0 Build Manifest
+# Signal Schedule v2.21.1 Build Manifest
 
 ## Release
 
-Signal Schedule v2.21.0 — Assignment Engine Integration
+Signal Schedule v2.21.1 — Assignment Engine UI Contrast Hotfix
 
 ## Database Migration Required
 
-Yes. Run `schedule/api/coolify/sql/027_assignment_engine_integration_schema.sql`.
+No. This is a UI-only hotfix. Do not run a new psql migration for v2.21.1.
 
 ## Primary Files Changed
 
 - `schedule/assignments.html`
 - `schedule/assignments.css`
 - `schedule/assignments.js`
-- `schedule/data/assignment-engine-preview.json`
-- `schedule/adapters/JsonAssignmentEngineAdapter.js`
-- `schedule/repositories/AssignmentEngineRepository.js`
-- `schedule/services/AssignmentEngineService.js`
-- `schedule/api/contracts/assignment-engine.read.schema.json`
-- `schedule/api/coolify/sql/027_assignment_engine_integration_schema.sql`
-- `schedule/api/coolify/server.js`
-- `schedule/CHANGELOG.md`
 - `schedule/LATEST_RELEASE.md`
-- `schedule/ROADMAP.md`
+- Schedule/root changelog, roadmap, README, build manifest, and file manifest documents
 
 ## Validation
 
-- JSON parsed.
+- Assignment Engine CSS checked for dark-layout contrast.
 - JavaScript syntax checked.
 - HTML asset references checked.
-- Postgres migration uses `schema_migrations (version, name)`.
+- ZIP integrity checked.
