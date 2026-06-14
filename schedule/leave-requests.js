@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/leave-requests.js
-Version: v3.6.1
+Version: v3.6.2
 Purpose: Leave Requests Foundation preview rendering with request hours and admin override logic.
 */
 import { JsonLeaveRequestsAdapter } from './adapters/JsonLeaveRequestsAdapter.js';

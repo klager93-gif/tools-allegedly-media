@@ -400,3 +400,8 @@ timeoff/ROADMAP.md
 timeoff/index.html
 timeoff/script.js
 timeoff/style.css
+
+
+## v3.6.2 Navigation Coverage Audit Hotfix
+
+Schedule navigation was audited so canonical pages are linked and redirect-only compatibility pages stay out of primary nav. No database migration required.

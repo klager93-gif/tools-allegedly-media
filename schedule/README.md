@@ -101,3 +101,8 @@ Schedule now uses connected, box-style flyout navigation instead of separated pi
 ## v3.6.1 — Schedule Visibility & Privacy Controls
 
 Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.
+
+
+## v3.6.2 Navigation Coverage Audit Hotfix
+
+Schedule navigation was audited so canonical pages are linked and redirect-only compatibility pages stay out of primary nav. No database migration required.

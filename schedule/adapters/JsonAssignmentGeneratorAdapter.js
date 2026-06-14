@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/adapters/JsonAssignmentGeneratorAdapter.js
-Version: v3.6.0
+Version: v3.6.2
 Purpose: JSON adapter for Assignment Generator preview data.
 */
 export class JsonAssignmentGeneratorAdapter {

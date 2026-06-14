@@ -1,4 +1,13 @@
 
+## v3.6.2 — Navigation Coverage Audit Hotfix
+
+- Audited Schedule HTML pages against the app-shell navigation.
+- Added missing raw fallback nav links on pages where Qualifications or Mandation were omitted.
+- Confirmed Visibility & Privacy is linked.
+- Kept redirect-only compatibility pages out of primary navigation.
+- No database migration required.
+
+
 ## v3.6.1 — Dense Tables & Workspace
 
 - Adds dense workspace styling for large employee populations and operational schedule views.

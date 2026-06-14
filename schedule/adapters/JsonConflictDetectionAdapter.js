@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/adapters/JsonConflictDetectionAdapter.js
-Version: v3.6.0
+Version: v3.6.2
 Purpose: JSON adapter for Conflict Detection preview data.
 */
 export class JsonConflictDetectionAdapter {

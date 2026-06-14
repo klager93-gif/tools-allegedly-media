@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/shortcodes.js
-Version: v3.6.1
+Version: v3.6.2
 Purpose: Render Calendar Shortcode Admin Controls preview
 */
 import { getShortcodeAdminDashboard } from './services/CalendarShortcodeService.js';

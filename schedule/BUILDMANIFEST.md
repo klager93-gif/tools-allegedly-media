@@ -61,3 +61,8 @@ Expected newest row:
 ## Scope Guard
 
 No Paycheck, Overtime, Time Off, or shared global `/assets/` files were intentionally modified.
+
+
+## v3.6.2 Navigation Coverage Audit Hotfix
+
+Schedule navigation was audited so canonical pages are linked and redirect-only compatibility pages stay out of primary nav. No database migration required.

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/MandationEngineRepository.js
-Version: v3.6.0
+Version: v3.6.2
 Purpose: Repository boundary for Mandation Engine Foundation
 */
 import { fetchMandationEnginePreview } from '../adapters/JsonMandationEngineAdapter.js';
