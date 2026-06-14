@@ -226,7 +226,7 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 
 Fixes the Schedule footer rendering after the visibility/privacy release and adds Visibility & Privacy into the connected Schedule navigation/flyouts. No database migration required.
 
-## Signal Schedule v4.6.1 — Employee Portal Navigation Hotfix
+## Signal Schedule v4.7.0 — Employee Portal Navigation Hotfix
 
 - Fixed employee portal subfolder navigation so links from `/schedule/employee/` resolve to the correct Schedule root pages.
 - Added Saved Schedules to the rebuilt Scheduling/Calendar nav group.

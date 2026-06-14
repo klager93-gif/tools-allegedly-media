@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/rules/notifications.js
-Version: v4.6.1
+Version: v4.7.0
 Purpose: Render Notification Foundation preview
 */
 import { getNotificationPreview } from '../../services/NotificationService.js';

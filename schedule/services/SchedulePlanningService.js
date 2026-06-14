@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/SchedulePlanningService.js
-Version: v4.6.1
+Version: v4.7.0
 Purpose: Service boundary for schedule planning, forecast horizon, and pre-publish risk preview workflows.
 */
 export class SchedulePlanningService {

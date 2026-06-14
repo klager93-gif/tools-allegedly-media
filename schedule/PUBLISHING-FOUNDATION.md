@@ -1,13 +1,13 @@
-# Signal Schedule v4.6.1 — Publishing Foundation
+# Signal Schedule v4.7.0 — Publishing Foundation
 
-v4.6.1 adds the first protected publish action for saved schedules.
+v4.7.0 adds the first protected publish action for snapshots.
 
 ## What this release does
 
 - Keeps migration 044 as the database foundation.
-- Adds a protected publish endpoint for saved schedules.
-- Adds Publish action wiring on the Saved Schedules page.
-- Adds reusable copy buttons for IDs and JSON/detail blocks on Saved Schedules.
+- Adds a protected publish endpoint for snapshots.
+- Adds Publish action wiring on the Schedule History page.
+- Adds reusable copy buttons for IDs and JSON/detail blocks on Schedule History.
 - Marks published schedules with `status = published` and `published_at = now()`.
 
 ## Protected endpoint

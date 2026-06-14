@@ -2,14 +2,14 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/app-shell.js
-Version: v4.6.1
+Version: v4.7.0
 Purpose: Desktop application shell, connected flyout navigation, app-styled controls, publishing navigation, dense workspace defaults, and client-side theme engine.
 */
 (function () {
   const body = document.body;
   if (!body || body.dataset.signalArea !== 'Signal Schedule') return;
 
-  const version = 'v4.6.1';
+  const version = 'v4.7.0';
   const title = body.dataset.signalTitle || document.title.replace('— Signal Schedule', '').trim() || 'Signal Schedule';
   const themeKey = 'signalScheduleTheme';
   const allowedThemes = ['midnight', 'light', 'slate', 'cad', 'high-contrast'];
@@ -74,7 +74,7 @@ Purpose: Desktop application shell, connected flyout navigation, app-styled cont
       'draft-planning.html': 'Draft Planning',
       'planning.html': 'Planning Forecast',
       'publishing.html': 'Publishing',
-      'saved-schedules.html': 'Saved Schedules',
+      'history.html': 'Schedule History',
       'conflict-detection.html': 'Conflict Detection',
       'coverage.html': 'Coverage Board',
       'coverage-spots.html': 'Coverage Spots',
@@ -107,7 +107,7 @@ Purpose: Desktop application shell, connected flyout navigation, app-styled cont
     };
     const groups = [
       { label: 'Overview', href: 'index.html', icon: '⌂', children: ['index.html', 'workspace.html', 'planning.html', 'draft-planning.html'] },
-      { label: 'Calendar', href: 'builder.html', icon: '▣', children: ['builder.html', 'workspace.html', 'planning.html', 'draft-planning.html', 'saved-schedules.html', 'publishing.html', 'weekly-board.html', 'daily-board.html', 'schedule.html'] },
+      { label: 'Calendar', href: 'builder.html', icon: '▣', children: ['builder.html', 'workspace.html', 'planning.html', 'draft-planning.html', 'history.html', 'publishing.html', 'weekly-board.html', 'daily-board.html', 'schedule.html'] },
       { label: 'Employees', href: 'employees.html', icon: '👥', children: ['employees.html', 'employee/index.html', 'availability.html', 'profile.html', 'timeline.html', 'supervisors.html', 'seniority.html', 'qualifications.html', 'training.html', 'eligibility.html'] },
       { label: 'Assignments', href: 'assignments.html', icon: '▦', children: ['assignments.html', 'assignment-generator.html', 'planning.html', 'draft-planning.html', 'publishing.html', 'conflict-detection.html'] },
       { label: 'Coverage', href: 'coverage.html', icon: '▥', children: ['staffing.html', 'coverage.html', 'coverage-spots.html'] },

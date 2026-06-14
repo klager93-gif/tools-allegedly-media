@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "v4.6.1",
+    "version": "v4.7.0",
     "module": "schedule-publication",
     "status": "beta-foundation",
     "migration": "040_schedule_beta_publishing_foundation_schema.sql"

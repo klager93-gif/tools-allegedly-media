@@ -1,4 +1,4 @@
-/* Signal Labs | Signal Schedule | schedule/pages/workspace/saved-schedules.js | v4.6.1 */
+/* Signal Labs | Signal Schedule | schedule/pages/workspace/history.js | v4.7.0 */
 const state={items:[],filter:''};
 const $=(s)=>document.querySelector(s);
 const esc=(v)=>String(v??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -20,7 +20,7 @@ if(filter)filter.addEventListener('input',()=>{state.filter=filter.value.trim().
 load();
 
 async function load(){
-  setStatus('Loading saved schedules…');
+  setStatus('Loading schedule history…');
   try{
     const res=await fetch('/api/saved-schedules',{headers:{accept:'application/json'}});
     const json=await res.json().catch(()=>({ok:false,data:[],errors:[{message:'API returned non-JSON response.'}]}));
@@ -32,9 +32,9 @@ async function load(){
     }
     state.items=Array.isArray(json.data)?json.data:[];
     render();
-    setStatus(state.items.length?`${state.items.length} saved schedule(s) loaded from Postgres.`:'No saved schedules found yet. Save one from the builder.');
+    setStatus(state.items.length?`${state.items.length} snapshot(s) loaded from Postgres.`:'No snapshots found yet. Save a snapshot from the builder.');
   }catch(error){
-    state.items=[];render();setStatus(`Unable to reach /api/saved-schedules. ${error.message}`);
+    state.items=[];render();setStatus(`Unable to reach the snapshot API (/api/saved-schedules). ${error.message}`);
   }
 }
 function setStatus(text){const el=$('[data-saved-status]');if(el)el.textContent=text;}
@@ -48,7 +48,7 @@ function copyButton(value,label='Copy'){
 function render(){
   const tbody=$('[data-saved-table]');if(!tbody)return;
   const rows=filtered();
-  tbody.innerHTML=rows.length?rows.map(item=>`<tr data-id="${esc(item.id)}"><td><strong>${esc(item.name)}</strong><br><small>${esc(item.id)}</small> ${copyButton(item.id,'Copy ID')}</td><td>${esc(dateOnly(item.scheduleStartDate))} → ${esc(dateOnly(item.scheduleEndDate))}</td><td><span class="saved-pill saved-pill--${esc(item.status||'draft')}">${esc(item.status||'draft')}</span></td><td>${esc(item.agencyId)} ${copyButton(item.agencyId,'Copy')}</td><td>${esc(fmtDate(item.updatedAt))}</td><td><div class="saved-row-actions"><button type="button" class="saved-mini-btn" data-saved-action="inspect" data-id="${esc(item.id)}">Inspect</button><button type="button" class="saved-mini-btn" data-saved-action="open" data-id="${esc(item.id)}">Open</button><button type="button" class="saved-mini-btn" data-saved-action="publish" data-id="${esc(item.id)}">Publish</button></div></td></tr>`).join(''):`<tr><td colspan="6">No matching saved schedules.</td></tr>`;
+  tbody.innerHTML=rows.length?rows.map(item=>`<tr data-id="${esc(item.id)}"><td><strong>${esc(item.name)}</strong><br><small>${esc(item.id)}</small> ${copyButton(item.id,'Copy ID')}</td><td>${esc(dateOnly(item.scheduleStartDate))} → ${esc(dateOnly(item.scheduleEndDate))}</td><td><span class="saved-pill saved-pill--${esc(item.status||'draft')}">${esc(item.status||'draft')}</span></td><td>${esc(item.agencyId)} ${copyButton(item.agencyId,'Copy')}</td><td>${esc(fmtDate(item.updatedAt))}</td><td><div class="saved-row-actions"><button type="button" class="saved-mini-btn" data-saved-action="inspect" data-id="${esc(item.id)}">Inspect</button><button type="button" class="saved-mini-btn" data-saved-action="open" data-id="${esc(item.id)}">Restore</button><button type="button" class="saved-mini-btn" data-saved-action="publish" data-id="${esc(item.id)}">Publish</button></div></td></tr>`).join(''):`<tr><td colspan="6">No matching snapshots.</td></tr>`;
   tbody.querySelectorAll('tr[data-id]').forEach(row=>row.addEventListener('click',(event)=>{if(event.target.closest('button'))return;inspect(row.dataset.id);}));
   tbody.querySelectorAll('[data-saved-action="inspect"]').forEach(btn=>btn.addEventListener('click',()=>inspect(btn.dataset.id)));
 }
@@ -59,26 +59,26 @@ function inspect(id){
   const endpoint=`/api/saved-schedules/${item.id}`;
   const publishEndpoint=`/api/saved-schedules/${item.id}/publish`;
   const validationJson=JSON.stringify(item.validationSummary||{},null,2);
-  inspector.innerHTML=`<div class="saved-detail"><strong>${esc(item.name)}</strong><span>${esc(dateOnly(item.scheduleStartDate))} → ${esc(dateOnly(item.scheduleEndDate))}</span></div><div class="saved-detail"><strong>ID</strong><span>${esc(item.id)} ${copyButton(item.id,'Copy ID')}</span></div><div class="saved-detail"><strong>Status</strong><span>${esc(item.status)} • ${esc(item.source||'builder')} ${item.publishedAt?'• published '+esc(fmtDate(item.publishedAt)):''}</span></div><div class="saved-detail"><strong>Payload</strong><span>${assignments} assignment row(s)</span></div><div class="saved-detail"><strong>API endpoints</strong><span>${esc(endpoint)} ${copyButton(endpoint,'Copy')}</span><span>${esc(publishEndpoint)} ${copyButton(publishEndpoint,'Copy publish')}</span></div><div class="saved-detail"><strong>Validation Summary</strong>${copyButton(validationJson,'Copy JSON')}<pre class="saved-json">${esc(validationJson)}</pre></div>`;
+  inspector.innerHTML=`<div class="saved-detail"><strong>${esc(item.name)}</strong><span>${esc(dateOnly(item.scheduleStartDate))} → ${esc(dateOnly(item.scheduleEndDate))}</span></div><div class="saved-detail"><strong>Snapshot ID</strong><span>${esc(item.id)} ${copyButton(item.id,'Copy ID')}</span></div><div class="saved-detail"><strong>Snapshot Status</strong><span>${esc(item.status)} • ${esc(item.source||'builder')} ${item.publishedAt?'• published '+esc(fmtDate(item.publishedAt)):''}</span></div><div class="saved-detail"><strong>Payload</strong><span>${assignments} assignment row(s)</span></div><div class="saved-detail"><strong>Snapshot API endpoints</strong><span>${esc(endpoint)} ${copyButton(endpoint,'Copy')}</span><span>${esc(publishEndpoint)} ${copyButton(publishEndpoint,'Copy publish')}</span></div><div class="saved-detail"><strong>Validation Summary</strong>${copyButton(validationJson,'Copy JSON')}<pre class="saved-json">${esc(validationJson)}</pre></div>`;
 }
 async function publishSchedule(id){
   const item=state.items.find(x=>x.id===id);if(!item)return;
   if(item.status==='published'&&!window.confirm('This schedule is already published. Re-apply published state?'))return;
   const adminKey=window.prompt('Enter ADMIN_API_KEY to publish this protected schedule.');
   if(!adminKey){setStatus('Publish cancelled. Protected schedule publish requires ADMIN_API_KEY.');return;}
-  setStatus(`Publishing ${item.name || id}…`);
+  setStatus(`Publishing current schedule snapshot ${item.name || id}…`);
   try{
     const res=await fetch(`/api/saved-schedules/${encodeURIComponent(id)}/publish`,{method:'POST',headers:{'content-type':'application/json','x-admin-api-key':adminKey},body:JSON.stringify({publishedBy:'browser-publisher'})});
     const json=await res.json().catch(()=>({ok:false,errors:[{message:'API returned non-JSON response.'}]}));
     if(!res.ok||!json.ok){const message=(json.errors||[]).map(e=>e.message).join(' ')||`HTTP ${res.status}`;setStatus(`Publish failed: ${message}`);return;}
     const index=state.items.findIndex(x=>x.id===id);if(index>=0)state.items[index]=json.data;
-    render();inspect(id);setStatus(`Published schedule: ${json.data.name} (${json.data.id})`);
+    render();inspect(id);setStatus(`Published snapshot: ${json.data.name} (${json.data.id})`);
   }catch(error){setStatus(`Publish failed: ${error.message}`);}
 }
 function openInBuilder(id){
   const item=state.items.find(x=>x.id===id);if(!item)return;
   localStorage.setItem('signalScheduleBuilderLoad',JSON.stringify(item));
-  location.href='builder.html?load=saved';
+  location.href='builder.html?load=snapshot';
 }
 async function copyValue(value,button){
   try{

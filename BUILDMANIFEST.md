@@ -1,21 +1,20 @@
-# Signal Schedule v4.6.1 Build Manifest
+# Full Replacement Build Manifest — Signal Schedule v4.7.0
 
-Package: `signal-schedule-v4.6.1-full-replacement.zip`
-Build date: 2026-06-14
-Package type: Full replacement
-Source: Signal Schedule v4.6.0 full replacement
+Build: Signal Schedule v4.7.0 — Schedule History & Snapshot Engine
 
-## Summary
+Package type: Full replacement.
 
-Signal Schedule v4.6.1 is an employee portal navigation hotfix. It fixes nested `/schedule/employee/` navigation paths, surfaces Saved Schedules in the rebuilt app shell navigation, fixes employee portal active state detection, and cleans View As group labels.
+## Main Schedule changes
 
-## SQL
-
-No SQL migration required. This release continues using migration 044 from v4.4.0/v4.6.0.
+- `schedule/history.html` replaces the old saved-schedule list concept.
+- App navigation now uses Schedule History.
+- Builder links and buttons now use snapshot wording.
+- Product model updated to one agency / one living schedule / many snapshots.
+- New `schedule/SCHEDULE-HISTORY-SNAPSHOT-ENGINE.md` documentation.
+- No SQL migration required; migration 044 remains the storage foundation.
 
 ## Validation
 
-- JavaScript syntax checks passed for `schedule/app-shell.js` and employee portal scripts.
-- Employee portal nested navigation paths were reviewed for `/schedule/employee/` pages.
-- Saved Schedules is included in the Scheduling/Calendar nav group.
-- Package junk excluded: `.git`, `__MACOSX`, `._*`, `.DS_Store`.
+- JavaScript syntax checks passed.
+- HTML asset reference check passed.
+- No package junk included.

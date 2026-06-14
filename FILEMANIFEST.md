@@ -1,4 +1,4 @@
-# Signal Labs Full Replacement File Manifest — Schedule v4.6.1
+# Full Replacement File Manifest — Signal Schedule v4.7.0
 
 - `.gitattributes`
 - `.gitignore`
@@ -90,6 +90,7 @@
 - `schedule/ROADMAP.md`
 - `schedule/SAVED-SCHEDULES-FOUNDATION.md`
 - `schedule/SAVED-SCHEDULES-UI.md`
+- `schedule/SCHEDULE-HISTORY-SNAPSHOT-ENGINE.md`
 - `schedule/SHA256SUMS.txt`
 - `schedule/adapters/JsonAssignmentEngineAdapter.js`
 - `schedule/adapters/JsonAssignmentGeneratorAdapter.js`
@@ -282,6 +283,7 @@
 - `schedule/employee/profile.html`
 - `schedule/employee/requests.html`
 - `schedule/employees.html`
+- `schedule/history.html`
 - `schedule/index.html`
 - `schedule/leave-banks.html`
 - `schedule/leave.html`
@@ -349,12 +351,12 @@
 - `schedule/pages/workspace/daily-board.js`
 - `schedule/pages/workspace/draft-planning.css`
 - `schedule/pages/workspace/draft-planning.js`
+- `schedule/pages/workspace/history.css`
+- `schedule/pages/workspace/history.js`
 - `schedule/pages/workspace/planning.css`
 - `schedule/pages/workspace/planning.js`
 - `schedule/pages/workspace/publishing.css`
 - `schedule/pages/workspace/publishing.js`
-- `schedule/pages/workspace/saved-schedules.css`
-- `schedule/pages/workspace/saved-schedules.js`
 - `schedule/pages/workspace/weekly-board.css`
 - `schedule/pages/workspace/weekly-board.js`
 - `schedule/pages/workspace/workspace.css`
@@ -399,7 +401,6 @@
 - `schedule/repositories/TrainingCertificationRepository.js`
 - `schedule/repositories/VisibilityPrivacyRepository.js`
 - `schedule/repositories/WeeklyBoardRepository.js`
-- `schedule/saved-schedules.html`
 - `schedule/schedule.html`
 - `schedule/seniority.html`
 - `schedule/services/AssignmentEngineService.js`

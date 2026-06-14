@@ -1,4 +1,4 @@
-/* Signal Labs | Signal Schedule | schedule/pages/employee/employee-portal.js | v4.6.1 */
+/* Signal Labs | Signal Schedule | schedule/pages/employee/employee-portal.js | v4.7.0 */
 const state={portal:null,builder:null,employeeId:null,viewMode:'employee',viewGroup:''};
 const $=(s)=>document.querySelector(s);const esc=(v)=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 Promise.all([fetch('../data/employee-portal-preview.json').then(r=>r.json()),fetch('../data/schedule-builder-sandbox.json').then(r=>r.json())]).then(([portal,builder])=>{state.portal=portal;state.builder=builder;state.employeeId=portal.selectedEmployeeId||portal.employees[0]?.id;state.viewGroup=portal.groups[0]?.id||'';render();});

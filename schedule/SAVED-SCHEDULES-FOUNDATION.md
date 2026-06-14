@@ -1,17 +1,17 @@
-# Saved Schedules Foundation — v4.6.1
+# Schedule History Foundation — v4.7.0
 
-Signal Schedule v4.6.1 adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads.
+Signal Schedule v4.7.0 adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads.
 
 ## What changed
 
 - Added Postgres table `schedule_saved_schedules`.
-- Added protected API routes for saved schedules:
+- Added protected API routes for snapshots:
   - `GET /api/saved-schedules`
   - `GET /api/saved-schedules/:id`
   - `POST /api/saved-schedules`
   - `PUT/PATCH /api/saved-schedules/:id`
   - `DELETE /api/saved-schedules/:id` soft-deletes by setting status to `deleted`.
-- Added `SCHEDULE_WRITES_ENABLED=true` gate for saved schedule writes.
+- Added `SCHEDULE_WRITES_ENABLED=true` gate for snapshot writes.
 - Reuses `ADMIN_API_KEY` for protected write access.
 - Keeps JSON seed previews as the default read-only mode until Postgres is enabled.
 

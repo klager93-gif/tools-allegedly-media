@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/VisibilityPrivacyService.js
-Version: v4.6.1
+Version: v4.7.0
 Purpose: Schedule Visibility & Privacy Controls preview service and policy helpers.
 */
 export class VisibilityPrivacyService {

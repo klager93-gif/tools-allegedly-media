@@ -1,5 +1,5 @@
-.gitattributes
-.gitignore
+gitattributes
+gitignore
 ADMIN_CHANGELOG.md
 BUILDMANIFEST.md
 FILEMANIFEST.generated.txt
@@ -71,6 +71,7 @@ schedule/BUILDMANIFEST.md
 schedule/CALENDAR-FOUNDATION.md
 schedule/CHANGELOG.md
 schedule/EMPLOYEE-IDENTITY-FOUNDATION.md
+schedule/EMPLOYEE-PORTAL-NAVIGATION-HOTFIX.md
 schedule/FILEMANIFEST.generated.txt
 schedule/FILEMANIFEST.md
 schedule/FILE_ORGANIZATION.md
@@ -87,6 +88,7 @@ schedule/REQUEST-HOURS-FOUNDATION.md
 schedule/ROADMAP.md
 schedule/SAVED-SCHEDULES-FOUNDATION.md
 schedule/SAVED-SCHEDULES-UI.md
+schedule/SCHEDULE-HISTORY-SNAPSHOT-ENGINE.md
 schedule/SHA256SUMS.txt
 schedule/adapters/JsonAssignmentEngineAdapter.js
 schedule/adapters/JsonAssignmentGeneratorAdapter.js
@@ -279,6 +281,7 @@ schedule/employee/index.html
 schedule/employee/profile.html
 schedule/employee/requests.html
 schedule/employees.html
+schedule/history.html
 schedule/index.html
 schedule/leave-banks.html
 schedule/leave.html
@@ -346,12 +349,12 @@ schedule/pages/workspace/daily-board.css
 schedule/pages/workspace/daily-board.js
 schedule/pages/workspace/draft-planning.css
 schedule/pages/workspace/draft-planning.js
+schedule/pages/workspace/history.css
+schedule/pages/workspace/history.js
 schedule/pages/workspace/planning.css
 schedule/pages/workspace/planning.js
 schedule/pages/workspace/publishing.css
 schedule/pages/workspace/publishing.js
-schedule/pages/workspace/saved-schedules.css
-schedule/pages/workspace/saved-schedules.js
 schedule/pages/workspace/weekly-board.css
 schedule/pages/workspace/weekly-board.js
 schedule/pages/workspace/workspace.css
@@ -396,7 +399,6 @@ schedule/repositories/SupervisorHierarchyRepository.js
 schedule/repositories/TrainingCertificationRepository.js
 schedule/repositories/VisibilityPrivacyRepository.js
 schedule/repositories/WeeklyBoardRepository.js
-schedule/saved-schedules.html
 schedule/schedule.html
 schedule/seniority.html
 schedule/services/AssignmentEngineService.js

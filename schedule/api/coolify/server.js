@@ -1,12 +1,12 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v4.6.1
-Purpose: Coolify API with employee CRUD, saved schedule CRUD, protected publish-state action, and read-only foundations including schedule publishing, schedule planning, draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
+Version: v4.7.0
+Purpose: Coolify API with employee CRUD, snapshot CRUD, protected publish-state action, and read-only foundations including schedule publishing, schedule planning, draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:
 - no committed credentials
 - no public writes
-- saved schedule writes require SCHEDULE_WRITES_ENABLED=true and ADMIN_API_KEY
+- snapshot writes require SCHEDULE_WRITES_ENABLED=true and ADMIN_API_KEY
 - no role-based authentication yet
 - no scheduling engine logic
 */
@@ -78,7 +78,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v4.6.1', ...overrides };
+  return { source: 'coolify-api', version: 'v4.7.0', ...overrides };
 }
 
 function notFound(res) {
@@ -124,7 +124,7 @@ function requireScheduleWriteAccess(req, res) {
       ok: false,
       data: null,
       meta: apiMeta({ writesEnabled: true }),
-      errors: [{ code: 'ADMIN_API_KEY_MISSING', message: 'ADMIN_API_KEY must be configured before saved schedule writes can be used.' }]
+      errors: [{ code: 'ADMIN_API_KEY_MISSING', message: 'ADMIN_API_KEY must be configured before snapshot writes can be used.' }]
     });
     return false;
   }
@@ -446,7 +446,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v4.6.1',
+          version: 'v4.7.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -967,7 +967,7 @@ const server = createServer(async (req, res) => {
         ok: false,
         data: [],
         meta: apiMeta({ mode: 'saved-schedules-foundation', database: 'not-active', writesEnabled: areScheduleWritesEnabled() }),
-        errors: [{ code: 'POSTGRES_REQUIRED', message: 'Saved schedules require DATA_MODE=postgres and DATABASE_URL.' }]
+        errors: [{ code: 'POSTGRES_REQUIRED', message: 'Schedule history require DATA_MODE=postgres and DATABASE_URL.' }]
       });
     }
 

@@ -1,4 +1,4 @@
-/* Signal Labs | Signal Schedule | schedule/pages/workspace/builder.js | v4.6.1 */
+/* Signal Labs | Signal Schedule | schedule/pages/workspace/builder.js | v4.7.0 */
 const state={settings:null,data:null,availability:null,loadedSchedule:null,lastValidation:null};
 const $=(s)=>document.querySelector(s);
 const esc=(v)=>String(v??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -11,8 +11,8 @@ function applySavedHandoff(){
     if(saved?.payload?.settings)state.settings={...state.settings,...saved.payload.settings};
     if(Array.isArray(saved?.payload?.assignments))state.data.assignments=saved.payload.assignments.map(a=>({day:a.day,role:a.role,shift:a.shift,employee:a.employee}));
     state.loadedSchedule=saved;
-    setSaveStatus(`Loaded saved draft: ${saved.name || saved.id}`);
-  }catch(error){setSaveStatus(`Saved draft handoff could not be loaded: ${error.message}`);}finally{localStorage.removeItem('signalScheduleBuilderLoad');}
+    setSaveStatus(`Loaded snapshot: ${saved.name || saved.id}`);
+  }catch(error){setSaveStatus(`Snapshot handoff could not be loaded: ${error.message}`);}finally{localStorage.removeItem('signalScheduleBuilderLoad');}
 }
 function render(){renderSettings();renderGrid();renderEmployees();renderEmployeeDatalist();validate();document.querySelectorAll('[data-builder-action]').forEach(b=>b.addEventListener('click',onAction));}
 function renderSettings(){const el=$('[data-builder-settings]');const s=state.settings;el.innerHTML=`${field('Agency name','agency.name',s.agency.name)}${field('Week starts','agency.weekStart',s.agency.weekStart)}${field('Pay period starts','agency.payPeriodStart',s.agency.payPeriodStart)}${field('Time format','agency.timeFormat',s.agency.timeFormat)}${field('Time off increment minutes','requestRules.timeOffIncrementMinutes',s.requestRules.timeOffIncrementMinutes)}${field('OT increment minutes','requestRules.overtimeIncrementMinutes',s.requestRules.overtimeIncrementMinutes)}`;el.querySelectorAll('input').forEach(i=>i.addEventListener('input',()=>{setPath(i.dataset.path,i.value);validate();}));}
@@ -28,17 +28,17 @@ state.lastValidation={short,open,conflicts,over,hours,results,validatedAt:new Da
 const summary=$('[data-builder-summary]');summary.innerHTML=`<span class="builder-chip ${short?'builder-chip--bad':'builder-chip--good'}">${short} short</span><span class="builder-chip ${open?'builder-chip--warn':'builder-chip--good'}">${open} open</span><span class="builder-chip ${conflicts?'builder-chip--bad':'builder-chip--good'}">${conflicts} conflicts</span><span class="builder-chip ${over?'builder-chip--warn':'builder-chip--good'}">${over} over max</span>`;
 const res=$('[data-builder-results]');const hourRows=Object.entries(hours).sort((a,b)=>b[1]-a[1]).map(([n,h])=>`<div class="builder-result"><strong>${esc(n)}</strong>${h} scheduled hours this week</div>`).join('');res.innerHTML=(results.length?results.map(r=>`<div class="builder-result"><strong>${esc(r.title)}</strong><span>${esc(r.body)}</span></div>`).join(''):'<div class="builder-result"><strong>No blocking warnings</strong><span>Current assignments meet the configured minimums and availability checks.</span></div>')+`<h3>Weekly Hours</h3>${hourRows}`;return state.lastValidation;}
 function onAction(e){const action=e.currentTarget.dataset.builderAction;if(action==='validate')validate();if(action==='save')saveDraft();if(action==='sample')location.reload();if(action==='clear'){document.querySelectorAll('input[data-assignment]').forEach(i=>i.value='');validate();}}
-function buildPayload(){const validation=validate();const cleanAssignments=readAssignments().filter(a=>a.employee);return {agencyId:'agency-central-dispatch',name:`${state.settings.agency.name || 'Schedule'} Draft ${new Date().toLocaleDateString()}`,status:'draft',scheduleStartDate:state.data.scheduleStartDate || '2026-06-15',scheduleEndDate:state.data.scheduleEndDate || '2026-06-21',source:'builder',payload:{settings:state.settings,assignments:cleanAssignments,employees:state.data.employees,days:state.data.days},validationSummary:validation,updatedBy:'browser-builder'};}
+function buildPayload(){const validation=validate();const cleanAssignments=readAssignments().filter(a=>a.employee);return {agencyId:'agency-central-dispatch',name:`${state.settings.agency.name || 'Schedule'} Snapshot ${new Date().toLocaleDateString()}`,status:'draft',scheduleStartDate:state.data.scheduleStartDate || '2026-06-15',scheduleEndDate:state.data.scheduleEndDate || '2026-06-21',source:'builder',payload:{settings:state.settings,assignments:cleanAssignments,employees:state.data.employees,days:state.data.days},validationSummary:validation,updatedBy:'browser-builder'};}
 async function saveDraft(){
-  const adminKey=window.prompt('Enter ADMIN_API_KEY to save this protected draft schedule.');
-  if(!adminKey){setSaveStatus('Save cancelled. Protected schedule writes require ADMIN_API_KEY.');return;}
+  const adminKey=window.prompt('Enter ADMIN_API_KEY to save this protected schedule snapshot.');
+  if(!adminKey){setSaveStatus('Save cancelled. Protected snapshot writes require ADMIN_API_KEY.');return;}
   const body=buildPayload();
-  setSaveStatus('Saving draft schedule…');
+  setSaveStatus('Saving schedule snapshot…');
   try{
     const res=await fetch('/api/saved-schedules',{method:'POST',headers:{'content-type':'application/json','x-admin-api-key':adminKey},body:JSON.stringify(body)});
     const json=await res.json().catch(()=>({ok:false,errors:[{message:'API returned non-JSON response.'}]}));
     if(!res.ok||!json.ok){const message=(json.errors||[]).map(e=>e.message).join(' ')||`HTTP ${res.status}`;setSaveStatus(`Save failed: ${message}`);return;}
-    state.loadedSchedule=json.data;setSaveStatus(`Saved draft: ${json.data.name} (${json.data.id})`);
+    state.loadedSchedule=json.data;setSaveStatus(`Saved snapshot: ${json.data.name} (${json.data.id})`);
   }catch(error){setSaveStatus(`Save failed: ${error.message}`);}
 }
 function setSaveStatus(text){const el=$('[data-builder-save-status]');if(el)el.textContent=text;}

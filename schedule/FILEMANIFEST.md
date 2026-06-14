@@ -1,4 +1,4 @@
-# Signal Schedule File Manifest — v4.6.1
+# Signal Schedule File Manifest — v4.7.0
 
 - `ADMIN_CHANGELOG.md`
 - `ALPHA-INTEGRATION-AUDIT.md`
@@ -23,6 +23,7 @@
 - `ROADMAP.md`
 - `SAVED-SCHEDULES-FOUNDATION.md`
 - `SAVED-SCHEDULES-UI.md`
+- `SCHEDULE-HISTORY-SNAPSHOT-ENGINE.md`
 - `SHA256SUMS.txt`
 - `adapters/JsonAssignmentEngineAdapter.js`
 - `adapters/JsonAssignmentGeneratorAdapter.js`
@@ -215,6 +216,7 @@
 - `employee/profile.html`
 - `employee/requests.html`
 - `employees.html`
+- `history.html`
 - `index.html`
 - `leave-banks.html`
 - `leave.html`
@@ -282,12 +284,12 @@
 - `pages/workspace/daily-board.js`
 - `pages/workspace/draft-planning.css`
 - `pages/workspace/draft-planning.js`
+- `pages/workspace/history.css`
+- `pages/workspace/history.js`
 - `pages/workspace/planning.css`
 - `pages/workspace/planning.js`
 - `pages/workspace/publishing.css`
 - `pages/workspace/publishing.js`
-- `pages/workspace/saved-schedules.css`
-- `pages/workspace/saved-schedules.js`
 - `pages/workspace/weekly-board.css`
 - `pages/workspace/weekly-board.js`
 - `pages/workspace/workspace.css`
@@ -332,7 +334,6 @@
 - `repositories/TrainingCertificationRepository.js`
 - `repositories/VisibilityPrivacyRepository.js`
 - `repositories/WeeklyBoardRepository.js`
-- `saved-schedules.html`
 - `schedule.html`
 - `seniority.html`
 - `services/AssignmentEngineService.js`

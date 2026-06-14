@@ -1,16 +1,16 @@
-# Saved Schedules UI — v4.6.1
+# Schedule History UI — v4.7.0
 
-This release adds the first browser UI on top of the v4.4.0 saved schedule database foundation.
+This release adds the first browser UI on top of the v4.4.0 snapshot database foundation.
 
 ## Pages
 
 - `builder.html`
-  - Adds Save draft.
-  - Builds a saved schedule payload from the editable grid.
+  - Adds Save snapshot.
+  - Builds a snapshot payload from the editable grid.
   - Posts to `/api/saved-schedules`.
 
-- `saved-schedules.html`
-  - Lists saved schedule rows from `/api/saved-schedules`.
+- `history.html`
+  - Lists snapshot rows from `/api/saved-schedules`.
   - Shows status, agency, date range, and updated timestamp.
   - Provides an inspector with payload and validation summary details.
   - Can hand a selected draft back to the builder using local browser storage.
