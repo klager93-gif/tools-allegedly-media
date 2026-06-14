@@ -1,0 +1,33 @@
+/*
+Signal Labs
+Area: Signal Schedule
+File: schedule/pages/settings/visibility.css
+Version: v4.0.0
+Purpose: Schedule Visibility & Privacy Controls page styles.
+*/
+.visibility-shell { display: grid; gap: var(--space-4, 1rem); }
+.visibility-hero { display: grid; gap: .5rem; max-width: 1200px; }
+.visibility-hero h1 { margin: 0; font-size: clamp(1.75rem, 2.5vw, 2.6rem); }
+.visibility-grid { display: grid; grid-template-columns: minmax(260px, 360px) 1fr; gap: var(--space-4, 1rem); align-items: start; }
+.visibility-panel, .visibility-card { background: var(--schedule-panel, var(--panel)); border: 1px solid var(--schedule-border, var(--border)); border-radius: var(--radius-lg, 14px); padding: 1rem; box-shadow: var(--schedule-shadow, none); }
+.visibility-panel h2, .visibility-card h2 { margin-top: 0; }
+.visibility-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin: 1rem 0; }
+.visibility-stat { padding: .75rem; border: 1px solid var(--schedule-border, var(--border)); border-radius: .75rem; background: var(--schedule-panel-raised, rgba(255,255,255,.04)); }
+.visibility-stat strong { display: block; font-size: 1.35rem; }
+.visibility-status-line { color: var(--schedule-muted, var(--text-secondary)); font-size: .9rem; }
+.visibility-table-wrap { overflow: auto; border: 1px solid var(--schedule-border, var(--border)); border-radius: .75rem; }
+.visibility-table { width: 100%; border-collapse: collapse; min-width: 760px; }
+.visibility-table th, .visibility-table td { padding: .65rem .75rem; border-bottom: 1px solid var(--schedule-border, var(--border)); text-align: left; vertical-align: top; }
+.visibility-table th { position: sticky; top: 0; background: var(--schedule-panel-raised, rgba(255,255,255,.06)); z-index: 1; }
+.visibility-table tbody tr:hover { background: var(--schedule-row-hover, rgba(255,255,255,.05)); }
+.visibility-pill { display: inline-flex; align-items: center; gap: .35rem; border-radius: 999px; border: 1px solid var(--schedule-border, var(--border)); padding: .2rem .55rem; font-size: .78rem; white-space: nowrap; }
+.visibility-pill--full { color: var(--schedule-success, #2fbf71); }
+.visibility-pill--hours { color: var(--schedule-info, #64b5f6); }
+.visibility-pill--off { color: var(--schedule-warning, #f0b84f); }
+.visibility-pill--hidden { color: var(--schedule-danger, #ff7373); }
+.visibility-list { display: grid; gap: .65rem; margin: 0; padding: 0; list-style: none; }
+.visibility-list li { display: flex; justify-content: space-between; gap: 1rem; padding: .7rem; border: 1px solid var(--schedule-border, var(--border)); border-radius: .75rem; background: var(--schedule-panel-raised, rgba(255,255,255,.04)); }
+.visibility-example { display: grid; gap: .35rem; padding: .8rem; border: 1px solid var(--schedule-border, var(--border)); border-radius: .75rem; background: var(--schedule-panel-raised, rgba(255,255,255,.04)); }
+.visibility-example strong { color: var(--schedule-text, inherit); }
+.visibility-example span { color: var(--schedule-muted, var(--text-secondary)); }
+@media (max-width: 900px) { .visibility-grid { grid-template-columns: 1fr; } }

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-labs.local/schedule/calendar.read.schema.json",
+  "title": "Signal Schedule Calendar Read Contract",
+  "type": "object",
+  "required": ["preview", "events"],
+  "properties": {
+    "preview": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "date", "shiftName", "assignmentName", "role", "minimumRequired", "scheduledEmployees", "coverageStatus"],
+        "properties": {
+          "id": { "type": "string" },
+          "date": { "type": "string", "format": "date" },
+          "label": { "type": "string" },
+          "shiftId": { "type": "string" },
+          "shiftName": { "type": "string" },
+          "assignmentId": { "type": "string" },
+          "assignmentName": { "type": "string" },
+          "location": { "type": "string" },
+          "role": { "type": "string" },
+          "minimumRequired": { "type": "integer", "minimum": 0 },
+          "scheduledEmployees": { "type": "array", "items": { "type": "string" } },
+          "coverageStatus": { "type": "string", "enum": ["covered", "short", "extra", "unassigned"] },
+          "openSlots": { "type": "integer", "minimum": 0 },
+          "notes": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "date", "type", "status", "impact", "assignmentName"],
+        "properties": {
+          "id": { "type": "string" },
+          "date": { "type": "string", "format": "date" },
+          "type": { "type": "string" },
+          "employee": { "type": ["string", "null"] },
+          "status": { "type": "string" },
+          "impact": { "type": "string" },
+          "assignmentName": { "type": "string" }
+        }
+      }
+    }
+  }
+}

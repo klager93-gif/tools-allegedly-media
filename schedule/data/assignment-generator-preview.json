@@ -1,0 +1,237 @@
+{
+  "meta": {
+    "version": "v2.27.0",
+    "agencyId": "agency-central-dispatch",
+    "module": "assignment-generator-foundation",
+    "status": "preview-only",
+    "lastGeneratedAt": "2026-06-14T05:35:00Z"
+  },
+  "summary": {
+    "generationRuns": 2,
+    "draftAssignments": 14,
+    "fillableSpots": 11,
+    "openSpots": 3,
+    "conflictsFlagged": 4,
+    "adminPanelsUnified": 6
+  },
+  "filters": {
+    "dateRange": "2026-06-15 to 2026-06-21",
+    "agency": "Central Dispatch",
+    "mode": "draft preview",
+    "publishStatus": "not published"
+  },
+  "inputs": [
+    {
+      "key": "patterns",
+      "label": "Patterns",
+      "status": "connected",
+      "description": "Uses assigned pattern and shift group as the starting schedule source."
+    },
+    {
+      "key": "coverage",
+      "label": "Coverage Requirements",
+      "status": "connected",
+      "description": "Compares generated assignments against minimum staffing and coverage spots."
+    },
+    {
+      "key": "leave",
+      "label": "Leave Banks/Requests",
+      "status": "preview",
+      "description": "Flags approved/pending leave that may remove an employee from coverage."
+    },
+    {
+      "key": "training",
+      "label": "Training & Certifications",
+      "status": "preview",
+      "description": "Flags training windows and qualification requirements before publishing."
+    },
+    {
+      "key": "seniority",
+      "label": "Seniority/Mandation",
+      "status": "reference",
+      "description": "Available as ordering and explanation inputs, not auto-award logic yet."
+    }
+  ],
+  "runs": [
+    {
+      "id": "gen-run-20260615-a",
+      "label": "Week of June 15 Draft",
+      "dateRange": "2026-06-15 to 2026-06-21",
+      "status": "draft",
+      "createdBy": "Supervisor Preview",
+      "createdAt": "2026-06-14T05:30:00Z",
+      "notes": "Generated from pattern assignments, coverage spots, leave preview, and training flags."
+    },
+    {
+      "id": "gen-run-20260615-b",
+      "label": "Day Shift Rebuild",
+      "dateRange": "2026-06-15",
+      "status": "needs review",
+      "createdBy": "Admin Preview",
+      "createdAt": "2026-06-14T05:34:00Z",
+      "notes": "Rebuild after day-shift sick call; three open spots remain."
+    }
+  ],
+  "drafts": [
+    {
+      "id": "draft-001",
+      "runId": "gen-run-20260615-a",
+      "date": "2026-06-15",
+      "shift": "Days",
+      "time": "0500-1700",
+      "role": "Dispatcher",
+      "spotCode": "D1",
+      "employee": "Morgan Price",
+      "source": "pattern",
+      "status": "ready",
+      "coverageImpact": "filled",
+      "conflicts": []
+    },
+    {
+      "id": "draft-002",
+      "runId": "gen-run-20260615-a",
+      "date": "2026-06-15",
+      "shift": "Days",
+      "time": "0500-1700",
+      "role": "Dispatcher",
+      "spotCode": "D2",
+      "employee": "April Stone",
+      "source": "pattern",
+      "status": "blocked",
+      "coverageImpact": "open",
+      "conflicts": [
+        "Approved sick leave removes April from coverage"
+      ]
+    },
+    {
+      "id": "draft-003",
+      "runId": "gen-run-20260615-a",
+      "date": "2026-06-15",
+      "shift": "Days",
+      "time": "0500-1700",
+      "role": "Dispatcher",
+      "spotCode": "D3",
+      "employee": "Taylor Reed",
+      "source": "pattern",
+      "status": "ready",
+      "coverageImpact": "filled",
+      "conflicts": []
+    },
+    {
+      "id": "draft-004",
+      "runId": "gen-run-20260615-a",
+      "date": "2026-06-15",
+      "shift": "Days",
+      "time": "0500-1700",
+      "role": "Supervisor",
+      "spotCode": "S1",
+      "employee": "Dana Smith",
+      "source": "pattern",
+      "status": "ready",
+      "coverageImpact": "filled",
+      "conflicts": []
+    },
+    {
+      "id": "draft-005",
+      "runId": "gen-run-20260615-b",
+      "date": "2026-06-15",
+      "shift": "Mandate Window",
+      "time": "0100-0500",
+      "role": "Dispatcher",
+      "spotCode": "M1",
+      "employee": "James Carter",
+      "source": "mandation recommendation",
+      "status": "review",
+      "coverageImpact": "filled if approved",
+      "conflicts": [
+        "Supervisor approval required before publish"
+      ]
+    },
+    {
+      "id": "draft-006",
+      "runId": "gen-run-20260615-b",
+      "date": "2026-06-15",
+      "shift": "Mandate Window",
+      "time": "0500-0900",
+      "role": "Dispatcher",
+      "spotCode": "M2",
+      "employee": "Open",
+      "source": "coverage shortage",
+      "status": "open",
+      "coverageImpact": "under minimum",
+      "conflicts": [
+        "James skipped: not adjacent to actual or next scheduled work window"
+      ]
+    }
+  ],
+  "rolePanels": [
+    {
+      "role": "employee",
+      "label": "Employee View",
+      "visibleItems": [
+        "Published schedule only",
+        "Employee assignment source when allowed",
+        "Personal conflicts and requests"
+      ],
+      "hiddenItems": [
+        "Internal notes",
+        "Draft generation reasoning",
+        "Override audit details"
+      ]
+    },
+    {
+      "role": "supervisor",
+      "label": "Supervisor View",
+      "visibleItems": [
+        "Draft generation runs",
+        "Open spots",
+        "Conflict reasons",
+        "Publish preview",
+        "Override prompts"
+      ],
+      "hiddenItems": [
+        "System configuration changes unless admin"
+      ]
+    },
+    {
+      "role": "admin",
+      "label": "Admin View",
+      "visibleItems": [
+        "All supervisor details",
+        "Rule inputs",
+        "Generation settings",
+        "Override/audit records",
+        "Future publish controls"
+      ],
+      "hiddenItems": []
+    }
+  ],
+  "publishChecklist": [
+    {
+      "item": "All open minimum staffing spots reviewed",
+      "status": "needs review"
+    },
+    {
+      "item": "Leave conflicts resolved or acknowledged",
+      "status": "needs review"
+    },
+    {
+      "item": "Training/qualification warnings reviewed",
+      "status": "queued"
+    },
+    {
+      "item": "Supervisor/admin override reason captured when needed",
+      "status": "required"
+    },
+    {
+      "item": "Write/publish disabled until production workflow is enabled",
+      "status": "locked"
+    }
+  ],
+  "rules": [
+    "Assignment generation creates drafts first; it does not publish live schedules.",
+    "Generated records must preserve source, run ID, coverage impact, and conflict reasons.",
+    "Admin-only details should appear as role-based panels on the same feature page, not as duplicate -admin pages unless workflow separation is required.",
+    "Supervisor/admin overrides require reason text and must be auditable."
+  ]
+}

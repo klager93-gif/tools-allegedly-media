@@ -1,0 +1,98 @@
+[
+  {
+    "id": "cal-2026-06-12-days-police-radio",
+    "date": "2026-06-12",
+    "label": "Fri Jun 12",
+    "shiftId": "shift-days",
+    "shiftName": "Day Shift",
+    "assignmentId": "assign-police-radio",
+    "assignmentName": "Police Radio",
+    "location": "Main Center",
+    "role": "Dispatcher",
+    "minimumRequired": 2,
+    "scheduledEmployees": [
+      "Morgan Price",
+      "Avery Brooks"
+    ],
+    "coverageStatus": "covered",
+    "notes": [
+      "Meets minimum staffing for dispatch coverage."
+    ]
+  },
+  {
+    "id": "cal-2026-06-12-days-supervisor",
+    "date": "2026-06-12",
+    "label": "Fri Jun 12",
+    "shiftId": "shift-days",
+    "shiftName": "Day Shift",
+    "assignmentId": "assign-supervisor-desk",
+    "assignmentName": "Supervisor Desk",
+    "location": "Main Center",
+    "role": "Supervisor",
+    "minimumRequired": 1,
+    "scheduledEmployees": [
+      "Jordan Ellis"
+    ],
+    "coverageStatus": "covered",
+    "notes": [
+      "Supervisor minimum met."
+    ]
+  },
+  {
+    "id": "cal-2026-06-13-nights-fire-radio",
+    "date": "2026-06-13",
+    "label": "Sat Jun 13",
+    "shiftId": "shift-nights",
+    "shiftName": "Night Shift",
+    "assignmentId": "assign-fire-radio",
+    "assignmentName": "Fire Radio",
+    "location": "Main Center",
+    "role": "Dispatcher",
+    "minimumRequired": 1,
+    "scheduledEmployees": [],
+    "coverageStatus": "short",
+    "openSlots": 1,
+    "notes": [
+      "Open shift candidate for future VOT posting."
+    ]
+  },
+  {
+    "id": "cal-2026-06-15-days-police-radio",
+    "date": "2026-06-15",
+    "label": "Mon Jun 15",
+    "shiftId": "shift-days",
+    "shiftName": "Day Shift",
+    "assignmentId": "assign-police-radio",
+    "assignmentName": "Police Radio",
+    "location": "Main Center",
+    "role": "Dispatcher",
+    "minimumRequired": 2,
+    "scheduledEmployees": [
+      "Morgan Price"
+    ],
+    "coverageStatus": "short",
+    "openSlots": 1,
+    "notes": [
+      "Short one dispatcher after planned leave placeholder."
+    ]
+  },
+  {
+    "id": "cal-2026-06-16-training",
+    "date": "2026-06-16",
+    "label": "Tue Jun 16",
+    "shiftId": "shift-days",
+    "shiftName": "Day Shift",
+    "assignmentId": "assign-training",
+    "assignmentName": "Training / Admin",
+    "location": "Main Center",
+    "role": "Dispatcher",
+    "minimumRequired": 0,
+    "scheduledEmployees": [
+      "Riley Chen"
+    ],
+    "coverageStatus": "extra",
+    "notes": [
+      "Non-coverage training placeholder for future event integration."
+    ]
+  }
+]

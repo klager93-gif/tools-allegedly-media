@@ -1,0 +1,93 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/draft-planning.html
+Version: v4.0.0
+Purpose: Drag-and-drop draft planning foundation with staged moves, conflict preview, undo queue, and publish checklist.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Draft Planning — Signal Schedule</title>
+<meta name="description" content="Draft schedule planning workspace for drag-and-drop assignment changes, conflict previews, undo queue, and publish readiness.">
+<link rel="stylesheet" href="app-shell.css?v=4.0.0">
+<link rel="stylesheet" href="pages/workspace/workspace.css?v=4.0.0">
+<link rel="stylesheet" href="pages/workspace/draft-planning.css?v=4.0.0">
+</head>
+<body
+  data-signal-area="Signal Schedule"
+  data-signal-title="Draft Planning"
+  data-signal-version="v4.0.0"
+  data-signal-description="Drag-and-drop draft schedule planning foundation."
+>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Role-based panels</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="workspace.html">Scheduling Workspace</a><a href="draft-planning.html" aria-current="page">Draft Planning</a><a href="schedule.html">Calendar</a><a href="weekly-board.html">Weekly View</a><a href="daily-board.html">Daily Board</a><a href="employees.html">Employees</a><a href="assignments.html">Assignments</a><a href="assignment-generator.html">Assignment Generator</a><a href="conflict-detection.html">Conflict Detection</a><a href="approvals.html">Approvals</a><a href="visibility.html">Visibility & Privacy</a><a href="settings.html">Settings</a></div></nav>
+
+<main class="schedule-shell draft-shell">
+  <section class="workspace-header schedule-card">
+    <div>
+      <p class="schedule-kicker">Signal Schedule v4.0.0</p>
+      <h1>Drag-and-Drop + Draft Engine</h1>
+      <p>Stage schedule moves in a working draft, preview conflicts before publishing, and preserve an audit trail for every manual change.</p>
+    </div>
+    <div class="workspace-actions" aria-label="Draft planning actions">
+      <button type="button" class="schedule-btn schedule-btn--secondary" data-draft-action="undo">Undo last</button>
+      <button type="button" class="schedule-btn schedule-btn--secondary" data-draft-action="reset">Reset draft</button>
+      <button type="button" class="schedule-btn schedule-btn--primary" data-draft-action="publish">Publish when ready</button>
+    </div>
+  </section>
+
+  <section class="draft-layout" aria-label="Draft planning layout">
+    <section class="schedule-card draft-board" aria-labelledby="draftBoardTitle">
+      <div class="workspace-command-row">
+        <div>
+          <h2 id="draftBoardTitle">Draft Week Grid</h2>
+          <p>Preview-only drag handles show how assignment moves will be staged before live editing is enabled.</p>
+        </div>
+        <div class="workspace-filters">
+          <button type="button" class="schedule-btn schedule-btn--secondary" data-draft-filter="blocked">Blocked</button>
+          <button type="button" class="schedule-btn schedule-btn--secondary" data-draft-filter="warnings">Warnings</button>
+          <button type="button" class="schedule-btn schedule-btn--secondary" data-draft-filter="ready">Ready</button>
+        </div>
+      </div>
+      <div class="workspace-grid-wrap">
+        <table class="workspace-grid-table draft-grid" data-draft-grid>
+          <thead><tr><th>Role / spot</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <aside class="workspace-inspector schedule-card draft-inspector" aria-labelledby="draftInspectorTitle">
+      <div class="workspace-inspector__head">
+        <p class="schedule-kicker">Draft Inspector</p>
+        <h2 id="draftInspectorTitle">Move queue</h2>
+        <p>Review staged moves, conflicts, warnings, and publish readiness.</p>
+      </div>
+      <div class="workspace-inspector__body" data-draft-inspector>
+        <div class="workspace-empty-state">Select a staged move or grid cell to inspect impact.</div>
+      </div>
+    </aside>
+  </section>
+
+  <section class="workspace-lower-grid">
+    <section class="schedule-card workspace-panel" aria-labelledby="draftMoveQueueTitle">
+      <div class="workspace-panel__head"><h2 id="draftMoveQueueTitle">Staged Move Queue</h2><span class="schedule-status-pill schedule-status-pill--warning">Draft</span></div>
+      <table class="workspace-mini-table">
+        <thead><tr><th>Employee</th><th>From</th><th>To</th><th>Status</th></tr></thead>
+        <tbody data-draft-move-queue></tbody>
+      </table>
+    </section>
+    <section class="schedule-card workspace-panel" aria-labelledby="draftPublishTitle">
+      <div class="workspace-panel__head"><h2 id="draftPublishTitle">Publish Checklist</h2><span class="schedule-status-pill schedule-status-pill--danger">Not ready</span></div>
+      <div data-draft-checklist></div>
+    </section>
+  </section>
+</main>
+
+<div id="schedule-footer"></div>
+<script type="module" src="pages/workspace/draft-planning.js?v=4.0.0"></script>
+<script src="app-shell.js?v=4.0.0"></script>
+</body>
+</html>

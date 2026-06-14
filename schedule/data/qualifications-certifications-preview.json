@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "version": "v2.29.0",
+    "module": "qualifications_certifications",
+    "mode": "preview-read-only",
+    "updated": "2026-06-14"
+  },
+  "summary": {
+    "employeesTracked": 8,
+    "activeQualifications": 14,
+    "expiringSoon": 4,
+    "expired": 1,
+    "missingRequiredLicenseNumbers": 2
+  },
+  "policyProfile": {
+    "agencyId": "agency-central-dispatch",
+    "name": "Central Dispatch Qualification Policy",
+    "defaultWarningDays": [90, 60, 30],
+    "licenseNumberDefault": "optional",
+    "adminCanRequireLicenseByQualification": true,
+    "adminCanOverrideRequirement": true,
+    "notesVisibility": "supervisor_admin_only"
+  },
+  "qualificationTypes": [
+    {
+      "id": "qual-ncic",
+      "name": "NCIC",
+      "category": "Dispatch",
+      "requiredForRoles": ["Dispatcher", "Calltaker"],
+      "licenseNumberRequirement": "optional",
+      "expirationRequired": true,
+      "defaultWarningDays": 60,
+      "notes": "State access credential; agency may require terminal ID or certificate number."
+    },
+    {
+      "id": "qual-police-radio",
+      "name": "Police Radio",
+      "category": "Dispatch",
+      "requiredForRoles": ["Dispatcher"],
+      "licenseNumberRequirement": "not_required",
+      "expirationRequired": false,
+      "defaultWarningDays": 0,
+      "notes": "Local agency signoff."
+    },
+    {
+      "id": "qual-emd",
+      "name": "EMD",
+      "category": "Dispatch/EMS",
+      "requiredForRoles": ["Dispatcher", "EMS Dispatcher"],
+      "licenseNumberRequirement": "required",
+      "expirationRequired": true,
+      "defaultWarningDays": 90,
+      "notes": "License/certification number required when agency marks EMD as mandate/assignment critical."
+    },
+    {
+      "id": "qual-emt",
+      "name": "EMT-B",
+      "category": "Fire/EMS",
+      "requiredForRoles": ["EMT", "Firefighter"],
+      "licenseNumberRequirement": "required",
+      "expirationRequired": true,
+      "defaultWarningDays": 90,
+      "notes": "State license number required."
+    },
+    {
+      "id": "qual-paramedic",
+      "name": "Paramedic",
+      "category": "Fire/EMS",
+      "requiredForRoles": ["Paramedic"],
+      "licenseNumberRequirement": "required",
+      "expirationRequired": true,
+      "defaultWarningDays": 120,
+      "notes": "State license number required."
+    },
+    {
+      "id": "qual-cpr",
+      "name": "CPR",
+      "category": "General",
+      "requiredForRoles": ["Dispatcher", "EMT", "Paramedic", "Nurse"],
+      "licenseNumberRequirement": "optional",
+      "expirationRequired": true,
+      "defaultWarningDays": 60,
+      "notes": "Card number optional unless agency requires it."
+    }
+  ],
+  "employeeCredentials": [
+    {
+      "id": "cred-001",
+      "employeeId": "emp-dispatch-001",
+      "employeeName": "Morgan Price",
+      "qualification": "NCIC",
+      "category": "Dispatch",
+      "status": "active",
+      "issueDate": "2025-02-01",
+      "expirationDate": "2027-02-01",
+      "daysUntilExpiration": 597,
+      "licenseNumber": "NCIC-77421",
+      "certificateNumber": "CERT-2025-014",
+      "issuingAuthority": "State Police CJIS",
+      "notes": "Renewed during annual CJIS recertification.",
+      "visibility": "employee"
+    },
+    {
+      "id": "cred-002",
+      "employeeId": "emp-dispatch-001",
+      "employeeName": "Morgan Price",
+      "qualification": "EMD",
+      "category": "Dispatch/EMS",
+      "status": "expiring_soon",
+      "issueDate": "2024-08-20",
+      "expirationDate": "2026-08-20",
+      "daysUntilExpiration": 67,
+      "licenseNumber": "EMD-55219",
+      "certificateNumber": "APCO-88312",
+      "issuingAuthority": "APCO",
+      "notes": "Renewal packet assigned; supervisor follow-up due at 30 days.",
+      "visibility": "supervisor"
+    },
+    {
+      "id": "cred-003",
+      "employeeId": "emp-dispatch-002",
+      "employeeName": "James Reed",
+      "qualification": "Police Radio",
+      "category": "Dispatch",
+      "status": "active",
+      "issueDate": "2025-11-12",
+      "expirationDate": null,
+      "daysUntilExpiration": null,
+      "licenseNumber": null,
+      "certificateNumber": "LOCAL-SIGNOFF-22",
+      "issuingAuthority": "Central Dispatch Training",
+      "notes": "Cleared for solo police radio coverage.",
+      "visibility": "employee"
+    },
+    {
+      "id": "cred-004",
+      "employeeId": "emp-fire-001",
+      "employeeName": "April Lane",
+      "qualification": "EMT-B",
+      "category": "Fire/EMS",
+      "status": "missing_license_number",
+      "issueDate": "2025-04-01",
+      "expirationDate": "2027-04-01",
+      "daysUntilExpiration": 656,
+      "licenseNumber": null,
+      "certificateNumber": "EMT-CARD-447",
+      "issuingAuthority": "Illinois Department of Public Health",
+      "notes": "Admin must add state license number before EMT-required assignment publish.",
+      "visibility": "admin"
+    },
+    {
+      "id": "cred-005",
+      "employeeId": "emp-dispatch-003",
+      "employeeName": "Riley Brown",
+      "qualification": "CPR",
+      "category": "General",
+      "status": "expired",
+      "issueDate": "2024-05-10",
+      "expirationDate": "2026-05-10",
+      "daysUntilExpiration": -35,
+      "licenseNumber": "CPR-12990",
+      "certificateNumber": "AHA-10092",
+      "issuingAuthority": "American Heart Association",
+      "notes": "Conflict detector should flag CPR-required coverage until renewal is entered.",
+      "visibility": "supervisor"
+    }
+  ],
+  "roleRequirements": [
+    {
+      "role": "Dispatcher",
+      "spotType": "Police Radio",
+      "requiredQualifications": ["Police Radio", "NCIC"],
+      "minimumQualifiedOnDuty": 1,
+      "assignmentGeneratorImpact": "Filter candidate pool before draft assignment is created."
+    },
+    {
+      "role": "EMS Dispatcher",
+      "spotType": "EMS Console",
+      "requiredQualifications": ["EMD", "CPR"],
+      "minimumQualifiedOnDuty": 1,
+      "assignmentGeneratorImpact": "Mark open spot if no active EMD-qualified employee is available."
+    },
+    {
+      "role": "EMT",
+      "spotType": "Ambulance",
+      "requiredQualifications": ["EMT-B", "CPR"],
+      "minimumQualifiedOnDuty": 2,
+      "assignmentGeneratorImpact": "Block publish or require supervisor override when license number is required and missing."
+    }
+  ],
+  "expirationWarnings": [
+    {
+      "credentialId": "cred-002",
+      "employeeName": "Morgan Price",
+      "qualification": "EMD",
+      "daysUntilExpiration": 67,
+      "warningLevel": "60_90_day_window",
+      "recommendedAction": "Notify employee and supervisor; require renewal plan before 30-day window."
+    },
+    {
+      "credentialId": "cred-005",
+      "employeeName": "Riley Brown",
+      "qualification": "CPR",
+      "daysUntilExpiration": -35,
+      "warningLevel": "expired",
+      "recommendedAction": "Remove from CPR-required assignment pool until renewed or overridden."
+    }
+  ],
+  "integrationChecks": [
+    {
+      "module": "Assignment Generator",
+      "status": "planned",
+      "description": "Filter draft assignment candidates by active required qualifications."
+    },
+    {
+      "module": "Conflict Detection",
+      "status": "ready_to_connect",
+      "description": "Create missing/expired qualification conflicts for drafts and published assignments."
+    },
+    {
+      "module": "Notifications",
+      "status": "planned",
+      "description": "Queue expiration reminders based on agency warning windows."
+    },
+    {
+      "module": "Mandation Engine",
+      "status": "planned",
+      "description": "Exclude employees lacking required mandate coverage qualifications unless supervisor override is logged."
+    }
+  ],
+  "rolePanels": [
+    {
+      "role": "employee",
+      "label": "Employee Qualification View",
+      "visibleItems": ["My active credentials", "Expiration dates", "License/certificate number when employee-visible", "Renewal reminders"],
+      "hiddenItems": ["Supervisor notes", "Admin override history", "Other employee credentials"]
+    },
+    {
+      "role": "supervisor",
+      "label": "Supervisor Qualification View",
+      "visibleItems": ["Unit credential status", "Expiring/expired warnings", "Assignment impact", "Supervisor notes"],
+      "hiddenItems": ["Agency-wide requirement editing", "Hard policy changes"]
+    },
+    {
+      "role": "admin",
+      "label": "Admin Qualification View",
+      "visibleItems": ["Qualification definitions", "License-number requirement controls", "Issuing authority fields", "Override reasons", "Audit-ready notes"],
+      "hiddenItems": []
+    }
+  ],
+  "rules": [
+    "License number may be not required, optional, or required per qualification type.",
+    "If a required license number is missing, assignment publish should create a hard or soft conflict based on agency policy.",
+    "Credential notes are supervisor/admin detail unless agency exposes them to employees.",
+    "Expiration warnings are agency-configurable by qualification type.",
+    "Admin/supervisor override is allowed when agency policy permits, but the reason must be audited."
+  ]
+}
