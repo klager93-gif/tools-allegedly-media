@@ -1,4 +1,4 @@
-/* Signal Labs | Signal Schedule | schedule/pages/workspace/builder.js | v4.8.0 */
+/* Signal Labs | Signal Schedule | schedule/pages/workspace/builder.js | v4.8.1 */
 const state={settings:null,data:null,availability:null,loadedSchedule:null,lastValidation:null};
 const $=(s)=>document.querySelector(s);
 const esc=(v)=>String(v??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

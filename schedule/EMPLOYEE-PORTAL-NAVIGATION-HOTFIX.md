@@ -1,4 +1,4 @@
-# Employee Portal Navigation Hotfix — v4.8.0
+# Employee Portal Navigation Hotfix — v4.8.1
 
 This hotfix corrects app-shell navigation when Schedule pages are loaded from nested employee portal paths such as `/schedule/employee/index.html`.
 

@@ -1,6 +1,6 @@
-# Schedule History Foundation — v4.8.0
+# Schedule History Foundation — v4.8.1
 
-Signal Schedule v4.8.0 adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads.
+Signal Schedule v4.8.1 adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads.
 
 ## What changed
 

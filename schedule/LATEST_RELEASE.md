@@ -1,7 +1,9 @@
-# Latest Release — Signal Schedule v4.8.0
+# Latest Release — Signal Schedule v4.8.1
 
-Release: Signal Schedule v4.8.0 — Employee Experience & Data Tools
+Release: Signal Schedule v4.8.1 — SQL Migration Folder Normalization
 
-Summary: Adds the Employee Experience & Data Tools foundation: Admin = Employee + More, expanded employee dashboard language, Data Tools page, templates/import/export preview data, read-only API contract, and migration 045 for persistent data-tool tables.
+Summary: Full replacement hotfix that moves migration 045 into the established Coolify migration folder and removes the accidental `/schedule/sql/` folder from the package.
 
-SQL migration required: `schedule/sql/045_employee_experience_data_tools_schema.sql`.
+SQL migration path: `schedule/api/coolify/sql/045_employee_experience_data_tools_schema.sql`.
+
+Database note: If migration 045 has already been applied and tracked, do not rerun it.

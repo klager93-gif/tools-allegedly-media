@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/rules/benefits.js
-Version: v4.8.0
+Version: v4.8.1
 Purpose: Render Benefit Ledger and Calendar Shortcode preview
 */
 import { getBenefitLedgerDashboard } from '../../services/BenefitLedgerService.js';

@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/adapters/JsonVisibilityPrivacyAdapter.js
-Version: v4.8.0
+Version: v4.8.1
 Purpose: JSON adapter for Schedule Visibility & Privacy Controls preview data.
 */
 export class JsonVisibilityPrivacyAdapter {

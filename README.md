@@ -95,6 +95,6 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 Adds the workable schedule sandbox and admin settings preview under `/schedule/`.
 
 
-## Signal Schedule v4.8.0
+## Signal Schedule v4.8.1
 
 Employee Experience & Data Tools adds the first consolidated employee self-service/data onboarding milestone. It includes the Data Tools page, migration 045, and the Admin = Employee + More role principle.

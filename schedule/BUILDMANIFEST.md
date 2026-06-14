@@ -1,25 +1,30 @@
-# Build Manifest — Signal Schedule v4.8.0
+# Build Manifest — Signal Schedule v4.8.1
 
-Package: `signal-schedule-v4.8.0-full-replacement.zip`
+Package: `signal-schedule-v4.8.1-full-replacement.zip`
 
-Build type: full replacement package.
+Build type: full-root replacement package.
 
-Source: verified Signal Schedule v4.7.0 full replacement package.
+Source: verified Signal Schedule v4.8.0 full replacement package.
 
 ## Release focus
 
-Employee Experience & Data Tools.
+SQL migration folder normalization for the v4.8 Employee Experience & Data Tools release.
 
 ## Key changes
 
-- Added `/schedule/data-tools.html`.
-- Added Data Tools CSS/JS preview workspace.
-- Added employee experience/data tools preview data and read contract.
-- Added migration `045_employee_experience_data_tools_schema.sql`.
-- Updated employee portal language and links.
-- Updated app shell navigation with Data Tools and Me/Employees role inheritance.
-- Updated roadmap/docs to include Admin = Employee + More and current v4.8 milestone.
+- Moved migration 045 from accidental `/schedule/sql/` to the established Coolify folder.
+- Removed accidental `/schedule/sql/` folder from the package.
+- Updated docs/manifests to reference `schedule/api/coolify/sql/045_employee_experience_data_tools_schema.sql`.
+- Updated package version/cache references to v4.8.1.
 
 ## SQL
 
-Migration required: `schedule/sql/045_employee_experience_data_tools_schema.sql`.
+Migration 045 file location:
+
+`database/schedule/api/coolify/sql/045_employee_experience_data_tools_schema.sql`
+
+Expected tracked database row after applying v4.8:
+
+`045 | employee_experience_data_tools_schema`
+
+If that row already exists, do not rerun the migration.

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/RolesPermissionsRepository.js
-Version: v4.8.0
+Version: v4.8.1
 Purpose: Repository boundary for roles and permissions data
 */
 import { fetchRolesPermissionsPreview } from '../adapters/JsonRolesPermissionsAdapter.js';

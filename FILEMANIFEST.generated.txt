@@ -207,6 +207,7 @@ schedule/api/coolify/sql/041_schedule_workable_sandbox_settings_schema.sql
 schedule/api/coolify/sql/042_employee_portal_view_as_foundation.sql
 schedule/api/coolify/sql/043_employee_availability_preferences_restrictions_schema.sql
 schedule/api/coolify/sql/044_saved_schedule_crud_foundation_schema.sql
+schedule/api/coolify/sql/045_employee_experience_data_tools_schema.sql
 schedule/app-shell.css
 schedule/app-shell.js
 schedule/approvals.html
@@ -445,8 +446,6 @@ schedule/services/WeeklyBoardService.js
 schedule/settings.html
 schedule/shift-trades.html
 schedule/shortcodes.html
-schedule/sql/045_employee_experience_data_tools_schema.sql
-schedule/sql_placeholder.tmp
 schedule/staffing.html
 schedule/supervisors.html
 schedule/timeline.html

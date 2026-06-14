@@ -1,10 +1,10 @@
-# Build Manifest — Signal Schedule v4.8.0
+# Build Manifest — Signal Schedule v4.8.1
 
-Package: `signal-schedule-v4.8.0-full-replacement.zip`
+Package: `signal-schedule-v4.8.1-full-replacement.zip`
 
 Build type: full replacement package.
 
-Source: verified Signal Schedule v4.7.0 full replacement package.
+Source: verified Signal Schedule v4.8.0 full replacement package.
 
 ## Release focus
 
@@ -22,4 +22,4 @@ Employee Experience & Data Tools.
 
 ## SQL
 
-Migration required: `schedule/sql/045_employee_experience_data_tools_schema.sql`.
+Migration required: `schedule/api/coolify/sql/045_employee_experience_data_tools_schema.sql`.

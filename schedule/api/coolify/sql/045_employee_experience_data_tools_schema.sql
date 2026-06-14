@@ -1,4 +1,4 @@
--- Signal Schedule v4.8.0
+-- Signal Schedule v4.8.1
 -- Employee Experience & Data Tools foundation.
 -- Adds persistent tables for templates, import/export jobs, employee profile extras, and notification preferences.
 
@@ -86,7 +86,7 @@ create table if not exists schedule_employee_notification_preferences (
 create index if not exists idx_schedule_employee_notification_preferences_agency_id
   on schedule_employee_notification_preferences (agency_id);
 
-comment on table schedule_templates is 'Reusable agency schedule, staffing, pattern, and import templates for v4.8.0.';
+comment on table schedule_templates is 'Reusable agency schedule, staffing, pattern, and import templates for v4.8.1.';
 comment on table schedule_import_jobs is 'Import staging, validation, and review jobs for employee/data onboarding.';
 comment on table schedule_export_jobs is 'Export job requests for schedule, employee, availability, and reporting data.';
 comment on table schedule_employee_profile_extras is 'Employee self-service profile extras beyond core employee identity fields.';

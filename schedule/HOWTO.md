@@ -1,11 +1,11 @@
-# Signal Schedule v4.8.0 HOWTO
+# Signal Schedule v4.8.1 HOWTO
 
 ## Before uploading
 
 Back up the current live Schedule folder.
 
 ```text
-2026-06-14 Schedule Backup Before v4.8.0
+2026-06-14 Schedule Backup Before v4.8.1
 ```
 
 ## Upload
@@ -17,7 +17,7 @@ Upload the full replacement package.
 From `psql`, run the SQL file:
 
 ```sql
-\i /app/schedule/sql/045_employee_experience_data_tools_schema.sql
+\i /app/schedule/api/coolify/sql/045_employee_experience_data_tools_schema.sql
 ```
 
 If the migration tracker does not update automatically, add the row manually:

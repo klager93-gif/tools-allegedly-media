@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/pages/workspace/conflict-detection.js
-Version: v4.8.0
+Version: v4.8.1
 Purpose: Render Conflict Detection Foundation preview with role-based panels.
 */
 import { JsonConflictDetectionAdapter } from '../../adapters/JsonConflictDetectionAdapter.js';

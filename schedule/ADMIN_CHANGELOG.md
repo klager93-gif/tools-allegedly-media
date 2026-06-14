@@ -1,4 +1,4 @@
-# v4.8.0 — Employee Experience & Data Tools
+# v4.8.1 — Employee Experience & Data Tools
 
 - Added Data Tools page for templates, imports, exports, and profile-management readiness.
 - Added migration 045 for schedule templates, import jobs, export jobs, employee profile extras, and notification preferences.
@@ -7,7 +7,7 @@
 - Added Data Tools navigation under Settings and Me/Employees.
 - Reinforced Admin = Employee + More as a role-inheritance rule.
 
-SQL migration required: `045_employee_experience_data_tools_schema.sql`.
+SQL migration required: `schedule/api/coolify/sql/045_employee_experience_data_tools_schema.sql`.
 
 # v4.7.0 — Schedule History & Snapshot Engine
 
