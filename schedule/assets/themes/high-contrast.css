@@ -1,4 +1,4 @@
-/* Signal Schedule v3.3.4 — High Contrast theme tokens. Runtime variables are applied in app-shell.css. */
+/* Signal Schedule v3.5.0 — High Contrast theme tokens. Runtime variables are applied in app-shell.css. */
 :root[data-schedule-theme="high-contrast"] {
   color-scheme: dark;
 }

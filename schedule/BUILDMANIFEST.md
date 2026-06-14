@@ -1,14 +1,33 @@
-# Signal Schedule v3.3.4 Build Manifest
+# Signal Schedule Build Manifest — v3.5.0
 
-Release: Signal Schedule v3.3.4 — Theme Engine Completion & Color Refinement
-Date: 2026-06-15
-Database migration required: No
+## Release
 
-## Summary
-Refines the Schedule desktop application theme system and visual hierarchy after v3.3.3 full replacement stabilization.
+Signal Schedule v3.5.0 — Dense Tables & Workspace
 
-## Key Changes
-- Refined Midnight, Light, Slate, CAD Dark, and High Contrast theme tokens.
-- Improved panel, button, table, hover, and status color consistency.
-- Preserved connected flyout navigation and Schedule-only app shell.
-- Did not modify Paycheck, Overtime, Time Off, or root shared assets.
+## Build Date
+
+2026-06-15
+
+## Baseline
+
+Signal Schedule v3.3.3/v3.3.4 UI stabilization/theme baseline supplied by the user.
+
+## Changes
+
+- Added Schedule-native connected theme dropdown component.
+- Added dense table styling with sticky headers, row striping, hover and selected states.
+- Added command bar, inspector panel, status pill, and dense grid foundations.
+- Tightened hero, card, panel, toolbar, and workspace spacing.
+- Updated Schedule visible versioning and documentation to v3.5.0.
+
+## Database Migration Required
+
+No.
+
+## Validation
+
+- JavaScript syntax checked.
+- JSON parsed.
+- HTML asset references checked.
+- ZIP integrity checked.
+- Non-Schedule modules were not intentionally modified.

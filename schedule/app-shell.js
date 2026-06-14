@@ -2,14 +2,14 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/app-shell.js
-Version: v3.3.4
-Purpose: Desktop application shell, connected flyout navigation, and client-side theme engine.
+Version: v3.5.0
+Purpose: Desktop application shell, connected flyout navigation, app-styled controls, dense workspace defaults, and client-side theme engine.
 */
 (function () {
   const body = document.body;
   if (!body || body.dataset.signalArea !== 'Signal Schedule') return;
 
-  const version = 'v3.3.4';
+  const version = 'v3.5.0';
   const title = body.dataset.signalTitle || document.title.replace('— Signal Schedule', '').trim() || 'Signal Schedule';
   const themeKey = 'signalScheduleTheme';
   const allowedThemes = ['midnight', 'light', 'slate', 'cad', 'high-contrast'];
@@ -26,6 +26,7 @@ Purpose: Desktop application shell, connected flyout navigation, and client-side
   rebuildNavigation();
   insertToolbar();
   syncFooter();
+  enableDenseWorkspace();
 
   function getStoredTheme() {
     const stored = localStorage.getItem(themeKey);
@@ -124,23 +125,84 @@ Purpose: Desktop application shell, connected flyout navigation, and client-side
         <h1>${escapeHtml(title)}</h1>
       </div>
       <div class="schedule-app-toolbar__meta" aria-label="Workspace controls">
-        <label class="schedule-theme-picker">
-          <span>Theme</span>
-          <select data-schedule-theme-picker aria-label="Choose Schedule theme">
-            ${allowedThemes.map((theme) => `<option value="${theme}">${themeLabels[theme]}</option>`).join('')}
-          </select>
-        </label>
+        <div class="schedule-theme-menu" data-schedule-theme-menu>
+          <button class="schedule-control schedule-theme-menu__button" type="button" data-schedule-theme-button aria-haspopup="listbox" aria-expanded="false">
+            <span class="schedule-control__label">Theme</span>
+            <span data-schedule-theme-label>${themeLabels[getStoredTheme()]}</span>
+            <span class="schedule-control__caret" aria-hidden="true">›</span>
+          </button>
+          <div class="schedule-theme-menu__panel" data-schedule-theme-panel role="listbox" aria-label="Choose Schedule theme">
+            ${allowedThemes.map((theme) => `<button type="button" role="option" class="schedule-theme-menu__option" data-theme-option="${theme}" aria-selected="${getStoredTheme() === theme ? 'true' : 'false'}"><span class="schedule-theme-menu__check" aria-hidden="true">✓</span><span>${themeLabels[theme]}</span></button>`).join('')}
+          </div>
+        </div>
         <span class="schedule-app-chip schedule-app-chip--good">Theme-ready workspace</span>
         <span class="schedule-app-chip">${version}</span>
         <span class="schedule-app-chip schedule-app-chip--warn">Desktop UI</span>
       </div>
     `;
 
-    const picker = toolbar.querySelector('[data-schedule-theme-picker]');
-    if (picker) {
-      picker.value = getStoredTheme();
-      picker.addEventListener('change', (event) => applyTheme(event.target.value));
+    wireThemeMenu(toolbar);
+  }
+
+  function wireThemeMenu(toolbar) {
+    const menu = toolbar.querySelector('[data-schedule-theme-menu]');
+    if (!menu) return;
+    const button = menu.querySelector('[data-schedule-theme-button]');
+    const label = menu.querySelector('[data-schedule-theme-label]');
+    const options = Array.from(menu.querySelectorAll('[data-theme-option]'));
+    const close = () => {
+      menu.classList.remove('is-open');
+      if (button) button.setAttribute('aria-expanded', 'false');
+    };
+    const open = () => {
+      menu.classList.add('is-open');
+      if (button) button.setAttribute('aria-expanded', 'true');
+    };
+    const setTheme = (theme) => {
+      applyTheme(theme);
+      if (label) label.textContent = themeLabels[theme] || theme;
+      options.forEach((option) => option.setAttribute('aria-selected', option.dataset.themeOption === theme ? 'true' : 'false'));
+      close();
+    };
+    if (button) {
+      button.addEventListener('click', (event) => {
+        event.stopPropagation();
+        menu.classList.contains('is-open') ? close() : open();
+      });
+      button.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          open();
+          const selected = menu.querySelector('[aria-selected="true"]') || options[0];
+          if (selected) selected.focus();
+        }
+      });
     }
+    options.forEach((option) => {
+      option.addEventListener('click', (event) => {
+        event.stopPropagation();
+        setTheme(option.dataset.themeOption);
+      });
+      option.addEventListener('keydown', (event) => {
+        const index = options.indexOf(option);
+        if (event.key === 'ArrowDown') {
+          event.preventDefault();
+          (options[index + 1] || options[0]).focus();
+        }
+        if (event.key === 'ArrowUp') {
+          event.preventDefault();
+          (options[index - 1] || options[options.length - 1]).focus();
+        }
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          close();
+          if (button) button.focus();
+        }
+      });
+    });
+    document.addEventListener('click', (event) => {
+      if (!menu.contains(event.target)) close();
+    });
   }
 
   function syncFooter() {
@@ -160,6 +222,33 @@ Purpose: Desktop application shell, connected flyout navigation, and client-side
           <a href="CHANGELOG.md">Changelog</a>
         </nav>
       </div>`;
+  }
+
+
+  function enableDenseWorkspace() {
+    body.classList.add('schedule-density-standard');
+    const main = document.querySelector('main');
+    if (main) main.classList.add('schedule-workspace');
+
+    document.querySelectorAll('main section').forEach((section) => {
+      section.classList.add('schedule-section');
+    });
+
+    document.querySelectorAll('table').forEach((table) => {
+      table.classList.add('schedule-data-table');
+      const wrap = table.parentElement;
+      if (wrap && !wrap.classList.contains('schedule-table-scroll')) {
+        wrap.classList.add('schedule-table-scroll');
+      }
+    });
+
+    document.querySelectorAll('[class*="grid"]').forEach((grid) => {
+      if (!grid.classList.contains('schedule-nav-flyout')) grid.classList.add('schedule-dense-grid');
+    });
+
+    document.querySelectorAll('[class*="toolbar"]:not(.schedule-app-toolbar)').forEach((toolbar) => {
+      toolbar.classList.add('schedule-command-bar');
+    });
   }
 
   function escapeHtml(value) {

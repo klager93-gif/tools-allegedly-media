@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/NotificationService.js
-Version: v3.3.4
+Version: v3.5.0
 Purpose: Service layer for notification foundation preview logic
 */
 import { listNotificationPreview } from '../repositories/NotificationRepository.js';

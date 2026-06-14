@@ -1,4 +1,4 @@
-/* Signal Schedule v3.3.4 — Light theme tokens. Runtime variables are applied in app-shell.css. */
+/* Signal Schedule v3.5.0 — Light theme tokens. Runtime variables are applied in app-shell.css. */
 :root[data-schedule-theme="light"] {
   color-scheme: light;
 }

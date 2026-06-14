@@ -1,4 +1,4 @@
-/* Signal Schedule v3.3.4 — Slate theme tokens. Runtime variables are applied in app-shell.css. */
+/* Signal Schedule v3.5.0 — Slate theme tokens. Runtime variables are applied in app-shell.css. */
 :root[data-schedule-theme="slate"] {
   color-scheme: dark;
 }

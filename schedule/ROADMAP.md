@@ -1,3 +1,8 @@
+
+# Current Focus After v3.5.0
+
+Next planned release: v3.6.0 — Drag-and-Drop Planning. Dense Tables & Workspace establishes the component/layout layer needed for larger agencies, including 50+ employee schedule grids, table-first queues, and inspector panels. Future work should continue moving away from long card stacks toward tables, split panes, and context inspectors.
+
 ## v3.1.0 Complete — Desktop Application UI System
 
 The 3.x UI direction is now desktop-first. Future 3.x releases should build editing, drag/drop, publishing, and reporting inside the shared app shell instead of the earlier centered website layout.
@@ -88,7 +93,7 @@ Schedule now has a desktop theme foundation and compact flyout navigation. Next 
 - Desktop application density pass.
 - Preparation for v3.4 theme completion and v3.5 dense workspace tables.
 
-## v3.3.4 — Theme Engine Completion & Color Refinement
+## v3.5.0 — Dense Tables & Workspace
 
 - Refined Midnight, Light, Slate, CAD Dark, and High Contrast theme color tokens.
 - Improved panel depth, table striping, hover states, button styling, and status color consistency.
