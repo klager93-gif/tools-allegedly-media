@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/app-shell.css
-Version: v3.3.2
+Version: v3.3.3
 Purpose: Desktop-first application shell, theme tokens, and connected flyout navigation for all Schedule pages.
 */
 :root,
@@ -72,3 +72,249 @@ body[data-signal-area="Signal Schedule"] .schedule-subnav a{color:var(--ss-sideb
 body[data-signal-area="Signal Schedule"] main,body[data-signal-area="Signal Schedule"] .schedule-shell,body[data-signal-area="Signal Schedule"] .weekly-board-shell,body[data-signal-area="Signal Schedule"] .daily-board-shell,body[data-signal-area="Signal Schedule"] .assignments-shell,body[data-signal-area="Signal Schedule"] .assignment-generator-shell,body[data-signal-area="Signal Schedule"] .conflict-shell,body[data-signal-area="Signal Schedule"] .mandation-shell,body[data-signal-area="Signal Schedule"] .seniority-shell,body[data-signal-area="Signal Schedule"] .qualifications-shell{max-width:none !important;width:auto !important;margin-left:var(--ss-sidebar-w) !important;margin-right:0 !important;padding:24px 28px 36px !important;box-sizing:border-box;}
 body[data-signal-area="Signal Schedule"] section,body[data-signal-area="Signal Schedule"] article{box-sizing:border-box;}body[data-signal-area="Signal Schedule"] [class*="hero"],body[data-signal-area="Signal Schedule"] [class*="card"],body[data-signal-area="Signal Schedule"] [class*="panel"],body[data-signal-area="Signal Schedule"] [class*="notice"],body[data-signal-area="Signal Schedule"] [class*="summary"],body[data-signal-area="Signal Schedule"] [class*="toolbar"]:not(.schedule-app-toolbar){border-color:var(--ss-app-border) !important;}body[data-signal-area="Signal Schedule"] [class*="card"],body[data-signal-area="Signal Schedule"] [class*="panel"],body[data-signal-area="Signal Schedule"] [class*="hero"]{background:var(--ss-app-panel) !important;color:var(--ss-app-text) !important;border-radius:14px !important;box-shadow:var(--ss-shadow) !important;}body[data-signal-area="Signal Schedule"] h1,body[data-signal-area="Signal Schedule"] h2,body[data-signal-area="Signal Schedule"] h3,body[data-signal-area="Signal Schedule"] strong{color:var(--ss-app-text);} body[data-signal-area="Signal Schedule"] p,body[data-signal-area="Signal Schedule"] small,body[data-signal-area="Signal Schedule"] li{color:inherit;}body[data-signal-area="Signal Schedule"] table{width:100%;border-collapse:separate;border-spacing:0;background:var(--ss-app-panel);border:1px solid var(--ss-app-border);border-radius:14px;overflow:hidden;}body[data-signal-area="Signal Schedule"] th{background:var(--ss-app-panel-strong);color:var(--ss-app-text);font-size:.78rem;text-align:left;text-transform:uppercase;letter-spacing:.06em;}body[data-signal-area="Signal Schedule"] th,body[data-signal-area="Signal Schedule"] td{padding:10px 12px;border-bottom:1px solid var(--ss-app-border);}body[data-signal-area="Signal Schedule"] tr:last-child td{border-bottom:0;}body[data-signal-area="Signal Schedule"] button,body[data-signal-area="Signal Schedule"] .schedule-link-button,body[data-signal-area="Signal Schedule"] a[class*="button"]{border-radius:10px;font-weight:800;}body[data-signal-area="Signal Schedule"] #schedule-footer{margin-left:var(--ss-sidebar-w);}body[data-signal-area="Signal Schedule"] .schedule-footer{max-width:none;border-radius:0;background:var(--ss-sidebar-bg-2);color:var(--ss-sidebar-text);}
 @media (max-width: 900px){:root{--ss-sidebar-w:0px;}body[data-signal-area="Signal Schedule"] .schedule-subnav{position:relative;width:auto;max-height:none;}body[data-signal-area="Signal Schedule"] .schedule-subnav__links{overflow:auto;}.schedule-nav-flyout{position:static;display:flex;margin:0 0 8px 12px;background:rgba(255,255,255,.04);box-shadow:none;border-radius:8px;}.schedule-nav-caret{display:none;}.schedule-app-toolbar{margin-left:0;position:relative;align-items:flex-start;flex-direction:column;}body[data-signal-area="Signal Schedule"] main,body[data-signal-area="Signal Schedule"] .schedule-shell,body[data-signal-area="Signal Schedule"] .weekly-board-shell{margin-left:0 !important;padding:18px !important;}body[data-signal-area="Signal Schedule"] #schedule-footer{margin-left:0;}}
+
+
+/* v3.3.3 full-replacement stabilization: Schedule app shell owns layout. */
+:root {
+  --bg: var(--ss-app-bg);
+  --surface: var(--ss-app-panel);
+  --surface-soft: var(--ss-app-panel-soft);
+  --border: var(--ss-app-border);
+  --text: var(--ss-app-text);
+  --muted: var(--ss-app-muted);
+  --accent: var(--ss-app-accent);
+  --shadow-toolbar: var(--ss-shadow);
+}
+
+body[data-signal-area="Signal Schedule"] {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  background: var(--ss-app-bg) !important;
+  color: var(--ss-app-text) !important;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-shell,
+body[data-signal-area="Signal Schedule"] main[class*="shell"] {
+  max-width: none !important;
+  width: auto !important;
+  margin-left: var(--ss-sidebar-w) !important;
+  margin-right: 0 !important;
+  padding: 24px 32px 48px !important;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-hero,
+body[data-signal-area="Signal Schedule"] .schedule-card,
+body[data-signal-area="Signal Schedule"] .schedule-placeholder-hero,
+body[data-signal-area="Signal Schedule"] .schedule-placeholder-card {
+  background: var(--ss-app-panel) !important;
+  color: var(--ss-app-text) !important;
+  border: 1px solid var(--ss-app-border) !important;
+  border-radius: 14px !important;
+  box-shadow: var(--ss-shadow) !important;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-hero {
+  min-height: unset !important;
+  padding: 28px 32px !important;
+  margin: 0 0 18px !important;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-hero--compact {
+  display: grid !important;
+  grid-template-columns: minmax(420px, 1fr) minmax(320px, 520px) !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-hero h1 {
+  font-size: clamp(2.4rem, 4vw, 4.2rem) !important;
+  line-height: .95 !important;
+  color: var(--ss-app-text) !important;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-subtitle,
+body[data-signal-area="Signal Schedule"] p {
+  color: var(--ss-app-muted);
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-kicker {
+  color: var(--ss-app-accent) !important;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: .75rem !important;
+  font-weight: 900 !important;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-card {
+  padding: 20px !important;
+  margin: 16px 0 !important;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-dashboard-grid {
+  margin-top: 18px !important;
+}
+
+.schedule-status-grid,
+.schedule-module-grid,
+.schedule-rule-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.schedule-status-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.schedule-status-grid > div,
+.schedule-rule-grid > div,
+.schedule-module-card,
+.schedule-table-list a {
+  border: 1px solid var(--ss-app-border);
+  background: var(--ss-app-panel-soft);
+  color: var(--ss-app-text);
+  border-radius: 12px;
+}
+
+.schedule-status-grid > div {
+  padding: 16px;
+}
+
+.schedule-status-grid strong {
+  display: block;
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.schedule-status-grid span {
+  display: block;
+  margin-top: 6px;
+  color: var(--ss-app-muted);
+  font-size: .85rem;
+  font-weight: 750;
+}
+
+.schedule-section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.schedule-section-head h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.schedule-section-head p {
+  margin: 4px 0 0;
+}
+
+.schedule-module-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.schedule-module-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px;
+  text-decoration: none;
+  min-height: 112px;
+}
+
+.schedule-module-card:hover,
+.schedule-module-card:focus-visible {
+  border-color: var(--ss-app-accent);
+  box-shadow: inset 3px 0 0 var(--ss-app-accent);
+}
+
+.schedule-module-card span {
+  font-weight: 900;
+}
+
+.schedule-module-card strong {
+  color: var(--ss-app-muted);
+  font-size: .92rem;
+  line-height: 1.35;
+}
+
+.schedule-module-card.is-primary {
+  background: color-mix(in srgb, var(--ss-app-accent) 14%, var(--ss-app-panel-soft));
+  border-color: color-mix(in srgb, var(--ss-app-accent) 42%, var(--ss-app-border));
+}
+
+.schedule-workspace-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.schedule-table-list {
+  display: grid;
+  gap: 8px;
+}
+
+.schedule-table-list a {
+  display: grid;
+  grid-template-columns: minmax(160px, .4fr) 1fr;
+  gap: 12px;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.schedule-table-list a:hover,
+.schedule-table-list a:focus-visible {
+  border-color: var(--ss-app-accent);
+}
+
+.schedule-table-list b {
+  color: var(--ss-app-text);
+}
+
+.schedule-table-list span {
+  color: var(--ss-app-muted);
+}
+
+.schedule-rule-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.schedule-rule-grid > div {
+  padding: 14px;
+  color: var(--ss-app-muted);
+  line-height: 1.45;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-footer {
+  margin-left: var(--ss-sidebar-w) !important;
+  max-width: none !important;
+  width: auto !important;
+  border-radius: 0 !important;
+}
+
+@media (max-width: 1180px) {
+  .schedule-module-grid,
+  .schedule-rule-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .schedule-workspace-split,
+  body[data-signal-area="Signal Schedule"] .schedule-hero--compact {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-signal-area="Signal Schedule"] .schedule-shell,
+  body[data-signal-area="Signal Schedule"] main[class*="shell"],
+  body[data-signal-area="Signal Schedule"] .schedule-footer {
+    margin-left: 0 !important;
+  }
+  .schedule-module-grid,
+  .schedule-rule-grid,
+  .schedule-status-grid {
+    grid-template-columns: 1fr;
+  }
+  .schedule-table-list a {
+    grid-template-columns: 1fr;
+  }
+}

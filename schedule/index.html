@@ -2,708 +2,109 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/index.html
-Version: v3.3.2
-Purpose: Foundation/admin overview with Calendar Foundation navigation
+Version: v3.3.3
+Purpose: Desktop application overview for Signal Schedule.
 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Signal Schedule — Logic Sandbox</title>
-<meta name="description" content="Test schedule logic with employees, shifts, rules, warnings, weekly output, and month planning notes.">
-<meta property="og:title" content="Signal Schedule">
-<meta property="og:description" content="A logic-first schedule sandbox from Signal Labs.">
-<link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
-<link rel="stylesheet" href="style.css?v=3.3.2">
-<link rel="stylesheet" href="schedule-nav.css?v=3.3.2">
-<link rel="stylesheet" href="footer.css?v=3.3.2"><link rel="stylesheet" href="app-shell.css?v=3.3.2">
+<title>Signal Schedule — Desktop Workspace</title>
+<meta name="description" content="Desktop-first scheduling workspace for staffing, assignments, coverage, requests, approvals, seniority, mandation, and qualifications.">
+<link rel="stylesheet" href="app-shell.css?v=3.3.3">
 </head>
 <body
-  data-signal-global-layout="true"
   data-signal-area="Signal Schedule"
-  data-signal-title="Signal Schedule"
-  data-signal-version="v3.3.2"
-  data-signal-theme="Calendar Views + Schedule Footer"
-  data-signal-status="Active Development"
-  data-signal-description="Foundation overview with calendar views, shortcodes, employee, assignment, coverage, request, and OT opportunity access."
-  data-signal-status-text="Signal Schedule v3.3.2 consolidates visible versioning, approval routing copy, and asset cache-busting."
+  data-signal-title="Overview"
+  data-signal-version="v3.3.3"
+  data-signal-description="Desktop-first Schedule workspace."
 >
-<div id="sl-header"></div>
-
 <nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Role-based panels</span></div><div class="schedule-subnav__links"><a href="index.html" aria-current="page">Overview</a><a href="schedule.html">Calendar</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="permissions.html">Permissions</a><a href="approvals.html">Approvals</a><a href="notifications.html">Notifications</a><a href="assignments.html">Assignments</a><a href="assignment-generator.html">Assignment Generator</a><a href="conflict-detection.html">Conflict Detection</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="daily-board.html">Daily Board</a><a href="weekly-board.html">Weekly View</a><a href="seniority.html">Seniority & Rotation</a><a href="mandation.html">Mandation</a><a href="shift-trades.html">Shift Trades</a><a href="training.html">Training & Certs</a><a href="qualifications.html">Qualifications</a><a href="eligibility.html">Eligibility</a><a href="benefits.html">Benefit Ledger</a><a href="leave-banks.html">Leave Banks</a><a href="ot-volunteer-board.html">OT Volunteer Board</a><a href="shortcodes.html">Shortcodes</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a></div></nav>
 
-
-<main class="schedule-shell">
-  <section class="schedule-hero" aria-labelledby="scheduleTitle">
+<main class="schedule-shell schedule-dashboard">
+  <section class="schedule-hero schedule-hero--compact" aria-labelledby="scheduleTitle">
     <div>
-      <p class="schedule-kicker">Signal Labs Tool</p>
+      <p class="schedule-kicker">Signal Schedule Desktop</p>
       <h1 id="scheduleTitle">Signal Schedule</h1>
-      <p class="schedule-subtitle">Logic-first schedule sandbox for staffing rules, coverage, requests, opportunities, explanations, and architecture planning before persistence or final UI exists.</p>
+      <p class="schedule-subtitle">Operational scheduling workspace for coverage, assignments, requests, trades, mandation, seniority, qualifications, and audit-ready supervisor decisions.</p>
     </div>
-    <div class="schedule-status-card" aria-label="Schedule summary">
-      <span>Core Engine</span>
-      <strong id="currentWeekLabel">v2.30.0 Alpha Integration Audit</strong>
-      <small id="scheduleSaveStatus">Saved locally</small>
-    </div>
-  </section>
-
-  <section class="schedule-card schedule-warning-card" aria-labelledby="prototypeTitle">
-    <div>
-      <h2 id="prototypeTitle">Prototype Notice</h2>
-      <p>Signal Schedule remains browser-first for the current prototype. v2.30.0 audits the full replacement package, normalizes Schedule footer and metadata drift, keeps canonical role-based pages, removes packaging junk, and prepares the system for the 3.x scheduler phase.</p>
+    <div class="schedule-status-grid" aria-label="Workspace summary">
+      <div><strong>v3.3.3</strong><span>UI Stability</span></div>
+      <div><strong>35+</strong><span>Modules</span></div>
+      <div><strong>Desktop</strong><span>Primary UX</span></div>
+      <div><strong>No DB</strong><span>Migration</span></div>
     </div>
   </section>
 
-<section class="schedule-card profile-entry-card" aria-labelledby="profileEntryTitle">
-  <div class="schedule-card-heading">
-    <div>
-      <p class="schedule-kicker">Signal Schedule</p>
-      <h2 id="profileEntryTitle">Employee Profile & Self-Service</h2>
-      <p>Open employee profile settings to preview admin-controlled editable fields, contact methods, notification preferences, and pending profile change rules.</p>
+  <section class="schedule-card schedule-dashboard-grid" aria-labelledby="primaryWorkflows">
+    <div class="schedule-section-head">
+      <div>
+        <h2 id="primaryWorkflows">Primary Workflows</h2>
+        <p>Start from the operational screens supervisors will use most often.</p>
+      </div>
     </div>
-    <div class="schedule-actions-inline">
-      <a class="schedule-link-button" href="profile.html">Open Employee Profile <span aria-hidden="true">→</span></a>
+    <div class="schedule-module-grid">
+      <a class="schedule-module-card is-primary" href="weekly-board.html"><span>Weekly View</span><strong>Seven-day staffing grid with conflicts, open spots, leave, OT, and trades.</strong></a>
+      <a class="schedule-module-card" href="daily-board.html"><span>Daily Board</span><strong>One-day coverage and shift detail view.</strong></a>
+      <a class="schedule-module-card" href="assignments.html"><span>Assignments</span><strong>Assignment records by role, source, status, and coverage spot.</strong></a>
+      <a class="schedule-module-card" href="assignment-generator.html"><span>Assignment Generator</span><strong>Draft schedule generation preview before publish.</strong></a>
+      <a class="schedule-module-card" href="conflict-detection.html"><span>Conflict Detection</span><strong>Double booking, rest, coverage, qualification, and leave conflicts.</strong></a>
+      <a class="schedule-module-card" href="approvals.html"><span>Approvals</span><strong>Request queues with authority and escalation rules.</strong></a>
     </div>
-  </div>
-</section>
-    <section class="schedule-card" aria-labelledby="timelineEntryTitle">
-      <h2 id="timelineEntryTitle">Employee Timeline & Audit Trail</h2>
-      <p>Admin and supervisor view of everything done to an employee, including profile changes, requests, trades, training, benefits, eligibility, and schedule events.</p>
-      <a class="schedule-link-button" href="timeline.html">Open Employee Timeline <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="schedule-workspace-split">
+    <section class="schedule-card">
+      <div class="schedule-section-head">
+        <div>
+          <h2>Staffing Controls</h2>
+          <p>Admin and supervisor foundations for building valid schedules.</p>
+        </div>
+      </div>
+      <div class="schedule-table-list">
+        <a href="employees.html"><b>Employees</b><span>Identity, role, position, status, and employee records.</span></a>
+        <a href="coverage.html"><b>Coverage Board</b><span>Minimum/maximum staffing and role coverage status.</span></a>
+        <a href="coverage-spots.html"><b>Coverage Spots</b><span>Numbered staffing spots and open slot visibility.</span></a>
+        <a href="staffing.html"><b>Minimum Staffing</b><span>Role and time-block requirements.</span></a>
+        <a href="qualifications.html"><b>Qualifications</b><span>Licenses, certificates, expirations, and role requirements.</span></a>
+      </div>
     </section>
 
-<section class="schedule-card supervisor-entry-card" aria-labelledby="supervisorEntryTitle">
-  <div class="schedule-card-heading">
-    <div>
-      <p class="schedule-kicker">Signal Schedule</p>
-      <h2 id="supervisorEntryTitle">Supervisors & Organizational Hierarchy</h2>
-      <p>Preview hybrid supervisor scope by employee, group, position, department, division, and location before permissions and approvals are enforced.</p>
-    </div>
-    <div class="schedule-actions-inline">
-      <a class="schedule-link-button" href="supervisors.html">Open Supervisors <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-
-<section class="schedule-card live-module-card" aria-labelledby="notificationsEntryTitle">
-  <div class="schedule-card-heading">
-    <div>
-      <p class="schedule-kicker">Signal Schedule</p>
-      <h2 id="notificationsEntryTitle">Notification Foundation</h2>
-      <p>Preview notification channels, rules, queues, quiet-hours, role preferences, and digest behavior before production sends are enabled.</p>
-    </div>
-    <div class="schedule-actions-inline">
-      <a class="schedule-link-button" href="notifications.html">Open Notifications <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="schedule-card live-module-card" aria-labelledby="liveModulesTitle">
-  <div class="schedule-card-heading">
-    <div>
-      <h2 id="liveModulesTitle">Live Schedule Modules</h2>
-      <p>Features with dedicated pages are now treated as active modules instead of placeholder cards. The overview will keep evolving into a dashboard.</p>
-    </div>
-  </div>
-  <div class="schedule-live-module-grid">
-    <a href="schedule.html">Calendar</a>
-    <a href="coverage.html">Coverage</a>
-    <a href="open-shifts.html">Open Shifts</a>
-    <a href="seniority.html">Seniority</a>
-    <a href="shift-trades.html">Trades</a>
-    <a href="training.html">Training</a>
-    <a href="qualifications.html">Qualifications</a>
-    <a href="eligibility.html">Eligibility</a>
-    <a href="benefits.html">Benefits</a>
-    <a href="shortcodes.html">Shortcodes</a>
-    <a href="profile.html">Profile</a>
-      <a href="timeline.html">Timeline</a>
-      <a href="supervisors.html">Supervisors</a><a href="permissions.html">Permissions</a><a href="approvals.html">Approvals</a><a href="notifications.html">Notifications</a>
-  </div>
-</section>
-
-<section class="schedule-card shortcode-entry-card" aria-labelledby="shortcodeEntryTitle">
-  <div class="schedule-card-heading">
-    <div>
-      <h2 id="shortcodeEntryTitle">Calendar Shortcode Admin Controls</h2>
-      <p>Manage compact codes like VAC, SP, SF, VOT, and T so week/month calendars stay readable while day details show full text.</p>
-    </div>
-    <div class="schedule-actions-inline">
-      <a class="schedule-link-button" href="shortcodes.html">Open Shortcodes <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-<section class="schedule-card calendar-entry-card" aria-labelledby="calendarEntryTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="calendarEntryTitle">Calendar Preview</h2>
-        <p>Open the separate user-facing calendar foundation page to preview month view, daily coverage, short-staffing placeholders, open shifts, and event impacts.</p>
-      </div>
-      <div class="schedule-actions-inline">
-        <a class="schedule-link-button" href="schedule.html">Open Calendar Views <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  
-<section class="schedule-card trade-entry-card" aria-labelledby="tradeEntryTitle">
-  <div class="schedule-card-header">
-    <div>
-      <p class="schedule-kicker">Signal Schedule</p>
-      <h2 id="tradeEntryTitle">Shift Trades & Swap Requests</h2>
-      <p>Preview employee trades, swaps, giveaways, coverage impacts, qualification checks, approvals, warnings, and audit-ready decision context.</p>
-    </div>
-    <a class="schedule-link-button" href="shift-trades.html">Open Shift Trades <span aria-hidden="true">→</span></a>
-  </div>
-</section>
-
-<section class="schedule-card coverage-entry-card" aria-labelledby="coverageEntryTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="coverageEntryTitle">Coverage Board</h2>
-        <p>Open the Coverage Board preview to compare assigned staffing against minimum, target, and maximum staffing and link uncovered work to open OT opportunities.</p>
-      </div>
-      <div class="schedule-actions-inline">
-        <a class="schedule-link-button" href="coverage.html">Open Coverage Board <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="schedule-card seniority-entry-card" aria-labelledby="seniorityEntryTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="seniorityEntryTitle">Seniority & Rotation</h2>
-        <p>Open the Seniority & Rotation preview to review equalized OT, callback order, mandate candidates, skip reasons, and audit-ready recommendation logic.</p>
-      </div>
-      <div class="schedule-actions-inline">
-        <a class="schedule-link-button" href="seniority.html">Open Seniority & Rotation <span aria-hidden="true">→</span></a>
-      </div>
-    </div>
-  </section>
-
-  
-<section class="schedule-card benefit-entry-card" aria-labelledby="benefitEntryTitle">
-  <div class="schedule-card-heading">
-    <div>
-      <p class="schedule-kicker">Signal Schedule</p>
-      <h2 id="benefitEntryTitle">Benefit Ledger</h2>
-      <p>Preview vacation, sick, personal, comp, and holiday bank balances, request impacts, manual adjustments, and calendar shortcodes such as VAC, SP, SF, CT, HOL, VOT, and T.</p>
-    </div>
-    <div class="schedule-actions-inline">
-      <a class="schedule-link-button" href="benefits.html">Open Benefit Ledger <span aria-hidden="true">→</span></a>
-    </div>
-  </div>
-</section>
-
-  <section class="schedule-card employee-read-foundation-card" aria-labelledby="employeeReadFoundationTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="employeeReadFoundationTitle">Employee Read Foundation</h2>
-        <p>Read-only employee records now flow through a service, repository, and JSON adapter boundary. This prepares the app for a future Coolify API + Postgres adapter without tying the UI to a database.</p>
-      </div>
-    </div>
-    <div id="employeeReadFoundationStats" class="employee-read-stats"></div>
-    <div id="employeeReadFoundationList" class="employee-read-grid"></div>
-  </section>
-
-
-  <section class="schedule-card assignment-foundation-card" aria-labelledby="assignmentFoundationTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="assignmentFoundationTitle">Assignments Foundation</h2>
-        <p>Assignments connect employees to operational work such as consoles, posts, beats, stations, units, or desks before minimum staffing and schedule generation are built.</p>
-      </div>
-    </div>
-    <div id="assignmentFoundationStats" class="assignment-foundation-stats"></div>
-    <div id="assignmentFoundationList" class="assignment-foundation-grid"></div>
-  </section>
-
-
-
-  <section class="schedule-card minimum-staffing-card" aria-labelledby="minimumStaffingTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="minimumStaffingTitle">Minimum Staffing Foundation</h2>
-        <p>Minimum staffing rules define how many people are required for each assignment, role, shift, location, and day before leave approval, overtime posting, mandation, and schedule generation are built.</p>
-      </div>
-    </div>
-    <div id="minimumStaffingStats" class="minimum-staffing-stats"></div>
-    <div id="minimumStaffingList" class="minimum-staffing-grid"></div>
-  </section>
-
-  <section class="schedule-card engine-card" aria-labelledby="engineTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="engineTitle">Agency Profile Foundation</h2>
-        <p>v1.8.0 keeps the Employee Service and repository boundary intact while defining the future Coolify API route shape for /health and /employees.</p>
-      </div>
-    </div>
-    <div id="engineBlueprint" class="engine-blueprint-grid"></div>
-  </section>
-
-
-  <section class="schedule-card agency-profile-card" aria-labelledby="agencyProfileTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="agencyProfileTitle">Agency Profile Foundation</h2>
-        <p>Agency-defined settings and vocabulary become the source for employee profiles, shift patterns, coverage rules, benefits, exceptions, and future rule-engine behavior.</p>
-      </div>
-    </div>
-    <div id="agencyProfilePreview" class="agency-profile-grid"></div>
-  </section>
-
-
-
-  <section class="schedule-card employee-profile-card" aria-labelledby="employeeProfileTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="employeeProfileTitle">Employee Profile Foundation</h2>
-        <p>Employee profiles use agency-defined departments, positions, shift groups, qualifications, exception types, and benefit types instead of hard-coded assumptions.</p>
-      </div>
-    </div>
-    <div class="employee-profile-layout">
-      <div id="employeeProfileCards" class="employee-profile-grid"></div>
-      <aside id="employeeProfileDetail" class="employee-profile-detail" aria-live="polite"></aside>
-    </div>
-  </section>
-
-  <section class="schedule-card pattern-foundation-card" aria-labelledby="patternFoundationTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="patternFoundationTitle">Pattern Foundation</h2>
-        <p>Patterns describe repeating work/off cycles, normal shifts, short days, short weeks, paid minutes, and break rules before final schedule generation exists.</p>
-      </div>
-    </div>
-    <div id="patternFoundationPreview" class="pattern-foundation-grid"></div>
-  </section>
-
-  <section class="schedule-card pattern-cycle-card" aria-labelledby="patternCycleTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="patternCycleTitle">Pattern Cycle Preview</h2>
-        <p>Short days are modeled by cycle position, not hard-coded weekdays. The display order also follows the agency profile week-start setting.</p>
-      </div>
-    </div>
-    <div id="patternCyclePreview" class="pattern-cycle-preview"></div>
-  </section>
-
-
-
-  <section class="schedule-card benefit-ledger-foundation-card" aria-labelledby="eventFoundationTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="eventFoundationTitle">Event Foundation</h2>
-        <p>Events describe what changes the expected pattern: time off, sick calls, overtime, mandation, training, trades, callbacks, holidays, and administrative overrides.</p>
-      </div>
-    </div>
-    <div id="eventFoundationPreview" class="benefit-ledger-foundation-grid"></div>
-  </section>
-
-  <section class="schedule-card event-behavior-card" aria-labelledby="eventBehaviorTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="eventBehaviorTitle">Event Behavior Preview</h2>
-        <p>Event types should be grouped by behavior: removes from coverage, adds to coverage, changes role, changes pay, uses benefit time, requires approval, or requires an audit trail.</p>
-      </div>
-    </div>
-    <div id="eventBehaviorPreview" class="event-behavior-grid"></div>
-  </section>
-
-
-  <section class="schedule-card benefit-ledger-card-section" aria-labelledby="benefitLedgerTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="benefitLedgerTitle">Benefit Ledger Foundation</h2>
-        <p>Benefit balances should be calculated from ledger entries. Accruals, usage, corrections, payouts, carryovers, and manual adjustments should never silently overwrite a balance.</p>
-      </div>
-    </div>
-    <div id="benefitLedgerPreview" class="benefit-ledger-grid"></div>
-  </section>
-
-  <section class="schedule-card benefit-rule-card" aria-labelledby="benefitRuleTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="benefitRuleTitle">Benefit Rule Preview</h2>
-        <p>Agency rules should support monthly accruals, per-paycheck accruals, annual banks, seniority tiers, manual adjustments, and projected balances.</p>
-      </div>
-    </div>
-    <div id="benefitRulePreview" class="benefit-rule-grid"></div>
-  </section>
-
-
-
-  <section class="schedule-card rule-engine-card" aria-labelledby="ruleEngineTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="ruleEngineTitle">Rule Engine Foundation</h2>
-        <p>Rules evaluate agency policy against employees, patterns, events, benefits, coverage needs, exceptions, and audit history. The goal is not just to decide what happens, but to explain why.</p>
-      </div>
-    </div>
-    <div id="ruleEnginePreview" class="rule-engine-grid"></div>
-  </section>
-
-  <section class="schedule-card rule-evaluation-card" aria-labelledby="ruleEvaluationTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="ruleEvaluationTitle">Rule Evaluation Preview</h2>
-        <p>Future rules should evaluate priority, exceptions, outcome, and explanation before changing a schedule, mandation list, benefit balance, coverage warning, or bid award.</p>
-      </div>
-    </div>
-    <div id="ruleEvaluationPreview" class="rule-evaluation-grid"></div>
-  </section>
-
-  <section class="schedule-card agency-template-card" aria-labelledby="agencyTemplateTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="agencyTemplateTitle">Agency Template Preview</h2>
-        <p>Industries should start from editable templates, not hard-coded modes. Dispatch, police, fire, EMS, nursing, retail, manufacturing, and office teams should all be rule-configurable.</p>
-      </div>
-    </div>
-    <div id="agencyTemplatePreview" class="agency-template-grid"></div>
-  </section>
-
-  <section class="schedule-card" aria-labelledby="coverageRulesTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="coverageRulesTitle">Coverage Requirement Model</h2>
-        <p>Coverage should support minimum, target, and maximum staffing by role, qualification, location, unit, day, and time block.</p>
-      </div>
-    </div>
-    <div id="coverageRequirementPreview" class="coverage-requirement-grid"></div>
-  </section>
-
-
-  <section class="schedule-card coverage-engine-card" aria-labelledby="coverageEngineTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="coverageEngineTitle">Coverage Engine Foundation</h2>
-        <p>Coverage compares scheduled staffing against minimum, target, and maximum requirements by role, qualification, location, day, and time block.</p>
-      </div>
-    </div>
-    <div id="coverageEnginePreview" class="coverage-engine-grid"></div>
-  </section>
-
-  <section class="schedule-card coverage-slot-card" aria-labelledby="coverageSlotTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="coverageSlotTitle">Open Spot Preview</h2>
-        <p>Numbered spots show how many seats are filled, open, below minimum, near target, or above maximum before a final scheduler exists.</p>
-      </div>
-    </div>
-    <div id="coverageSlotPreview" class="coverage-slot-grid"></div>
-  </section>
-
-
-
-  <section class="schedule-card schedule-views-card" aria-labelledby="scheduleViewsTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="scheduleViewsTitle">Schedule Views Foundation</h2>
-        <p>The same engine should power different views: day, week, month, personal, coverage, and system inspector. These are previews, not final layouts.</p>
-      </div>
-    </div>
-    <div id="scheduleViewsPreview" class="schedule-views-grid"></div>
-  </section>
-
-  <section class="schedule-card system-inspector-card" aria-labelledby="systemInspectorTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="systemInspectorTitle">System Inspector Note</h2>
-        <p>The current wall of cards is intentionally engine-facing. Later releases should turn these debug panels into admin screens, employee views, and supervisor dashboards.</p>
-      </div>
-    </div>
-    <div id="systemInspectorPreview" class="system-inspector-grid"></div>
-  </section>
-
-  <section class="schedule-card fairness-engine-card" aria-labelledby="fairnessEngineTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="fairnessEngineTitle">Fairness Engine Foundation</h2>
-        <p>Fairness compares history, rules, and exceptions so overtime, mandates, weekends, holidays, callbacks, and seniority outcomes can be explained instead of guessed.</p>
-      </div>
-    </div>
-    <div id="fairnessEnginePreview" class="fairness-engine-grid"></div>
-  </section>
-
-  <section class="schedule-card fairness-snapshot-card" aria-labelledby="fairnessSnapshotTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="fairnessSnapshotTitle">Fairness Snapshot Preview</h2>
-        <p>Sample employees show how future reports could compare OT minutes, mandate counts, weekend load, active exceptions, and seniority adjustments.</p>
-      </div>
-    </div>
-    <div id="fairnessSnapshotPreview" class="fairness-snapshot-grid"></div>
-  </section>
-
-  <section class="schedule-card seniority-ledger-card" aria-labelledby="seniorityLedgerTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="seniorityLedgerTitle">Seniority Ledger Preview</h2>
-        <p>Hire date, seniority date, and effective seniority can differ. Future rules should calculate effective seniority from auditable adjustments, not silent edits.</p>
-      </div>
-    </div>
-    <div id="seniorityLedgerPreview" class="seniority-ledger-grid"></div>
-  </section>
-
-
-  <section class="schedule-card explainability-card" aria-labelledby="explainabilityTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="explainabilityTitle">Explainability Foundation</h2>
-        <p>Explanations should turn facts, rules, events, history, and audience context into clear reasons for coverage, mandation, benefits, seniority, eligibility, and fairness outcomes.</p>
-      </div>
-    </div>
-    <div id="explainabilityPreview" class="explainability-grid"></div>
-  </section>
-
-  <section class="schedule-card explanation-level-card" aria-labelledby="explanationLevelsTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="explanationLevelsTitle">Explanation Level Preview</h2>
-        <p>The same outcome may need employee-safe, supervisor, and admin/audit explanations with different levels of detail.</p>
-      </div>
-    </div>
-    <div id="explanationLevelsPreview" class="explanation-level-grid"></div>
-  </section>
-
-
-
-  <section class="schedule-card mandation-card" aria-labelledby="mandationFoundationTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="mandationFoundationTitle">Mandation Foundation</h2>
-        <p>Mandation is forced overtime. It needs its own rotation list, counts, eligibility checks, skip reasons, and explanations instead of being treated as normal overtime or benefit time.</p>
-      </div>
-    </div>
-    <div id="mandationFoundationPreview" class="mandation-grid"></div>
-  </section>
-
-  <section class="schedule-card mandate-rotation-card" aria-labelledby="mandateRotationTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="mandateRotationTitle">Mandate Rotation Preview</h2>
-        <p>Sample rotation entries show who is next, who is skipped, and why. Future agency rules decide whether skipped employees keep their spot, move down, or leave the pool.</p>
-      </div>
-    </div>
-    <div id="mandateRotationPreview" class="mandate-rotation-grid"></div>
-  </section>
-
-  <section class="schedule-card operational-trait-card" aria-labelledby="operationalTraitTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="operationalTraitTitle">Operational Trait Planning</h2>
-        <p>Employee traits, including gender, may be needed for police, fire, corrections, transport, search, housing, or safety rules, but should only be used when tied to documented operational needs.</p>
-      </div>
-    </div>
-    <div id="operationalTraitPreview" class="operational-trait-grid"></div>
-  </section>
-
-
-  <section class="schedule-card bidding-card" aria-labelledby="biddingFoundationTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="biddingFoundationTitle">Bidding and Opportunity Foundation</h2>
-        <p>Bidding should support shift bids, vacation bids, overtime opportunity bids, rounds, eligibility, seniority, fairness, tie breakers, awards, and audit trails.</p>
-      </div>
-    </div>
-    <div id="biddingFoundationPreview" class="bidding-grid"></div>
-  </section>
-
-  <section class="schedule-card vot-card" aria-labelledby="voluntaryOvertimeTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="voluntaryOvertimeTitle">Voluntary OT Request Preview</h2>
-        <p>Voluntary OT requests are employee-initiated requests to work extra time, submitted for later management review.</p>
-      </div>
-    </div>
-    <div id="voluntaryOvertimePreview" class="vot-grid"></div>
-  </section>
-
-  <section class="schedule-card posted-ot-card" aria-labelledby="postedOvertimeTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="postedOvertimeTitle">Posted OT Opportunity Preview</h2>
-        <p>Posted OT opportunities are management-created openings that eligible employees can volunteer or bid for before awards are reviewed and published.</p>
-      </div>
-    </div>
-    <div id="postedOvertimePreview" class="posted-ot-grid"></div>
-  </section>
-
-  <section class="schedule-card bid-award-card" aria-labelledby="bidAwardTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="bidAwardTitle">Bid Award Preview</h2>
-        <p>Awards should preserve eligibility, seniority, fairness, coverage, tie-breaker, and audit explanations.</p>
-      </div>
-    </div>
-    <div id="bidAwardPreview" class="bid-award-grid"></div>
-  </section>
-
-
-  <section class="schedule-card ui-debt-audit-card" aria-labelledby="uiDebtAuditTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="uiDebtAuditTitle">Architecture Complete</h2>
-        <p>v0.99 plans database families, entity IDs, API boundaries, security requirements, migrations, and audit logging without adding new dashboard preview panels or render registry entries.</p>
-      </div>
-    </div>
-    <div class="audit-note-list">
-      <article>Confirmed the major foundations connect before Cloudflare data-layer work begins.</article>
-      <article>Added database planning docs, table families, API planning, security planning, migration notes, and audit logging requirements.</article>
-      <article>Preserved Rule 23 UI restraint and render registry validation as release gates.</article>
-    </div>
-  </section>
-
-  <section class="schedule-card" aria-labelledby="modelTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="modelTitle">Sample Data Model</h2>
-        <p>These objects are still local mock data, but they match the tables and modules planned for later backend adapter work.</p>
-      </div>
-    </div>
-    <div id="dataModelPreview" class="model-preview-grid"></div>
-  </section>
-
-  <section class="schedule-card schedule-controls" aria-labelledby="setupTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="setupTitle">Setup</h2>
-        <p>Add people, shifts, and basic coverage rules.</p>
-      </div>
-      <div class="schedule-actions-inline">
-        <button type="button" id="sampleDataBtn">Load Sample</button>
-        <button type="button" id="multiAgencyDataBtn">Load Multi-Agency Data</button>
-        <button type="button" id="clearDataBtn" class="danger-button">Clear</button>
-      </div>
-    </div>
-
-    <div class="schedule-setup-grid">
-      <form id="employeeForm" class="schedule-mini-form">
-        <label for="employeeName">Employee Name</label>
-        <div class="schedule-input-row">
-          <input id="employeeName" name="employeeName" type="text" placeholder="Example: Alex" autocomplete="off">
-          <select id="employeeRole" name="employeeRole" aria-label="Employee role">
-            <option value="Dispatcher">Dispatcher</option>
-            <option value="Supervisor">Supervisor</option>
-            <option value="Part-Time">Part-Time</option>
-            <option value="Trainee">Trainee</option>
-          </select>
-          <button type="submit">Add Person</button>
+    <section class="schedule-card">
+      <div class="schedule-section-head">
+        <div>
+          <h2>Rules & Requests</h2>
+          <p>Policy-driven decisions with role-based panels and audit trails.</p>
         </div>
-      </form>
-
-      <form id="shiftForm" class="schedule-mini-form">
-        <label for="shiftName">Shift</label>
-        <div class="schedule-shift-row">
-          <input id="shiftName" name="shiftName" type="text" placeholder="Example: Days">
-          <input id="shiftStart" name="shiftStart" type="time" value="07:00" aria-label="Shift start time">
-          <input id="shiftEnd" name="shiftEnd" type="time" value="15:00" aria-label="Shift end time">
-          <input id="shiftMinStaff" name="shiftMinStaff" type="number" min="1" max="12" value="1" aria-label="Minimum staff needed">
-          <button type="submit">Add Shift</button>
-        </div>
-      </form>
-    </div>
-
-    <form id="ruleForm" class="schedule-rule-form">
-      <label>
-        <span>Max hours per person/week</span>
-        <input id="maxHoursPerWeek" type="number" min="1" max="168" value="40">
-      </label>
-      <label>
-        <span>Minimum gap between shifts</span>
-        <input id="minGapHours" type="number" min="0" max="48" value="8">
-      </label>
-      <label>
-        <span>Month planning start</span>
-        <input id="monthStart" type="month">
-      </label>
-      <button type="submit">Save Rules</button>
-    </form>
-
-    <div class="schedule-list-grid">
-      <div>
-        <h3>People</h3>
-        <div id="employeeList" class="pill-list"></div>
       </div>
-      <div>
-        <h3>Shifts</h3>
-        <div id="shiftList" class="pill-list"></div>
+      <div class="schedule-table-list">
+        <a href="mandation.html"><b>Mandation</b><span>Rotation, eligibility, short-day rules, overrides, and audit preview.</span></a>
+        <a href="seniority.html"><b>Seniority</b><span>Lists, tie breakers, frozen lists, and scenario previews.</span></a>
+        <a href="leave.html"><b>Leave Requests</b><span>Time-range leave requests, reasons, hours, and approval flow.</span></a>
+        <a href="ot-volunteer-board.html"><b>OT Volunteer Board</b><span>Posted OT, volunteers, eligibility, and award review.</span></a>
+        <a href="shift-trades.html"><b>Shift Trades</b><span>Employee acceptance, supervisor approval, cross-supervisor escalation.</span></a>
       </div>
-    </div>
+    </section>
   </section>
 
-  <section class="schedule-card" aria-labelledby="builderTitle">
-    <div class="schedule-card-heading">
+  <section class="schedule-card">
+    <div class="schedule-section-head">
       <div>
-        <h2 id="builderTitle">Weekly Builder</h2>
-        <p>Pick a day, shift, and person, then add it to the board.</p>
+        <h2>v3.3.3 Stabilization Notes</h2>
+        <p>This build removes conflicting legacy global/schedule navigation styling from Schedule pages and treats the Schedule app shell as the visual source of truth.</p>
       </div>
     </div>
-
-    <form id="assignmentForm" class="assignment-form">
-      <label>
-        <span>Day</span>
-        <select id="assignmentDay"></select>
-      </label>
-      <label>
-        <span>Shift</span>
-        <select id="assignmentShift"></select>
-      </label>
-      <label>
-        <span>Person</span>
-        <select id="assignmentEmployee"></select>
-      </label>
-      <button type="submit" class="primary-action">Add to Schedule</button>
-    </form>
-
-    <div class="schedule-board-wrap">
-      <div id="scheduleBoard" class="schedule-board" aria-live="polite"></div>
+    <div class="schedule-rule-grid">
+      <div>Schedule-only UI cleanup. Paycheck, Overtime, Timeoff, and root assets are not modified.</div>
+      <div>Legacy centered website styles are no longer loaded by Schedule HTML pages.</div>
+      <div>Connected flyout navigation remains the desktop default.</div>
+      <div>Full-replacement package excludes .git, __MACOSX, .DS_Store, and AppleDouble files.</div>
     </div>
-  </section>
-
-  <section class="schedule-card schedule-summary" aria-labelledby="summaryTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="summaryTitle">Coverage Summary</h2>
-        <p>Quickly see who is scheduled, where gaps remain, and which rules are being violated.</p>
-      </div>
-      <button type="button" id="printBtn">Print Schedule</button>
-    </div>
-    <div id="coverageSummary" class="coverage-grid"></div>
-    <div id="ruleWarnings" class="warning-list" aria-live="polite"></div>
-  </section>
-
-  <section class="schedule-card" aria-labelledby="outputTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="outputTitle">Text Output</h2>
-        <p>Use this to test the schedule logic before we build logins, database tables, month publishing, and admin workflows.</p>
-      </div>
-      <button type="button" id="copyOutputBtn">Copy Text</button>
-    </div>
-    <textarea id="scheduleOutput" class="schedule-output" readonly></textarea>
-  </section>
-
-  <section class="schedule-card" aria-labelledby="monthTitle">
-    <div class="schedule-card-heading">
-      <div>
-        <h2 id="monthTitle">Month Planning Notes</h2>
-        <p>This is not a full calendar yet. It shows the month structure we should support next.</p>
-      </div>
-    </div>
-    <div id="monthPreview" class="month-preview"></div>
   </section>
 </main>
 
 <div id="schedule-footer"></div>
-<div id="sl-footer"></div>
-
-<script src="../assets/global.js?v=0.9.9.6"></script>
-<script src="app-shell.js?v=3.3.2"></script><script src="components/footer.js?v=3.3.2"></script>
-<script src="script.js?v=3.3.2"></script>
+<script src="app-shell.js?v=3.3.3"></script>
 </body>
 </html>

@@ -2,14 +2,14 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/app-shell.js
-Version: v3.3.2
+Version: v3.3.3
 Purpose: Desktop application shell, connected flyout navigation, and client-side theme engine.
 */
 (function () {
   const body = document.body;
   if (!body || body.dataset.signalArea !== 'Signal Schedule') return;
 
-  const version = 'v3.3.2';
+  const version = 'v3.3.3';
   const title = body.dataset.signalTitle || document.title.replace('— Signal Schedule', '').trim() || 'Signal Schedule';
   const themeKey = 'signalScheduleTheme';
   const allowedThemes = ['midnight', 'light', 'slate', 'cad', 'high-contrast'];
@@ -145,7 +145,21 @@ Purpose: Desktop application shell, connected flyout navigation, and client-side
 
   function syncFooter() {
     const footer = document.getElementById('schedule-footer');
-    if (footer) footer.dataset.scheduleVersion = version;
+    if (!footer) return;
+    footer.dataset.scheduleVersion = version;
+    footer.className = 'schedule-footer';
+    footer.innerHTML = `
+      <div class="schedule-footer__inner">
+        <div class="schedule-footer__brand">
+          <span class="schedule-footer__title">Signal Schedule • ${version}</span>
+          <span class="schedule-footer__meta">Built by Signal Labs</span>
+        </div>
+        <nav class="schedule-footer__links" aria-label="Schedule footer links">
+          <a href="README.md">Docs</a><span class="schedule-footer__dot">•</span>
+          <a href="ROADMAP.md">Roadmap</a><span class="schedule-footer__dot">•</span>
+          <a href="CHANGELOG.md">Changelog</a>
+        </nav>
+      </div>`;
   }
 
   function escapeHtml(value) {

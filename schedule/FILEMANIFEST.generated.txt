@@ -1,3 +1,5 @@
+.gitattributes
+.gitignore
 ADMIN_CHANGELOG.md
 BUILDMANIFEST.md
 FILEMANIFEST.generated.txt
@@ -69,6 +71,7 @@ schedule/BUILDMANIFEST.md
 schedule/CALENDAR-FOUNDATION.md
 schedule/CHANGELOG.md
 schedule/EMPLOYEE-IDENTITY-FOUNDATION.md
+schedule/FILEMANIFEST.generated.txt
 schedule/FILEMANIFEST.md
 schedule/HOWTO.md
 schedule/LATEST_RELEASE.md

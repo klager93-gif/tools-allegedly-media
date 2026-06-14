@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/LeaveBanksRepository.js
-Version: v3.3.2
+Version: v3.3.3
 Purpose: Repository boundary for Leave Banks Foundation
 */
 import { fetchLeaveBanksPreview } from '../adapters/JsonLeaveBanksAdapter.js';

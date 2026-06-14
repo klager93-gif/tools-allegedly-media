@@ -1,49 +1,50 @@
-# Signal Schedule v3.3.2 Build Manifest
+# Signal Schedule v3.3.3 Build Manifest
 
-Release: Signal Schedule v3.3.2 — Version Drift Hotfix
+Release: Signal Schedule v3.3.3 — Full Replacement UI Stabilization
 Date: 2026-06-15
 Database migration required: No
 
 ## Summary
 
-Refines the desktop application shell introduced in v3.2.0. The main UX change is replacing separated pill-style sidebar hover menus with connected, box-style flyout panels and setting Midnight as the default Schedule theme when no user preference exists.
+Deep cleanup of the uploaded full-replacement folder after the v3.3 UI work. The issue was caused by Schedule pages still loading older global/site and legacy Schedule CSS/JS files alongside the new desktop app shell. This allowed old centered website styles and old page content patterns to fight the v3 app layout.
 
 ## Key Changes
 
-- Replaced floating/separated pill flyouts with connected box-style flyout panels.
-- Tightened sidebar hover/focus behavior for desktop use.
-- Reduced visual gaps between submenu items.
-- Kept one-column sidebar navigation with grouped flyouts.
-- Set Midnight as the default theme for new users/no saved preference.
-- Preserved Schedule-only scope; no Paycheck, Overtime, Timeoff, or root shared asset styling changes.
+- Removed legacy `../assets/global.css`, `../assets/global.js`, `style.css`, `schedule-nav.css`, `footer.css`, and `components/footer.js` references from Schedule HTML pages.
+- Kept `app-shell.css` and `app-shell.js` as the Schedule UI source of truth.
+- Rebuilt `schedule/index.html` into a desktop application overview instead of the old long logic sandbox page.
+- Added stronger app-shell layout stabilization for wide desktop workspace, cards, dashboard grids, footer, and legacy CSS variable mapping.
+- Normalized version/cache strings to v3.3.3.
+- Removed macOS/AppleDouble packaging junk from the full replacement package.
+- No Paycheck, Overtime, Timeoff, or root shared asset changes.
 
 ## Files Affected
 
-- schedule/app-shell.css
-- schedule/app-shell.js
-- schedule/assets/themes/*.css
-- schedule/*.html (version/cache metadata only where applicable)
-- schedule/README.md
-- schedule/ROADMAP.md
-- schedule/CHANGELOG.md
-- schedule/PUBLIC_CHANGELOG.md
-- schedule/ADMIN_CHANGELOG.md
-- schedule/FILEMANIFEST.md
-- schedule/FILEMANIFEST.generated.txt
-- schedule/BUILDMANIFEST.md
-- schedule/LATEST_RELEASE.md
+- `schedule/*.html`
+- `schedule/app-shell.css`
+- `schedule/app-shell.js`
+- `schedule/LATEST_RELEASE.md`
+- `schedule/README.md`
+- `schedule/ROADMAP.md`
+- `schedule/CHANGELOG.md`
+- `schedule/PUBLIC_CHANGELOG.md`
+- `schedule/ADMIN_CHANGELOG.md`
+- `schedule/MASTER-CHANGELOG.md`
+- `schedule/MASTER-ROADMAP.md`
+- `schedule/BUILDMANIFEST.md`
+- `schedule/FILEMANIFEST.md`
 
-## Files Not Touched
+## Not Touched
 
-- overtime/**
-- paycheck/**
-- timeoff/**
-- assets/**
+- `paycheck/`
+- `overtime/`
+- `timeoff/`
+- root `assets/`
 
 ## Validation
 
-- JavaScript syntax checked.
-- JSON parsed.
 - HTML asset references checked.
+- JavaScript syntax checked.
+- JSON files parsed.
 - ZIP integrity checked.
-- Confirmed non-Schedule files were not modified compared with v3.2.0 baseline.
+- Packaging junk excluded.

@@ -1,14 +1,17 @@
-# Signal Schedule v3.3.2 — UI Drift & Approval Copy Hotfix
+# Signal Schedule v3.3.3 — Full Replacement UI Stabilization
 
-## Database Migration Required
-No.
+Schedule-only full replacement cleanup.
 
-## Summary
-Normalizes Schedule visible versioning and asset cache-busting after the v3.3.1 hotfix, updates file header metadata, removes release packaging junk, and clarifies shift trade approval routing for cross-supervisor trades.
+Database migration required: No.
 
-## Validation
-- JS syntax checked
-- JSON parsed
-- HTML asset references checked
-- ZIP integrity checked
-- Non-Schedule tool folders preserved
+## Main Fix
+
+Schedule pages were still loading legacy global/site and old Schedule CSS/JS files in addition to the new desktop app shell. This caused the centered website layout and long card stacks to remain visible even after v3.3.
+
+## Changed
+
+- Removed legacy CSS/JS references from Schedule HTML pages.
+- Rebuilt the Schedule overview page.
+- Normalized app-shell footer/version behavior.
+- Strengthened app-shell layout overrides.
+- Cleaned release packaging junk.

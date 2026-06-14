@@ -1,4 +1,4 @@
-# Signal Schedule v3.3.2 File Manifest
+# Signal Schedule v3.3.3 File Manifest
 
 Full-replace package inventory. Schedule-specific release changes are limited to the Schedule module.
 
