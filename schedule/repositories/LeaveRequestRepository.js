@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/LeaveRequestRepository.js
-Version: v4.1.0
+Version: v4.2.0
 Purpose: Repository boundary for leave request preview reads before production workflow writes exist.
 */
 export class LeaveRequestRepository {

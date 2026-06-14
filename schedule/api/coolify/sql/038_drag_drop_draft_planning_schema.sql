@@ -1,4 +1,4 @@
--- Signal Schedule v4.1.0 Drag-and-Drop + Draft Engine
+-- Signal Schedule v4.2.0 Drag-and-Drop + Draft Engine
 -- Purpose: model draft runs, staged assignment moves, publish checklist items, and audit-ready move history.
 
 CREATE TABLE IF NOT EXISTS schedule_draft_runs (

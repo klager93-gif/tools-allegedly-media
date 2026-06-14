@@ -1,13 +1,13 @@
-/* Signal Labs | Signal Schedule | schedule/pages/workspace/builder.js | v4.1.0 */
+/* Signal Labs | Signal Schedule | schedule/pages/workspace/builder.js | v4.2.0 */
 const state={settings:null,data:null};
 const $=(s)=>document.querySelector(s);
 const esc=(v)=>String(v??'').replace(/[&<>"']/g,(c)=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 Promise.all([fetch('data/schedule-admin-settings.json').then(r=>r.json()),fetch('data/schedule-builder-sandbox.json').then(r=>r.json())]).then(([settings,data])=>{state.settings=settings;state.data=data;render();});
-function render(){renderSettings();renderGrid();renderEmployees();validate();document.querySelectorAll('[data-builder-action]').forEach(b=>b.addEventListener('click',onAction));}
+function render(){renderSettings();renderGrid();renderEmployees();renderEmployeeDatalist();validate();document.querySelectorAll('[data-builder-action]').forEach(b=>b.addEventListener('click',onAction));}
 function renderSettings(){const el=$('[data-builder-settings]');const s=state.settings;el.innerHTML=`${field('Agency name','agency.name',s.agency.name)}${field('Week starts','agency.weekStart',s.agency.weekStart)}${field('Pay period starts','agency.payPeriodStart',s.agency.payPeriodStart)}${field('Time format','agency.timeFormat',s.agency.timeFormat)}${field('Time off increment minutes','requestRules.timeOffIncrementMinutes',s.requestRules.timeOffIncrementMinutes)}${field('OT increment minutes','requestRules.overtimeIncrementMinutes',s.requestRules.overtimeIncrementMinutes)}`;el.querySelectorAll('input').forEach(i=>i.addEventListener('input',()=>{setPath(i.dataset.path,i.value);validate();}));}
 function field(label,path,value){return `<label class="builder-field"><span>${esc(label)}</span><input data-path="${esc(path)}" value="${esc(value)}"></label>`}
 function setPath(path,value){const parts=path.split('.');let obj=state.settings;while(parts.length>1)obj=obj[parts.shift()];obj[parts[0]]=value;}
-function renderGrid(){const grid=$('[data-builder-grid]');const days=state.data.days;const rows=[];state.settings.coverageRules.forEach(rule=>{rows.push({role:rule.role,shift:rule.shift,minimum:Number(rule.minimum),maximum:Number(rule.maximum)});});grid.querySelector('thead').innerHTML=`<tr><th>Role / shift</th>${days.map(d=>`<th>${d}</th>`).join('')}</tr>`;grid.querySelector('tbody').innerHTML=rows.map(row=>`<tr data-row-role="${esc(row.role)}" data-row-shift="${esc(row.shift)}"><th><strong>${esc(row.role)}</strong><span class="builder-chip">${esc(row.shift)} min ${row.minimum}</span></th>${days.map(day=>cell(day,row)).join('')}</tr>`).join('');grid.querySelectorAll('input[data-assignment]').forEach(i=>i.addEventListener('input',()=>validate()));}
+function renderGrid(){const grid=$('[data-builder-grid]');const days=state.data.days;const rows=[];state.settings.coverageRules.forEach(rule=>{rows.push({role:rule.role,shift:rule.shift,minimum:Number(rule.minimum),maximum:Number(rule.maximum)});});grid.querySelector('thead').innerHTML=`<tr><th>Role / shift</th>${days.map(d=>`<th>${d}</th>`).join('')}</tr>`;grid.querySelector('tbody').innerHTML=rows.map(row=>`<tr data-row-role="${esc(row.role)}" data-row-shift="${esc(row.shift)}"><th><strong>${esc(row.role)}</strong><span class="builder-chip">${esc(row.shift)} min ${row.minimum}</span></th>${days.map(day=>cell(day,row)).join('')}</tr>`).join('');grid.querySelectorAll('input[data-assignment]').forEach(i=>{i.setAttribute('list','builderEmployeeOptions');i.addEventListener('input',()=>{showAssignmentHint(i);validate();});i.addEventListener('focus',()=>showAssignmentHint(i));});}
 function cell(day,row){const matches=state.data.assignments.filter(a=>a.day===day&&a.role===row.role&&a.shift===row.shift);const count=Math.max(row.minimum,matches.length,1);let inputs='';for(let i=0;i<count;i++){const val=matches[i]?.employee||'';inputs+=`<input data-assignment data-day="${esc(day)}" data-role="${esc(row.role)}" data-shift="${esc(row.shift)}" value="${esc(val)}" placeholder="Employee or OPEN">`;}return `<td><div class="builder-cell">${inputs}</div></td>`;}
 function renderEmployees(){const el=$('[data-builder-employees]');el.innerHTML=state.data.employees.map(e=>`<div class="builder-employee"><strong>${esc(e.name)}</strong><span>${esc(e.role)} • ${esc(e.group)}</span><span>${esc(e.quals.join(', '))}</span></div>`).join('');}
 function readAssignments(){return Array.from(document.querySelectorAll('input[data-assignment]')).map(i=>({day:i.dataset.day,role:i.dataset.role,shift:i.dataset.shift,employee:i.value.trim()}));}
@@ -16,3 +16,24 @@ assignments.forEach(a=>{const input=document.querySelector(`input[data-day="${CS
 const summary=$('[data-builder-summary]');summary.innerHTML=`<span class="builder-chip ${short?'builder-chip--bad':'builder-chip--good'}">${short} short</span><span class="builder-chip ${open?'builder-chip--warn':'builder-chip--good'}">${open} open</span><span class="builder-chip ${conflicts?'builder-chip--bad':'builder-chip--good'}">${conflicts} conflicts</span><span class="builder-chip ${over?'builder-chip--warn':'builder-chip--good'}">${over} over max</span>`;
 const res=$('[data-builder-results]');const hourRows=Object.entries(hours).sort((a,b)=>b[1]-a[1]).map(([n,h])=>`<div class="builder-result"><strong>${esc(n)}</strong>${h} scheduled hours this week</div>`).join('');res.innerHTML=(results.length?results.map(r=>`<div class="builder-result"><strong>${esc(r.title)}</strong><span>${esc(r.body)}</span></div>`).join(''):'<div class="builder-result"><strong>No blocking warnings</strong><span>Current assignments meet the configured minimums and availability checks.</span></div>')+`<h3>Weekly Hours</h3>${hourRows}`;}
 function onAction(e){const action=e.currentTarget.dataset.builderAction;if(action==='validate')validate();if(action==='sample')location.reload();if(action==='clear'){document.querySelectorAll('input[data-assignment]').forEach(i=>i.value='');validate();}}
+
+function renderEmployeeDatalist(){
+  let dl=document.getElementById('builderEmployeeOptions');
+  if(!dl){dl=document.createElement('datalist');dl.id='builderEmployeeOptions';document.body.appendChild(dl);}
+  const options=['OPEN'].concat(state.data.employees.flatMap(e=>[e.name,`${e.name} — ${e.group}`,`${e.name} — ${e.role}`,...(e.quals||[]).map(q=>`${e.name} — ${q}`)]));
+  dl.innerHTML=[...new Set(options)].map(v=>`<option value="${esc(v)}"></option>`).join('');
+}
+function showAssignmentHint(input){
+  const raw=input.value.trim();
+  const box=$('[data-builder-results]');
+  if(!box||!raw||raw.toUpperCase()==='OPEN')return;
+  const name=raw.split(' — ')[0].trim();
+  const emp=state.data.employees.find(e=>e.name.toLowerCase()===name.toLowerCase());
+  if(!emp)return;
+  const unavailable=state.data.unavailable.find(u=>u.day===input.dataset.day&&u.employee.toLowerCase()===emp.name.toLowerCase());
+  const roleOk=emp.role===input.dataset.role||emp.quals.includes(input.dataset.role)||input.dataset.role==='Dispatcher';
+  const hint=document.createElement('div');
+  hint.className='builder-result builder-autocomplete-hint';
+  hint.innerHTML=`<strong>${esc(emp.name)}</strong><span>${esc(emp.group)} • ${esc(emp.role)} • ${esc(emp.quals.join(', '))}</span><span>${unavailable?'Unavailable: '+esc(unavailable.reason):'Available for this day in preview data'}${roleOk?'':' • Role warning'}</span>`;
+  const old=box.querySelector('.builder-autocomplete-hint');if(old)old.remove();box.prepend(hint);
+}

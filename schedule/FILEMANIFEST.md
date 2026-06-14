@@ -1,6 +1,6 @@
 # Signal Schedule File Manifest
 
-Generated for v4.1.0.
+Generated for v4.2.0.
 
 ```text
 ADMIN_CHANGELOG.md

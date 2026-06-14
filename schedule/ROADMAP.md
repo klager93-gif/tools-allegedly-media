@@ -1,6 +1,15 @@
+
+## Current 4.x Direction After v4.2.0
+
+- v4.2.0: Employee Portal Preview, permanent View As employee/group foundation, and builder autocomplete.
+- v4.3.0: Availability, preferences, and restrictions engine.
+- v4.4.0: Publishing/versioning workflow hardening.
+- v4.5.0: Authentication and role permissions; View As remains after login.
+- v5.x: View Engine expansion for groups, roles, locations, qualifications, shifts, patterns, compound saved views, and view audit.
+
 # Signal Schedule Roadmap
 
-## Current: v4.1.0 — Workable Schedule Sandbox + Admin Settings
+## Current: v4.2.0 — Workable Schedule Sandbox + Admin Settings
 
 The 4.1 release pivots from foundation-only work into a playable browser interface. Admin settings and a manual schedule builder now exist so current schedules can be entered and checked before the database-backed engine is complete.
 
@@ -12,7 +21,7 @@ The 4.1 release pivots from foundation-only work into a playable browser interfa
 - v4.5.0 — Authentication, Roles, and Real Logins
 - v4.6.0 — Overtime, Vacancy, and Mandation Foundations
 
-## Signal Schedule v4.1.0 — Beta Foundation & Publishing
+## Signal Schedule v4.2.0 — Beta Foundation & Publishing
 
 Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
 
@@ -22,7 +31,7 @@ Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publish
 
 ## Current Release
 
-### v4.1.0 — Scheduling Workspace
+### v4.2.0 — Scheduling Workspace
 - Central desktop scheduling workspace.
 - Wide schedule grid with role/spot rows and week columns.
 - Right inspector panel foundation for employees, shifts, open spots, and conflicts.
@@ -32,7 +41,7 @@ Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publish
 
 ## Near-Term Roadmap
 
-### v4.1.0 — Drag-and-Drop + Draft Engine
+### v4.2.0 — Drag-and-Drop + Draft Engine
 - Drag employees between assignments, days, roles, or coverage spots.
 - Draft mode separate from published schedule.
 - Undo/reset draft support.
@@ -40,16 +49,16 @@ Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publish
 - Draft → review → publish workflow.
 - Audit trail for manual changes and supervisor/admin overrides.
 
-### v4.1.0 — Schedule Planning / Forecast Horizon
+### v4.2.0 — Schedule Planning / Forecast Horizon
 - Generate or simulate schedules through a selected future end date.
 - Scan pattern-generated schedules for conflicts, shortages, qualification gaps, leave/training overlaps, OT needs, and likely mandates.
 - Preview recommendations before publishing.
 
-### v4.1.0 — Reports & Dashboards
+### v4.2.0 — Reports & Dashboards
 - Leave balances, OT hours, mandation history, seniority lists, certification expirations, coverage shortages.
 - CSV, Excel, and PDF export targets.
 
-### v4.1.0 — Seating / Post Assignment Planner
+### v4.2.0 — Seating / Post Assignment Planner
 - Desk, console, post, station, unit, or workstation assignments.
 - Qualification requirements by seat/post.
 - Fair rotation tracking and fairness percentages.
@@ -101,6 +110,6 @@ Make it powerful enough for production beta.
 Make it dangerous to Telestaff.
 
 
-## v4.1.0 — Schedule File Organization & Release Cleanup
+## v4.2.0 — Schedule File Organization & Release Cleanup
 
 Organizes page-specific support assets into /schedule/pages while preserving public page URLs.

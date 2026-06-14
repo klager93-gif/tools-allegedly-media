@@ -1,4 +1,4 @@
-## Signal Schedule v4.1.0 — Beta Foundation & Publishing
+## Signal Schedule v4.2.0 — Beta Foundation & Publishing
 
 Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
 
@@ -51,7 +51,7 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.
 
 
-## v4.1.0 — Schedule File Organization & Release Cleanup
+## v4.2.0 — Schedule File Organization & Release Cleanup
 
 ### Purpose
 Organizes page-specific support CSS/JS files into `/schedule/pages/` module folders while preserving public `/schedule/*.html` URLs. This is safe for full replacement because all HTML asset references were updated and validated.

@@ -1,6 +1,6 @@
 # Signal Schedule Build Manifest
 
-Version: v4.1.0
+Version: v4.2.0
 Date: 2026-06-14
 Release: Workable Schedule Sandbox + Admin Settings
 

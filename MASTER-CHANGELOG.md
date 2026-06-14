@@ -1,4 +1,4 @@
-## Signal Schedule v4.0.0 — Beta Foundation & Publishing
+## Signal Schedule v4.2.0 — Employee Portal Preview + Builder Autocomplete
 
 Schedule 4.0.0 starts the beta series with publishing, immutable schedule snapshots, post/seat foundations, availability/preferences/restrictions foundations, and migration 040. This release modifies `/schedule/` and root documentation only.
 
@@ -266,6 +266,6 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 Fixes the Schedule footer rendering after the visibility/privacy release and adds Visibility & Privacy into the connected Schedule navigation/flyouts. No database migration required.
 
 
-## Signal Schedule v4.1.0
+## Signal Schedule v4.2.0
 
 Adds the workable schedule sandbox and admin settings preview under `/schedule/`.

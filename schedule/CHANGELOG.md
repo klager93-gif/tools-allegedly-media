@@ -1,11 +1,21 @@
-## Signal Schedule v4.1.0 — Beta Foundation & Publishing
+
+## v4.2.0 — Employee Portal Preview + Builder Autocomplete
+
+- Added `/schedule/employee/` employee-facing portal preview.
+- Added permanent View As foundation for employee and group previews.
+- Added employee dashboard, calendar, requests/OT, profile, balances, and notifications preview screens.
+- Added builder name autocomplete using the current employee sample data.
+- Added assignment hinting for availability, group, role, and qualification context while editing the grid.
+- Added migration 042 for future View As profiles, audit logging, and portal preferences.
+
+## Signal Schedule v4.2.0 — Beta Foundation & Publishing
 
 Starts the Schedule 4.x beta series with a publishing workspace, read-only publication preview endpoint, migration 040, immutable published version/snapshot/event table foundations, post/seat foundations, and employee availability/preference/restriction foundations.
 
 Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql`.
 
 
-## v4.1.0 — Schedule Planning & Forecast Horizon
+## v4.2.0 — Schedule Planning & Forecast Horizon
 
 - Adds Schedule Planning / Forecast Horizon foundation.
 - Adds forecast runs through a selected date range.
@@ -15,7 +25,7 @@ Database migration required: `schedule/api/coolify/sql/040_schedule_beta_publish
 - Navigation coverage audit confirms Planning Forecast is linked in the desktop app shell.
 
 
-## v4.1.0 — Schedule File Organization & Release Cleanup
+## v4.2.0 — Schedule File Organization & Release Cleanup
 
 - Organized Schedule page-specific CSS and JS into /schedule/pages module folders.
 - Preserved public /schedule/*.html URLs to avoid breaking navigation, bookmarks, or live links.

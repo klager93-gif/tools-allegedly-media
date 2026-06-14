@@ -1,4 +1,4 @@
--- Signal Schedule v4.1.0 Schedule Planning & Forecast Horizon
+-- Signal Schedule v4.2.0 Schedule Planning & Forecast Horizon
 -- Purpose: model forecast runs, forecast issues, recommended actions, and heatmap rollups without enabling publish writes.
 
 CREATE TABLE IF NOT EXISTS schedule_forecast_runs (

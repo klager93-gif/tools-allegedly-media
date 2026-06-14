@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/WeeklyBoardRepository.js
-Version: v4.1.0
+Version: v4.2.0
 Purpose: Repository boundary for Weekly Schedule View data
 */
 import { fetchWeeklyBoardPreview } from '../adapters/JsonWeeklyBoardAdapter.js';

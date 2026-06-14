@@ -1,4 +1,4 @@
-## Signal Schedule v4.0.0 — Beta Foundation & Publishing
+## Signal Schedule v4.2.0 — Employee Portal Preview + Builder Autocomplete
 
 Schedule 4.0.0 starts the beta series with publishing, immutable schedule snapshots, post/seat foundations, availability/preferences/restrictions foundations, and migration 040. This release modifies `/schedule/` and root documentation only.
 
@@ -33,7 +33,7 @@ Schedule 4.0.0 starts the beta series with publishing, immutable schedule snapsh
 - Leave balances, OT hours, mandation history, seniority lists, certification expirations, coverage shortages.
 - CSV, Excel, and PDF export targets.
 
-### v4.1.0 — Seating / Post Assignment Planner
+### v4.2.0 — Seating / Post Assignment Planner
 - Desk, console, post, station, unit, or workstation assignments.
 - Qualification requirements by seat/post.
 - Fair rotation tracking and fairness percentages.
@@ -92,6 +92,6 @@ Make it dangerous to Telestaff.
 - Prepare for forecast horizon and schedule publishing workflows.
 
 
-## Signal Schedule v4.1.0
+## Signal Schedule v4.2.0
 
 Adds the workable schedule sandbox and admin settings preview under `/schedule/`.

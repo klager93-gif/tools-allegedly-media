@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": "v4.1.0",
+    "version": "v4.2.0",
     "module": "drag-drop-draft-planning",
     "mode": "preview-only",
     "notes": "Draft moves are preview data only until authenticated write routes are enabled."
