@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://tools.allegedly-media.com/schedule/api/contracts/visibility-privacy.read.schema.json",
+  "title": "Signal Schedule Visibility & Privacy Read Contract",
+  "type": "object",
+  "required": ["meta", "summary", "userGroups", "scheduleVisibilityRules", "leaveVisibilityRules"],
+  "properties": {
+    "meta": { "type": "object" },
+    "summary": { "type": "object" },
+    "userGroups": { "type": "array", "items": { "type": "object" } },
+    "scheduleVisibilityRules": { "type": "array", "items": { "type": "object" } },
+    "leaveVisibilityRules": { "type": "array", "items": { "type": "object" } },
+    "displayExamples": { "type": "array", "items": { "type": "object" } },
+    "adminControls": { "type": "array", "items": { "type": "string" } },
+    "rules": { "type": "array", "items": { "type": "string" } }
+  }
+}

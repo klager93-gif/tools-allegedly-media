@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/ot-volunteer-board.js
-Version: v3.5.0
+Version: v3.6.0
 Purpose: Render OT Volunteer Board Foundation preview
 */
 import { getOtVolunteerBoardDashboard, getRecommendedVolunteer } from './services/OtVolunteerBoardService.js';

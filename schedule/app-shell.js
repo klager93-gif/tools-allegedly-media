@@ -2,14 +2,14 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/app-shell.js
-Version: v3.5.0
+Version: v3.6.0
 Purpose: Desktop application shell, connected flyout navigation, app-styled controls, dense workspace defaults, and client-side theme engine.
 */
 (function () {
   const body = document.body;
   if (!body || body.dataset.signalArea !== 'Signal Schedule') return;
 
-  const version = 'v3.5.0';
+  const version = 'v3.6.0';
   const title = body.dataset.signalTitle || document.title.replace('— Signal Schedule', '').trim() || 'Signal Schedule';
   const themeKey = 'signalScheduleTheme';
   const allowedThemes = ['midnight', 'light', 'slate', 'cad', 'high-contrast'];
@@ -60,7 +60,7 @@ Purpose: Desktop application shell, connected flyout navigation, app-styled cont
       { label: 'Requests', href: 'leave.html', icon: '✎', children: ['approvals.html', 'leave.html', 'leave-banks.html', 'open-shifts.html', 'ot-volunteer-board.html', 'shift-trades.html', 'trades.html'] },
       { label: 'Rules', href: 'mandation.html', icon: '⚙', children: ['mandation.html', 'permissions.html', 'notifications.html', 'shortcodes.html', 'benefits.html'] },
       { label: 'Reports', href: 'reports.html', icon: '◴' },
-      { label: 'Settings', href: 'settings.html', icon: '⚙' }
+      { label: 'Settings', href: 'settings.html', icon: '⚙', children: ['settings.html', 'visibility.html'] }
     ];
 
     linksWrap.innerHTML = '';

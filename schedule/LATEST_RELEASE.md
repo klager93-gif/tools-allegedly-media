@@ -1,11 +1,21 @@
-# Signal Schedule v3.5.0 — Dense Tables & Workspace
+# Signal Schedule Latest Release
 
-Built 2026-06-15.
+## v3.6.0 — Schedule Visibility & Privacy Controls
 
-## Summary
+Adds Schedule Visibility & Privacy Controls for role-based schedule detail, supervisor schedule visibility, leave/off-status display, sensitive leave hiding, read-only preview data, API contract/endpoint, service boundaries, and Postgres migration 037.
 
-Adds a desktop-first dense workspace layer: Schedule-styled dropdown components, table/readability standards, sticky table headers, selected/hover row states, compact command bars, inspector panel foundations, tighter hero/card spacing, and continued Schedule-only UI scope.
+## Database Migration Required
 
-## Database Migration
+Yes.
 
-No database migration required.
+Run:
+
+```text
+schedule/api/coolify/sql/037_schedule_visibility_privacy_schema.sql
+```
+
+Expected newest row:
+
+```text
+037 | schedule_visibility_privacy
+```

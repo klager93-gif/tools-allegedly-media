@@ -38,3 +38,8 @@ Daily Board is read-only foundation work. Drag/drop assignment writes, employee 
 
 Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
 
+
+
+## v3.6.0 — Schedule Visibility & Privacy Controls
+
+Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.

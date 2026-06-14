@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v3.5.0
-Purpose: Coolify API with employee CRUD and read-only foundations including notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, and seniority engine, assignment generator, conflict detection, and qualifications/certifications.
+Version: v3.6.0
+Purpose: Coolify API with employee CRUD and read-only foundations including visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:
 - no committed credentials
@@ -54,6 +54,7 @@ const ASSIGNMENT_GENERATOR_PREVIEW_PATH = resolve(__dirname, '../../data/assignm
 const CONFLICT_DETECTION_PREVIEW_PATH = resolve(__dirname, '../../data/conflict-detection-preview.json');
 const QUALIFICATIONS_CERTIFICATIONS_PREVIEW_PATH = resolve(__dirname, '../../data/qualifications-certifications-preview.json');
 const WEEKLY_BOARD_PREVIEW_PATH = resolve(__dirname, '../../data/weekly-board-preview.json');
+const VISIBILITY_PRIVACY_PREVIEW_PATH = resolve(__dirname, '../../data/visibility-privacy-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -295,6 +296,11 @@ async function listConflictDetectionFromJsonSeed() {
 
 async function listQualificationsCertificationsFromJsonSeed() {
   const raw = await readFile(QUALIFICATIONS_CERTIFICATIONS_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
+async function listVisibilityPrivacyFromJsonSeed() {
+  const raw = await readFile(VISIBILITY_PRIVACY_PREVIEW_PATH, 'utf8');
   return JSON.parse(raw);
 }
 
@@ -643,6 +649,26 @@ const server = createServer(async (req, res) => {
     }
   }
 
+
+
+  if (req.method === 'GET' && (url.pathname === '/visibility-privacy' || url.pathname === '/api/visibility-privacy')) {
+    try {
+      const data = await listVisibilityPrivacyFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-schedule-visibility-privacy', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { meta: {}, summary: {}, userGroups: [], scheduleVisibilityRules: [], leaveVisibilityRules: [], displayExamples: [], adminControls: [], rules: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'VISIBILITY_PRIVACY_READ_FAILED', message: error.message }]
+      });
+    }
+  }
 
 
   if (req.method === 'GET' && (url.pathname === '/weekly-board' || url.pathname === '/api/weekly-board')) {

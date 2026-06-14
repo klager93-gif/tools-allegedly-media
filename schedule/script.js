@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/script.js
-Version: v3.5.0
+Version: v3.6.0
 Purpose: Seniority and Rotation Engine foundation with schedule admin preview
 */
 (function () {
@@ -2229,7 +2229,7 @@ Purpose: Seniority and Rotation Engine foundation with schedule admin preview
     var warnings = coverageWarnings();
     var totals = employeeHours();
     lines.push('SIGNAL SCHEDULE — EMPLOYEE READ API FOUNDATION');
-    lines.push('Version: v3.5.0');
+    lines.push('Version: v3.6.0');
     lines.push('');
     lines.push('Core model: Agency Profile + Employee Profiles + Patterns + Events + Benefits + Rules + Coverage + Fairness + Explainability + Mandation + Bidding');
     lines.push('');

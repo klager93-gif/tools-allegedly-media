@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/adapters/JsonSeniorityRotationAdapter.js
-Version: v3.5.0
+Version: v3.6.0
 Purpose: JSON adapter for Seniority and Rotation preview data.
 */
 export class JsonSeniorityRotationAdapter {

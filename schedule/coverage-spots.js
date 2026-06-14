@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/coverage-spots.js
-Version: v3.5.0
+Version: v3.6.0
 Purpose: Render Coverage Spots Foundation preview
 */
 import { getCoverageSpotsPreview } from './services/CoverageSpotsService.js';

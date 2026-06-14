@@ -1,0 +1,74 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/visibility.html
+Version: v3.6.0
+Purpose: Schedule Visibility & Privacy Controls for role-based schedule and leave detail.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Visibility & Privacy</title>
+<meta name="description" content="Signal Schedule visibility and privacy controls for role-based schedule, supervisor schedule, and leave detail access.">
+<link rel="stylesheet" href="app-shell.css?v=3.6.0">
+<link rel="stylesheet" href="visibility.css?v=3.6.0">
+</head>
+<body data-signal-global-layout="true" data-signal-area="Signal Schedule" data-signal-title="Visibility & Privacy" data-signal-version="v3.6.0" data-signal-theme="Schedule Visibility & Privacy Controls" data-signal-status="Preview" data-signal-description="Configure what each role or user group can see on schedules, supervisor schedules, and leave/off-status labels." data-signal-status-text="Signal Schedule v3.6.0 adds schedule visibility and privacy controls for role-based schedule detail.">
+<div id="sl-header"></div>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Role-based panels</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="schedule.html">Calendar</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="permissions.html">Permissions</a><a href="approvals.html">Approvals</a><a href="notifications.html">Notifications</a><a href="assignments.html">Assignments</a><a href="assignment-generator.html">Assignment Generator</a><a href="conflict-detection.html">Conflict Detection</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="daily-board.html">Daily Board</a><a href="weekly-board.html">Weekly View</a><a href="seniority.html">Seniority & Rotation</a><a href="mandation.html">Mandation</a><a href="shift-trades.html">Shift Trades</a><a href="training.html">Training & Certs</a><a href="qualifications.html">Qualifications</a><a href="eligibility.html">Eligibility</a><a href="benefits.html">Benefit Ledger</a><a href="leave-banks.html">Leave Banks</a><a href="ot-volunteer-board.html">OT Volunteer Board</a><a href="shortcodes.html">Shortcodes</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="reports.html">Reports</a><a href="visibility.html" aria-current="page">Visibility & Privacy</a><a href="settings.html">Settings</a></div></nav>
+<main class="visibility-shell">
+  <section class="visibility-hero" aria-labelledby="pageTitle">
+    <p class="schedule-kicker">Signal Schedule</p>
+    <h1 id="pageTitle">Schedule Visibility & Privacy Controls</h1>
+    <p>Admin-configurable rules decide whether employees can see supervisor schedules, exact times, hours only, working/off status, and leave type labels by user group.</p>
+  </section>
+
+  <section class="visibility-grid" aria-label="Visibility overview">
+    <aside class="visibility-panel">
+      <h2>Policy Snapshot</h2>
+      <p>Preview-only visibility policy foundation. Future authenticated workflows should persist these settings by agency and apply them to employee-facing schedules.</p>
+      <div class="visibility-summary" data-visibility-summary></div>
+      <p class="visibility-status-line" data-visibility-status>Loading visibility policy preview…</p>
+    </aside>
+    <section class="visibility-card">
+      <h2>User Groups</h2>
+      <ul class="visibility-list" data-user-groups></ul>
+    </section>
+  </section>
+
+  <section class="visibility-card">
+    <h2>Schedule Visibility Matrix</h2>
+    <p>Controls what one user group can see about another group, including supervisor schedule display.</p>
+    <div data-schedule-rules></div>
+  </section>
+
+  <section class="visibility-card">
+    <h2>Leave Type Visibility</h2>
+    <p>Controls whether employees see the exact leave type, off-only status, or nothing for sensitive leave categories.</p>
+    <div data-leave-rules></div>
+  </section>
+
+  <section class="visibility-card">
+    <h2>Display Examples</h2>
+    <div class="schedule-dense-grid" data-display-examples></div>
+  </section>
+
+  <section class="visibility-grid">
+    <section class="visibility-card">
+      <h2>Admin Controls</h2>
+      <ul class="visibility-list" data-admin-controls></ul>
+    </section>
+    <section class="visibility-card">
+      <h2>Rules</h2>
+      <ul class="visibility-list" data-visibility-rules></ul>
+    </section>
+  </section>
+</main>
+<div id="schedule-footer"></div>
+<div id="sl-footer"></div>
+<script src="app-shell.js?v=3.6.0"></script>
+<script type="module" src="visibility.js?v=3.6.0"></script>
+</body>
+</html>

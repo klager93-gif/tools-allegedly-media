@@ -1,5 +1,3 @@
-.gitattributes
-.gitignore
 ADMIN_CHANGELOG.md
 BUILDMANIFEST.md
 FILEMANIFEST.generated.txt
@@ -76,6 +74,7 @@ schedule/FILEMANIFEST.md
 schedule/HOWTO.md
 schedule/LATEST_RELEASE.md
 schedule/LEAVE-REQUESTS-FOUNDATION.md
+schedule/MASTER-CHANGELOG.md
 schedule/MINIMUM-STAFFING-FOUNDATION.md
 schedule/OPEN-SHIFTS-FOUNDATION.md
 schedule/PUBLIC_CHANGELOG.md
@@ -111,6 +110,7 @@ schedule/adapters/JsonShiftEligibilityAdapter.js
 schedule/adapters/JsonShiftTradeAdapter.js
 schedule/adapters/JsonSupervisorHierarchyAdapter.js
 schedule/adapters/JsonTrainingCertificationAdapter.js
+schedule/adapters/JsonVisibilityPrivacyAdapter.js
 schedule/adapters/JsonWeeklyBoardAdapter.js
 schedule/api/contracts/assignment-engine.read.schema.json
 schedule/api/contracts/assignment-generator.read.schema.json
@@ -141,6 +141,7 @@ schedule/api/contracts/shift-eligibility.read.schema.json
 schedule/api/contracts/shift-trades.read.schema.json
 schedule/api/contracts/supervisor-hierarchy.read.schema.json
 schedule/api/contracts/training-certifications.read.schema.json
+schedule/api/contracts/visibility-privacy.read.schema.json
 schedule/api/contracts/weekly-board.read.schema.json
 schedule/api/coolify/README.md
 schedule/api/coolify/db/postgres.js
@@ -178,6 +179,7 @@ schedule/api/coolify/sql/033_assignment_generator_schema.sql
 schedule/api/coolify/sql/034_conflict_detection_foundation_schema.sql
 schedule/api/coolify/sql/035_qualifications_certifications_schema.sql
 schedule/api/coolify/sql/036_weekly_schedule_view_schema.sql
+schedule/api/coolify/sql/037_schedule_visibility_privacy_schema.sql
 schedule/app-shell.css
 schedule/app-shell.js
 schedule/approvals.css
@@ -247,6 +249,7 @@ schedule/data/shift-eligibility-preview.json
 schedule/data/shift-trades-preview.json
 schedule/data/supervisor-hierarchy-preview.json
 schedule/data/training-certifications-preview.json
+schedule/data/visibility-privacy-preview.json
 schedule/data/vot-requests-preview.json
 schedule/data/weekly-board-preview.json
 schedule/eligibility.css
@@ -311,6 +314,7 @@ schedule/repositories/ShiftEligibilityRepository.js
 schedule/repositories/ShiftTradeRepository.js
 schedule/repositories/SupervisorHierarchyRepository.js
 schedule/repositories/TrainingCertificationRepository.js
+schedule/repositories/VisibilityPrivacyRepository.js
 schedule/repositories/WeeklyBoardRepository.js
 schedule/schedule-calendar.css
 schedule/schedule-calendar.js
@@ -349,6 +353,7 @@ schedule/services/ShiftEligibilityService.js
 schedule/services/ShiftTradeService.js
 schedule/services/SupervisorHierarchyService.js
 schedule/services/TrainingCertificationService.js
+schedule/services/VisibilityPrivacyService.js
 schedule/services/WeeklyBoardService.js
 schedule/settings.html
 schedule/shift-trades.css
@@ -369,6 +374,9 @@ schedule/trades.html
 schedule/training.css
 schedule/training.html
 schedule/training.js
+schedule/visibility.css
+schedule/visibility.html
+schedule/visibility.js
 schedule/weekly-board.css
 schedule/weekly-board.html
 schedule/weekly-board.js

@@ -1,33 +1,63 @@
-# Signal Schedule Build Manifest — v3.5.0
+# Signal Schedule Build Manifest
 
 ## Release
 
-Signal Schedule v3.5.0 — Dense Tables & Workspace
+Signal Schedule v3.6.0 — Schedule Visibility & Privacy Controls
 
-## Build Date
+## Build Type
 
-2026-06-15
+Feature foundation release with database migration.
 
 ## Baseline
 
-Signal Schedule v3.3.3/v3.3.4 UI stabilization/theme baseline supplied by the user.
+v3.5.0 — Dense Tables & Workspace
 
-## Changes
+## Files Added
 
-- Added Schedule-native connected theme dropdown component.
-- Added dense table styling with sticky headers, row striping, hover and selected states.
-- Added command bar, inspector panel, status pill, and dense grid foundations.
-- Tightened hero, card, panel, toolbar, and workspace spacing.
-- Updated Schedule visible versioning and documentation to v3.5.0.
+```text
+schedule/visibility.html
+schedule/visibility.css
+schedule/visibility.js
+schedule/data/visibility-privacy-preview.json
+schedule/api/contracts/visibility-privacy.read.schema.json
+schedule/api/coolify/sql/037_schedule_visibility_privacy_schema.sql
+schedule/adapters/JsonVisibilityPrivacyAdapter.js
+schedule/repositories/VisibilityPrivacyRepository.js
+schedule/services/VisibilityPrivacyService.js
+```
+
+## Files Modified
+
+```text
+schedule/app-shell.js
+schedule/*.html
+schedule/api/coolify/server.js
+schedule/README.md
+schedule/ROADMAP.md
+schedule/CHANGELOG.md
+schedule/PUBLIC_CHANGELOG.md
+schedule/ADMIN_CHANGELOG.md
+schedule/MASTER-CHANGELOG.md
+schedule/MASTER-ROADMAP.md
+schedule/FILEMANIFEST.md
+schedule/FILEMANIFEST.generated.txt
+schedule/LATEST_RELEASE.md
+```
 
 ## Database Migration Required
 
-No.
+Yes.
 
-## Validation
+```text
+schedule/api/coolify/sql/037_schedule_visibility_privacy_schema.sql
+```
 
-- JavaScript syntax checked.
-- JSON parsed.
-- HTML asset references checked.
-- ZIP integrity checked.
-- Non-Schedule modules were not intentionally modified.
+Expected newest row:
+
+```text
+037 | schedule_visibility_privacy
+```
+
+## Scope Guard
+
+No Paycheck, Overtime, Time Off, or shared global `/assets/` files were intentionally modified.

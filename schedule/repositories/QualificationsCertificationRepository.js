@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/QualificationsCertificationRepository.js
-Version: v3.5.0
+Version: v3.6.0
 Purpose: Repository boundary for Qualifications & Certification Engine preview data.
 */
 export class QualificationsCertificationRepository {

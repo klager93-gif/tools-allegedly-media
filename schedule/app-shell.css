@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/app-shell.css
-Version: v3.5.0
+Version: v3.6.0
 Purpose: Desktop-first application shell, theme tokens, and connected flyout navigation for all Schedule pages.
 */
 :root,
@@ -74,7 +74,7 @@ body[data-signal-area="Signal Schedule"] section,body[data-signal-area="Signal S
 @media (max-width: 900px){:root{--ss-sidebar-w:0px;}body[data-signal-area="Signal Schedule"] .schedule-subnav{position:relative;width:auto;max-height:none;}body[data-signal-area="Signal Schedule"] .schedule-subnav__links{overflow:auto;}.schedule-nav-flyout{position:static;display:flex;margin:0 0 8px 12px;background:rgba(255,255,255,.04);box-shadow:none;border-radius:8px;}.schedule-nav-caret{display:none;}.schedule-app-toolbar{margin-left:0;position:relative;align-items:flex-start;flex-direction:column;}body[data-signal-area="Signal Schedule"] main,body[data-signal-area="Signal Schedule"] .schedule-shell,body[data-signal-area="Signal Schedule"] .weekly-board-shell{margin-left:0 !important;padding:18px !important;}body[data-signal-area="Signal Schedule"] #schedule-footer{margin-left:0;}}
 
 
-/* v3.5.0 full-replacement stabilization: Schedule app shell owns layout. */
+/* v3.6.0 full-replacement stabilization: Schedule app shell owns layout. */
 :root {
   --bg: var(--ss-app-bg);
   --surface: var(--ss-app-panel);
@@ -320,7 +320,7 @@ body[data-signal-area="Signal Schedule"] .schedule-footer {
 }
 
 
-/* v3.5.0 Dense Tables & Workspace */
+/* v3.6.0 Dense Tables & Workspace */
 :root,
 :root[data-schedule-theme="light"] {
   --ss-app-bg: #f4f7fb;
@@ -505,7 +505,7 @@ body[data-signal-area="Signal Schedule"] [class*="active"] { border-color: color
   background: color-mix(in srgb, var(--ss-sidebar-active) 16%, transparent) !important;
 }
 
-/* v3.5.0 Dense Tables & Workspace */
+/* v3.6.0 Dense Tables & Workspace */
 :root {
   --ss-density-gap: 14px;
   --ss-row-h: 42px;
