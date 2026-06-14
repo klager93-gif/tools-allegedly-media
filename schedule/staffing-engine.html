@@ -1,0 +1,55 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/staffing-engine.html
+Version: v5.1.0
+Purpose: Staffing Engine foundation hub.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staffing Engine — Signal Schedule</title>
+<link rel="stylesheet" href="app-shell.css?v=5.1.0">
+<link rel="stylesheet" href="pages/staffing/staffing-engine.css?v=5.1.0">
+</head>
+<body data-signal-global-layout="true" data-signal-area="Signal Schedule" data-signal-title="Staffing Engine" data-signal-version="v5.1.0" data-signal-theme="Staffing Engine" data-signal-status="Foundation" data-signal-description="Coverage, assignments, OT, callbacks, mandation, fairness, explainability, and integrity checking foundation.">
+<div id="sl-header"></div>
+<nav class="schedule-subnav" aria-label="Signal Schedule navigation"><div class="schedule-subnav__label"><span>Signal Schedule Navigation</span><span class="schedule-subnav__role">Admin = Employee + More</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="staffing-engine.html" aria-current="page">Staffing Engine</a></div></nav>
+<main class="staffing-engine-shell">
+  <section class="staffing-hero">
+    <div>
+      <p class="staffing-kicker">Signal Schedule v5.1</p>
+      <h1>Staffing Engine</h1>
+      <p>The Staffing Engine begins answering the core operational question: <strong>Who should work?</strong> It connects coverage, assignments, overtime, callbacks, mandation, fairness, and schedule integrity into one operational dashboard.</p>
+      <div class="staffing-actions"><button type="button" data-copy="/api/staffing-engine">Copy API Endpoint</button><button type="button" data-copy="047_staffing_engine_schema.sql">Copy Migration Filename</button></div>
+    </div>
+    <div class="staffing-stats" data-staffing-stats></div>
+  </section>
+  <section class="staffing-card">
+    <h2>Coverage Snapshot</h2>
+    <p>Open slots, filled slots, vacancies, qualification coverage, and short-staffing warnings.</p>
+    <div class="staffing-grid" data-coverage-snapshot></div>
+  </section>
+  <section class="staffing-card">
+    <h2>Assignment Candidates</h2>
+    <p>Candidate preview with qualification, availability, fairness, and explainability notes.</p>
+    <div class="staffing-list" data-candidate-list></div>
+  </section>
+  <section class="staffing-card">
+    <h2>Overtime, Callback, and Mandation</h2>
+    <div class="staffing-grid" data-operational-queues></div>
+  </section>
+  <section class="staffing-card">
+    <h2>Integrity Checker</h2>
+    <p>Run Audit preview for duplicate assignments, uncovered shifts, qualification gaps, and coverage issues.</p>
+    <ul class="staffing-notes" data-integrity-checks></ul>
+  </section>
+</main>
+<div id="schedule-footer"></div>
+<div id="sl-footer"></div>
+<script type="module" src="pages/staffing/staffing-engine.js?v=5.1.0"></script>
+<script src="app-shell.js?v=5.1.0"></script>
+</body>
+</html>

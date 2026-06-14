@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/requests/approvals.css
-Version: v5.0.0
+Version: v5.1.0
 Purpose: Request Approval Workflow preview styles
 */
 .approvals-shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto 48px; color: #e5eefb; }

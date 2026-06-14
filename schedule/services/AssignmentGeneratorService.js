@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/AssignmentGeneratorService.js
-Version: v5.0.0
+Version: v5.1.0
 Purpose: Assignment Generator preview service and draft grouping helpers.
 */
 export class AssignmentGeneratorService {

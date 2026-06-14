@@ -1,10 +1,10 @@
-# Signal Schedule v5.0.0 — SQL Migration Folder Normalization
+# Signal Schedule v5.1.0 — SQL Migration Folder Normalization
 
 - Moves migration 045 into `schedule/api/coolify/sql/`.
 - Removes accidental `/schedule/sql/` folder from the full replacement package.
 - No new SQL migration; 045 remains the current latest migration.
 
-# v5.0.0 — Employee Experience & Data Tools
+# v5.1.0 — Employee Experience & Data Tools
 
 - Added Data Tools page for templates, imports, exports, and profile-management readiness.
 - Added migration 045 for schedule templates, import jobs, export jobs, employee profile extras, and notification preferences.

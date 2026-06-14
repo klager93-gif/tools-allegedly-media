@@ -1,4 +1,4 @@
-# Schedule History UI — v5.0.0
+# Schedule History UI — v5.1.0
 
 This release adds the first browser UI on top of the v4.4.0 snapshot database foundation.
 

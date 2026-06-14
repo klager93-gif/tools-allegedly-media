@@ -1,4 +1,4 @@
-# File Manifest — Signal Schedule v5.0.0
+# File Manifest — Signal Schedule v5.1.0
 
 See `FILEMANIFEST.generated.txt` for the generated package file list.
 

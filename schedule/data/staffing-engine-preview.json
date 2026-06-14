@@ -1,0 +1,28 @@
+{
+  "summary": {
+    "openSlots": 3,
+    "coveredSlots": 9,
+    "shortWarnings": 1,
+    "candidateMatches": 6
+  },
+  "coverage": [
+    { "id": "slot-police-radio-1", "name": "Police Radio 1", "description": "Filled by qualified dispatcher. No coverage issue.", "status": "covered" },
+    { "id": "slot-fire-radio-1", "name": "Fire Radio 1", "description": "Open qualified radio position. OT or callback likely required.", "status": "short" },
+    { "id": "slot-calltaking-2", "name": "Calltaking 2", "description": "Available candidate pool found.", "status": "covered" }
+  ],
+  "candidates": [
+    { "id": "candidate-morgan-price-fire-radio", "employee": "Morgan Price", "qualified": "Yes", "available": "Yes", "fairness": "Low OT hours", "recommendation": "Recommended for Fire Radio 1 OT fill.", "why": "Qualified, available, lowest OT hours, no request conflict, no fatigue warning." },
+    { "id": "candidate-sarah-smith-callback", "employee": "Sarah Smith", "qualified": "Yes", "available": "Conditional", "fairness": "Next callback rotation", "recommendation": "Callback candidate if VOT is not accepted.", "why": "Qualified and next in callback rotation, but has availability note requiring supervisor review." }
+  ],
+  "queues": [
+    { "name": "OT Opportunities", "description": "Open shifts that can be offered before mandation.", "count": 2 },
+    { "name": "Callback Candidates", "description": "Ranked call list with accepted, declined, and no-answer tracking readiness.", "count": 4 },
+    { "name": "Mandation Review", "description": "Rotation and exception preview before forced assignment.", "count": 1 }
+  ],
+  "integrityChecks": [
+    "No duplicate assignments in preview data.",
+    "One uncovered qualified post requires staffing action.",
+    "One candidate requires supervisor availability review.",
+    "No fatigue rule violation is enforced yet; future Rules & Intelligence release will expand this."
+  ]
+}

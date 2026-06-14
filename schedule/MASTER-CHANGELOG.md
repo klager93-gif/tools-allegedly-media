@@ -1,5 +1,5 @@
 
-## v5.0.0 — Request & Approval Engine
+## v5.1.0 — Request & Approval Engine
 
 - Added central `requests.html` Request & Approval Engine hub.
 - Added request queues for time off, trades, VOT, training, profile changes, and open-shift interest.
@@ -7,7 +7,7 @@
 - Added request case, decision, event, comment, and schedule-impact foundations.
 - Added copy helpers for request IDs, API endpoints, and migration filenames.
 
-# v5.0.0 — Employee Experience & Data Tools
+# v5.1.0 — Employee Experience & Data Tools
 
 - Added Data Tools page for templates, imports, exports, and profile-management readiness.
 - Added migration 045 for schedule templates, import jobs, export jobs, employee profile extras, and notification preferences.
@@ -112,3 +112,9 @@ Adds drag-and-drop draft planning foundations with staged move queue, conflict p
 ## v3.6.1 — Schedule Visibility & Privacy Controls
 
 Adds role/group-based schedule visibility and privacy controls. Employees can be allowed to see supervisor schedules as exact times, hours only, working/off only, or hidden. Leave type labels can be shown, reduced to off-only, or hidden by user group and leave type. Adds preview data, page, API contract/endpoint, service/repository/adapter boundaries, and migration 037.
+
+## Signal Schedule v5.1.0 — Staffing Engine
+
+- Introduced Staffing Engine foundation and navigation cleanup.
+- Added migration 047 for staffing vacancies, candidates, explanations, fairness metrics, and integrity audit runs.
+

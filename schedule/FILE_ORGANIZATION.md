@@ -1,6 +1,6 @@
 # Schedule File Organization
 
-As of v5.0.0, public Schedule HTML pages remain at `/schedule/*.html` to avoid breaking links. Page-specific CSS and JS support files are grouped under `/schedule/pages/` by module.
+As of v5.1.0, public Schedule HTML pages remain at `/schedule/*.html` to avoid breaking links. Page-specific CSS and JS support files are grouped under `/schedule/pages/` by module.
 
 ## Page support folders
 

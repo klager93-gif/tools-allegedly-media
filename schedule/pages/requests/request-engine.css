@@ -1,4 +1,4 @@
-/* Signal Schedule v5.0.0 Request & Approval Engine */
+/* Signal Schedule v5.1.0 Request & Approval Engine */
 .request-engine-shell{max-width:1180px;margin:0 auto;padding:24px;}
 .request-engine-hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,.8fr);gap:18px;align-items:stretch;margin-bottom:18px;}
 .request-engine-hero,.request-engine-card{background:var(--schedule-card-bg,rgba(15,23,42,.72));border:1px solid var(--schedule-border,rgba(148,163,184,.24));border-radius:22px;box-shadow:var(--schedule-shadow,0 18px 50px rgba(0,0,0,.24));padding:22px;}

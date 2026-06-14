@@ -1,6 +1,6 @@
-# Schedule History Foundation — v5.0.0
+# Schedule History Foundation — v5.1.0
 
-Signal Schedule v5.0.0 adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads.
+Signal Schedule v5.1.0 adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads.
 
 ## What changed
 

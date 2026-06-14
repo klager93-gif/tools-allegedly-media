@@ -1,10 +1,10 @@
-# Build Manifest — Signal Schedule v5.0.0 Full Replacement
+# Build Manifest — Signal Schedule v5.1.0 Full Replacement
 
 Built from v4.8.1 full replacement.
 
 ## Release
 
-Signal Schedule v5.0.0 — Request & Approval Engine
+Signal Schedule v5.1.0 — Request & Approval Engine
 
 ## Key changes
 

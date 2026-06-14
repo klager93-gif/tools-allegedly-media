@@ -1,6 +1,6 @@
-# Build Manifest — Signal Schedule v5.0.0
+# Build Manifest — Signal Schedule v5.1.0
 
-Package: `signal-schedule-v5.0.0-full-replacement.zip`
+Package: `signal-schedule-v5.1.0-full-replacement.zip`
 
 Build type: full replacement package.
 

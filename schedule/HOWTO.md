@@ -1,11 +1,11 @@
-# Signal Schedule v5.0.0 HOWTO
+# Signal Schedule v5.1.0 HOWTO
 
 ## Before uploading
 
 Back up the current live Schedule folder.
 
 ```text
-2026-06-14 Schedule Backup Before v5.0.0
+2026-06-14 Schedule Backup Before v5.1.0
 ```
 
 ## Upload

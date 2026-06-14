@@ -1,6 +1,6 @@
-# Signal Schedule v5.0.0 — Request & Approval Engine
+# Signal Schedule v5.1.0 — Request & Approval Engine
 
-Signal Schedule v5.0.0 turns the earlier request preview pages into a unified Request & Approval Engine foundation.
+Signal Schedule v5.1.0 turns the earlier request preview pages into a unified Request & Approval Engine foundation.
 
 ## Core principle
 

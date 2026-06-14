@@ -1,5 +1,5 @@
 
-## v5.0.0 — Request & Approval Engine
+## v5.1.0 — Request & Approval Engine
 
 - Added central `requests.html` Request & Approval Engine hub.
 - Added request queues for time off, trades, VOT, training, profile changes, and open-shift interest.
@@ -7,7 +7,7 @@
 - Added request case, decision, event, comment, and schedule-impact foundations.
 - Added copy helpers for request IDs, API endpoints, and migration filenames.
 
-# v5.0.0 — Employee Experience & Data Tools
+# v5.1.0 — Employee Experience & Data Tools
 
 - Added Data Tools page for templates, imports, exports, and profile-management readiness.
 - Added migration 045 for schedule templates, import jobs, export jobs, employee profile extras, and notification preferences.
@@ -45,3 +45,11 @@ No SQL migration required.
 - Snapshot rows can be inspected and handed back to the builder for preview loading.
 - Delete/rename/publish controls are intentionally deferred until a proper admin auth/session flow exists.
 - No new SQL migration is required after 044.
+
+## v5.1.0 — Staffing Engine
+
+- Added `staffing-engine.html`.
+- Added `/api/staffing-engine` preview route and read contract.
+- Added `047_staffing_engine_schema.sql`.
+- Reorganized navigation into task-based groups and removed confusing Me/Employees labels.
+

@@ -1,4 +1,4 @@
--- Signal Schedule v5.0.0
+-- Signal Schedule v5.1.0
 -- Request & Approval Engine foundation.
 -- Adds unified request case, decision, event, comment, and schedule-impact tables.
 
@@ -102,7 +102,7 @@ create index if not exists idx_schedule_request_schedule_impacts_case
 create index if not exists idx_schedule_request_schedule_impacts_date
   on schedule_request_schedule_impacts (agency_id, schedule_date);
 
-comment on table schedule_request_cases is 'Unified request case foundation for v5.0.0 request and approval workflows.';
+comment on table schedule_request_cases is 'Unified request case foundation for v5.1.0 request and approval workflows.';
 comment on table schedule_request_decisions is 'Approval, denial, cancellation, and routing decisions for request cases.';
 comment on table schedule_request_events is 'Audit trail events for request case lifecycle changes.';
 comment on table schedule_request_comments is 'Internal and employee-visible comments attached to request cases.';

@@ -1,6 +1,6 @@
-# Signal Schedule v5.0.0 — Employee Experience & Data Tools
+# Signal Schedule v5.1.0 — Employee Experience & Data Tools
 
-v5.0.0 consolidates the next roadmap step into one milestone: employee experience, profile management, templates, imports, and exports.
+v5.1.0 consolidates the next roadmap step into one milestone: employee experience, profile management, templates, imports, and exports.
 
 ## Principles
 

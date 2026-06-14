@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://signal-labs.local/schedule/api/contracts/staffing-engine.read.schema.json",
+  "title": "Signal Schedule Staffing Engine Read Contract",
+  "type": "object",
+  "required": ["summary", "coverage", "candidates", "queues", "integrityChecks"],
+  "properties": {
+    "summary": { "type": "object" },
+    "coverage": { "type": "array" },
+    "candidates": { "type": "array" },
+    "queues": { "type": "array" },
+    "integrityChecks": { "type": "array", "items": { "type": "string" } }
+  }
+}

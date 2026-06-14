@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v5.0.0
+Version: v5.1.0
 Purpose: Coolify API with employee CRUD, snapshot CRUD, protected publish-state action, and read-only foundations including schedule publishing, schedule planning, draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:
@@ -69,6 +69,7 @@ const SCHEDULE_PUBLICATION_PREVIEW_PATH = resolve(__dirname, '../../data/schedul
 const EMPLOYEE_AVAILABILITY_PREFERENCES_PREVIEW_PATH = resolve(__dirname, '../../data/employee-availability-preferences-preview.json');
 const EMPLOYEE_EXPERIENCE_DATA_TOOLS_PREVIEW_PATH = resolve(__dirname, '../../data/employee-experience-data-tools-preview.json');
 const REQUEST_APPROVAL_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/request-approval-engine-preview.json');
+const STAFFING_ENGINE_PREVIEW_PATH = resolve(__dirname, '../../data/staffing-engine-preview.json');
 const BODY_LIMIT_BYTES = 1024 * 128;
 
 function sendJson(res, statusCode, payload) {
@@ -80,7 +81,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v5.0.0', ...overrides };
+  return { source: 'coolify-api', version: 'v5.1.0', ...overrides };
 }
 
 function notFound(res) {
@@ -399,6 +400,11 @@ async function listRequestApprovalEngineFromJsonSeed() {
   return JSON.parse(raw);
 }
 
+async function listStaffingEngineFromJsonSeed() {
+  const raw = await readFile(STAFFING_ENGINE_PREVIEW_PATH, 'utf8');
+  return JSON.parse(raw);
+}
+
 async function listEmployeeExperienceDataToolsFromJsonSeed() {
   const raw = await readFile(EMPLOYEE_EXPERIENCE_DATA_TOOLS_PREVIEW_PATH, 'utf8');
   return JSON.parse(raw);
@@ -458,7 +464,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v5.0.0',
+          version: 'v5.1.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -1144,6 +1150,26 @@ const server = createServer(async (req, res) => {
     return methodNotAllowed(res);
   }
 
+
+
+  if (req.method === 'GET' && (url.pathname === '/staffing-engine' || url.pathname === '/api/staffing-engine' || url.pathname === '/staffing' || url.pathname === '/api/staffing')) {
+    try {
+      const data = await listStaffingEngineFromJsonSeed();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'read-only-staffing-engine-foundation', database: 'json-seed-read-only' }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, {
+        ok: false,
+        data: { summary: {}, coverage: [], candidates: [], queues: [], integrityChecks: [] },
+        meta: apiMeta(),
+        errors: [{ code: 'STAFFING_ENGINE_READ_FAILED', message: error.message }]
+      });
+    }
+  }
 
 
   if (req.method === 'GET' && (url.pathname === '/request-approval-engine' || url.pathname === '/api/request-approval-engine' || url.pathname === '/requests' || url.pathname === '/api/requests')) {

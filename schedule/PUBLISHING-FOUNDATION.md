@@ -1,6 +1,6 @@
-# Signal Schedule v5.0.0 — Publishing Foundation
+# Signal Schedule v5.1.0 — Publishing Foundation
 
-v5.0.0 adds the first protected publish action for snapshots.
+v5.1.0 adds the first protected publish action for snapshots.
 
 ## What this release does
 

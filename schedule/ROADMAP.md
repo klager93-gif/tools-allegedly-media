@@ -1,11 +1,11 @@
 
-## Current: v5.0.0 — Request & Approval Engine
+## Current: v5.1.0 — Request & Approval Engine
 
 Request and approval workflows are now the active milestone. The engine unifies time off, sick, comp, training, trades, voluntary overtime, and profile/data-change requests.
 
 Next consolidated milestone: v5.1.0 — Staffing Engine.
 
-# Signal Schedule Roadmap — Revised after v5.0.0
+# Signal Schedule Roadmap — Revised after v5.1.0
 
 ## Completed
 
@@ -22,7 +22,7 @@ Next consolidated milestone: v5.1.0 — Staffing Engine.
 - Schedule History.
 - One Agency / One Living Schedule / Many Snapshots.
 
-### v5.0.0 — Employee Experience & Data Tools
+### v5.1.0 — Employee Experience & Data Tools
 - Employee experience foundation.
 - Admin = Employee + More role-inheritance rule.
 - Data Tools page.
@@ -31,7 +31,7 @@ Next consolidated milestone: v5.1.0 — Staffing Engine.
 
 ## Active Roadmap
 
-### v5.0.0 — Request & Approval Engine
+### v5.1.0 — Request & Approval Engine
 - Vacation, sick, training, comp, trades, and voluntary OT requests.
 - Approvals, reason codes, notifications, and request history.
 

@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/CoverageBoardService.js
-Version: v5.0.0
+Version: v5.1.0
 Purpose: Coverage Board summary, filtering, and open-shift linkage helpers.
 */
 export class CoverageBoardService {

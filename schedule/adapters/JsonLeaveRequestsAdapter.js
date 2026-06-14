@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/adapters/JsonLeaveRequestsAdapter.js
-Version: v5.0.0
+Version: v5.1.0
 Purpose: JSON adapter for Leave Requests and Request Hours Foundation preview data.
 */
 export class JsonLeaveRequestsAdapter {
