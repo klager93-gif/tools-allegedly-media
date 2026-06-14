@@ -1,0 +1,71 @@
+<!--
+Signal Labs
+Area: Signal Schedule
+File: schedule/leave-banks.html
+Version: v2.22.0
+Purpose: Admin-first Leave Banks Foundation page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signal Schedule — Leave Banks</title>
+<meta name="description" content="Leave Banks Foundation for vacation, sick, personal, comp, holiday, and training balances.">
+<link rel="stylesheet" href="../assets/global.css?v=0.9.9.6">
+<link rel="stylesheet" href="style.css?v=2.22.0">
+<link rel="stylesheet" href="schedule-nav.css?v=2.22.0">
+<link rel="stylesheet" href="leave-banks.css?v=2.22.0">
+<link rel="stylesheet" href="footer.css?v=2.22.0">
+</head>
+<body data-signal-global-layout="true" data-signal-area="Signal Schedule" data-signal-title="Leave Banks" data-signal-version="v2.22.0" data-signal-theme="Leave Banks" data-signal-status="Preview" data-signal-description="Admin-first leave bank balance, pending impact, adjustment, and audit foundation." data-signal-status-text="Signal Schedule v2.22.0 adds Leave Banks Foundation. Production balance writes remain disabled.">
+<div id="sl-header"></div>
+<nav class="schedule-subnav" aria-label="Schedule admin navigation">
+  <div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Admin-first / role-filtering later</span></div>
+  <div class="schedule-subnav__links">
+      <a href="index.html">Overview</a><a href="schedule.html">Calendar</a><a href="employees.html">Employees</a><a href="profile.html">Profile</a><a href="timeline.html">Timeline</a><a href="supervisors.html">Supervisors</a><a href="permissions.html">Permissions</a><a href="approvals.html">Approvals</a><a href="notifications.html">Notifications</a><a href="assignments.html">Assignments</a><a href="staffing.html">Minimum Staffing</a><a href="coverage.html">Coverage Board</a><a href="coverage-spots.html">Coverage Spots</a><a href="daily-board.html">Daily Board</a><a href="seniority.html">Seniority & Rotation</a><a href="trades.html">Trades & Swaps</a><a href="training.html">Training & Certs</a><a href="eligibility.html">Eligibility</a><a href="benefits.html">Benefit Ledger</a><a href="leave-banks.html" aria-current="page">Leave Banks</a><a href="shortcodes.html">Shortcodes</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="reports.html">Reports</a><a href="settings.html">Settings</a>
+  </div>
+</nav>
+<main class="leave-bank-shell">
+  <section class="leave-bank-hero" aria-labelledby="pageTitle">
+    <p class="schedule-kicker">v2.22.0 Foundation</p>
+    <h1 id="pageTitle">Leave Banks</h1>
+    <p>Track vacation, sick, personal, comp, holiday, and training balances before approved requests begin posting live payroll-grade ledger entries.</p>
+  </section>
+
+  <section class="leave-bank-summary" data-leave-bank-summary></section>
+
+  <section class="leave-bank-layout">
+    <article class="leave-bank-panel">
+      <div class="leave-bank-section-title"><h2>Bank Types</h2><p>Admin-controlled bank definitions that requests can consume later.</p></div>
+      <div class="leave-bank-type-grid" data-leave-bank-types></div>
+    </article>
+    <article class="leave-bank-panel">
+      <div class="leave-bank-section-title"><h2>Pending Request Impacts</h2><p>Preview before/after balances before approval posts a ledger entry.</p></div>
+      <div class="leave-bank-impact-list" data-leave-bank-impacts></div>
+    </article>
+  </section>
+
+  <section class="leave-bank-panel">
+    <div class="leave-bank-section-title"><h2>Employee Balances</h2><p>Preview balances by employee and bank. Low and zero balances are flagged for supervisor review.</p></div>
+    <div class="leave-bank-employee-grid" data-leave-bank-employees></div>
+  </section>
+
+  <section class="leave-bank-layout">
+    <article class="leave-bank-panel">
+      <div class="leave-bank-section-title"><h2>Adjustment Audit Trail</h2><p>Manual changes require a reason, author, and timestamp.</p></div>
+      <div class="leave-bank-adjustment-list" data-leave-bank-adjustments></div>
+    </article>
+    <article class="leave-bank-panel">
+      <div class="leave-bank-section-title"><h2>Rules</h2><p>Rules remain preview-only until live approval posting is enabled.</p></div>
+      <div class="leave-bank-rule-list" data-leave-bank-rules></div>
+    </article>
+  </section>
+</main>
+<div id="schedule-footer"></div>
+<div id="sl-footer"></div>
+<script src="../assets/global.js?v=0.9.9.6"></script>
+<script src="components/footer.js?v=2.22.0"></script>
+<script type="module" src="leave-banks.js?v=2.22.0"></script>
+</body>
+</html>

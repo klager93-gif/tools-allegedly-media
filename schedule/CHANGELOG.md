@@ -1,3 +1,11 @@
+
+## v2.22.0 — Leave Banks Foundation
+
+- Adds Leave Banks Foundation for vacation, sick, personal, comp, holiday, and training balances.
+- Adds preview data, read-only service/repository/adapter boundaries, API contract, page, and endpoint.
+- Adds Postgres migration 028_leave_banks_foundation_schema.sql.
+- Production balance writes remain disabled.
+
 ## Signal Schedule v2.21.1 — Assignment Engine UI Contrast Hotfix
 
 - Fixed Assignment Engine card contrast so assignment records, source types, history events, and foundation rules are readable on the dark Schedule layout.

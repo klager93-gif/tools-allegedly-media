@@ -2,7 +2,7 @@
 
 ## Current
 
-Schedule v2.21.1 — Assignment Engine UI Contrast Hotfix
+Schedule v2.22.0 — Assignment Engine UI Contrast Hotfix
 
 - Assignment Engine page readability has been restored on the dark Schedule layout.
 - Assignment records, source types, history events, and foundation rules now use dark cards with readable text.
