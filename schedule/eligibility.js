@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/eligibility.js
-Version: v3.6.0
+Version: v3.6.1
 Purpose: Qualification & Eligibility Engine preview interactions
 */
 import { loadShiftEligibilityPreview, filterEligibilityChecks, calculateEligibility } from './services/ShiftEligibilityService.js';

@@ -40,6 +40,6 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 
 
 
-## v3.6.0 — Schedule Visibility & Privacy Controls
+## v3.6.1 — Schedule Visibility & Privacy Controls
 
 Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.

@@ -195,3 +195,8 @@ Adds Assignment Generator Foundation and role-based supervisor/admin panels; inc
 
 Adds Conflict Detection Foundation for generated schedules and assignment drafts. Includes double-assignment, under-minimum, over-maximum, leave overlap, missing qualification, rest-rule, and manual override conflict previews; role-based employee/supervisor/admin visibility panels; read-only API contract/endpoint; and Postgres migration 034.
 
+
+
+## Signal Schedule v3.6.1 — Visibility Nav & Footer Hotfix
+
+Fixes the Schedule footer rendering after the visibility/privacy release and adds Visibility & Privacy into the connected Schedule navigation/flyouts. No database migration required.

@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/leave-banks.js
-Version: v3.6.0
+Version: v3.6.1
 Purpose: Render Leave Banks Foundation preview
 */
 import { getLeaveBanksDashboard } from './services/LeaveBanksService.js';

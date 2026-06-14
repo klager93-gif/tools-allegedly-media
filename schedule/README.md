@@ -1,5 +1,5 @@
 
-# Signal Schedule v3.6.0
+# Signal Schedule v3.6.1
 
 Dense Tables & Workspace refines the desktop application shell for large schedules. The release adds Schedule-native dropdown controls, denser page spacing, table and inspector foundations, and component standards for schedule grids and request queues.
 
@@ -89,7 +89,7 @@ The Schedule UI now supports a Schedule-only theme engine through the shared des
 
 Schedule now uses connected, box-style flyout navigation instead of separated pill hover menus. Midnight is the default theme when no saved user preference exists.
 
-## v3.6.0 — Dense Tables & Workspace
+## v3.6.1 — Dense Tables & Workspace
 
 - Refined Midnight, Light, Slate, CAD Dark, and High Contrast theme color tokens.
 - Improved panel depth, table striping, hover states, button styling, and status color consistency.
@@ -98,6 +98,6 @@ Schedule now uses connected, box-style flyout navigation instead of separated pi
 
 
 
-## v3.6.0 — Schedule Visibility & Privacy Controls
+## v3.6.1 — Schedule Visibility & Privacy Controls
 
 Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.

@@ -2,7 +2,7 @@
 
 ## Release
 
-Signal Schedule v3.6.0 — Schedule Visibility & Privacy Controls
+Signal Schedule v3.6.1 — Schedule Visibility & Privacy Controls
 
 ## Build Type
 
