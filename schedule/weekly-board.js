@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/weekly-board.js
-Version: v3.6.2
+Version: v3.7.0
 Purpose: Render Weekly Schedule View foundation preview
 */
 import { getWeeklyBoardPreview } from './services/WeeklyBoardService.js';

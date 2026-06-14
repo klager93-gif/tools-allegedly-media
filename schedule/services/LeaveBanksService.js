@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/LeaveBanksService.js
-Version: v3.6.2
+Version: v3.7.0
 Purpose: Service layer for Leave Banks Foundation summaries
 */
 import { getLeaveBanksPreview } from '../repositories/LeaveBanksRepository.js';

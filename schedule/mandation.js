@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/mandation.js
-Version: v3.6.2
+Version: v3.7.0
 Purpose: Render Mandation Engine Foundation preview with employee and supervisor/admin views
 */
 import { loadMandationEngine } from './services/MandationEngineService.js';

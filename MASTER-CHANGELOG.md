@@ -1,3 +1,7 @@
+## Signal Schedule v3.7.0 — Scheduling Workspace
+
+Adds the central Schedule workspace foundation, right inspector panel, component foundations, and updates the roadmap with missing major enterprise scheduling features. No database migration required.
+
 ## Signal Schedule v3.1.0 — Desktop Application UI System
 
 Converts Schedule to a desktop-first application UI across all Schedule pages. No database migration required.

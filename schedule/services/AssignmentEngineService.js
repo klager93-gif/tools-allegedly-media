@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/AssignmentEngineService.js
-Version: v3.6.2
+Version: v3.7.0
 Purpose: Assignment Engine read-model calculations
 */
 import { listAssignmentEnginePreview } from '../repositories/AssignmentEngineRepository.js';

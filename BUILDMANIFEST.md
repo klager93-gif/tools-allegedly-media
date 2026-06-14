@@ -1,3 +1,7 @@
+# Build Manifest Update
+
+Signal Schedule v3.7.0 — Scheduling Workspace added. No database migration required.
+
 # Signal Schedule Build Manifest
 
 ## Release

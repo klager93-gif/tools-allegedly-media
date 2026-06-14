@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/SeniorityRotationService.js
-Version: v3.6.2
+Version: v3.7.0
 Purpose: Seniority, equalization, callback, mandate, and skip-reason helpers.
 */
 export class SeniorityRotationService {

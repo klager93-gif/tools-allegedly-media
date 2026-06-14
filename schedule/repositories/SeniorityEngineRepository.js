@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/SeniorityEngineRepository.js
-Version: v3.6.2
+Version: v3.7.0
 Purpose: Repository boundary for Seniority Engine preview data.
 */
 export class SeniorityEngineRepository {

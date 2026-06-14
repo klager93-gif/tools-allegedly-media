@@ -1,5 +1,5 @@
 
-## v3.6.2 — Navigation Coverage Audit Hotfix
+## v3.7.0 — Navigation Coverage Audit Hotfix
 
 - Audited Schedule HTML pages against the app-shell navigation.
 - Added missing raw fallback nav links on pages where Qualifications or Mandation were omitted.

@@ -1,8 +1,3 @@
-# Signal Schedule v3.6.2
+# Signal Schedule v3.7.0 — Scheduling Workspace
 
-## Navigation Coverage Audit Hotfix
-
-- Normalizes Schedule raw navigation fallback links across canonical pages.
-- Keeps `weekly-schedule.html` and `trades.html` as compatibility redirects, not primary navigation destinations.
-- Confirms Visibility & Privacy is linked from the Schedule navigation.
-- No database migration required.
+Adds the central Scheduling Workspace foundation with wide schedule grid, compact command toolbar, right inspector panel, and component foundations for future drag-and-drop/draft planning. Updates the roadmap to include the missing major enterprise scheduling features identified during roadmap audit. No database migration required.

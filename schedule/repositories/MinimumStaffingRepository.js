@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/repositories/MinimumStaffingRepository.js
-Version: v3.6.2
+Version: v3.7.0
 Purpose: Repository boundary for minimum staffing foundation records.
 */
 export class MinimumStaffingRepository {

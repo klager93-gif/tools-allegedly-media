@@ -1,3 +1,7 @@
+## Signal Schedule v3.7.0 — Scheduling Workspace
+
+Adds the central Schedule workspace foundation, right inspector panel, component foundations, and updates the roadmap with missing major enterprise scheduling features. No database migration required.
+
 
 ## v2.29.0 — Qualifications & Certification Engine
 

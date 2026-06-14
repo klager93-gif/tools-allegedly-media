@@ -1,5 +1,16 @@
+# CHANGELOG
 
-## v3.6.2 — Navigation Coverage Audit Hotfix
+## v3.7.0 — Scheduling Workspace
+
+- Added Scheduling Workspace foundation at `workspace.html`.
+- Added wide week planning grid, compact command row, right inspector panel, and operational queue preview.
+- Added component foundations for panels, toolbars, tables, and status tags.
+- Updated Schedule navigation to link the workspace.
+- Updated roadmap with missing major features: draft/publish engine, forecast horizon, seating/post planner, shift bidding, certification notifications, import/export, employee portal, agency rule engine, availability/preferences, staffing calculator, and vacancy tracker.
+- No database migration required.
+
+
+## v3.7.0 — Navigation Coverage Audit Hotfix
 
 - Audited Schedule HTML pages against the app-shell navigation.
 - Added missing raw fallback nav links on pages where Qualifications or Mandation were omitted.
