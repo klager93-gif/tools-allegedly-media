@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonEmployeeTimelineAdapter.js
-Version: v4.5.0
+Version: v4.6.0
 Purpose: JSON adapter for employee timeline and audit trail preview data
 */
 export async function fetchEmployeeTimelinePreview() {

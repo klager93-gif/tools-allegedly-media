@@ -1,6 +1,6 @@
 # Signal Schedule Coolify API
 
-Current release: **v4.5.0 — Saved Schedule CRUD + True Release Rebuild**
+Current release: **v4.6.0 — Publish Schedule Foundation + Copy Helpers**
 
 ## Read Routes
 
@@ -27,6 +27,12 @@ Saved schedule routes:
 
 `DELETE` is a soft delete that changes status to `deleted`.
 
-## v4.5.0 Notes
+## v4.6.0 Notes
 
 This release adds the persistence layer for saving draft/published schedule payloads. It does not yet make public schedule writes available, and it does not replace future authentication/role checks.
+
+## v4.6.0 Publishing Foundation
+
+- Protected publish endpoint: `POST /api/saved-schedules/:id/publish`.
+- Saved Schedules UI includes Publish and copy buttons for reusable fields.
+- No new migration required; uses migration 044.

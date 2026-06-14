@@ -1,16 +1,20 @@
-# Build Manifest — Signal Schedule v4.5.0 Full Replacement
+# Signal Schedule v4.6.0 Build Manifest
 
-Package: signal-schedule-v4.5.0-full-replacement.zip
-Build date: 2026-06-14
-Build type: Full replacement
+Package: `signal-schedule-v4.6.0-full-replacement.zip`
+Date: 2026-06-14
+Type: Full replacement package
+Source: verified v4.5.0 full replacement package
 
-## Source
-Verified Signal Schedule v4.4.0 full replacement package.
+## Release Summary
 
-## Scope
-Schedule v4.5.0 saved schedule save/load UI.
+Signal Schedule v4.6.0 adds protected publish-state flow and copy helpers on top of the saved schedule database foundation.
+
+## Database
+
+No new SQL migration is required. Uses migration 044 from v4.4.0.
 
 ## Validation
-- Package junk removed/absent.
-- HTML asset references passed.
-- Modified JS syntax checks passed.
+
+- Node syntax checks passed for modified JS files.
+- HTML asset reference check passed.
+- Package junk removed: `.git`, `__MACOSX`, `._*`, `.DS_Store`.

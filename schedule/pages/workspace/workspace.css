@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/workspace/workspace.css
-Version: v4.5.0
+Version: v4.6.0
 Purpose: Scheduling Workspace split-view, dense grid, and inspector panel styles.
 */
 .workspace-shell{display:flex;flex-direction:column;gap:16px;}

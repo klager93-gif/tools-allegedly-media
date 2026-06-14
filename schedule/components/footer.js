@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/components/footer.js
-Version: v4.5.0
+Version: v4.6.0
 Purpose: Render lightweight Schedule-specific footer across /schedule/ pages
 */
 (function () {

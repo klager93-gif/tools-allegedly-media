@@ -1,4 +1,4 @@
--- Signal Schedule v4.5.0
+-- Signal Schedule v4.6.0
 -- Workable schedule sandbox and admin settings persistence foundation.
 CREATE TABLE IF NOT EXISTS schedule_admin_settings (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),

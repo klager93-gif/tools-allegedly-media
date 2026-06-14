@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonDailyBoardAdapter.js
-Version: v4.5.0
+Version: v4.6.0
 Purpose: JSON adapter for Daily Schedule Board preview data
 */
 export async function fetchDailyBoardPreview() {

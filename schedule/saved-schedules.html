@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/saved-schedules.html
-Version: v4.5.0
+Version: v4.6.0
 Purpose: Saved schedule list and management UI for database-backed draft schedules.
 -->
 <!DOCTYPE html>
@@ -11,16 +11,16 @@ Purpose: Saved schedule list and management UI for database-backed draft schedul
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Saved Schedules — Signal Schedule</title>
-<meta name="description" content="List, inspect, and manage saved Signal Schedule drafts from the protected database-backed saved schedule foundation.">
-<link rel="stylesheet" href="app-shell.css?v=4.5.0">
-<link rel="stylesheet" href="pages/workspace/saved-schedules.css?v=4.5.0">
+<meta name="description" content="List, inspect, publish, and manage saved Signal Schedule drafts from the protected database-backed saved schedule foundation.">
+<link rel="stylesheet" href="app-shell.css?v=4.6.0">
+<link rel="stylesheet" href="pages/workspace/saved-schedules.css?v=4.6.0">
 </head>
-<body data-signal-area="Signal Schedule" data-signal-title="Saved Schedules" data-signal-version="v4.5.0" data-signal-description="Database-backed draft schedule list and management foundation.">
+<body data-signal-area="Signal Schedule" data-signal-title="Saved Schedules" data-signal-version="v4.6.0" data-signal-description="Database-backed draft schedule list, copy helpers, and publish-state foundation.">
 <nav class="schedule-subnav" aria-label="Schedule admin navigation"><div class="schedule-subnav__label"><span>Schedule Admin Navigation</span><span class="schedule-subnav__role">Saved drafts</span></div><div class="schedule-subnav__links"><a href="index.html">Overview</a><a href="builder.html">Schedule Builder</a><a href="saved-schedules.html" aria-current="page">Saved Schedules</a><a href="workspace.html">Scheduling Workspace</a><a href="draft-planning.html">Draft Planning</a><a href="publishing.html">Publishing</a><a href="schedule.html">Calendar</a><a href="weekly-board.html">Weekly View</a><a href="daily-board.html">Daily Board</a><a href="employees.html">Employees</a><a href="assignments.html">Assignments</a><a href="coverage.html">Coverage Board</a><a href="staffing.html">Minimum Staffing</a><a href="leave.html">Leave Requests</a><a href="open-shifts.html">Open Shifts</a><a href="settings.html">Settings</a></div></nav>
 <main class="schedule-shell saved-shell">
   <section class="schedule-card saved-hero">
     <div>
-      <p class="schedule-kicker">Signal Schedule v4.5.0</p>
+      <p class="schedule-kicker">Signal Schedule v4.6.0</p>
       <h1>Saved Schedules</h1>
       <p>Review database-backed draft schedules created by the builder. This page reads from <code>/api/saved-schedules</code> when Postgres mode is active.</p>
     </div>
@@ -56,17 +56,17 @@ Purpose: Saved schedule list and management UI for database-backed draft schedul
   </section>
 
   <section class="schedule-card saved-notes">
-    <h2>v4.5 scope</h2>
+    <h2>v4.6 scope</h2>
     <ul>
       <li>Builder can save a draft schedule to the protected API.</li>
       <li>Saved Schedules page can list and inspect database-backed drafts.</li>
       <li>Open-in-builder uses local handoff storage so the UI can preview the selected draft before full engine integration.</li>
-      <li>Protected rename/delete actions remain API-ready but are intentionally not exposed without the admin key flow.</li>
+      <li>Protected publish action is exposed with an ADMIN_API_KEY prompt.</li><li>Copy buttons are available for schedule IDs, agency IDs, endpoints, and JSON/detail fields.</li><li>Protected rename/delete actions remain API-ready but are intentionally not exposed without the admin key flow.</li>
     </ul>
   </section>
 </main>
 <div id="schedule-footer"></div>
-<script type="module" src="pages/workspace/saved-schedules.js?v=4.5.0"></script>
-<script src="app-shell.js?v=4.5.0"></script>
+<script type="module" src="pages/workspace/saved-schedules.js?v=4.6.0"></script>
+<script src="app-shell.js?v=4.6.0"></script>
 </body>
 </html>

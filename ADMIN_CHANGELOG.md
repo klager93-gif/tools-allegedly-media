@@ -225,3 +225,8 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 ## Signal Schedule v3.6.1 — Visibility Nav & Footer Hotfix
 
 Fixes the Schedule footer rendering after the visibility/privacy release and adds Visibility & Privacy into the connected Schedule navigation/flyouts. No database migration required.
+
+## Signal Schedule v4.6.0 — Publish Schedule Foundation + Copy Helpers
+- Added protected saved schedule publish-state action.
+- Added Saved Schedules copy buttons for operational fields.
+- No new SQL migration required; uses migration 044.

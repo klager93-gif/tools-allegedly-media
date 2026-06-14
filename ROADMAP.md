@@ -113,7 +113,7 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 - CSV and Excel import/export.
 - Migration helpers for legacy scheduling systems.
 
-### v4.5.0 — Employee Portal
+### v4.6.0 — Employee Portal
 - Employee schedule view, leave balances, requests, trade acceptance, OT volunteer actions, notifications, and mandate/seniority visibility according to privacy rules.
 
 ### v4.6.0 — Agency Rule Engine
@@ -151,3 +151,13 @@ Make it dangerous to Telestaff.
 - Preview conflicts and coverage impact.
 - Track staged moves, undo/reset direction, and publish checklist.
 - Prepare for forecast horizon and schedule publishing workflows.
+
+## Completed in v4.6.0
+- Protected publish-state action for saved schedules.
+- Saved Schedules UI Publish button.
+- Copy buttons for saved schedule IDs, agency IDs, API endpoints, publish endpoints, and JSON details.
+
+## Next: v4.7.0
+- Published schedule version history.
+- Immutable snapshots.
+- Rollback/compare groundwork.

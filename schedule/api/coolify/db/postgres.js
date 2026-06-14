@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/db/postgres.js
-Version: v4.5.0
-Purpose: Optional Postgres employee and saved schedule adapter for the Coolify API skeleton.
+Version: v4.6.0
+Purpose: Optional Postgres employee, saved schedule, and publish-state adapter for the Coolify API skeleton.
 
 JSON seed mode remains the default. Postgres functions only run when DATA_MODE=postgres and DATABASE_URL are set.
 */
@@ -234,6 +234,14 @@ export async function updateSavedScheduleInPostgres(id, payload) {
   const v = savedScheduleValues(body, id);
   const pool = await getPgPool();
   const result = await pool.query(`update schedule_saved_schedules set agency_id=$2, name=$3, status=$4, schedule_start_date=$5::date, schedule_end_date=$6::date, source=$7, payload=$8::jsonb, validation_summary=$9::jsonb, updated_by=$10, published_at=$11::timestamptz, updated_at=now() where id=$1 and status <> 'deleted' returning *`, [v.id,v.agency_id,v.name,v.status,v.schedule_start_date,v.schedule_end_date,v.source,v.payload,v.validation_summary,v.updated_by,v.published_at]);
+  return mapSavedScheduleRow(result.rows[0]);
+}
+
+
+export async function publishSavedScheduleInPostgres(id, payload = {}) {
+  const pool = await getPgPool();
+  const actor = payload.publishedBy || payload.updatedBy || payload.updated_by || payload.createdBy || payload.created_by || 'browser-publisher';
+  const result = await pool.query(`update schedule_saved_schedules set status=$2, published_at=now(), updated_by=$3, updated_at=now() where id=$1 and status <> 'deleted' returning *`, [id, 'published', actor]);
   return mapSavedScheduleRow(result.rows[0]);
 }
 

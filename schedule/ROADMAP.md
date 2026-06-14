@@ -1,6 +1,6 @@
 # Signal Schedule Roadmap
 
-## Current — v4.5.0
+## Current — v4.6.0
 Saved schedule save/load UI foundation.
 
 Completed in this release:
@@ -24,3 +24,13 @@ Candidate scope:
 - Compare saved drafts.
 - Employee portal schedule visibility.
 - Pattern generator connected to saved schedules.
+
+## Completed in v4.6.0
+- Protected publish-state action for saved schedules.
+- Saved Schedules UI Publish button.
+- Copy buttons for saved schedule IDs, agency IDs, API endpoints, publish endpoints, and JSON details.
+
+## Next: v4.7.0
+- Published schedule version history.
+- Immutable snapshots.
+- Rollback/compare groundwork.

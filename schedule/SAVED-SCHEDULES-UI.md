@@ -1,4 +1,4 @@
-# Saved Schedules UI — v4.5.0
+# Saved Schedules UI — v4.6.0
 
 This release adds the first browser UI on top of the v4.4.0 saved schedule database foundation.
 

@@ -275,3 +275,8 @@ Fixes the Schedule footer rendering after the visibility/privacy release and add
 ## Signal Schedule v4.2.0
 
 Adds the workable schedule sandbox and admin settings preview under `/schedule/`.
+
+## Signal Schedule v4.6.0 — Publish Schedule Foundation + Copy Helpers
+- Added protected saved schedule publish-state action.
+- Added Saved Schedules copy buttons for operational fields.
+- No new SQL migration required; uses migration 044.

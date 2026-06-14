@@ -1,4 +1,4 @@
--- Signal Schedule v4.5.0
+-- Signal Schedule v4.6.0
 -- Employee portal preview, View As foundation, and builder autocomplete persistence placeholders.
 
 CREATE TABLE IF NOT EXISTS schedule_view_profiles (

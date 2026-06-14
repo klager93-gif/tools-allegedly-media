@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v4.5.0
-Purpose: Coolify API with employee CRUD, saved schedule CRUD, and read-only foundations including schedule publishing, schedule planning, draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
+Version: v4.6.0
+Purpose: Coolify API with employee CRUD, saved schedule CRUD, protected publish-state action, and read-only foundations including schedule publishing, schedule planning, draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:
 - no committed credentials
@@ -29,6 +29,7 @@ import {
   softDeleteSavedScheduleInPostgres,
   updateEmployeeInPostgres,
   updateSavedScheduleInPostgres,
+  publishSavedScheduleInPostgres,
   validateEmployeePayload
 } from './db/postgres.js';
 
@@ -77,7 +78,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v4.5.0', ...overrides };
+  return { source: 'coolify-api', version: 'v4.6.0', ...overrides };
 }
 
 function notFound(res) {
@@ -225,6 +226,11 @@ function getEmployeeIdFromPath(pathname) {
 
 function getSavedScheduleIdFromPath(pathname) {
   const match = pathname.match(/^\/(?:api\/)?saved-schedules\/([^/]+)$/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function getSavedSchedulePublishIdFromPath(pathname) {
+  const match = pathname.match(/^\/(?:api\/)?saved-schedules\/([^/]+)\/publish$/);
   return match ? decodeURIComponent(match[1]) : null;
 }
 
@@ -440,7 +446,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v4.5.0',
+          version: 'v4.6.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -978,6 +984,19 @@ const server = createServer(async (req, res) => {
     }
   }
 
+  const savedSchedulePublishId = getSavedSchedulePublishIdFromPath(url.pathname);
+  if (savedSchedulePublishId && req.method === 'POST') {
+    if (!requireScheduleWriteAccess(req, res)) return;
+    try {
+      const body = await readJsonBody(req);
+      const published = await publishSavedScheduleInPostgres(savedSchedulePublishId, body);
+      if (!published) return sendJson(res, 404, { ok: false, data: null, meta: apiMeta(), errors: [{ code: 'SAVED_SCHEDULE_NOT_FOUND', message: 'Saved schedule not found.' }] });
+      return sendJson(res, 200, { ok: true, data: published, meta: apiMeta({ database: 'postgres', writesEnabled: true, publishState: 'published' }), errors: [] });
+    } catch (error) {
+      return sendJson(res, 500, { ok: false, data: null, meta: apiMeta(), errors: [{ code: 'SAVED_SCHEDULE_PUBLISH_FAILED', message: error.message }] });
+    }
+  }
+
   const savedScheduleId = getSavedScheduleIdFromPath(url.pathname);
   if (savedScheduleId && req.method === 'GET') {
     if (!shouldUsePostgresEmployees()) {
@@ -1028,7 +1047,7 @@ const server = createServer(async (req, res) => {
     }
   }
 
-  if ((url.pathname === '/saved-schedules' || url.pathname === '/api/saved-schedules' || savedScheduleId) && ['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method || '')) {
+  if ((url.pathname === '/saved-schedules' || url.pathname === '/api/saved-schedules' || savedScheduleId || savedSchedulePublishId) && ['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method || '')) {
     return methodNotAllowed(res);
   }
 

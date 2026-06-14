@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/rules/notifications.css
-Version: v4.5.0
+Version: v4.6.0
 Purpose: Notification Foundation preview styles
 */
 .notifications-shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto 48px; color: #e5eefb; }
