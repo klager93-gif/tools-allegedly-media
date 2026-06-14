@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://tools.allegedly-media.com/schedule/api/contracts/saved-schedules.write.schema.json",
   "title": "Signal Schedule Saved Schedule Write Contract",
-  "version": "v4.4.0",
+  "version": "v4.5.0",
   "type": "object",
   "required": ["agencyId", "name", "scheduleStartDate", "scheduleEndDate", "payload"],
   "properties": {

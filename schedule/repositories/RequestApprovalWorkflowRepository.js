@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/repositories/RequestApprovalWorkflowRepository.js
-Version: v4.4.0
+Version: v4.5.0
 Purpose: Repository boundary for request approval workflow data
 */
 import { fetchRequestApprovalWorkflowPreview } from '../adapters/JsonRequestApprovalWorkflowAdapter.js';

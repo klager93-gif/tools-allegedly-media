@@ -1,25 +1,21 @@
-# Signal Schedule Build Manifest — v4.4.0
+# Build Manifest — Signal Schedule v4.5.0
 
-Generated: 2026-06-14
+Package: `signal-schedule-v4.5.0-full-replacement.zip`
+Build type: Full replacement package
+Source: Verified v4.4.0 full replacement package
 
-## Source
+## Release purpose
+Connect the v4.4.0 saved schedule database foundation to the browser UI.
 
-- Rebuilt from uploaded v4.3.0 backup: `2026-06-14 Schedule Backup Before v4.4.0.zip`
-- Package type: full-root replacement package
-
-## Release Changes
-
-- Added saved schedule CRUD foundation.
-- Added migration `044_saved_schedule_crud_foundation_schema.sql`.
-- Added saved schedule write contract and foundation notes.
-- Added protected API routes for `/api/saved-schedules`.
-- Fixed employee write validation handling.
-- Normalized active Schedule version/cache references to v4.4.0.
-- Removed `.git`, `__MACOSX`, `._*`, and `.DS_Store` package junk.
+## Major changes
+- Added Saved Schedules page.
+- Added Saved Schedules CSS/JS.
+- Added builder save-draft action.
+- Added saved draft open-in-builder handoff.
+- Updated docs and release metadata to v4.5.0.
+- No new SQL migration required.
 
 ## Validation
-
-- `node --check schedule/api/coolify/server.js` passed.
-- `node --check schedule/api/coolify/db/postgres.js` passed.
-- No v4.3.0 references remain under `/schedule/`.
-- No package junk remains in the rebuilt tree.
+- Node syntax checks passed for modified JS files.
+- HTML asset reference check passed.
+- Package junk check passed: no `.git`, `__MACOSX`, `._*`, or `.DS_Store`.

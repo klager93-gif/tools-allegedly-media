@@ -1,19 +1,16 @@
-# Build Manifest — Signal Labs Full Replacement / Schedule v4.4.0
+# Build Manifest — Signal Schedule v4.5.0 Full Replacement
 
-Generated: 2026-06-14
-
-## Package Type
-
-Full-root replacement package preserving all top-level folders from the uploaded source, with active changes under `/schedule/`.
+Package: signal-schedule-v4.5.0-full-replacement.zip
+Build date: 2026-06-14
+Build type: Full replacement
 
 ## Source
+Verified Signal Schedule v4.4.0 full replacement package.
 
-Uploaded backup: `2026-06-14 Schedule Backup Before v4.4.0.zip`
+## Scope
+Schedule v4.5.0 saved schedule save/load UI.
 
-## Changed Area
-
-- `/schedule/`
-
-## Cleanup
-
-Excluded `.git`, `__MACOSX`, AppleDouble `._*`, and `.DS_Store` files from the rebuilt release.
+## Validation
+- Package junk removed/absent.
+- HTML asset references passed.
+- Modified JS syntax checks passed.

@@ -1,6 +1,6 @@
 # Signal Schedule Coolify API
 
-Current release: **v4.4.0 — Saved Schedule CRUD + True Release Rebuild**
+Current release: **v4.5.0 — Saved Schedule CRUD + True Release Rebuild**
 
 ## Read Routes
 
@@ -27,6 +27,6 @@ Saved schedule routes:
 
 `DELETE` is a soft delete that changes status to `deleted`.
 
-## v4.4.0 Notes
+## v4.5.0 Notes
 
 This release adds the persistence layer for saving draft/published schedule payloads. It does not yet make public schedule writes available, and it does not replace future authentication/role checks.

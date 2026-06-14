@@ -1,4 +1,4 @@
--- Signal Schedule v4.4.0
+-- Signal Schedule v4.5.0
 -- Saved schedule CRUD foundation.
 -- Creates a protected Postgres-backed store for builder/planning schedule payloads.
 
@@ -28,4 +28,4 @@ create index if not exists idx_schedule_saved_schedules_status
 create index if not exists idx_schedule_saved_schedules_range
   on schedule_saved_schedules (schedule_start_date, schedule_end_date);
 
-comment on table schedule_saved_schedules is 'Protected saved schedule/draft schedule payloads for v4.4.0 database-backed save-load foundation.';
+comment on table schedule_saved_schedules is 'Protected saved schedule/draft schedule payloads for v4.5.0 database-backed save-load foundation.';

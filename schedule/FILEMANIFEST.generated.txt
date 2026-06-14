@@ -1,376 +1,384 @@
-ADMIN_CHANGELOG.md
-ALPHA-INTEGRATION-AUDIT.md
-BUILDMANIFEST.md
-CALENDAR-FOUNDATION.md
-CHANGELOG.md
-EMPLOYEE-IDENTITY-FOUNDATION.md
-FILEMANIFEST.generated.txt
-FILEMANIFEST.md
-FILE_ORGANIZATION.md
-HOWTO.md
-LATEST_RELEASE.md
-LEAVE-REQUESTS-FOUNDATION.md
-MASTER-CHANGELOG.md
-MINIMUM-STAFFING-FOUNDATION.md
-OPEN-SHIFTS-FOUNDATION.md
-PUBLIC_CHANGELOG.md
-README.md
-REQUEST-HOURS-FOUNDATION.md
-ROADMAP.md
-SAVED-SCHEDULES-FOUNDATION.md
-SHA256SUMS.txt
-adapters/JsonAssignmentEngineAdapter.js
-adapters/JsonAssignmentGeneratorAdapter.js
-adapters/JsonBenefitLedgerAdapter.js
-adapters/JsonCalendarAdapter.js
-adapters/JsonCalendarShortcodeAdapter.js
-adapters/JsonCalendarViewAdapter.js
-adapters/JsonConflictDetectionAdapter.js
-adapters/JsonCoverageBoardAdapter.js
-adapters/JsonCoverageSpotsAdapter.js
-adapters/JsonDailyBoardAdapter.js
-adapters/JsonDraftPlanningAdapter.js
-adapters/JsonEmployeeAvailabilityPreferencesAdapter.js
-adapters/JsonEmployeeProfileAdapter.js
-adapters/JsonEmployeeTimelineAdapter.js
-adapters/JsonLeaveBanksAdapter.js
-adapters/JsonLeaveRequestsAdapter.js
-adapters/JsonMandationEngineAdapter.js
-adapters/JsonMinimumStaffingAdapter.js
-adapters/JsonNotificationAdapter.js
-adapters/JsonOpenShiftAdapter.js
-adapters/JsonOtVolunteerBoardAdapter.js
-adapters/JsonQualificationsCertificationAdapter.js
-adapters/JsonRequestApprovalWorkflowAdapter.js
-adapters/JsonRolesPermissionsAdapter.js
-adapters/JsonSchedulePlanningAdapter.js
-adapters/JsonSchedulePublicationAdapter.js
-adapters/JsonSeniorityEngineAdapter.js
-adapters/JsonSeniorityRotationAdapter.js
-adapters/JsonShiftEligibilityAdapter.js
-adapters/JsonShiftTradeAdapter.js
-adapters/JsonSupervisorHierarchyAdapter.js
-adapters/JsonTrainingCertificationAdapter.js
-adapters/JsonVisibilityPrivacyAdapter.js
-adapters/JsonWeeklyBoardAdapter.js
-api/contracts/assignment-engine.read.schema.json
-api/contracts/assignment-generator.read.schema.json
-api/contracts/benefit-ledger.read.schema.json
-api/contracts/calendar-shortcodes.read.schema.json
-api/contracts/calendar-view.read.schema.json
-api/contracts/calendar.read.schema.json
-api/contracts/conflict-detection.read.schema.json
-api/contracts/coverage-board.read.schema.json
-api/contracts/coverage-spots.read.schema.json
-api/contracts/daily-board.read.schema.json
-api/contracts/draft-planning.read.schema.json
-api/contracts/employee-availability-preferences.read.schema.json
-api/contracts/employee-portal-preview.read.schema.json
-api/contracts/employee-profile.read.schema.json
-api/contracts/employee-timeline.read.schema.json
-api/contracts/leave-banks.read.schema.json
-api/contracts/leave-requests.read.schema.json
-api/contracts/mandation-engine.read.schema.json
-api/contracts/minimum-staffing.read.schema.json
-api/contracts/notifications.read.schema.json
-api/contracts/open-shifts.read.schema.json
-api/contracts/ot-volunteer-board.read.schema.json
-api/contracts/qualifications-certifications.read.schema.json
-api/contracts/request-approval-workflow.read.schema.json
-api/contracts/request-hours.read.schema.json
-api/contracts/roles-permissions.read.schema.json
-api/contracts/saved-schedules.write.schema.json
-api/contracts/schedule-planning.read.schema.json
-api/contracts/schedule-publication.read.schema.json
-api/contracts/seniority-engine.read.schema.json
-api/contracts/seniority-rotation.read.schema.json
-api/contracts/shift-eligibility.read.schema.json
-api/contracts/shift-trades.read.schema.json
-api/contracts/supervisor-hierarchy.read.schema.json
-api/contracts/training-certifications.read.schema.json
-api/contracts/visibility-privacy.read.schema.json
-api/contracts/weekly-board.read.schema.json
-api/coolify/README.md
-api/coolify/db/postgres.js
-api/coolify/server.js
-api/coolify/sql/004_schema_migrations_foundation.sql
-api/coolify/sql/005_minimum_staffing_foundation_schema.sql
-api/coolify/sql/006_calendar_foundation_schema.sql
-api/coolify/sql/007_employee_identity_cleanup_schema.sql
-api/coolify/sql/008_leave_requests_foundation_schema.sql
-api/coolify/sql/009_request_hours_foundation_schema.sql
-api/coolify/sql/010_open_shifts_foundation_schema.sql
-api/coolify/sql/011_coverage_board_foundation_schema.sql
-api/coolify/sql/012_seniority_rotation_foundation_schema.sql
-api/coolify/sql/013_shift_trades_foundation_schema.sql
-api/coolify/sql/014_training_certifications_foundation_schema.sql
-api/coolify/sql/015_shift_eligibility_foundation_schema.sql
-api/coolify/sql/016_benefit_ledger_foundation_schema.sql
-api/coolify/sql/017_calendar_shortcode_admin_controls_schema.sql
-api/coolify/sql/018_calendar_views_foundation_schema.sql
-api/coolify/sql/019_employee_profile_self_service_schema.sql
-api/coolify/sql/020_employee_timeline_audit_trail_schema.sql
-api/coolify/sql/021_supervisor_hierarchy_schema.sql
-api/coolify/sql/022_roles_permissions_schema.sql
-api/coolify/sql/023_request_approval_workflow_schema.sql
-api/coolify/sql/024_notification_foundation_schema.sql
-api/coolify/sql/025_coverage_spots_foundation_schema.sql
-api/coolify/sql/026_daily_schedule_board_foundation_schema.sql
-api/coolify/sql/027_assignment_engine_integration_schema.sql
-api/coolify/sql/028_leave_banks_foundation_schema.sql
-api/coolify/sql/029_ot_volunteer_board_schema.sql
-api/coolify/sql/030_shift_trades_ui_schema.sql
-api/coolify/sql/031_mandation_engine_foundation_schema.sql
-api/coolify/sql/032_seniority_engine_schema.sql
-api/coolify/sql/033_assignment_generator_schema.sql
-api/coolify/sql/034_conflict_detection_foundation_schema.sql
-api/coolify/sql/035_qualifications_certifications_schema.sql
-api/coolify/sql/036_weekly_schedule_view_schema.sql
-api/coolify/sql/037_schedule_visibility_privacy_schema.sql
-api/coolify/sql/038_drag_drop_draft_planning_schema.sql
-api/coolify/sql/039_schedule_planning_forecast_horizon_schema.sql
-api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql
-api/coolify/sql/041_schedule_workable_sandbox_settings_schema.sql
-api/coolify/sql/042_employee_portal_view_as_foundation.sql
-api/coolify/sql/043_employee_availability_preferences_restrictions_schema.sql
-api/coolify/sql/044_saved_schedule_crud_foundation_schema.sql
-app-shell.css
-app-shell.js
-approvals.html
-assets/themes/cad.css
-assets/themes/high-contrast.css
-assets/themes/light.css
-assets/themes/midnight.css
-assets/themes/slate.css
-assignment-generator.html
-assignments.html
-availability.html
-benefits.html
-builder.html
-components/footer.js
-components/panel.js
-components/table.js
-components/tag.js
-components/toolbar.js
-conflict-detection.html
-coverage-spots.html
-coverage.html
-daily-board.html
-data/agencies.json
-data/assignment-engine-preview.json
-data/assignment-generator-preview.json
-data/assignment-templates.json
-data/benefit-ledger-preview.json
-data/calendar-events-preview.json
-data/calendar-preview.json
-data/calendar-shortcodes-preview.json
-data/calendar-view-preview.json
-data/conflict-detection-preview.json
-data/coverage-board-preview.json
-data/coverage-spots-preview.json
-data/daily-board-preview.json
-data/draft-planning-preview.json
-data/employee-assignments.json
-data/employee-availability-preferences-preview.json
-data/employee-portal-preview.json
-data/employee-profile-preview.json
-data/employee-timeline-preview.json
-data/employees.json
-data/leave-banks-preview.json
-data/leave-request-types.json
-data/leave-requests-preview.json
-data/mandation-engine-preview.json
-data/minimum-staffing-preview.json
-data/minimum-staffing-templates.json
-data/notifications-preview.json
-data/open-shifts-preview.json
-data/ot-volunteer-board-preview.json
-data/qualifications-certifications-preview.json
-data/request-approval-workflow-preview.json
-data/request-increment-settings.json
-data/request-reasons.json
-data/roles-permissions-preview.json
-data/schedule-admin-settings.json
-data/schedule-builder-sandbox.json
-data/schedule-planning-preview.json
-data/schedule-publication-preview.json
-data/seniority-engine-preview.json
-data/seniority-rotation-preview.json
-data/shift-eligibility-preview.json
-data/shift-trades-preview.json
-data/supervisor-hierarchy-preview.json
-data/training-certifications-preview.json
-data/visibility-privacy-preview.json
-data/vot-requests-preview.json
-data/weekly-board-preview.json
-draft-planning.html
-eligibility.html
-employee/calendar.html
-employee/index.html
-employee/profile.html
-employee/requests.html
-employees.html
-index.html
-leave-banks.html
-leave.html
-mandation.html
-notifications.html
-open-shifts.html
-ot-volunteer-board.html
-pages/calendar/schedule-calendar.css
-pages/calendar/schedule-calendar.js
-pages/coverage/coverage-board.css
-pages/coverage/coverage-board.js
-pages/coverage/coverage-spots.css
-pages/coverage/coverage-spots.js
-pages/employee/employee-portal.css
-pages/employee/employee-portal.js
-pages/people/availability.css
-pages/people/availability.js
-pages/people/eligibility.css
-pages/people/eligibility.js
-pages/people/profile.css
-pages/people/profile.js
-pages/people/qualifications.css
-pages/people/qualifications.js
-pages/people/seniority.css
-pages/people/seniority.js
-pages/people/supervisors.css
-pages/people/supervisors.js
-pages/people/timeline.css
-pages/people/timeline.js
-pages/people/training.css
-pages/people/training.js
-pages/requests/approvals.css
-pages/requests/approvals.js
-pages/requests/leave-banks.css
-pages/requests/leave-banks.js
-pages/requests/leave-requests.css
-pages/requests/leave-requests.js
-pages/requests/open-shifts.css
-pages/requests/open-shifts.js
-pages/requests/ot-volunteer-board.css
-pages/requests/ot-volunteer-board.js
-pages/requests/shift-trades.css
-pages/requests/shift-trades.js
-pages/rules/benefits.css
-pages/rules/benefits.js
-pages/rules/mandation.css
-pages/rules/mandation.js
-pages/rules/notifications.css
-pages/rules/notifications.js
-pages/rules/permissions.css
-pages/rules/permissions.js
-pages/rules/shortcodes.css
-pages/rules/shortcodes.js
-pages/settings/visibility.css
-pages/settings/visibility.js
-pages/workspace/assignment-generator.css
-pages/workspace/assignment-generator.js
-pages/workspace/assignments.css
-pages/workspace/assignments.js
-pages/workspace/builder.css
-pages/workspace/builder.js
-pages/workspace/conflict-detection.css
-pages/workspace/conflict-detection.js
-pages/workspace/daily-board.css
-pages/workspace/daily-board.js
-pages/workspace/draft-planning.css
-pages/workspace/draft-planning.js
-pages/workspace/planning.css
-pages/workspace/planning.js
-pages/workspace/publishing.css
-pages/workspace/publishing.js
-pages/workspace/weekly-board.css
-pages/workspace/weekly-board.js
-pages/workspace/workspace.css
-pages/workspace/workspace.js
-permissions.html
-planning.html
-profile.html
-publishing.html
-qualifications.html
-reports.html
-repositories/AssignmentEngineRepository.js
-repositories/AssignmentGeneratorRepository.js
-repositories/BenefitLedgerRepository.js
-repositories/CalendarRepository.js
-repositories/CalendarShortcodeRepository.js
-repositories/CalendarViewRepository.js
-repositories/ConflictDetectionRepository.js
-repositories/CoverageBoardRepository.js
-repositories/CoverageSpotsRepository.js
-repositories/DailyBoardRepository.js
-repositories/DraftPlanningRepository.js
-repositories/EmployeeAvailabilityPreferencesRepository.js
-repositories/EmployeeProfileRepository.js
-repositories/EmployeeTimelineRepository.js
-repositories/LeaveBanksRepository.js
-repositories/LeaveRequestRepository.js
-repositories/MandationEngineRepository.js
-repositories/MinimumStaffingRepository.js
-repositories/NotificationRepository.js
-repositories/OpenShiftRepository.js
-repositories/OtVolunteerBoardRepository.js
-repositories/QualificationsCertificationRepository.js
-repositories/RequestApprovalWorkflowRepository.js
-repositories/RolesPermissionsRepository.js
-repositories/SchedulePlanningRepository.js
-repositories/SchedulePublicationRepository.js
-repositories/SeniorityEngineRepository.js
-repositories/SeniorityRotationRepository.js
-repositories/ShiftEligibilityRepository.js
-repositories/ShiftTradeRepository.js
-repositories/SupervisorHierarchyRepository.js
-repositories/TrainingCertificationRepository.js
-repositories/VisibilityPrivacyRepository.js
-repositories/WeeklyBoardRepository.js
-schedule.html
-seniority.html
-services/AssignmentEngineService.js
-services/AssignmentGeneratorService.js
-services/BenefitLedgerService.js
-services/CalendarService.js
-services/CalendarShortcodeService.js
-services/CalendarViewService.js
-services/ConflictDetectionService.js
-services/CoverageBoardService.js
-services/CoverageSpotsService.js
-services/DailyBoardService.js
-services/DraftPlanningService.js
-services/EmployeeAvailabilityPreferencesService.js
-services/EmployeeProfileService.js
-services/EmployeeTimelineService.js
-services/LeaveBanksService.js
-services/LeaveRequestService.js
-services/MandationEngineService.js
-services/MinimumStaffingService.js
-services/NotificationService.js
-services/OpenShiftService.js
-services/OtVolunteerBoardService.js
-services/QualificationsCertificationService.js
-services/RequestApprovalWorkflowService.js
-services/RequestHoursService.js
-services/RolesPermissionsService.js
-services/SchedulePlanningService.js
-services/SchedulePublicationService.js
-services/SeniorityEngineService.js
-services/SeniorityRotationService.js
-services/ShiftEligibilityService.js
-services/ShiftTradeService.js
-services/SupervisorHierarchyService.js
-services/TrainingCertificationService.js
-services/VisibilityPrivacyService.js
-services/WeeklyBoardService.js
-settings.html
-shift-trades.html
-shortcodes.html
-staffing.html
-supervisors.html
-timeline.html
-trades.html
-training.html
-visibility.html
-weekly-board.html
-weekly-schedule.html
-workspace.html
+# Signal Schedule File Manifest — v4.5.0
+
+Generated file list for Schedule v4.5.0 full replacement.
+
+- ADMIN_CHANGELOG.md
+- ALPHA-INTEGRATION-AUDIT.md
+- BUILDMANIFEST.md
+- CALENDAR-FOUNDATION.md
+- CHANGELOG.md
+- EMPLOYEE-IDENTITY-FOUNDATION.md
+- FILEMANIFEST.generated.txt
+- FILEMANIFEST.md
+- FILE_ORGANIZATION.md
+- HOWTO.md
+- LATEST_RELEASE.md
+- LEAVE-REQUESTS-FOUNDATION.md
+- MASTER-CHANGELOG.md
+- MINIMUM-STAFFING-FOUNDATION.md
+- OPEN-SHIFTS-FOUNDATION.md
+- PUBLIC_CHANGELOG.md
+- README.md
+- REQUEST-HOURS-FOUNDATION.md
+- ROADMAP.md
+- SAVED-SCHEDULES-FOUNDATION.md
+- SAVED-SCHEDULES-UI.md
+- SHA256SUMS.txt
+- adapters/JsonAssignmentEngineAdapter.js
+- adapters/JsonAssignmentGeneratorAdapter.js
+- adapters/JsonBenefitLedgerAdapter.js
+- adapters/JsonCalendarAdapter.js
+- adapters/JsonCalendarShortcodeAdapter.js
+- adapters/JsonCalendarViewAdapter.js
+- adapters/JsonConflictDetectionAdapter.js
+- adapters/JsonCoverageBoardAdapter.js
+- adapters/JsonCoverageSpotsAdapter.js
+- adapters/JsonDailyBoardAdapter.js
+- adapters/JsonDraftPlanningAdapter.js
+- adapters/JsonEmployeeAvailabilityPreferencesAdapter.js
+- adapters/JsonEmployeeProfileAdapter.js
+- adapters/JsonEmployeeTimelineAdapter.js
+- adapters/JsonLeaveBanksAdapter.js
+- adapters/JsonLeaveRequestsAdapter.js
+- adapters/JsonMandationEngineAdapter.js
+- adapters/JsonMinimumStaffingAdapter.js
+- adapters/JsonNotificationAdapter.js
+- adapters/JsonOpenShiftAdapter.js
+- adapters/JsonOtVolunteerBoardAdapter.js
+- adapters/JsonQualificationsCertificationAdapter.js
+- adapters/JsonRequestApprovalWorkflowAdapter.js
+- adapters/JsonRolesPermissionsAdapter.js
+- adapters/JsonSchedulePlanningAdapter.js
+- adapters/JsonSchedulePublicationAdapter.js
+- adapters/JsonSeniorityEngineAdapter.js
+- adapters/JsonSeniorityRotationAdapter.js
+- adapters/JsonShiftEligibilityAdapter.js
+- adapters/JsonShiftTradeAdapter.js
+- adapters/JsonSupervisorHierarchyAdapter.js
+- adapters/JsonTrainingCertificationAdapter.js
+- adapters/JsonVisibilityPrivacyAdapter.js
+- adapters/JsonWeeklyBoardAdapter.js
+- api/contracts/assignment-engine.read.schema.json
+- api/contracts/assignment-generator.read.schema.json
+- api/contracts/benefit-ledger.read.schema.json
+- api/contracts/calendar-shortcodes.read.schema.json
+- api/contracts/calendar-view.read.schema.json
+- api/contracts/calendar.read.schema.json
+- api/contracts/conflict-detection.read.schema.json
+- api/contracts/coverage-board.read.schema.json
+- api/contracts/coverage-spots.read.schema.json
+- api/contracts/daily-board.read.schema.json
+- api/contracts/draft-planning.read.schema.json
+- api/contracts/employee-availability-preferences.read.schema.json
+- api/contracts/employee-portal-preview.read.schema.json
+- api/contracts/employee-profile.read.schema.json
+- api/contracts/employee-timeline.read.schema.json
+- api/contracts/leave-banks.read.schema.json
+- api/contracts/leave-requests.read.schema.json
+- api/contracts/mandation-engine.read.schema.json
+- api/contracts/minimum-staffing.read.schema.json
+- api/contracts/notifications.read.schema.json
+- api/contracts/open-shifts.read.schema.json
+- api/contracts/ot-volunteer-board.read.schema.json
+- api/contracts/qualifications-certifications.read.schema.json
+- api/contracts/request-approval-workflow.read.schema.json
+- api/contracts/request-hours.read.schema.json
+- api/contracts/roles-permissions.read.schema.json
+- api/contracts/saved-schedules.write.schema.json
+- api/contracts/schedule-planning.read.schema.json
+- api/contracts/schedule-publication.read.schema.json
+- api/contracts/seniority-engine.read.schema.json
+- api/contracts/seniority-rotation.read.schema.json
+- api/contracts/shift-eligibility.read.schema.json
+- api/contracts/shift-trades.read.schema.json
+- api/contracts/supervisor-hierarchy.read.schema.json
+- api/contracts/training-certifications.read.schema.json
+- api/contracts/visibility-privacy.read.schema.json
+- api/contracts/weekly-board.read.schema.json
+- api/coolify/README.md
+- api/coolify/db/postgres.js
+- api/coolify/server.js
+- api/coolify/sql/004_schema_migrations_foundation.sql
+- api/coolify/sql/005_minimum_staffing_foundation_schema.sql
+- api/coolify/sql/006_calendar_foundation_schema.sql
+- api/coolify/sql/007_employee_identity_cleanup_schema.sql
+- api/coolify/sql/008_leave_requests_foundation_schema.sql
+- api/coolify/sql/009_request_hours_foundation_schema.sql
+- api/coolify/sql/010_open_shifts_foundation_schema.sql
+- api/coolify/sql/011_coverage_board_foundation_schema.sql
+- api/coolify/sql/012_seniority_rotation_foundation_schema.sql
+- api/coolify/sql/013_shift_trades_foundation_schema.sql
+- api/coolify/sql/014_training_certifications_foundation_schema.sql
+- api/coolify/sql/015_shift_eligibility_foundation_schema.sql
+- api/coolify/sql/016_benefit_ledger_foundation_schema.sql
+- api/coolify/sql/017_calendar_shortcode_admin_controls_schema.sql
+- api/coolify/sql/018_calendar_views_foundation_schema.sql
+- api/coolify/sql/019_employee_profile_self_service_schema.sql
+- api/coolify/sql/020_employee_timeline_audit_trail_schema.sql
+- api/coolify/sql/021_supervisor_hierarchy_schema.sql
+- api/coolify/sql/022_roles_permissions_schema.sql
+- api/coolify/sql/023_request_approval_workflow_schema.sql
+- api/coolify/sql/024_notification_foundation_schema.sql
+- api/coolify/sql/025_coverage_spots_foundation_schema.sql
+- api/coolify/sql/026_daily_schedule_board_foundation_schema.sql
+- api/coolify/sql/027_assignment_engine_integration_schema.sql
+- api/coolify/sql/028_leave_banks_foundation_schema.sql
+- api/coolify/sql/029_ot_volunteer_board_schema.sql
+- api/coolify/sql/030_shift_trades_ui_schema.sql
+- api/coolify/sql/031_mandation_engine_foundation_schema.sql
+- api/coolify/sql/032_seniority_engine_schema.sql
+- api/coolify/sql/033_assignment_generator_schema.sql
+- api/coolify/sql/034_conflict_detection_foundation_schema.sql
+- api/coolify/sql/035_qualifications_certifications_schema.sql
+- api/coolify/sql/036_weekly_schedule_view_schema.sql
+- api/coolify/sql/037_schedule_visibility_privacy_schema.sql
+- api/coolify/sql/038_drag_drop_draft_planning_schema.sql
+- api/coolify/sql/039_schedule_planning_forecast_horizon_schema.sql
+- api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql
+- api/coolify/sql/041_schedule_workable_sandbox_settings_schema.sql
+- api/coolify/sql/042_employee_portal_view_as_foundation.sql
+- api/coolify/sql/043_employee_availability_preferences_restrictions_schema.sql
+- api/coolify/sql/044_saved_schedule_crud_foundation_schema.sql
+- app-shell.css
+- app-shell.js
+- approvals.html
+- assets/themes/cad.css
+- assets/themes/high-contrast.css
+- assets/themes/light.css
+- assets/themes/midnight.css
+- assets/themes/slate.css
+- assignment-generator.html
+- assignments.html
+- availability.html
+- benefits.html
+- builder.html
+- components/footer.js
+- components/panel.js
+- components/table.js
+- components/tag.js
+- components/toolbar.js
+- conflict-detection.html
+- coverage-spots.html
+- coverage.html
+- daily-board.html
+- data/agencies.json
+- data/assignment-engine-preview.json
+- data/assignment-generator-preview.json
+- data/assignment-templates.json
+- data/benefit-ledger-preview.json
+- data/calendar-events-preview.json
+- data/calendar-preview.json
+- data/calendar-shortcodes-preview.json
+- data/calendar-view-preview.json
+- data/conflict-detection-preview.json
+- data/coverage-board-preview.json
+- data/coverage-spots-preview.json
+- data/daily-board-preview.json
+- data/draft-planning-preview.json
+- data/employee-assignments.json
+- data/employee-availability-preferences-preview.json
+- data/employee-portal-preview.json
+- data/employee-profile-preview.json
+- data/employee-timeline-preview.json
+- data/employees.json
+- data/leave-banks-preview.json
+- data/leave-request-types.json
+- data/leave-requests-preview.json
+- data/mandation-engine-preview.json
+- data/minimum-staffing-preview.json
+- data/minimum-staffing-templates.json
+- data/notifications-preview.json
+- data/open-shifts-preview.json
+- data/ot-volunteer-board-preview.json
+- data/qualifications-certifications-preview.json
+- data/request-approval-workflow-preview.json
+- data/request-increment-settings.json
+- data/request-reasons.json
+- data/roles-permissions-preview.json
+- data/schedule-admin-settings.json
+- data/schedule-builder-sandbox.json
+- data/schedule-planning-preview.json
+- data/schedule-publication-preview.json
+- data/seniority-engine-preview.json
+- data/seniority-rotation-preview.json
+- data/shift-eligibility-preview.json
+- data/shift-trades-preview.json
+- data/supervisor-hierarchy-preview.json
+- data/training-certifications-preview.json
+- data/visibility-privacy-preview.json
+- data/vot-requests-preview.json
+- data/weekly-board-preview.json
+- draft-planning.html
+- eligibility.html
+- employee/calendar.html
+- employee/index.html
+- employee/profile.html
+- employee/requests.html
+- employees.html
+- index.html
+- leave-banks.html
+- leave.html
+- mandation.html
+- notifications.html
+- open-shifts.html
+- ot-volunteer-board.html
+- pages/calendar/schedule-calendar.css
+- pages/calendar/schedule-calendar.js
+- pages/coverage/coverage-board.css
+- pages/coverage/coverage-board.js
+- pages/coverage/coverage-spots.css
+- pages/coverage/coverage-spots.js
+- pages/employee/employee-portal.css
+- pages/employee/employee-portal.js
+- pages/people/availability.css
+- pages/people/availability.js
+- pages/people/eligibility.css
+- pages/people/eligibility.js
+- pages/people/profile.css
+- pages/people/profile.js
+- pages/people/qualifications.css
+- pages/people/qualifications.js
+- pages/people/seniority.css
+- pages/people/seniority.js
+- pages/people/supervisors.css
+- pages/people/supervisors.js
+- pages/people/timeline.css
+- pages/people/timeline.js
+- pages/people/training.css
+- pages/people/training.js
+- pages/requests/approvals.css
+- pages/requests/approvals.js
+- pages/requests/leave-banks.css
+- pages/requests/leave-banks.js
+- pages/requests/leave-requests.css
+- pages/requests/leave-requests.js
+- pages/requests/open-shifts.css
+- pages/requests/open-shifts.js
+- pages/requests/ot-volunteer-board.css
+- pages/requests/ot-volunteer-board.js
+- pages/requests/shift-trades.css
+- pages/requests/shift-trades.js
+- pages/rules/benefits.css
+- pages/rules/benefits.js
+- pages/rules/mandation.css
+- pages/rules/mandation.js
+- pages/rules/notifications.css
+- pages/rules/notifications.js
+- pages/rules/permissions.css
+- pages/rules/permissions.js
+- pages/rules/shortcodes.css
+- pages/rules/shortcodes.js
+- pages/settings/visibility.css
+- pages/settings/visibility.js
+- pages/workspace/assignment-generator.css
+- pages/workspace/assignment-generator.js
+- pages/workspace/assignments.css
+- pages/workspace/assignments.js
+- pages/workspace/builder.css
+- pages/workspace/builder.js
+- pages/workspace/conflict-detection.css
+- pages/workspace/conflict-detection.js
+- pages/workspace/daily-board.css
+- pages/workspace/daily-board.js
+- pages/workspace/draft-planning.css
+- pages/workspace/draft-planning.js
+- pages/workspace/planning.css
+- pages/workspace/planning.js
+- pages/workspace/publishing.css
+- pages/workspace/publishing.js
+- pages/workspace/saved-schedules.css
+- pages/workspace/saved-schedules.js
+- pages/workspace/weekly-board.css
+- pages/workspace/weekly-board.js
+- pages/workspace/workspace.css
+- pages/workspace/workspace.js
+- permissions.html
+- planning.html
+- profile.html
+- publishing.html
+- qualifications.html
+- reports.html
+- repositories/AssignmentEngineRepository.js
+- repositories/AssignmentGeneratorRepository.js
+- repositories/BenefitLedgerRepository.js
+- repositories/CalendarRepository.js
+- repositories/CalendarShortcodeRepository.js
+- repositories/CalendarViewRepository.js
+- repositories/ConflictDetectionRepository.js
+- repositories/CoverageBoardRepository.js
+- repositories/CoverageSpotsRepository.js
+- repositories/DailyBoardRepository.js
+- repositories/DraftPlanningRepository.js
+- repositories/EmployeeAvailabilityPreferencesRepository.js
+- repositories/EmployeeProfileRepository.js
+- repositories/EmployeeTimelineRepository.js
+- repositories/LeaveBanksRepository.js
+- repositories/LeaveRequestRepository.js
+- repositories/MandationEngineRepository.js
+- repositories/MinimumStaffingRepository.js
+- repositories/NotificationRepository.js
+- repositories/OpenShiftRepository.js
+- repositories/OtVolunteerBoardRepository.js
+- repositories/QualificationsCertificationRepository.js
+- repositories/RequestApprovalWorkflowRepository.js
+- repositories/RolesPermissionsRepository.js
+- repositories/SchedulePlanningRepository.js
+- repositories/SchedulePublicationRepository.js
+- repositories/SeniorityEngineRepository.js
+- repositories/SeniorityRotationRepository.js
+- repositories/ShiftEligibilityRepository.js
+- repositories/ShiftTradeRepository.js
+- repositories/SupervisorHierarchyRepository.js
+- repositories/TrainingCertificationRepository.js
+- repositories/VisibilityPrivacyRepository.js
+- repositories/WeeklyBoardRepository.js
+- saved-schedules.html
+- schedule.html
+- seniority.html
+- services/AssignmentEngineService.js
+- services/AssignmentGeneratorService.js
+- services/BenefitLedgerService.js
+- services/CalendarService.js
+- services/CalendarShortcodeService.js
+- services/CalendarViewService.js
+- services/ConflictDetectionService.js
+- services/CoverageBoardService.js
+- services/CoverageSpotsService.js
+- services/DailyBoardService.js
+- services/DraftPlanningService.js
+- services/EmployeeAvailabilityPreferencesService.js
+- services/EmployeeProfileService.js
+- services/EmployeeTimelineService.js
+- services/LeaveBanksService.js
+- services/LeaveRequestService.js
+- services/MandationEngineService.js
+- services/MinimumStaffingService.js
+- services/NotificationService.js
+- services/OpenShiftService.js
+- services/OtVolunteerBoardService.js
+- services/QualificationsCertificationService.js
+- services/RequestApprovalWorkflowService.js
+- services/RequestHoursService.js
+- services/RolesPermissionsService.js
+- services/SchedulePlanningService.js
+- services/SchedulePublicationService.js
+- services/SeniorityEngineService.js
+- services/SeniorityRotationService.js
+- services/ShiftEligibilityService.js
+- services/ShiftTradeService.js
+- services/SupervisorHierarchyService.js
+- services/TrainingCertificationService.js
+- services/VisibilityPrivacyService.js
+- services/WeeklyBoardService.js
+- settings.html
+- shift-trades.html
+- shortcodes.html
+- staffing.html
+- supervisors.html
+- timeline.html
+- trades.html
+- training.html
+- visibility.html
+- weekly-board.html
+- weekly-schedule.html
+- workspace.html

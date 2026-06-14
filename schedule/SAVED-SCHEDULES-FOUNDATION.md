@@ -1,6 +1,6 @@
-# Saved Schedules Foundation — v4.4.0
+# Saved Schedules Foundation — v4.5.0
 
-Signal Schedule v4.4.0 adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads.
+Signal Schedule v4.5.0 adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads.
 
 ## What changed
 
