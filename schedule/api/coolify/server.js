@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v3.8.0
+Version: v3.8.1
 Purpose: Coolify API with employee CRUD and read-only foundations including draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:

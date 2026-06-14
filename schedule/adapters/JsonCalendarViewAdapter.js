@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonCalendarViewAdapter.js
-Version: v3.8.0
+Version: v3.8.1
 Purpose: JSON adapter for calendar week/day preview data
 */
 export async function getCalendarViewPreview() {

@@ -43,3 +43,35 @@ Adds Conflict Detection Foundation for generated schedules and assignment drafts
 ## v3.6.1 — Schedule Visibility & Privacy Controls
 
 Adds role-based privacy policies controlling supervisor schedule visibility, exact time display, hours-only display, working/off-only display, and leave type visibility by user group.
+
+
+## v3.8.1 — Schedule File Organization & Release Cleanup
+
+### Purpose
+Organizes page-specific support CSS/JS files into `/schedule/pages/` module folders while preserving public `/schedule/*.html` URLs. This is safe for full replacement because all HTML asset references were updated and validated.
+
+### Public URLs preserved
+All canonical Schedule pages remain at `/schedule/*.html`. Compatibility pages remain in place.
+
+### Support asset folders added
+- `/schedule/pages/calendar/`
+- `/schedule/pages/coverage/`
+- `/schedule/pages/people/`
+- `/schedule/pages/requests/`
+- `/schedule/pages/rules/`
+- `/schedule/pages/settings/`
+- `/schedule/pages/workspace/`
+
+### Legacy root support files removed
+- `/schedule/style.css`
+- `/schedule/script.js`
+- `/schedule/footer.css`
+- `/schedule/schedule-nav.css`
+
+### Validation
+- HTML asset references checked
+- JS syntax checked
+- JSON parsed
+- Navigation coverage preserved
+- ZIP integrity checked
+- No database migration required

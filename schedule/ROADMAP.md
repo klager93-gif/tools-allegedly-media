@@ -2,7 +2,7 @@
 
 ## Current Release
 
-### v3.8.0 — Scheduling Workspace
+### v3.8.1 — Scheduling Workspace
 - Central desktop scheduling workspace.
 - Wide schedule grid with role/spot rows and week columns.
 - Right inspector panel foundation for employees, shifts, open spots, and conflicts.
@@ -12,7 +12,7 @@
 
 ## Near-Term Roadmap
 
-### v3.8.0 — Drag-and-Drop + Draft Engine
+### v3.8.1 — Drag-and-Drop + Draft Engine
 - Drag employees between assignments, days, roles, or coverage spots.
 - Draft mode separate from published schedule.
 - Undo/reset draft support.
@@ -79,3 +79,8 @@ Make it powerful enough for production beta.
 
 ### v6.x
 Make it dangerous to Telestaff.
+
+
+## v3.8.1 — Schedule File Organization & Release Cleanup
+
+Organizes page-specific support assets into /schedule/pages while preserving public page URLs.

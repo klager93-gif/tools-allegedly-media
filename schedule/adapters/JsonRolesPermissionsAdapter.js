@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonRolesPermissionsAdapter.js
-Version: v3.8.0
+Version: v3.8.1
 Purpose: JSON adapter for roles and permissions preview data
 */
 export async function fetchRolesPermissionsPreview() {

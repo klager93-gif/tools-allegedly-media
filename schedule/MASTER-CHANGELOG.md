@@ -1,4 +1,14 @@
 
+## v3.8.1 — Schedule File Organization & Release Cleanup
+
+- Organized Schedule page-specific CSS and JS into /schedule/pages module folders.
+- Preserved public /schedule/*.html URLs to avoid breaking navigation, bookmarks, or live links.
+- Updated all page asset references for the new support-file locations.
+- Removed unused legacy Schedule layout files from the release package.
+- Added full-replacement cleanup validation and navigation coverage expectations.
+- No database migration required.
+
+
 
 ## v3.8.0 — Drag-and-Drop + Draft Engine
 

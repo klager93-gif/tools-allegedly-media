@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonDraftPlanningAdapter.js
-Version: v3.8.0
+Version: v3.8.1
 Purpose: JSON adapter for draft planning preview data.
 */
 export class JsonDraftPlanningAdapter {
