@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/workspace/planning.js
-Version: v4.3.0
+Version: v4.4.0
 Purpose: Schedule planning and forecast horizon preview rendering.
 */
 let planningData = null;

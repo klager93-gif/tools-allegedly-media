@@ -1,12 +1,11 @@
 # Signal Schedule Roadmap
 
-## Current: v4.3.0 — Availability, Preferences, Restrictions + Navigation Exposure
+## Current: v4.4.0 — Saved Schedule CRUD + True Release Rebuild
 
-The 4.3 release connects the recent playable interfaces into the visible app shell and adds the first employee-driven scheduling intelligence layer: availability windows, preferences, restrictions, and reusable View As group filters.
+The 4.4 release adds the first protected database-backed save/load foundation for schedule drafts and published schedule payloads. It also cleans the release package so GitHub receives real changed files instead of a renamed v4.3 package.
 
 ## Near-Term Roadmap
 
-- v4.4.0 — Publishing/versioning workflow hardening and database-backed schedule save/load.
 - v4.5.0 — Authentication, roles, and real logins while preserving View As.
 - v4.6.0 — Post, seat, console, beat, station, and apparatus assignment engine.
 - v4.7.0 — Overtime, vacancy, volunteer, award, and open-shift engine.

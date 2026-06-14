@@ -1,7 +1,7 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/db/postgres.js
-Version: v4.3.0
-Purpose: Optional Postgres employee adapter for the Coolify API skeleton.
+Version: v4.4.0
+Purpose: Optional Postgres employee and saved schedule adapter for the Coolify API skeleton.
 
 JSON seed mode remains the default. Postgres functions only run when DATA_MODE=postgres and DATABASE_URL are set.
 */
@@ -16,6 +16,10 @@ export function shouldUsePostgresEmployees() {
 
 export function areEmployeeWritesEnabled() {
   return isEnabled(process.env.EMPLOYEE_WRITES_ENABLED);
+}
+
+export function areScheduleWritesEnabled() {
+  return isEnabled(process.env.SCHEDULE_WRITES_ENABLED);
 }
 
 async function getPgPool() {
@@ -149,4 +153,92 @@ export async function softDeleteEmployeeInPostgres(id) {
   const pool = await getPgPool();
   const result = await pool.query('update employees set status=$2, updated_at=now() where id=$1 returning *', [id, 'deleted']);
   return mapEmployeeRow(result.rows[0]);
+}
+
+
+function mapSavedScheduleRow(row) {
+  if (!row) return null;
+  return {
+    id: row.id,
+    agencyId: row.agency_id,
+    name: row.name,
+    status: row.status,
+    scheduleStartDate: row.schedule_start_date,
+    scheduleEndDate: row.schedule_end_date,
+    source: row.source,
+    payload: row.payload || {},
+    validationSummary: row.validation_summary || {},
+    createdBy: row.created_by,
+    updatedBy: row.updated_by,
+    publishedAt: row.published_at,
+    createdAt: row.created_at,
+    updatedAt: row.updated_at
+  };
+}
+
+export function validateSavedSchedulePayload(payload) {
+  const body = payload && typeof payload === 'object' ? payload : {};
+  const errors = [];
+  if (!String(body.agencyId || body.agency_id || '').trim()) errors.push('agencyId is required.');
+  if (!String(body.name || '').trim()) errors.push('name is required.');
+  if (!String(body.scheduleStartDate || body.schedule_start_date || '').trim()) errors.push('scheduleStartDate is required.');
+  if (!String(body.scheduleEndDate || body.schedule_end_date || '').trim()) errors.push('scheduleEndDate is required.');
+  if (!body.payload || typeof body.payload !== 'object' || Array.isArray(body.payload)) errors.push('payload object is required.');
+  if (errors.length) {
+    const error = new Error(errors.join(' '));
+    error.validationErrors = errors;
+    throw error;
+  }
+  return body;
+}
+
+function savedScheduleValues(body, existingId) {
+  return {
+    id: existingId || String(body.id || (globalThis.crypto && crypto.randomUUID ? crypto.randomUUID() : `sched-${Date.now()}`)),
+    agency_id: String(body.agencyId || body.agency_id || '').trim(),
+    name: String(body.name || '').trim(),
+    status: String(body.status || 'draft').trim(),
+    schedule_start_date: String(body.scheduleStartDate || body.schedule_start_date || '').trim(),
+    schedule_end_date: String(body.scheduleEndDate || body.schedule_end_date || '').trim(),
+    source: String(body.source || 'builder').trim(),
+    payload: JSON.stringify(body.payload || {}),
+    validation_summary: JSON.stringify(body.validationSummary || body.validation_summary || {}),
+    created_by: body.createdBy || body.created_by || null,
+    updated_by: body.updatedBy || body.updated_by || body.createdBy || body.created_by || null,
+    published_at: body.publishedAt || body.published_at || null
+  };
+}
+
+export async function listSavedSchedulesFromPostgres() {
+  const pool = await getPgPool();
+  const result = await pool.query('select * from schedule_saved_schedules where status <> $1 order by updated_at desc, created_at desc', ['deleted']);
+  return result.rows.map(mapSavedScheduleRow);
+}
+
+export async function getSavedScheduleFromPostgres(id) {
+  const pool = await getPgPool();
+  const result = await pool.query('select * from schedule_saved_schedules where id = $1 and status <> $2 limit 1', [id, 'deleted']);
+  return mapSavedScheduleRow(result.rows[0]);
+}
+
+export async function createSavedScheduleInPostgres(payload) {
+  const body = validateSavedSchedulePayload(payload);
+  const v = savedScheduleValues(body);
+  const pool = await getPgPool();
+  const result = await pool.query(`insert into schedule_saved_schedules (id, agency_id, name, status, schedule_start_date, schedule_end_date, source, payload, validation_summary, created_by, updated_by, published_at) values ($1,$2,$3,$4,$5::date,$6::date,$7,$8::jsonb,$9::jsonb,$10,$11,$12::timestamptz) returning *`, [v.id,v.agency_id,v.name,v.status,v.schedule_start_date,v.schedule_end_date,v.source,v.payload,v.validation_summary,v.created_by,v.updated_by,v.published_at]);
+  return mapSavedScheduleRow(result.rows[0]);
+}
+
+export async function updateSavedScheduleInPostgres(id, payload) {
+  const body = validateSavedSchedulePayload({ ...payload, id });
+  const v = savedScheduleValues(body, id);
+  const pool = await getPgPool();
+  const result = await pool.query(`update schedule_saved_schedules set agency_id=$2, name=$3, status=$4, schedule_start_date=$5::date, schedule_end_date=$6::date, source=$7, payload=$8::jsonb, validation_summary=$9::jsonb, updated_by=$10, published_at=$11::timestamptz, updated_at=now() where id=$1 and status <> 'deleted' returning *`, [v.id,v.agency_id,v.name,v.status,v.schedule_start_date,v.schedule_end_date,v.source,v.payload,v.validation_summary,v.updated_by,v.published_at]);
+  return mapSavedScheduleRow(result.rows[0]);
+}
+
+export async function softDeleteSavedScheduleInPostgres(id) {
+  const pool = await getPgPool();
+  const result = await pool.query('update schedule_saved_schedules set status=$2, updated_at=now() where id=$1 returning *', [id, 'deleted']);
+  return mapSavedScheduleRow(result.rows[0]);
 }

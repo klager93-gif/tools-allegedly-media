@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/pages/workspace/assignment-generator.js
-Version: v4.3.0
+Version: v4.4.0
 Purpose: Render Assignment Generator Foundation preview with role-based panels.
 */
 import { JsonAssignmentGeneratorAdapter } from '../../adapters/JsonAssignmentGeneratorAdapter.js';

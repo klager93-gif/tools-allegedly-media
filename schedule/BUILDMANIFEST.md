@@ -1,25 +1,25 @@
-# Signal Schedule Build Manifest
+# Signal Schedule Build Manifest — v4.4.0
 
-Version: v4.3.0
-Date: 2026-06-14
-Release: Availability, Preferences, Restrictions + Navigation Exposure
+Generated: 2026-06-14
 
-## Key additions
+## Source
 
-- schedule/availability.html
-- schedule/pages/people/availability.css
-- schedule/pages/people/availability.js
-- schedule/data/employee-availability-preferences-preview.json
-- schedule/api/contracts/employee-availability-preferences.read.schema.json
-- schedule/api/coolify/sql/043_employee_availability_preferences_restrictions_schema.sql
-- schedule/adapters/JsonEmployeeAvailabilityPreferencesAdapter.js
-- schedule/repositories/EmployeeAvailabilityPreferencesRepository.js
-- schedule/services/EmployeeAvailabilityPreferencesService.js
+- Rebuilt from uploaded v4.3.0 backup: `2026-06-14 Schedule Backup Before v4.4.0.zip`
+- Package type: full-root replacement package
 
-## Key updates
+## Release Changes
 
-- schedule/app-shell.js
-- schedule/index.html
-- schedule/pages/workspace/builder.js
-- schedule/pages/employee/employee-portal.js
-- schedule/data/employee-portal-preview.json
+- Added saved schedule CRUD foundation.
+- Added migration `044_saved_schedule_crud_foundation_schema.sql`.
+- Added saved schedule write contract and foundation notes.
+- Added protected API routes for `/api/saved-schedules`.
+- Fixed employee write validation handling.
+- Normalized active Schedule version/cache references to v4.4.0.
+- Removed `.git`, `__MACOSX`, `._*`, and `.DS_Store` package junk.
+
+## Validation
+
+- `node --check schedule/api/coolify/server.js` passed.
+- `node --check schedule/api/coolify/db/postgres.js` passed.
+- No v4.3.0 references remain under `/schedule/`.
+- No package junk remains in the rebuilt tree.

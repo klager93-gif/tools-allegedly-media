@@ -1,11 +1,12 @@
 /*
 Signal Labs Tool File: schedule/api/coolify/server.js
-Version: v4.3.0
-Purpose: Coolify API with employee CRUD and read-only foundations including schedule publishing, schedule planning, draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
+Version: v4.4.0
+Purpose: Coolify API with employee CRUD, saved schedule CRUD, and read-only foundations including schedule publishing, schedule planning, draft planning, visibility/privacy controls, notifications, coverage spots, daily board, assignment engine, leave banks, OT volunteer board, shift trades, mandation engine, seniority engine, assignment generator, conflict detection, and qualifications/certifications.
 
 This release intentionally has:
 - no committed credentials
 - no public writes
+- saved schedule writes require SCHEDULE_WRITES_ENABLED=true and ADMIN_API_KEY
 - no role-based authentication yet
 - no scheduling engine logic
 */
@@ -15,13 +16,19 @@ import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import {
   areEmployeeWritesEnabled,
+  areScheduleWritesEnabled,
   checkPostgresHealth,
   createEmployeeInPostgres,
+  createSavedScheduleInPostgres,
   getEmployeeFromPostgres,
+  getSavedScheduleFromPostgres,
   listEmployeesFromPostgres,
+  listSavedSchedulesFromPostgres,
   shouldUsePostgresEmployees,
   softDeleteEmployeeInPostgres,
+  softDeleteSavedScheduleInPostgres,
   updateEmployeeInPostgres,
+  updateSavedScheduleInPostgres,
   validateEmployeePayload
 } from './db/postgres.js';
 
@@ -70,7 +77,7 @@ function sendJson(res, statusCode, payload) {
 }
 
 function apiMeta(overrides = {}) {
-  return { source: 'coolify-api', version: 'v4.3.0', ...overrides };
+  return { source: 'coolify-api', version: 'v4.4.0', ...overrides };
 }
 
 function notFound(res) {
@@ -96,6 +103,52 @@ function getAdminToken(req) {
   const authHeader = req.headers.authorization || '';
   const bearerToken = authHeader.toLowerCase().startsWith('bearer ') ? authHeader.slice(7).trim() : '';
   return String(headerToken || bearerToken || '').trim();
+}
+
+
+function requireScheduleWriteAccess(req, res) {
+  if (!areScheduleWritesEnabled()) {
+    sendJson(res, 403, {
+      ok: false,
+      data: null,
+      meta: apiMeta({ writesEnabled: false }),
+      errors: [{ code: 'WRITES_DISABLED', message: 'Saved schedule write routes are disabled. Set SCHEDULE_WRITES_ENABLED=true to allow protected writes.' }]
+    });
+    return false;
+  }
+
+  const configuredKey = String(process.env.ADMIN_API_KEY || '').trim();
+  if (!configuredKey) {
+    sendJson(res, 500, {
+      ok: false,
+      data: null,
+      meta: apiMeta({ writesEnabled: true }),
+      errors: [{ code: 'ADMIN_API_KEY_MISSING', message: 'ADMIN_API_KEY must be configured before saved schedule writes can be used.' }]
+    });
+    return false;
+  }
+
+  if (getAdminToken(req) !== configuredKey) {
+    sendJson(res, 401, {
+      ok: false,
+      data: null,
+      meta: apiMeta({ writesEnabled: true }),
+      errors: [{ code: 'UNAUTHORIZED', message: 'Valid admin API key required.' }]
+    });
+    return false;
+  }
+
+  if (!shouldUsePostgresEmployees()) {
+    sendJson(res, 409, {
+      ok: false,
+      data: null,
+      meta: apiMeta({ writesEnabled: true, database: 'not-active' }),
+      errors: [{ code: 'POSTGRES_REQUIRED', message: 'Saved schedule writes require DATA_MODE=postgres and DATABASE_URL.' }]
+    });
+    return false;
+  }
+
+  return true;
 }
 
 function requireEmployeeWriteAccess(req, res) {
@@ -167,6 +220,11 @@ async function readJsonBody(req) {
 
 function getEmployeeIdFromPath(pathname) {
   const match = pathname.match(/^\/(?:api\/)?employees\/([^/]+)$/);
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function getSavedScheduleIdFromPath(pathname) {
+  const match = pathname.match(/^\/(?:api\/)?saved-schedules\/([^/]+)$/);
   return match ? decodeURIComponent(match[1]) : null;
 }
 
@@ -366,7 +424,8 @@ const server = createServer(async (req, res) => {
         database: shouldUsePostgresEmployees() ? 'postgres' : 'json-seed-read-only',
         postgres,
         employeeWritesEnabled: areEmployeeWritesEnabled(),
-        liveWrites: areEmployeeWritesEnabled()
+        liveWrites: areEmployeeWritesEnabled(),
+        savedScheduleWritesEnabled: areScheduleWritesEnabled()
       },
       meta: apiMeta(),
       errors: []
@@ -381,7 +440,7 @@ const server = createServer(async (req, res) => {
         data: result.employees,
         meta: {
           source: result.source,
-          version: 'v4.3.0',
+          version: 'v4.4.0',
           mode: 'read-with-protected-crud-foundation',
           database: result.database,
           writesEnabled: areEmployeeWritesEnabled()
@@ -895,6 +954,84 @@ const server = createServer(async (req, res) => {
     }
   }
 
+
+  if (req.method === 'GET' && (url.pathname === '/saved-schedules' || url.pathname === '/api/saved-schedules')) {
+    if (!shouldUsePostgresEmployees()) {
+      return sendJson(res, 409, {
+        ok: false,
+        data: [],
+        meta: apiMeta({ mode: 'saved-schedules-foundation', database: 'not-active', writesEnabled: areScheduleWritesEnabled() }),
+        errors: [{ code: 'POSTGRES_REQUIRED', message: 'Saved schedules require DATA_MODE=postgres and DATABASE_URL.' }]
+      });
+    }
+
+    try {
+      const data = await listSavedSchedulesFromPostgres();
+      return sendJson(res, 200, {
+        ok: true,
+        data,
+        meta: apiMeta({ mode: 'saved-schedules-foundation', database: 'postgres', writesEnabled: areScheduleWritesEnabled() }),
+        errors: []
+      });
+    } catch (error) {
+      return sendJson(res, 500, { ok: false, data: [], meta: apiMeta(), errors: [{ code: 'SAVED_SCHEDULE_READ_FAILED', message: error.message }] });
+    }
+  }
+
+  const savedScheduleId = getSavedScheduleIdFromPath(url.pathname);
+  if (savedScheduleId && req.method === 'GET') {
+    if (!shouldUsePostgresEmployees()) {
+      return sendJson(res, 409, { ok: false, data: null, meta: apiMeta({ database: 'not-active' }), errors: [{ code: 'POSTGRES_REQUIRED', message: 'Saved schedule lookup requires Postgres mode.' }] });
+    }
+    try {
+      const savedSchedule = await getSavedScheduleFromPostgres(savedScheduleId);
+      if (!savedSchedule) return sendJson(res, 404, { ok: false, data: null, meta: apiMeta({ database: 'postgres' }), errors: [{ code: 'SAVED_SCHEDULE_NOT_FOUND', message: 'Saved schedule not found.' }] });
+      return sendJson(res, 200, { ok: true, data: savedSchedule, meta: apiMeta({ database: 'postgres' }), errors: [] });
+    } catch (error) {
+      return sendJson(res, 500, { ok: false, data: null, meta: apiMeta({ database: 'postgres' }), errors: [{ code: 'SAVED_SCHEDULE_READ_FAILED', message: error.message }] });
+    }
+  }
+
+  if ((url.pathname === '/saved-schedules' || url.pathname === '/api/saved-schedules') && req.method === 'POST') {
+    if (!requireScheduleWriteAccess(req, res)) return;
+    try {
+      const body = await readJsonBody(req);
+      const created = await createSavedScheduleInPostgres(body);
+      return sendJson(res, 201, { ok: true, data: created, meta: apiMeta({ database: 'postgres', writesEnabled: true }), errors: [] });
+    } catch (error) {
+      const validation = error.validationErrors || null;
+      return sendJson(res, validation ? 400 : 500, { ok: false, data: null, meta: apiMeta(), errors: validation ? validation.map(message => ({ code: 'VALIDATION_ERROR', message })) : [{ code: 'SAVED_SCHEDULE_CREATE_FAILED', message: error.message }] });
+    }
+  }
+
+  if (savedScheduleId && (req.method === 'PUT' || req.method === 'PATCH')) {
+    if (!requireScheduleWriteAccess(req, res)) return;
+    try {
+      const body = await readJsonBody(req);
+      const updated = await updateSavedScheduleInPostgres(savedScheduleId, body);
+      if (!updated) return sendJson(res, 404, { ok: false, data: null, meta: apiMeta(), errors: [{ code: 'SAVED_SCHEDULE_NOT_FOUND', message: 'Saved schedule not found.' }] });
+      return sendJson(res, 200, { ok: true, data: updated, meta: apiMeta({ database: 'postgres', writesEnabled: true }), errors: [] });
+    } catch (error) {
+      const validation = error.validationErrors || null;
+      return sendJson(res, validation ? 400 : 500, { ok: false, data: null, meta: apiMeta(), errors: validation ? validation.map(message => ({ code: 'VALIDATION_ERROR', message })) : [{ code: 'SAVED_SCHEDULE_UPDATE_FAILED', message: error.message }] });
+    }
+  }
+
+  if (savedScheduleId && req.method === 'DELETE') {
+    if (!requireScheduleWriteAccess(req, res)) return;
+    try {
+      const deleted = await softDeleteSavedScheduleInPostgres(savedScheduleId);
+      if (!deleted) return sendJson(res, 404, { ok: false, data: null, meta: apiMeta(), errors: [{ code: 'SAVED_SCHEDULE_NOT_FOUND', message: 'Saved schedule not found.' }] });
+      return sendJson(res, 200, { ok: true, data: { id: savedScheduleId, status: 'deleted' }, meta: apiMeta({ database: 'postgres', writesEnabled: true, deleteMode: 'soft-delete' }), errors: [] });
+    } catch (error) {
+      return sendJson(res, 500, { ok: false, data: null, meta: apiMeta(), errors: [{ code: 'SAVED_SCHEDULE_DELETE_FAILED', message: error.message }] });
+    }
+  }
+
+  if ((url.pathname === '/saved-schedules' || url.pathname === '/api/saved-schedules' || savedScheduleId) && ['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method || '')) {
+    return methodNotAllowed(res);
+  }
+
   const employeeId = getEmployeeIdFromPath(url.pathname);
   if (employeeId && req.method === 'GET') {
     if (!shouldUsePostgresEmployees()) {
@@ -932,14 +1069,12 @@ const server = createServer(async (req, res) => {
 
     try {
       const body = await readJsonBody(req);
-      const { employee, errors } = validateEmployeePayload(body, { requireId: true });
-      if (errors.length) {
-        return sendJson(res, 400, { ok: false, data: null, meta: apiMeta(), errors: errors.map(message => ({ code: 'VALIDATION_ERROR', message })) });
-      }
+      const employee = validateEmployeePayload(body);
       const created = await createEmployeeInPostgres(employee);
       return sendJson(res, 201, { ok: true, data: created, meta: apiMeta({ database: 'postgres', writesEnabled: true }), errors: [] });
     } catch (error) {
-      return sendJson(res, 500, { ok: false, data: null, meta: apiMeta(), errors: [{ code: 'EMPLOYEE_CREATE_FAILED', message: error.message }] });
+      const validation = error.validationErrors || null;
+      return sendJson(res, validation ? 400 : 500, { ok: false, data: null, meta: apiMeta(), errors: validation ? validation.map(message => ({ code: 'VALIDATION_ERROR', message })) : [{ code: 'EMPLOYEE_CREATE_FAILED', message: error.message }] });
     }
   }
 
@@ -948,17 +1083,15 @@ const server = createServer(async (req, res) => {
 
     try {
       const body = await readJsonBody(req);
-      const { employee, errors } = validateEmployeePayload({ ...body, id: employeeId }, { requireId: true });
-      if (errors.length) {
-        return sendJson(res, 400, { ok: false, data: null, meta: apiMeta(), errors: errors.map(message => ({ code: 'VALIDATION_ERROR', message })) });
-      }
+      const employee = validateEmployeePayload({ ...body, id: employeeId });
       const updated = await updateEmployeeInPostgres(employeeId, employee);
       if (!updated) {
         return sendJson(res, 404, { ok: false, data: null, meta: apiMeta(), errors: [{ code: 'EMPLOYEE_NOT_FOUND', message: 'Employee not found.' }] });
       }
       return sendJson(res, 200, { ok: true, data: updated, meta: apiMeta({ database: 'postgres', writesEnabled: true }), errors: [] });
     } catch (error) {
-      return sendJson(res, 500, { ok: false, data: null, meta: apiMeta(), errors: [{ code: 'EMPLOYEE_UPDATE_FAILED', message: error.message }] });
+      const validation = error.validationErrors || null;
+      return sendJson(res, validation ? 400 : 500, { ok: false, data: null, meta: apiMeta(), errors: validation ? validation.map(message => ({ code: 'VALIDATION_ERROR', message })) : [{ code: 'EMPLOYEE_UPDATE_FAILED', message: error.message }] });
     }
   }
 

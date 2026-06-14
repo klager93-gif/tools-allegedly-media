@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/SchedulePublicationService.js
-Version: v4.3.0
+Version: v4.4.0
 Purpose: Service boundary for draft-to-published schedule review, snapshot, rollback, and publication checklist workflows.
 */
 export class SchedulePublicationService {

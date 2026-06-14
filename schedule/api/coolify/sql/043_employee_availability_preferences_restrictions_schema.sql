@@ -1,4 +1,4 @@
--- Signal Schedule v4.3.0
+-- Signal Schedule v4.4.0
 -- Employee availability, preferences, restrictions, and reusable view group filter foundations.
 
 CREATE TABLE IF NOT EXISTS schedule_employee_availability (

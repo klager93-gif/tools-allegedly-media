@@ -84,6 +84,7 @@ schedule/PUBLIC_CHANGELOG.md
 schedule/README.md
 schedule/REQUEST-HOURS-FOUNDATION.md
 schedule/ROADMAP.md
+schedule/SAVED-SCHEDULES-FOUNDATION.md
 schedule/SHA256SUMS.txt
 schedule/adapters/JsonAssignmentEngineAdapter.js
 schedule/adapters/JsonAssignmentGeneratorAdapter.js
@@ -145,6 +146,7 @@ schedule/api/contracts/qualifications-certifications.read.schema.json
 schedule/api/contracts/request-approval-workflow.read.schema.json
 schedule/api/contracts/request-hours.read.schema.json
 schedule/api/contracts/roles-permissions.read.schema.json
+schedule/api/contracts/saved-schedules.write.schema.json
 schedule/api/contracts/schedule-planning.read.schema.json
 schedule/api/contracts/schedule-publication.read.schema.json
 schedule/api/contracts/seniority-engine.read.schema.json
@@ -198,6 +200,7 @@ schedule/api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql
 schedule/api/coolify/sql/041_schedule_workable_sandbox_settings_schema.sql
 schedule/api/coolify/sql/042_employee_portal_view_as_foundation.sql
 schedule/api/coolify/sql/043_employee_availability_preferences_restrictions_schema.sql
+schedule/api/coolify/sql/044_saved_schedule_crud_foundation_schema.sql
 schedule/app-shell.css
 schedule/app-shell.js
 schedule/approvals.html

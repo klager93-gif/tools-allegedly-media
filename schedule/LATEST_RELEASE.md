@@ -1,3 +1,3 @@
 # Latest Release
 
-Signal Schedule v4.3.0 — Availability, Preferences, Restrictions + Navigation Exposure
+Signal Schedule v4.4.0 — Saved Schedule CRUD + True Release Rebuild

@@ -1,6 +1,8 @@
-# Signal Schedule File Manifest
+# Signal Schedule File Manifest — v4.4.0
 
-Generated for v4.3.0.
+Generated: 2026-06-14
+
+## Included Schedule Files
 
 ```text
 ADMIN_CHANGELOG.md
@@ -22,6 +24,7 @@ PUBLIC_CHANGELOG.md
 README.md
 REQUEST-HOURS-FOUNDATION.md
 ROADMAP.md
+SAVED-SCHEDULES-FOUNDATION.md
 SHA256SUMS.txt
 adapters/JsonAssignmentEngineAdapter.js
 adapters/JsonAssignmentGeneratorAdapter.js
@@ -34,6 +37,7 @@ adapters/JsonCoverageBoardAdapter.js
 adapters/JsonCoverageSpotsAdapter.js
 adapters/JsonDailyBoardAdapter.js
 adapters/JsonDraftPlanningAdapter.js
+adapters/JsonEmployeeAvailabilityPreferencesAdapter.js
 adapters/JsonEmployeeProfileAdapter.js
 adapters/JsonEmployeeTimelineAdapter.js
 adapters/JsonLeaveBanksAdapter.js
@@ -67,6 +71,8 @@ api/contracts/coverage-board.read.schema.json
 api/contracts/coverage-spots.read.schema.json
 api/contracts/daily-board.read.schema.json
 api/contracts/draft-planning.read.schema.json
+api/contracts/employee-availability-preferences.read.schema.json
+api/contracts/employee-portal-preview.read.schema.json
 api/contracts/employee-profile.read.schema.json
 api/contracts/employee-timeline.read.schema.json
 api/contracts/leave-banks.read.schema.json
@@ -80,6 +86,7 @@ api/contracts/qualifications-certifications.read.schema.json
 api/contracts/request-approval-workflow.read.schema.json
 api/contracts/request-hours.read.schema.json
 api/contracts/roles-permissions.read.schema.json
+api/contracts/saved-schedules.write.schema.json
 api/contracts/schedule-planning.read.schema.json
 api/contracts/schedule-publication.read.schema.json
 api/contracts/seniority-engine.read.schema.json
@@ -131,6 +138,9 @@ api/coolify/sql/038_drag_drop_draft_planning_schema.sql
 api/coolify/sql/039_schedule_planning_forecast_horizon_schema.sql
 api/coolify/sql/040_schedule_beta_publishing_foundation_schema.sql
 api/coolify/sql/041_schedule_workable_sandbox_settings_schema.sql
+api/coolify/sql/042_employee_portal_view_as_foundation.sql
+api/coolify/sql/043_employee_availability_preferences_restrictions_schema.sql
+api/coolify/sql/044_saved_schedule_crud_foundation_schema.sql
 app-shell.css
 app-shell.js
 approvals.html
@@ -141,6 +151,7 @@ assets/themes/midnight.css
 assets/themes/slate.css
 assignment-generator.html
 assignments.html
+availability.html
 benefits.html
 builder.html
 components/footer.js
@@ -167,6 +178,8 @@ data/coverage-spots-preview.json
 data/daily-board-preview.json
 data/draft-planning-preview.json
 data/employee-assignments.json
+data/employee-availability-preferences-preview.json
+data/employee-portal-preview.json
 data/employee-profile-preview.json
 data/employee-timeline-preview.json
 data/employees.json
@@ -199,6 +212,10 @@ data/vot-requests-preview.json
 data/weekly-board-preview.json
 draft-planning.html
 eligibility.html
+employee/calendar.html
+employee/index.html
+employee/profile.html
+employee/requests.html
 employees.html
 index.html
 leave-banks.html
@@ -213,6 +230,10 @@ pages/coverage/coverage-board.css
 pages/coverage/coverage-board.js
 pages/coverage/coverage-spots.css
 pages/coverage/coverage-spots.js
+pages/employee/employee-portal.css
+pages/employee/employee-portal.js
+pages/people/availability.css
+pages/people/availability.js
 pages/people/eligibility.css
 pages/people/eligibility.js
 pages/people/profile.css
@@ -288,6 +309,7 @@ repositories/CoverageBoardRepository.js
 repositories/CoverageSpotsRepository.js
 repositories/DailyBoardRepository.js
 repositories/DraftPlanningRepository.js
+repositories/EmployeeAvailabilityPreferencesRepository.js
 repositories/EmployeeProfileRepository.js
 repositories/EmployeeTimelineRepository.js
 repositories/LeaveBanksRepository.js
@@ -323,6 +345,7 @@ services/CoverageBoardService.js
 services/CoverageSpotsService.js
 services/DailyBoardService.js
 services/DraftPlanningService.js
+services/EmployeeAvailabilityPreferencesService.js
 services/EmployeeProfileService.js
 services/EmployeeTimelineService.js
 services/LeaveBanksService.js

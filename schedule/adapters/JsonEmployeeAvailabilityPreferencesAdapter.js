@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonEmployeeAvailabilityPreferencesAdapter.js
-Version: v4.3.0
+Version: v4.4.0
 Purpose: JSON adapter for employee availability, preferences, restrictions, and View As group filter preview data.
 */
 export class JsonEmployeeAvailabilityPreferencesAdapter {
@@ -12,7 +12,7 @@ export class JsonEmployeeAvailabilityPreferencesAdapter {
 
   list() {
     return {
-      version: this.data.version || 'v4.3.0',
+      version: this.data.version || 'v4.4.0',
       meta: this.data.meta || {},
       summary: this.data.summary || {},
       employees: this.data.employees || [],

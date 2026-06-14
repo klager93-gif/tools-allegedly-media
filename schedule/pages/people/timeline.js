@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/pages/people/timeline.js
-Version: v4.3.0
+Version: v4.4.0
 Purpose: Render Employee Timeline & Audit Trail preview
 */
 import { getEmployeeTimelinePreview } from '../../services/EmployeeTimelineService.js';
