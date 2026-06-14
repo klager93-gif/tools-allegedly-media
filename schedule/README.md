@@ -83,3 +83,11 @@ The Schedule UI now supports a Schedule-only theme engine through the shared des
 ## v3.3.3 — Version Drift Hotfix
 
 Schedule now uses connected, box-style flyout navigation instead of separated pill hover menus. Midnight is the default theme when no saved user preference exists.
+
+## v3.3.4 — Theme Engine Completion & Color Refinement
+
+- Refined Midnight, Light, Slate, CAD Dark, and High Contrast theme color tokens.
+- Improved panel depth, table striping, hover states, button styling, and status color consistency.
+- Preserved the v3.3.3 full-replacement app shell and connected flyout navigation.
+- No database migration required.
+

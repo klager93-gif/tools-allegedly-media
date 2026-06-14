@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/adapters/JsonNotificationAdapter.js
-Version: v3.3.3
+Version: v3.3.4
 Purpose: JSON adapter for notification foundation preview data
 */
 export async function fetchNotificationPreview() {

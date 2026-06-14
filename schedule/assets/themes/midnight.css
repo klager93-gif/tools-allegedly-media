@@ -1,1 +1,4 @@
-/* Signal Schedule v3.3.0 theme token file: midnight. Runtime tokens are centralized in schedule/app-shell.css for the prototype. */
+/* Signal Schedule v3.3.4 — Midnight theme tokens. Runtime variables are applied in app-shell.css. */
+:root[data-schedule-theme="midnight"] {
+  color-scheme: dark;
+}

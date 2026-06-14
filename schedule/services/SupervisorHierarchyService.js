@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/SupervisorHierarchyService.js
-Version: v3.3.3
+Version: v3.3.4
 Purpose: Service layer for supervisor hierarchy preview logic
 */
 import { listSupervisorHierarchyPreview } from '../repositories/SupervisorHierarchyRepository.js';

@@ -1,3 +1,10 @@
+## v3.3.4 — Theme Engine Completion & Color Refinement
+
+- Refined Midnight, Light, Slate, CAD Dark, and High Contrast theme color tokens.
+- Improved panel depth, table striping, hover states, button styling, and status color consistency.
+- Preserved the v3.3.3 full-replacement app shell and connected flyout navigation.
+- No database migration required.
+
 ## v3.3.3 — Full Replacement UI Stabilization
 
 - Removed legacy global/style/schedule-nav/footer references from Schedule HTML pages so app-shell styling owns the UI.

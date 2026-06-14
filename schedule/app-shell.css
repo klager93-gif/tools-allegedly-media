@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/app-shell.css
-Version: v3.3.3
+Version: v3.3.4
 Purpose: Desktop-first application shell, theme tokens, and connected flyout navigation for all Schedule pages.
 */
 :root,
@@ -74,7 +74,7 @@ body[data-signal-area="Signal Schedule"] section,body[data-signal-area="Signal S
 @media (max-width: 900px){:root{--ss-sidebar-w:0px;}body[data-signal-area="Signal Schedule"] .schedule-subnav{position:relative;width:auto;max-height:none;}body[data-signal-area="Signal Schedule"] .schedule-subnav__links{overflow:auto;}.schedule-nav-flyout{position:static;display:flex;margin:0 0 8px 12px;background:rgba(255,255,255,.04);box-shadow:none;border-radius:8px;}.schedule-nav-caret{display:none;}.schedule-app-toolbar{margin-left:0;position:relative;align-items:flex-start;flex-direction:column;}body[data-signal-area="Signal Schedule"] main,body[data-signal-area="Signal Schedule"] .schedule-shell,body[data-signal-area="Signal Schedule"] .weekly-board-shell{margin-left:0 !important;padding:18px !important;}body[data-signal-area="Signal Schedule"] #schedule-footer{margin-left:0;}}
 
 
-/* v3.3.3 full-replacement stabilization: Schedule app shell owns layout. */
+/* v3.3.4 full-replacement stabilization: Schedule app shell owns layout. */
 :root {
   --bg: var(--ss-app-bg);
   --surface: var(--ss-app-panel);
@@ -317,4 +317,190 @@ body[data-signal-area="Signal Schedule"] .schedule-footer {
   .schedule-table-list a {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* v3.3.4 Theme Engine Completion & Color Refinement */
+:root,
+:root[data-schedule-theme="light"] {
+  --ss-app-bg: #f4f7fb;
+  --ss-app-panel: #ffffff;
+  --ss-app-panel-soft: #f8fafc;
+  --ss-app-panel-strong: #eef3f8;
+  --ss-app-panel-raised: #ffffff;
+  --ss-app-border: #d8e2ee;
+  --ss-app-border-strong: #b9c8db;
+  --ss-app-text: #102033;
+  --ss-app-muted: #5d6d82;
+  --ss-app-accent: #2563eb;
+  --ss-app-accent-2: #0ea5e9;
+  --ss-app-accent-soft: #eaf2ff;
+  --ss-app-danger: #dc2626;
+  --ss-app-warning: #b45309;
+  --ss-app-good: #047857;
+  --ss-app-info: #0369a1;
+  --ss-app-disabled: #94a3b8;
+  --ss-sidebar-bg: #101827;
+  --ss-sidebar-bg-2: #162238;
+  --ss-sidebar-text: #f4f8ff;
+  --ss-sidebar-muted: #a8b5c9;
+  --ss-sidebar-active: #60a5fa;
+  --ss-shadow: 0 12px 28px rgba(15, 23, 42, .08);
+  --ss-shadow-soft: 0 8px 20px rgba(15, 23, 42, .06);
+}
+:root[data-schedule-theme="midnight"] {
+  --ss-app-bg: #07101d;
+  --ss-app-panel: #111c2d;
+  --ss-app-panel-soft: #0b1626;
+  --ss-app-panel-strong: #1a2940;
+  --ss-app-panel-raised: #15243a;
+  --ss-app-border: #263a58;
+  --ss-app-border-strong: #3c5a7f;
+  --ss-app-text: #edf4ff;
+  --ss-app-muted: #a9bbd3;
+  --ss-app-accent: #38bdf8;
+  --ss-app-accent-2: #60a5fa;
+  --ss-app-accent-soft: #0b3550;
+  --ss-app-danger: #fb7185;
+  --ss-app-warning: #fbbf24;
+  --ss-app-good: #34d399;
+  --ss-app-info: #7dd3fc;
+  --ss-app-disabled: #64748b;
+  --ss-sidebar-bg: #020617;
+  --ss-sidebar-bg-2: #0b1220;
+  --ss-sidebar-text: #f8fbff;
+  --ss-sidebar-muted: #9fb0c7;
+  --ss-sidebar-active: #38bdf8;
+  --ss-shadow: 0 18px 44px rgba(0, 0, 0, .34);
+  --ss-shadow-soft: 0 12px 30px rgba(0, 0, 0, .22);
+}
+:root[data-schedule-theme="slate"] {
+  --ss-app-bg: #141a24;
+  --ss-app-panel: #202938;
+  --ss-app-panel-soft: #192231;
+  --ss-app-panel-strong: #2a3547;
+  --ss-app-panel-raised: #263244;
+  --ss-app-border: #3c485a;
+  --ss-app-border-strong: #59677b;
+  --ss-app-text: #f5f7fb;
+  --ss-app-muted: #c2ccda;
+  --ss-app-accent: #a78bfa;
+  --ss-app-accent-2: #60a5fa;
+  --ss-app-accent-soft: #332b68;
+  --ss-app-danger: #fca5a5;
+  --ss-app-warning: #fde047;
+  --ss-app-good: #86efac;
+  --ss-app-info: #93c5fd;
+  --ss-app-disabled: #94a3b8;
+  --ss-sidebar-bg: #0b1120;
+  --ss-sidebar-bg-2: #111827;
+  --ss-sidebar-text: #f8fafc;
+  --ss-sidebar-muted: #a6b2c4;
+  --ss-sidebar-active: #a78bfa;
+}
+:root[data-schedule-theme="cad"] {
+  --ss-app-bg: #020605;
+  --ss-app-panel: #06110e;
+  --ss-app-panel-soft: #081a15;
+  --ss-app-panel-strong: #0d241d;
+  --ss-app-panel-raised: #0a1d17;
+  --ss-app-border: #185443;
+  --ss-app-border-strong: #23a06f;
+  --ss-app-text: #dcffec;
+  --ss-app-muted: #91d9b4;
+  --ss-app-accent: #00ff88;
+  --ss-app-accent-2: #6ee7b7;
+  --ss-app-accent-soft: #003d25;
+  --ss-app-danger: #ff5f5f;
+  --ss-app-warning: #ffd166;
+  --ss-app-good: #00ff88;
+  --ss-app-info: #86efac;
+  --ss-app-disabled: #5b8d76;
+  --ss-shadow: 0 0 0 1px rgba(0,255,136,.08), 0 18px 42px rgba(0,0,0,.42);
+}
+:root[data-schedule-theme="high-contrast"] {
+  --ss-app-bg: #000000;
+  --ss-app-panel: #050505;
+  --ss-app-panel-soft: #111111;
+  --ss-app-panel-strong: #1f1f1f;
+  --ss-app-panel-raised: #0c0c0c;
+  --ss-app-border: #ffffff;
+  --ss-app-border-strong: #ffffff;
+  --ss-app-text: #ffffff;
+  --ss-app-muted: #ffffff;
+  --ss-app-accent: #ffff00;
+  --ss-app-accent-2: #00ffff;
+  --ss-app-accent-soft: #222200;
+  --ss-app-danger: #ff7777;
+  --ss-app-warning: #ffff00;
+  --ss-app-good: #00ff66;
+  --ss-app-info: #00ffff;
+  --ss-app-disabled: #ffffff;
+  --ss-shadow: none;
+  --ss-shadow-soft: none;
+}
+
+body[data-signal-area="Signal Schedule"] .schedule-app-toolbar {
+  background: color-mix(in srgb, var(--ss-app-panel) 94%, transparent) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .06) !important;
+}
+body[data-signal-area="Signal Schedule"] [class*="card"],
+body[data-signal-area="Signal Schedule"] [class*="panel"],
+body[data-signal-area="Signal Schedule"] [class*="hero"] {
+  background: linear-gradient(180deg, var(--ss-app-panel), color-mix(in srgb, var(--ss-app-panel) 86%, var(--ss-app-panel-soft) 14%)) !important;
+  border: 1px solid var(--ss-app-border) !important;
+  box-shadow: var(--ss-shadow-soft) !important;
+}
+body[data-signal-area="Signal Schedule"] [class*="summary"],
+body[data-signal-area="Signal Schedule"] [class*="stat"],
+body[data-signal-area="Signal Schedule"] [class*="metric"],
+.schedule-status-grid > div,
+.schedule-rule-grid > div,
+.schedule-module-card,
+.schedule-table-list a {
+  background: var(--ss-app-panel-soft) !important;
+  border-color: var(--ss-app-border) !important;
+  color: var(--ss-app-text) !important;
+}
+.schedule-module-card.is-primary,
+body[data-signal-area="Signal Schedule"] .is-primary {
+  background: color-mix(in srgb, var(--ss-app-accent) 13%, var(--ss-app-panel)) !important;
+  border-color: color-mix(in srgb, var(--ss-app-accent) 52%, var(--ss-app-border)) !important;
+}
+body[data-signal-area="Signal Schedule"] table tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--ss-app-panel-soft) 75%, transparent) !important;
+}
+body[data-signal-area="Signal Schedule"] table tr:hover td {
+  background: color-mix(in srgb, var(--ss-app-accent) 9%, var(--ss-app-panel)) !important;
+}
+body[data-signal-area="Signal Schedule"] button,
+body[data-signal-area="Signal Schedule"] .schedule-link-button,
+body[data-signal-area="Signal Schedule"] a[class*="button"] {
+  border: 1px solid var(--ss-app-border) !important;
+  background: var(--ss-app-panel-strong) !important;
+  color: var(--ss-app-text) !important;
+}
+body[data-signal-area="Signal Schedule"] button:not(:disabled):hover,
+body[data-signal-area="Signal Schedule"] .schedule-link-button:hover,
+body[data-signal-area="Signal Schedule"] a[class*="button"]:hover {
+  border-color: var(--ss-app-accent) !important;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ss-app-accent) 55%, transparent) !important;
+}
+.schedule-app-chip--good { color: var(--ss-app-good) !important; }
+.schedule-app-chip--warn { color: var(--ss-app-warning) !important; }
+body[data-signal-area="Signal Schedule"] [class*="danger"],
+body[data-signal-area="Signal Schedule"] [class*="conflict"],
+body[data-signal-area="Signal Schedule"] [class*="expired"] { border-color: color-mix(in srgb, var(--ss-app-danger) 48%, var(--ss-app-border)) !important; }
+body[data-signal-area="Signal Schedule"] [class*="warning"],
+body[data-signal-area="Signal Schedule"] [class*="pending"] { border-color: color-mix(in srgb, var(--ss-app-warning) 48%, var(--ss-app-border)) !important; }
+body[data-signal-area="Signal Schedule"] [class*="success"],
+body[data-signal-area="Signal Schedule"] [class*="active"] { border-color: color-mix(in srgb, var(--ss-app-good) 46%, var(--ss-app-border)) !important; }
+.schedule-nav-flyout {
+  background: var(--ss-sidebar-bg-2) !important;
+  border-color: rgba(255,255,255,.16) !important;
+  box-shadow: 18px 22px 44px rgba(0,0,0,.28) !important;
+}
+.schedule-nav-flyout__link:hover,
+.schedule-nav-flyout__link[aria-current="page"] {
+  background: color-mix(in srgb, var(--ss-sidebar-active) 16%, transparent) !important;
 }

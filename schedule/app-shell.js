@@ -2,14 +2,14 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/app-shell.js
-Version: v3.3.3
+Version: v3.3.4
 Purpose: Desktop application shell, connected flyout navigation, and client-side theme engine.
 */
 (function () {
   const body = document.body;
   if (!body || body.dataset.signalArea !== 'Signal Schedule') return;
 
-  const version = 'v3.3.3';
+  const version = 'v3.3.4';
   const title = body.dataset.signalTitle || document.title.replace('— Signal Schedule', '').trim() || 'Signal Schedule';
   const themeKey = 'signalScheduleTheme';
   const allowedThemes = ['midnight', 'light', 'slate', 'cad', 'high-contrast'];
@@ -130,9 +130,9 @@ Purpose: Desktop application shell, connected flyout navigation, and client-side
             ${allowedThemes.map((theme) => `<option value="${theme}">${themeLabels[theme]}</option>`).join('')}
           </select>
         </label>
-        <span class="schedule-app-chip schedule-app-chip--good">Alpha workspace</span>
+        <span class="schedule-app-chip schedule-app-chip--good">Theme-ready workspace</span>
         <span class="schedule-app-chip">${version}</span>
-        <span class="schedule-app-chip schedule-app-chip--warn">Role-based panels</span>
+        <span class="schedule-app-chip schedule-app-chip--warn">Desktop UI</span>
       </div>
     `;
 

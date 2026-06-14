@@ -2,7 +2,7 @@
 Signal Labs
 Area: Signal Schedule
 File: schedule/services/EmployeeTimelineService.js
-Version: v3.3.3
+Version: v3.3.4
 Purpose: Service layer for employee timeline and audit trail preview logic
 */
 import { listEmployeeTimelinePreview } from '../repositories/EmployeeTimelineRepository.js';

@@ -1,6 +1,6 @@
 /*
 Signal Labs Tool File: schedule/services/ConflictDetectionService.js
-Version: v3.3.3
+Version: v3.3.4
 Purpose: Conflict Detection preview service and grouping helpers.
 */
 export class ConflictDetectionService {

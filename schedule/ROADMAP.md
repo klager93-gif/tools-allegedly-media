@@ -87,3 +87,11 @@ Schedule now has a desktop theme foundation and compact flyout navigation. Next 
 - Connected flyout navigation panels.
 - Desktop application density pass.
 - Preparation for v3.4 theme completion and v3.5 dense workspace tables.
+
+## v3.3.4 — Theme Engine Completion & Color Refinement
+
+- Refined Midnight, Light, Slate, CAD Dark, and High Contrast theme color tokens.
+- Improved panel depth, table striping, hover states, button styling, and status color consistency.
+- Preserved the v3.3.3 full-replacement app shell and connected flyout navigation.
+- No database migration required.
+
