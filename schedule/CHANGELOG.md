@@ -1,4 +1,14 @@
 
+## v2.30.0 — Alpha Integration & Stability Audit
+
+- Audited the full-replace package after v2.29.0.
+- Normalized Schedule footer/version metadata drift across Schedule pages.
+- Kept role-based panels as the standard instead of duplicate `-admin` pages.
+- Preserved `trades.html` as a compatibility redirect to `shift-trades.html`.
+- Removed release packaging junk from the ZIP.
+- No database migration required.
+
+
 ## v2.29.0 — Qualifications & Certification Engine
 
 Adds Qualifications & Certification Engine for credential definitions, employee credentials, license numbers, certificate numbers, issuing authorities, expiration warnings, role qualification requirements, notes, role-based employee/supervisor/admin panels, read-only API endpoint, API contract, and Postgres migration 035. License numbers can be not required, optional, or required per qualification type.

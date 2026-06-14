@@ -1,3 +1,4 @@
+<!-- Signal Schedule v2.30.0 Alpha Integration & Stability Audit included in latest full-replace package. -->
 
 ## v2.29.0 — Qualifications & Certification Engine
 

@@ -1,7 +1,7 @@
 # Latest Release
 
-Signal Schedule v2.29.0 — Qualifications & Certification Engine
+Signal Schedule v2.30.0 — Alpha Integration & Stability Audit
 
-Adds credential definitions, employee qualification records, license/certificate numbers, issuing authority fields, optional/admin-required license-number policy, expiration warnings, notes, role requirements, role-based employee/supervisor/admin panels, and read-only API/schema foundations.
+Database migration required: No.
 
-Database migration required: `schedule/api/coolify/sql/035_qualifications_certifications_schema.sql`.
+This release normalizes Schedule footer/version metadata, validates the full replacement package, preserves role-based panels instead of duplicate admin pages, keeps `shift-trades.html` canonical, and retains `trades.html` as a redirect shim.
